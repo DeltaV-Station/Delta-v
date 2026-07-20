@@ -1,7 +1,6 @@
 #nullable enable
 using System.Collections.Generic;
 using System.Numerics;
-using Content.IntegrationTests.Fixtures;
 using Robust.Client.GameStates;
 using Robust.Client.Timing;
 using Robust.Shared;
@@ -28,12 +27,12 @@ namespace Content.IntegrationTests.Tests.Networking
     // the tick where the server *should* have, but did not, acknowledge the state change.
     // Finally, we run two events inside the prediction area to ensure reconciling does for incremental stuff.
     [TestFixture]
-    public sealed class SimplePredictReconcileTest : GameTest
+    public sealed class SimplePredictReconcileTest
     {
         [Test]
         public async Task Test()
         {
-            var pair = Pair;
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
             var server = pair.Server;
             var client = pair.Client;
 
@@ -387,6 +386,7 @@ namespace Content.IntegrationTests.Tests.Networking
             }
 
             cfg.SetCVar(CVars.NetLogging, log);
+            await pair.CleanReturnAsync();
         }
 
         public sealed class PredictionTestEntitySystem : EntitySystem

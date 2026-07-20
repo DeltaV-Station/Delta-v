@@ -1,4 +1,3 @@
-using Content.IntegrationTests.Fixtures;
 using Content.Shared.Coordinates;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
@@ -9,7 +8,7 @@ using Robust.Shared.Maths;
 namespace Content.IntegrationTests.Tests.Power;
 
 [TestFixture]
-public sealed class PowerStateTest : GameTest
+public sealed class PowerStateTest
 {
     [TestPrototypes]
     private const string Prototypes = @"
@@ -32,7 +31,7 @@ public sealed class PowerStateTest : GameTest
     [Test]
     public async Task SetWorkingState_IdleToWorking_UpdatesLoad()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var mapManager = server.ResolveDependency<IMapManager>();
@@ -57,7 +56,7 @@ public sealed class PowerStateTest : GameTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.IdlePowerDraw).Within(0.01f));
             });
 
-            var system = entManager.System<SharedPowerStateSystem>();
+            var system = entManager.System<PowerStateSystem>();
             system.SetWorkingState((ent, powerState), true);
 
             Assert.Multiple(() =>
@@ -66,6 +65,8 @@ public sealed class PowerStateTest : GameTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.WorkingPowerDraw).Within(0.01f));
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     /// <summary>
@@ -74,7 +75,7 @@ public sealed class PowerStateTest : GameTest
     [Test]
     public async Task SetWorkingState_WorkingToIdle_UpdatesLoad()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var mapManager = server.ResolveDependency<IMapManager>();
@@ -92,7 +93,7 @@ public sealed class PowerStateTest : GameTest
 
             var receiver = entManager.GetComponent<Server.Power.Components.ApcPowerReceiverComponent>(ent);
             var powerState = entManager.GetComponent<PowerStateComponent>(ent);
-            var system = entManager.System<SharedPowerStateSystem>();
+            var system = entManager.System<PowerStateSystem>();
             Entity<PowerStateComponent> newEnt = (ent, powerState);
 
             Assert.Multiple(() =>
@@ -117,6 +118,8 @@ public sealed class PowerStateTest : GameTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.IdlePowerDraw).Within(0.01f));
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     /// <summary>
@@ -125,7 +128,7 @@ public sealed class PowerStateTest : GameTest
     [Test]
     public async Task SetWorkingState_AlreadyInState_NoChange()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var mapManager = server.ResolveDependency<IMapManager>();
@@ -143,7 +146,7 @@ public sealed class PowerStateTest : GameTest
 
             var receiver = entManager.GetComponent<Server.Power.Components.ApcPowerReceiverComponent>(ent);
             var powerState = entManager.GetComponent<PowerStateComponent>(ent);
-            var system = entManager.System<SharedPowerStateSystem>();
+            var system = entManager.System<PowerStateSystem>();
             Entity<PowerStateComponent> valueTuple = (ent, powerState);
 
             Assert.Multiple(() =>
@@ -176,6 +179,8 @@ public sealed class PowerStateTest : GameTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.WorkingPowerDraw).Within(0.01f));
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 }
 

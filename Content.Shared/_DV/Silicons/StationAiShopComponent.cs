@@ -59,7 +59,7 @@ public sealed partial class StationAiHealthChangeActionEvent : EntityTargetActio
 public sealed partial class StationAiSpawnEntityActionEvent : WorldTargetActionEvent
 {
     [DataField(required: true)]
-    public EntProtoId EntityAction;
+    public EntProtoId Entity;
 }
 
 /// <summary>

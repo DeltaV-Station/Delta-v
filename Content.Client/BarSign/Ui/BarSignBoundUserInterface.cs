@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.BarSign;
 using JetBrains.Annotations;
-using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.BarSign.Ui;
@@ -17,12 +16,13 @@ public sealed class BarSignBoundUserInterface(EntityUid owner, Enum uiKey) : Bou
     {
         base.Open();
 
+        var sign = EntMan.GetComponentOrNull<BarSignComponent>(Owner)?.Current is { } current
+            ? _prototype.Index(current)
+            : null;
         var allSigns = BarSignSystem.GetAllBarSigns(_prototype)
             .OrderBy(p => Loc.GetString(p.Name))
             .ToList();
-
-        _menu = this.CreateWindow<BarSignMenu>();
-        _menu.LoadSigns(allSigns);
+        _menu = new(sign, allSigns);
 
         _menu.OnSignSelected += id =>
         {
@@ -30,17 +30,16 @@ public sealed class BarSignBoundUserInterface(EntityUid owner, Enum uiKey) : Bou
         };
 
         _menu.OnClose += Close;
-        _menu.OpenToLeft();
+        _menu.OpenCentered();
     }
 
     public override void Update()
     {
-        if (!EntMan.TryGetComponent<BarSignComponent>(Owner, out var signComp)
-            || !_prototype.Resolve(signComp.Current, out var signPrototype))
+        if (!EntMan.TryGetComponent<BarSignComponent>(Owner, out var signComp))
             return;
 
-        _menu?.UpdateState(signPrototype);
+        if (_prototype.Resolve(signComp.Current, out var signPrototype))
+            _menu?.UpdateState(signPrototype);
     }
-
 }
 

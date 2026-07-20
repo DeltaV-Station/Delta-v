@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Damageable;
 
@@ -41,14 +39,14 @@ public sealed class DamageSpecifierTest
         Assert.That(difference, Is.EqualTo(output5));
     }
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Input1 = new()
+    private static readonly Dictionary<string, FixedPoint2> Input1 = new()
     {
         { "A", 1.5f },
         { "B", 2 },
         { "C", 3 }
     };
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Input2 = new()
+    private static readonly Dictionary<string, FixedPoint2> Input2 = new()
     {
         { "A", 1 },
         { "B", 2 },
@@ -56,28 +54,28 @@ public sealed class DamageSpecifierTest
         { "D", 0.05f }
     };
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Output1 = new()
+    private static readonly Dictionary<string, FixedPoint2> Output1 = new()
     {
         { "A", -1.5f },
         { "B", -2 },
         { "C", -3 }
     };
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Output2 = new()
+    private static readonly Dictionary<string, FixedPoint2> Output2 = new()
     {
         { "A", 0.75f },
         { "B", 1 },
         { "C", 1.5 }
     };
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Output3 = new()
+    private static readonly Dictionary<string, FixedPoint2> Output3 = new()
     {
         { "A", 3f },
         { "B", 4 },
         { "C", 6 }
     };
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Output4 = new()
+    private static readonly Dictionary<string, FixedPoint2> Output4 = new()
     {
         { "A", 0.5f },
         { "B", 0 },
@@ -85,7 +83,7 @@ public sealed class DamageSpecifierTest
         { "D", -0.05f }
     };
 
-    private static readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> Output5 = new()
+    private static readonly Dictionary<string, FixedPoint2> Output5 = new()
     {
         { "A", 0.25f },
         { "B", 0 },

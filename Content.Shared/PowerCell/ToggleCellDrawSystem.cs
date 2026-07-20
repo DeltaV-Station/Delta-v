@@ -36,7 +36,9 @@ public sealed class ToggleCellDrawSystem : EntitySystem
 
     private void OnToggled(Entity<ToggleCellDrawComponent> ent, ref ItemToggledEvent args)
     {
-        _cell.SetDrawEnabled(ent.Owner, args.Activated);
+        var uid = ent.Owner;
+        var draw = Comp<PowerCellDrawComponent>(uid);
+        _cell.SetDrawEnabled((uid, draw), args.Activated);
     }
 
     private void OnEmpty(Entity<ToggleCellDrawComponent> ent, ref PowerCellSlotEmptyEvent args)

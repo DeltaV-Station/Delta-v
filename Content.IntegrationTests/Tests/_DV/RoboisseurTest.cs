@@ -3,18 +3,17 @@ using Content.Shared.Item;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Collections.Generic;
-using Content.IntegrationTests.Fixtures;
 
 namespace Content.IntegrationTests.Tests._DV;
 
 [TestFixture]
 [TestOf(typeof(RoboisseurSystem))]
-public sealed class RoboisseurTest : GameTest
+public sealed class RoboisseurTest
 {
     [Test]
     public async Task AllRoboisseurRewardsAreItems()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         // Per RobustIntegrationTest.cs, wait until state is settled to access it.
         await server.WaitIdleAsync();
@@ -34,6 +33,8 @@ public sealed class RoboisseurTest : GameTest
                 Check(comp.RobossuierRewards, protoMan, factory);
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     private void Check(List<EntProtoId> protos, IPrototypeManager protoMan, IComponentFactory factory)

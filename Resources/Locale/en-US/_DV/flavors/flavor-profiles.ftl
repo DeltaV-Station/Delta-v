@@ -107,5 +107,3 @@ flavor-complex-icecream-neapolitan = like chocolate, vanillia, and cherry
 flavor-complex-icecream-rockyroad = like a bumpy highway
 flavor-complex-icecream-tower = like a tower of power
 flavor-complex-sherbert-rainbow = like a rainbow of flavors
-
-flavor-base-prickly = prickly

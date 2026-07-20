@@ -90,7 +90,7 @@ public sealed class TimedDespawnDetailedSystem : EntitySystem
         }
 
         StopTimer(ent);
-        QueueDel(ent); // Delta V - Change to Proxy
+        EntityManager.QueueDeleteEntity(ent);
     }
 
     private void OnMapInit(Entity<TimedDespawnDetailedComponent> ent, ref MapInitEvent args)

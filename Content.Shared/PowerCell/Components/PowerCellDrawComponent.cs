@@ -32,10 +32,4 @@ public sealed partial class PowerCellDrawComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float UseCharge;
-
-    /// <summary>
-    /// DeltaV - If the battery's recharge should be paused while power draw is active.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool PauseRecharging;
 }

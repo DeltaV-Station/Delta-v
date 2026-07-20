@@ -1,4 +1,3 @@
-using Content.IntegrationTests.Fixtures;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -13,7 +12,7 @@ namespace Content.IntegrationTests.Tests.Chemistry;
 // reactions can change this assumption
 [TestFixture]
 [TestOf(typeof(SharedSolutionContainerSystem))]
-public sealed class SolutionSystemTests : GameTest
+public sealed class SolutionSystemTests
 {
     [TestPrototypes]
     private const string Prototypes = @"
@@ -54,7 +53,7 @@ public sealed class SolutionSystemTests : GameTest
     [Test]
     public async Task TryAddTwoNonReactiveReagent()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var entityManager = server.ResolveDependency<IEntityManager>();
@@ -89,6 +88,8 @@ public sealed class SolutionSystemTests : GameTest
                 Assert.That(oil, Is.EqualTo(oilQuantity));
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     // This test mimics current behavior
@@ -96,7 +97,7 @@ public sealed class SolutionSystemTests : GameTest
     [Test]
     public async Task TryAddTooMuchNonReactiveReagent()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var testMap = await pair.CreateTestMap();
@@ -132,13 +133,15 @@ public sealed class SolutionSystemTests : GameTest
                 Assert.That(oil, Is.EqualTo(FixedPoint2.Zero));
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     // Unlike TryAddSolution this adds and two solution without then splits leaving only threshold in original
     [Test]
     public async Task TryMixAndOverflowTooMuchReagent()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
 
@@ -185,13 +188,15 @@ public sealed class SolutionSystemTests : GameTest
                 Assert.That(oilOverFlow, Is.EqualTo(oilQuantity - oilMix));
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     // TryMixAndOverflow will fail if Threshold larger than MaxVolume
     [Test]
     public async Task TryMixAndOverflowTooBigOverflow()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var entityManager = server.ResolveDependency<IEntityManager>();
@@ -221,12 +226,14 @@ public sealed class SolutionSystemTests : GameTest
                 .TryMixAndOverflow(solutionEnt.Value, oilAdded, threshold, out _),
                 Is.False);
         });
+
+        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestTemperatureCalculations()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         var protoMan = server.ResolveDependency<IPrototypeManager>();
         const float temp = 100.0f;
@@ -257,5 +264,7 @@ public sealed class SolutionSystemTests : GameTest
             solutionOne.AddSolution(solutionTwo, protoMan);
             Assert.That(solutionOne.GetHeatCapacity(protoMan) * solutionOne.Temperature, Is.EqualTo(thermalEnergyOne + thermalEnergyTwo));
         });
+
+        await pair.CleanReturnAsync();
     }
 }

@@ -10,7 +10,7 @@ namespace Content.Client.Revenant;
 
 public sealed class RevenantRegenModifierSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!; // DV - Not used error
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private readonly SpriteSpecifier _witnessIndicator = new SpriteSpecifier.Texture(new ResPath("Interface/Actions/scream.png"));
 
@@ -29,14 +29,13 @@ public sealed class RevenantRegenModifierSystem : EntitySystem
             var ent = GetEntity(witness);
             if (TryComp<SpriteComponent>(ent, out var sprite))
             {
-                Entity<SpriteComponent?> spriteEnt = (ent, sprite);
-                var layer = _sprite.AddLayer(spriteEnt, _witnessIndicator);
+                var layer = sprite.AddLayer(_witnessIndicator);
 
-                _sprite.LayerMapSet( spriteEnt, RevenantWitnessVisuals.Key, layer);
-                _sprite.LayerSetOffset(spriteEnt, layer, new Vector2(0, 0.8f));
-                _sprite.LayerSetScale(spriteEnt, layer, new Vector2(0.65f, 0.65f));
+                sprite.LayerMapSet(RevenantWitnessVisuals.Key, layer);
+                sprite.LayerSetOffset(layer, new Vector2(0, 0.8f));
+                sprite.LayerSetScale(layer, new Vector2(0.65f, 0.65f));
 
-                Timer.Spawn(TimeSpan.FromSeconds(5), () => _sprite.RemoveLayer(spriteEnt, RevenantWitnessVisuals.Key));
+                Timer.Spawn(TimeSpan.FromSeconds(5), () => sprite.RemoveLayer(RevenantWitnessVisuals.Key));
             }
         }
     }

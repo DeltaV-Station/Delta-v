@@ -54,6 +54,8 @@ id-card-access-level-external = External
 id-card-access-level-nuclear-operative = Nuclear Operative
 id-card-access-level-syndicate-agent = Syndicate Agent
 
+id-card-access-level-unused = You shouldn't see this
+
 id-card-access-level-central-command = Central Command
 
 id-card-access-level-wizard = Wizard

@@ -1,6 +1,7 @@
-using Content.Shared.Damage;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.Weather;
@@ -8,7 +9,7 @@ namespace Content.Server._DV.Weather;
 /// <summary>
 /// Makes weather randomly happen every so often.
 /// </summary>
-[RegisterComponent, Access(typeof(WeatherSchedulerSystem), typeof(WeatherEffectsSystem))]
+[RegisterComponent, Access(typeof(WeatherSchedulerSystem))]
 [AutoGenerateComponentPause]
 public sealed partial class WeatherSchedulerComponent : Component
 {
@@ -25,16 +26,10 @@ public sealed partial class WeatherSchedulerComponent : Component
     public int Stage;
 
     /// <summary>
-    /// When to go and apply the next weather transition.
+    /// When to go to the next step of the schedule.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextUpdate;
-
-    /// <summary>
-    /// When to go and apply the next damage update.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextDamageUpdate;
 }
 
 /// <summary>
@@ -50,20 +45,14 @@ public partial struct WeatherStage
     public MinMax Duration = new(0, 0);
 
     /// <summary>
-    /// The weather to add, or null for clear weather.
+    /// The weather prototype to add, or null for clear weather.
     /// </summary>
     [DataField]
-    public EntProtoId? Weather;
+    public ProtoId<WeatherPrototype>? Weather;
 
     /// <summary>
     /// Alert message to send in chat for players on the map when it starts.
     /// </summary>
     [DataField]
     public LocId? Message;
-
-    /// <summary>
-    /// Damage Specifier to tell how much damage a stage should do
-    /// </summary>
-    [DataField]
-    public DamageSpecifier? Damage;
 }

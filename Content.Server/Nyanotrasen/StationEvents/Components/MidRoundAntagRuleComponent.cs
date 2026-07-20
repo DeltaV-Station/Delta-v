@@ -5,11 +5,4 @@ namespace Content.Server.StationEvents.Components;
 /// Requires <c>AntagSelection</c>.
 /// </summary>
 [RegisterComponent]
-public sealed partial class MidRoundAntagRuleComponent : Component
-{
-    /// <summary>
-    /// When set to true, this spawner will prefer vent spawns over midround spawnpoints.
-    /// </summary>
-    [DataField]
-    public bool PreferVentSpawns;
-}
+public sealed partial class MidRoundAntagRuleComponent : Component;

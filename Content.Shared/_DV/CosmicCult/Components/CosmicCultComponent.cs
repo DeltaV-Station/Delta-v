@@ -42,7 +42,6 @@ public sealed partial class CosmicCultComponent : Component
     [
         "ActionCosmicSiphon",
         "ActionCosmicBlank",
-        "ActionCosmicDrawGlyph",
     ];
 
     [DataField]

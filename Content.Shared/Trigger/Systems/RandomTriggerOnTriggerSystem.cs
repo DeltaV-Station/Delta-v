@@ -13,7 +13,16 @@ public sealed class RandomTriggerOnTriggerSystem : XOnTriggerSystem<RandomTrigge
 
     protected override void OnTrigger(Entity<RandomTriggerOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
-        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent), GetNetEntity(args.User));
+        // TODO: Replace with RandomPredicted once the engine PR is merged
+        var hash = new List<int>
+        {
+            (int)_timing.CurTick.Value,
+            GetNetEntity(ent).Id,
+            args.User == null ? 0 : GetNetEntity(args.User.Value).Id,
+        };
+        var seed = SharedRandomExtensions.HashCodeCombine(hash);
+        var rand = new System.Random(seed);
+
         var keyOut = _prototypeManager.Index(ent.Comp.RandomKeyOut).Pick(rand);
 
         // Prevent recursive triggers

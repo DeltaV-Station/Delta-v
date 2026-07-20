@@ -6,7 +6,7 @@ namespace Content.Client.Guidebook.RichText;
 
 /// <summary>
 /// RichText tag that can display values extracted from entity prototypes.
-/// To be accessed by this tag, the desired field/property must
+/// In order to be accessed by this tag, the desired field/property must
 /// be tagged with <see cref="Shared.Guidebook.GuidebookDataAttribute"/>.
 /// </summary>
 public sealed class ProtodataTag : IMarkupTagHandler

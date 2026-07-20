@@ -270,7 +270,7 @@
 
 - type: entity
   parent: BoxCardboard
-  id: CrayonBoxEmpty
+  id: CrayonBox
   name: crayon box
   description: It's a box of crayons.
   components:
@@ -287,6 +287,18 @@
     shape:
     - 0,0,1,1
     heldPrefix: box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CrayonRed
+        - id: CrayonOrange
+        - id: CrayonYellow
+        - id: CrayonGreen
+        - id: CrayonBlue
+        - id: CrayonPurple
+        - id: CrayonBlack
+        - id: CrayonWhite
   - type: ItemMapper
     mapLayers:
       black_box:
@@ -322,21 +334,3 @@
           tags:
           - CrayonWhite
   - type: Appearance
-
-- type: entity
-  parent: CrayonBoxEmpty
-  id: CrayonBox
-  suffix: Filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: CrayonRed
-        - id: CrayonOrange
-        - id: CrayonYellow
-        - id: CrayonGreen
-        - id: CrayonBlue
-        - id: CrayonPurple
-        - id: CrayonBlack
-        - id: CrayonWhite

@@ -3,7 +3,6 @@ using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Server.Revenant.EntitySystems;
 using Content.Shared.Item;
 using System.Linq;
-using Content.Server._Impstation.Revenant.EntitySystems;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
 

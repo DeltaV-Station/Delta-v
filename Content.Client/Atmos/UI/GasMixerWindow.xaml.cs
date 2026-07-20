@@ -21,7 +21,9 @@ namespace Content.Client.Atmos.UI
     [GenerateTypedNameReferences]
     public sealed partial class GasMixerWindow : DefaultWindow
     {
-        public event Action<bool>? ToggleStatusButtonPressed;
+        public bool MixerStatus = true;
+
+        public event Action? ToggleStatusButtonPressed;
         public event Action<string>? MixerOutputPressureChanged;
         public event Action<string>? MixerNodePercentageChanged;
 
@@ -31,7 +33,8 @@ namespace Content.Client.Atmos.UI
         {
             RobustXamlLoader.Load(this);
 
-            ToggleStatusButton.OnToggled += _ => ToggleStatusButtonPressed?.Invoke(ToggleStatusButton.Pressed);
+            ToggleStatusButton.OnPressed += _ => SetMixerStatus(!MixerStatus);
+            ToggleStatusButton.OnPressed += _ => ToggleStatusButtonPressed?.Invoke();
 
             MixerPressureOutputInput.OnTextChanged += _ => SetOutputPressureButton.Disabled = false;
             SetOutputPressureButton.OnPressed += _ =>
@@ -80,7 +83,15 @@ namespace Content.Client.Atmos.UI
 
         public void SetMixerStatus(bool enabled)
         {
-            ToggleStatusButton.Pressed = enabled;
+            MixerStatus = enabled;
+            if (enabled)
+            {
+                ToggleStatusButton.Text = Loc.GetString("comp-gas-mixer-ui-status-enabled");
+            }
+            else
+            {
+                ToggleStatusButton.Text = Loc.GetString("comp-gas-mixer-ui-status-disabled");
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Content.IntegrationTests.Fixtures;
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.ReverseEngineering; // DeltaV
@@ -10,12 +9,12 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests;
 
 [TestFixture]
-public sealed class ResearchTest : GameTest
+public sealed class ResearchTest
 {
     [Test]
     public async Task DisciplineValidTierPrerequesitesTest()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var protoManager = server.ResolveDependency<IPrototypeManager>();
@@ -44,12 +43,14 @@ public sealed class ResearchTest : GameTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task AllTechPrintableTest()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IEntityManager>();
@@ -116,5 +117,7 @@ public sealed class ResearchTest : GameTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 }

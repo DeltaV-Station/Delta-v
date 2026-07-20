@@ -44,7 +44,7 @@ namespace Content.Client.Lobby
             }
         }
 
-        public void SelectCharacter(HumanoidCharacterProfile profile)
+        public void SelectCharacter(ICharacterProfile profile)
         {
             SelectCharacter(Preferences.IndexOfCharacter(profile));
         }
@@ -59,11 +59,11 @@ namespace Content.Client.Lobby
             _netManager.ClientSendMessage(msg);
         }
 
-        public void UpdateCharacter(HumanoidCharacterProfile profile, int slot)
+        public void UpdateCharacter(ICharacterProfile profile, int slot)
         {
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
-            var characters = new Dictionary<int, HumanoidCharacterProfile>(Preferences.Characters) {[slot] = profile};
+            var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
             Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
             var msg = new MsgUpdateCharacter
             {
@@ -73,9 +73,9 @@ namespace Content.Client.Lobby
             _netManager.ClientSendMessage(msg);
         }
 
-        public void CreateCharacter(HumanoidCharacterProfile profile)
+        public void CreateCharacter(ICharacterProfile profile)
         {
-            var characters = new Dictionary<int, HumanoidCharacterProfile>(Preferences.Characters);
+            var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters);
             var lowest = Enumerable.Range(0, Settings.MaxCharacterSlots)
                 .Except(characters.Keys)
                 .FirstOrNull();
@@ -92,7 +92,7 @@ namespace Content.Client.Lobby
             UpdateCharacter(profile, l);
         }
 
-        public void DeleteCharacter(HumanoidCharacterProfile profile)
+        public void DeleteCharacter(ICharacterProfile profile)
         {
             DeleteCharacter(Preferences.IndexOfCharacter(profile));
         }

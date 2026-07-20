@@ -1,4 +1,6 @@
+using Content.Server.Body.Systems;
 using Content.Server.Stack;
+using Content.Shared.Body.Components;
 using Content.Shared.Gibbing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
@@ -39,6 +41,9 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                     ContainerSystem.Insert((stack, null, null, null), crusher.OutputContainer);
                 }
             }
+
+            if (!TryComp<BodyComponent>(contained, out var body))
+                Del(contained);
 
             var gibs = _gibbing.Gib(contained);
             foreach (var gib in gibs)

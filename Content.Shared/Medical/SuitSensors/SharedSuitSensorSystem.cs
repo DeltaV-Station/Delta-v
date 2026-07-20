@@ -3,7 +3,6 @@ using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
@@ -41,7 +40,6 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     private EntityQuery<SuitSensorComponent> _sensorQuery;
     public override void Initialize()
@@ -70,11 +68,6 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     /// <returns>True if the sensor is assigned to a station or assigning it was successful. False otherwise.</returns>
     public bool CheckSensorAssignedStation(Entity<SuitSensorComponent> sensor)
     {
-        // Begin DeltaV - fallback
-        if (sensor.Comp.StationId.HasValue && _stationSystem.GetOwningStation(sensor.Owner) is null)
-            return true;
-        // End DeltaV - fallback
-
         if (!sensor.Comp.StationId.HasValue && Transform(sensor.Owner).GridUid == null)
             return false;
 
@@ -355,7 +348,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var transform = ent.Comp2;
 
         // check if sensor is enabled and worn by user
-        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User)) // DeltaV - don't block on grids here
+        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
 
         // try to get mobs id from ID slot
@@ -382,7 +375,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
 
         // get mob total damage
-        var totalDamage = _damageable.GetTotalDamage(sensor.User.Value).Int();
+        var totalDamage = 0;
+        if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
+            totalDamage = damageable.TotalDamage.Int();
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;

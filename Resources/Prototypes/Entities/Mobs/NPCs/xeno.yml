@@ -69,8 +69,8 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: FluorosulfuricAcid
-        Quantity: 300
+      - ReagentId: Ammonia # DeltaV - was FluorosulfuricAcid
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -465,8 +465,6 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
-  - type: NightVision #DeltaV - Added nightvision to animals
-    color: "#808080"
 
 - type: entity
   name: space adder
@@ -535,7 +533,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: FluorosulfuricAcid
+      - ReagentId: Ammonia # DeltaV - Was FluorosulfuricAcid
         Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
@@ -544,8 +542,8 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
-      types:
-        Slash: 5
+     groups:
+       Brute: 5
   - type: DamageStateVisuals
     states:
       Alive:

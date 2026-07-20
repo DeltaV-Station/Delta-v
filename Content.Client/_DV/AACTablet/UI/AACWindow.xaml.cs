@@ -218,7 +218,7 @@ public sealed partial class AACWindow : FancyWindow
             MaxSize = new Vector2(ButtonWidth, ButtonWidth),
             ClipText = false,
             HorizontalExpand = true,
-            StyleClasses = { ContainerButton.StyleClassButton, styleClass }
+            StyleClasses = { styleClass }
         };
 
         var buttonLabel = new RichTextLabel

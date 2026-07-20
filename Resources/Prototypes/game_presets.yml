@@ -10,6 +10,7 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
+    #- SpaceTrafficControlFriendlyEventScheduler # DeltaV: spam of garbage roles nobody takes every 10-20 minutes
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
     - SubGamemodesRule # DeltaV
@@ -74,6 +75,7 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
 
@@ -101,6 +103,7 @@
   showInVote: true #4boring4vote # DeltaV - Enable greenshift in gamemode vote
   description: greenshift-description
   rules:
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - GlimmerEventScheduler # DeltaV
 
@@ -235,7 +238,6 @@
     - xenoborgs
   name: xenoborgs-title
   description: xenoborgs-description
-  cooldown: 2 # DeltaV
   showInVote: false
   rules:
   - Xenoborgs
@@ -245,8 +247,6 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - RampingStationEventScheduler # DeltaV
-  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Zombie

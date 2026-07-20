@@ -144,7 +144,7 @@
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
   id: DoorRemoteResearch
-  name: epistemics door remote # DeltaV - Science > Epistemics
+  name: research door remote
   components:
   - type: Sprite
     layers:
@@ -210,7 +210,6 @@
   parent: [DoorRemoteCanEletrifyDoors, BaseCommandContraband]
   id: DoorRemoteAll
   name: super door remote
-  description: A gadget which can open and bolt doors remotely. This one works even on wooden doors!
   suffix: Admeme
   components:
   - type: Sprite
@@ -222,8 +221,6 @@
       color: "#22871a"
   - type: DoorRemote
     includeUserAccess: true
-    requireInRangeUnoccluded: false
-    requireTagWhitelist: false
   - type: Access
     groups:
     - AllAccess

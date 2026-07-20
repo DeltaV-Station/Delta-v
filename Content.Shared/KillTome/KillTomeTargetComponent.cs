@@ -1,8 +1,6 @@
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.KillTome;
@@ -19,7 +17,7 @@ public sealed partial class KillTomeTargetComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
+        DamageDict = new Dictionary<string, FixedPoint2>
         {
             { "Blunt", 200 }
         }

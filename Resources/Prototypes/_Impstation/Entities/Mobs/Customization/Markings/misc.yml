@@ -5,7 +5,8 @@
 #- type: marking
 #  id: FullID
 #  bodyPart: Part
-#  groupWhitelist: [Species, Species]
+#  markingCategory: Category
+#  speciesRestriction: [Species, Species]
 #  youre on your own for figuring out the coloring system, my friend
 #  sprites:
 #  - sprite: _Impstation/Mobs/Customization/filelocation.rsi
@@ -15,8 +16,10 @@
 - type: marking
   id: Gills
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenchestgills
@@ -24,8 +27,10 @@
 - type: marking
   id: ThavenChestScales
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenchestscales
@@ -33,8 +38,10 @@
 - type: marking
   id: ThavenHeadScales
   bodyPart: Head
-  groupWhitelist: [ Thaven ]
+  markingCategory: HeadTop
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadscales
@@ -42,8 +49,10 @@
 - type: marking
   id: ThavenLArmScales
   bodyPart: LArm
-  groupWhitelist: [ Thaven ]
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenleftarmscales
@@ -51,8 +60,10 @@
 - type: marking
   id: ThavenRArmScales
   bodyPart: RArm
-  groupWhitelist: [ Thaven ]
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenrightarmscales
@@ -60,8 +71,10 @@
 - type: marking
   id: ThavenLLegScales
   bodyPart: LLeg
-  groupWhitelist: [ Thaven ]
+  markingCategory: Legs
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenleftlegscales
@@ -69,8 +82,10 @@
 - type: marking
   id: ThavenRLegScales
   bodyPart: RLeg
-  groupWhitelist: [ Thaven ]
+  markingCategory: Legs
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenrightlegscales
@@ -78,8 +93,10 @@
 #- type: marking
 #  id: ThavenLHandScales
 #  bodyPart: LHand
-#  groupWhitelist: [ Thaven ]
+#  markingCategory: Arms
+#  speciesRestriction: [ Thaven ]
 #  forcedColoring: false
+#  followSkinColor: false
 #  sprites:
 #  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
 #    state: thavenlefthandscales
@@ -87,8 +104,10 @@
 #- type: marking
 #  id: ThavenRHandScales
 #  bodyPart: RHand
-#  groupWhitelist: [ Thaven ]
+#  markingCategory: Arms
+#  speciesRestriction: [ Thaven ]
 #  forcedColoring: false
+#  followSkinColor: false
 #  sprites:
 #  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
 #    state: thavenrighthandscales
@@ -96,8 +115,10 @@
 #- type: marking
 #  id: Thiddies
 #  bodyPart: Chest
-#  groupWhitelist: [ Thaven ]
+#  markingCategory: Chest
+#  speciesRestriction: [ Thaven ]
 #  forcedColoring: true
+#  followSkinColor: true
 #  sprites:
 #  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
 #    state: thavenbignaturals
@@ -107,8 +128,10 @@
 - type: marking
   id: ThavenTopSurgery
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavennonaturals
@@ -116,8 +139,10 @@
 - type: marking
   id: ThavenFishEars
   bodyPart: HeadSide
-  groupWhitelist: [ Thaven ]
+  markingCategory: Headside
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenfishears
@@ -125,8 +150,10 @@
 - type: marking
   id: ThavenTattooVines
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventattoovines
@@ -134,8 +161,10 @@
 - type: marking
   id: ThavenSpines
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenspines
@@ -143,8 +172,10 @@
 - type: marking
   id: ThavenBiteMark
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenbitemark
@@ -152,8 +183,10 @@
 - type: marking
   id: ThavenTattooWave
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventattoowave
@@ -161,8 +194,10 @@
 - type: marking
   id: SharkminnowEyeliner
   bodyPart: HeadTop
-  groupWhitelist: [ Thaven ]
+  markingCategory: HeadTop
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventattoosharkminnoweyeliner
@@ -170,8 +205,10 @@
 - type: marking
   id: ThavenTiger
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventiger1
@@ -181,8 +218,10 @@
 - type: marking
   id: ThavenTigerRArm
   bodyPart: RArm
-  groupWhitelist: [ Thaven ]
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventigerarmsr
@@ -190,8 +229,10 @@
 - type: marking
   id: ThavenTigerLArm
   bodyPart: LArm
-  groupWhitelist: [ Thaven ]
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventigerarmsl
@@ -199,8 +240,10 @@
 - type: marking
   id: ThavenHeadStripes
   bodyPart: Head
-  groupWhitelist: [ Thaven ]
+  markingCategory: Head
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadstripes
@@ -208,8 +251,10 @@
 - type: marking
   id: ThavenBodyStripes
   bodyPart: Chest
-  groupWhitelist: [ Thaven ]
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenbodystripes
@@ -217,8 +262,10 @@
 - type: marking
   id: ThavenEarsBigFins
   bodyPart: HeadSide
-  groupWhitelist: [ Thaven ]
+  markingCategory: HeadSide
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenearsbigfins
@@ -228,8 +275,10 @@
 - type: marking
   id: ThavenHeadCap
   bodyPart: Head
-  groupWhitelist: [ Thaven ]
+  markingCategory: Head
+  speciesRestriction: [ Thaven ]
   forcedColoring: false
+  followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadcap1

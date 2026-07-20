@@ -57,12 +57,6 @@ public sealed class SprayPainterSetPipeColorMessage(string? key) : BoundUserInte
 }
 
 [Serializable, NetSerializable]
-public sealed class SprayPainterSetDecalColorPickerMessage(bool toggle) : BoundUserInterfaceMessage
-{
-    public bool Toggle = toggle;
-}
-
-[Serializable, NetSerializable]
 public sealed partial class SprayPainterDoAfterEvent : DoAfterEvent
 {
     /// <summary>

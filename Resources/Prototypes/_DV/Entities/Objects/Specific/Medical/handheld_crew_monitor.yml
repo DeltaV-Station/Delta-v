@@ -23,7 +23,8 @@
     alertsEnabled: false
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: NTNet # DeltaV - NTNet
+    receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
-    range: 3600
+    range: 500
+  - type: StationLimitedNetwork
   - type: Appearance

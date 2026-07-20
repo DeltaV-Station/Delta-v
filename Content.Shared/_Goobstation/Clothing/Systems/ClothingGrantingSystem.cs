@@ -46,7 +46,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
             var temp = (object) newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
-            AddComp(args.Equipee, (Component)temp!);
+            EntityManager.AddComponent(args.Equipee, (Component)temp!);
 
             component.Active[name] = true; // Goobstation
         }

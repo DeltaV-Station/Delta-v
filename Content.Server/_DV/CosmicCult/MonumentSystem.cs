@@ -324,6 +324,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
         UpdateMonumentAppearance(uid, false);
 
+        //this is probably unnecessary but I have no idea where they get added to the list atm - ruddygreat
+        foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 1))
+        {
+            uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
+        }
+
         //basically completely unnecessary, but putting this here for sanity & futureproofing - ruddygreat
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
@@ -349,6 +355,11 @@ public sealed class MonumentSystem : SharedMonumentSystem
             return;
 
         UpdateMonumentAppearance(uid, true);
+
+        foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 2))
+        {
+            uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
+        }
 
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
@@ -386,6 +397,11 @@ public sealed class MonumentSystem : SharedMonumentSystem
     {
         if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
             return;
+
+        foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 3))
+        {
+            uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
+        }
 
         UpdateMonumentAppearance(uid, true);
 

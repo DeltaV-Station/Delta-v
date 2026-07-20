@@ -1,10 +1,8 @@
 - type: entity
-  parent: [ FoodBakedCroissant, ThrowingKnife ]
+  parent: FoodBakedCroissant
   id: WeaponCroissant
   suffix: Weapon
   components:
-  - type: Item
-    sprite: null # Should be removed if croissant receives an inhand sprite
   - type: Fixtures
     fixtures:
       fix1:
@@ -15,5 +13,14 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 5
+        Piercing: 10
   - type: ThrowingAngle
     angularVelocity: true # spins

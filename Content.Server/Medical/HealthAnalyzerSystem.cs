@@ -27,7 +27,7 @@ using Content.Shared._DV.MedicalRecords;
 
 namespace Content.Server.Medical;
 
-public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made Partial
+public sealed class HealthAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PowerCellSystem _cell = default!;
@@ -55,7 +55,6 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
             subs.Event<HealthAnalyzerTriageClaimMessage>(OnHealthAnalyzerTriageClaimSelected);
         });
         // End DeltaV - Medical Records
-        InitializeReportPrinting(); // DeltaV - MedTek Reports
     }
 
     public override void Update(float frameTime)

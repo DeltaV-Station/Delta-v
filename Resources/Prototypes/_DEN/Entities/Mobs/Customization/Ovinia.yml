@@ -9,7 +9,8 @@
 - type: marking
   id: OviniaEars
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/ear_markings.rsi
     state: ovinia-ears
@@ -20,7 +21,8 @@
 - type: marking
   id: OviniaTail
   bodyPart: Tail
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Tail
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/tail_markings.rsi
     state: ovinia-tail
@@ -29,7 +31,8 @@
 - type: marking
   id: OviniaNeckfluff
   bodyPart: NeckFluff
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: NeckFluff
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/head_markings.rsi
     state: ovinia-neck-fluff
@@ -38,7 +41,8 @@
 - type: marking
   id: OviniaLambHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: lamb-horns
@@ -46,7 +50,8 @@
 - type: marking
   id: OviniaRamHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-ram-horns
@@ -54,7 +59,8 @@
 - type: marking
   id: OviniaPointyHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-pointy-horns
@@ -62,7 +68,8 @@
 - type: marking
   id: OviniaCurvedHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-curved-horns
@@ -70,7 +77,8 @@
 - type: marking
   id: OviniaDeerHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-deer-horns
@@ -78,7 +86,8 @@
 - type: marking
   id: OviniaDevilHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-devil-horns
@@ -86,7 +95,8 @@
 - type: marking
   id: OviniaBaphometHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-baphomet-horns
@@ -94,7 +104,8 @@
 - type: marking
   id: OviniaIbexHorns
   bodyPart: HeadTop
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: HeadTop
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/horn_markings.rsi
     state: ovinia-ibex-horns
@@ -103,7 +114,8 @@
 - type: marking
   id: OviniaFace
   bodyPart: Snout
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Snout
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/snout_markings.rsi
     state: ovinia-face
@@ -113,7 +125,8 @@
 - type: marking
   id: OviniaBlaze
   bodyPart: Snout
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Snout
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/snout_markings.rsi
     state: ovinia-blaze
@@ -123,7 +136,8 @@
 - type: marking
   id: OviniaSnout
   bodyPart: Snout
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Snout
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/snout_markings.rsi
     state: ovinia-snout
@@ -134,7 +148,8 @@
 - type: marking
   id: OviniaTummy
   bodyPart: Chest
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Chest
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-tummy
@@ -143,7 +158,8 @@
 - type: marking
   id: OviniaLeftLegValais
   bodyPart: LLeg
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Legs
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-leg-valais-left
@@ -151,7 +167,8 @@
 - type: marking
   id: OviniaRightLegValais
   bodyPart: RLeg
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Legs
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-leg-valais-right
@@ -160,7 +177,8 @@
 - type: marking
   id: OviniaLeftHoof
   bodyPart: LFoot
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Legs
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/feet_markings.rsi
     state: ovinia-hoof-left
@@ -168,7 +186,8 @@
 - type: marking
   id: OviniaRightHoof
   bodyPart: RFoot
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Legs
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/feet_markings.rsi
     state: ovinia-hoof-right
@@ -177,7 +196,8 @@
 - type: marking
   id: OviniaLeftArmValais
   bodyPart: LArm
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Arms
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-arm-valais-left
@@ -185,7 +205,8 @@
 - type: marking
   id: OviniaRightArmValais
   bodyPart: RArm
-  groupWhitelist: [ Ovinia ] # Delta V - Nubody speciesRestriction to groupWhitelist
+  markingCategory: Arms
+  speciesRestriction: [ Ovinia ]
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: ovinia-arm-valais-right

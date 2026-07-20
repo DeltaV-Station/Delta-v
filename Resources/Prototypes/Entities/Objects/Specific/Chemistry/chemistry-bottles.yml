@@ -160,7 +160,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-aloxadone
+    currentLabel: reagent-aloxadone
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -175,7 +175,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-ambuzol
+    currentLabel: reagent-ambuzol
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -190,7 +190,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-ambuzol-plus
+    currentLabel: reagent-ambuzol-plus
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -220,7 +220,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-barozine
+    currentLabel: reagent-barozine
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -250,7 +250,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-bruizine
+    currentLabel: reagent-bruizine
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -265,7 +265,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-cognizine
+    currentLabel: reagent-cognizine
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -621,12 +621,27 @@
           Quantity: 30
 
 - type: entity
+  id: ChemistryBottleNecrosol
+  suffix: necrosol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-necrosol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Necrosol
+          Quantity: 30
+
+- type: entity
   id: ChemistryBottleOculine
   suffix: oculine
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-oculine
+    currentLabel: reagent-oculine
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -656,7 +671,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-opporozidone
+    currentLabel: reagent-opporozidone
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -697,7 +712,7 @@
 
 - type: entity
   id: ChemistryBottlePotassiumIodide
-  suffix: potassium iodide
+  suffix: iodide
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
@@ -727,7 +742,7 @@
 
 - type: entity
   id: ChemistryBottlePulpedBananaPeel
-  suffix: pulped banana peel
+  suffix: pulped-banana-peel
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
@@ -851,7 +866,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-tranexamic-acid
+    currentLabel: reagent-tranexamic-acid
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -1431,6 +1446,7 @@
     - id: ChemistryBottleLeporazine
     - id: ChemistryBottleLipozine
     - id: ChemistryBottleMannitol
+    - id: ChemistryBottleNecrosol
     - id: ChemistryBottleOculine
     - id: ChemistryBottleOmnizine
     - id: ChemistryBottleOpporozidone

@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Piping.Components;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
@@ -34,7 +35,6 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Throwing;
 using Content.Shared.Damage.Systems;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Atmos.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;

@@ -5,6 +5,3 @@ tiles-mowed-astro-snow = mowed astro-snow
 
 tiles-astro-snow-dug = astro dug snow
 tiles-mowed-astro-snow-dug = mowed astro dug snow
-
-tiles-pool = pool
-tiles-pool-dark = dark pool

@@ -102,23 +102,26 @@
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
-          Brute: -0.15
+          groups:
+            Brute: -0.15
     - reagents: [ Blood ]
       methods: [ Touch ]
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
-          Brute: -0.25
-          Burn: -0.25
+          groups:
+            Brute: -0.25
+            Burn: -0.25
     - reagents: [ RobustHarvest ]
       methods: [ Touch ]
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         damage:
-          Brute: -1
-          Burn: -1
+          groups:
+            Brute: -1
+            Burn: -1
     - reagents: [ WeedKiller, PlantBGone ]
       methods: [ Touch ]
       effects:
@@ -142,7 +145,7 @@
   - type: NPCImprintingOnSpawnBehaviour
     whitelist:
       components:
-      - HumanoidProfile
+      - HumanoidAppearance
   - type: Sprite
     sprite: Mobs/Demons/tomatokiller.rsi
     noRot: true
@@ -199,10 +202,8 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      types:
-        Blunt: 3
-        Piercing: 3
-        Slash: 3
+      groups:
+        Brute: 9
     animation: WeaponArcBite
   - type: Climbing
   - type: NameIdentifier
@@ -224,6 +225,7 @@
     allowedStates:
     - Alive
     - Dead
+    damageCap: 50
     damage:
       types:
         Blunt: 0.11

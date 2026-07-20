@@ -16,7 +16,7 @@ public partial class SharedPseudoItemSystem
         if (!Resolve(itemEnt, ref itemEnt.Comp) || !Resolve(storageEnt, ref storageEnt.Comp))
             return false;
 
-        if (!HasComp<MetaDataComponent>(itemEnt))
+        if (!TryComp<MetaDataComponent>(itemEnt, out var metadata))
             return false;
 
         TryComp<ItemComponent>(itemEnt, out var item);

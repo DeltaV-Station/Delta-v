@@ -8,7 +8,7 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    Metabolites:
+    Food:
       effects:
       - !type:SatiateHunger
   plantMetabolism:
@@ -27,13 +27,14 @@
   flavor: vitamin
   color: "#D3D3D3"
   metabolisms:
-    Metabolites: #This makes it not compete with medicines, a large bonus for something that can heal
+    Food: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         probability: 0.5
         damage:
-          Brute: -0.5
-          Burn: -0.5
+          groups:
+            Brute: -0.5
+            Burn: -0.5
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
@@ -55,12 +56,13 @@
   flavor: protein
   color: "#FFFFE5"
   metabolisms:
-    Metabolites:
+    Food:
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         probability: 0.5
         damage:
-          Brute: -0.4
+          groups:
+            Brute: -0.4
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
       - !type:SatiateHunger
@@ -76,7 +78,7 @@
   color: white
   meltingPoint: 146.0
   metabolisms:
-    Metabolites:
+    Food:
       effects:
       - !type:SatiateHunger
         conditions:

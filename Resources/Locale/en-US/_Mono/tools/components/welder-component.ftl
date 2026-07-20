@@ -1,2 +1,0 @@
-welder-component-on-examine-less-detailed-message = Fuel: [color={$colorName}]{$fuelLeft}/{$fuelCapacity}[/color]
-welder-component-incompatible-fuel = { $owner } contains incorrect or contaminated fuel!

@@ -297,10 +297,8 @@ public sealed class CarryingSystem : EntitySystem
         if (_net.IsClient) // no spawning prediction
             return;
 
-        for (var x = 0; x < Comp<CarriableComponent>(carried).FreeHandsRequired; x++)
-        {
-            _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
-        }
+        _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
+        _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
     }
 
     public bool TryCarry(EntityUid carrier, Entity<CarriableComponent?> toCarry)
@@ -341,7 +339,7 @@ public sealed class CarryingSystem : EntitySystem
         RemComp<BeingCarriedComponent>(carried);
         RemComp<KnockedDownComponent>(carried); // TODO SHITMED: make sure this doesnt let you make someone with no legs walk
         _actionBlocker.UpdateCanMove(carried);
-        _transform.AttachToGridOrMap(carried);
+        Transform(carried).AttachToGridOrMap();
         _standingState.Stand(carried);
     }
 
@@ -360,10 +358,6 @@ public sealed class CarryingSystem : EntitySystem
 
     public bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        var handsRequired = carried.Comp.FreeHandsRequired; // imp
-        if (TryComp<CarrierOneHandComponent>(carrier, out _))// && !carried.Comp.OneHandOverride)
-            handsRequired = 1;
-
         return
             carrier != carried.Owner &&
             // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
@@ -374,7 +368,7 @@ public sealed class CarryingSystem : EntitySystem
             !HasComp<BeingCarriedComponent>(carrier) &&
             !HasComp<BeingCarriedComponent>(carried) &&
             // finally check that there are enough free hands
-            TryComp<HandsComponent>(carrier, out var hands) && _hands.CountFreeHands((carrier, hands)) >= handsRequired;
+            TryComp<HandsComponent>(carrier, out var hands) && _hands.CountFreeHands((carrier, hands)) >= carried.Comp.FreeHandsRequired;
     }
 
     private float MassContest(EntityUid roller, EntityUid target)

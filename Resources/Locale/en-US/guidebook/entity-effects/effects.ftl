@@ -335,14 +335,8 @@ entity-effect-guidebook-drunk =
 
 entity-effect-guidebook-electrocute =
     { $chance ->
-        [1] { $stuns ->
-            [true] Electrocutes
-            *[false] Shocks
-            }
-        *[other] { $stuns ->
-            [true] electrocute
-            *[false] shock
-            }
+        [1] Electrocutes
+        *[other] electrocute
     } the metabolizer for {NATURALFIXED($time, 3)} {MANY("second", $time)}
 
 entity-effect-guidebook-emote =

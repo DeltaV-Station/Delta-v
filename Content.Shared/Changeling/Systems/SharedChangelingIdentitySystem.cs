@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-using Content.Shared.Body;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Humanoid;
@@ -19,8 +18,8 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly SharedCloningSystem _cloningSystem = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly SharedPvsOverrideSystem _pvsOverrideSystem = default!;
 
     public MapId? PausedMapId;
@@ -94,7 +93,7 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         if (_net.IsClient)
             return null;
 
-        if (!TryComp<HumanoidProfileComponent>(target, out var humanoid)
+        if (!TryComp<HumanoidAppearanceComponent>(target, out var humanoid)
             || !_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return null;
 
@@ -107,7 +106,7 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         if (TryComp<ActorComponent>(target, out var actor))
             storedIdentity.OriginalSession = actor.PlayerSession;
 
-        _visualBody.CopyAppearanceFrom(target, clone);
+        _humanoidSystem.CloneAppearance(target, clone);
         _cloningSystem.CloneComponents(target, clone, settings);
 
         var targetName = _nameMod.GetBaseName(target);

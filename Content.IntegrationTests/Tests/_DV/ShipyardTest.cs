@@ -1,4 +1,3 @@
-using Content.IntegrationTests.Fixtures;
 using Content.Server.Cargo.Systems;
 using Content.Server.Shipyard;
 using Content.Server.Shuttles.Components;
@@ -10,12 +9,12 @@ namespace Content.IntegrationTests.Tests._DV;
 
 [TestFixture]
 [TestOf(typeof(ShipyardSystem))]
-public sealed class ShipyardTest : GameTest
+public sealed class ShipyardTest
 {
     [Test]
     public async Task NoShipyardArbitrage()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var entities = server.ResolveDependency<IEntityManager>();
@@ -41,12 +40,13 @@ public sealed class ShipyardTest : GameTest
             });
         });
 
+        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task AllShuttlesValid()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var entities = server.ResolveDependency<IEntityManager>();
@@ -75,6 +75,7 @@ public sealed class ShipyardTest : GameTest
             });
         });
 
+        await pair.CleanReturnAsync();
     }
 
     private bool FindComponent<T>(IEntityManager entities, EntityUid shuttle) where T: Component

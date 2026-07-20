@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeLightRifleImprovised
   name: improvised cartridge (.30 rifle)
-  description: A handmade rifle bullet, uses phosphorus as a propellent instead of gunpowder.
+  description: A handmade rifle bullet, uses phosphorus as a propellent instead of gunpowder. 
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
@@ -18,7 +18,6 @@
     tags:
       - Cartridge
       - CartridgeLightRifleImprovised
-# DeltaV - Make unobtainable
-#- type: Construction
-#  graph: ImprovisedLightRifleBulletGraph
-#  node: shell
+  - type: Construction
+    graph: ImprovisedLightRifleBulletGraph
+    node: shell

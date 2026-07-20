@@ -31,12 +31,12 @@
     - type: SingletonDeviceNetServer
     - type: DeviceNetwork
       deviceNetId: Wireless
-      transmitFrequencyId: NTNet # DeltaV - NTNet
+      transmitFrequencyId: CrewMonitor
       receiveFrequencyId: SuitSensor
       autoConnect: false
     - type: WirelessNetworkConnection
       range: 10000 # Delta-V Maximises the range for the Crew Monitor Server to make it work for Listening Post
-    # - type: StationLimitedNetwork # DeltaV - make this work for salvies
+    - type: StationLimitedNetwork
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: ExtensionCableReceiver

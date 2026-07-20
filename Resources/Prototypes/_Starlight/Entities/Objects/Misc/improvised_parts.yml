@@ -141,9 +141,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ForgedOmnitoolGraph
-  #  node: tool
+  - type: Construction
+    graph: ForgedOmnitoolGraph
+    node: tool
 
 - type: entity
   parent: BaseItem
@@ -159,10 +159,9 @@
   - type: Tag
     tags:
     - HiltWood
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: HiltWoodGraph
-  #  node: hilt
+  - type: Construction
+    graph: HiltWoodGraph
+    node: hilt
 
 - type: entity
   parent: BaseItem
@@ -178,10 +177,9 @@
   - type: Tag
     tags:
     - HiltPlasteel
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: HiltPlasteelGraph
-  #  node: hilt
+  - type: Construction
+    graph: HiltPlasteelGraph
+    node: hilt
 
 - type: entity
   parent: BaseItem
@@ -197,10 +195,9 @@
   - type: Tag
     tags:
     - BladeSteel
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: BladeSteelGraph
-  #  node: blade
+  - type: Construction
+    graph: BladeSteelGraph
+    node: blade
 
 - type: entity
   parent: BaseItem
@@ -216,10 +213,9 @@
   - type: Tag
     tags:
     - BladePlasteel
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: BladePlasteelGraph
-  #  node: blade
+  - type: Construction
+    graph: BladePlasteelGraph
+    node: blade
 
 - type: entity
   parent: BaseItem
@@ -238,9 +234,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: SwordForgedGraph
-  #  node: tool
+  - type: Construction
+    graph: SwordForgedGraph
+    node: tool
 
 - type: entity
   parent: BaseItem
@@ -259,9 +255,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ClaymoreForgedGraph
-  #  node: tool
+  - type: Construction
+    graph: ClaymoreForgedGraph
+    node: tool
 
 - type: entity
   parent: BaseItem
@@ -280,10 +276,9 @@
   - type: Tag
     tags:
     - Metal
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ImprovisedShieldGraph
-  #  node: shield
+  - type: Construction
+    graph: ImprovisedShieldGraph
+    node: shield
 
 - type: entity
   parent: BaseItem
@@ -302,9 +297,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ForgedShieldBucklerGraph
-  #  node: shield
+  - type: Construction
+    graph: ForgedShieldBucklerGraph
+    node: shield
 
 - type: entity
   parent: BaseItem
@@ -323,9 +318,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ForgedShieldTowerGraph
-  #  node: shield
+  - type: Construction
+    graph: ForgedShieldTowerGraph
+    node: shield
 
 - type: entity
   parent: BaseItem
@@ -344,9 +339,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: PaladinShieldGraph
-  #  node: shield
+  - type: Construction
+    graph: PaladinShieldGraph
+    node: shield
 
 - type: entity
   parent: BaseItem
@@ -365,9 +360,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: PaladinShieldGreatGraph
-  #  node: shield
+  - type: Construction
+    graph: PaladinShieldGreatGraph
+    node: shield
 
 - type: entity
   parent: BaseItem
@@ -386,10 +381,9 @@
   - type: Tag
     tags:
     - Metal
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ClothingOuterArmorImprovisedGraph
-  #  node: vest
+  - type: Construction
+    graph: ClothingOuterArmorImprovisedGraph
+    node: vest
 
 - type: entity
   parent: BaseItem
@@ -408,9 +402,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ClothingOuterArmorForgedGraph
-  #  node: vest
+  - type: Construction
+    graph: ClothingOuterArmorForgedGraph
+    node: vest
 
 - type: entity
   parent: BaseItem
@@ -429,9 +423,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ClothingOuterArmorPaladinGraph
-  #  node: vest
+  - type: Construction
+    graph: ClothingOuterArmorPaladinGraph
+    node: vest
 
 - type: entity
   parent: BaseItem
@@ -450,10 +444,9 @@
   - type: Tag
     tags:
     - Metal
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ClothingHeadHelmetImprovisedGraph
-  #  node: helmet
+  - type: Construction
+    graph: ClothingHeadHelmetImprovisedGraph
+    node: helmet
 
 - type: entity
   parent: BaseItem
@@ -472,9 +465,9 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ClothingHeadHelmetForgedGraph
-  #  node: helmet
+  - type: Construction
+    graph: ClothingHeadHelmetForgedGraph
+    node: helmet
 
 - type: entity
   parent: BaseItem
@@ -493,6 +486,6 @@
   - type: Tag
     tags:
     - Metal
-  #- type: Construction # DeltaV - made it uncraftable
-  #  graph: ClothingHeadHelmetPaladinGraph
-  #  node: helmet
+  - type: Construction
+    graph: ClothingHeadHelmetPaladinGraph
+    node: helmet

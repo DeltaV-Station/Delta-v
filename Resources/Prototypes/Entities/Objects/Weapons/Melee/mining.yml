@@ -18,13 +18,14 @@
       params:
         volume: -3
     damage:
-      types:
-        Piercing: 5
+      groups:
+        Brute: 5
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
+      groups:
+        Brute: 10
       types:
-        Piercing: 10
         Structural: 30
   - type: Item
     size: Normal
@@ -88,6 +89,8 @@
     attackRate: 4
     damage:
       types:
+        Piercing: 3 # DeltaV: 6 brute changed to 3 piercing
+        Slash: 3 # DeltaV: 6 brute changed to 3 slash
         Structural: 30
 
 - type: entity
@@ -134,10 +137,8 @@
     delay: 0.9
   - type: LeechOnMarker
     leech:
-      types:
-        Blunt: -2
-        Slash: -2
-        Piercing: -2
+      groups:
+        Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -241,10 +242,9 @@
     delay: 0.9 # DeltaV - Didn't match the firerate. This is just visuals.
   - type: LeechOnMarker
     leech:
-      types:
-        Blunt: -5
-        Piercing: -5
-        Slash: -5
+      groups:
+        Brute: -21
+  - type: MeleeWeapon
   - type: Tag
     tags:
       - Pickaxe

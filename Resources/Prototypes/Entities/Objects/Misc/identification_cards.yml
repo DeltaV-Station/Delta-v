@@ -404,7 +404,7 @@
 - type: entity
   parent: IDCardStandard
   id: ResearchIDCard
-  name: epistemics ID card # DeltaV - Science > Epistemics
+  name: research ID card
   components:
   - type: Sprite
     layers:
@@ -527,11 +527,6 @@
     - sprite: *icon-rsi-dv # DeltaV - Sec Icon Resprite
       offset: *icon-offset
       state: Brigmedic
-  - type: IdCard # DeltaV
-    jobTitle: job-name-brigmedic
-    jobIcon: JobIconBrigmedic
-  - type: PresetIdCard # DeltaV - Puts them in the security department
-    job: Brigmedic
 
 - type: entity
   parent: SecurityIDCard
@@ -830,7 +825,7 @@
 - type: entity
   parent: IDCardStandard
   id: CargoIDCard
-  name: logistics ID card # DeltaV - Logistics Department replacing Cargo
+  name: cargo ID card
   components:
   - type: Sprite
     layers:
@@ -901,8 +896,6 @@
     - Recyclable
   - type: StaticPrice # these are infinitely producible.
     price: 0
-  - type: PresetIdCard # DeltaV - Puts them in the correct department category
-    job: Prisoner
 
 - type: entity
   parent: IDCardStandard
@@ -1000,8 +993,6 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Syndicate
-  - type: IdCard
-    jobIcon: JobIconSyndicate
   - type: Item
     heldPrefix: black
   - type: Access

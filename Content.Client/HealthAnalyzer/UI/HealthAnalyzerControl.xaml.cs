@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -36,7 +35,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     private readonly SpriteSystem _spriteSystem;
     private readonly IPrototypeManager _prototypes;
     private readonly IResourceCache _cache;
-    private readonly DamageableSystem _damageable;
 
     private readonly UnborgableSystem _unborgable; // DeltaV
     private readonly RedshirtSystem _redshirt; // DeltaV
@@ -49,8 +47,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     public event Action<TriageStatus>? OnTriageStatusChanged;
     public event Action? OnClaimPatient;
     // End DeltaV - Medical Records
-    public Action? OnPrintMedTekRecord; // DeltaV - MedTek Reports
-
 
     public HealthAnalyzerControl()
     {
@@ -61,7 +57,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         _spriteSystem = _entityManager.System<SpriteSystem>();
         _prototypes = dependencies.Resolve<IPrototypeManager>();
         _cache = dependencies.Resolve<IResourceCache>();
-        _damageable = _entityManager.System<DamageableSystem>();
 
         _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
         _redshirt = _entityManager.System<RedshirtSystem>(); // DeltaV
@@ -86,7 +81,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         StatusBox.Children.Last().RemoveStyleClass("ButtonSquare");
         ClaimButton.OnPressed += _ => OnClaimPatient?.Invoke();
         // End DeltaV - Medical Records
-        PrintReportButton.OnPressed += (_) => OnPrintMedTekRecord?.Invoke(); // DeltaV - MedTek Reports
     }
 
     public void Populate(HealthAnalyzerUiState state)
@@ -112,12 +106,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         ScanModeLabel.FontColorOverride = state.ScanMode.HasValue && state.ScanMode.Value ? Color.Green : Color.Red;
 
-        PrintReportButton.Disabled = state is { ScanMode: false }; // DeltaV
-
         // Patient Information
-        SpriteView.SetEntity(target.Value);
-        SpriteView.Visible = state.ScanMode.HasValue && state.ScanMode.Value;
-        NoDataTex.Visible = !SpriteView.Visible;
 
         var name = new FormattedMessage();
         name.PushColor(Color.White);
@@ -127,9 +116,9 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         NameLabel.SetMessage(name);
 
         SpeciesLabel.Text =
-            _entityManager.TryGetComponent<HumanoidProfileComponent>(target.Value,
-                out var humanoidComponent)
-                ? Loc.GetString(_prototypes.Index(humanoidComponent.Species).Name)
+            _entityManager.TryGetComponent<HumanoidAppearanceComponent>(target.Value,
+                out var humanoidAppearanceComponent)
+                ? Loc.GetString(_prototypes.Index<SpeciesPrototype>(humanoidAppearanceComponent.Species).Name)
                 : Loc.GetString("health-analyzer-window-entity-unknown-species-text");
 
         // Basic Diagnostic
@@ -149,7 +138,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         // Total Damage
 
-        DamageLabel.Text = _damageable.GetTotalDamage(target.Value).ToString();
+        DamageLabel.Text = damageable.TotalDamage.ToString();
 
         // Alerts
         // DeltaV traits - This is going to be horrid if we just keep adding things like this.
@@ -209,11 +198,10 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // Damage Groups
 
         var damageSortedGroups =
-            _damageable.GetDamagePerGroup(target.Value)
-                .OrderByDescending(damage => damage.Value)
+            damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
                 .ToDictionary(x => x.Key, x => x.Value);
 
-        var damagePerType = _damageable.GetAllDamage(target.Value).DamageDict;
+        IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
         DrawDiagnosticGroups(damageSortedGroups, damagePerType);
 
@@ -251,8 +239,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     private void DrawDiagnosticGroups(
-        Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
-        IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
+        Dictionary<string, FixedPoint2> groups,
+        IReadOnlyDictionary<string, FixedPoint2> damageDict)
     {
         GroupsContainer.RemoveAllChildren();
 
@@ -263,7 +251,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
             var groupTitleText = $"{Loc.GetString(
                 "health-analyzer-window-damage-group-text",
-                ("damageGroup", _prototypes.Index(damageGroupId).LocalizedName),
+                ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
                 ("amount", damageAmount)
             )}";
 
@@ -278,7 +266,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             GroupsContainer.AddChild(groupContainer);
 
             // Show the damage for each type in that group.
-            var group = _prototypes.Index(damageGroupId);
+            var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
 
             foreach (var type in group.DamageTypes)
             {

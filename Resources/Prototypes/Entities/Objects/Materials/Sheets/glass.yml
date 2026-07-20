@@ -15,7 +15,6 @@
   - type: Tag
     tags:
     - Sheet
-    - TiderAnvilParts #SL
     - ConstructionMaterial
   - type: Material
   - type: Damageable
@@ -501,7 +500,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: cglass
+    grindableSolutionName: brassglass
   - type: SolutionContainerManager
     solutions:
       cglass:

@@ -13,3 +13,8 @@
   - type: Store
     balance:
       ChangelingDNA: 50
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false

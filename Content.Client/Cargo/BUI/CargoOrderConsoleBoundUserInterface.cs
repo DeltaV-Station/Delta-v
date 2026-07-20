@@ -70,9 +70,9 @@ namespace Content.Client.Cargo.BUI
 
             _menu.OnClose += Close;
 
-            _menu.OnItemSelected += (row) =>
+            _menu.OnItemSelected += (args) =>
             {
-                if (row == null)
+                if (args.Button.Parent is not CargoProductRow row)
                     return;
 
                 description.Clear();
@@ -175,23 +175,23 @@ namespace Content.Client.Cargo.BUI
             return true;
         }
 
-        private void RemoveOrder(CargoOrderData? order)
+        private void RemoveOrder(ButtonEventArgs args)
         {
-            if (order == null)
+            if (args.Button.Parent?.Parent is not CargoOrderRow row || row.Order == null)
                 return;
 
-            SendMessage(new CargoConsoleRemoveOrderMessage(order.OrderId));
+            SendMessage(new CargoConsoleRemoveOrderMessage(row.Order.OrderId));
         }
 
-        private void ApproveOrder(CargoOrderData? order)
+        private void ApproveOrder(ButtonEventArgs args)
         {
-            if (order == null)
+            if (args.Button.Parent?.Parent is not CargoOrderRow row || row.Order == null)
                 return;
 
             if (OrderCount >= OrderCapacity)
                 return;
 
-            SendMessage(new CargoConsoleApproveOrderMessage(order.OrderId));
+            SendMessage(new CargoConsoleApproveOrderMessage(row.Order.OrderId));
         }
     }
 }

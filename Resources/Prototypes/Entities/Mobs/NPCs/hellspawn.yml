@@ -4,7 +4,6 @@
   - BaseSimpleMob
   - MobCombat
   - MobBloodstream
-  - BaseMobAnimal
   id: MobHellspawn
   description: An unstoppable force of carnage.
   components:
@@ -28,6 +27,8 @@
   - type: NpcFactionMember
     factions:
       - SimpleHostile
+  - type: Body
+    prototype: Animal
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: HellSpawn

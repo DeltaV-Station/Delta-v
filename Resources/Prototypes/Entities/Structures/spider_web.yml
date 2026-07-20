@@ -103,14 +103,20 @@
     intersectRatio: 0.2
   - type: Fixtures
     fixtures:
-      fix1:
-        hard: false
-        density: 7
+      slips:
         shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false
         layer:
-        - MidImpassable
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 1000
+        mask:
+        - ItemMask
   - type: Destructible
     thresholds:
     - trigger:

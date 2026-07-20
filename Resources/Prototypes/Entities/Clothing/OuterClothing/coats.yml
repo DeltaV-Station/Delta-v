@@ -302,7 +302,7 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatRD
-  name: mystagogue lab coat # DeltaV - Epistemics Department replacing Science
+  name: research director lab coat
   description: Woven with top of the line technology, this labcoat helps protect against radiation in similar way to the experimental hardsuit.
   components:
   - type: Sprite
@@ -318,7 +318,7 @@
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
   id: ClothingOuterCoatRDOpened
-  name: mystagogue lab coat # DeltaV - Science > Epistemics
+  name: research director lab coat
 
 - type: entity
   parent: ClothingOuterStorageBase

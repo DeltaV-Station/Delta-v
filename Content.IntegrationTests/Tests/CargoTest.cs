@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using Content.IntegrationTests.Fixtures;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Nutrition.Components;
@@ -18,7 +17,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests;
 
 [TestFixture]
-public sealed class CargoTest : GameTest
+public sealed class CargoTest
 {
     private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored =
     [
@@ -31,7 +30,7 @@ public sealed class CargoTest : GameTest
     [Test]
     public async Task NoCargoOrderArbitrage()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var testMap = await pair.CreateTestMap();
@@ -57,11 +56,13 @@ public sealed class CargoTest : GameTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
     [Test]
     public async Task NoCargoBountyArbitrageTest()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var testMap = await pair.CreateTestMap();
@@ -96,44 +97,48 @@ public sealed class CargoTest : GameTest
 
             mapSystem.DeleteMap(mapId);
         });
+
+        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task NoStaticPriceAndStackPrice()
     {
         return; // DeltaV: Disable this stupid test its 100% false positives
-        // var pair = Pair;
-        // var server = pair.Server;
-        //
-        // var protoManager = server.ProtoMan;
-        // var compFact = server.ResolveDependency<IComponentFactory>();
-        //
-        // await server.WaitAssertion(() =>
-        // {
-        //     var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
-        //         .Where(p => !p.Abstract)
-        //         .Where(p => !pair.IsTestPrototype(p))
-        //         .Where(p => p.Components.ContainsKey("StaticPrice"))
-        //         .ToList();
-        //
-        //     foreach (var proto in protoIds)
-        //     {
-        //         // Sanity check
-        //         Assert.That(proto.TryGetComponent<StaticPriceComponent>(out var staticPriceComp, compFact), Is.True);
-        //
-        //         if (proto.TryGetComponent<StackPriceComponent>(out var stackPriceComp, compFact) && stackPriceComp.Price > 0)
-        //         {
-        //             Assert.That(staticPriceComp.Price, Is.EqualTo(0),
-        //                 $"The prototype {proto} has a StackPriceComponent and StaticPriceComponent whose values are not compatible with each other.");
-        //         }
-        //
-        //         if (proto.HasComponent<StackComponent>(compFact))
-        //         {
-        //             Assert.That(staticPriceComp.Price, Is.EqualTo(0),
-        //                 $"The prototype {proto} has a StackComponent and StaticPriceComponent whose values are not compatible with each other.");
-        //         }
-        //     }
-        // });
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+
+        var protoManager = server.ProtoMan;
+        var compFact = server.ResolveDependency<IComponentFactory>();
+
+        await server.WaitAssertion(() =>
+        {
+            var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
+                .Where(p => !p.Abstract)
+                .Where(p => !pair.IsTestPrototype(p))
+                .Where(p => p.Components.ContainsKey("StaticPrice"))
+                .ToList();
+
+            foreach (var proto in protoIds)
+            {
+                // Sanity check
+                Assert.That(proto.TryGetComponent<StaticPriceComponent>(out var staticPriceComp, compFact), Is.True);
+
+                if (proto.TryGetComponent<StackPriceComponent>(out var stackPriceComp, compFact) && stackPriceComp.Price > 0)
+                {
+                    Assert.That(staticPriceComp.Price, Is.EqualTo(0),
+                        $"The prototype {proto} has a StackPriceComponent and StaticPriceComponent whose values are not compatible with each other.");
+                }
+
+                if (proto.HasComponent<StackComponent>(compFact))
+                {
+                    Assert.That(staticPriceComp.Price, Is.EqualTo(0),
+                        $"The prototype {proto} has a StackComponent and StaticPriceComponent whose values are not compatible with each other.");
+                }
+            }
+        });
+
+        await pair.CleanReturnAsync();
     }
 
     /// <summary>
@@ -143,7 +148,7 @@ public sealed class CargoTest : GameTest
     [Test]
     public async Task NoSliceableBountyArbitrageTest()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var testMap = await pair.CreateTestMap();
@@ -208,6 +213,8 @@ public sealed class CargoTest : GameTest
             }
             mapSystem.DeleteMap(mapId);
         });
+
+        await pair.CleanReturnAsync();
     }
 
     [TestPrototypes]
@@ -230,7 +237,7 @@ public sealed class CargoTest : GameTest
     [Test]
     public async Task StackPrice()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         var entManager = server.ResolveDependency<IEntityManager>();
 
@@ -242,12 +249,14 @@ public sealed class CargoTest : GameTest
             var price = priceSystem.GetPrice(ent);
             Assert.That(price, Is.EqualTo(100.0));
         });
+
+        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task MobPrice()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
 
         var componentFactory = pair.Server.ResolveDependency<IComponentFactory>();
 
@@ -261,5 +270,7 @@ public sealed class CargoTest : GameTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 }

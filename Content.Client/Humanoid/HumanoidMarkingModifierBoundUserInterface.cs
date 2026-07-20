@@ -1,4 +1,5 @@
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Humanoid;
@@ -12,8 +13,6 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
     [ViewVariables]
     private HumanoidMarkingModifierWindow? _window;
 
-    private readonly MarkingsViewModel _markingsModel = new();
-
     public HumanoidMarkingModifierBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
@@ -23,11 +22,11 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
         base.Open();
 
         _window = this.CreateWindowCenteredLeft<HumanoidMarkingModifierWindow>();
-        _window.MarkingPickerWidget.SetModel(_markingsModel);
-        _window.RespectLimits.OnPressed += args => _markingsModel.EnforceLimits = args.Button.Pressed;
-        _window.RespectGroupSex.OnPressed += args => _markingsModel.EnforceGroupAndSexRestrictions = args.Button.Pressed;
-
-        _markingsModel.MarkingsChanged += (_, _) => SendMarkingSet();
+        _window.OnMarkingAdded += SendMarkingSet;
+        _window.OnMarkingRemoved += SendMarkingSet;
+        _window.OnMarkingColorChange += SendMarkingSetNoResend;
+        _window.OnMarkingRankChange += SendMarkingSet;
+        _window.OnLayerInfoModified += SendBaseLayer;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -35,16 +34,26 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
         base.UpdateState(state);
 
         if (_window == null || state is not HumanoidMarkingModifierState cast)
+        {
             return;
+        }
 
-        _markingsModel.OrganData = cast.OrganData;
-        _markingsModel.OrganProfileData = cast.OrganProfileData;
-        _markingsModel.Markings = cast.Markings;
+        _window.SetState(cast.MarkingSet, cast.Species, cast.Sex, cast.SkinColor, cast.CustomBaseLayers);
     }
 
-    private void SendMarkingSet()
+    private void SendMarkingSet(MarkingSet set)
     {
-        SendMessage(new HumanoidMarkingModifierMarkingSetMessage(_markingsModel.Markings));
+        SendMessage(new HumanoidMarkingModifierMarkingSetMessage(set, true));
+    }
+
+    private void SendMarkingSetNoResend(MarkingSet set)
+    {
+        SendMessage(new HumanoidMarkingModifierMarkingSetMessage(set, false));
+    }
+
+    private void SendBaseLayer(HumanoidVisualLayers layer, CustomBaseLayerInfo? info)
+    {
+        SendMessage(new HumanoidMarkingModifierBaseLayersSetMessage(layer, info, true));
     }
 }
 

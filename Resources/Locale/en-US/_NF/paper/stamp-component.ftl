@@ -1,1 +1,0 @@
-stamp-component-stamped-name-doctor = Medical Doctor

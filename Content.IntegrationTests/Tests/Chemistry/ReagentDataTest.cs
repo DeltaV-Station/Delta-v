@@ -1,4 +1,3 @@
-using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Reflection;
@@ -9,13 +8,12 @@ namespace Content.IntegrationTests.Tests.Chemistry;
 
 [TestFixture]
 [TestOf(typeof(ReagentData))]
-public sealed class ReagentDataTest : GameTest
+public sealed class ReagentDataTest : InteractionTest
 {
     [Test]
     public void ReagentDataIsSerializable()
     {
-        var pair = Pair;
-        var reflection = pair.Server.ResolveDependency<IReflectionManager>();
+        var reflection = Pair.Server.ResolveDependency<IReflectionManager>();
 
         Assert.Multiple(() =>
         {

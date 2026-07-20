@@ -12,7 +12,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
-    priority: 4 # DeltaV - Give mobs nightvision (makes it appear last in the action tab)
+    priority: -20
     useDelay: 1
     icon:
       sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi

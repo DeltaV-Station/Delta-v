@@ -4,8 +4,9 @@ using Robust.Shared.Configuration;
 using Content.Shared._DV.CCVars;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.GameTicking;
+using Content.Server.CartridgeLoader.Cartridges;
 
-namespace Content.Server.Nyanotrasen.Psionics.Glimmer
+namespace Content.Server.Psionics.Glimmer
 {
     /// <summary>
     /// Handles the passive reduction of glimmer.
@@ -16,6 +17,7 @@ namespace Content.Server.Nyanotrasen.Psionics.Glimmer
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly GlimmerMonitorCartridgeSystem _cartridgeSys = default!;
 
         /// List of glimmer values spaced by minute.
         public List<int> GlimmerValues = new();

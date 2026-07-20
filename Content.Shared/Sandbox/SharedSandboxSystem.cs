@@ -1,4 +1,4 @@
-using Robust.Shared.Prototypes;
+﻿using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Sandbox
@@ -24,8 +24,5 @@ namespace Content.Shared.Sandbox
 
         [Serializable, NetSerializable]
         protected sealed class MsgSandboxSuicide : EntityEventArgs {}
-
-        [Serializable, NetSerializable]
-        protected sealed class MsgSandboxThermalVision : EntityEventArgs {}
     }
 }

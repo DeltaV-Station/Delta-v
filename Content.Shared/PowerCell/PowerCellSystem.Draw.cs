@@ -11,21 +11,14 @@ public sealed partial class PowerCellSystem
     [PublicAPI]
     public void SetDrawEnabled(Entity<PowerCellDrawComponent?> ent, bool enabled)
     {
-        if (Resolve(ent, ref ent.Comp, false) && ent.Comp.Enabled != enabled)
-        {
-            ent.Comp.Enabled = enabled;
-            Dirty(ent, ent.Comp);
-        }
+        if (!Resolve(ent, ref ent.Comp, false) || ent.Comp.Enabled == enabled)
+            return;
 
-        // BEGIN DeltaV - Allow PowerDraw to prevent recharge
-        if (TryGetBatteryFromSlot(ent.Owner, out var battery) && battery is { } existingBattery)
-        {
-            _battery.RefreshChargeRate(existingBattery.AsNullable());
+        ent.Comp.Enabled = enabled;
+        Dirty(ent, ent.Comp);
 
-            if (ent.Comp != null && ent.Comp.PauseRecharging)
-                _battery.TrySetChargeCooldown(existingBattery.Owner);
-        }
-        // END DeltaV
+        if (TryGetBatteryFromSlot(ent.Owner, out var battery))
+            _battery.RefreshChargeRate(battery.Value.AsNullable());
     }
 
 

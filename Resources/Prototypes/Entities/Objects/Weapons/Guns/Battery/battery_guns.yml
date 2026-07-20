@@ -441,14 +441,6 @@
     startingCharge: 4000 # DeltaV -  was 40000
   - type: BatterySelfRecharger
     autoRechargeRate: 10
-  - type: EnergyGun
-    fireModes:
-    - proto: PulseRiflePlasmaProjectile
-      fireCost: 100
-      name: Plasma
-    - proto: Pulse
-      fireCost: 100
-      name: Pulse
   # End DeltaV modifications
 
 - type: entity
@@ -871,9 +863,10 @@
     price: 100
 
 - type: entity
+  name: experimental C.H.I.M.P. handcannon
   parent: [WeaponPistolCHIMP, BaseSyndicateContraband]
   id: WeaponPistolCHIMPUpgraded
-  suffix: Syndicate
+  description: This C.H.I.M.P. seems to have a greater punch than usual...
   components:
   - type: BatteryWeaponFireModes
     fireModes:
@@ -1062,14 +1055,6 @@
   parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: WeaponLaserGunXenoborg
   name: xenoborg laser gun
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/xenoborg_laser_gun.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-unshaded-4
-      map: [ "enum.GunVisualLayers.MagUnshaded" ]
 
 - type: entity
   parent: [WeaponLaserCannon, BaseXenoborgContraband]

@@ -26,7 +26,7 @@ public sealed partial class CluwneComponent : Component
     {
         DamageDict = new()
         {
-            { "Cellular", 300.0 },
+            { "Genetic", 300.0 },
         },
     };
 

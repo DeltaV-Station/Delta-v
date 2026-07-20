@@ -7,13 +7,12 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Collections.Generic;
 using System.Linq;
-using Content.IntegrationTests.Fixtures;
 
 namespace Content.IntegrationTests.Tests.Fluids;
 
 [TestFixture]
 [TestOf(typeof(AbsorbentComponent))]
-public sealed class AbsorbentTest : GameTest
+public sealed class AbsorbentTest
 {
     private const string UserDummyId = "UserDummy";
     private const string AbsorbentDummyId = "AbsorbentDummy";
@@ -74,7 +73,7 @@ public sealed class AbsorbentTest : GameTest
     [TestCaseSource(nameof(TestCasesToRun))]
     public async Task AbsorbentOnRefillableTest(TestSolutionCase testCase)
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var testMap = await pair.CreateTestMap();
@@ -124,12 +123,15 @@ public sealed class AbsorbentTest : GameTest
                 Assert.That(VolumeOfPrototypeInComposition(refillableComposition, NonEvaporablePrototypeId), Is.EqualTo(testCase.ExpectedRefillableSolution.VolumeOfNonEvaporable));
             });
         });
+        await pair.RunTicksSync(5);
+
+        await pair.CleanReturnAsync();
     }
 
     [TestCaseSource(nameof(TestCasesToRunOnSmallRefillable))]
     public async Task AbsorbentOnSmallRefillableTest(TestSolutionCase testCase)
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var testMap = await pair.CreateTestMap();
@@ -178,6 +180,9 @@ public sealed class AbsorbentTest : GameTest
                 Assert.That(VolumeOfPrototypeInComposition(refillableComposition, NonEvaporablePrototypeId), Is.EqualTo(testCase.ExpectedRefillableSolution.VolumeOfNonEvaporable));
             });
         });
+        await pair.RunTicksSync(5);
+
+        await pair.CleanReturnAsync();
     }
 
     private static FixedPoint2 VolumeOfPrototypeInComposition(Dictionary<string, FixedPoint2> composition, string prototypeId)

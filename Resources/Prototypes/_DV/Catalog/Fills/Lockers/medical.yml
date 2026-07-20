@@ -11,7 +11,6 @@
     - id: ClothingUniformJumpskirtPsychologist
     - id: DrinkWhiskeyBottleFull
     - id: ClothingHeadsetMedical
-    - id: PrescriptionFolder
 
 - type: entity
   parent: LockerPsychologist
@@ -97,8 +96,6 @@
       tableId: SurgeonSanitzation
     - !type:NestedSelector
       tableId: SurgeonGloves
-    - id: RubberStampDoctor
-    - id: PrescriptionFolder
     - id: ClothingHeadsetMedical
     - id: ClothingEyesHudMedical
     - id: ClothingBackpackDuffelSurgeryFilled
@@ -129,12 +126,6 @@
   id: SurgeryCapsDeltaV
   table: !type:GroupSelector
     children:
-    - id: ClothingHeadHatSurgcapGreen
-      weight: 0.1
-    - id: ClothingHeadHatSurgcapPurple
-      weight: 0.05
-    - id: ClothingHeadHatSurgcapBlue
-      weight: 0.11
     - id: ClothingHeadHatSurgcapCyan
       weight: 0.13
     - id: ClothingHeadHatSurgcapBlack
@@ -152,12 +143,6 @@
   id: ScrubsDeltaV
   table: !type:GroupSelector
     children:
-    - id: UniformScrubsColorBlue
-      weight: 0.13
-    - id: UniformScrubsColorGreen
-      weight: 0.13
-    - id: UniformScrubsColorPurple
-      weight: 0.05
     - id: UniformScrubsColorCyan
       weight: 0.13
     - id: UniformScrubsColorBlack
@@ -175,8 +160,6 @@
   id: LockerFillMedicalDoctorDeltaV
   table: !type:AllSelector
     children:
-    - id: RubberStampDoctor
-    - id: PrescriptionFolder
     - id: NitrousOxideTankFilled
       prob: 0.3
     - id: LunchboxMedicalFilledRandom
@@ -186,8 +169,6 @@
   id: LockerFillParamedicDeltaV
   table: !type:AllSelector
     children:
-    - id: RubberStampDoctor
-    - id: PrescriptionFolder
     - id: ClothingShoesBootsWinterParamedic
     - id: BoxBodyBag
     - id: EmergencyRollerBedSpawnFolded
@@ -201,8 +182,6 @@
   table: !type:AllSelector
     children:
     - id: Skimmer
-    - id: PrescriptionFolder
-    - id: RubberStampChemist
 
 - type: entity
   parent: LockerParamedic

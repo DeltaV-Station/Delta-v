@@ -58,7 +58,6 @@ public sealed class FakeMindShieldSystem : EntitySystem
                 continue;
 
             component.IsEnabled = args.ChameleonOutfit.HasMindShield;
-            _actions.SetToggled(action, args.ChameleonOutfit.HasMindShield);
             Dirty(uid, component);
 
             if (actionComp.UseDelay != null)

@@ -16,7 +16,6 @@
       lastVisibility: 0.1
   - type: PowerCellDraw
     drawRate: 3.6 # 100 seconds
-    pauseRecharging: true # DeltaV - Pause recharge while draining
   - type: ToggleCellDraw
   - type: PowerCellSlot
     cellSlotId: cell_slot
@@ -45,4 +44,3 @@
       lastVisibility: -1
   - type: PowerCellDraw
     drawRate: 12 # 30 seconds
-    pauseRecharging: true # DeltaV - Pause recharge while draining

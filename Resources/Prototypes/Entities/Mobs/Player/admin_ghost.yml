@@ -111,11 +111,11 @@
   # End CD - Character Records
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: NTNet # DeltaV - NTNet
+    receiveFrequencyId: CrewMonitor
     transmitFrequencyId: ShuttleTimer
   - type: WirelessNetworkConnection
-    range: 10000 # DeltaV
-  #- type: StationLimitedNetwork # DeltaV - Off-station coordinates 
+    range: 500
+  - type: StationLimitedNetwork
   - type: Thieving
     stripTimeReduction: 9999
     stealthy: true

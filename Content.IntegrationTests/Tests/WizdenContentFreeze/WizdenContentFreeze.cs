@@ -1,4 +1,3 @@
-using Content.IntegrationTests.Fixtures;
 using Content.Shared.Kitchen;
 
 namespace Content.IntegrationTests.Tests.WizdenContentFreeze;
@@ -6,7 +5,7 @@ namespace Content.IntegrationTests.Tests.WizdenContentFreeze;
 /// <summary>
 /// These tests are limited to adding a specific type of content, essentially freezing it. If you are a fork developer, you may want to disable these tests.
 /// </summary>
-public sealed class WizdenContentFreeze : GameTest
+public sealed class WizdenContentFreeze
 {
     /// <summary>
     /// This freeze prohibits the addition of new microwave recipes.
@@ -19,13 +18,13 @@ public sealed class WizdenContentFreeze : GameTest
     [Test]
     public async Task MicrowaveRecipesFreezeTest()
     {
-        var pair = Pair;
+        await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
 
         var protoMan = server.ProtoMan;
 
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 266; // DeltaV - was 218
+        var recipesLimit = 269; // DeltaV - was 218
 
         if (recipesCount > recipesLimit)
         {
@@ -36,5 +35,7 @@ public sealed class WizdenContentFreeze : GameTest
         {
             Assert.Fail($"Oh, you deleted the microwave recipes? YOU ARE SO COOL! Please lower the number of recipes in MicrowaveRecipesFreezeTest from {recipesLimit} to {recipesCount} so that future contributors cannot add new recipes back.");
         }
+
+        await pair.CleanReturnAsync();
     }
 }

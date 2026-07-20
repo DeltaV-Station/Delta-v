@@ -200,6 +200,9 @@
     range: 2.75
     energyConsumption: 50000
     disableDuration: 10
+    damage: # DeltaV - EMP damage
+      types:
+        Ion: 80 # Would take 2 charges if you want to actually kill with it
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -225,7 +228,7 @@
     implantAction: ActionActivateDnaScramblerImplant
     whitelist:
       components:
-      - HumanoidProfile # syndies cant turn hamlet into a human
+      - HumanoidAppearance # syndies cant turn hamlet into a human
   - type: TriggerOnActivateImplant
   - type: DnaScrambleOnTrigger
     targetUser: true
@@ -251,15 +254,14 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: VoiceMaskImplant
-  name: identity mask implant
-  description: This implant allows you to change your identity at will.
+  name: voice mask implant
+  description: This implant allows you to change your voice at will.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
     implantAction: ActionChangeVoiceMaskImplant
   - type: VoiceMask
     overrideIdentity: true
-    changeIDName: true
   - type: UserInterface
     interfaces:
       enum.VoiceMaskUIKey.Key:

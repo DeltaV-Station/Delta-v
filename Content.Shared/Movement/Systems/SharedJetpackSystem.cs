@@ -183,14 +183,6 @@ public abstract partial class SharedJetpackSystem : EntitySystem // DeltaV - Mad
 
         if (enabled)
         {
-            // If the user is already using another jetpack, disable it first
-            if (TryComp<JetpackUserComponent>(user, out var userComp) &&
-                userComp.Jetpack != uid &&
-                TryComp<JetpackComponent>(userComp.Jetpack, out var oldJetpack))
-            {
-                SetEnabled(userComp.Jetpack, oldJetpack, false, user);
-            }
-
             SetupUser(user.Value, uid, component);
             EnsureComp<ActiveJetpackComponent>(uid);
         }

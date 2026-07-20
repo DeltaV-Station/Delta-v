@@ -1,6 +1,5 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
@@ -14,8 +13,6 @@ namespace Content.Shared.GhostTypes;
 public sealed class StoreDamageTakenOnMindSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<StoreDamageTakenOnMindComponent, DestructionEventArgs>(SaveBodyOnGib);
@@ -60,7 +57,7 @@ public sealed class StoreDamageTakenOnMindSystem : EntitySystem
         EnsureComp<LastBodyDamageComponent>(mindContainer.Mind.Value, out var storedDamage);
 
         var protoDict = new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>();
-        foreach (var stringDict in _damageable.GetDamagePerGroup((ent, damageable)))  // Translates the strings into ProtoId's before saving the Dictionary
+        foreach (var stringDict in damageable.DamagePerGroup)  // Translates the strings into ProtoId's before saving the Dictionary
         {
             if (!_proto.TryIndex(stringDict.Key, out DamageGroupPrototype? proto))
                 continue;
@@ -68,7 +65,7 @@ public sealed class StoreDamageTakenOnMindSystem : EntitySystem
         }
 
         storedDamage.DamagePerGroup = protoDict;
-        storedDamage.Damage = _damageable.GetAllDamage((ent, damageable));
+        storedDamage.Damage = damageable.Damage;
         Dirty(mindContainer.Mind.Value, storedDamage);
     }
 

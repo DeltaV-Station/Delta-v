@@ -13,7 +13,7 @@
   color: "#FFBF00"
   physicalDesc: reagent-physical-desc-refreshing
   metabolisms:
-    Digestion:
+    Drink:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectShieldedFromPsionics
@@ -31,7 +31,7 @@
   color: "#FFBF00"
   physicalDesc: reagent-physical-desc-thick
   metabolisms:
-    Bloodstream:
+    Narcotic:
       effects:
       - !type:Jitter
       - !type:MovementSpeedModifier

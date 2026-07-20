@@ -34,10 +34,7 @@ namespace Content.Client.Cargo.UI
 
             foreach (var order in orders)
             {
-                 if (!protoManager.Resolve(order.Product, out var productProto))
-                     continue;
-
-                 var product = protoManager.Index<EntityPrototype>(productProto.Product);
+                 var product = protoManager.Index<EntityPrototype>(order.ProductId);
                  var productName = product.Name;
                  var account = protoManager.Index(order.Account);
 

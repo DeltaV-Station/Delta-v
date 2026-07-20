@@ -120,8 +120,6 @@
   - type: GuideHelp
     guides:
     - Cryogenics
-  - type: CrawlableNode # DeltaV - node crawling
-    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - type: entity
   parent: BaseStructure

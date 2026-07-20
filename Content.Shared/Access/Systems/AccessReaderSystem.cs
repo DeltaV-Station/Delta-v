@@ -23,8 +23,6 @@ using Robust.Shared.Timing;
 using Content.Shared._DV.Access.Systems;
 using Content.Shared._DV.Access.Components;
 using Content.Shared.Mind; // DeltaV - Subdermal ID Cards
-using Content.Shared.Ninja.Components; // DeltaV
-using Content.Shared.Revenant.Components; // DeltaV
 
 namespace Content.Shared.Access.Systems;
 
@@ -33,6 +31,7 @@ public sealed class AccessReaderSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedGameTicker _gameTicker = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
@@ -152,7 +151,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
     {
-        if (HasComp<SpaceNinjaComponent>(args.UserUid) || HasComp<RevenantComponent>(args.UserUid)) // DeltaV - Don't break access if its a ninja doing it
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)) // DeltaV - emag for lockers etc instead of doorjack
             return;
 
         if (!reader.BreakOnAccessBreaker)

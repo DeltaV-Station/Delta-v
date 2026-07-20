@@ -4,7 +4,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: terrible
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:Emote
         emote: Cough
@@ -47,7 +47,7 @@
   flavor: sour
   color: "#B4FF64"
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:
@@ -73,7 +73,7 @@
   flavor: sour
   color: "#FFFC69"
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:
@@ -99,7 +99,7 @@
   flavor: sour
   color: "#FFD644"
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:

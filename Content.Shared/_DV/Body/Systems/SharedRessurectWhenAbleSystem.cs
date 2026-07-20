@@ -1,6 +1,5 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Timing;
@@ -12,7 +11,6 @@ public sealed partial class SharedResurrectWhenAbleSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -42,8 +40,7 @@ public sealed partial class SharedResurrectWhenAbleSystem : EntitySystem
                 continue;
 
             // We're dead, and must stay dead.
-            var dmg = _damageableSystem.GetPositiveDamage((uid,damageable));
-            if (dmg.GetTotal() >= threshold)
+            if (damageable.TotalDamage >= threshold)
             {
                 comp.ResurrectAt = null;
                 continue;

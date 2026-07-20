@@ -1,4 +1,4 @@
-using Content.Shared.Metabolism;
+using Content.Shared.Body.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Feroxi;

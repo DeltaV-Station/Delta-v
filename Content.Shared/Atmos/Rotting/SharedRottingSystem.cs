@@ -25,6 +25,7 @@ public abstract class SharedRottingSystem : EntitySystem
         SubscribeLocalEvent<PerishableComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PerishableComponent, ExaminedEvent>(OnPerishableExamined);
 
+        SubscribeLocalEvent<RottingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RottingComponent, MobStateChangedEvent>(OnRottingMobStateChanged);
         SubscribeLocalEvent<RottingComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<RottingComponent, ExaminedEvent>(OnExamined);
@@ -60,6 +61,14 @@ public abstract class SharedRottingSystem : EntitySystem
         var isMob = HasComp<MobStateComponent>(perishable);
         var description = "perishable-" + stage + (!isMob ? "-nonmob" : string.Empty);
         args.PushMarkup(Loc.GetString(description, ("target", Identity.Entity(perishable, EntityManager))));
+    }
+
+    private void OnShutdown(Entity<RottingComponent> ent, ref ComponentShutdown args)
+    {
+        if (TryComp<PerishableComponent>(ent, out var perishable))
+        {
+            perishable.RotNextUpdate = TimeSpan.Zero;
+        }
     }
 
     private void OnRottingMobStateChanged(EntityUid uid, RottingComponent component, MobStateChangedEvent args)

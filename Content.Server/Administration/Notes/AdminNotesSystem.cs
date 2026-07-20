@@ -59,14 +59,11 @@ public sealed class AdminNotesSystem : EntitySystem
         if (note.NoteType != NoteType.Watchlist)
             return;
 
-        foreach (var player in note.Players)
-        {
-            var notes = _connectedPlayerWatchlists.GetOrNew(player);
-            notes.Add(note);
+        var notes = _connectedPlayerWatchlists.GetOrNew(note.Player);
+        notes.Add(note);
 
-            if (_playerManager.TryGetSessionById(player, out var session))
-                _admin.UpdatePlayerList(session);
-        }
+        if (_playerManager.TryGetSessionById(note.Player, out var session))
+            _admin.UpdatePlayerList(session);
     }
 
     private void OnNoteModified(SharedAdminNote note)
@@ -74,15 +71,12 @@ public sealed class AdminNotesSystem : EntitySystem
         if (note.NoteType != NoteType.Watchlist)
             return;
 
-        foreach (var player in note.Players)
-        {
-            var modifiedIndex = _connectedPlayerWatchlists[player].FindIndex(n => n.Id == note.Id);
-            if (modifiedIndex != -1)
-                _connectedPlayerWatchlists[player][modifiedIndex] = note;
+        var modifiedIndex = _connectedPlayerWatchlists[note.Player].FindIndex(n => n.Id == note.Id);
+        if (modifiedIndex != -1)
+            _connectedPlayerWatchlists[note.Player][modifiedIndex] = note;
 
-            if (_playerManager.TryGetSessionById(player, out var session))
-                _admin.UpdatePlayerList(session);
-        }
+        if (_playerManager.TryGetSessionById(note.Player, out var session))
+            _admin.UpdatePlayerList(session);
     }
 
     private void OnNoteDeleted(SharedAdminNote note)
@@ -90,18 +84,15 @@ public sealed class AdminNotesSystem : EntitySystem
         if (note.NoteType != NoteType.Watchlist)
             return;
 
-        foreach (var player in note.Players)
-        {
-            var deletedIndex = _connectedPlayerWatchlists[player].FindIndex(n => n.Id == note.Id);
-            if (deletedIndex != -1)
-                _connectedPlayerWatchlists[player].RemoveAt(deletedIndex);
+        var deletedIndex = _connectedPlayerWatchlists[note.Player].FindIndex(n => n.Id == note.Id);
+        if (deletedIndex != -1)
+            _connectedPlayerWatchlists[note.Player].RemoveAt(deletedIndex);
 
-            if (_connectedPlayerWatchlists[player].Count == 0)
-                _connectedPlayerWatchlists.Remove(player);
+        if (_connectedPlayerWatchlists[note.Player].Count == 0)
+            _connectedPlayerWatchlists.Remove(note.Player);
 
-            if (_playerManager.TryGetSessionById(player, out var session))
-                _admin.UpdatePlayerList(session);
-        }
+        if (_playerManager.TryGetSessionById(note.Player, out var session))
+            _admin.UpdatePlayerList(session);
     }
     // DeltaV - track watchlist changes END
 

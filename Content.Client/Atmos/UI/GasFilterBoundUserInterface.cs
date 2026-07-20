@@ -37,9 +37,10 @@ namespace Content.Client.Atmos.UI
             _window.SelectGasPressed += OnSelectGasPressed;
         }
 
-        private void OnToggleStatusButtonPressed(bool status)
+        private void OnToggleStatusButtonPressed()
         {
-            SendMessage(new GasFilterToggleStatusMessage(status));
+            if (_window is null) return;
+            SendMessage(new GasFilterToggleStatusMessage(_window.FilterStatus));
         }
 
         private void OnFilterTransferRatePressed(string value)

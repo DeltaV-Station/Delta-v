@@ -77,9 +77,10 @@
     tags:
       - CannotSuicide
       - DoorBumpOpener
-  - type: DVInnateTools
-    tools: !type:AllSelector
-      children:
+  - type: Body
+    prototype: Human # For two hands.
+  - type: InnateTool
+    tools:
       - id: WelderIfrit
       - id: WelderIfrit
   - type: Hands

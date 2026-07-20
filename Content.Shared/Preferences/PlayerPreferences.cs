@@ -14,11 +14,11 @@ namespace Content.Shared.Preferences
     [NetSerializable]
     public sealed class PlayerPreferences
     {
-        private Dictionary<int, HumanoidCharacterProfile> _characters;
+        private Dictionary<int, ICharacterProfile> _characters;
 
-        public PlayerPreferences(IEnumerable<KeyValuePair<int, HumanoidCharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, List<ProtoId<ConstructionPrototype>> constructionFavorites)
+        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, List<ProtoId<ConstructionPrototype>> constructionFavorites)
         {
-            _characters = new Dictionary<int, HumanoidCharacterProfile>(characters);
+            _characters = new Dictionary<int, ICharacterProfile>(characters);
             SelectedCharacterIndex = selectedCharacterIndex;
             AdminOOCColor = adminOOCColor;
             ConstructionFavorites = constructionFavorites;
@@ -27,9 +27,9 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     All player characters.
         /// </summary>
-        public IReadOnlyDictionary<int, HumanoidCharacterProfile> Characters => _characters;
+        public IReadOnlyDictionary<int, ICharacterProfile> Characters => _characters;
 
-        public HumanoidCharacterProfile GetProfile(int index)
+        public ICharacterProfile GetProfile(int index)
         {
             return _characters[index];
         }
@@ -42,7 +42,7 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public HumanoidCharacterProfile SelectedCharacter
+        public ICharacterProfile SelectedCharacter
         { // Start DeltaV - Prevent spawning as hidden speceis (At all costs)
             get
             {
@@ -76,12 +76,12 @@ namespace Content.Shared.Preferences
         /// </summary>
         public List<ProtoId<ConstructionPrototype>> ConstructionFavorites { get; set; } = [];
 
-        public int IndexOfCharacter(HumanoidCharacterProfile profile)
+        public int IndexOfCharacter(ICharacterProfile profile)
         {
             return _characters.FirstOrNull(p => p.Value == profile)?.Key ?? -1;
         }
 
-        public bool TryIndexOfCharacter(HumanoidCharacterProfile profile, out int index)
+        public bool TryIndexOfCharacter(ICharacterProfile profile, out int index)
         {
             return (index = IndexOfCharacter(profile)) != -1;
         }

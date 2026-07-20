@@ -360,7 +360,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockResearchDirectorLocked
-  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: ResearchDirector, Locked
   components:
   - type: ContainerFill
     containers:
@@ -776,7 +776,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockResearchDirectorGlassLocked
-  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
+  suffix: ResearchDirector, Locked
   components:
   - type: ContainerFill
     containers:
@@ -951,8 +951,9 @@
     sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi # DeltaV - Changed to our sprites
 
 - type: entity
-  parent: AirlockChapelLocked # DeltaV - Chapel is in Epistemics
+  parent: AirlockMaintRnDLocked # DeltaV - Chapel is in Epistemics
   id: AirlockMaintChapelLocked
+  suffix: Chapel, Locked
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi # DeltaV - Changed to our sprites

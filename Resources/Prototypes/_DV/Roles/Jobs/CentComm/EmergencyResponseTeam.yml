@@ -130,6 +130,7 @@
     - CableApcStack
     - SheetPlasteel
     - SheetSteel
+    belt:
     - RCDRecharging
 
 - type: startingGear
@@ -163,6 +164,7 @@
     - SheetPlasteel
     - SheetSteel
     - WeaponAdvancedLaser
+    belt:
     - RCDCombat
 
 # Security
@@ -345,19 +347,17 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquadFilledBase
     shoes: ClothingShoesBootsERTMagboots
-    head: ClothingHeadHatBeretSRT
+    head: ClothingHeadHatBeretCommand
     eyes: ClothingEyesERTInformationHud
     gloves: ClothingHandsGlovesCombat
     mask: ClothingMaskGasDeathSquad
     outerClothing: ClothingOuterHardsuitSRT
     suitstorage: JetpackBlackFilled
-    id: SRTPDA
+    id: DeathsquadPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERTMedicine
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: DoubleEmergencyNitrogenTankFilled
-  inhand:
-  - BoxMRE
+    pocket2: WeaponRevolverMateba
 
 - type: startingGear
   id: SRTOfficerBlack
@@ -370,31 +370,3 @@
   parent: SRTOfficerBase
   equipment:
     back: ClothingBackpackDeathSquadFilledEpsilon
-
-- type: startingGear
-  id: SRTOfficerHeavy
-  parent: SRTOfficerBase
-  equipment:
-    back:  ClothingBackpackPlasmaBattery
-  inhand:
-  - WeaponPlasmaBackpack
-
-
-- type: job
-  id: SRTAgent
-  name: job-name-srtagent
-  description: job-description-srtagent
-  playTimeTracker: JobSRTAgent
-  setPreference: false
-  startingGear: SRTOfficerBase
-  icon: "JobIconDeathSquad"
-  supervisors: job-supervisors-centcom
-  canBeAntag: false
-  access:
-  - CentralCommand
-  - ERT
-  accessGroups:
-  - AllAccess
-  special:
-  - !type:AddImplantSpecial
-    implants: [ CentCommImplant, DeathRattleImplantCentcomm, BluespaceLifelineImplant]

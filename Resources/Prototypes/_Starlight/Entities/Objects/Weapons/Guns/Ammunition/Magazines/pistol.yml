@@ -22,10 +22,9 @@
   - type: Tag
     tags:
       - MagazinePistolImprovised
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ImprovisedPistolMagazineGraph
-  #  node: shell
+  - type: Construction
+    graph: ImprovisedPistolMagazineGraph
+    node: shell
 
 - type: entity
   id: MagazinePistolSubMachineGunImprovised
@@ -52,7 +51,6 @@
   - type: Tag
     tags:
       - MagazineSMGImprovised
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ImprovisedMagazinePistolSubMachineGunGraph
-  #  node: shell
+  - type: Construction
+    graph: ImprovisedMagazinePistolSubMachineGunGraph
+    node: shell

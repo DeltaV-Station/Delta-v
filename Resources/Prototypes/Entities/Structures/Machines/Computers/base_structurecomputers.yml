@@ -17,11 +17,7 @@
       - board
   - type: Computer
   - type: ApcPowerReceiver
-    powerLoad: 50
-  - type: PowerState
-    idlePowerDraw: 50
-    workingPowerDraw: 500
-  - type: UIPowerState
+    powerLoad: 200
   - type: ExtensionCableReceiver
   - type: ActivatableUIRequiresPower
   - type: Sprite
@@ -96,7 +92,6 @@
 #    interfaces:
 #      enum.WiresUiKey.Key:
 #        type: WiresBoundUserInterface
-  - type: TooShortForUIBlacklist #imp
 
 - type: entity
   parent: BaseComputer

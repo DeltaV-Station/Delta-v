@@ -127,16 +127,18 @@ public sealed class TippyUIController : UIController
                 if (!_queuedMessages.TryDequeue(out var next))
                     return;
 
-                _entity = next.Proto is null
-                    ? EntityManager.SpawnEntity(_cfg.GetCVar(CCVars.TippyEntity), MapCoordinates.Nullspace)
-                    : EntityManager.SpawnEntity(next.Proto, MapCoordinates.Nullspace);
-
+                if (next.Proto != null)
+                {
+                    _entity = EntityManager.SpawnEntity(next.Proto, MapCoordinates.Nullspace);
+                    tippy.ModifyLayers = false;
+                }
+                else
+                {
+                    _entity = EntityManager.SpawnEntity(_cfg.GetCVar(CCVars.TippyEntity), MapCoordinates.Nullspace);
+                    tippy.ModifyLayers = true;
+                }
                 if (!EntityManager.TryGetComponent(_entity, out sprite))
                     return;
-                // Only modify layers if they have all of the required ones.
-                tippy.ModifyLayers = _sprite.TryGetLayer(_entity, "revealing", out _, false) &&
-                                     _sprite.TryGetLayer(_entity, "speaking", out _, false) &&
-                                     _sprite.TryGetLayer(_entity, "hiding", out _, false);
                 if (!EntityManager.HasComponent<PaperVisualsComponent>(_entity))
                 {
                     var paper = EntityManager.AddComponent<PaperVisualsComponent>(_entity);

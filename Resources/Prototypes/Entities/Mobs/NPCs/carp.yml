@@ -90,8 +90,6 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-    - type: NightVision #DeltaV - Added nightvision to animals
-      color: "#808080"
 
 - type: entity
   parent: BaseMobCarp
@@ -222,7 +220,7 @@
 
 - type: entity
   name: sharkminnow
-  parent: [ BaseMobBloodsucker, BaseMobCarp ]
+  parent: BaseMobCarp
   id: MobShark
   description: A dangerous shark from the blackness of endless space, who loves to drink blood.
   components:
@@ -259,6 +257,9 @@
         Dead:
           Base: dead
           BaseUnshaded: dead_mouth
+    - type: Body
+      prototype: Bloodsucker
+      requiredLegs: 1
     - type: Butcherable
       spawned:
         - id: FoodMeatFish

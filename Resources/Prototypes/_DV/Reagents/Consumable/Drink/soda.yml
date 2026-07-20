@@ -7,7 +7,7 @@
   flavor: drgibbbloodred
   color: "#570303"
   metabolisms:
-    Digestion:
+    Drink:
       effects:
       - !type:SatiateThirst
         factor: 2.0
@@ -15,6 +15,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Human ]
           inverted: true
-      - !type:AdjustReagent
-        reagent: UncookedAnimalProteins
-        amount: 0.05
+    Food:
+      effects:
+        - !type:AdjustReagent
+          reagent: UncookedAnimalProteins
+          amount: 0.05

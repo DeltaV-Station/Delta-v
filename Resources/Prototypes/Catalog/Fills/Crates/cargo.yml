@@ -8,12 +8,8 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ClothingOuterHardsuitLuxury
-        - id: ClothingMaskBreath
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
+      entity_storage:
+        id: ClothingOuterHardsuitLuxury
 
 - type: entity
   parent: CrateGenericSteel

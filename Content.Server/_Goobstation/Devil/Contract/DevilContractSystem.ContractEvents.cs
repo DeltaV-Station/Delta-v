@@ -8,21 +8,20 @@
 
 using System.Linq;
 using Content.Shared._Goobstation.Devil;
-using Content.Shared.Body; // Delta V - Nubody
+using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
-using Robust.Shared.Containers; // Delta V - Nubody
+using Content.Shared.Body.Part;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Devil.Contract;
 
 public sealed partial class DevilContractSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-
     private void InitializeSpecialActions()
     {
         SubscribeLocalEvent<DevilContractSoulOwnershipEvent>(OnSoulOwnership);
-        SubscribeLocalEvent<DevilContractLoseHandEvent>(OnLoseHand);
+        // SubscribeLocalEvent<DevilContractLoseHandEvent>(OnLoseHand); // Delta V - Comment out for ShitMed Removal
+        // SubscribeLocalEvent<DevilContractLoseLegEvent>(OnLoseLeg); // Delta V - Comment out for ShitMed Removal
         SubscribeLocalEvent<DevilContractLoseOrganEvent>(OnLoseOrgan);
         SubscribeLocalEvent<DevilContractChanceEvent>(OnChance);
     }
@@ -34,29 +33,59 @@ public sealed partial class DevilContractSystem
         TryTransferSouls(contractOwner, args.Target, 1);
     }
 
-    private void OnLoseHand(DevilContractLoseHandEvent args)
-    {
-        if (_hands.GetHandCount(args.Target) <= 0)
-            return;
+    // Delta V - ShitMed Removal, Prep for Nubody
+    // private void OnLoseHand(DevilContractLoseHandEvent args)
+    // {
+    //     if (!TryComp<BodyComponent>(args.Target, out var body))
+    //         return;
 
-        var pick = _random.Pick(_hands.EnumerateHands(args.Target).ToList());
+    //     var hands = _bodySystem.GetBodyChildrenOfType(args.Target, BodyPartType.Hand, body).ToList();
 
-        _hands.RemoveHand(args.Target, pick);
+    //     if (hands.Count <= 0)
+    //         return;
 
-        Log.Debug($"Removed part {pick} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
-    }
+    //     var pick = _random.Pick(hands);
+
+    //     if (!TryComp<BodyPartComponent>(pick.Id, out var woundable)
+    //         || !woundable.CanSever)
+    //         return;
+
+    //     _bodySystem.RemovePart(new(args.Target, body), pick, _bodySystem.GetSlotFromBodyPart(pick.Component));
+    //     QueueDel(pick.Id);
+
+    //     Dirty(args.Target, body);
+    //     Log.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
+    //     QueueDel(pick.Id);
+    // }
+
+    // private void OnLoseLeg(DevilContractLoseLegEvent args)
+    // {
+    //     if (!TryComp<BodyComponent>(args.Target, out var body))
+    //         return;
+
+    //     var legs = _bodySystem.GetBodyChildrenOfType(args.Target, BodyPartType.Leg, body).ToList();
+
+    //     if (legs.Count <= 0)
+    //         return;
+
+    //     var pick = _random.Pick(legs);
+
+    //     if (!TryComp<BodyPartComponent>(pick.Id, out var woundable)
+    //         || !woundable.CanSever)
+    //         return;
+
+    //     _bodySystem.RemovePart(new(args.Target, body), pick, _bodySystem.GetSlotFromBodyPart(pick.Component));
+
+    //     Dirty(args.Target, body);
+    //     Log.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
+    //     QueueDel(pick.Id);
+    // }
 
     private void OnLoseOrgan(DevilContractLoseOrganEvent args)
     {
-        if (!TryComp<BodyComponent>(args.Target, out var body))
-            return;
-
-        if (body.Organs == null)
-            return;
-
         // don't remove the brain, as funny as that is.
-        var eligibleOrgans = body.Organs.ContainedEntities
-            .Where(o => !HasComp<BrainComponent>(o))
+        var eligibleOrgans = _bodySystem.GetBodyOrgans(args.Target)
+            .Where(o => !HasComp<BrainComponent>(o.Id))
             .ToList();
 
         if (eligibleOrgans.Count <= 0)
@@ -64,8 +93,9 @@ public sealed partial class DevilContractSystem
 
         var pick = _random.Pick(eligibleOrgans);
 
-        _containerSystem.Remove(pick, body.Organs );
-        Log.Debug($"Removed {pick.Id} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
+        _bodySystem.RemoveOrgan(pick.Id, pick.Component);
+        Log.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}"); // DeltaV - Use EntitySystem Logger intead of _sawmill
+        QueueDel(pick.Id);
     }
 
     // LETS GO GAMBLING!!!!!

@@ -21,8 +21,7 @@ namespace Content.Client.Options.UI
             Tabs.SetTabTitle(3, Loc.GetString("ui-options-tab-audio"));
             Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-accessibility"));
             Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-admin"));
-            Tabs.SetTabTitle(6, Loc.GetString("ui-options-tab-radio")); // DeltaV - Radio Channel Colors
-            Tabs.SetTabTitle(7, Loc.GetString("ui-options-tab-deltav")); // DeltaV specific settings
+            Tabs.SetTabTitle(6, Loc.GetString("ui-options-tab-deltav")); // DeltaV specific settings
 
             UpdateTabs();
         }
@@ -37,7 +36,6 @@ namespace Content.Client.Options.UI
             AccessibilityTab.Control.ReloadValues();
             AudioTab.Control.ReloadValues();
             AdminOptionsTab.Control.ReloadValues();
-            RadioTab.Control.ReloadValues(); // DeltaV - Radio Channel Colors
             DeltaTab.Control.ReloadValues(); // DeltaV
         }
     }

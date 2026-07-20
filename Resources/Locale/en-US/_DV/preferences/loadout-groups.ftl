@@ -28,10 +28,7 @@ loadout-group-musician-neck = Musician neck
 
 loadout-group-passenger-id-delta = Assistant PDA
 loadout-group-bartender-id-delta = Bartender PDA
-
-loadout-group-chef-shoes-delta = Chef Shoes
 loadout-group-chef-id-delta = Chef PDA
-
 loadout-group-clown-id-delta = Clown PDA
 loadout-group-janitor-id-delta = Janitor PDA
 
@@ -41,8 +38,6 @@ loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
 loadout-group-assistant-head = Assistant head
 
 loadout-group-clown-mask = Clown mask
-
-loadout-group-mime-shoes = Mime shoes
 
 # Logistics
 

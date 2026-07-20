@@ -9,12 +9,9 @@ public abstract partial class SharedBorgSystem
     public void InitializeRelay()
     {
         SubscribeLocalEvent<BorgChassisComponent, DamageModifyEvent>(RelayToModule);
-
-        // By-Ref events
-        SubscribeLocalEvent<BorgChassisComponent, BorgModuleInsertAttemptEvent>(RelayRefToModule);
     }
 
-    protected void RelayToModule<T>(EntityUid uid, BorgChassisComponent component, T args) where T : EntityEventArgs
+    protected void RelayToModule<T>(EntityUid uid, BorgChassisComponent component, T args) where T : class
     {
         var ev = new BorgModuleRelayedEvent<T>(args);
 
@@ -24,14 +21,13 @@ public abstract partial class SharedBorgSystem
         }
     }
 
-    protected void RelayRefToModule<T>(EntityUid uid, BorgChassisComponent component, ref T args)
+    protected void RelayRefToModule<T>(EntityUid uid, BorgChassisComponent component, ref T args) where T : class
     {
         var ev = new BorgModuleRelayedEvent<T>(args);
 
         foreach (var module in component.ModuleContainer.ContainedEntities)
         {
             RaiseLocalEvent(module, ref ev);
-            args = ev.Args;
         }
     }
 }
@@ -39,5 +35,5 @@ public abstract partial class SharedBorgSystem
 [ByRefEvent]
 public record struct BorgModuleRelayedEvent<TEvent>(TEvent Args)
 {
-    public TEvent Args = Args;
+    public readonly TEvent Args = Args;
 }

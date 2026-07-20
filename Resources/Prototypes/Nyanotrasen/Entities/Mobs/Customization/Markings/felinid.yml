@@ -3,7 +3,8 @@
 - type: marking
   id: FelinidEarsBasic
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: basic_outer
@@ -13,7 +14,8 @@
 - type: marking
   id: FelinidEarsCurled
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: curled_outer
@@ -23,7 +25,8 @@
 - type: marking
   id: FelinidEarsDroopy
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: droopy_outer
@@ -33,7 +36,8 @@
 - type: marking
   id: FelinidEarsFuzzy
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: basic_outer
@@ -43,7 +47,8 @@
 - type: marking
   id: FelinidEarsStubby
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: stubby_outer
@@ -53,7 +58,8 @@
 - type: marking
   id: FelinidEarsTall
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: tall_outer
@@ -65,7 +71,8 @@
 - type: marking
   id: FelinidEarsTorn
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: torn_outer
@@ -75,7 +82,8 @@
 - type: marking
   id: FelinidEarsWide
   bodyPart: HeadTop
-  groupWhitelist: [Felinid]
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: wide_outer
@@ -87,7 +95,8 @@
 - type: marking
   id: FelinidTailBasic
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -99,7 +108,8 @@
 - type: marking
   id: FelinidTailBasicWithBow
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -113,7 +123,8 @@
 - type: marking
   id: FelinidTailBasicWithBell
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -127,7 +138,8 @@
 - type: marking
   id: FelinidTailBasicWithBowAndBell
   bodyPart: Tail
-  groupWhitelist: [Felinid]
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip

@@ -1,3 +1,6 @@
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
@@ -10,6 +13,7 @@ using JetBrains.Annotations;
 using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Player;
 using Robust.Shared;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -17,7 +21,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Threading;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using System.Runtime.CompilerServices;
 
 // ReSharper disable once RedundantUsingDirective
 
@@ -29,6 +32,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Robust.Shared.IoC.Dependency] private readonly IGameTiming _gameTiming = default!;
         [Robust.Shared.IoC.Dependency] private readonly IPlayerManager _playerManager = default!;
         [Robust.Shared.IoC.Dependency] private readonly IMapManager _mapManager = default!;
+        [Robust.Shared.IoC.Dependency] private readonly IConfigurationManager _confMan = default!;
         [Robust.Shared.IoC.Dependency] private readonly IParallelManager _parMan = default!;
         [Robust.Shared.IoC.Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Robust.Shared.IoC.Dependency] private readonly ChunkingSystem _chunkingSys = default!;
@@ -81,8 +85,9 @@ namespace Content.Server.Atmos.EntitySystems
             };
 
             _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
-
-            InitializeCVars();
+            Subs.CVar(_confMan, CCVars.NetGasOverlayTickRate, UpdateTickRate, true);
+            Subs.CVar(_confMan, CCVars.GasOverlayThresholds, UpdateThresholds, true);
+            Subs.CVar(_confMan, CVars.NetPVS, OnPvsToggle, true);
 
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
             SubscribeLocalEvent<GasTileOverlayComponent, ComponentStartup>(OnStartup);
@@ -170,16 +175,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         public GasOverlayData GetOverlayData(GasMixture? mixture)
         {
-            ThermalByte byteTemp;
-            if (mixture == null)
-            {
-                byteTemp = new();
-                byteTemp.SetVacuum();
-            }
-            else
-                byteTemp = new(mixture.Temperature);
-
-            var data = new GasOverlayData(0, new byte[VisibleGasId.Length], byteTemp);
+            var data = new GasOverlayData(0, new byte[VisibleGasId.Length]);
 
             for (var i = 0; i < VisibleGasId.Length; i++)
             {
@@ -219,27 +215,15 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             var changed = false;
-
-            ThermalByte newByteTemp = new();
-
-            if (tile.Hotspot.Valid)
-                newByteTemp.SetTemperature(tile.Hotspot.Temperature);
-            else if (!tile.Space && tile.Air?.TotalMoles <= 5f)
-                newByteTemp.SetVacuum();
-            else if (!tile.Space && tile.Air != null)
-                newByteTemp = new(tile.Air.Temperature);
-
             if (oldData.Equals(default))
             {
                 changed = true;
-                oldData = new GasOverlayData(tile.Hotspot.State, new byte[VisibleGasId.Length], newByteTemp);
+                oldData = new GasOverlayData(tile.Hotspot.State, new byte[VisibleGasId.Length]);
             }
-            else if (oldData.FireState != tile.Hotspot.State ||
-                     Math.Abs(oldData.ByteGasTemperature.Value - newByteTemp.Value) > 1 || // Dirty Temperature when there is more then 1 byte difference. That should measure up to minimum 4 degreese difference, 6 degreese on average.
-                     (oldData.ByteGasTemperature.Value != newByteTemp.Value && newByteTemp.Value > ThermalByte.TempResolution)) // change of special ThermalByte value
+            else if (oldData.FireState != tile.Hotspot.State)
             {
                 changed = true;
-                oldData = new GasOverlayData(tile.Hotspot.State, oldData.Opacity, newByteTemp);
+                oldData = new GasOverlayData(tile.Hotspot.State, oldData.Opacity);
             }
 
             if (tile is {Air: not null, NoGridTile: false})
@@ -481,12 +465,5 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         #endregion
-
-        private void InitializeCVars()
-        {
-            Subs.CVar(ConfMan, CCVars.NetGasOverlayTickRate, UpdateTickRate, true);
-            Subs.CVar(ConfMan, CCVars.GasOverlayThresholds, UpdateThresholds, true);
-            Subs.CVar(ConfMan, CVars.NetPVS, OnPvsToggle, true);
-        }
     }
 }

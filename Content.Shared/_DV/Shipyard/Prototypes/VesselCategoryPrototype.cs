@@ -6,7 +6,7 @@ namespace Content.Shared.Shipyard.Prototypes;
 /// Like <c>TagPrototype</c> but for vessel categories.
 /// Prevents making typos being silently ignored by the linter.
 /// </summary>
-[Prototype]
+[Prototype("vesselCategory")]
 public sealed partial class VesselCategoryPrototype : IPrototype
 {
     /// <summary>

@@ -52,8 +52,7 @@ public sealed class ConstructorSystem : SharedConstructorSystem
         var completed = proto.Type switch
         {
             ConstructionType.Structure => await _construction.TryStartStructureConstruction(uid, id, OutputPosition(ent), Angle.Zero),
-            ConstructionType.Item => await _construction.TryStartItemConstruction(id, uid),
-            _ => false,
+            ConstructionType.Item => await _construction.TryStartItemConstruction(id, uid)
         };
 
         if (completed)

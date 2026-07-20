@@ -5,7 +5,7 @@
   slipData:
     requiredSlipSpeed: 3.5
   metabolisms:
-    Digestion:
+    Drink:
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -26,7 +26,7 @@
   parent: BaseDrink
   abstract: true
   metabolisms:
-    Digestion:
+    Drink:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -49,12 +49,13 @@
     requiredSlipSpeed: 3.5
   friction: 0.4
   metabolisms:
-    Digestion:
-      metabolites:
-        Ethanol: 0.12
+    Drink:
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

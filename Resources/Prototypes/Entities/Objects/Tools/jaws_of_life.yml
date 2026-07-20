@@ -51,10 +51,10 @@
       collection: MetalThud
 
 - type: entity
-  name: syndicate jaws of death
+  name: syndicate jaws of life
   parent: [JawsOfLife, BaseSyndicateContraband]
   id: SyndicateJawsOfLife
-  description: Useful for breaking into secure areas and other nefarious activities.
+  description: Useful for entering the station or its departments.
   components:
   - type: Sprite
     sprite: Objects/Tools/jaws_of_life.rsi

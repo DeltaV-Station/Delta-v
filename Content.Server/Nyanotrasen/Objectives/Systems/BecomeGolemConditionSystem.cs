@@ -2,11 +2,11 @@ using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server.Nyanotrasen.Objectives.Systems
+namespace Content.Server.Objectives.Systems
 {
     public sealed class BecomeGolemConditionSystem : EntitySystem
     {
-        private readonly EntityQuery<MetaDataComponent> _metaQuery = new EntityQuery<MetaDataComponent>();
+        private EntityQuery<MetaDataComponent> _metaQuery;
 
         public override void Initialize()
         {

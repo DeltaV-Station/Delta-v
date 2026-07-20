@@ -133,13 +133,14 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: SRTBlackInjector
-        - id: Truncheon
+        - id: MedkitCombatFilled
+        - id: AirlossAutoInjector
         - id: BurnAutoInjector
+        - id: BruteAutoInjector
         - id: PunctAutoInjector
         - id: PyraAutoInjector
-        - id: AntiPoisonMedipen
+        - id: AirlossAutoInjector
         - id: BurnAutoInjector
+        - id: BruteAutoInjector
         - id: PunctAutoInjector
         - id: PyraAutoInjector
-        - id: AntiPoisonMedipen

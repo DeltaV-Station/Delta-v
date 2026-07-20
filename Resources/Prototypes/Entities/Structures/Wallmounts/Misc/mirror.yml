@@ -9,14 +9,12 @@
   - type: Sprite
     sprite: Structures/Wallmounts/mirror.rsi
     state: mirror
-  - type: MagicMirror
-    organs:
-    - Head
-    layers:
-    - Hair
-    - FacialHair
+  - type: MagicMirror #instant and silent
     changeHairSound: null
-    modifyTime: 0
+    addSlotTime: 0
+    removeSlotTime: 0
+    selectSlotTime: 0
+    changeSlotTime: 0
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     singleUser: true

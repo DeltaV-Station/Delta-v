@@ -8,19 +8,13 @@
     delay: 10.0
   - type: Bible
     damage:
-      types:
-        Blunt: -5
-        Piercing: -5
-        Slash: -5
-        Heat: -5
-        Cold: -5
-        Shock: -5
+      groups:
+        Brute: -15
+        Burn: -15
     damageOnFail:
-      types:
-        Blunt: 5
-        Piercing: 5
-        Slash: 5
-        Asphyxiation: 15
+      groups:
+        Brute: 15
+        Airloss: 15
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
       types:
         Heat: 10
@@ -92,18 +86,15 @@
       types:
         Caustic: 20 ## ~15 dps
     damageOnFail:
-      types:
-        Blunt: 5
-        Piercing: 5
-        Slash: 5
-        Asphyxiation: 25
+      groups:
+        Brute: 15
+        Airloss: 25
     damageOnUntrainedUse:
       types:
         Caustic: 50
     failChance: 0
     locPrefix: "necro"
     healSound: "/Audio/Effects/lightburn.ogg"
-    healingLightEffect: EvilLightEffect
   - type: Summonable
     specialItem: SpawnPointGhostCerberus
     respawnTime: 300
@@ -189,26 +180,3 @@
     sprite: Objects/Specific/Chapel/ratvartablet.rsi
   - type: Item
     sprite: Objects/Specific/Chapel/ratvartablet.rsi
-
-- type: entity
-  id: HolyLightEffect
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: PointLight
-      enabled: true
-      radius: 1.5
-      energy: 20
-      color: lightgoldenrodyellow
-      netsync: false
-    - type: LightFade
-      duration: 0.7
-    - type: TimedDespawn
-      lifetime: 0.7
-
-- type: entity
-  id: EvilLightEffect
-  categories: [ HideSpawnMenu ]
-  parent: HolyLightEffect
-  components:
-    - type: PointLight
-      color: red

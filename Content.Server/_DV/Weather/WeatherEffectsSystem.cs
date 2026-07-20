@@ -2,10 +2,12 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weather;
+using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Server._DV.Weather;
+namespace Content.Shared._DV.Weather;
 
 /// <summary>
 /// Handles weather damage for exposed entities.
@@ -13,17 +15,13 @@ namespace Content.Server._DV.Weather;
 public sealed partial class WeatherEffectsSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
-
-    /// <summary>
-    /// How long to wait between updating weather effects.
-    /// </summary>
-    [DataField]
-    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
 
     public override void Initialize()
     {
@@ -37,24 +35,29 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<WeatherSchedulerComponent>();
-        while (query.MoveNext(out var map, out var weatherSchedulerComponent))
+        var query = EntityQueryEnumerator<WeatherComponent>();
+        while (query.MoveNext(out var map, out var weather))
         {
-            if (now < weatherSchedulerComponent.NextDamageUpdate)
+            if (now < weather.NextUpdate)
                 continue;
 
-            weatherSchedulerComponent.NextDamageUpdate = now + UpdateDelay;
+            weather.NextUpdate = now + weather.UpdateDelay;
 
-            var currentStage = weatherSchedulerComponent.Stage > 0 ? weatherSchedulerComponent.Stage - 1 : 0;
-            var weatherStage = weatherSchedulerComponent.Stages[currentStage];
+            foreach (var (id, data) in weather.Weather)
+            {
+                // start and end do no damage
+                if (data.State != WeatherState.Running)
+                    continue;
 
-            UpdateDamage(map, weatherStage);
+                UpdateDamage(map, id);
+            }
         }
     }
 
-    private void UpdateDamage(EntityUid map, WeatherStage? weather)
+    private void UpdateDamage(EntityUid map, ProtoId<WeatherPrototype> id)
     {
-        if (weather == null || weather.Value.Damage is not {} damage)
+        var weather = _proto.Index(id);
+        if (weather.Damage is not {} damage)
             return;
 
         var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
@@ -68,11 +71,12 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
             if (xform.GridUid is {} gridUid && _gridQuery.TryComp(gridUid, out var grid))
             {
                 var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
-                if (!_weather.CanWeatherAffect((gridUid, grid), tile))
+                if (!_weather.CanWeatherAffect(gridUid, grid, tile))
                     continue;
             }
 
-            _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
+            if (_whitelist.IsWhitelistFailOrNull(weather.DamageBlacklist, uid))
+                _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
         }
     }
 }

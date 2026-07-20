@@ -23,7 +23,7 @@ public sealed class MidRoundAntagRule : StationEventSystem<MidRoundAntagRuleComp
         if (!TryGetRandomStation(out var station))
             return;
 
-        var spawns = FindSpawns(ent, station.Value);
+        var spawns = FindSpawns(station.Value);
         if (spawns.Count == 0)
         {
             Log.Warning($"Couldn't find any suitable midround antag spawners for {ToPrettyString(ent):rule}");
@@ -33,48 +33,28 @@ public sealed class MidRoundAntagRule : StationEventSystem<MidRoundAntagRuleComp
         args.Coordinates.AddRange(spawns);
     }
 
-    private void FindSpawnLocations(EntityUid station, List<MapCoordinates> spawns)
+    private List<MapCoordinates> FindSpawns(EntityUid station)
     {
+        var spawns = new List<MapCoordinates>();
         var query = EntityQueryEnumerator<MidRoundAntagSpawnLocationComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var xform))
         {
             if (StationSystem.GetOwningStation(uid, xform) == station && xform.GridUid != null)
                 spawns.Add(_xform.GetMapCoordinates(xform));
         }
-    }
 
-    private void FindVentLocations(EntityUid station, List<MapCoordinates> spawns)
-    {
+        // if there are any midround antag spawns mapped, use them
+        if (spawns.Count > 0)
+            return spawns;
+
+        // otherwise, fall back to vent critter spawns
+        Log.Info($"Station {ToPrettyString(station):station} has no midround antag spawnpoints mapped, falling back. Please map them!");
         var fallbackQuery = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
         while (fallbackQuery.MoveNext(out var uid, out _, out var xform))
         {
             if (StationSystem.GetOwningStation(uid, xform) == station && xform.GridUid != null)
                 spawns.Add(_xform.GetMapCoordinates(xform));
         }
-    }
-
-    private List<MapCoordinates> FindSpawns(Entity<MidRoundAntagRuleComponent> rule, EntityUid station)
-    {
-        var spawns = new List<MapCoordinates>();
-
-        if (rule.Comp.PreferVentSpawns)
-            FindVentLocations(station, spawns);
-        else
-            FindSpawnLocations(station, spawns);
-
-        // if there are any midround antag spawns mapped, use them
-        if (spawns.Count > 0)
-            return spawns;
-
-        if (rule.Comp.PreferVentSpawns)
-            Log.Info($"Station {ToPrettyString(station):station} has no vent critter spawnpoints mapped, falling back. Please map them!");
-        else
-            Log.Info($"Station {ToPrettyString(station):station} has no midround antag spawnpoints mapped, falling back. Please map them!");
-
-        if (rule.Comp.PreferVentSpawns)
-            FindSpawnLocations(station, spawns);
-        else
-            FindVentLocations(station, spawns);
 
         return spawns;
     }

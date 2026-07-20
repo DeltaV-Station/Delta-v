@@ -231,7 +231,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonResearchDirector
-  suffix: Mystagogue # DeltaV - Epistemics Department replacing Science
+  suffix: ResearchDirector
   components:
   - type: AccessReader
     access: [["ResearchDirector"]]
@@ -327,7 +327,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonCargo
-  suffix: Logistics # DeltaV - Logistics Department replacing Cargo
+  suffix: Cargo
   components:
   - type: AccessReader
     access: [["Cargo"]]
@@ -335,7 +335,7 @@
 - type: entity
   parent: LockableButton
   id: LockableButtonResearch
-  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
+  suffix: Research
   components:
   - type: AccessReader
     access: [["Research"]]

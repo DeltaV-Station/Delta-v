@@ -245,7 +245,7 @@ public sealed partial class ExplosionSystem
             var damagePerIntensity = FixedPoint2.Zero;
             foreach (var (type, value) in explosionType.DamagePerIntensity.DamageDict)
             {
-                if (!_damageableSystem.CanBeDamagedBy((uid, damageable), type))
+                if (!damageable.Damage.DamageDict.ContainsKey(type))
                     continue;
 
                 // TODO EXPLOSION SYSTEM
@@ -260,7 +260,7 @@ public sealed partial class ExplosionSystem
             }
 
             var toleranceValue = damagePerIntensity > 0
-                ? (float) ((totalDamageTarget - _damageableSystem.GetTotalDamage((uid, damageable))) / damagePerIntensity)
+                ? (float) ((totalDamageTarget - damageable.TotalDamage) / damagePerIntensity)
                 : ToleranceValues.Invulnerable;
 
             explosionTolerance[index] = toleranceValue;

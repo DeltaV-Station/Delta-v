@@ -74,9 +74,6 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
-  - type: HideLayerClothing
-    slots:
-    - Tail
   - type: Armor
     modifiers:
       coefficients:
@@ -89,7 +86,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
-
+    
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioVirology

@@ -91,6 +91,8 @@
     blacklist:
       tags:
       - GhostOnlyWarp
+  - type: Body
+    requiredLegs: 0
   - type: Emoting
   - type: Speech
     speechSounds: ColossusSpeech
@@ -133,7 +135,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: Entropy
-        Quantity: 400 # DeltaV - reduced from 650 to 400 to prevent overflow
+        Quantity: 650
     bloodlossDamage:
       types:
         Bloodloss:
@@ -270,12 +272,9 @@
     allowedStates:
     - Alive
     damage:
-      types:
-        Blunt: -1
-        Piercing: -1
-        Slash: -1
-        Heat: -0.5
-        Cold: -0.5
+      groups:
+        Brute: -1
+        Burn: -0.5
   - type: MultiplyAttackRateOnSupercritical
   - type: MultiplyCorruptingSpeedOnSupercritical
   - type: FlatAttackBonusOnSupercritical

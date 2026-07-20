@@ -26,7 +26,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Shared.Atmos;
 
 namespace Content.Server.Mech.Systems;
 
@@ -259,7 +258,7 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
     {
-        var integrity = component.MaxIntegrity - _damageable.GetTotalDamage((uid, args.Damageable));
+        var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
         SetIntegrity(uid, integrity, component);
 
         if (args.DamageIncreased &&

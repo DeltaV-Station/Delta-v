@@ -410,7 +410,7 @@ namespace Content.Server.Construction
                     if ((!temperatureChangeStep.MinTemperature.HasValue || temp >= temperatureChangeStep.MinTemperature.Value) &&
                         (!temperatureChangeStep.MaxTemperature.HasValue || temp <= temperatureChangeStep.MaxTemperature.Value))
                     {
-                        return validation ? HandleResult.Validated : HandleResult.True;
+                        return HandleResult.True;
                     }
 
                     return HandleResult.False;
@@ -422,7 +422,7 @@ namespace Content.Server.Construction
                         break;
 
                     if (partAssemblyStep.Condition(uid, EntityManager))
-                        return validation ? HandleResult.Validated : HandleResult.True;
+                        return HandleResult.True;
                     return HandleResult.False;
                 }
 

@@ -2,7 +2,6 @@
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
@@ -17,7 +16,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -54,7 +52,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             }
             else if (TryComp<DamageableComponent>(uid, out var damageable))
             {
-                damage = _damageable.GetTotalDamage((uid, damageable));
+                damage = damageable.TotalDamage;
             }
             // Corrupt due to damage (drop, repeat, replace with symbols)
             args.Message = CorruptDamage(args.Message, damage, ent);

@@ -7,16 +7,7 @@ namespace Content.Server._CD.Traits;
 public sealed partial class SynthComponent : Component
 {
     /// <summary>
-    /// Whether this synthetic is affected by ion storms (electrocution/sparks and
-    /// alerts when one occurs). False by default. set true by the
-    /// "Susceptible to Ion Storms" meta trait.
-    /// </summary>
-    [DataField]
-    public bool IonStormAffected;
-
-    /// <summary>
-    /// The chance that the synth is alerted of an ion storm. Only relevant if
-    /// <see cref="IonStormAffected"/> is true.
+    /// The chance that the synth is alerted of an ion storm
     /// </summary>
     [DataField]
     public float AlertChance = 0.3f;

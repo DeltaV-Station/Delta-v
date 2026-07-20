@@ -69,8 +69,7 @@ public sealed class CosmicColossusSystem : EntitySystem
                 Spawn(comp.CultBigVfx, Transform(ent).Coordinates);
                 if (!TryComp<DamageableComponent>(ent, out var damageable))
                     continue;
-                var dmg = _damage.GetPositiveDamage((ent, damageable));
-                _damage.TryChangeDamage(ent, dmg / 2 * -1, true);
+                _damage.TryChangeDamage(ent, damageable.Damage / 2 * -1, true);
             }
             if (comp.Timed && _timing.CurTime >= comp.DeathTimer)
             {

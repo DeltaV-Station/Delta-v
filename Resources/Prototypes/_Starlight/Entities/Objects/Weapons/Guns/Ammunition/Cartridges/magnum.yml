@@ -18,7 +18,6 @@
     tags:
       - Cartridge
       - CartridgeMagnumImprovised
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ImprovisedMagnumBulletGraph
-  #  node: shell
+  - type: Construction
+    graph: ImprovisedMagnumBulletGraph
+    node: shell

@@ -16,7 +16,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
-using Robust.Shared.Random;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -261,7 +260,8 @@ public sealed partial class EmergencyShuttleSystem
             return;
         }
 
-        if (!component.AuthorizedEntities.Remove(idCard.Owner))
+        // TODO: This is fucking bad
+        if (!component.AuthorizedEntities.Remove(MetaData(idCard).EntityName))
             return;
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL by {args.Actor:user}");
@@ -281,12 +281,9 @@ public sealed partial class EmergencyShuttleSystem
             return;
         }
 
-        var idCardUid = idCard.Owner;
-
-        if (component.AuthorizedEntities.ContainsKey(idCardUid))
+        // TODO: This is fucking bad
+        if (!component.AuthorizedEntities.Add(MetaData(idCard).EntityName))
             return;
-
-        component.AuthorizedEntities[idCardUid] = MetaData(idCard).EntityName;
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch AUTH by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
@@ -330,7 +327,7 @@ public sealed partial class EmergencyShuttleSystem
     {
         var auths = new List<string>();
 
-        foreach (var auth in component.AuthorizedEntities.Values)
+        foreach (var auth in component.AuthorizedEntities)
         {
             auths.Add(auth);
         }

@@ -420,7 +420,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         component.Critical = true;
         component.StaminaDamage = component.CritThreshold;
 
-        StunSystem.TryUpdateParalyzeDuration(uid, component.StunTime, true);
+        if (StunSystem.TryUpdateParalyzeDuration(uid, component.StunTime))
+            StunSystem.TrySeeingStars(uid);
 
         // Give them buffer before being able to be re-stunned
         component.NextUpdate = Timing.CurTime + component.StunTime + StamCritBufferTime;

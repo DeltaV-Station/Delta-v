@@ -24,14 +24,14 @@
   text: damage-group-burn
 
 - type: quickPhrase
-  id: DamageAsphyxiationPhrase
+  id: DamageAirlossPhrase
   parent: BaseDamageTypePhrase
-  text: damage-type-asphyxiation
+  text: damage-group-airloss
 
 - type: quickPhrase
-  id: DamagePoisonPhrase
+  id: DamageToxinPhrase
   parent: BaseDamageTypePhrase
-  text: damage-type-poison
+  text: damage-group-toxin
 
 - type: quickPhrase
   id: DamageGeneticPhrase
@@ -49,44 +49,49 @@
   text: damage-type-radiation
 
 - type: quickPhrase
-  id: DamageBluntPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-blunt
+  id: ChemDylovenePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-dylovene
 
 - type: quickPhrase
-  id: DamageSlashPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-slash
+  id: ChemArithrazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-arithrazine
 
 - type: quickPhrase
-  id: DamagePiercePhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-piercing
+  id: ChemBicaridinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-bicaridine
 
 - type: quickPhrase
-  id: DamageHeatPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-heat
+  id: ChemDermalinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-dermaline
 
 - type: quickPhrase
-  id: DamageColdPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-cold
+  id: ChemDexalinPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-dexalin
 
 - type: quickPhrase
-  id: DamageShockPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-shock
+  id: ChemKelotanePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-kelotane
 
 - type: quickPhrase
-  id: DamageRadiantPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-radiant
+  id: ChemTricordrazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-tricordrazine
 
 - type: quickPhrase
-  id: DamageSoulPhrase
-  parent: BaseDamageTypePhrase
-  text: damage-type-soul
+  id: ChemOmnizinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-omnizine
+
+- type: quickPhrase
+  id: ChemPyrazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-pyrazine
 
 - type: quickPhrase
   id: TopicalPhrase
@@ -182,23 +187,3 @@
   id: LimbsPhrase
   parent: BaseMedicinePhrase
   text: phrase-limbs
-
-- type: quickPhrase
-  id: JetInjectorPhrase
-  parent: BaseMedicinePhrase
-  text: phrase-jet-injector
-
-- type: quickPhrase
-  id: DosePhrase
-  parent: BaseMedicinePhrase
-  text: phrase-dose
-
-- type: quickPhrase
-  id: OverdosePhrase
-  parent: BaseMedicinePhrase
-  text: phrase-overdose
-
-- type: quickPhrase
-  id: UnitsPhrase
-  parent: BaseMedicinePhrase
-  text: phrase-units

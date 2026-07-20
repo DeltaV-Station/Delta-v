@@ -52,11 +52,7 @@
       containers:
         board: !type:Container
     - type: ApcPowerReceiver
-      powerLoad: 50
-    - type: PowerState
-      idlePowerDraw: 50
-      workingPowerDraw: 200
-    - type: UIPowerState
+      powerLoad: 200
     - type: Construction
       graph: StationMap
       node: station_map
@@ -102,7 +98,6 @@
       blacklist:
         tags:
         - NoConsoleSound
-    - type: TooShortForUIWhitelist # Delta V
 
 - type: entity
   parent: BaseWallmountMetallic

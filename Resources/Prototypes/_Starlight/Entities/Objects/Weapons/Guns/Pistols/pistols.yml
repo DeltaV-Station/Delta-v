@@ -84,10 +84,9 @@
     shape:
     - 0,0,1,0
     - 0,1,1,1
-  # DeltaV - Make unobtainable
-  #- type: Construction
-  #  graph: ImprovisedPistolGraph
-  #  node: shotgun
+  - type: Construction
+    graph: ImprovisedPistolGraph
+    node: shotgun
   - type: WeaponDismantleOnShoot
     dismantleChance: 0.10
     selfDamage:

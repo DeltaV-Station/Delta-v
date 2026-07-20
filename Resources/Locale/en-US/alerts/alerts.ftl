@@ -122,6 +122,3 @@ alerts-rooted-desc = You are attached to the ground. You can't slip, but you abs
 
 alerts-stealthy-name = Pickpocketing
 alerts-stealthy-desc = Whether you are currently pickpocketing. Click to toggle.
-
-alerts-prying-name = Prying
-alerts-prying-desc = You can innately pry doors open using alternative interaction.

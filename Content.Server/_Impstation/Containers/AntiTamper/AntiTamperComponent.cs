@@ -1,6 +1,4 @@
-using Content.Server._Impstation.Containers.AntiTamper;
 using Content.Shared.Damage;
-using Content.Shared.Mind.Components;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

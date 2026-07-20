@@ -8,7 +8,7 @@
   flavor: medicine
   color: "#e6e600"
   metabolisms:
-    Bloodstream:
+    Medicine:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -57,7 +57,7 @@
   flavor: medicine
   color: "#f9e0e9"
   metabolisms:
-    Bloodstream:
+    Medicine:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
@@ -65,33 +65,24 @@
         - !type:TotalDamageCondition
           max: 30
         damage:
-          types:
-            Blunt: -0.2
-            Piercing: -0.2
-            Slash: -0.2
+          groups:
+            Brute: -0.6
       - !type:HealthChange
         conditions:
         - !type:TotalDamageCondition
           min: 30
         damage:
-          types:
-            Blunt: -0.8
-            Piercing: -0.8
-            Slash: -0.8
+          groups:
+            Brute: -2.4
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: SalicylicAcid
           min: 15.5
         damage: # ODing causes damage but heals brute
-          types:
-            Heat: 0.5
-            Shock: 0.5
-            Cold: 0.5
-            Caustic: 0.5
-            Blunt: -0.8
-            Piercing: -0.8
-            Slash: -0.8
+          groups:
+            Burn: 2 # will cause minor caustic damage
+            Brute: -2.4
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
@@ -108,37 +99,32 @@
   flavor: medicine
   color: "#639cc7" # DeltaV - was #99ffff
   metabolisms:
-    Bloodstream:
+    Medicine:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          min: 30
+          - !type:TotalDamageCondition
+            min: 30
         damage:
-          types:
-            Asphyxiation: -3
-            Bloodloss: -3
+          groups:
+            Airloss: -6
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          max: 30
+          - !type:TotalDamageCondition
+            max: 30
         damage:
-          types:
-            Asphyxiation: -0.5
-            Bloodloss: -0.5
+           groups:
+            Airloss: -1
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Salbutamol
           min: 15.5
         damage:
-          types: # ODing heals airloss but causes damage
-            Asphyxiation: -3
-            Bloodloss: -3
-            Heat: 0.2
-            Shock: 0.2
-            Cold: 0.2
+          groups: # ODing heals airloss but causes damage
+            Airloss: -6
+          types: # DeltaV - genetic is too evil
             Caustic: 0.2
 
 - type: reagent
@@ -150,7 +136,7 @@
   flavor: medicine
   color: "#e80d7e"
   metabolisms:
-    Bloodstream:
+    Medicine:
       metabolismRate: 1.0
       effects:
       - !type:HealthChange
@@ -170,15 +156,15 @@
   flavor: medicine
   color: "#c7e4e8"
   metabolisms:
-    Bloodstream:
+    Medicine:
       metabolismRate: 0.05
       effects:
       - !type:HealthChange
         damage:
+          groups:
+            Brute: -0.3
           types:
-            Blunt: -0.1
-            Slash: -0.1
-            Piercing: -0.1
+            Poison: -0.1
             Heat: -0.1
             Shock: -0.1
             Cold: -0.1
@@ -193,7 +179,7 @@
   flavor: spicy
   color: "#f8c8ba"
   metabolisms:
-    Bloodstream:
+    Medicine:
       effects:
       # Begin DeltaV additions
       - !type:EvenHealthChange
@@ -224,7 +210,7 @@
   color: "#894379"
   worksOnTheDead: true
   metabolisms:
-    Bloodstream:
+    Medicine:
       effects:
       # Begin DeltaV additions
       - !type:EvenHealthChange
@@ -253,7 +239,7 @@
   color: "#acbb27"
   worksOnTheDead: true
   metabolisms:
-    Bloodstream:
+    Medicine:
       effects:
       - !type:HealthChange
         conditions:

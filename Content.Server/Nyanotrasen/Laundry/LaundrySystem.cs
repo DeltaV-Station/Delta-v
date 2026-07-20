@@ -1,9 +1,9 @@
 using Robust.Shared.Containers;
 using Content.Shared.Destructible;
-using Content.Shared.Nyanotrasen.Laundry;
+using Content.Shared.Laundry;
 using Content.Shared.Storage;
 
-namespace Content.Server.Nyanotrasen.Laundry;
+namespace Content.Server.Laundry;
 
 // I just wanted the sprite to change states when it broke.
 

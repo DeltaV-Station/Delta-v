@@ -55,6 +55,11 @@
   text: phrase-will
 
 - type: quickPhrase
+  id: ThisPhrase
+  parent: BaseImperativePhrase
+  text: phrase-this
+
+- type: quickPhrase
   id: TakePhrase
   parent: BaseImperativePhrase
   text: phrase-take

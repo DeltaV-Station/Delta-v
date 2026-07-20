@@ -1,8 +1,9 @@
 - type: marking
   id: OniHornShaved
   bodyPart: HeadTop
+  markingCategory: HeadTop
   forcedColoring: false
-  groupWhitelist: [Oni]
+  speciesRestriction: [Oni]
   sprites:
   - sprite: _DV/Mobs/Customization/Oni/oni_horns.rsi
     state: shaved
@@ -10,8 +11,9 @@
 - type: marking
   id: OniHornBull
   bodyPart: HeadTop
+  markingCategory: HeadTop
   forcedColoring: false
-  groupWhitelist: [Oni]
+  speciesRestriction: [Oni]
   sprites:
   - sprite: _DV/Mobs/Customization/Oni/oni_horns.rsi
     state: bull

@@ -25,7 +25,7 @@
     - type: SingletonDeviceNetServer
     - type: DeviceNetwork
       deviceNetId: Wireless
-      transmitFrequencyId: NTNet # DeltaV - NTNet
+      transmitFrequencyId: CrewMonitor
       receiveFrequencyId: SuitSensor
       autoConnect: false
     - type: WirelessNetworkConnection

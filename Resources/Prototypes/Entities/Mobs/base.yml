@@ -147,8 +147,6 @@
   - type: LightningTarget
     priority: 2
     lightningExplode: false
-  - type: GhostOnMove
-    mustBeDead: true
 
 # Used for mobs that can enter combat mode and can attack.
 - type: entity
@@ -162,8 +160,8 @@
     soundHit:
       collection: MetalThud
     damage:
-      types:
-        Blunt: 5
+      groups:
+        Brute: 5
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity

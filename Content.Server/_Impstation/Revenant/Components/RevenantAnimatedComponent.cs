@@ -1,9 +1,9 @@
 using System.Threading;
-using Content.Server._Impstation.Revenant.EntitySystems;
+using Content.Server.Revenant.EntitySystems;
 using Content.Shared.Revenant.Components;
 using Robust.Shared.GameStates;
 
-namespace Content.Server._Impstation.Revenant.Components;
+namespace Content.Server.Revenant.Components;
 
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(RevenantAnimatedSystem))]

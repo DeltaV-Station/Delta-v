@@ -10,7 +10,7 @@
     - !type:PlantAdjustNutrition
       amount: 2
   metabolisms:
-    Digestion:
+    Food:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -34,7 +34,7 @@
       probability: 0.3
       amount: 0.4
   metabolisms:
-    Bloodstream:
+    Medicine:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -62,7 +62,7 @@
     - !type:PlantAdjustPests
       amount: -6
   metabolisms:
-    Bloodstream:
+    Medicine:
       effects:
       - !type:HealthChange
         damage:
@@ -90,7 +90,7 @@
     - !type:PlantAdjustMutationMod
       amount: 0.1
   metabolisms:
-    Bloodstream:
+    Medicine:
       effects:
       - !type:HealthChange
         damage:
@@ -122,7 +122,7 @@
       amount: 1
     - !type:RobustHarvest {}
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:
@@ -146,6 +146,8 @@
             Asphyxiation: 1
             Heat: 2
             Poison: 1
+    Medicine:
+      effects:
       - !type:Polymorph
         prototype: TreeMorph
         conditions:
@@ -185,7 +187,7 @@
     - !type:PlantAdjustWeeds
       amount: -6
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:
@@ -211,13 +213,13 @@
   - !type:PlantAdjustHealth
     amount: 0.5
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
             Caustic: 1
-    Respiration:
+    Gas:
       effects:
       - !type:HealthChange
         conditions:
@@ -228,10 +230,9 @@
           reagent: Ammonia
           min: 1
         ignoreResistances: true
-        scaling: true
         damage:
           types:
-            Poison: 1
+            Poison: 0.25
       - !type:Vomit
         probability: 0.12
         conditions:
@@ -250,7 +251,7 @@
         - !type:ReagentCondition
           reagent: Ammonia
           min: 0.25
-      - !type:EvenHealthChange
+      - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Rat ]
@@ -260,9 +261,11 @@
         scaling: true
         ignoreResistances: true
         damage:
-          Brute: -2.5
-          Burn: -2.5
-          Airloss: -5
+          groups:
+            Brute: -2.5
+            Burn: -2.5
+          types:
+            Bloodloss: -5
       - !type:ModifyBloodLevel
         amount: 1
         conditions:
@@ -306,7 +309,7 @@
     amount: 1
   - !type:PlantDiethylamine {}
   metabolisms:
-    Bloodstream:
+    Poison:
       effects:
       - !type:HealthChange
         damage:

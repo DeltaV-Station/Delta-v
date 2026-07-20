@@ -2,7 +2,6 @@
   name: Arctic Fox Siobhan Spawner
   id: SpawnMobArcticFoxSiobhan
   parent: MarkerBase
-  suffix: Mystagogue Pet
   components:
   - type: Sprite
     layers:
@@ -13,10 +12,9 @@
       - MobArcticFoxSiobhan
 
 - type: entity
-  name: Laika Spawner
+  name: Sec Dog Laika Spawner
   id: SpawnMobSecDogLaika
   parent: MarkerBase
-  suffix: HoS Pet
   components:
   - type: Sprite
     layers:
@@ -43,7 +41,6 @@
   name: Sec Animal Spawner
   id: SpawnMobSecLaikaOrShiva
   parent: MarkerBase
-  suffix: HoS Pet, Laika or Shiva
   components:
   - type: Sprite
     layers:
@@ -57,8 +54,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobJusticePet
-  name: Carpy Spawner
-  suffix: Justice Pet
+  name: Justice Pet Spawner
   components:
   - type: Sprite
     layers:
@@ -73,7 +69,6 @@
   name: Silvia Spawner
   id: SpawnMobCMOPetSilvia
   parent: MarkerBase
-  suffix: Medical Pet
   components:
   - type: Sprite
     layers:
@@ -88,7 +83,6 @@
   parent: MarkerBase
   id: SpawnMobEngiPossumPoppy
   name: Poppy Spawner
-  suffix: Engineering Pet
   components:
   - type: Sprite
     layers:
