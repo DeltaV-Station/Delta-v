@@ -96,8 +96,8 @@
       Head: OrganMotorkindHead
       ArmLeft: OrganMotorkindFrontLeft
       ArmRight: OrganMotorkindFrontRight
-#      HandRight: OrganHumanHandRight
-#      HandLeft: OrganHumanHandLeft
+      HandRight: OrganMotorkindHandRight
+      HandLeft: OrganMotorkindHandLeft
       LegLeft: OrganMotorkindBackLeft
       LegRight: OrganMotorkindBackRight
 #      FootLeft: OrganHumanFootLeft
@@ -115,7 +115,7 @@
   - type: HumanoidProfile
     species: Motorkind
   - type: ScaleVisuals
-    scale: 2, 2
+    speciesScale: 2, 2
 
 - type: entity
   name: Urist McQueen
@@ -328,8 +328,8 @@
     - state: windshield
   - type: VisualOrgan
     data:
-      sprite: _DV/Mobs/Species/Motorkind/organs.rsi
-      state: windshield
+      sprite: _DV/Mobs/Species/Motorkind/parts.rsi
+      state: eyes
 
 - type: entity
   parent: [ OrganMotorkindInternal ]
@@ -387,3 +387,40 @@
     heldPrefix: lungs
   - type: Metabolizer
     metabolizerTypes: [ Fuel ]
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseInvisibleHand
+  name: invisible hand
+  abstract: true
+  components:
+  - type: Organ
+    category: HandRight
+  - type: HandOrgan
+    handID: right
+    data:
+      location: Right
+  - type: Sprite
+    state: r_hand
+
+- type: entity
+  parent: [ OrganBaseInvisibleHand ]
+  id: OrganMotorkindHandLeft
+  components:
+  - type: Organ
+    category: HandLeft
+  - type: HandOrgan
+    handID: left
+    data:
+      location: left
+
+- type: entity
+  parent: [ OrganBaseInvisibleHand ]
+  id: OrganMotorkindHandRight
+  components:
+  - type: Organ
+    category: HandRight
+  - type: HandOrgan
+    handID: right
+    data:
+      location: right
