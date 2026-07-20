@@ -166,7 +166,7 @@ public sealed class RadioSystem : EntitySystem
         int? loudSpeakFont = null;
 
         var getLoudspeakerEv = new GetLoudspeakerEvent();
-        RaiseLocalEvent(source, ref getLoudspeakerEv);
+        RaiseLocalEvent(messageSource, ref getLoudspeakerEv);
 
         if (getLoudspeakerEv.Loudspeakers != null)
             foreach (var loudspeaker in getLoudspeakerEv.Loudspeakers)

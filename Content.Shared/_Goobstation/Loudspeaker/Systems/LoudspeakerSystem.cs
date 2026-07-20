@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Loudspeaker.Events;
+using Content.Shared._Goobstation.Speech;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
