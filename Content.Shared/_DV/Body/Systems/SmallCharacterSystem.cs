@@ -64,7 +64,7 @@ public sealed partial class SmallCharacterSystem : EntitySystem
 
     #region Static Members
     /// <summary>
-    /// Gets the move-speed penalty as a float. Should be applied multiplicatively. 
+    /// Gets the move-speed penalty as a float. Should be applied multiplicatively.
     /// Caps at 1 so we don't make bigger characters faster when pulling.
     /// </summary>
     /// <returns></returns>
