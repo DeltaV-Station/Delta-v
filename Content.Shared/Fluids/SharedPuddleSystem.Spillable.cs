@@ -170,6 +170,7 @@ public abstract partial class SharedPuddleSystem
             // Funky Start - Stainable Clothing.
             if (splitSolution.Volume > 0)
             {
+                // TODO: Remove the .Clone() when splashing someone doesn't evaporate the reagent anymore.
                 var stainEv = new SpilledOnEvent(entity.Owner, splitSolution.Clone());
                 RaiseLocalEvent(hit, stainEv);
             }

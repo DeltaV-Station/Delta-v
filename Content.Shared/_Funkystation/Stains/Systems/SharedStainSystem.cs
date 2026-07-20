@@ -3,6 +3,7 @@ using Content.Shared._Funkystation.Stains.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
@@ -25,6 +26,8 @@ public abstract class SharedStainSystem : EntitySystem
     [Dependency] private readonly SharedPuddleSystem _puddle = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
 
+    private EntityQuery<StainBlockerComponent> _stainBlockerQuery;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -34,6 +37,8 @@ public abstract class SharedStainSystem : EntitySystem
         SubscribeLocalEvent<StainableComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWring);
         SubscribeLocalEvent<StainableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
+
+        _stainBlockerQuery = GetEntityQuery<StainBlockerComponent>();
     }
 
     private void OnSolutionChanged(Entity<StainableComponent> ent, ref SolutionContainerChangedEvent args)
@@ -48,16 +53,21 @@ public abstract class SharedStainSystem : EntitySystem
             _solution.SetCanReact(sol.Value, false);
     }
 
-    private void OnSpilledOn(Entity<StainableComponent> ent, ref InventoryRelayedEvent<SpilledOnEvent> args)
+    private void OnSpilledOn(Entity<StainableComponent> clothing, ref InventoryRelayedEvent<SpilledOnEvent> args)
     {
-        if (IsStainBlocked(ent))
+        if (!args.Args.IgnoreBlockers && IsStainBlocked(clothing))
             return;
 
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var stainSolution))
+        if (!_solution.TryGetSolution(clothing.Owner, clothing.Comp.SolutionName, out var stainSolution))
             return;
 
-        var transferAmount = FixedPoint.FixedPoint2.Min(args.Args.Solution.Volume, ent.Comp.SpillTransferAmount);
-        var split = args.Args.Solution.SplitSolution(transferAmount);
+        var attemptedTransferAmount = FixedPoint2.Min(args.Args.Solution.Volume, clothing.Comp.SpillTransferAmount);
+        var actualTransferAmount = FixedPoint2.Min(attemptedTransferAmount, stainSolution.Value.Comp.Solution.AvailableVolume);
+        // Exit early if nothing can be transferred.
+        if (actualTransferAmount == 0)
+            return;
+
+        var split = args.Args.Solution.SplitSolution(actualTransferAmount);
 
         for (var i = split.Contents.Count - 1; i >= 0; i--)
         {
@@ -68,8 +78,8 @@ public abstract class SharedStainSystem : EntitySystem
         if (split.Volume > 0)
         {
             _solution.TryAddSolution(stainSolution.Value, split);
-            UpdateVisuals(ent);
-            OnStained(ent, stainSolution.Value);
+            UpdateVisuals(clothing);
+            OnStained(clothing, stainSolution.Value);
         }
     }
 
@@ -88,7 +98,7 @@ public abstract class SharedStainSystem : EntitySystem
             if (!_inventory.TryGetSlotEntity(container.Owner, slot.Name, out var slotEnt, inv))
                 continue;
 
-            if (TryComp<StainBlockerComponent>(slotEnt, out var blocker) && (blocker.BlockedSlots & slotDef.SlotFlags) != 0)
+            if (_stainBlockerQuery.TryComp(slotEnt, out var blocker) && blocker.BlockedSlots.HasFlag(slotDef.SlotFlags))
                 return true;
         }
 

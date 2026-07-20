@@ -9,6 +9,9 @@ namespace Content.Shared._Funkystation.Stains.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StainBlockerComponent : Component
 {
+    /// <summary>
+    /// These are the slots protected from stains by the entity with the component.
+    /// </summary>
     [DataField("slots", required: true)]
     public SlotFlags BlockedSlots;
 }

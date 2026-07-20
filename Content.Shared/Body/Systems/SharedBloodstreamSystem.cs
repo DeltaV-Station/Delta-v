@@ -464,25 +464,24 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             return true;
 
         tempSolution.AddSolution(leakedBlood, PrototypeManager);
+        // Funky Start - Stainable Clothing.
+        var stainEv = new SpilledOnEvent(ent.Owner, tempSolution, ignoreBlockers: true);
+        RaiseLocalEvent(ent.Owner, stainEv);
 
+        var xform = Transform(ent.Owner);
+        foreach (var neighbor in _lookup.GetEntitiesInRange(xform.Coordinates, 1.5f))
+        {
+            if (neighbor == ent.Owner || !HasComp<InventoryComponent>(neighbor))
+                continue;
+
+            RaiseLocalEvent(neighbor, new SpilledOnEvent(ent.Owner, tempSolution));
+
+            if (tempSolution.Volume <= 0)
+                break;
+        }
+        // Funky End - Stainable Clothing.
         if (tempSolution.Volume > ent.Comp.BleedPuddleThreshold)
         {
-            // Funky Start - Stainable Clothing.
-            var stainEv = new SpilledOnEvent(ent.Owner, tempSolution);
-            RaiseLocalEvent(ent.Owner, stainEv);
-
-            var xform = Transform(ent.Owner);
-            foreach (var neighbor in _lookup.GetEntitiesInRange(xform.Coordinates, 1.5f))
-            {
-                if (neighbor == ent.Owner || !HasComp<InventoryComponent>(neighbor))
-                    continue;
-
-                RaiseLocalEvent(neighbor, new SpilledOnEvent(ent.Owner, tempSolution));
-
-                if (tempSolution.Volume <= 0)
-                    break;
-            }
-            // Funky End - Stainable Clothing.
             _puddle.TrySpillAt(ent.Owner, tempSolution, out _, sound: false);
 
             tempSolution.RemoveAllSolution();
@@ -541,8 +540,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             tempSol.AddSolution(tempSolution, PrototypeManager);
             SolutionContainer.RemoveAllSolution(ent.Comp.TemporarySolution.Value);
         }
-
-        var stainEv = new SpilledOnEvent(ent.Owner, tempSol);
+        // Funky Start - Stainable clothing.
+        var stainEv = new SpilledOnEvent(ent.Owner, tempSol, ignoreBlockers: true);
         RaiseLocalEvent(ent.Owner, stainEv);
 
         var xform = Transform(ent.Owner);
@@ -556,7 +555,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             if (tempSol.Volume <= 0)
                 break;
         }
-
+        // Funky End - Stainable Clothing.
         _puddle.TrySpillAt(ent, tempSol, out _);
     }
 
