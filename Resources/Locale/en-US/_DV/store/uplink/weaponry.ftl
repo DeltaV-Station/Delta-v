@@ -17,3 +17,6 @@ uplink-harbinger-desc = A bundle with a full set of Harbinger armor and an Accur
 
 uplink-dualswords-name = Dual Swords
 uplink-dualswords-desc = A set of dual swords made for those who prefer something a bit faster. Where they suffer in individual power, they excel in speed and mobility.
+
+uplink-leveraction-name = SKL93 AP Bundle
+uplink-leveraction-desc = A bundle containing a SKL93 lever action sniper loaded with AP ammo. Comes with a spare box of standard magnum.

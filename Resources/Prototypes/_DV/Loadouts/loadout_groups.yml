@@ -115,6 +115,21 @@
   loadouts:
   - ScarfBlack
   - ScarfZebra
+  - MimeMantle
+  - MimeCloak
+  - MimeMantleOffShoulder
+  - MimeStole
+
+- type: loadoutGroup
+  id: MimeShoes
+  name: loadout-group-mime-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteShoes
+  - BlackShoes
+  - MimeWinterBoots
+  - MimeFurBoots
 
 ## Musician
 - type: loadoutGroup
@@ -173,6 +188,14 @@
   - OffDutyCrewPDA
   # - StudentPDA
 
+## Chef
+- type: loadoutGroup
+  id: ChefShoes
+  name: loadout-group-chef-shoes-delta
+  loadouts:
+  - ChefShoes
+  - ChefSandals
+ 
 # Logistics
 ## Courier
 # Remove mail carrier stuf from nyano?

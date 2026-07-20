@@ -19,13 +19,18 @@ public sealed class ContentNetworkResourceManager
     {
         _cfgManager.OnValueChanged(CCVars.ResourceUploadingStoreEnabled, value => StoreUploaded = value, true);
         AutoDelete(_cfgManager.GetCVar(CCVars.ResourceUploadingStoreDeletionDays));
-        _netRes.OnResourceUploaded += OnUploadResource;
+        _netRes.ResourcesUploaded += OnUploadResource;
     }
 
-    private async void OnUploadResource(ICommonSession session, NetworkResourceUploadMessage msg)
+    private async void OnUploadResource(NetworkResourcesUploadedEvent msg)
     {
         if (StoreUploaded)
-            await _serverDb.AddUploadedResourceLogAsync(session.UserId, DateTime.Now, msg.RelativePath.ToString(), msg.Data);
+        {
+            foreach(var file in msg.Files)
+            {
+                await _serverDb.AddUploadedResourceLogAsync(msg.Session.UserId, DateTime.Now, file.Relative.ToString(), file.Data);
+            }
+        }
     }
 
     private async void AutoDelete(int days)

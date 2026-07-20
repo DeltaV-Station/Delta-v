@@ -44,7 +44,6 @@
   content:
   - ClothingBeltSalvageWebbing
   - ShelterCapsule
-  - MedicalTrackingImplanter
   - NFWeaponHoloflareGun
 
 # TODO: mining drone
@@ -70,3 +69,15 @@
     state: icon
   content:
   - ClothingBackpackDuffelSalvageConscription
+
+- type: thiefBackpackSet
+  id: MiningDagger
+  name: mining-voucher-dagger-name
+  description: mining-voucher-dagger-description
+  sprite:
+    sprite: Objects/Weapons/Melee/crusher_dagger.rsi
+    state: icon
+  content:
+  - WeaponCrusherDagger
+  - MiningDrill
+  - FireExtinguisher

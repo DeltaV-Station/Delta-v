@@ -1,0 +1,247 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Feroxi
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ FeroxiEars ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: true
+      default: [ FeroxiSnout ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ FeroxiTailAndDorsal ]
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceFeroxi
+  name: feroxi appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganFeroxiTorso
+      Head: OrganFeroxiHead
+      ArmLeft: OrganFeroxiArmLeft
+      ArmRight: OrganFeroxiArmRight
+      HandRight: OrganFeroxiHandRight
+      HandLeft: OrganFeroxiHandLeft
+      LegLeft: OrganFeroxiLegLeft
+      LegRight: OrganFeroxiLegRight
+      FootLeft: OrganFeroxiFootLeft
+      FootRight: OrganFeroxiFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganFeroxiLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganFeroxiStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Feroxi
+
+- type: entity
+  parent:
+  - AppearanceFeroxi
+  - BaseSpeciesMobOrganic
+  id: MobFeroxi
+  name: Urist McFin
+  components:
+  - type: Wagging
+  - type: Inventory
+    speciesId: feroxi
+  - type: Thirst
+    baseDecayRate: 0.2
+  - type: Icon
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    state: full
+  - type: Speech
+    speechSounds: Tenor
+    speechVerb: Feroxi
+    allowedEmotes: [ "Gnash", "Thump" ]
+  - type: Vocal
+    sounds:
+      Male: MaleFeroxi
+      Female: FemaleFeroxi
+      Unsexed: MaleFeroxi
+  - type: BodyEmotes
+    soundsId: FeroxiBodyEmotes
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 30
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 7 # oooh scary extra damage~
+  - type: Perishable
+  - type: Damageable
+    damageModifierSet: Feroxi
+  - type: TypingIndicator
+    proto: feroxi
+  - type: FeroxiDehydrate
+    hydratedMetabolizer: Feroxi
+    dehydratedMetabolizer: FeroxiDehydrated
+    dehydrationThreshold: 150
+  - type: SharkVision
+    pulseTime: 5
+    activateSound: null
+    deactivateSound: null
+
+- type: entity
+  parent: OrganBase
+  id: OrganFeroxi
+  abstract: true
+  suffix: Feroxi
+
+- type: entity
+  parent: OrganFeroxi
+  id: OrganFeroxiExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Feroxi
+
+- type: entity
+  parent: OrganFeroxi
+  id: OrganFeroxiInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganFeroxiExternal ]
+  id: OrganFeroxiHead
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganFeroxiExternal ]
+  id: OrganFeroxiTorso
+
+- type: entity
+  parent: [ OrganFeroxiTorso ]
+  id: OrganFeroxiTorsoMale
+
+- type: entity
+  parent: [ OrganFeroxiTorso ]
+  id: OrganFeroxiTorsoFemale
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiLegLeft
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiHandLeft
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiArmLeft
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganFeroxiExternal ]
+  id: OrganFeroxiFootLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganFeroxiExternal ]
+  id: OrganFeroxiLegRight
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganFeroxiExternal ]
+  id: OrganFeroxiHandRight
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganFeroxiExternal ]
+  id: OrganFeroxiArmRight
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganFeroxiExternal ]
+  id: OrganFeroxiFootRight
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganFeroxiInternal ]
+  id: OrganFeroxiStomach
+  name: feroxian stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Feroxi, Animal ]
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganFeroxiInternal ]
+  id: OrganFeroxiLungs
+  name: feroxian lungs and gills
+  description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
+  components:
+  - type: Metabolizer
+    solutionOnBody: false
+    metabolizerTypes: [ Feroxi ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100
+        canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5

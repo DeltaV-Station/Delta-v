@@ -44,6 +44,7 @@ job-alt-title-plasma-scientist = Plasma Scientist
 job-alt-title-senior-engineer = Engineering Mentor
 job-alt-title-electrician = Electrician
 job-alt-title-mechanic = Mechanic
+job-alt-title-nuclear-scientist = Nuclear Scientist
 
 job-alt-title-deck-worker = Deck Worker
 job-alt-title-inventory-associate = Inventory Associate
@@ -72,12 +73,10 @@ job-title-admeme-overwriting = Overwriting
 job-title-admeme-adding = Adding
 
 # Role timers
-JobMedicalBorg = Medical Cyborg
 JobCourier = Courier
 JobChiefJustice = Chief Justice
 JobClerk = Clerk
 JobProsecutor = Prosecutor
-JobSecurityBorg = Security Cyborg
 JobRoboticist = Roboticist
 JobCargoAssistant = Cargo Assistant
 JobZookeeper = Zookeeper

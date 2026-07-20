@@ -69,3 +69,14 @@
     sprite: _DV/Clothing/Neck/Misc/coppernecklace.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/Misc/coppernecklace.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimeStole
+  name: mime's stole
+  description: A striped stole for mimes aspiring to become famous.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Misc/mimestole.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Misc/mimestole.rsi

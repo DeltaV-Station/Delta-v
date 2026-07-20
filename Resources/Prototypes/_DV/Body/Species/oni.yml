@@ -1,0 +1,178 @@
+- type: markingsGroup
+  id: Oni
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ OniHornDoubleCurved ]
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+      default: [ PointyEarsUpwards ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 6
+      required: false
+
+# TODO: Do we need a scale here or is the one in Species/oni.yml enoguh
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceOni
+  name: oni appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganOniTorso
+      Head: OrganOniHead
+      ArmLeft: OrganOniArmLeft
+      ArmRight: OrganOniArmRight
+      HandLeft: OrganOniHandLeft
+      HandRight: OrganOniHandRight
+      LegLeft: OrganOniLegLeft
+      LegRight: OrganOniLegRight
+      FootLeft: OrganOniFootLeft
+      FootRight: OrganOniFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Ears: OrganHumanEars
+      Appendix: OrganHumanAppendix
+      Lungs: OrganHumanLungs
+      Heart: OrganAnimalHeart
+      Stomach: OrganAnimalStomach
+      Liver: OrganAnimalLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Oni
+  - type: ScaleVisuals
+    speciesScale: 1.2, 1.2
+
+- type: entity
+  parent:
+  - AppearanceOni
+  - BaseSpeciesMobOrganic
+  id: MobOni
+  name: Urist McOni
+  components:
+  - type: Speech
+    speechSounds: Baritone
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.42
+        density: 220
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.5
+  - type: PlayerAccuracyModifier
+    spreadMultiplier: 15
+    maxSpreadAngle: 180
+  - type: BonusStaminaDamage
+    multiplier: 1.25
+  - type: BonusMeleeDamage
+    damageModifierSet:
+      coefficients:
+        Blunt: 1.35
+        Slash: 1.2
+        Piercing: 1.2
+        Asphyxiation: 1.35
+  - type: ClothingSlowResistance
+    modifier: 0.25 # Slowdowns incurred by worn clothing are 25% less effective.
+  - type: Damageable
+    damageModifierSet: Oni
+  - type: Stamina
+    baseCritThreshold: 115
+
+- type: entity
+  parent: OrganBase
+  id: OrganOni
+  abstract: true
+
+- type: entity
+  parent: OrganOni
+  id: OrganOniExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Species/Human/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Oni
+
+- type: entity
+  parent: OrganOni
+  id: OrganOniInternal
+  abstract: true
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganOniExternal ]
+  id: OrganOniHead
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganOniExternal ]
+  id: OrganOniTorso
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganOniExternal ]
+  id: OrganOniArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganOniExternal ]
+  id: OrganOniArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganOniExternal ]
+  id: OrganOniHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganOniExternal ]
+  id: OrganOniHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganOniExternal ]
+  id: OrganOniLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganOniExternal ]
+  id: OrganOniLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganOniExternal ]
+  id: OrganOniFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganOniExternal ]
+  id: OrganOniFootRight
