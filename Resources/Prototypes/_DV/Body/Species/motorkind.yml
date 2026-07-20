@@ -413,6 +413,9 @@
     handID: left
     data:
       location: left
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: l_hand
 
 - type: entity
   parent: [ OrganBaseInvisibleHand ]
@@ -424,3 +427,6 @@
     handID: right
     data:
       location: right
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: r_hand
