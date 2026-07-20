@@ -17,6 +17,8 @@ public sealed class DarkVisionOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
+    private readonly ProtoId<ShaderPrototype> _shaderProto = "DarkVision";
+
     public float LightFloor = 0.5f;
     public float LightGain = 2f;
     public float LightExp = 1f;
@@ -29,7 +31,7 @@ public sealed class DarkVisionOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        var proto = _prototype.Index<ShaderPrototype>("DarkVision");
+        var proto = _prototype.Index<ShaderPrototype>(_shaderProto);
         _remapShader = proto.InstanceUnique();
         // With floor 0, gain 1, exp 1 the shader is an exact blend-mode-none copy.
         _copyShader = proto.InstanceUnique();
