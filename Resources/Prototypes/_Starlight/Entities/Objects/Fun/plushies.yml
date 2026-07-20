@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseShadekinPlushie
+  id: PlushieShadekin
+  name: Shadekin Plushie
+  description: A plushie of a Shadekin. It's very soft.
+  components:
+  - type: Item
+    size: Small
+    sprite: _Starlight/Objects/Fun/Plushies/shadekin_plushie.rsi
+  - type: Sprite
+    sprite: _Starlight/Objects/Fun/Plushies/shadekin_plushie.rsi
+    state: icon

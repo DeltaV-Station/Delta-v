@@ -1,79 +1,4 @@
 ﻿Entries:
-- author: Toby222
-  changes:
-  - message: Removed footprint prediction (for now)
-    type: Remove
-  id: 2074
-  time: '2026-01-16T19:07:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5224
-- author: Velcroboy
-  changes:
-  - message: Prisoners can find dull bread knives in the ChefVend.
-    type: Tweak
-  id: 2075
-  time: '2026-01-17T21:13:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5234
-- author: Halo3moth
-  changes:
-  - message: The T1 armored vest (slim) can now once again be picked in security loadouts.
-    type: Add
-  id: 2076
-  time: '2026-01-17T21:36:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5220
-- author: biddygelson
-  changes:
-  - message: 'Academy: added anti-meteor zones and anti-anomaly zone, AI restoration
-      console in Mystagogue, Robotics Console in robo, fishing hole added to park,
-      materials is cargo at roundstart.'
-    type: Add
-  - message: 'Academy: station starts with distro and waste enabled, spare atmos chambers
-      start as vacuums, split artifacts'' APCs for power management, botany has more
-      trays and is slightly larger, department-front holopads in the department.'
-    type: Tweak
-  id: 2077
-  time: '2026-01-18T01:54:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5130
-- author: DisposableCrewmember42
-  changes:
-  - message: You can no longer drink the deep fryer.
-    type: Fix
-  id: 2078
-  time: '2026-01-18T04:40:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5238
-- author: snowywinters
-  changes:
-  - message: Reinforced cameras can now be built! They have additional HP and are
-      more resistant to explosions and meteors.
-    type: Add
-  - message: The AI has its own section in the security cameras console.
-    type: Add
-  id: 2079
-  time: '2026-01-18T17:18:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5027
-- author: Dorragon
-  changes:
-  - message: Ready Manifest added to the lobby
-    type: Add
-  id: 2080
-  time: '2026-01-18T18:47:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5187
-- author: MilonPL
-  changes:
-  - message: Added a new traits system, supporting conditions and new effects. Make
-      sure to check out the Traits tab in the character editor!
-    type: Add
-  - message: All character traits have been reset.
-    type: Remove
-  id: 2081
-  time: '2026-01-20T11:49:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5208
-- author: pootslap
-  changes:
-  - message: You can now examine character descriptions from much further away.
-    type: Tweak
-  id: 2082
-  time: '2026-01-20T11:49:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5219
 - author: Eternally-Confused
   changes:
   - message: (TEST MERGE) Space pens now contain a chemical called Stabilizine instead
@@ -4369,4 +4294,80 @@
   id: 2574
   time: '2026-07-20T00:24:43.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6310
+- author: kotobdev
+  changes:
+  - message: The Ardent Censer no longer requires fuel for deconversions.
+    type: Tweak
+  id: 2575
+  time: '2026-07-20T17:38:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5016
+- author: Halo3rat, kotobdev
+  changes:
+  - message: The Freighter Crew's Jumpsuit is now available in the AutoDrobe, for
+      those who value their dental hygiene.
+    type: Add
+  id: 2576
+  time: '2026-07-20T20:06:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6331
+- author: Mnemotechnician, kotobdev, ShepardToTheStars
+  changes:
+  - message: You can now offer items to other players by pressing F, and then clicking
+      on them! They can accept by clicking on the alert on the side of their screen.
+    type: Add
+  id: 2577
+  time: '2026-07-20T20:13:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5597
+- author: ShepardToTheStars
+  changes:
+  - message: Glimmer probers can once again turn on and lock into place when glimmer
+      is over 750.
+    type: Add
+  - message: Glimmer prober explosions are 1.5x bigger if glimmer is over 900. You
+      better build drainers! :)
+    type: Tweak
+  - message: The oracle can now give normality crystals when completing her requests.
+    type: Tweak
+  id: 2578
+  time: '2026-07-20T20:29:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6292
+- author: keekee38
+  changes:
+  - message: Added the novice mark, to help show that you're new! It is on intern
+      roles by default, and optional for everyone
+    type: Add
+  - message: Some clothes now have examine text, in particular pride clothes.
+    type: Tweak
+  id: 2579
+  time: '2026-07-20T22:08:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6118
+- author: Coryler
+  changes:
+  - message: Shadekin has arrived in the DeltaV sector.
+    type: Add
+  id: 2580
+  time: '2026-07-20T22:10:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5481
+- author: sowelipililimute
+  changes:
+  - message: The crew monitor now reports global coordinate positions.
+    type: Tweak
+  id: 2581
+  time: '2026-07-20T22:20:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6326
+- author: keekee38
+  changes:
+  - message: Vulpkanins can yip now.
+    type: Tweak
+  id: 2582
+  time: '2026-07-20T22:21:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6301
+- author: pootslap
+  changes:
+  - message: Improvised shotgun shells use the old upstream crafting recipe.
+    type: Tweak
+  - message: The improvised shotgun is craftable once again.
+    type: Fix
+  id: 2583
+  time: '2026-07-20T22:22:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6327
 Order: 1

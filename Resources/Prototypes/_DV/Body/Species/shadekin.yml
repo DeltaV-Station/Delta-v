@@ -1,0 +1,327 @@
+- type: markingsGroup
+  id: Shadekin
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [TailShadekin]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [EarsShadekin]
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceShadekin
+  name: shadekin appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganShadekinTorso
+      Head: OrganShadekinHead
+      ArmLeft: OrganShadekinArmLeft
+      ArmRight: OrganShadekinArmRight
+      HandRight: OrganShadekinHandRight
+      HandLeft: OrganShadekinHandLeft
+      LegLeft: OrganShadekinLegLeft
+      LegRight: OrganShadekinLegRight
+      FootLeft: OrganShadekinFootLeft
+      FootRight: OrganShadekinFootRight
+      Brain: OrganShadekinBrain
+      Eyes: OrganShadekinEyes
+      Tongue: OrganShadekinTongue
+      Appendix: OrganShadekinAppendix
+      Ears: OrganShadekinEars
+      Lungs: OrganShadekinLungs
+      Heart: OrganShadekinHeart
+      Stomach: OrganShadekinStomach
+      Liver: OrganShadekinLiver
+      Kidneys: OrganShadekinKidneys
+  - type: HumanoidProfile
+    species: Shadekin
+  - type: ScaleVisuals
+    scale: 0.9, 0.9
+
+
+- type: entity
+  save: false
+  name: Urist McShadow
+  parent:
+  - AppearanceShadekin
+  - BaseSpeciesMob
+  id: MobShadekin
+  components:
+  - type: Shadekin
+    thresholds:
+      0.8: Low
+      5: Annoying
+      10: High
+      15: Extreme
+  # - type: Absorbable # Delta-V: Commented out, we got no Absorbable
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _Starlight/Mobs/Species/Shadekin/parts.rsi
+    state: full
+  - type: Speech
+    allowedEmotes: ["Marr", "Wurble", "Hiss", "Growl", "Purr"]
+  - type: Vocal
+    sounds:
+      Male: MaleShadekin
+      Female: FemaleShadekin
+      Unsexed: MaleShadekin
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: FlashModifier
+    modifier: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Shadekin
+  - type: Deathgasp
+    damageType: Bloodloss
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ Water ]
+      methods: [Touch]
+      effects:
+      - !type:Emote
+        emote: Hiss
+        showInChat: false
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss: 1
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -0.25
+  - type: Flammable
+    damage:
+      types:
+        Heat: 1.5
+  - type: TypingIndicator
+    proto: alien
+  # - type: Destructible
+  #   thresholds:
+  #     - trigger: !type:DamageTypeTrigger
+  #         damageType: Blunt
+  #         damage: 400
+  #       behaviors:
+  #         - !type:GibBehavior {}
+  #         - !type:SpawnEntitiesBehavior
+  #           spawn:
+  #             ShadekinShadow:
+  #               min: 1
+  #               max: 1
+  #     - trigger: !type:DamageTypeTrigger
+  #         damageType: Heat
+  #         damage: 1500
+  #       behaviors:
+  #         - !type:SpawnEntitiesBehavior
+  #           spawnInContainer: true
+  #           spawn:
+  #             Ash:
+  #               min: 1
+  #               max: 1
+  #             ShadekinShadow:
+  #               min: 1
+  #               max: 1
+  #         - !type:BurnBodyBehavior {}
+
+  # BaseMobSpeciesOrganic // Because we dont want respirator to be used.
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.85 #per second, scales with pressure and other constants.
+        Heat: 0.1
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: -0.07
+        Blunt: -0.07
+        Piercing: -0.07
+        Slash: -0.07
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 2
+  - type: Perishable
+
+- type: entity
+  parent: OrganBase
+  id: OrganShadekin
+  abstract: true
+  suffix: shadekin
+
+- type: entity
+  id: OrganShadekinMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Human ]
+
+- type: entity
+  parent: OrganShadekin
+  id: OrganShadekinInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Starlight/Mobs/Species/Shadekin/organs.rsi
+
+- type: entity
+  id: OrganShadekinVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Starlight/Mobs/Species/Shadekin/parts.rsi # Delta V - Changed to our sprites
+  - type: VisualOrganMarkings
+    markingData:
+      group: Shadekin
+
+- type: entity
+  parent: [ OrganShadekin, OrganShadekinVisual ]
+  id: OrganShadekinExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Starlight/Mobs/Species/Shadekin/parts.rsi # Delta V - Changed to our Sprites
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganShadekinExternal ]
+  id: OrganShadekinTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganShadekinExternal ]
+  id: OrganShadekinHead
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganShadekinExternal ]
+  id: OrganShadekinArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganShadekinExternal ]
+  id: OrganShadekinArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganShadekinExternal ]
+  id: OrganShadekinHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganShadekinExternal ]
+  id: OrganShadekinHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganShadekinExternal ]
+  id: OrganShadekinLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganShadekinExternal ]
+  id: OrganShadekinLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganShadekinExternal ]
+  id: OrganShadekinFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganShadekinExternal ]
+  id: OrganShadekinFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganShadekinInternal ]
+  id: OrganShadekinBrain
+
+- type: entity
+  parent: [ OrganShadekinVisual, OrganSpriteHumanInternal, OrganBaseEyes, OrganShadekinInternal ]
+  id: OrganShadekinEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganShadekinInternal ]
+  id: OrganShadekinTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganShadekinInternal ]
+  id: OrganShadekinAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganShadekinInternal ]
+  id: OrganShadekinEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
+  id: OrganShadekinLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
+  id: OrganShadekinHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
+  id: OrganShadekinStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
+  id: OrganShadekinLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
+  id: OrganShadekinKidneys
