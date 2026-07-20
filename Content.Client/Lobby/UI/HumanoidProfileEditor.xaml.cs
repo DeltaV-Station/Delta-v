@@ -2,9 +2,6 @@ using Content.Client.Humanoid;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
-using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Shared._DV.Species; // DeltaV - Species hider
-using Content.Shared.Body;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -22,13 +19,8 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Direction = Robust.Shared.Maths.Direction;
-// Begin CD - Character Records
-using System.Globalization;
-using Content.Client._CD.Records.UI;
-using Content.Shared._CD.Records;
-// End CD - Character Records
-using Content.Shared._DV.Traits;
-using Content.Shared.Humanoid.Prototypes; // DV - Traits
+using Content.Client._CD.Records.UI; // CD - Character Records
+using Content.Shared._DV.Body.Systems; // DV - Traits
 
 namespace Content.Client.Lobby.UI
 {
@@ -236,10 +228,7 @@ namespace Content.Client.Lobby.UI
                     speciesScale = mockScale.Y;
 
                 CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(newHeight * speciesScale);
-
-                var sizeModifier = Math.Round((1 - Math.Min(newHeight * newHeight, 1)) * 100); // Same forumla as PullingSystem.OnRefreshMovespeed but its made into a readable percent
-                CDPullSpeedReductionLabel.Text = $"{sizeModifier}%";
-
+                CDPullSpeedReductionLabel.Text = SmallCharacterSystem.GetPullSpeedPenaltyDisplayFromScale(newHeight);
                 SetProfileHeight(newHeight);
             };
 

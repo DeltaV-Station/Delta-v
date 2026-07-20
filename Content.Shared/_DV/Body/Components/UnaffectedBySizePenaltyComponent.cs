@@ -5,6 +5,8 @@ namespace Content.Shared._DV.Body.Components;
 /// the small character will ignore the penalties associated with their size.
 ///
 /// Mostly used for things like wheeled/floating objects.
+/// 
+/// See <see cref="Systems.SmallCharacterSystem"/>
 /// </summary>
 [RegisterComponent]
 public sealed partial class UnaffectedBySizePenaltyComponent : Component;
