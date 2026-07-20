@@ -222,7 +222,7 @@ namespace Content.Server.Psionics.Glimmer
             var slope = (float)(11 - _glimmerSystem.Glimmer / 100);
             var maxIntensity = 75; // Same as syndicate bomb
 
-            var removed = (float) _glimmerSystem.Glimmer * _random.NextFloat(0.06f, 0.08f);
+            var removed = _glimmerSystem.Glimmer * _random.NextFloat(0.06f, 0.08f);
             _glimmerSystem.Glimmer -= (int)removed;
             BeamRandomNearProber(uid, _glimmerSystem.Glimmer / 350, _glimmerSystem.Glimmer / 50);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity, addLog: true);
@@ -234,7 +234,7 @@ namespace Content.Server.Psionics.Glimmer
             if (component.Locked)
             {
                 _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
-                _electrocutionSystem.TryDoElectrocution(args.User, null, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
+                _electrocutionSystem.TryDoElectrocution(args.User, uid, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
                 args.Cancel();
             }
         }

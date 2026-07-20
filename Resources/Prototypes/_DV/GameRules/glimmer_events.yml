@@ -8,7 +8,7 @@
     - id: NoosphericSilence
     - id: MassMindSwap
     - id: GlimmerWispSpawn
-    - id: GlimmerFreeProber
+    - id: GlimmerSpawnProber
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
@@ -121,7 +121,7 @@
 
 - type: entity
   parent: BaseGlimmerSignaturesEvent
-  id: GlimmerFreeProber
+  id: GlimmerSpawnProber
   components:
   - type: FreeProberRule
 
