@@ -1,5 +1,7 @@
 using Content.Shared.ActionBlocker;
+using Content.Shared.Alert;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Popups;
 using Robust.Shared.Input.Binding;
@@ -12,8 +14,11 @@ public abstract partial class SharedOfferItemSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+
     private void InitializeInteractions()
     {
+        base.Initialize();
+
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OfferItem, InputCmdHandler.FromDelegate(SetInOfferMode, handle: false, outsidePrediction: false))
             .Register<SharedOfferItemSystem>();
@@ -34,20 +39,28 @@ public abstract partial class SharedOfferItemSystem
         if (offerer is not { } playerSession)
             return;
 
-        if ((playerSession.AttachedEntity is not { Valid: true } uid || !Exists(uid)) ||
-            !_actionBlocker.CanInteract(uid, null))
+        if (playerSession.AttachedEntity is not { Valid: true } uid)
+            return;
+
+        if (!Exists(uid))
+            return;
+
+        if (!_actionBlocker.CanInteract(uid, null))
             return;
 
         if (!TryComp<OfferItemComponent>(uid, out var offerItem))
             return;
 
-        if (!TryComp<HandsComponent>(uid, out var hands)
-            || _hands.GetActiveHand((uid, hands)) is not {} activeHandName
-            || !_hands.TryGetHeldItem((uid, hands), activeHandName, out var heldItem))
+        if (!TryComp<HandsComponent>(uid, out var hands))
+            return;
+
+        if (_hands.GetActiveHand((uid, hands)) is not { } activeHandName)
+            return;
+
+        if (!_hands.TryGetHeldItem((uid, hands), activeHandName, out var heldItem))
             return;
 
         offerItem.Item = heldItem;
-
         if (!offerItem.IsInOfferMode)
         {
             if (offerItem.Item == null)

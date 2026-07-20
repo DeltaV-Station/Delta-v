@@ -1,9 +1,7 @@
 using Content.Shared.Actions;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Item.PseudoItem;
@@ -25,7 +23,6 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!; // Floofstation
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Floofstation
 
