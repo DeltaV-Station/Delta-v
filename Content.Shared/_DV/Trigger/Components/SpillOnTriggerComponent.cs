@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.GameStates;

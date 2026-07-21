@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Trigger.Components;
+using Content.Shared._DV.Trigger.Components;
 using Content.Shared._Funkystation.Fluids;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
