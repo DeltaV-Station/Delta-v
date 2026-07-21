@@ -3,8 +3,6 @@ using Content.Shared._Funkystation.Stains.Components;
 using Content.Shared._Funkystation.Stains.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Storage.Components;
 using Content.Server.Forensics;
 using Content.Shared.Clothing.Components;
@@ -65,9 +63,6 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
         if (!TryComp<EntityStorageComponent>(machine, out var storage) || storage.Contents.ContainedEntities.Count == 0)
             return;
 
-        var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
-        var damage = new DamageSpecifier(bluntProto, machine.Comp.EntityBluntDamage);
-
         var reagentSpray = new Solution();
         reagentSpray.AddReagent(machine.Comp.SprayReagent, machine.Comp.ReagentSprayAmount);
 
@@ -78,7 +73,7 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 
         foreach (var item in entitiesToWash)
         {
-            _damageable.TryChangeDamage(item, damage, true);
+            _damageable.TryChangeDamage(item, machine.Comp.EntityBluntDamage, true);
 
             if (doSpray)
                 _reactive.DoEntityReaction(item, reagentSpray, ReactionMethod.Touch);
@@ -143,11 +138,9 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 
         UpdateForensics((machine, machine), items);
 
-        if (hasHeavyItems && machine.Comp.SelfDamage > 0)
+        if (hasHeavyItems && machine.Comp.SelfDamage.AnyPositive())
         {
-            var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
-            var selfDamage = new DamageSpecifier(bluntProto, machine.Comp.SelfDamage * machine.Comp.WashTime.Seconds);
-            _damageable.TryChangeDamage(machine.Owner, selfDamage, ignoreResistances: true);
+            _damageable.TryChangeDamage(machine.Owner, machine.Comp.SelfDamage * machine.Comp.WashTime.TotalSeconds, ignoreResistances: true);
         }
 
         Storage.OpenStorage(machine);

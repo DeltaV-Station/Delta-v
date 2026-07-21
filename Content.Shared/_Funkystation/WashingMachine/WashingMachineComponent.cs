@@ -1,5 +1,9 @@
-﻿using Robust.Shared.Audio;
+﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Funkystation.WashingMachine;
@@ -98,13 +102,25 @@ public sealed partial class WashingMachineComponent : Component
     /// The damage dealt to entities within an active washing machine every <see cref="WashingStepCooldown"/>.
     /// </summary>
     [DataField]
-    public float EntityBluntDamage = 6.0f;
+    public DamageSpecifier EntityBluntDamage = new()
+    {
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
+        {
+            { "Blunt", 6f },
+        }
+    };
 
     /// <summary>
     /// The damage done to the washing machine itself upon finishing the washing process, multiplied by <see cref="WashTime"/>.
     /// </summary>
     [DataField]
-    public float SelfDamage = 5.0f;
+    public DamageSpecifier SelfDamage = new()
+    {
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
+        {
+            { "Blunt", 5f },
+        }
+    };
 }
 
 [Serializable, NetSerializable]

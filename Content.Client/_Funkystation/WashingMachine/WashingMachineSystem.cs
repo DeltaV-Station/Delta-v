@@ -2,10 +2,7 @@
 
 namespace Content.Client._Funkystation.WashingMachine;
 
-public sealed class WashingMachineSystem : SharedWashingMachineSystem
-{
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-}
+/// <summary>
+/// This only exists for client-side prediction.
+/// </summary>
+public sealed class WashingMachineSystem : SharedWashingMachineSystem;
