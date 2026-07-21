@@ -100,6 +100,12 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!other.Layer.Equals(ent.Comp.Layer))
             return;
 
+        // Delta V - Begin Fix Height for Cloning
+        var height = other.Profile.Height;
+        if (TryComp<HumanoidProfileComponent>(args.Body.Owner, out var component))
+            ScaleBody((args.Body.Owner, component), height, height);
+        // Delta V - End
+
         SetOrganAppearance(ent, other.Data);
     }
 
@@ -112,9 +118,14 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
 
         var height = Math.Clamp(MathF.Round(args.Base.Value.Height, 2), speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
 
+        ScaleBody(entity, speciesPrototype.ScaleHeight ? height : 1f, height);
+    }
+
+    private void ScaleBody(Entity<HumanoidProfileComponent> entity, float heightX, float heightY)
+    {
         _scaleVisualsSystem.SetSpriteScale(
             entity.Owner,
-            new Vector2(speciesPrototype.ScaleHeight ? height : 1f, height)
+            new Vector2(heightX, heightY)
         );
     }
     // Delta V - END
@@ -148,7 +159,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (ent.Comp.Layer.Equals(HumanoidVisualLayers.Eyes))
         {
             // Delta V - Begin Add AppearanceLoaded Event
-            var appearanceLoaded = new AppearanceLoadedEvent(ent.Comp.Profile.EyeColor);
+            var appearanceLoaded = new AppearanceLoadedEvent(ent.Comp.Profile.EyeColor, ent.Comp.Profile.SkinColor);
             RaiseLocalEvent(args.Body.Owner, ref appearanceLoaded);
             // Delta V - End
             SetOrganColor(ent, ent.Comp.Profile.EyeColor);

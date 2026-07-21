@@ -491,19 +491,21 @@
 
 - type: entity
   name: mothroach
-  parent: [ BaseMobMothroach, MobCockroach ]
+  parent: [ BaseMobMothroach, MobCockroach, DVNodeCrawler ] # DeltaV - vent crawling
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-mothroach-name
-    description: ghost-role-information-mothroach-description
-    rules: ghost-role-information-freeagent-rules
-    mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+  # Begin DeltaV Removals - players can spawn in as these at will
+  # - type: GhostRole
+  #   makeSentient: true
+  #   allowSpeech: true
+  #   allowMovement: true
+  #   name: ghost-role-information-mothroach-name
+  #   description: ghost-role-information-mothroach-description
+  #   rules: ghost-role-information-freeagent-rules
+  #   mindRoles:
+  #   - MindRoleGhostRoleFreeAgentHarmless
+  # End DeltaV Removals - players can spawn in as these at will
   - type: Fixtures
     fixtures:
       fix1:
@@ -515,7 +517,7 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
-  - type: GhostTakeoverAvailable
+  # - type: GhostTakeoverAvailable # DeltaV - players can spawn in as these at will
   - type: Speech
     speechVerb: Moth
     speechSounds: Chitter # Delta-V - Eep!
@@ -625,6 +627,8 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -1838,16 +1842,18 @@
   id: MobMouse
   description: Squeak!
   components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-mouse-name
-    description: ghost-role-information-mouse-description
-    rules: ghost-role-information-freeagent-rules
-    mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
-  - type: GhostTakeoverAvailable
+  # Begin DeltaV Removals - players can spawn in as these at will
+  # - type: GhostRole
+  #   makeSentient: true
+  #   allowSpeech: true
+  #   allowMovement: true
+  #   name: ghost-role-information-mouse-name
+  #   description: ghost-role-information-mouse-description
+  #   rules: ghost-role-information-freeagent-rules
+  #   mindRoles:
+  #   - MindRoleGhostRoleFreeAgentHarmless
+  # - type: GhostTakeoverAvailable
+  # End DeltaV Removals - players can spawn in as these at will
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob
@@ -2016,6 +2022,8 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   parent: MobMouse
@@ -2728,6 +2736,8 @@
         Heat: -0.03
         Cold: -0.03
         Shock: -0.03
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   parent:
@@ -3312,6 +3322,8 @@
   - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   name: calico cat
@@ -3802,8 +3814,13 @@
     spawned:
     - id: FoodMeat
       amount: 6
-    - id: FoodMeatBacon # DeltaV #Make Pigs drop bacon as well as meat
+      # Begin DeltaV Additions
+    - id: FoodMeatBacon
       amount: 6
+    - id: TreasureCoinIron
+      amount: 0
+      maxAmount: 3
+      # End DeltaV Additions
   - type: Grammar
     attributes:
       gender: epicene

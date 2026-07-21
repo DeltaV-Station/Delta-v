@@ -113,6 +113,7 @@
         enum.RadioDeviceVisualLayers.Speaker:
           True: { visible: true }
           False: { visible: false }
+  - type: TooShortForUIBlacklist #imp
 
 - type: entity
   parent: BaseWallmountMetallic

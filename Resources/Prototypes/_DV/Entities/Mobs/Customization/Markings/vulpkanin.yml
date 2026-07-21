@@ -265,26 +265,6 @@
       state: vulp-tip
 
 - type: marking
-  id: VulpTailWag
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin, Felinid, Kitsune]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag-tip #fade
-
-- type: marking
-  id: VulpTailWagTip
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin, Felinid, Kitsune]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag-tip
-
-- type: marking
   id: VulpTailAlt
   bodyPart: Tail
   groupWhitelist: [Vulpkanin, Felinid, Kitsune]
@@ -335,26 +315,6 @@
       state: fox-tip
 
 - type: marking
-  id: VulpTailFoxWag
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin, Felinid, Kitsune]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag-fade
-
-- type: marking
-  id: VulpTailFoxWagTip
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin, Felinid, Kitsune]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag-tip
-
-- type: marking
   id: VulpTailBushy
   bodyPart: Tail
   groupWhitelist: [Vulpkanin]
@@ -363,36 +323,12 @@
       state: bushfluff
 
 - type: marking
-  id: VulpTailBushyWag
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: bushfluff_wag
-
-- type: marking
   id: VulpTailCoyote
   bodyPart: Tail
   groupWhitelist: [Vulpkanin, Felinid, Kitsune]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote
-
-- type: marking
-  id: VulpTailCoyoteWag
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin, Felinid, Kitsune]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: coyote_wag
-
-- type: marking
-  id: VulpTailCorgiWag
-  bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
-  sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: corgi_wag
 
 - type: marking
   id: VulpTailHusky
@@ -454,13 +390,79 @@
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fluffy
 
+#Tail Markings (Wagging)
+
 - type: marking
-  id: VulpTailDalmatianWag
+  id: VulpTailAnimated
   bodyPart: Tail
-  groupWhitelist: [Vulpkanin]
+  groupWhitelist: []
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: dalmatian_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag-tip #fade
+
+- type: marking
+  id: VulpTailTipAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag-tip
+
+- type: marking
+  id: VulpTailFoxAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: fox_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: fox_wag-fade
+
+- type: marking
+  id: VulpTailFoxTipAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: fox_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: fox_wag-tip
+
+- type: marking
+  id: VulpTailBushyAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: bushfluff_wag
+
+- type: marking
+  id: VulpTailCoyoteAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: coyote_wag
+
+- type: marking
+  id: VulpTailCorgiAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: corgi_wag
+
+- type: marking
+  id: VulpTailDalmatianAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: dalmatian_wag
 
 # Body Markings (Chest)
 - type: marking

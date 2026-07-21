@@ -118,6 +118,7 @@
     damageValue: -10 # 10 seconds to repair from crit
     doAfterDelay: 1
     fuelCost: 0.5
+    qualityNeeded: Welding # DeltaV - for now
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
   - type: LockingWhitelist
@@ -275,15 +276,6 @@
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
-  - type: PassiveDamage # DeltaV - electric damage disappears over time
-    allowedStates:
-    - Alive
-    - Critical
-    - Dead
-    damage:
-      types:
-        Shock: -0.5
-  - type: SiliconEmp # DeltaV - EMP damage
   - type: BypassLock
     openWiresPanel: true
   - type: BypassLockRequiresMobState
@@ -429,10 +421,9 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
-  - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
-    groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  #- type: Access # DeltaV - Borg ID chips
+  #  groups:
+  #  - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
     access: [["Command"], ["Robotics"]] # DeltaV - Robotics instead of Research
   - type: StartIonStormed
@@ -513,7 +504,7 @@
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
-    - Binary
+    # - Binary # DeltaV - only the mothership can talk over binary (prevents "accidents" on binary)
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
@@ -593,12 +584,11 @@
     - Robotics
     - Xenoborgs
   - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     tags:
     - Xenoborg
-  - type: ContainerFill # DeltaV - borg id chips
-    containers:
-      borg_id_chip:
+  - type: IdChipSlot # DeltaV - no crew IDs. Incompatible with *xeno*borg systems.
+    whitelist:
+      tags:
       - IdChipXenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
@@ -612,3 +602,5 @@
   - type: Xenoborg
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
+  - type: EmpResistance # DeltaV
+    durationMultiplier: 0.1 # Only disabled for 10%. Default EMP stun time is 60% so still a 6 second disable. Battery has 40% resistance already.

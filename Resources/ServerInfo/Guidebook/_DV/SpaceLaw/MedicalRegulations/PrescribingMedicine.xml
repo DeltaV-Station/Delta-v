@@ -1,0 +1,48 @@
+<Document>
+
+# Prescribing Medicine
+
+In the event that a patient requires stronger medication outside of medbay, Medical personnel have the ability to prescribe medicine to a patient. Prescriptions must be written on valid prescription paper, as well as signed and stamped with a valid medical personnel's stamp and signature. Any such document must state the substance(s) being prescribed as well as the amount(s) where applicable. The chief medical officer also has the right to revoke any prescription with valid medical reasoning.
+
+Prescriptions are not valid if they are both intended for and signed and stamped by the same person (e.g. You cannot prescribe something to yourself as a doctor).
+
+<Box>
+    <GuideEntityEmbed Entity="PrescriptionFolder" Caption="Prescription Folder"/>
+    <GuideEntityEmbed Entity="RubberStampCMO" Caption="Chief Medical Officer's Stamp"/>
+</Box>
+<Box>
+    <GuideEntityEmbed Entity="RubberStampDoctor" Caption="Doctor's Stamp"/>
+    <GuideEntityEmbed Entity="RubberStampPsychologist" Caption="Psychologist's Stamp"/>
+    <GuideEntityEmbed Entity="RubberStampChemist" Caption="Chemist's Stamp"/>
+</Box>
+
+## Prescription Medications
+
+Prescriptions that are valid with any medical personnel's stamp and signature are as follows:
+- diphenylmethylamine
+- equilibrazine
+- tranquinase
+- neurozenium
+- serenitol
+- soretizone
+
+Highly-addictive mental health prescriptions that are [bold]only[/bold] valid with the chief medical officer's or psychologist's stamp and signature are as follows:
+- blissifylovene
+- happiness
+
+Highly-addictive or potentially-harmful that are [bold]only[/bold] valid with the chief medical officer's stamp and signature are as follows:
+- agonolexyne
+- desoxyephedrine
+- nocturine
+
+## Dangerous Chemical Authorizations
+
+Other dangerous chemicals that may be authorized and given out [bold]ONLY[/bold] with valid written permission with the chief medical officer's stamp are as follows:
+- mindbreaker, heartbreaker, and mute toxins
+- amatoxin and other dangerous poisons
+- phlogiston, napalm, and chlorine trifluoride
+- vestine and romerol
+- Any other [textlink="controlled substances" link="ControlledSub"] not listed here
+
+The chief medical officer is also required to inform and/or forward authorization of any dangerous chemical to Security.
+</Document>
