@@ -13,15 +13,15 @@ public sealed class SpillOnTriggerSystem : XOnTriggerSystem<SpillOnTriggerCompon
 
     protected override void OnTrigger(Entity<SpillOnTriggerComponent> spiller, EntityUid target, ref TriggerEvent args)
     {
-        if (!_solutionContainer.ResolveSolution(spiller.Owner, spiller.Comp.SolutionName, ref spiller.Comp.Solution, out var solution)
-            || solution.Volume <= FixedPoint2.Zero)
+        if (!_solutionContainer.TryGetSolution(spiller.Owner, spiller.Comp.SolutionName, out var solution)
+            || solution.Value.Comp.Solution.Volume <= FixedPoint2.Zero)
             return;
 
         var targetSlots = HasComp<KnockedDownComponent>(target)
             ? spiller.Comp.ProneTargetSlots
             : spiller.Comp.TargetSlots;
 
-        var spilledEvent = new SpilledOnEvent(spiller, solution, targetSlots);
+        var spilledEvent = new SpilledOnEvent(spiller, solution.Value.Comp.Solution, targetSlots);
         RaiseLocalEvent(target, spilledEvent);
 
         args.Handled = true;

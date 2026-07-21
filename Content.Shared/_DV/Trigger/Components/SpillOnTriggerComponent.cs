@@ -19,12 +19,6 @@ public sealed partial class SpillOnTriggerComponent : BaseXOnTriggerComponent
     public string SolutionName;
 
     /// <summary>
-    /// The actual solution entity, cached for performance.
-    /// </summary>
-    [ViewVariables]
-    public Entity<SolutionComponent>? Solution;
-
-    /// <summary>
     /// The inventory slots that this spill will be relayed to.
     /// </summary>
     [DataField]
