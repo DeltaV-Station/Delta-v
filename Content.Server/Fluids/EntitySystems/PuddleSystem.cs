@@ -67,6 +67,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             RemCompDeferred<ActiveEdgeSpreaderComponent>(entity);
             return;
         }
+
         // For overflows, we never go to a fully evaporative tile just to avoid continuously having to mop it.
 
         // First we go to free tiles.
@@ -107,16 +108,18 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                     continue;
                 }
 
-                // We want to deal with our neighbours by lowest current volume to highest, as this allows us to fill up our low points quickly.
                 resolvedNeighbourSolutions.Add(
                     (neighborSolution, puddle, neighbor)
                 );
             }
 
+            // We want to deal with our neighbours by lowest current volume to highest, as this allows us to fill up our low points quickly.
+
             resolvedNeighbourSolutions.Sort(
                 (x, y) =>
                     x.neighborSolution.Volume.CompareTo(y.neighborSolution.Volume));
 
+            // Overflow to neighbors with remaining space.
             foreach (var (neighborSolution, puddle, neighbor) in resolvedNeighbourSolutions)
             {
                 // Water doesn't flow uphill
