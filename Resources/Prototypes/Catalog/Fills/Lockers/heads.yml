@@ -132,11 +132,11 @@
       # Yes they do fuck you.
     - id: ClothingBackpackIan
       prob: 0.5
-    #- id: ClothingHeadsetCommand # DeltaV - HOP is head of service.
+    - id: ClothingHeadsetCommand
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    #- id: WeaponDisabler # DeltaV - There is no reason for the service head to have a disabler.
+    - id: WeaponDisabler
     - id: ClothingEyesHudCommand
 
 - type: entity
