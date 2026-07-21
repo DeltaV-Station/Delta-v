@@ -182,6 +182,7 @@ public partial class InventorySystem
             RaiseLocalEvent(item, ev);
         }
     }
+    
 }
 
 /// <summary>
@@ -203,12 +204,6 @@ public sealed class InventoryRelayedEvent<TEvent> : EntityEventArgs
     {
         Args = args;
         Owner = owner;
-    }
-
-    public InventoryRelayedEvent(TEvent args)
-    {
-        Args = args;
-        Owner = EntityUid.Invalid;
     }
 }
 
