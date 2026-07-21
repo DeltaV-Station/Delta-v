@@ -20,11 +20,12 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 2.5h
-  weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
+  weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   requireAdminNotify: true # DeltaV
   joinNotifyCrew: true # DeltaV
+  whitelisted: true # DeltaV
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
