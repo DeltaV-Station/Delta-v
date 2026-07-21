@@ -23,5 +23,7 @@ public sealed class SpillOnTriggerSystem : XOnTriggerSystem<SpillOnTriggerCompon
 
         var spilledEvent = new SpilledOnEvent(spiller, solution, targetSlots);
         RaiseLocalEvent(target, spilledEvent);
+
+        args.Handled = true;
     }
 }
