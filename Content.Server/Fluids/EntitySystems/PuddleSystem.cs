@@ -114,7 +114,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             }
 
             // We want to deal with our neighbours by lowest current volume to highest, as this allows us to fill up our low points quickly.
-
             resolvedNeighbourSolutions.Sort(
                 (x, y) =>
                     x.neighborSolution.Volume.CompareTo(y.neighborSolution.Volume));
