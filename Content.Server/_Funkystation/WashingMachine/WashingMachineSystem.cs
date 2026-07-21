@@ -7,7 +7,6 @@ using Content.Shared.Storage.Components;
 using Content.Server.Forensics;
 using Content.Shared.Clothing.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Shared.Chemistry;
@@ -21,7 +20,6 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
     [Dependency] private readonly SharedStainSystem _stains = null!;
     [Dependency] private readonly ForensicsSystem _forensics = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly IPrototypeManager _proto = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly ReactiveSystem _reactive = null!;
 
