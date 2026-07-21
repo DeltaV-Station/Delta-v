@@ -389,10 +389,10 @@
     metabolizerTypes: [ Fuel ]
 
 - type: entity
+  abstract: true
   parent: OrganBase
   id: OrganBaseInvisibleHand
   name: invisible hand
-  abstract: true
   components:
   - type: Organ
     category: HandRight
@@ -412,7 +412,7 @@
   - type: HandOrgan
     handID: left
     data:
-      location: left
+      location: Left
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: l_hand
@@ -426,7 +426,7 @@
   - type: HandOrgan
     handID: right
     data:
-      location: right
+      location: Right
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: r_hand
