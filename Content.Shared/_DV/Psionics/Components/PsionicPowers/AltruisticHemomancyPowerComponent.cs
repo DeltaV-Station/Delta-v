@@ -84,6 +84,18 @@ public sealed partial class AltruisticHemomancyPowerComponent : BasePsionicPower
     public TimeSpan ReduceRot = TimeSpan.FromSeconds(30);
 
     /// <summary>
+    /// The Damage the psionic user receives everytime they heal targets.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier DamageOnHealing = new()
+    {
+        DamageDict = new()
+        {
+            { "Bloodloss", 10 },
+        },
+    };
+
+    /// <summary>
     /// The Damage the psionic user receives everytime they heal dead targets.
     /// </summary>
     [DataField]

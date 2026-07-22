@@ -39,7 +39,7 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
             || !Psionic.CanBeTargeted(args.Target, hasAggressor: args.Performer))
             return;
 
-        var damage = _damageable.GetDamage((args.Target, damageable));
+        var damage = _damageable.GetPositiveDamage((args.Target, damageable));
 
         if (!damage.AnyPositive())
         {
@@ -86,7 +86,7 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
             || args.Handled
             || !Psionic.CanBeTargeted(target, hasAggressor: args.User)
             || !TryComp<DamageableComponent>(target, out var damageable)
-            || !_damageable.GetDamage((target, damageable)).AnyPositive())
+            || !_damageable.GetPositiveDamage((target, damageable)).AnyPositive())
             return;
 
         args.Handled = true;
@@ -106,7 +106,7 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
 
         psionic.Comp.TickCounter++;
 
-        if (psionic.Comp.TickCounter < psionic.Comp.MaxHealingTicks && _damageable.GetDamage((target, damageable)).AnyPositive())
+        if (psionic.Comp.TickCounter < psionic.Comp.MaxHealingTicks && _damageable.GetPositiveDamage((target, damageable)).AnyPositive())
         {
             args.Args.Delay = psionic.Comp.DoAfterDuration;
 
@@ -139,7 +139,8 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
 
         if (!_bloodstream.TryModifyBloodLevel(user, bloodPercentageCost))
             return;
-
+        // Damage the user for every heal.
+        _damageable.TryChangeDamage(user, psionic.Comp.DamageOnHealing, interruptsDoAfters: false, origin: psionic);
         _bloodstream.TryModifyBleedAmount(target, psionic.Comp.ReducedBleeding);
 
         foreach (var groupHeal in psionic.Comp.Heal)
