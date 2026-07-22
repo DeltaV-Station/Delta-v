@@ -99,7 +99,7 @@ public abstract partial class SharedChatSystem
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
-            SendEntityEmote(source, action, range, nameOverride, null, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker); // DeltaV
+            SendEntityEmote(source, action, range, nameOverride, null, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker, emote: emote); // DeltaV
         }
 
         return didEmote;
@@ -123,7 +123,7 @@ public abstract partial class SharedChatSystem
     /// <returns>True if an emote was performed. False if the emote is unavailable, cancelled, etc.</returns>
     public bool TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false)
     {
-        if (!_actionBlocker.CanEmote(uid) && !ignoreActionBlocker)
+        if (!_actionBlocker.CanEmote(uid, proto) && !ignoreActionBlocker) // DeltaV - death emotes
             return false;
 
         return TryInvokeEmoteEvent(uid, proto);

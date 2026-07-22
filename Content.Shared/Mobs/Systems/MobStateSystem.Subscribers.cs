@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Chat.Prototypes; // DeltaV - death emotes
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
@@ -35,7 +36,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, ThrowAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<MobStateComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
-        SubscribeLocalEvent<MobStateComponent, EmoteAttemptEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, EmoteAttemptEvent>(CheckEmote); // DeltaV - death emotes
         SubscribeLocalEvent<MobStateComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
         SubscribeLocalEvent<MobStateComponent, DropAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, PickupAttemptEvent>(CheckAct);
@@ -180,6 +181,25 @@ public partial class MobStateSystem
                 break;
         }
     }
+
+    // Begin DeltaV - death emotes
+    private void CheckEmote(Entity<MobStateComponent> ent, ref EmoteAttemptEvent args)
+    {
+        if (args.Emote is not null)
+        {
+            if (args.Emote.Category == EmoteCategory.Dead && ent.Comp.CurrentState == MobState.Dead)
+                return;
+
+            if (args.Emote.Category == EmoteCategory.Dead && ent.Comp.CurrentState != MobState.Dead)
+            {
+                args.Cancel();
+                return;
+            }
+        }
+
+        CheckAct(ent, ent, args);
+    }
+    // End DeltaV - death emotees
 
     private void OnEquipAttempt(EntityUid target, MobStateComponent component, IsEquippingAttemptEvent args)
     {

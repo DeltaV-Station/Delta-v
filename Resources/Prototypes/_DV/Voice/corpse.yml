@@ -1,0 +1,114 @@
+- type: emote
+  id: DVCorpseEmoteBloat
+  name: delta-chat-emote-name-corpse-bloat
+  icon: _DV/Interface/Emotes/bloat.png
+  category: Dead
+  whitelist: &whitelist
+    components:
+    - Perishable
+    - DVDeathEmoteCooldown
+  chatMessages:
+  - bloats.
+  - bloats up a little.
+  - shifts weirdly.
+  chatTriggers:
+  - bloats
+  - bloat
+
+- type: emote
+  id: DVCorpseEmoteStink
+  name: delta-chat-emote-name-corpse-stink
+  icon: _DV/Interface/Emotes/stink.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - stinks.
+  - smells bad.
+  chatTriggers:
+  - smell
+  - smells
+  - stinks
+
+- type: emote
+  id: DVCorpseEmoteDecompose
+  name: delta-chat-emote-name-corpse-decompose
+  icon: _DV/Interface/Emotes/rot.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - decomposes.
+  - is rotting.
+  chatTriggers:
+  - decompose
+  - decomposes
+  - rot
+  - rots
+
+- type: emote
+  id: DVCorpseEmoteStare
+  name: delta-chat-emote-name-corpse-stare
+  icon: _DV/Interface/Emotes/stare.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - stares lifelessly at you.
+  - stares lifelessly upwards.
+  - stares lifelessly.
+  chatTriggers:
+  - stare
+  - stares
+
+- type: emote
+  id: DVCorpseEmoteLinger
+  name: delta-chat-emote-name-corpse-linger
+  icon: _DV/Interface/Emotes/linger.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - lingers without motion.
+  - lays unmoving.
+  - is eerily still.
+  chatTriggers:
+  - lay
+  - lays
+  - linger
+  - lingers
+
+- type: emote
+  id: DVCorpseEmoteWait
+  name: delta-chat-emote-name-corpse-wait
+  icon: _DV/Interface/Emotes/wait.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - is waiting for something.
+  - waits on the afterlife.
+  - waits for nothing.
+  chatTriggers:
+  - wait
+  - waits
+
+- type: emote
+  id: DVCorpseEmoteRegret
+  name: delta-chat-emote-name-corpse-regret
+  icon: _DV/Interface/Emotes/regret.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - has regrets.
+  - regrets dying.
+  chatTriggers:
+  - regret
+  - regrets
+
+- type: emote
+  id: DVCorpseEmoteJudge
+  name: delta-chat-emote-name-corpse-judge
+  icon: _DV/Interface/Emotes/judge.png
+  category: Dead
+  whitelist: *whitelist
+  chatMessages:
+  - is judging you.
+  chatTriggers:
+  - judge
+  - judges

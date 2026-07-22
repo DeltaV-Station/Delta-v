@@ -19,3 +19,13 @@ delta-chat-emote-name-horn = Horn
 delta-chat-emote-name-yip = Yip
 
 delta-chat-emote-msg-yip = yips.
+
+dv-emote-menu-category-dead = Dead
+delta-chat-emote-name-corpse-bloat = Bloat
+delta-chat-emote-name-corpse-stink = Stink
+delta-chat-emote-name-corpse-decompose = Decompose
+delta-chat-emote-name-corpse-stare = Stare
+delta-chat-emote-name-corpse-linger = Linger
+delta-chat-emote-name-corpse-wait = Wait
+delta-chat-emote-name-corpse-regret = Regret
+delta-chat-emote-name-corpse-judge = Judge

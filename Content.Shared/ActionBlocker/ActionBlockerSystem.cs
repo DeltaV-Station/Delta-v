@@ -1,4 +1,5 @@
 using Content.Shared.Body.Events;
+using Content.Shared.Chat.Prototypes; // DeltaV - death emotes
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -183,10 +184,10 @@ namespace Content.Shared.ActionBlocker
             return !itemEv.Cancelled;
         }
 
-        public bool CanEmote(EntityUid uid)
+        public bool CanEmote(EntityUid uid, EmotePrototype? emote = null) // DeltaV - death emotes
         {
             // This one is used as broadcast
-            var ev = new EmoteAttemptEvent(uid);
+            var ev = new EmoteAttemptEvent(uid, emote); // DeltaV - death emotes
             RaiseLocalEvent(uid, ev, true);
 
             return !ev.Cancelled;

@@ -1,8 +1,10 @@
+using System.Linq; // DeltaV - death emotes
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
+using Content.Shared.Mobs.Systems; // DeltaV - death emotes
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
@@ -33,6 +35,10 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
                 new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Hands/Gloves/latex.rsi"), "icon")),
             [EmoteCategory.Vocal] = ("emote-menu-category-vocal",
                 new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Emotes/vocal.png"))),
+            // Begin DeltaV - corpse emotes
+            [EmoteCategory.Dead] = ("dv-emote-menu-category-dead",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Emotes/deathgasp.png"))),
+            // End DeltaV
         };
 
     public void OnStateEntered(GameplayState state)
@@ -136,12 +142,21 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     {
         var whitelistSystem = EntitySystemManager.GetEntitySystem<EntityWhitelistSystem>();
         var player = _playerManager.LocalSession?.AttachedEntity;
+        // Begin DeltaV - death emotes
+        var isDead = player.HasValue && EntitySystemManager.GetEntitySystem<MobStateSystem>()
+            .IsDead(player.Value);
+        // End DeltaV - death emotes
 
         Dictionary<EmoteCategory, List<RadialMenuOptionBase>> emotesByCategory = new();
         foreach (var emote in emotePrototypes)
         {
             if(emote.Category == EmoteCategory.Invalid)
                 continue;
+
+            // Begin DeltaV - death emotes
+            if (isDead != (emote.Category == EmoteCategory.Dead))
+                continue;
+            // End DeltaV - death emotes
 
             // only valid emotes that have ways to be triggered by chat and player have access / no restriction on
             if (emote.Category == EmoteCategory.Invalid
@@ -182,6 +197,13 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
             };
             i++;
         }
+
+        // Begin DeltaV - death emotes
+        if (emotesByCategory.Count == 1)
+        {
+            return emotesByCategory.Values.First();
+        }
+        // End DeltaV - death emotes
 
         return models;
     }

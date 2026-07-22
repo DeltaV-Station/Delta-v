@@ -347,7 +347,8 @@ public abstract partial class SharedChatSystem : EntitySystem
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
-        NetUserId? author = null
+        NetUserId? author = null,
+        EmotePrototype? emote = null // DeltaV - death emotes
         )
     { }
 

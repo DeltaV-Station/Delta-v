@@ -36,7 +36,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Shared._DV.Chat; // DeltaV - chat enhancements
+using Content.Shared._DV.Chat;
+using Content.Shared.Chat.Prototypes; // DeltaV - chat enhancements
 
 namespace Content.Server.Chat.Systems;
 
@@ -644,10 +645,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
-        NetUserId? author = null
+        NetUserId? author = null,
+        EmotePrototype? emote = null // DeltaV - emotes
         )
     {
-        if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
+        if (!_actionBlocker.CanEmote(source, emote) && !ignoreActionBlocker)
             return;
 
         // get the entity's apparent name (if no override provided).
