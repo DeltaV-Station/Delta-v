@@ -1,5 +1,4 @@
 using Content.Shared.Damage;
-using Content.Shared._Shitmed.Targeting; // Shitmed
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Trigger.Components.Effects;
@@ -23,10 +22,4 @@ public sealed partial class DamageOnTriggerComponent : BaseXOnTriggerComponent
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = default!;
-
-    /// <summary>
-    /// Shitmed Change: Lets mousetraps, etc. target the feet.
-    /// </summary>
-    [DataField]
-    public TargetBodyPart? TargetPart = TargetBodyPart.Feet;
 }

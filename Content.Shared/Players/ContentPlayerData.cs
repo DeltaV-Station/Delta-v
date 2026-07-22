@@ -43,6 +43,11 @@ public sealed class ContentPlayerData
     [ViewVariables]
     public bool Whitelisted { get; set; }
 
+    // DeltaV - OOC muting START
+    [ViewVariables]
+    public bool OocMuted { get; set; }
+    // DeltaV END
+
     public ContentPlayerData(NetUserId userId, string name)
     {
         UserId = userId;

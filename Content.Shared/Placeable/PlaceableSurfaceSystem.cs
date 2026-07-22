@@ -70,6 +70,9 @@ public sealed class PlaceableSurfaceSystem : EntitySystem
         _transformSystem.SetCoordinates(args.Used,
             surface.PlaceCentered ? Transform(uid).Coordinates.Offset(surface.PositionOffset) : args.ClickLocation);
 
+        // ES START
+        args.SpawnInteractionParticles = false;
+        // ES END
         args.Handled = true;
     }
 

@@ -1,8 +1,9 @@
 ﻿using Content.Shared.MedicalScanner;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
-using JetBrains.Annotations;
+using Content.Shared._DV.Medical; // DeltaV
+using Content.Shared._DV.MedicalRecords; // DeltaV
+using JetBrains.Annotations; // DeltaV
 using Robust.Client.UserInterface;
+
 
 namespace Content.Client.HealthAnalyzer.UI
 {
@@ -21,12 +22,11 @@ namespace Content.Client.HealthAnalyzer.UI
             base.Open();
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
-            _window.HealthAnalyzer.OnBodyPartSelected += SendBodyPartMessage; // Shitmed Change
             _window.HealthAnalyzer.OnTriageStatusChanged += SendTriageStatusMessage; // DeltaV - Medical Records
             _window.HealthAnalyzer.OnClaimPatient += SendTriageClaimMessage; // DeltaV - Medical Records
+            _window.HealthAnalyzer.OnPrintMedTekRecord += () => SendMessage(new HealthAnalyzerPrintReportMessage()); // DeltaV - MedTekReports
             _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         }
-
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)
         {
@@ -38,22 +38,6 @@ namespace Content.Client.HealthAnalyzer.UI
 
             _window.Populate(cast);
         }
-
-        // Shitmed Change Start
-        private void SendBodyPartMessage(TargetBodyPart? part, EntityUid target) => SendMessage(new HealthAnalyzerPartMessage(EntMan.GetNetEntity(target), part ?? null));
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            if (!disposing)
-                return;
-
-            if (_window != null)
-                _window.HealthAnalyzer.OnBodyPartSelected -= SendBodyPartMessage;
-
-            _window?.Dispose();
-        }
-
-        // Shitmed Change End
 
         // Begin DeltaV - Medical Records
         private void SendTriageStatusMessage(TriageStatus status)

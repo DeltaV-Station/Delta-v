@@ -1,17 +1,11 @@
 - type: emote
-  id: SiliconDeathgasp
-  name: chat-emote-name-deathgasp
-  icon: Interface/Emotes/deathgasp.png
-  chatMessages: ["chat-emote-msg-deathgasp-silicon"]
-
-- type: emote
   id: Boop
   name: chat-emote-name-boop
   icon: _DV/Interface/Emotes/ecg.png # DeltaV - Added icon
   category: Vocal
   whitelist:
     tags: # DeltaV - let borgs, bots, and IPCs use it
-    - SiliconOrIPCEmotes
+    - SiliconEmotes
   chatMessages: [ boops. ] # DeltaV - period
   chatTriggers:
     - boops
@@ -20,7 +14,7 @@
   id: Whirr # uncategorized as it is generic
   whitelist:
     tags: # DeltaV - let borgs, bots, and IPCs use it
-    - SiliconOrIPCEmotes
+    - SiliconEmotes
   name: chat-emote-name-whirr
   chatMessages: [ whirrs. ] # DeltaV - period
   chatTriggers:

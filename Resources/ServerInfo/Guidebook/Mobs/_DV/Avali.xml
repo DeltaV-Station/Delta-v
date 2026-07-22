@@ -2,7 +2,7 @@
   # Avali
 
   <Box>
-    <GuideEntityEmbed Entity="MobAvali" Caption=""/>
+    <GuideEntityEmbed Entity="AppearanceAvali" Caption=""/>
   </Box>
 
   The Avali are a species of lightweight feathered raptor-like humanoids.
@@ -28,5 +28,11 @@
   - Dangerously sensitive to high temperatures. Begins to suffer heat damage at a lower threshold, and takes much more of it from high temperatures then other species. Due to this, [color=red]Leporazine is highly dangerous[/color], and potentially lethal at higher doses.
   - As a lightweight species, they tend to be a bit frail, taking [color=#ffa500]30% more blunt damage[/color], as well as [color=#ffa500]10% more slash and pierce[/color].
   - For the same reason, they lack muscle, [color=#ffa500]dealing 35% less blunt damage[/color] and [color=#ffa500]15% less slash and stamina damage[/color].
+
+  ## Feathers
+  <Box>
+    <GuideEntityEmbed Entity="AvaliFeather" Caption=""/>
+  </Box>
+  Being injured has a chance to cause an Avali to drop a feather, granting them a [color=#1e90ff]short burst of adrenaline[/color]. They can lose up to three feathers at once, which will very slowly regrow over time. Feathers can also be [color=#1e90ff]manually preened[/color] via the context menu.
 
 </Document>

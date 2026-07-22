@@ -30,6 +30,7 @@
   - type: Tag
     tags:
     - ChemDispensable
+    - Jug # DeltaV - Added because of Portable Chem Mixer
 
 - type: entity
   parent: Jug
@@ -66,6 +67,7 @@
 - type: entity
   parent: Jug
   id: JugDexPlusSaline
+  categories: [ HideSpawnMenu ] # DeltaV - Killed DexalinPlus
   suffix: dex+ & saline
   components:
   - type: Label

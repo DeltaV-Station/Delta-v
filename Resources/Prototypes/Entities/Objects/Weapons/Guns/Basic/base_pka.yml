@@ -7,15 +7,15 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal # DeltaV - back to 2x2
+    size: Large
     shape:
-    - 0,0,1,1 # DeltaV - back to 2x2
+    - 0,0,2,1
   - type: GunWieldBonus
     minAngle: -43
     maxAngle: -43
   - type: Wieldable
   - type: Gun
-    fireRate: 1.5 # DeltaV - revert back to prebase feel
+    fireRate: 0.5
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 44
@@ -35,7 +35,7 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5 # DeltaV
+    rechargeCooldown: 0.75
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider

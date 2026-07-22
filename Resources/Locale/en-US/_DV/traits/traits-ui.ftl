@@ -32,6 +32,11 @@ trait-conditions-tooltip = [bold]Requirements:[/bold]
 trait-conditions-not-met-tooltip = Requirements not met:
     {$requirements}
 
+trait-category-full-tooltip = You have reached the maximum amount of  traits that you can have in this category.
+trait-insufficient-points-tooltip = You do not have enough points to equip this trait.
+trait-condition-trait-conflict = You must not have the [color=yellow]{ $trait }[/color] trait.
+trait-condition-trait-required = You must have the [color=yellow]{ $trait }[/color] trait.
+
 ## Composite conditions
 trait-condition-any-of = Any of the following must be true:
     • {$requirements}
@@ -49,8 +54,8 @@ trait-condition-department-is = You must be in the [color={$color}]{$department}
 trait-condition-department-not = You must not be in the [color={$color}]{$department}[/color] department.
 
 ## HasComp borg conditions
-trait-condition-borg-not = You must not be a [color=yellow]borg[/color].
+trait-condition-borg-not = You must not be a [color=yellow]Silicon[/color].
 
-# Antag conditions
+## Antag conditions
 trait-condition-antag-is = Must be eligible for [color=red]{$antag}[/color] antag role.
 trait-condition-antag-not = Must not be eligible for [color=red]{$antag}[/color] antag role.

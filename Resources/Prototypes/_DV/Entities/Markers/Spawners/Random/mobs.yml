@@ -1,0 +1,275 @@
+- type: entity
+  parent: MarkerBase
+  id: CarpSpawnerMundane
+  name: random carp spawner
+  suffix: No Ghost Takeover
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobCarp
+      - id: MobCarpMagic
+      - id: MobCarpHolo
+      - id: MobCarpRainbow
+      - id: MobShark
+        weight: 0.05
+
+- type: entity
+  parent: MarkerBase
+  id: SnakeSpawnerMundane
+  name: random snake spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
+      state: purple_snake
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobPurpleSnake
+      - id: MobCobraSpace
+      - id: MobSmallPurpleSnake
+        weight: 0.2
+
+- type: entity
+  parent: MarkerBase
+  id: SnakeMobMundane
+  name: random snake spawner
+  suffix: Salvage, 75%
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
+      state: purple_snake
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.75
+      children:
+      - id: MobPurpleSnakeGhost
+      - id: MobCobraSpaceSalvage
+      - id: MobSmallPurpleSnakeGhost
+        weight: 0.2
+
+- type: entity
+  parent: MarkerBase
+  id: SnakeMobMundane25
+  name: random snake spawner
+  suffix: Salvage, 25%
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Xenos/purple_snake.rsi
+      state: purple_snake
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.25
+      children:
+      - id: MobPurpleSnakeGhost
+      - id: MobCobraSpaceSalvage
+      - id: MobSmallPurpleSnakeGhost
+        weight: 0.2
+
+- type: entity
+  parent: MarkerBase
+  id: XenoAISpawner
+  name: random xeno spawner
+  suffix: No Ghost Takeover
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Xenos/burrower.rsi
+      state: walking
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobXeno
+      - id: MobXenoPraetorianNPC
+      - id: MobXenoDroneNPC
+      - id: MobXenoRavagerNPC
+      - id: MobXenoRunnerNPC
+      - id: MobXenoRounyNPC
+      - id: MobXenoSpitterNPC
+      - id: MobXenoQueenNPC
+        weight: 0.1
+
+- type: entity
+  parent: MarkerBase
+  id: ArgocyteAISpawner
+  name: random argocyte spawner
+  suffix: No Ghost Takeover
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+      state: crawler
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobArgocyteSkitter
+      - id: MobArgocyteSwiper
+      - id: MobArgocyteMolder
+      - id: MobArgocytePouncer
+      - id: MobArgocyteGlider
+      - id: MobArgocyteHarvester
+      - id: MobArgocyteCrawler
+      - id: MobArgocyteFounder
+      - id: MobArgocyteEnforcer
+      - id: MobArgocyteLeviathing
+        weight: 0.1
+
+- type: entity
+  parent: MarkerBase
+  id: WatcherAISpawner
+  name: random watcher spawner
+  suffix: No Ghost Takeover
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Lavaland/watcher.rsi
+      state: unshaded
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobWatcherLavaland
+      - id: MobWatcherIcewing
+      - id: MobWatcherMagmawing
+      - id: MobWatcherPride
+        weight: 0.1
+
+- type: entity
+  parent: MarkerBase
+  id: SpaceCreatureAISpawner
+  name: random space creature spawner
+  suffix: No Ghost Takeover
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Animals/spacespider.rsi
+      state: spacespider
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobBearSpace
+      - id: MobKangarooSpace
+      - id: MobSpiderSpace
+
+- type: entity
+  parent: MarkerBase
+  id: AngrySlimeSpawner
+  name: random angry slime spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Animals/spacespider.rsi
+      state: spacespider
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
+      - id: ReagentSlimeSpawner
+
+- type: entity
+  parent: MarkerBase
+  id: ArenaSpawner
+  name: Arena spawner
+  suffix: Small, Single Mob
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+       - id: CarpSpawnerMundane
+       - id: SnakeSpawnerMundane
+       - id: AngrySlimeSpawner
+
+- type: entity
+  parent: MarkerBase
+  id: ArenaSpawnerLarge
+  name: Arena spawner
+  suffix: Large, Single Mob
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Animals/kangaroo.rsi
+      state: kangaroo-space
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+       - id: WatcherAISpawner
+       - id: SpaceCreatureAISpawner
+       - id: ArgocyteAISpawner
+       - id: XenoAISpawner
+       - id: SpawnMobOreCrab
+
+- type: entity
+  parent: MarkerBase
+  id: ArenaSpawnerSmallGroup
+  name: Arena spawner
+  suffix: Small, Group
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: SmallArenaMobTable
+
+- type: entity
+  parent: MarkerBase
+  id: ArenaSpawnerLargeGroup
+  name: Arena spawner
+  suffix: Any Size, Any Range
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi
+      state: leviathing
+    - state: ai
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: ArenaMobAnyTable
+
+#Tables
+- type: entityTable
+  id: ArenaMobAnyTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: SmallArenaMobTable
+    - !type:NestedSelector
+      tableId: StrongArenaMobTable
+      weight: 0.75
+    - !type:NestedSelector
+      tableId: LargeArenaMobTable
+      weight: 0.5

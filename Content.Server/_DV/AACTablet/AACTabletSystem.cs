@@ -5,6 +5,9 @@ using Content.Server.Speech.Components;
 using Content.Shared._DV.AACTablet;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Radio.Components;
+using Content.Shared.Radio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -16,6 +19,7 @@ public sealed class AACTabletSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
 
     private readonly List<string> _localisedPhrases = [];
 
@@ -25,6 +29,33 @@ public sealed class AACTabletSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AACTabletComponent, AACTabletSendPhraseMessage>(OnSendPhrase);
+
+        Subs.BuiEvents<AACTabletComponent>(AACTabletKey.Key, subs =>
+        {
+            subs.Event<BoundUIOpenedEvent>(OnBoundUIOpened);
+        });
+    }
+
+    private HashSet<ProtoId<RadioChannelPrototype>> GetAvailableChannels(EntityUid entity)
+    {
+        var channels = new HashSet<ProtoId<RadioChannelPrototype>>();
+
+        // Get all the intrinsic radio channels (IPCs, implants)
+        if (TryComp(entity, out ActiveRadioComponent? intrinsicRadio))
+            channels.UnionWith(intrinsicRadio.Channels);
+
+        // Get the user's headset channels, if any
+        if (TryComp(entity, out WearingHeadsetComponent? headset)
+            && TryComp(headset.Headset, out ActiveRadioComponent? headsetRadio))
+            channels.UnionWith(headsetRadio.Channels);
+
+        return channels;
+    }
+
+    private void OnBoundUIOpened(Entity<AACTabletComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        var state = new AACTabletBuiState(GetAvailableChannels(args.Actor));
+        _userInterface.SetUiState(args.Entity, AACTabletKey.Key, state);
     }
 
     private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
@@ -52,11 +83,15 @@ public sealed class AACTabletSystem : EntitySystem
 
         EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
+        // Set the player's currently available channels before sending the message
+        EnsureComp(ent, out IntrinsicRadioTransmitterComponent transmitter);
+        transmitter.Channels = GetAvailableChannels(message.Actor);
+
         // L5 — save the message for logging
         var messageToSend = string.Join(" ", _localisedPhrases);
 
         _chat.TrySendInGameICMessage(ent,
-            messageToSend,
+            message.Prefix + messageToSend,
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);

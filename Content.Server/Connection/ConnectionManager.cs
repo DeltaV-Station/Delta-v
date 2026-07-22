@@ -211,7 +211,7 @@ namespace Content.Server.Connection
          * TODO: Jesus H Christ what is this utter mess of a function
          * TODO: Break this apart into is constituent steps.
          */
-        private async Task<(ConnectionDenyReason, string, List<ServerBanDef>? bansHit)?> ShouldDeny(
+        private async Task<(ConnectionDenyReason, string, List<BanDef>? bansHit)?> ShouldDeny(
             NetConnectingArgs e)
         {
             // Check if banned.
@@ -232,7 +232,7 @@ namespace Content.Server.Connection
                 return (ConnectionDenyReason.NoHwid, Loc.GetString("hwid-required"), null);
             }
 
-            var bans = await _db.GetServerBansAsync(addr, userId, hwId, modernHwid, includeUnbanned: false);
+            var bans = await _db.GetBansAsync(addr, userId, hwId, modernHwid, includeUnbanned: false);
             if (bans.Count > 0)
             {
                 var firstBan = bans[0];
@@ -313,34 +313,34 @@ namespace Content.Server.Connection
             }
 
             // DeltaV - Replace existing softwhitelist implementation
-            if (false)//if (_cfg.GetCVar(CCVars.WhitelistEnabled) && adminData is null)
-            {
-                if (_whitelists is null)
-                {
-                    _sawmill.Error("Whitelist enabled but no whitelists loaded.");
-                    // Misconfigured, deny everyone.
-                    return (ConnectionDenyReason.Whitelist, Loc.GetString("generic-misconfigured"), null);
-                }
-
-                foreach (var whitelist in _whitelists)
-                {
-                    if (!IsValid(whitelist, softPlayerCount))
-                    {
-                        // Not valid for current player count.
-                        continue;
-                    }
-
-                    var whitelistStatus = await IsWhitelisted(whitelist, e.UserData, _sawmill);
-                    if (!whitelistStatus.isWhitelisted)
-                    {
-                        // Not whitelisted.
-                        return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-fail-prefix", ("msg", whitelistStatus.denyMessage!)), null);
-                    }
-
-                    // Whitelisted, don't check any more.
-                    break;
-                }
-            }
+            // if (_cfg.GetCVar(CCVars.WhitelistEnabled) && adminData is null)
+            // {
+            //     if (_whitelists is null)
+            //     {
+            //         _sawmill.Error("Whitelist enabled but no whitelists loaded.");
+            //         // Misconfigured, deny everyone.
+            //         return (ConnectionDenyReason.Whitelist, Loc.GetString("generic-misconfigured"), null);
+            //     }
+            //
+            //     foreach (var whitelist in _whitelists)
+            //     {
+            //         if (!IsValid(whitelist, softPlayerCount))
+            //         {
+            //             // Not valid for current player count.
+            //             continue;
+            //         }
+            //
+            //         var whitelistStatus = await IsWhitelisted(whitelist, e.UserData, _sawmill);
+            //         if (!whitelistStatus.isWhitelisted)
+            //         {
+            //             // Not whitelisted.
+            //             return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-fail-prefix", ("msg", whitelistStatus.denyMessage!)), null);
+            //         }
+            //
+            //         // Whitelisted, don't check any more.
+            //         break;
+            //     }
+            // }
 
             // DeltaV - Soft whitelist improvements
             // TODO: replace this with a whitelist config prototype with a connected whitelisted players condition

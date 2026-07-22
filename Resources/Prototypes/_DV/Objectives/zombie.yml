@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseSurviveObjective
+  id: InitialInfectedFailureSurviveObjective
+  name: Escape and Live to Infect Another Day
+  description: You were an initial infected but after you turned, the crew was organized enough to clone you again. The syndicate won't be happy but perhaps you may still be of use to them. For now, survive and escape.
+  components:
+  - type: Objective
+    issuer: objective-issuer-self
+    icon:
+      sprite: Clothing/Mask/gassyndicate.rsi
+      state: icon
+    difficulty: 1 # difficulty is unused

@@ -89,6 +89,7 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
+  - type: StationAiWhitelist
 
 - type: entity
   name: paper scrap
@@ -238,6 +239,7 @@
     contentMargin: 12.0, 0.0, 12.0, 0.0
     # This is a narrow piece of paper
     maxWritableArea: 256.0, 0.0
+  - type: NoThrowingPushback # DeltaV - Added comp
 
 - type: entity
   id: PaperCargoBountyManifest
@@ -467,3 +469,4 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StationAiWhitelist

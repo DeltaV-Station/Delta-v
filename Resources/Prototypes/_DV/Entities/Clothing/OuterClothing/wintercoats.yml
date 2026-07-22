@@ -89,10 +89,10 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/staseccoat.rsi
 
 - type: entity
-  parent: ClothingOuterArmoredWinterCoat
+  parent: ClothingOuterWinterHoS
   id: ClothingOuterCoatStasecHoS
   name: head of security's winter coat
-  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is adorned with gold trim.
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is a dark blue with adorned gold trim.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
@@ -100,10 +100,10 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/hoscoat.rsi
 
 - type: entity
-  parent: ClothingOuterArmoredWinterCoat
+  parent: ClothingOuterWinterWarden
   id: ClothingOuterCoatStasecWarden
   name: warden's winter coat
-  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version features ice-white trim.
+  description: A warm and comfortable winter coat, reinforced with durathread and compliant with Station Security uniform standards. This version is a bright blue and features an ice-white trim.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/WinterCoats/armourercoat.rsi
@@ -155,3 +155,14 @@
   - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterWinterCoatLong
+  id: ClothingOuterFurCoatMime
+  name: mime's furred coat
+  description: A warm coat designed for mimes with expensive taste.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/mimefurcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/mimefurcoat.rsi

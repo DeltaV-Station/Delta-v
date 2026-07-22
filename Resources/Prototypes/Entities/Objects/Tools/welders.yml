@@ -105,24 +105,6 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
-  - type: WeldingHealing # Same as Brutepack - EE IPCs
-    damageContainers:
-      - Silicon
-      - HumanoidSilicon # DeltaV
-    fuelCost: 15
-    damage:
-      types:
-        Blunt: -15
-        Piercing: -15
-        Slash: -15
-    bleedingModifier: -20 # DeltaV - IPCs bleed
-  - type: Cautery # Shitmed
-    speed: 0.7
-  - type: SurgeryTool # Shitmed
-    startSound:
-      collection: Welder
-    endSound:
-      collection: WelderOff
   - type: Tag # DeltaV - To make it work w/ the guns
     tags:
     - WeldingTool
@@ -180,8 +162,8 @@
       Welder:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 1000
-        maxVol: 1000
+          Quantity: 200 # DeltaV - Experimental Welder Nerf
+        maxVol: 200 # DeltaV - Experimental Welder Nerf
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -192,6 +174,7 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 1
+    duration: 2 # DeltaV - Experimental Welder Nerf - Loses fuel while active
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
 

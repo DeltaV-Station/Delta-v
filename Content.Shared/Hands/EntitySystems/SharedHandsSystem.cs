@@ -89,8 +89,9 @@ public abstract partial class SharedHandsSystem
         container.OccludesLight = false;
 
         ent.Comp.Hands.Add(handName, hand);
-        //ent.Comp.SortedHands.Add(handName); // Shitmed Change
-        AddToSortedHands(ent.Comp, handName, hand.Location); // Shitmed Change
+        ent.Comp.SortedHands.Add(handName);
+        // we use LINQ + ToList instead of the list sort because it's a stable sort vs the list sort
+        ent.Comp.SortedHands = ent.Comp.SortedHands.OrderBy(handId => ent.Comp.Hands[handId].Location).ToList();
         Dirty(ent);
 
         OnPlayerAddHand?.Invoke((ent, ent.Comp), handName, hand.Location);
@@ -467,25 +468,5 @@ public abstract partial class SharedHandsSystem
         }
 
         return freeable;
-    }
-
-    /// <summary>
-    /// Shitmed Change: This function checks when adding a hand for symmetries to determine where to add it in the sorted hands array.
-    /// </summary>
-    /// <param name="handsComp">The hands component that we're modifying.</param>
-    /// <param name="handName">The name of the hand we're adding.</param>
-    /// <param name="handLocation">The location/symmetry of the hand we're adding.</param>
-    public virtual void AddToSortedHands(HandsComponent handsComp, string handName, HandLocation handLocation)
-    {
-        var index = handLocation == HandLocation.Right
-            ? 0
-            : handLocation == HandLocation.Left
-                ? handsComp.SortedHands.Count
-                : handsComp.SortedHands.FindIndex(name => handsComp.Hands[name].Location == HandLocation.Right);
-
-        if (index == -1)
-            index = handsComp.SortedHands.Count;
-
-        handsComp.SortedHands.Insert(index, handName);
     }
 }

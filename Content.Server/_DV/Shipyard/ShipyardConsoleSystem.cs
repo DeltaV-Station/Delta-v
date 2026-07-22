@@ -59,8 +59,6 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
                 Audio.PlayPvs(ent.Comp.DenySound, ent);
                 return;
             }
-
-            purchasingGrid = bankAccount.Value.Owner;
         }
 
         if (purchasingGrid is not { } grid

@@ -15,7 +15,6 @@ using Content.Server._Goobstation.Possession;
 using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Devil.Condemned;
 using Content.Shared._Goobstation.Devil.Contract;
-using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
@@ -34,7 +33,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Shared._EE.Silicon.Components;
 using Content.Shared.StatusEffectNew; // DeltaV - Clause status effects
 
 namespace Content.Server._Goobstation.Devil.Contract;
@@ -46,7 +44,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
-    [Dependency] private readonly BodySystem _bodySystem = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SubdermalImplantSystem _implant = null!;
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
@@ -238,7 +235,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     public bool IsUserValid(EntityUid user, out string failReason)
     {
         if (HasComp<CondemnedComponent>(user)
-            || HasComp<SiliconComponent>(user)
             || HasComp<BorgChassisComponent>(user))
         {
             failReason = Loc.GetString("devil-contract-no-soul-sign-failed");

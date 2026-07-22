@@ -4,4 +4,4 @@ namespace Content.Shared._DV.Humanoid;
 ///     Raised on an entity when their appearance is changed.
 /// </summary>
 [ByRefEvent]
-public record struct AppearanceLoadedEvent;
+public record struct AppearanceLoadedEvent(Color EyeColor, Color SkinColor);

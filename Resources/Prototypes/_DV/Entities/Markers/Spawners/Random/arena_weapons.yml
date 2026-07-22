@@ -25,6 +25,14 @@
         - id: Katana
         - id: Claymore
         - id: Cutlass
+        - id: PlasteelArmingSword
+      - !type:GroupSelector
+        children:
+        - id: SwordMakeshift
+        - id: SwordImprovised
+        - id: SwordForged
+        - id: SwordFlaming
+        - id: ClaymoreForged
       - !type:GroupSelector
         children:
         - id: Spear
@@ -33,6 +41,8 @@
         - id: SpearPlasma
         - id: SpearUranium
         - id: SpearBone
+        - id: SpearCandy
+          weight: 0.2
       #Ranged
       - !type:GroupSelector
         children:

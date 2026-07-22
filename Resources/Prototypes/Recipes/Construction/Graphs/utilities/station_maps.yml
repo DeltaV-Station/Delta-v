@@ -76,3 +76,19 @@
       steps:
       - tool: Prying
         doAfter: 1
+
+# Begin DeltaV Additions - Broken Map Deconstruction
+  - node: brokenMap
+    entity: StationMapBroken
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: wired
+      completed:
+      - !type:GivePrototype
+        prototype: StationMapCircuitboard
+        amount: 1
+      steps:
+      - tool: Welding
+        doAfter: 2
+# End DeltaV Additions - Broken Map Deconstruction

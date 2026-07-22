@@ -34,6 +34,11 @@
     nameGeneration: food-sequence-taco-gen
     contentSeparator: ", "
   - type: Appearance
+  # Begin DeltaV additions - slicing a taco shell with a knife yields 2 nachos
+  - type: SliceableFood
+    count: 2
+    slice: FoodMealNachos
+  # End DeltaV additions
 
 # Old tacos
 

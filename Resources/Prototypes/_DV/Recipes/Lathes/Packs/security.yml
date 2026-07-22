@@ -32,7 +32,6 @@
   - BoxBeanbag
   - BoxShellTranquilizer
   - MagazineShotgunBeanbag
-  - MagazineLaser
   - MagazinePistolHighCapacity
 
 - type: latheRecipePack
@@ -74,9 +73,10 @@
   - MagazineBoxSpecialIncendiary
   - MagazineBoxSpecialUranium
   - MagazineBoxSpecialHoly
-  - MagazineBoxSpecialMindbreaker
+  - MagazineBoxSpecialLernaea
   - MagazinePistolHighCapacityUranium
   - MagazinePistolHighCapacityIncendiary
+  - MagazineLaser
 
 - type: latheRecipePack
   parent: SecurityHardsuits
@@ -115,9 +115,3 @@
   recipes:
   - ClothingOuterHardsuitEVAPrisoner
   - ClothingHeadHelmetEVALarge
-
-- type: latheRecipePack
-  id: AdvancedPsionicProsthetics
-  recipes:
-  - PyroLeftArm
-  - ZapLeftArm

@@ -11,9 +11,9 @@ public sealed partial class PsionicRegenerationPowerComponent : BasePsionicPower
 
     public override string PowerName { get; set; } = "psionic-power-name-psionic-regeneration";
 
-    public override int MinGlimmerChanged { get; set; } = 20;
+    public override int MinGlimmerChanged { get; set; } = 10;
 
-    public override int MaxGlimmerChanged { get; set; } = 30;
+    public override int MaxGlimmerChanged { get; set; } = 20;
 
     /// <summary>
     /// How much prometheum essence will be injected into the psionic on full completion.

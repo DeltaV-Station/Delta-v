@@ -5,6 +5,7 @@
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
+  - BaseMobAnimal
   abstract: true
   components:
   - type: Reactive
@@ -12,8 +13,6 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -27,6 +26,8 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   id: MobGoliath
@@ -34,8 +35,6 @@
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
-  - type: Body # Shitmed Change
-    prototype: Goliath
   - type: Sprite
     sprite: _DV/Mobs/Aliens/Asteroid/goliath.rsi # DeltaV - upstream uses ancient goliath sprites for some reason
     layers:
@@ -58,7 +57,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead
+      150: Dead
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -389,7 +388,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      45: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

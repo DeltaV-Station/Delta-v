@@ -1,3 +1,5 @@
+using Content.Shared._ST.Interaction; // Stellar - interaction particles
+using Content.Shared._Floof.OfferItem; // Floof
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -116,10 +118,11 @@ public sealed class PullingSystem : EntitySystem
         if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
             return;
 
-        if (!_virtual.TrySpawnVirtualItemInHand(args.PulledUid, uid))
+        if (!_virtual.TrySpawnVirtualItemInHand(args.PulledUid, uid, out var virt)) // Floofstation - store item
         {
             DebugTools.Assert("Unable to find available hand when starting pulling??");
         }
+        EnsureComp<OfferableVirtualItemComponent>(virt.Value); // Floofstation - add a special component to allow offering it
     }
 
     private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
@@ -545,7 +548,7 @@ public sealed class PullingSystem : EntitySystem
 
         // Pulling confirmed
 
-        _interaction.DoContactInteraction(pullableUid, pullerUid);
+        _interaction.DoContactInteraction(pullerUid, pullableUid,null, true, interactionParticleType: StellarInteractionParticleType.Pull); // Stellar - Interaction particles
 
         // Use net entity so it's consistent across client and server.
         pullableComp.PullJointId = $"pull-joint-{GetNetEntity(pullableUid)}";

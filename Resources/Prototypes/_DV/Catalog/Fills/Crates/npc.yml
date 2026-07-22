@@ -1,8 +1,19 @@
 - type: entity
   id: CrateNPCSecDog
   parent: CrateLivestock
+  suffix: Security Dog
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage:
         id: MobSecDog
+
+- type: entity
+  id: CratePitbull
+  parent: CrateLivestock
+  suffix: Pitbull
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: MobPitbull

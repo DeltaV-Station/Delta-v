@@ -250,6 +250,7 @@
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5
+    - id: NFWeaponHoloflareGun # Frontier
     - !type:GroupSelector
       children:
       - id: JetpackBlue
@@ -270,11 +271,13 @@
       children:
       - id: JetpackBlueFilled
       - id: JetpackBlackFilled
-    - !type:GroupSelector
-      children:
-      - id: PKAUpgradeDamage
-      - id: PKAUpgradeRange
-      #- id: PKAUpgradeFireRate # DeltaV - removal of fire rate upgrade for better feel
+    # Begin DeltaV removal - Made PKA upgrades unobtainable after buff to PKA
+    #- !type:GroupSelector
+    #  children:
+    #  - id: PKAUpgradeDamage
+    #  - id: PKAUpgradeRange
+    #  - id: PKAUpgradeFireRate
+    # End DeltaV removal
 
 
 - type: entityTable

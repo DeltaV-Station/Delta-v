@@ -1,0 +1,75 @@
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: ClosetHitmanOutfitFilledRandom
+  suffix: Hitman
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: HitmanOutfitLockerLoot
+
+
+- type: entityTable
+  id: HitmanOutfitLockerLoot
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      #justice
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitClerk
+        - id: ClothingUniformJumpskirtClerk
+        - id: ClothingNeckTieBlack
+        - id: ClothingNeckLawyerbadge
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingBackpackSatchel
+        - id: ClerkPDA
+      #clown
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitClown
+        - id: ClothingUniformJumpskirtClown
+        - id: ClothingShoesClown
+        - id: ClothingBackpackSatchelClown
+        - id: ClownPDA
+      #engineer
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitEngineering
+        - id: ClothingUniformJumpskirtEngineering
+        - id: ClothingShoesBootsWork
+        - id: ClothingBackpackSatchelEngineering
+        - id: EngineerPDA
+      #cargo
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitCargo
+        - id: ClothingUniformJumpskirtCargo
+        - id: ClothingShoesColorBrown
+        - id: ClothingBackpackSatchelCargo
+        - id: CargoPDA
+      #science
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitScientist
+        - id: ClothingUniformJumpskirtScientist
+        - id: ClothingShoesColorWhite
+        - id: ClothingBackpackSatchelScience
+        - id: SciencePDA
+      #medical
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitMedicalDoctor
+        - id: ClothingUniformJumpskirtMedicalDoctor
+        - id: ClothingShoesColorWhite
+        - id: ClothingBackpackSatchelMedical
+        - id: MedicalPDA
+      #passanger
+      - !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitColorGrey
+        - id: ClothingUniformJumpskirtColorGrey
+        - id: ClothingShoesColorBlack
+        - id: ClothingBackpackSatchel
+        - id: PassengerPDA
