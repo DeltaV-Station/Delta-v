@@ -118,3 +118,16 @@
           amount: 4
         - id: ClothingHeadHatCowboyBrown
           amount: 2
+          
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateArmoryPatos
+  name: patos crate
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponSubMachineGunPatos
+        amount: 2
+        id: MagazinePistolHighCapacity
+        amount: 6
