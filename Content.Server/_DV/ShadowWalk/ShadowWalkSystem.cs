@@ -1,6 +1,7 @@
 using Content.Shared._DV.Body;
 using Content.Shared._DV.Light;
 using Content.Shared._DV.ShadowWalk;
+using Content.Shared.Projectiles;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -9,7 +10,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._DV.ShadowWalk;
 
 /// <summary>
-/// Scans for static blockers around shadow walkers and marks the ones bathed in darkness
+/// Scans for solid blockers around shadow walkers and marks the ones bathed in darkness
 /// as passable. Runs on the server only: server lighting is authoritative, the results are
 /// networked via <see cref="ShadowWalkerComponent.PassableEntities"/>.
 /// </summary>
@@ -37,6 +38,7 @@ public sealed class ShadowWalkSystem : SharedShadowWalkSystem
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<LightLevelHealthComponent> _lightHealthQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<ProjectileComponent> _projectileQuery;
 
     private readonly HashSet<EntityUid> _candidates = [];
     private readonly HashSet<EntityUid> _passable = [];
@@ -49,6 +51,7 @@ public sealed class ShadowWalkSystem : SharedShadowWalkSystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _lightHealthQuery = GetEntityQuery<LightLevelHealthComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _projectileQuery = GetEntityQuery<ProjectileComponent>();
     }
 
     public override void Update(float frameTime)
@@ -86,7 +89,7 @@ public sealed class ShadowWalkSystem : SharedShadowWalkSystem
 
         _passable.Clear();
         _candidates.Clear();
-        _lookup.GetEntitiesInRange(uid, comp.Range, _candidates, LookupFlags.Static | LookupFlags.Approximate);
+        _lookup.GetEntitiesInRange(uid, comp.Range, _candidates, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Approximate);
 
         var worldPos = _transform.GetWorldPosition(uid);
 
@@ -94,7 +97,14 @@ public sealed class ShadowWalkSystem : SharedShadowWalkSystem
         {
             if (!_physicsQuery.TryComp(other, out var body))
                 continue;
-            if (body.BodyType != BodyType.Static || !body.CanCollide || !body.Hard)
+            if (!body.CanCollide || !body.Hard)
+                continue;
+            // Mobs stay solid: KinematicController is the mover-controlled body type, and
+            // phasing through creatures (or letting them stand inside us) plays badly.
+            if (body.BodyType == BodyType.KinematicController)
+                continue;
+            // Projectiles stay solid too.
+            if (_projectileQuery.HasComp(other))
                 continue;
             // Never phase through the grid itself.
             if (_gridQuery.HasComp(other))
