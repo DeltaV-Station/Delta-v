@@ -126,8 +126,9 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
-        id: WeaponSubMachineGunPatos
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunPatos
         amount: 2
-        id: MagazinePistolHighCapacity
+        - id: MagazinePistolHighCapacity
         amount: 6
