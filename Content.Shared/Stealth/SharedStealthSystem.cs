@@ -1,4 +1,3 @@
-using Content.Shared._DV.Stealth; // DeltaV - Make certain items unable to stealth.
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Stealth.Components;
@@ -7,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
 
-public abstract partial class SharedStealthSystem : EntitySystem // DeltaV - Made Partial.
+public abstract class SharedStealthSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -25,8 +24,6 @@ public abstract partial class SharedStealthSystem : EntitySystem // DeltaV - Mad
         SubscribeLocalEvent<StealthComponent, ExamineAttemptEvent>(OnExamineAttempt);
         SubscribeLocalEvent<StealthComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StealthComponent, MobStateChangedEvent>(OnMobStateChanged);
-
-        InitializeDeltaStealthSystem(); // DeltaV - Items can disable Stealth.
     }
 
     private void OnExamineAttempt(EntityUid uid, StealthComponent component, ExamineAttemptEvent args)
@@ -96,10 +93,6 @@ public abstract partial class SharedStealthSystem : EntitySystem // DeltaV - Mad
             return;
 
         component.LastUpdated = _timing.CurTime;
-        // DeltaV Start - Items can disable Stealth.
-        var ev = new StealthAddedEvent(CloakedEntity: uid);
-        RaiseLocalEvent(uid, ref ev);
-        // DeltaV End - Items can disable Stealth.
     }
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)

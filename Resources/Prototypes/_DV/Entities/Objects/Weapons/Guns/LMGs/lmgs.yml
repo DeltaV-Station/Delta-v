@@ -1,7 +1,7 @@
 - type: entity
-  name: NT-3
   parent: BaseItem # The base LightMachineGun had unwanted components.
   id: WeaponLightMachinegGunNT3
+  name: NT-3
   description: An ancient weapon from the old wars, refurbished and rebranded for NT's strongest stations.
   components:
   - type: Sprite
@@ -18,7 +18,7 @@
   - type: Item
     size: Ginormous
     shape:
-    - 0,0,4,3
+    - 0,0,6,3
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/LMGs/NT-3.rsi
     quickEquip: false
@@ -35,7 +35,7 @@
     maxAngle: 30
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 3
+    fireRate: 4
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -79,7 +79,6 @@
     price: 500
   - type: UseDelay
     delay: 1
-  - type: PreventStealth
   - type: Tag
     tags:
     - ParcelWrapBlacklist

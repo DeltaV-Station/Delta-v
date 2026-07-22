@@ -1,5 +1,4 @@
 using Content.Shared._DV.Overlays; // DeltaV
-using Content.Shared._DV.Stealth; // DeltaV
 using Content.Shared._DV.Psionics.Events; // DeltaV
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
@@ -87,13 +86,13 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, UnwieldAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IngestionAttemptEvent>(RefRelayInventoryEvent);
         // DeltaV Start
-        SubscribeLocalEvent<InventoryComponent, StealthAddedEvent>(RefRelayInventoryEvent); // Items disable Stealth.
         // Psionic Events
         SubscribeLocalEvent<InventoryComponent, DispelledEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, PsionicPowerUseAttemptEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TargetedByPsionicPowerEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, NoosphericFryEvent>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, WeightlessnessChangedEvent>(RefRelayInventoryEvent); // Heavy Clothing
+        // Heavy Clothing
+        SubscribeLocalEvent<InventoryComponent, WeightlessnessChangedEvent>(RefRelayInventoryEvent);
         // DeltaV End
 
         // Eye/vision events
