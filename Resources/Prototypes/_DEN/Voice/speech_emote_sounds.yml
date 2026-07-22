@@ -66,3 +66,90 @@
       collection: Moo
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+
+# Shadekin - TheDen Shadowkin voice pack (wired from MobShadekin)
+- type: emoteSounds
+  id: MaleShadowkin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: ShadowkinMaleScreams
+    Laugh:
+      collection: ShadowkinMaleLaughs
+      params:
+        pitch: 1.02
+        variation: 0.08
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    Marr:
+      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
+    Wurble:
+      path: /Audio/_Starlight/Voice/Shadekin/wurble.ogg
+    Hiss:
+      collection: FelinidHisses
+    Purr:
+      collection: FelinidPurrs
+    Growl:
+      collection: FelinidGrowls
+
+- type: emoteSounds
+  id: FemaleShadowkin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: ShadowkinFemaleScreams
+    Laugh:
+      collection: ShadowkinFemaleLaughs
+      params:
+        pitch: 1.04
+        variation: 0.08
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    Marr:
+      path: /Audio/_Starlight/Voice/Shadekin/mar.ogg
+    Wurble:
+      path: /Audio/_Starlight/Voice/Shadekin/wurble.ogg
+    Hiss:
+      collection: FelinidHisses
+    Purr:
+      collection: FelinidPurrs
+    Growl:
+      collection: FelinidGrowls

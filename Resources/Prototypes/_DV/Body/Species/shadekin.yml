@@ -102,12 +102,12 @@
     state: full
   - type: Speech
     allowedEmotes: ["Marr", "Wurble", "Hiss", "Growl", "Purr"]
-    speechSounds: Shadekin # DeltaV - Ported from TheDen Shadowkin talk sounds
+    speechSounds: Shadekin # TheDen Shadowkin talk sounds (_DEN)
   - type: Vocal
     sounds:
-      Male: MaleShadekin
-      Female: FemaleShadekin
-      Unsexed: MaleShadekin
+      Male: MaleShadowkin # TheDen Shadowkin emote pack (_DEN)
+      Female: FemaleShadowkin
+      Unsexed: MaleShadowkin
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
