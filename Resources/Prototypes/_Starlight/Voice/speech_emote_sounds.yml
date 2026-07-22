@@ -7,7 +7,10 @@
     Scream:
       collection: ShadekinMaleScreams
     Laugh:
-      collection: MaleLaugh
+      collection: ShadekinMaleLaughs
+      params:
+        pitch: 1.02
+        variation: 0.08
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -47,7 +50,10 @@
     Scream:
       collection: ShadekinFemaleScreams
     Laugh:
-      collection: FemaleLaugh
+      collection: ShadekinFemaleLaughs
+      params:
+        pitch: 1.04
+        variation: 0.08
     Sneeze:
       collection: FemaleSneezes
     Cough:
