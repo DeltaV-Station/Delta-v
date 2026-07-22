@@ -28,6 +28,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Admin,
         ChatChannel.AdminAlert,
         ChatChannel.AdminChat,
+        ChatChannel.AntagOOC, // DeltaV - Antagonist OOC
         ChatChannel.Server
     };
 
