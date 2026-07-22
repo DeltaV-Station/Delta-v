@@ -43,6 +43,8 @@ public sealed class DVDionaTest : GameTest
     [RunOnSide(Side.Server)]
     public void Assimilation()
     {
+        using var cleanup = Cleanup();
+
         var actor = SSpawn(NymphPrototype);
         var mindlessTarget = SSpawn(NymphPrototype);
         var mindedTarget = SSpawn(NymphPrototype);
@@ -90,6 +92,8 @@ public sealed class DVDionaTest : GameTest
     [RunOnSide(Side.Server)]
     public void GestaltMembership()
     {
+        using var cleanup = Cleanup();
+
         var actor = SSpawn(NymphPrototype);
         var target = SSpawn(NymphPrototype);
 
@@ -113,6 +117,8 @@ public sealed class DVDionaTest : GameTest
     [RunOnSide(Side.Server)]
     public void GestaltReformWithDifferentIdentities()
     {
+        using var cleanup = Cleanup();
+
         var first = SpawnProfiledNymph("Mismatched Rings");
         var second = SpawnProfiledNymph("Different Rings");
         var third = SpawnProfiledNymph("Mismatched Rings");
@@ -143,6 +149,8 @@ public sealed class DVDionaTest : GameTest
     [RunOnSide(Side.Server)]
     public void GestaltReformWithSameIdentities()
     {
+        using var cleanup = Cleanup();
+
         var first = SpawnProfiledNymph("Identical Rings");
         var second = SpawnProfiledNymph("Identical Rings");
         var third = SpawnProfiledNymph("Identical Rings");
@@ -184,9 +192,10 @@ public sealed class DVDionaTest : GameTest
 
     [Test]
     [RunOnSide(Side.Server)]
-    [NonParallelizable]
     public void GestaltMapPreservation([Range(1, 4)] int additionalNymphCount)
     {
+        using var cleanup = Cleanup();
+
         var first = SpawnProfiledNymph("Identical Rings");
         var others = new List<EntityUid>();
         for (var i = 0; i < additionalNymphCount; i++)
@@ -241,6 +250,8 @@ public sealed class DVDionaTest : GameTest
     [RunOnSide(Side.Server)]
     public void Relations()
     {
+        using var cleanup = Cleanup();
+
         var leader = SSpawn(NymphPrototype);
         var follower = SSpawn(NymphPrototype);
 
@@ -273,6 +284,8 @@ public sealed class DVDionaTest : GameTest
     [RunOnSide(Side.Server)]
     public void GibRelations()
     {
+        using var cleanup = Cleanup();
+
         var body = SSpawn("MobDiona");
         _metadata.SetEntityName(body, "Remembered Rings");
 
@@ -325,6 +338,40 @@ public sealed class DVDionaTest : GameTest
         profile.Height = Height;
 
         return uid;
+    }
+
+    private sealed class ActionDisposable(Action action) : IDisposable
+    {
+        public void Dispose()
+        {
+            action.Invoke();
+        }
+    }
+
+    private ActionDisposable Cleanup()
+    {
+        return new ActionDisposable(() =>
+        {
+            var gestalts = SEntMan.EntityQueryEnumerator<DVGestaltComponent>();
+
+            while (gestalts.MoveNext(out var uid, out _))
+            {
+                if (SEntMan.Deleted(uid))
+                    continue;
+
+                SEntMan.QueueDeleteEntity(uid);
+            }
+
+            var nymphs = SEntMan.EntityQueryEnumerator<DVNymphFollowerComponent>();
+
+            while (nymphs.MoveNext(out var uid, out _))
+            {
+                if (SEntMan.Deleted(uid))
+                    continue;
+
+                SEntMan.QueueDeleteEntity(uid);
+            }
+        });
     }
 
     private Entity<DVGestaltComponent> GetSingleGestalt()
