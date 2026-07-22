@@ -366,6 +366,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         mind.Objectives.Add(objective);
     }
 
+    // Begin DeltaV Additions - Additional RemoveObjective functions
     /// <summary>
     /// Removes an objective from this mind.
     /// </summary>
@@ -375,7 +376,16 @@ public abstract partial class SharedMindSystem : EntitySystem
         if (index < 0 || index >= mind.Objectives.Count)
             return false;
 
-        var objective = mind.Objectives[index];
+        return TryRemoveObjective(mindId, mind, mind.Objectives[index]);
+    }
+
+    /// Removes an objective from this mind.
+    /// </summary>
+    /// <returns>Returns true if the removal succeeded.</returns>
+    public bool TryRemoveObjective(EntityUid mindId, MindComponent mind, EntityUid objective)
+    {
+        if (!mind.Objectives.Contains(objective))
+            return false;
 
         var title = Name(objective);
         _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) removed from the mind of {MindOwnerLoggingString(mind)}");
@@ -393,6 +403,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         Del(objective);
         return true;
     }
+    // End DeltaV Additions
 
     public bool TryGetObjectiveComp<T>(EntityUid uid, [NotNullWhen(true)] out T? objective) where T : IComponent
     {

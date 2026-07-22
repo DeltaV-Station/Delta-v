@@ -1,5 +1,6 @@
 objective-editor-admin-ui-title = Objectives Editor
 objective-editor-admin-ui-title-filled = Objectives Editor - {$name} | {$role}
+objective-editor-admin-ui-unknown-mind = Unknown
 objective-editor-admin-ui-new-objective = New
 objective-editor-admin-ui-save = Save
 

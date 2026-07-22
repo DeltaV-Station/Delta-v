@@ -5,40 +5,35 @@
     HorizontalExpand="True"
     Orientation="Vertical"
     >
-    <customControls:HSeparator/>
-    <BoxContainer Orientation="Horizontal">
-        <PanelContainer
-            Margin="20 10 0 0"
-            MinHeight="80"
-        >
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+        <PanelContainer Margin="5" >
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"/>
             </PanelContainer.PanelOverride>
+
             <BoxContainer Orientation="Vertical" SeparationOverride="5">
-                <BoxContainer Orientation="Horizontal">
-                    <Label Text="Issuer:" />
+                <BoxContainer Orientation="Horizontal" >
+                    <Label Text="Issuer:" Margin="5"/>
                     <LineEdit
                         Name="ObjectiveIssuer"
                         HorizontalExpand="True"
-                        Editable="True"
-                        MinWidth="500"
                         Margin="5"
                     />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">
-                    <Label Text="Title:" />
+                    <Label Text="Title:" Margin="5"/>
                     <LineEdit
                         Name="ObjectiveTitle"
                         HorizontalExpand="True"
-                        Editable="True"
-                        MinWidth="500"
                         Margin="5"
                     />
                 </BoxContainer>
+                <customControls:HSeparator/>
+                <Label Text="Description:" Margin="5"/>
                 <TextEdit
                     Name="ObjectiveDescription"
                     HorizontalExpand="True"
-                    Editable="True"
+                    VerticalExpand="True"
                     MinWidth="500"
                     MinHeight="60"
                     Margin="5"
@@ -46,7 +41,7 @@
             </BoxContainer>
         </PanelContainer>
 
-        <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Vertical" Align="Center">
             <BoxContainer Align="Center">
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
@@ -56,9 +51,8 @@
                         <TextureButton Name="IconSelectButton" SetWidth="128" SetHeight="128" />
                 </PanelContainer>
             </BoxContainer>
-            <BoxContainer Orientation="Horizontal" Align="Center" Margin="20 10 5 10">
-                <Button Name="DeleteButton" Text="{Loc objective-editor-admin-ui-delete}" ModulateSelfOverride="Red" StyleClasses="OpenRight" />
-                <Button Name="ViewButton" Text="{Loc objective-editor-admin-ui-view}" StyleClasses="OpenBoth" />
+            <BoxContainer Orientation="Horizontal" Align="Center" >
+                <Button Name="ViewButton" Text="{Loc objective-editor-admin-ui-view}" StyleClasses="OpenRight" />
                 <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" StyleClasses="OpenLeft"/>
             </BoxContainer>
         </BoxContainer>

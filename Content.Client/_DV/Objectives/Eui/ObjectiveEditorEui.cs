@@ -41,7 +41,8 @@ public sealed class ObjectiveEditorEui : BaseEui
 
         _targetMind = (mind, comp);
 
-        _editorUi.SetRoleDescription(comp.RoleType, s.Subtype);
+        var name = comp.CharacterName ?? Loc.GetString("objective-editor-admin-ui-unknown-mind");
+        _editorUi.SetEditorTitle(name, comp.RoleType, s.Subtype);
         _editorUi.SetObjectives(s.Objectives);
     }
 

@@ -11,6 +11,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Server._DV.Objectives.Eui;
 
@@ -25,7 +26,7 @@ public sealed class ObjectiveEditorEui : BaseEui
 
     private readonly ISawmill _sawmill = Logger.GetSawmill("objective-editor-eui"); // TODO(Barry): Actually need this or?
 
-    private readonly List<ObjectiveData> _objectives = [];
+    private readonly Dictionary<EntityUid, ObjectiveData> _objectives = [];
     private readonly EntProtoId _fallbackObjective = "EditorDefaultObjective";
     private readonly ObjectiveInfo _fallbackData = new ObjectiveInfo(
         "Title",
@@ -54,9 +55,8 @@ public sealed class ObjectiveEditorEui : BaseEui
     public override EuiStateBase GetNewState()
     {
         return new ObjectiveEditorEUIState(
-            _objectives,
+            [.. _objectives.Values],
             _entityManager.GetNetEntity(_targetMind.Owner),
-            _targetMind.Comp.RoleType,
             _targetMind.Comp.Subtype);
     }
 
@@ -79,7 +79,7 @@ public sealed class ObjectiveEditorEui : BaseEui
         _targetMind = mind;
         foreach (var objective in mind.Comp.Objectives)
         {
-            _objectives.Add(CreateObjectiveData(objective, mind));
+            _objectives.Add(objective, CreateObjectiveData(objective, mind));
         }
 
         ClearTempObjectives();
@@ -110,31 +110,51 @@ public sealed class ObjectiveEditorEui : BaseEui
     /// <param name="message">The save message, which includes the new objectives.</param>
     private void HandleSaveMessage(ObjectiveEditorSaveMessage message)
     {
-        // Just remove the first objective from this mind until we're empty
-        while (_targetMind.Comp.Objectives.Count > 0)
-        {
-            _mind.TryRemoveObjective(_targetMind, _targetMind.Comp, 0);
-        }
+        var oldObjectives = _objectives.ShallowClone();
+        _objectives.Clear(); // Clean up the previous set we knew about
 
-        // Now spawn a new set of objectives to match
-        foreach (var objective in message.Objectives)
+        foreach (var incomingObjective in message.Objectives)
         {
-            var newObjective = CreateObjective(objective.Proto);
-            if (!newObjective.HasValue)
-                continue; // TODO(Barry) Log an error
+            var objEnt = _entityManager.GetEntity(incomingObjective.Entity);
 
-            var metadata = _entityManager.GetComponent<MetaDataComponent>(newObjective.Value);
+            EntityUid objective;
+            if (oldObjectives.ContainsKey(objEnt))
+            {
+                // We can just update this entity, no need to add it to the mind either
+                objective = objEnt;
+                oldObjectives.Remove(objEnt); // Ensure it's not cleaned up
+            }
+            else
+            {
+                // Gotta make a new entity for it
+                var newObjective = CreateObjective(incomingObjective.Proto);
+                if (!newObjective.HasValue)
+                    continue; // TODO(Barry) Log an error
+                objective = newObjective.Value;
+
+                // Ensure we add the new objective we've just created
+                _mind.AddObjective(_targetMind.Owner, _targetMind.Comp, objective);
+            }
+
+            var metadata = _entityManager.GetComponent<MetaDataComponent>(objective);
 
             // Setup new Title/Description
-            _metadata.SetEntityName(newObjective.Value, objective.Info.Title, metadata: metadata);
-            _metadata.SetEntityDescription(newObjective.Value, objective.Info.Description, metadata: metadata);
+            _metadata.SetEntityName(objective, incomingObjective.Info.Title, metadata: metadata);
+            _metadata.SetEntityDescription(objective, incomingObjective.Info.Description, metadata: metadata);
 
             // Now the issuer and Icon
-            _objectiveSystem.SetIssuer(newObjective.Value, objective.Issuer);
-            _objectiveSystem.SetIcon(newObjective.Value, objective.Info.Icon);
+            _objectiveSystem.SetIssuer(objective, incomingObjective.Issuer);
+            _objectiveSystem.SetIcon(objective, incomingObjective.Info.Icon);
 
-            _mind.AddObjective(_targetMind.Owner, _targetMind.Comp, newObjective.Value);
+            _objectives.Add(objective, CreateObjectiveData(objective, _targetMind));
         }
+
+        foreach (var old in oldObjectives.Keys)
+        {
+            _mind.TryRemoveObjective(_targetMind, _targetMind.Comp, old);
+        }
+
+        StateDirty(); // Ensure client is freshly updated with all the new Objective information
     }
 
     /// <summary>
