@@ -102,7 +102,7 @@
   parent: [ BaseItem, BaseSecurityContraband ]
   id: MagazinePistolSubMachineGunTopMounted
   name: WT550 magazine (.35 auto top-mounted)
-  description: Unconventional 40-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
+  description: Unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: Item
     storedRotation: 90
@@ -115,7 +115,7 @@
     whitelist:
       tags:
       - CartridgePistol
-    capacity: 40 # DeltaV
+    capacity: 30
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
     layers:
