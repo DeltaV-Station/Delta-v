@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 270.1.0
+  engineVersion: 275.2.1
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 02:07:00
+  time: 07/23/2026 18:01:27
   entityCount: 206
 maps: []
 grids:
@@ -215,28 +215,18 @@ entities:
     - type: Transform
       pos: 3.5,1.5
       parent: 1
-- proto: AirlockHatch
+- proto: AirlockHatchSyndicateLockedDisguised
   entities:
   - uid: 66
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,1.5
+      pos: -1.5,3.5
       parent: 1
-    - type: AccessReader
-      accessListsOriginal: []
-      access:
-      - - SyndicateAgent
   - uid: 68
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,3.5
+      pos: -1.5,1.5
       parent: 1
-    - type: AccessReader
-      accessListsOriginal: []
-      access:
-      - - SyndicateAgent
 - proto: AirlockShuttle
   entities:
   - uid: 118
