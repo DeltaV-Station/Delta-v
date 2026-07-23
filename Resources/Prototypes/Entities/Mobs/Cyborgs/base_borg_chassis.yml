@@ -81,6 +81,10 @@
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       # End DeltaV - borg PDAs
+      # Begin DeltaV - borg wires
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+      # End DeltaV
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -114,6 +118,7 @@
     damageValue: -10 # 10 seconds to repair from crit
     doAfterDelay: 1
     fuelCost: 0.5
+    qualityNeeded: Welding # DeltaV - for now
     allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
   - type: LockingWhitelist
@@ -162,6 +167,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    wilhelm: "/Audio/_DV/Machines/robotwilhelm.ogg" # DeltaV - "There seems to be someone among us".
     wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
@@ -270,20 +276,13 @@
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
-  - type: PassiveDamage # DeltaV - electric damage disappears over time
-    allowedStates:
-    - Alive
-    - Critical
-    - Dead
-    damage:
-      groups:
-        Electronic: -0.5
-  - type: SiliconEmp # DeltaV - EMP damage
   - type: BypassLock
+    openWiresPanel: true
   - type: BypassLockRequiresMobState
     requiredMobState:
     - Critical
     - Dead
+  - type: BorgSwitchableSubtype # CosmicDrift
 
 - type: entity
   abstract: true
@@ -354,17 +353,20 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: Access
-    groups:
-    - AllAccessBorg # DeltaV
-    tags:
-    - Borg
+  #- type: Access # DeltaV - Borgs ID Chips
+  #  groups:
+  #  - AllAccessBorg
+  #  tags:
+  #  - Borg
   - type: AccessReader
     access: [["Command"], ["Research"], ["Robotics"]] # DeltaV - add Robotics
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
+  - type: Wires # DeltaV: NT borgs have a circuit panel
+    layoutId: Cyborg
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
@@ -419,10 +421,9 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
-  - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
-    groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  #- type: Access # DeltaV - Borg ID chips
+  #  groups:
+  #  - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
     access: [["Command"], ["Robotics"]] # DeltaV - Robotics instead of Research
   - type: StartIonStormed
@@ -432,6 +433,7 @@
   - type: ShowJobIcons
   - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
     fiberMaterial: fibers-degraded-plasteel
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
 
 - type: entity
   id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
@@ -445,6 +447,7 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
     factions:
     - Syndicate
@@ -501,7 +504,7 @@
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
-    - Binary
+    # - Binary # DeltaV - only the mothership can talk over binary (prevents "accidents" on binary)
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
@@ -581,16 +584,16 @@
     - Robotics
     - Xenoborgs
   - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     tags:
     - Xenoborg
-  - type: ContainerFill # DeltaV - borg id chips
-    containers:
-      borg_id_chip:
+  - type: IdChipSlot # DeltaV - no crew IDs. Incompatible with *xeno*borg systems.
+    whitelist:
+      tags:
       - IdChipXenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
@@ -599,3 +602,5 @@
   - type: Xenoborg
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
+  - type: EmpResistance # DeltaV
+    durationMultiplier: 0.1 # Only disabled for 10%. Default EMP stun time is 60% so still a 6 second disable. Battery has 40% resistance already.

@@ -228115,52 +228115,6 @@ entities:
       parent: 2
 - proto: PaperDyedRed
   entities:
-  - uid: 2747
-    components:
-    - type: MetaData
-      desc: It looks important. It's likely worth reading, especially if you're familiar with this station.
-      name: '"Brand New Security Department"'
-    - type: Transform
-      pos: 2.5,61.5
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      content: >-
-        [color=white][bold]To:[/bold] Lady Elegance Station Security
-
-        [bold]From:[/bold] Central Command Security Division
-
-        [bolditalic]"Brand New Security Department"[/bolditalic]
-
-        ───────────────────────────────────────────
-
-        Greetings, Elegance Security! Those of you who are at least vaguely familiar with this station may have noticed that your department has gotten a significant overhaul. We encourage you to get familiar with the new layout and feel of the department. This overhaul has been planned and carried out by our construction team for around a month now, so we hope you enjoy what's been done.
-
-
-        As always, we encourage you to contact the Construction Division should you have any questions, comments, or concerns regarding this station or any of our other stations.
-
-        [italic][color=#741219]Your feedback is appreciated![/italic][/color]
-
-        ───────────────────────────────────────────[/color]
-      editingDisabled: True
-    - type: Flammable
-      damage:
-        groups: null
-        types: null
-      alwaysCombustible: False
-      fireSpread: False
-    missingComponents:
-    - Damageable
-    - Destructible
-    - FlavorProfile
-    - BadFood
-    - Item
-    - Animateable
-    - MovedByPressure
-    - Pullable
   - uid: 16585
     components:
     - type: Transform
@@ -228224,10 +228178,10 @@ entities:
 
         [color=#1a8e22][bold]===================================================[/color][/bold]
 
-        Greetings, Elegance Atmospheric Technicians. We hope you are enjoying the complete overhaul of the Engineering department. If not, please feel free to forward your complaints to Central Command. You have a lot more space to tinker with than before, but at the cost of the Thermo-Electric Generator. 
+        Greetings, Elegance Atmospheric Technicians. We hope you are enjoying the complete overhaul of the Engineering department. If not, please feel free to forward your complaints to Central Command. You have a lot more space to tinker with than before, but at the cost of the Thermo-Electric Generator.
 
 
-        We advise that you, generally, should refrain from mindlessly connecting the Water Vapor Inlet to the Distribution Line. While Feroxi may benefit from such a setup, Slimefolk will suffer. 
+        We advise that you, generally, should refrain from mindlessly connecting the Water Vapor Inlet to the Distribution Line. While Feroxi may benefit from such a setup, Slimefolk will suffer.
 
 
         To clarify, this is merely [italic]advice[/italic], of course, but a very important suggestion nonetheless. Again, please feel free to forward any complaints to Central Command. We hope to make Lady Elegance great for all.

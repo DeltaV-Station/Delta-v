@@ -82,6 +82,8 @@
   id: FillLockerSecurity
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Adds our modifications.
+      tableId: FillLockerSecurityDeltaV
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
@@ -103,13 +105,6 @@
       prob: 0.6
     - id: BookSpaceLaw
       prob: 0.5
-    - id: ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
-      prob: 0.4
-    - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
-      prob: 0.3
-    - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier and stabproof vest
-    - id: ClothingOuterArmorDuraVest # DeltaV
-    - id: ClothingOuterArmorBasicSlim # DeltaV - Only armor from ClothingOuterArmorBasic we are keeping
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -125,29 +120,23 @@
   id: FillLockerBrigmedic
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Adds our modifications.
+      tableId: FillLockerBrigmedicDeltaV
     - id: WeaponTaser
     - id: ClothingEyesGlassesCorpsman
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
-    #- id: ClothingOuterHardsuitCombatCorpsman # DeltaV - ClothingOuterHardsuitBrigmedic replaced in favour of corpsman's combat hardsuit; removing from standard filled locker to place in hardsuit filled locker.
-    #- id: BoxSterileMask # DeltaV - remove clutter
-    # - id: ClothingHeadHatBeretCorpsman # DeltaV - ClothingHeadHatBeretBrigmedic replaced in favour of corpsman beret. # DeltaV - added corpsman uniform to secdrobe
-    - id: ClothingHeadsetBrigmedic # DeltaV - add spare headset.
-#   - id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
-    # - id: ClothingUniformJumpsuitBrigmedic # DeltaV - added corpsman uniform to secdrobe
-    # - id: ClothingUniformJumpskirtBrigmedic # DeltaV - added corpsman uniform to secdrobe
-    #- id: ClothingUniformJumpskirtOfLife # DeltaV - removed for incongruence
+    # Begin DeltaV removal
+    #- id: ClothingOuterHardsuitBrigmedic  # DeltaV - Moved to hardsuit entityTable under ClothingOuterHardsuitCombatCorpsman.
+    #- id: BoxSterileMask
+    #- id: ClothingHeadHatBeretCorpsman
+    #- id: ClothingOuterCoatAMG # DeltaV - removed until I can resprite it or replace it.
+    #- id: ClothingUniformJumpsuitBrigmedic
+    #- id: ClothingUniformJumpskirtBrigmedic
+    #- id: ClothingUniformJumpskirtOfLife
     #  prob: 0.1
-    # Begin DeltaV additions
-    - id: ClothingBeltCorpsmanWebbing # DeltaV - added spare webbing
-    - id: HandheldGPSBasic # Delta V - added it for tracking the implant tracker pop up.
-    - id: BoxBodyBag
-    - id: EmergencyRollerBedSpawnFolded
-    - id: MedkitCombatFilled
-    - id: Portafib
-    - id: ChemistryBottleRevivopine # DeltaV - add revivopine bottle
-    # End DeltaV additions
+    # End DeltaV removal
     - id: MedkitFilled
     - !type:GroupSelector
       prob: 0.7
@@ -165,8 +154,6 @@
         weight: 1.8
     #- id: ClothingNeckCloakMoth #bzzz Moth-pocalypse # DeltaV - removed for incongruence
     #  prob: 0.15
-    - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
-      prob: 0.3
 
 - type: entity
   id: LockerDetectiveFilled
@@ -182,6 +169,8 @@
   id: FillLockerDetective
   table: !type:AllSelector
     children:
+    - !type:NestedSelector # DeltaV - Adds our modifications.
+      tableId: FillLockerDetectiveDeltaV
     - id: ClothingEyesGlassesNoir
     # Begin DeltaV Removals - removed for incongruence
     #- id: ClothingHeadHatDetGadget
@@ -189,7 +178,6 @@
     #- id: ClothingOuterVestDetective
     #- id: ClothingOuterCoatDetectiveLoadout
     # End DeltaV Removals
-    - id: ClothingHeadsetSecurity # DeltaV - add spare headset.
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner
@@ -201,9 +189,6 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
-    - id: BoxTapeRecorder # DeltaV
-    - id: LunchboxSecurityFilledRandom # Delta-v Lunchboxes!
-      prob: 0.3
 
 - type: entity
   id: ClosetBombFilled
@@ -227,9 +212,9 @@
       prob: 0.5
 
 - type: entity
-  parent: [SecurityGunSafeNonlethalHandgunDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeNonlethalHandgunDV, BaseSecurityContraband] # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeNonlethalHandgunDV
   id: GunSafeDisabler
-  name: disabler gun safe # DeltaV - Added "gun"
+  name: disabler safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: disabler
@@ -246,9 +231,9 @@
       amount: 5
 
 - type: entity
-  parent: [SecurityGunSafeHandgunDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeHandgunDV, BaseSecurityContraband]  # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeHandgunDV
   id: GunSafePistolMk58
-  name: mk58 gun safe # DeltaV - Added "gun"
+  name: mk58 safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: pistol
@@ -267,9 +252,9 @@
       amount: 8
 
 - type: entity
-  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband] # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
   id: GunSafeRifleLecter
-  name: lecter gun safe # DeltaV - Added "gun"
+  name: lecter safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: lecter
@@ -288,9 +273,9 @@
       amount: 4
 
 - type: entity
-  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband] # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
   id: GunSafeSubMachineGunDrozd
-  name: drozd gun safe # DeltaV - Added "gun"
+  name: drozd safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: drozd
@@ -309,9 +294,9 @@
       amount: 4
 
 - type: entity
-  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband] # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
   id: GunSafeShotgunEnforcer
-  name: enforcer gun safe # DeltaV - Added "gun"
+  name: enforcer safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: enforcer
@@ -330,9 +315,9 @@
       amount: 4
 
 - type: entity
-  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband] # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
   id: GunSafeShotgunKammerer
-  name: kammerer gun safe # DeltaV - Added "gun"
+  name: kammerer safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: kammerer
@@ -353,8 +338,8 @@
 - type: entity
   id: GunSafeSubMachineGunWt550
   suffix: Wt550
-  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
-  name: wt550 gun safe # DeltaV - Added "gun"
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband] # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
+  name: wt550 safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: wt550
@@ -373,9 +358,9 @@
       amount: 4
 
 - type: entity 
-  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]
+  parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]  # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
   id: GunSafeLaserCarbine
-  name: laser gun safe # DeltaV - Added "gun"
+  name: laser safe
   components:
   - type: EntityStorageVisuals # DeltaV Sprite
     stateDoorClosed: laser

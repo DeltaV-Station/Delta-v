@@ -151,6 +151,7 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedTopical
+  - BorgModuleAdvancedChemicalDV # DeltaV - Readd Chemical Module
   - AdvancedJetInjector
 
 - type: technology
@@ -160,7 +161,7 @@
     sprite: Objects/Specific/Janitorial/advmop.rsi
     state: advmop
   discipline: CivilianServices
-  tier: 2
+  tier: 3 # DeltaV - We need one T3 civ tech at least
   cost: 10000
   recipeUnlocks:
   - AdvMopItem
@@ -203,17 +204,18 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
 
-- type: technology
-  id: BluespaceCargoTransport
-  name: research-technology-bluespace-cargo-transport
-  icon:
-    sprite: Structures/cargo_telepad.rsi
-    state: display
-  discipline: CivilianServices
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-  - CargoTelepadMachineCircuitboard
+# DeltaV - Telepad removed for benefit of cargo pilots + logi gameplay flow.
+#- type: technology
+#  id: BluespaceCargoTransport
+#  name: research-technology-bluespace-cargo-transport
+#  icon:
+#    sprite: Structures/cargo_telepad.rsi
+#    state: display
+#  discipline: CivilianServices
+#  tier: 2
+#  cost: 15000
+#  recipeUnlocks:
+#  - CargoTelepadMachineCircuitboard
 
 - type: technology
   id: PushHorn

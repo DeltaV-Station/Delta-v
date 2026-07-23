@@ -1,0 +1,142 @@
+# use these base subtypes to avoid some boilerplate
+
+- type: entity
+  abstract: true
+  id: BorgSubtypeBase
+  name: borg subtype base
+  description: Default state for other subtypes to use.
+  categories: [ "BorgSubtype" ]
+  components:
+    - type: BorgSubtypeDefinition
+      # Visuals
+      layerData:
+        - state: borg
+          map: [ "enum.BorgVisualLayers.Body", "movement" ]
+        - state: borg_e
+          map: [ "enum.BorgVisualLayers.Light" ]
+          shader: unshaded
+          visible: false
+        - state: borg_l
+          shader: unshaded
+          map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+          visible: false
+
+      spriteBodyState: borg
+      spriteHasMindState: borg_e
+      # if rsi has a specific no mind state sprite, use that instead (i.e. borg_e_r)
+      spriteNoMindState: borg_e
+
+      footstepCollection:
+        collection: FootstepBorg
+
+# generic
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgGenericSubtypeBase
+  name: borg generic subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: generic
+
+      dummyPrototype: BorgChassisGeneric
+
+# mining (salvage)
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgMiningSubtypeBase
+  name: borg mining subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: mining
+
+      # Entity prototype for preview in selection menu
+      dummyPrototype: BorgChassisMining
+
+# engineering
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgEngineerSubtypeBase
+  name: borg engineering subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: engineering
+
+      # Entity prototype for preview in selection menu
+      dummyPrototype: BorgChassisEngineer
+
+# janitor
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgJanitorSubtypeBase
+  name: borg janitor subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: janitor
+
+      # Entity prototype for preview in selection menu
+      dummyPrototype: BorgChassisJanitor
+
+# medical
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgMedicalSubtypeBase
+  name: borg medical subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: medical
+
+      # Description
+      dummyPrototype: BorgChassisMedical
+
+# service
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgServiceSubtypeBase
+  name: borg service subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: service
+
+      # Description
+      dummyPrototype: BorgChassisService
+
+## Begin DeltaV Additions
+
+# security
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgSecuritySubtypeBase
+  name: borg security subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: security
+
+      # Description
+      dummyPrototype: BorgChassisSecurity
+
+# salvage
+- type: entity
+  parent: BorgSubtypeBase
+  abstract: true
+  id: BorgSalvageSubtypeBase
+  name: borg salvage subtype
+  components:
+    - type: BorgSubtypeDefinition
+      parentType: mining
+
+      # Description
+      dummyPrototype: BorgChassisSalvage
+
+## End DeltaV Additions
+
+- type: entityCategory
+  id: BorgSubtype
+  name: al-borg-subtypes
+  hideSpawnMenu: true

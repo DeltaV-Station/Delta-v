@@ -73,7 +73,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 10
+    fireRate: 6 # DeltaV - was 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - type: MagazineVisuals
@@ -246,9 +246,9 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 5.5
-    minAngle: 1
-    maxAngle: 6
+    fireRate: 5 # DeltaV - Was 5.5
+    minAngle: 2 # DeltaV - Was 1
+    maxAngle: 16 # DeltaV - Was 6
     angleIncrease: 1.5
     angleDecay: 6
     selectedMode: FullAuto
@@ -347,3 +347,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8

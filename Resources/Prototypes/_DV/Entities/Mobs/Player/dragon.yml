@@ -1,0 +1,140 @@
+- type: entity
+  parent: BaseMobDragon
+  id: MobDragonMatriarch
+  suffix: Admeme
+  name: Space Dragon Matriarch
+  description: A gigantic mass of armored scales and razor-sharp claws. Are you sure you want to be this close?
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-space-dragon-matriarch-name
+    description: ghost-role-information-space-dragon-matriarch-description
+    rules: ghost-role-information-space-dragon-matriarch-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+    baseWeightlessModifier: 3
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: DragonMatriarch
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/dragon.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+      scale: 1.3, 1.3
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: alive-unshaded
+      shader: unshaded
+      scale: 1.3, 1.3
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.90
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      900: Critical
+      1100: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      600: 0.7
+      800: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0 # No stunlocking my evil superdragon
+    worn: false
+    meleeResistance: true
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      types:
+        Blunt: -5
+        Piercing: -1
+        Slash: -1
+        Heat: -1
+        Cold: -0.5
+        Radiation: -0.5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatDragon
+      amount: 8
+  - type: InteractionPopup
+    successChance: 0.10
+    interactSuccessString: petting-success-dragon
+    interactFailureString: petting-failure-dragon
+    interactFailureSound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    soundPerceivedByOthers: false
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 90
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Blunt: 30
+        Slash: 40
+        Structural: 60
+  - type: ActionGun
+    action: ActionDragonsBreath
+    gunProto: DragonsBreathGunMatriarch
+  - type: Devourer
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidProfile
+    stomachStorageWhitelist:
+      components:
+      - MobState
+    chemical: Ichor
+    healRate: 15
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: DragonsBreathGunMatriarch
+  name: dragon's lung
+  description: For dragon's breathing.
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+    rechargeSound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileDragonsBreathMatriarch
+    capacity: 1
+    count: 1
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    soundEmpty: null
+    projectileSpeed: 10

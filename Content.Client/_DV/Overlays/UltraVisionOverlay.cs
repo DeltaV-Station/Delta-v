@@ -17,11 +17,12 @@ public sealed partial class UltraVisionOverlay : Overlay
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _ultraVisionShader;
+    private static readonly ProtoId<ShaderPrototype> UltraVisionName = "UltraVision";
 
     public UltraVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _ultraVisionShader = _prototypeManager.Index<ShaderPrototype>("UltraVision").Instance().Duplicate();
+        _ultraVisionShader = _prototypeManager.Index<ShaderPrototype>(UltraVisionName).Instance().Duplicate();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

@@ -24,6 +24,9 @@
         whitelist:
           components:
           - Defibrillator
+  - type: Construction
+    graph: DefibrillatorCabinet
+    node: done
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic

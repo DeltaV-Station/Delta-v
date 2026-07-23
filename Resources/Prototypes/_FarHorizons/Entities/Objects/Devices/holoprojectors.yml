@@ -7,6 +7,9 @@
   - type: HolosignProjector
     signProto: HolosignRadiationBlocking
     chargeUse: 60
+  - type: ChargeHolosignProjector # DeltaV
+    signProto: HolosignRadiationBlocking
+    signComponentName: HoloRadiationblocker
   - type: Sprite
     sprite: _FarHorizons/Objects/Devices/Holoprojectors/radiation.rsi
     state: icon

@@ -29,12 +29,14 @@ public sealed partial class SpeechWireAction : ComponentWireAction<SpeechCompone
     public override bool Cut(EntityUid user, Wire wire, SpeechComponent component)
     {
         _speech.SetSpeech(wire.Owner, false, component);
+        EntityManager.GetComponentOrNull<Components.UnblockableSpeechComponent>(user)?.Active = false; // DeltaV - we need this to override unblockable speech
         return true;
     }
 
     public override bool Mend(EntityUid user, Wire wire, SpeechComponent component)
     {
         _speech.SetSpeech(wire.Owner, true, component);
+        EntityManager.GetComponentOrNull<Components.UnblockableSpeechComponent>(user)?.Active = true; // DeltaV - we need this to override unblockable speech
         return true;
     }
 

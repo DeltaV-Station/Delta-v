@@ -83,3 +83,21 @@
         sound:
           collection: MetalBreak
   - type: InteractionOutline
+
+- type: entity
+  parent: HeavyFlatpackBase
+  id: NuclearReactorSmallFlatpack
+  name: small nuclear reactor flatpack
+  description: A flatpack used for constructing a small nuclear reactor. Parts sold separately.
+  components:
+  - type: Flatpack
+    entity: NuclearReactorSmall
+
+- type: entity
+  parent: HeavyFlatpackBase
+  id: GasTurbineSmallFlatpack
+  name: small gas turbine flatpack
+  description: A flatpack used for constructing a small gas turbine.
+  components:
+  - type: Flatpack
+    entity: TurbineSmall

@@ -1,0 +1,103 @@
+- type: entity
+  name: jerry can
+  parent: BaseItem
+  id: JerryCan
+  suffix: empty
+  description: A plastic jerry can with a spill-proof nozzle.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Chemistry/jerrycan.rsi
+    layers:
+      - state: jerrycan
+      - state: jerrycan1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+  - type: Item
+    size: Normal
+    sprite: _NF/Objects/Specific/Chemistry/jerrycan.rsi
+  - type: MixableSolution
+    solution: tank
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: InjectableSolution
+    solution: tank
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Edible
+    solution: tank
+    delay: 1.5
+    destroyOnEmpty: false
+    forceFeedDelay: 5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: jerrycan
+    inHandsMaxFillLevels: 5
+    inHandsFillBaseName: -fill-
+  - type: StaticPrice
+    price: 10
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: tank
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlastic1:
+            min: 0
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Label
+  - type: TrashOnSolutionEmpty
+    solution: tank
+
+- type: entity
+  parent: JerryCan
+  suffix: welding fuel
+  id: JerryCanWeldingFuel
+#  categories: [ HideSpawnMenu ] # Frontier
+  components:
+  - type: Label
+    currentLabel: reagent-name-welding-fuel
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 200
