@@ -21,7 +21,7 @@ public sealed partial class DVNymphProfileComponent : Component
     public string? Name;
 
     [DataField, AutoNetworkedField]
-    public ProtoId<SpeciesPrototype> Species;
+    public ProtoId<SpeciesPrototype> Species = "Diona";
 
 	[DataField, AutoNetworkedField]
     public Gender Gender;
