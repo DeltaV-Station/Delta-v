@@ -168,7 +168,7 @@
       - state: strip-feroxi
         map: ["colorlayer1"]
       # End DeltaV species helmets
-  - type: JobColor
+  - type: JobColor # Delta-V add color changing clothing
     jobMap:
       JobIconStationEngineer:
         colorlayer1: "#ffa62b"
@@ -178,6 +178,8 @@
         colorlayer1: "#aaaaaa"
       JobIconSeniorEngineer:
         colorlayer1: "#aa6300"
+      JobIconNuclearScientist:
+        colorlayer1: "#13a300"
       JobIconUnknown:
         colorlayer1: "#aaaaaa"
   - type: PointLight
