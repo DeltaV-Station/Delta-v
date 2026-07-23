@@ -72,6 +72,9 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
 
     public void AddObjective(ObjectiveData objective)
     {
+        var data = new ObjectiveUI(objective);
+        _objectives.Add(data);
+        ObjectiveList.AddItem(GetShortTitle(data.Title), metadata: data);
     }
 
     private void OnObjectiveSelected(ItemList.ItemListSelectedEventArgs args)
@@ -127,7 +130,7 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
 
     private void OnAddObjective()
     {
-
+        CreateAction?.Invoke(null);
     }
 
     private void OnDeleteObjective()

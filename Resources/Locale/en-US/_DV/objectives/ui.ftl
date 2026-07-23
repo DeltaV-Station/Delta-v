@@ -15,3 +15,5 @@ objective-editor-admin-ui-reset-all = Reset All
 objective-editor-admin-ui-placeholder-issuer = New Issuer
 objective-editor-admin-ui-placeholder-title = New Title
 objective-editor-admin-ui-placeholder-description = New Description
+
+objective-editor-admin-ui-check-note = The editor does NOT update the checks for an objective

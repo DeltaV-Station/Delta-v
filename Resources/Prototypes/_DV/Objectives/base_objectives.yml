@@ -1,10 +1,12 @@
 - type: entity
   parent: BaseObjective
   id: EditorDefaultObjective
+  name: Default Title
+  description: Default Description
   components:
   - type: Objective
-    issuer: Editor
+    issuer: Default Issuer
     difficulty: 0
-    icon:
+    icon: Interface/Nano/cross.svg.png
   - type: FreeObjective
 

@@ -31,5 +31,8 @@
             </BoxContainer>
             <obj:ObjectiveContainer Name="Container"/>
         </BoxContainer>
+
+        <customControls:HSeparator />
+        <Label Text="{Loc objective-editor-admin-ui-check-note}" FontColorOverride="Red" Align="Center"/>
     </BoxContainer>
 </controls:FancyWindow>

@@ -53,6 +53,10 @@ public sealed partial class ObjectiveContainer : BoxContainer
         ObjectiveTitle.Editable = false;
         ObjectiveDescription.Editable = false;
 
+        ResetButton.Disabled = true;
+        ViewButton.Disabled = true;
+        IconSelectButton.Disabled = true;
+
         ObjectiveIssuer.Text = "";
         ObjectiveTitle.Text = "";
         ObjectiveDescription.TextRope = new Rope.Leaf("");
@@ -67,6 +71,10 @@ public sealed partial class ObjectiveContainer : BoxContainer
         ObjectiveIssuer.Editable = true;
         ObjectiveTitle.Editable = true;
         ObjectiveDescription.Editable = true;
+
+        ResetButton.Disabled = false;
+        ViewButton.Disabled = false;
+        IconSelectButton.Disabled = false;
 
         ObjectiveIssuer.Text = _objective.Issuer;
         ObjectiveTitle.Text = _objective.Title;

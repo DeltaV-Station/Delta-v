@@ -124,6 +124,12 @@ public sealed class ObjectiveEditorEui : BaseEui
                 objective = objEnt;
                 oldObjectives.Remove(objEnt); // Ensure it's not cleaned up
             }
+            else if (_temporaryIds.Contains(objEnt))
+            {
+                objective = objEnt;
+                _temporaryIds.Remove(objEnt); // Ensure it's not cleaned up
+                _mind.AddObjective(_targetMind.Owner, _targetMind.Comp, objective);
+            }
             else
             {
                 // Gotta make a new entity for it
@@ -154,6 +160,7 @@ public sealed class ObjectiveEditorEui : BaseEui
             _mind.TryRemoveObjective(_targetMind, _targetMind.Comp, old);
         }
 
+        ClearTempObjectives(); // Ensure all temporary objectives are cleared and deleted
         StateDirty(); // Ensure client is freshly updated with all the new Objective information
     }
 
@@ -169,6 +176,7 @@ public sealed class ObjectiveEditorEui : BaseEui
         if (!newObjective.HasValue)
             return;
 
+        // N.b. The objective is not yet added to the mind.
         var data = CreateObjectiveData(newObjective.Value, _targetMind);
         _temporaryIds.Add(newObjective.Value);
         SendMessage(new ObjectiveEditorCreateResponse(data));
