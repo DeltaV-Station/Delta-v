@@ -11,7 +11,6 @@ namespace Content.Client._Funkystation.ContentWarning;
 [GenerateTypedNameReferences]
 public sealed partial class ContentWarningPopup : FancyWindow
 {
-    [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
 
     public event Action? OnContentWarningAccept;
     public event Action? OnContentWarningReject;
