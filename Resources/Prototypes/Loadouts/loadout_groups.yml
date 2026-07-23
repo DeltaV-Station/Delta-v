@@ -85,6 +85,7 @@
   - LighterInterdyne
   - LighterNanotrasen
   - MatchboxGorlex
+  - NoviceMark # from imp
   # End DeltaV Additions
 
 - type: loadoutGroup
@@ -508,6 +509,7 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
+  - ChefKimono # DeltaV - Adding kimono for chefs
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -797,6 +799,10 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  # Begin DeltaV Additions
+  - MimeBeretTassledBlack
+  - MimeBeretTassledWhite
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: MimeMask
@@ -832,7 +838,10 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
-  - MimeWintercoatLong # DeltaV
+  # Begin DeltaV Additions
+  - MimeWintercoatLong
+  - MimeFurCoat
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: MimeBelt
@@ -1189,6 +1198,7 @@
   # Begin DeltaV additions
   - ElectricianPDA
   - MechanicPDA
+  - NuclearScientistPDA
   # End DeltaV additions
 
 - type: loadoutGroup
@@ -1446,7 +1456,6 @@
   # Begin DeltaV changes
   - ScarfBlue
   - ScarfBlack
-  - SecurityPoncho
   - HeadOfSecurityRobe
   - HeadOfSecurityCloakBoat
   # End DeltaV changes
@@ -1611,7 +1620,6 @@
   loadouts:
   - DetectiveTie
   - ScarfBlue # DeltaV - Was ScarfRed
-  - SecurityPoncho # DeltaV
 
 - type: loadoutGroup
   id: DetectiveJumpsuit

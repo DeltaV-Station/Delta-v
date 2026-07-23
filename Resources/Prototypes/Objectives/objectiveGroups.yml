@@ -4,7 +4,7 @@
   weights:
     TraitorObjectiveGroupSteal: 1
     TraitorObjectiveGroupKill: 1
-    TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
+    TraitorObjectiveGroupState: 0.5 #As in, something about your character. Alive, dead, arrested, gained an ability... # DeltaV - was 1
     TraitorObjectiveGroupSocial: 0.5 # DeltaV #Involves helping/harming others without killing them or stealing their stuff
     TraitorObjectiveGroupSpecial: .2 # DeltaV
 
@@ -49,7 +49,7 @@
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    DieObjective: 0.05
+    DieObjective: 0.1 # DeltaV - was 0.05
     #HijackShuttleObjective: 0.02
     #BecomePsionicObjective: 1 # Nyanotrasen - Become Psionic objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
     #BecomeGolemObjective: 0.5 # Nyanotrasen - Become a golem objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml

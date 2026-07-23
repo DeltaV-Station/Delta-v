@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseItem
+  id: DVEvidenceBag
+  name: evidence bag
+  description: An evidence bag for containing evidence.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Forensics/evidencebag.rsi
+    state: evidenceobj
+  - type: NameModifier
+    baseName: evidence bag
+  - type: ItemSlots
+    slots:
+      contained_evidence:
+        swap: false
+  - type: ContainerContainer
+    containers:
+      contained_evidence: !type:ContainerSlot
+  - type: DVItemSlotVisuals
+    itemSlot: contained_evidence
+    filledSprite:
+      sprite: _DV/Objects/Specific/Forensics/evidencebag.rsi
+      state: evidence
+    unfilledSprite:
+      sprite: _DV/Objects/Specific/Forensics/evidencebag.rsi
+      state: evidenceobj
+  - type: DVSeenInsertedItem
+    itemSlot: contained_evidence
+  - type: DVExpandToInsertedItemSize
+    itemSlot: contained_evidence
+    emptySize: Tiny
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: evidence bag box
+  parent: BoxCardboard
+  id: DVBoxEvidenceBags
+  description: A box that allegedly claims to contain evidence bags.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: DVEvidenceBag
+        amount: 9
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: writing
