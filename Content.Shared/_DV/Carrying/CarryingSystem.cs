@@ -228,7 +228,6 @@ public sealed class CarryingSystem : EntitySystem
         DropCarried(ent.Comp.Carrier, ent, attachToGrid: false);
     }
 
-
     private void OnRemoved(Entity<BeingCarriedComponent> ent, ref ComponentRemove args)
     {
         /*
@@ -357,7 +356,8 @@ public sealed class CarryingSystem : EntitySystem
         _actionBlocker.UpdateCanMove(carried);
 
         // Some systems will handle re-parenting and then throw an event, and this changes the parent when it should not
-        if (attachToGrid) _transform.AttachToGridOrMap(carried);
+        if (attachToGrid)
+            _transform.AttachToGridOrMap(carried);
         _standingState.Stand(carried);
     }
 
