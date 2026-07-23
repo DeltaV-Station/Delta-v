@@ -29,5 +29,5 @@ public sealed class CCVars_Funky
     /// If the content warning popup was acknowledged.
     /// </summary>
     public static readonly CVarDef<bool> ContentWarningAcknowledged =
-        CVarDef.Create("cw.acknowledged", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("cw.acknowledged.deltav", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
