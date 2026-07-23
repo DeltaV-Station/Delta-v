@@ -18,14 +18,14 @@ public sealed partial class ObjectiveEditorUi : FancyWindow
     private List<ObjectiveUI> _objectives = new();
     private ObjectiveUI? _selectedObjective = null;
 
-    public Action? SaveAction = null;
+    public Action<bool>? SaveAction = null;
     public Action<EntProtoId?>? CreateAction = null;
 
     public ObjectiveEditorUi()
     {
         RobustXamlLoader.Load(this);
         ResetButton.OnPressed += _ => OnResetObjectives();
-        SaveButton.OnPressed += _ => SaveAction?.Invoke();
+        SaveButton.OnPressed += _ => SaveAction?.Invoke(SilentSave.Pressed);
 
         AddButton.OnPressed += _ => OnAddObjective();
         RemoveButton.OnPressed += _ => OnDeleteObjective();

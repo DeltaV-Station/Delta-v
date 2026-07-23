@@ -18,10 +18,11 @@ public sealed class ObjectiveEditorEUIState(
 
 [Serializable, NetSerializable]
 public sealed class ObjectiveEditorSaveMessage(
-   List<ObjectiveData> objectives, NetEntity target) : EuiMessageBase
+   List<ObjectiveData> objectives, NetEntity target, bool silent) : EuiMessageBase
 {
     public List<ObjectiveData> Objectives = objectives;
     public NetEntity Target = target;
+    public bool Silent = silent;
 }
 
 

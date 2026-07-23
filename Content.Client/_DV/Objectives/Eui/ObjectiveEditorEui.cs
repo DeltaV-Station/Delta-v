@@ -69,9 +69,9 @@ public sealed class ObjectiveEditorEui : BaseEui
         _editorUi.AddObjective(response.Data);
     }
 
-    private void SaveObjectives()
+    private void SaveObjectives(bool silentSave)
     {
-        SendMessage(new ObjectiveEditorSaveMessage(_editorUi.GetObjectives(), _entityManager.GetNetEntity(_targetMind)));
+        SendMessage(new ObjectiveEditorSaveMessage(_editorUi.GetObjectives(), _entityManager.GetNetEntity(_targetMind), silentSave));
     }
 
     private void CreateObjective(EntProtoId? proto)

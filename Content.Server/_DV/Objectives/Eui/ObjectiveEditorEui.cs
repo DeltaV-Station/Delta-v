@@ -12,6 +12,7 @@ using Content.Shared.Objectives.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server.Popups;
 
 namespace Content.Server._DV.Objectives.Eui;
 
@@ -23,6 +24,7 @@ public sealed class ObjectiveEditorEui : BaseEui
     private readonly ObjectivesSystem _objectiveSystem = default!;
     private readonly MindSystem _mind = default!;
     private readonly MetaDataSystem _metadata = default!;
+    private readonly PopupSystem _popup = default!;
 
     private readonly ISawmill _sawmill = Logger.GetSawmill("objective-editor-eui"); // TODO(Barry): Actually need this or?
 
@@ -50,6 +52,7 @@ public sealed class ObjectiveEditorEui : BaseEui
         _objectiveSystem = _entityManager.System<ObjectivesSystem>();
         _mind = _entityManager.System<MindSystem>();
         _metadata = _entityManager.System<MetaDataSystem>();
+        _popup = _entityManager.System<PopupSystem>();
     }
 
     public override EuiStateBase GetNewState()
@@ -162,6 +165,11 @@ public sealed class ObjectiveEditorEui : BaseEui
 
         ClearTempObjectives(); // Ensure all temporary objectives are cleared and deleted
         StateDirty(); // Ensure client is freshly updated with all the new Objective information
+
+        if (!message.Silent && _targetMind.Comp.CurrentEntity is EntityUid uid)
+        {
+            _popup.PopupEntity(Loc.GetString("objective-editor-admin-ui-notification"), uid, uid);
+        }
     }
 
     /// <summary>

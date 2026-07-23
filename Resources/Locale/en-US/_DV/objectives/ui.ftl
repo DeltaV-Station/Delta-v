@@ -17,3 +17,8 @@ objective-editor-admin-ui-placeholder-title = New Title
 objective-editor-admin-ui-placeholder-description = New Description
 
 objective-editor-admin-ui-check-note = The editor does NOT update the checks for an objective
+
+objective-editor-admin-ui-silent-save = Silent Save
+objective-editor-admin-ui-silent-save-tooltip = Whether to show a popup to the user when their objectives change
+
+objective-editor-admin-ui-notification = You feel new ideas enter your mind...

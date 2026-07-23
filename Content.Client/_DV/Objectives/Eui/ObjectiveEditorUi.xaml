@@ -8,6 +8,11 @@
 >
     <BoxContainer Orientation="Vertical" >
         <BoxContainer Orientation="Horizontal" Align="End">
+            <CheckBox
+                Name="SilentSave"
+                Text="{Loc objective-editor-admin-ui-silent-save}"
+                ToolTip="{Loc objective-editor-admin-ui-silent-save-tooltip}"
+                Margin="5 0 5 0"/>
             <controls:ConfirmButton
                 Name="ResetButton"
                 Text="{Loc objective-editor-admin-ui-reset-all}"
