@@ -31,6 +31,6 @@ public sealed partial class ShadowWalkerComponent : Component
     /// Light level for this tick, to avoid re-calculating for more than one collision a tick.
     /// </summary>
     public GameTick LastLightCheckTick = GameTick.Zero;
-    
+
     public float LastLightLevel;
 }
