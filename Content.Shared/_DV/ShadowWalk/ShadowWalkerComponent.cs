@@ -1,19 +1,17 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.ShadowWalk;
 
 /// <summary>
 /// Lets this entity walk straight through solid static objects (walls, doors, windows...)
-/// that are bathed in darkness.
+/// while the entity itself is bathed in darkness (the same light level it heals in.)
+/// Mobs and projectiles always stay solid.
 /// <para>
-/// The server periodically measures the light level at nearby static blockers and networks
-/// the set of currently-passable ones in <see cref="PassableEntities"/>. Collision filtering
-/// on both sides only ever consults that replicated set, never client-side lighting, so
-/// prediction always agrees with the server even though off-screen lights don't exist on the client.
+/// On collision, checks our light level. Objects we're stuck in are tagged in <see cref="PassableEntities"/>
 /// </para>
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowWalkerComponent : Component
 {
     /// <summary>
@@ -25,34 +23,14 @@ public sealed partial class ShadowWalkerComponent : Component
     public float DarkThreshold = 0.3f;
 
     /// <summary>
-    /// Radius around the walker that is scanned for static blockers.
-    /// Needs to comfortably cover the distance the walker can move between two scans, plus the client's prediction window.
+    /// Objects we're currently in. Objects in this list are never solid until we fully leave.
     /// </summary>
-    [DataField]
-    public float Range = 3f;
-
-    /// <summary>
-    /// How often the passable set is rescanned.
-    /// </summary>
-    [DataField]
-    public TimeSpan UpdateFrequency = TimeSpan.FromSeconds(0.5);
-
-    /// <summary>
-    /// The next time the passable set gets rescanned.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextUpdate = TimeSpan.Zero;
-
-    /// <summary>
-    /// Server-computed set of static entities this walker currently phases through. Never written on the client; both sides filter collisions purely from this set.
-    /// </summary>
-    [AutoNetworkedField]
     public HashSet<EntityUid> PassableEntities = new();
 
     /// <summary>
-    /// Client-only copy of the last passable set we rebuilt contacts for. Component states are
-    /// re-applied every prediction reset, so this is used to only regenerate contacts when the set actually changed.
+    /// Light level for this tick, to avoid re-calculating for more than one collision a tick.
     /// </summary>
-    [ViewVariables]
-    public HashSet<EntityUid> LastAppliedPassable = new();
+    public GameTick LastLightCheckTick = GameTick.Zero;
+    
+    public float LastLightLevel;
 }
