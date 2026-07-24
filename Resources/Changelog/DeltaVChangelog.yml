@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: Added the "Marked as Protected" trait which makes you immune to becoming
-      a target objective.
-    type: Add
-  id: 2098
-  time: '2026-01-25T16:30:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5274
 - author: AeraAuling
   changes:
   - message: Shadow damage no longer removes all your blood immediately
@@ -4360,4 +4352,15 @@
   id: 2598
   time: '2026-07-24T17:34:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6364
+- author: SirWarock
+  changes:
+  - message: The NT-3 cannot be parcel-wrapped anymore!
+    type: Tweak
+  - message: Adjusted the wielding sprites of the NT-3 to look less wrong.
+    type: Fix
+  - message: The NT-3 can pierce things again.
+    type: Fix
+  id: 2599
+  time: '2026-07-24T17:39:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5653
 Order: 1
