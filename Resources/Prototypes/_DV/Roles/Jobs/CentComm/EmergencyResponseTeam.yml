@@ -211,7 +211,6 @@
   equipment:
     outerClothing: ClothingOuterHardsuitERTSecurityElite
     pocket1: WeaponAdvancedLaser
-    belt: ClothingBeltMilitaryWebbingERT
   storage:
     back:
     - DoorRemoteCustom
@@ -221,8 +220,6 @@
     - ToolDebug
     - Multitool
     - WelderIndustrialAdvanced
-    belt:
-    - PoweredMace
 
 # Medical
 
@@ -373,6 +370,15 @@
   parent: SRTOfficerBase
   equipment:
     back: ClothingBackpackDeathSquadFilledEpsilon
+
+- type: startingGear
+  id: SRTOfficerHeavy
+  parent: SRTOfficerBase
+  equipment:
+    belt:  ClothingBeltMilitaryWebbingERTMedicineHeavy
+    back:  ClothingBackpackPlasmaBattery
+  inhand:
+  - WeaponPlasmaBackpack
 
 - type: job
   id: SRTAgent
