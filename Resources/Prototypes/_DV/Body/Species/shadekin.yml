@@ -68,7 +68,6 @@
       Tongue: OrganShadekinTongue
       Appendix: OrganShadekinAppendix
       Ears: OrganShadekinEars
-      Lungs: OrganShadekinLungs
       Heart: OrganShadekinHeart
       Stomach: OrganShadekinStomach
       Liver: OrganShadekinLiver
@@ -275,10 +274,6 @@
 - type: entity
   parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganShadekinInternal ]
   id: OrganShadekinEars
-
-- type: entity
-  parent: [ OrganBaseLungs, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
-  id: OrganShadekinLungs
 
 - type: entity
   parent: [ OrganBaseHeart, OrganSpriteHumanInternal, OrganShadekinInternal, OrganShadekinMetabolizer ]
