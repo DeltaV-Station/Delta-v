@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: MilonPL
-  changes:
-  - message: The uncloneable trait no longer prevents your character from getting
-      revived by defibrillators.
-    type: Fix
-  id: 2095
-  time: '2026-01-24T21:29:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5273
 - author: Halo3moth
   changes:
   - message: The energy magnums "magnum" rounds no longer pierce windows
@@ -4360,4 +4352,12 @@
   id: 2595
   time: '2026-07-23T20:07:04.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6375
+- author: ManuDemoen
+  changes:
+  - message: Emergency access no longer allows anyone with a remote to bolt the door
+      and checks if the remote has access to bolt.
+    type: Fix
+  id: 2596
+  time: '2026-07-24T17:28:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6141
 Order: 1
