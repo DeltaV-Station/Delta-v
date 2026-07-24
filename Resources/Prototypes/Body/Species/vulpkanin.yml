@@ -87,9 +87,9 @@
       Kidneys: OrganVulpkaninKidneys
   - type: HumanoidProfile
     species: Vulpkanin
+  - type: Inventory
+    speciesId: vulpkanin
 # Delta V - We got no displacement for Vulpkaning
-#  - type: Inventory
-#    speciesId: vulpkanin
 #    displacements:
 #      jumpsuit:
 #        sizeMaps:
@@ -149,7 +149,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
-    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl', 'Yip' ] # DeltaV - Added Yip Emote
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
