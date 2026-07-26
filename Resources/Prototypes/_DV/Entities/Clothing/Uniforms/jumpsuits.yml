@@ -240,6 +240,17 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFreighterCrew
+  name: freighter crew's jumpsuit
+  description: Smells minty.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+
 # Formal uniforms
 
 - type: entity
