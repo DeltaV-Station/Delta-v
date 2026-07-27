@@ -272,8 +272,8 @@ public sealed class ConspiratorRuleSystem : GameRuleSystem<ConspiratorRuleCompon
 
         //dumb array go! from here use it to add the options, will have to add the new objectives to this.
         int ObjectiveArrayNumber = 0;
-        string[] ConspiratorObjectiveIds = ["ConspiratorBusinessObjective","ConspiratorUsurpObjective","ConspiratorHordeObjective","ConspiratorDistrustObjective","ConspiratorFreedomObjective","ConspiratorNukeObjective","ConspiratorDangerObjective","ConspiratorFreeObjective"];
-        string[] ConspiratorObjectiveNames = ["Set up a business outside Nanotrasen.","Become the true leaders of the station.","Build a horde of valuables.","Brew distrust and hatred.","Free the station of access.","Steal the nuke disk","Arm yourselves","Make your own conspiracy."];
+        string[] ConspiratorObjectiveIds = ["ConspiratorBusinessObjective","ConspiratorUsurpObjective","ConspiratorHordeObjective","ConspiratorDistrustObjective","ConspiratorVigilanteObjective","ConspiratorFreedomObjective","ConspiratorNukeObjective","ConspiratorDangerObjective","ConspiratorFreeObjective"];
+        string[] ConspiratorObjectiveNames = ["Set up a business outside Nanotrasen.","Become the true leaders of the station.","Build a horde of valuables.","Brew distrust and hatred.","Enforce the laws secuirty can not.","Free the station of access.","Steal the nuke disk","Arm yourselves","Make your own conspiracy."];
         
         foreach (string objective in ConspiratorObjectiveNames)
         {
