@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: Pharaz4
-  changes:
-  - message: Bingus can no longer drink the **ENTIRE** keg.
-    type: Fix
-  - message: You can eat rice dishes with chopsticks now.
-    type: Add
-  - message: Fixed Smartfridge visuals always showing their wire panels open.
-    type: Fix
-  - message: Projectiles and Mr. Butlertion are now insulated against wizardry.
-    type: Fix
-  - message: Wording fix to initial infected's prompt. It now states that they can
-      explicitly kill people.
-    type: Fix
-  id: 2101
-  time: '2026-01-25T16:31:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5278
 - author: MantasDab360, whatston3, ShepardToTheStars
   changes:
   - message: Chemical Dispenser can now toggle between auto labeling!
@@ -4365,4 +4349,18 @@
   id: 2601
   time: '2026-07-27T16:43:20.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6220
+- author: CalliganSierre
+  changes:
+  - message: Ported TheDen Shadowkin scream, laugh, and talk sounds for Shadekin.
+      (CC-BY-SA-3.0 MajorMoth)
+    type: Add
+  - message: Shadekin now use custom laughs and speech voice instead of Slime-person
+      sounds for those lines.
+    type: Tweak
+  - message: Shadekin are assigned Felinid Growl, Hiss, and Purr emotes as is consistent
+      with most other servers.
+    type: Tweak
+  id: 2602
+  time: '2026-07-27T19:26:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6370
 Order: 1
