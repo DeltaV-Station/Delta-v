@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: AeraAuling
-  changes:
-  - message: Shadow damage no longer removes all your blood immediately
-    type: Tweak
-  id: 2099
-  time: '2026-01-25T16:31:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5268
 - author: ShepardToTheStars
   changes:
   - message: You can now toggle your hardsuit helmet on over your hat or beret!
@@ -4363,4 +4356,12 @@
   id: 2599
   time: '2026-07-24T17:39:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5653
+- author: ShepardToTheStars
+  changes:
+  - message: The additional borg chassis from Cosmic Drift has been reverted due to
+      implementation issues.
+    type: Remove
+  id: 2600
+  time: '2026-07-27T13:48:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6385
 Order: 1
