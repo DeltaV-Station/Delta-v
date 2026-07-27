@@ -19,15 +19,25 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+
+// BEGIN DeltaV
+using Content.Client._DV.Traits.Assorted;
+using Content.Shared._DV.Traits.Assorted;
+using Content.Shared._DV.Medical; // Uncloneable
+using Content.Shared._DV.MedicalRecords; // Medical Records
+
+// Health Analyzer Plus
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Body.Systems;
+using Content.Client.Body.Systems;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Client.Chemistry.Containers.EntitySystems;
+using Content.Shared.Body.Components;
+// END DeltaV
 namespace Content.Client.HealthAnalyzer.UI;
 
-using Content.Client._DV.Traits.Assorted; // DeltaV
-using Content.Shared._DV.Traits.Assorted; // DeltaV
-using Content.Shared._DV.Medical; // DeltaV - Uncloneable
-using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
 
-using Content.Shared.Chemistry.Components; // DeltaV - Health Analyzer Plus
-using Content.Shared.Chemistry.Reagent; // DeltaV - Health Analyzer Plus
 
 // Health analyzer UI is split from its window because it's used by both the
 // health analyzer item and the cryo pod UI.
@@ -35,6 +45,8 @@ using Content.Shared.Chemistry.Reagent; // DeltaV - Health Analyzer Plus
 [GenerateTypedNameReferences]
 public sealed partial class HealthAnalyzerControl : BoxContainer
 {
+    private const string REAGENT_GROUP_MEDICINE = "Medicine"; // DeltaV - Health Analyzer
+
     private readonly IEntityManager _entityManager;
     private readonly SpriteSystem _spriteSystem;
     private readonly IPrototypeManager _prototypes;
@@ -44,6 +56,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     private readonly UnborgableSystem _unborgable; // DeltaV
     private readonly RedshirtSystem _redshirt; // DeltaV
     private readonly UncloneableSystem _uncloneable; // DeltaV
+    private readonly SharedBloodstreamSystem _bloodstream; // DeltaV
+    private readonly SharedSolutionContainerSystem _solutionContainer; // DeltaV
 
     // Begin DeltaV - Medical Records
     private readonly ButtonGroup _triageStatusGroup = new();
@@ -69,6 +83,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
         _redshirt = _entityManager.System<RedshirtSystem>(); // DeltaV
         _uncloneable = _entityManager.System<UncloneableSystem>(); // DeltaV
+        _bloodstream = _entityManager.System<BloodstreamSystem>(); // DeltaV
+        _solutionContainer = _entityManager.System<SolutionContainerSystem>(); // DeltaV
 
         // Begin DeltaV - Medical Records
         foreach (var item in Enum.GetValues<TriageStatus>())
@@ -222,13 +238,8 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         var damagePerType = _damageable.GetAllDamage(target.Value).DamageDict;
 
-        // Begin DeltaV - Health Analyzer Plus
-        var totalDamage = _damageable.GetTotalDamage( target.Value );
-
-        DrawDiagnosticGroups( totalDamage, damageSortedGroups, damagePerType );
-
-        DrawBloodstreamInfo( state.BloodLevel, state.BloodSolution );
-        // End DeltaV - Health Analyzer Plus
+        DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+        DrawBloodstreamInfo(target.Value, state.BloodSolution, state.BloodLevel); // End DeltaV - Health Analyzer Plus
 
         // Begin DeltaV - Medical Records
         if (state.MedicalRecord is not { } records)
@@ -264,7 +275,6 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     private void DrawDiagnosticGroups(
-        FixedPoint2 totalDamage, // DeltaV - Health Analyzer Plus
         Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
         IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
     {
@@ -272,9 +282,10 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // GroupsContainer.RemoveAllChildren();
         DamageGroupsContainer.RemoveAllChildren();
 
-        TotalDamageLabel.Text = Loc.GetString( "health-analyzer-plus-window-entity-total-damage-text", ( "amount", totalDamage.ToString() ) );
-
-        NoDamageLabel.Visible = ( totalDamage == 0 );
+        // Begin DeltaV - Health Analyzer Plus
+        var totalDamage = damageDict.Sum(x => x.Value.Double());
+        TotalDamageLabel.Text = Loc.GetString("health-analyzer-plus-window-entity-total-damage-text", ("amount", Math.Round(totalDamage, 2)));
+        NoDamageLabel.Visible = totalDamage == 0;
         // End DeltaV - Health Analyzer Plus
 
         foreach (var (damageGroupId, damageAmount) in groups)
@@ -319,52 +330,66 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     }
 
     // Begin DeltaV - Health Analyzer Plus
-    private void DrawBloodstreamInfo( float bloodlevel, Solution? bloodSolution )
+    private void DrawBloodstreamInfo(EntityUid target, Solution? bloodSolution, float bloodlevel)
     {
         BloodstreamReagentListContainer.RemoveAllChildren();
 
         List<ReagentQuantity> bloodstream = new();
-        FixedPoint2 totalReagentQuantity = FixedPoint2.Zero;
-
+        double totalReagentQuantity = 0;
+        double unknownReagents = 0;
         // Make sure we can access the bloodtype and reagents before trying to use them
-        if ( bloodSolution is not null )
+        if (bloodSolution is not null)
         {
+            if (!_entityManager.TryGetComponent<BloodstreamComponent>(target, out var bloodstreamComp) ||
+                !_solutionContainer.ResolveSolution(target, bloodstreamComp.BloodSolutionName, ref bloodstreamComp.BloodSolution, out var bloodReagentSolution))
+                return;
+
+            // Get the blood reagent IDs to ignore in the scan
+            var bloodReagentIds = bloodstreamComp.BloodReferenceSolution.Select(b => b.Reagent);
+
             // Get all of the medicines in the bloodstream
-            foreach ( var reagent in bloodSolution!.Contents )
+            foreach (var reagent in bloodSolution!.Contents)
             {
-                if ( _prototypes.Index<ReagentPrototype>( reagent.Reagent.Prototype ).Group == "Medicine" )
+                if (bloodReagentIds.Contains(reagent.Reagent))
+                    continue;
+
+                if (_prototypes.Index<ReagentPrototype>(reagent.Reagent.Prototype).Group == REAGENT_GROUP_MEDICINE)
                 {
-                    bloodstream.Add( reagent );
-                    totalReagentQuantity += reagent.Quantity;
+                    bloodstream.Add(reagent);
+                    totalReagentQuantity += reagent.Quantity.Double();
+                }
+                else
+                {
+                    unknownReagents += reagent.Quantity.Double();
                 }
             }
         }
 
-        string bloodQuantityPercent = !float.IsNaN( bloodlevel )
+        var bloodQuantityPercent = !float.IsNaN(bloodlevel)
             ? $"{bloodlevel * 100:F1} %"
-            : Loc.GetString( "health-analyzer-window-entity-unknown-value-text" );
+            : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
         // Display the percent and amount of blood in the system
         // Normal health scanner is percent only, this one adds the actual units too
         BloodLevelLabel.Text = Loc.GetString(
             "health-analyzer-plus-window-entity-blood-level-quantity-text",
-            ( "percent", bloodQuantityPercent )
-        );
+            ("percent", bloodQuantityPercent)
+       );
 
         // Display the total amount of reagents in the bloodstream, 0 is valid
         TotalReagentQuantityLabel.Text = Loc.GetString(
             "health-analyzer-plus-window-entity-total-reagents-text",
-            ( "amount", totalReagentQuantity.ToString() )
-        );
+            ("amount", Math.Round(totalReagentQuantity, 1).ToString("0.0"))
+       );
 
         // If the bloodstream was empty, display a message instead to fill the space with something
-        NoReagentsLabel.Visible = ( bloodstream.Count == 0 );
+        NoReagentsLabel.Visible = bloodstream.Count == 0 && unknownReagents == 0;
 
         // For each of the reagents in the bloodstream, add them to the list of reagents
         // If there are none, this loop will simply do nothing
-        foreach ( var ( reagentID, reagentQuantity ) in bloodstream )
+        foreach (var (reagentID, reagentQuantity) in bloodstream)
         {
-            var reagentPrototype = _prototypes.Index<ReagentPrototype>( reagentID.Prototype );
+            var reagentPrototype = _prototypes.Index<ReagentPrototype>(reagentID.Prototype);
 
             // Make a new container for each reagent we add to the list
             var reagentContainer = new BoxContainer
@@ -377,16 +402,37 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             // The [] is a unicode block character, and is colored with the reagent color
             // to make it easier to identify
             reagentContainer.AddChild(
-                new RichTextLabel{ Text =
-                    Loc.GetString( "health-analyzer-plus-window-reagent-text",
-                        ( "reagentColor", reagentPrototype.SubstanceColor ),
-                        ( "reagentName", reagentPrototype.LocalizedName ),
-                        ( "amount", reagentQuantity )
+                new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-plus-window-reagent-text",
+                        ("reagentColor", reagentPrototype.SubstanceColor),
+                        ("reagentName", reagentPrototype.LocalizedName),
+                        ("amount", Math.Round(reagentQuantity.Double(), 1).ToString("0.0"))
                     )
                 }
             );
 
-            BloodstreamReagentListContainer.AddChild( reagentContainer );
+            BloodstreamReagentListContainer.AddChild(reagentContainer);
+        }
+
+        // Add unknown reagents (if any)
+        if (unknownReagents > 0)
+        {
+            var unknownReagentContainer = new BoxContainer
+            {
+                Align = AlignMode.Begin,
+                Orientation = LayoutOrientation.Vertical
+            };
+
+            unknownReagentContainer.AddChild(
+                    new RichTextLabel
+                    {
+                        Text = Loc.GetString("health-analyzer-plus-window-unknown-reagents-text",
+                            ("amount", Math.Round(unknownReagents, 1).ToString("0.0"))
+                        )
+                    }
+                );
+            BloodstreamReagentListContainer.AddChild(unknownReagentContainer);
         }
 
         return;
