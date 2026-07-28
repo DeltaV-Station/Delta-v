@@ -245,7 +245,6 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
-    startingBalance: 30 # DeltaV - more TC for traitors
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
@@ -270,8 +269,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 10 # DeltaV - raised from 8
-      playerRatio: 9 # DeltaV - lowered from 10
+      max: 12 # DeltaV - raised from 8
+      playerRatio: 8 # DeltaV - lowered from 10
       blacklist:
         components:
         - AntagImmune
