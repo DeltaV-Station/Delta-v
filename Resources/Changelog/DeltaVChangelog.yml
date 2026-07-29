@@ -1,52 +1,4 @@
 ﻿Entries:
-- author: AeraAuling
-  changes:
-  - message: Shadow damage no longer removes all your blood immediately
-    type: Tweak
-  id: 2099
-  time: '2026-01-25T16:31:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5268
-- author: ShepardToTheStars
-  changes:
-  - message: You can now toggle your hardsuit helmet on over your hat or beret!
-    type: Add
-  id: 2100
-  time: '2026-01-25T16:31:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5263
-- author: Pharaz4
-  changes:
-  - message: Bingus can no longer drink the **ENTIRE** keg.
-    type: Fix
-  - message: You can eat rice dishes with chopsticks now.
-    type: Add
-  - message: Fixed Smartfridge visuals always showing their wire panels open.
-    type: Fix
-  - message: Projectiles and Mr. Butlertion are now insulated against wizardry.
-    type: Fix
-  - message: Wording fix to initial infected's prompt. It now states that they can
-      explicitly kill people.
-    type: Fix
-  id: 2101
-  time: '2026-01-25T16:31:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5278
-- author: MantasDab360, whatston3, ShepardToTheStars
-  changes:
-  - message: Chemical Dispenser can now toggle between auto labeling!
-    type: Add
-  id: 2102
-  time: '2026-01-25T16:46:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5261
-- author: keekee38
-  changes:
-  - message: a new compact submachine gun for security should be shipping in soon!
-    type: Add
-  - message: added machine pistol magazines to the security techfab's recipes.
-    type: Tweak
-  - message: added rubber SMG mags to the security techfab.
-    type: Tweak
-  id: 2103
-  time: '2026-01-26T10:46:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5212
 - author: Halo3moth
   changes:
   - message: Security long coats have been resprited to be more in line with other
@@ -4363,4 +4315,54 @@
   id: 2599
   time: '2026-07-24T17:39:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5653
+- author: ShepardToTheStars
+  changes:
+  - message: The additional borg chassis from Cosmic Drift has been reverted due to
+      implementation issues.
+    type: Remove
+  id: 2600
+  time: '2026-07-27T13:48:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6385
+- author: JustAnOrange, Stxcking
+  changes:
+  - message: Added 6 departmental bomber jackets and 3 non-departmental ones, they're
+      zippable! They can be found in your loadout option or in the clothing drobes!
+    type: Add
+  id: 2601
+  time: '2026-07-27T16:43:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6220
+- author: CalliganSierre
+  changes:
+  - message: Ported TheDen Shadowkin scream, laugh, and talk sounds for Shadekin.
+      (CC-BY-SA-3.0 MajorMoth)
+    type: Add
+  - message: Shadekin now use custom laughs and speech voice instead of Slime-person
+      sounds for those lines.
+    type: Tweak
+  - message: Shadekin are assigned Felinid Growl, Hiss, and Purr emotes as is consistent
+      with most other servers.
+    type: Tweak
+  id: 2602
+  time: '2026-07-27T19:26:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6370
+- author: starabsurddark-png
+  changes:
+  - message: Increased the resistances of the Durathread Vest to 50% Blunt, Slash
+      and 20% Heat
+    type: Tweak
+  - message: Reduced the resistances of the Plate Carrier to 10% Blunt
+    type: Tweak
+  id: 2603
+  time: '2026-07-29T12:18:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6311
+- author: ShepardToTheStars, rebe83
+  changes:
+  - message: Felinid's sink claws ability delay has been reduced from 3s to 0.5s.
+    type: Tweak
+  - message: Felinids now get a unique icon on their alert bar when they protract
+      their claws.
+    type: Add
+  id: 2604
+  time: '2026-07-29T15:42:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6376
 Order: 1
