@@ -1,0 +1,112 @@
+- type: entity
+  parent: ConstructibleMachine
+  id: MetalDetector
+  name: Metal Detector
+  description: Beeps when metal and contraband is detected by a passing person.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/metal_detector.rsi
+    layers:
+    - state: metal_detector_off
+      map: [ "enum.MetalDetectorVisualLayers.MetalDetectorLayer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.MetalDetectorVisuals.MetalDetectorActivated:
+        enum.MetalDetectorVisualLayers.MetalDetectorLayer:
+          True: { state: metal_detector_on }
+          False: { state: metal_detector_off }
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Pullable
+  - type: Machine
+    board: MetalDetectorMachineCircuitBoard
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+    - Trigger
+  - type: WiresPanel
+  - type: Wires
+    alwaysRandomize: true
+    boardName: wires-board-name-apc
+    layoutId: APC
+  - type: WiresVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: LockedWiresPanel
+  - type: LockedAnchorable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: ToggleableVisuals
+    spriteLayer: null
+  - type: ItemToggle
+    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
+    onActivate: false
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 2.5
+    energy: 3
+    color: red
+    netsync: false
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 360
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/policesiren.ogg
+      params:
+        volume: -3
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      shape:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+      overlap:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        hard: false
+        layer:
+        - Impassable
+  - type: MetalDetector
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    stepOn: true

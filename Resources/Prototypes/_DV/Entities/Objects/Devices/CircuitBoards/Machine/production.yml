@@ -101,3 +101,19 @@
     stackRequirements:
       Manipulator: 4
       Cable: 5
+
+# Metal Detector
+- type: entity
+  id: MetalDetectorMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: metal detector machine board
+  description: Makes beeps and boops when evil passes by
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: MetalDetector
+    stackRequirements:
+      Manipulator: 4
+      Glass: 5
+      Cable: 5

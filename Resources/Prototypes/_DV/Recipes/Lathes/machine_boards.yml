@@ -3,3 +3,9 @@
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: KitchenFreezerMachineCircuitBoard
   result: KitchenFreezerMachineCircuitBoard
+
+# Security
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseSecurityMachineRecipeCategory ]
+  id: MetalDetectorMachineCircuitBoard
+  result: MetalDetectorMachineCircuitBoard
