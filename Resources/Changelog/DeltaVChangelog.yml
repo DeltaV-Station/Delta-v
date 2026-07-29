@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: keekee38
-  changes:
-  - message: a new compact submachine gun for security should be shipping in soon!
-    type: Add
-  - message: added machine pistol magazines to the security techfab's recipes.
-    type: Tweak
-  - message: added rubber SMG mags to the security techfab.
-    type: Tweak
-  id: 2103
-  time: '2026-01-26T10:46:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5212
 - author: Halo3moth
   changes:
   - message: Security long coats have been resprited to be more in line with other
@@ -4366,4 +4355,14 @@
   id: 2603
   time: '2026-07-29T12:18:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6311
+- author: ShepardToTheStars, rebe83
+  changes:
+  - message: Felinid's sink claws ability delay has been reduced from 3s to 0.5s.
+    type: Tweak
+  - message: Felinids now get a unique icon on their alert bar when they protract
+      their claws.
+    type: Add
+  id: 2604
+  time: '2026-07-29T15:42:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6376
 Order: 1
