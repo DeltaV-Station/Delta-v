@@ -18,6 +18,7 @@ public sealed partial class TraitCategory : BoxContainer
     private readonly TraitCategoryPrototype _category;
     private readonly List<TraitPrototype> _allTraits;
     private readonly Dictionary<ProtoId<TraitPrototype>, TraitEntry> _traitEntries = new();
+    private readonly Dictionary<ProtoId<TraitPrototype>, ProtoId<TraitPrototype>> _subTraitParents = new();
 
     private bool _isExpanded;
 
@@ -51,13 +52,35 @@ public sealed partial class TraitCategory : BoxContainer
     {
         TraitsContainer.RemoveAllChildren();
         _traitEntries.Clear();
+        _subTraitParents.Clear();
+
+        var subTraitIds = new HashSet<ProtoId<TraitPrototype>>();
+        foreach (var trait in _allTraits)
+            foreach (var subId in trait.SubTraits)
+                subTraitIds.Add(subId);
+
+        var byId = _allTraits.ToDictionary(t => (ProtoId<TraitPrototype>)t.ID);
 
         foreach (var trait in _allTraits)
         {
+            if (subTraitIds.Contains(trait.ID))
+                continue;
+
             var entry = new TraitEntry(trait);
             entry.OnToggled += selected => OnTraitEntryToggled(trait.ID, selected);
             _traitEntries[trait.ID] = entry;
             TraitsContainer.AddChild(entry);
+
+            foreach (var subId in trait.SubTraits)
+            {
+                if (!byId.TryGetValue(subId, out var subTrait))
+                    continue;
+
+                var subEntry = entry.AddSubTrait(subTrait);
+                subEntry.OnToggled += selected => OnTraitEntryToggled(subTrait.ID, selected);
+                _traitEntries[subTrait.ID] = subEntry;
+                _subTraitParents[subTrait.ID] = trait.ID;
+            }
         }
     }
 
@@ -182,6 +205,11 @@ public sealed partial class TraitCategory : BoxContainer
         }
     }
 
+    public bool ContainsTrait(ProtoId<TraitPrototype> traitId)
+    {
+        return _traitEntries.ContainsKey(traitId);
+    }
+
     public void ClearSelection()
     {
         foreach (var (_, entry) in _traitEntries)
@@ -205,11 +233,14 @@ public sealed partial class TraitCategory : BoxContainer
     }
 
     /// <summary>
-    /// Filters traits based on search text only
+    /// Filters traits based on search text.
+    /// If a sub-trait matches but its parent doesn't, the parent is also kept
+    /// visible so the player can find the sub-trait inside its section.
     /// </summary>
     public void FilterTraits(string searchText)
     {
         var hasVisibleTraits = false;
+        var forceShowParents = new HashSet<ProtoId<TraitPrototype>>();
 
         foreach (var (traitId, entry) in _traitEntries)
         {
@@ -224,7 +255,21 @@ public sealed partial class TraitCategory : BoxContainer
             entry.Visible = matchesSearch;
 
             if (entry.Visible)
+            {
                 hasVisibleTraits = true;
+
+                if (_subTraitParents.TryGetValue(traitId, out var parentId))
+                    forceShowParents.Add(parentId);
+            }
+        }
+
+        foreach (var parentId in forceShowParents)
+        {
+            if (_traitEntries.TryGetValue(parentId, out var parentEntry))
+            {
+                parentEntry.Visible = true;
+                hasVisibleTraits = true;
+            }
         }
 
         // Hide entire category if no traits match search
