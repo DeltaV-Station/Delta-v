@@ -240,6 +240,17 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFreighterCrew
+  name: freighter crew's jumpsuit
+  description: Smells minty.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+
 # Formal uniforms
 
 - type: entity
@@ -819,3 +830,16 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/mime_turtleneck_pants.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/mime_turtleneck_pants.rsi
+
+# Chef
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChefKimono
+  name: chef kimono
+  description: A traditional chef's kimono, perfect for cooking up traditional Japanese dishes
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chef_kimono.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chef_kimono.rsi
