@@ -73,10 +73,10 @@
     baseSprintSpeed: 4
   - type: NpcFactionMember
     factions:
-    - SimpleHostile # cats hate gnomes
+    - SimpleHostile # cats and dogs hate gnomes
   - type: Speech
     speechSounds: Gnome
-    allowedEmotes: [ "Gulp", "Blink", "Scream", "Laugh", "Snore", "Sneeze", "Cough", "Yawn", "Crying", "Whistle" ]
+  - type: Emoting
   - type: Vocal
     sounds:
       Male: GnomeSounds
@@ -105,14 +105,16 @@
     useSound:
       path: /Audio/Effects/glass_knock.ogg # Fairy magic
   - type: Clumsy
-  - type: Carriable
+    clumsySound:
+      path: /Audio/_DV/Voice/Gnome/gnomescream.ogg
   - type: PseudoItem
     shape:
     - 0,0,0,2
   - type: Hands
     count: 1
     showInHands: false # TODO: make displacement maps that just slide them down
-  - type: Puller
+  - type: Puller # needs hands to pull
+    needsHands: true
   - type: ComplexInteraction
   - type: AutoImplant
     implants:
