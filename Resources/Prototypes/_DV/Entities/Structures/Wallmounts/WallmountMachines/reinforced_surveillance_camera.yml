@@ -227,21 +227,15 @@
       - ReinforcedCameraAI
 
 - type: entity
-  parent: [ ReinforcedSurveillanceCameraBase, SurveillanceCameraSecurity ]
+  parent: [ ReinforcedSurveillanceCameraBase, SurveillanceCameraJustice ]
   id: ReinforcedSurveillanceCameraJustice
   suffix: Justice
   components:
-  - type: DeviceNetwork
-    deviceNetId: Wired
-    receiveFrequencyId: SurveillanceCameraSecurity
-    transmitFrequencyId: SurveillanceCamera
-  - type: SurveillanceCamera
-    networkSet: true
   - type: Construction
     graph: ReinforcedSurveillanceCameraGraph
-    node: camera_security
+    node: camera_justice
   - type: WiresPanelSecurity
-    securityLevel: medSecurity
+    securityLevel: medJustice
   - type: Tag
     tags:
     - ReinforcedCameraJustice

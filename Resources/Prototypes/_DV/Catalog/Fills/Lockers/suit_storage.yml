@@ -28,8 +28,8 @@
 
 # Armorer hardsuit
 - type: entity
-  id: SuitStorageArmorer
   parent: SuitStorageSec
+  id: SuitStorageArmorer
   suffix: Armorer, DeltaV
   components:
   - type: EntityTableContainerFill
@@ -60,8 +60,8 @@
     access: [["Paramedic"]]
 
 - type: entity
-  id: SuitStorageCorpsman
   parent: SuitStorageBase
+  id: SuitStorageCorpsman
   suffix: Corpsman
   components:
   - type: EntityTableContainerFill

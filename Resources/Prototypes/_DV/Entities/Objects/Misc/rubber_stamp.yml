@@ -48,6 +48,7 @@
   parent: RubberStampBase
   id: RubberStampAttorney
   name: attorney's rubber stamp
+  categories: [ DoNotMap ]
   suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
   components:
@@ -63,6 +64,7 @@
   id: RubberStampJusticeWarden
   name: warden's rubber stamp
   categories: [ DoNotMap ]
+  suffix: DO NOT MAP
   description: With a simple press of ink to paper, a life is sealed behind bars. Maybe not forever.
   components:
   - type: Stamp
@@ -78,6 +80,7 @@
   id: RubberStampArmorer
   name: armorer's rubber stamp
   categories: [ DoNotMap ]
+  suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. Or weapons licenses for passengers.
   components:
   - type: Stamp

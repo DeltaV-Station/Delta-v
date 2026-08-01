@@ -147,8 +147,8 @@
   components:
   - type: Label
     currentLabel: holopad-justice-warden
-  - type: PageSender # Uncomment when role is real.
-    autoLinkJobs: [ JusticeWarden ]
+  - type: PageSender
+    autoLinkJobs: [JusticeWarden]
 
 - type: entity
   parent: Holopad
@@ -157,8 +157,8 @@
   components:
   - type: Label
     currentLabel: holopad-justice-marshal
-  - type: PageSender # Uncomment when role is real.
-    autoLinkJobs: [ Marshal ]
+  - type: PageSender
+    autoLinkJobs: [Marshal]
 
 - type: entity
   parent: HolopadJustice

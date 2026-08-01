@@ -1,24 +1,4 @@
-- type: entity
-  parent: LockerChiefJustice
-  id: LockerChiefJusticeFilled
-  suffix: Filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ClothingHeadsetAltJustice
-        - id: BoxFolderStationWarrant
-        - id: BoxPDAJustice
-        - id: BoxEncryptionKeyJustice
-        - id: ChiefJusticeIDCard
-        - id: DoorRemoteJustice
-        - id: Gavel
-        - id: BoxCJStamps
-        - id: BoxCJCircuitboards
-        - id: LunchboxCommandFilledRandom
-          prob: 0.3
-
+# Clerk
 - type: entity
   parent: LockerClerk
   id: LockerClerkFilled # TODO - Remove for Justice Rework
@@ -28,15 +8,24 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterClerkVest
-        - id: BoxFolderStationWarrant
-        - id: BoxEncryptionKeyJustice
-        - id: ClerkIDCard
-        - id: RubberStampNotary
-        - id: LunchboxJusticeFilledRandom
-        - id: RubberStampApproved
-        - id: RubberStampDenied
+        - !type:NestedSelector
+          tableId: LockerFillClerk
 
+- type: entityTable
+  id: LockerFillClerk
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterClerkVest
+    - id: BoxFolderStationWarrant
+    - id: BoxEncryptionKeyJustice
+    - id: ClerkIDCard
+    - id: RubberStampNotary
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# Prosecutor
 - type: entity
   parent: LockerProsecutor
   id: LockerProsecutorFilled
@@ -46,14 +35,23 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: BoxEncryptionKeyJustice
-        - id: ProsecutorIDCard
-        - id: LunchboxJusticeFilledRandom
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: BookSpaceLaw
-        - id: BriefcaseBrown
+        - !type:NestedSelector
+          tableId: LockerFillProsector
 
+- type: entityTable
+  id: LockerFillProsector
+  table: !type:AllSelector
+    children:
+    - id: BoxEncryptionKeyJustice
+    - id: ProsecutorIDCard
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: BookSpaceLaw
+    - id: BriefcaseBrown
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# Attorney
 - type: entity
   parent: LockerAttorney
   id: LockerAttorneyFilled
@@ -63,13 +61,22 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: AttorneyIDCard
-        - id: LunchboxJusticeFilledRandom
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: BookSpaceLaw
-        - id: BriefcaseBrown
+        - !type:NestedSelector
+          tableId: LockerFillAttorney
 
+- type: entityTable
+  id: LockerFillAttorney
+  table: !type:AllSelector
+    children:
+    - id: AttorneyIDCard
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: BookSpaceLaw
+    - id: BriefcaseBrown
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# Marshal
 - type: entity
   parent: LockerMarshal
   id: LockerMarshalFilled
@@ -79,20 +86,29 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterClerkVest
-        - id: PaperStationWarrant
-          amount: 3
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: FlashlightSeclite
-        - id: WeaponDisabler
-        - id: WeaponTaser
-        - id: ClothingBeltSecurityFilled
-        - id: BookSpaceLaw
-        - id: ClothingOuterArmorBasicSlim
-        - id: LunchboxJusticeFilledRandom
-        - id: TicketPad
+        - !type:NestedSelector
+          tableId: LockerFillMarshal
 
+- type: entityTable
+  id: LockerFillMarshal
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterClerkVest
+    - id: PaperStationWarrant
+      amount: 3
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: FlashlightSeclite
+    - id: WeaponDisabler
+    - id: WeaponTaser
+    - id: ClothingBeltSecurityFilled
+    - id: BookSpaceLaw
+    - id: ClothingOuterArmorBasicSlim
+    - id: TicketPad
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# JusticeWarden
 - type: entity
   parent: LockerJusticeWarden
   id: LockerJusticeWardenFilled
@@ -102,28 +118,37 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingHeadsetAltJustice
-        - id: RubberStampJusticeWarden
-        - id: RubberStampApproved
-        - id: RubberStampDenied
-        - id: DoorRemoteJustice
-        - id: BookSpaceLaw
-        - id: ClothingBeltSecurityFilled
-        - id: ClothingBackpackElectropack
-          amount: 2
-        - id: ClothingNeckShockCollar
-          amount: 2
-        - id: RemoteSignaller
-          amount: 2
-        - id: ClothingOuterStraightjacket
-        - id: TearGasGrenade # No access to sectech to oppress prisoners with
-          amount: 2
-        - id: NetworkConfigurator
-        - id: Binoculars
-        - id: BoxPDAPrisoner
-        - id: BoxEncryptionKeyPrisoner
-        - id: LunchboxJusticeFilledRandom
+        - !type:NestedSelector
+          tableId: LockerFillJusticeWarden
 
+- type: entityTable
+  id: LockerFillJusticeWarden
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadsetAltJustice
+    - id: RubberStampJusticeWarden
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: DoorRemoteJustice
+    - id: BookSpaceLaw
+    - id: ClothingBeltSecurityFilled
+    - id: ClothingBackpackElectropack
+      amount: 2
+    - id: ClothingNeckShockCollar
+      amount: 2
+    - id: RemoteSignaller
+      amount: 2
+    - id: ClothingOuterStraightjacket
+    - id: TearGasGrenade
+      amount: 2
+    - id: NetworkConfigurator
+    - id: Binoculars
+    - id: BoxPDAPrisoner
+    - id: BoxEncryptionKeyPrisoner
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# JusticeDetective
 - type: entity
   parent: LockerJusticeDetective
   id: LockerJusticeDetectiveFilled

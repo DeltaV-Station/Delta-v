@@ -152,9 +152,9 @@
         tableId: AdvancedLaserTable
 
 - type: entity
+  parent: LockerBrigmedic
   id: LockerBrigmedicFilledHardsuit
   suffix: Corpsman, Filled, Hardsuit
-  parent: LockerBrigmedic
   components:
   - type: EntityTableContainerFill
     containers:
@@ -243,9 +243,9 @@
 
 # Armorer Lockers - copy of old warden. New warden is in justice.yml
 - type: entity
+  parent: LockerArmorer
   id: LockerArmorerFilledHardsuit
   suffix: Filled, Hardsuit
-  parent: LockerArmorer
   components:
   - type: EntityTableContainerFill
     containers:
@@ -257,9 +257,9 @@
           tableId: FillLockerArmorerHardsuit
 
 - type: entity
+  parent: LockerArmorer
   id: LockerArmorerFilled
   suffix: Filled
-  parent: LockerArmorer
   components:
   - type: EntityTableContainerFill
     containers:
@@ -270,8 +270,8 @@
   id: FillLockerArmorerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitCombatArmorer # DeltaV - ClothingOuterHardsuitWarden replaced in favour of warden's riot combat hardsuit.
-    - id: ClothingShoesBootsSecurityMagboots # DeltaV - Added security magboots.
+    - id: ClothingOuterHardsuitCombatArmorer
+    - id: ClothingShoesBootsSecurityMagboots
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingMaskBreath
@@ -294,4 +294,4 @@
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
     - id: ClothingOuterVestPlateCarrierAdv
-    - id: ClothingHeadsetAltSecurity # Restored from upstream merge.
+    - id: ClothingHeadsetAltSecurity

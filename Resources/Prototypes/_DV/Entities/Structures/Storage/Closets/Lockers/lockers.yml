@@ -32,7 +32,6 @@
   id: LockerJustice
   name: justice locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: clerk
     stateDoorOpen: clerk_open
@@ -58,7 +57,6 @@
   id: LockerClerk # TODO - Remove for Justice Rework
   name: clerk's locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: clerk
     stateDoorOpen: clerk_open
@@ -67,67 +65,42 @@
     access: [["Clerk"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerProsecutor
+  parent: LockerJustice
+  id: LockerProsecutor # TODO - Resprite
   name: prosecutor's locker
   components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["Prosecutor"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerAttorney
+  parent: LockerJustice
+  id: LockerAttorney # TODO - Resprite
   name: attorney's locker
   components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["Attorney"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerJusticeDetective
+  parent: LockerJustice
+  id: LockerJusticeDetective # TODO - Resprite
   name: detective's locker
   components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["Detective"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerJusticeWarden
+  parent: LockerJustice
+  id: LockerJusticeWarden # TODO - Resprite
   name: warden's locker
   components:
-  - type: Appearance
-  - type: EntityStorageVisuals # TODO - Resprite
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["JusticeWarden"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerMarshal
+  parent: LockerJustice
+  id: LockerMarshal # TODO - Resprite
   name: marshal's locker
   components:
-  - type: Appearance
-  - type: EntityStorageVisuals # TODO - Resprite
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
   - type: AccessReader
     access: [["Marshal"]]
 
@@ -212,7 +185,6 @@
   id: LockerArmorer
   name: armorer's locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: warden
     stateDoorOpen: warden_open
