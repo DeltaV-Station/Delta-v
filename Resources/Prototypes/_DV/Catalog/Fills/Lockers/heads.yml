@@ -86,3 +86,31 @@
     - id: PersonalAILearnerSecurity #imp
     - id: LunchboxCommandFilledRandom
       prob: 0.3
+
+- type: entityTable
+  id: LockerFillChiefJustice
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadsetAltJustice
+    - id: BoxFolderStationWarrant
+    - id: BoxPDAJustice
+    - id: BoxEncryptionKeyJustice
+    - id: ChiefJusticeIDCard
+    - id: DoorRemoteJustice
+    - id: Gavel
+    - id: BoxCJStamps
+    - id: BoxCJCircuitboards
+    - id: LunchboxCommandFilledRandom
+      prob: 0.3
+
+- type: entity
+  parent: LockerChiefJustice
+  id: LockerChiefJusticeFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillChiefJustice
