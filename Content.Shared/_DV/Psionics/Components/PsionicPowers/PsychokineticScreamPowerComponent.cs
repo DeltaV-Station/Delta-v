@@ -11,9 +11,9 @@ public sealed partial class PsychokineticScreamPowerComponent : BasePsionicPower
 
     public override string PowerName { get; set; } = "psionic-power-name-psychokinetic";
 
-    public override int MinGlimmerChanged { get; set; } = 20;
+    public override int MinGlimmerChanged { get; set; } = 10;
 
-    public override int MaxGlimmerChanged { get; set; } = 30;
+    public override int MaxGlimmerChanged { get; set; } = 20;
 
     /// <summary>
     /// The radius in which lights will be broken.

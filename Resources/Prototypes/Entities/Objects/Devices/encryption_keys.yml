@@ -203,8 +203,10 @@
     defaultChannel: Security
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: sec_label
+    - sprite: Objects/Devices/encryption_keys.rsi # DeltaV - Needed for layers to work, otherwise it will be invisible
+      state: crypt_gray
+    - sprite: _DV/Objects/Devices/encryption_keys.rsi # DeltaV - Blue Security Resprite
+      state: sec_label
   - type: Tag
     tags:
     - EncryptionSecurity

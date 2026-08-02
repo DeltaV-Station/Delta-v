@@ -163,16 +163,7 @@
         - !type:NestedSelector
           tableId: FillLockerBrigmedic
         - !type:NestedSelector
-          tableId: LockerFillBrigmedicHardsuit
-
-- type: entityTable
-  id: LockerFillBrigmedicHardsuit
-  table: !type:AllSelector
-    children:
-    - id: ClothingOuterHardsuitCombatCorpsman
-    - id: ClothingShoesBootsSecurityMagboots
-    - id: OxygenTankFilled
-    - id: ClothingMaskBreath
+          tableId: FillSuitStorageCorpsman
 
 - type: entity
   parent: SecurityGunSafeNonlethalDV
@@ -210,3 +201,42 @@
           amount: 2
         - id: MagazinePistolHighCapacity
           amount: 4
+
+- type: entityTable
+  id: FillLockerSecurityDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadHelmetInsulated
+      prob: 0.4
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+    - id: ClothingOuterArmorPlateCarrier
+    - id: ClothingOuterArmorDuraVest
+    - id: ClothingOuterArmorBasicSlim
+    - id: TicketPad
+
+- type: entityTable
+  id: FillLockerBrigmedicDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadsetBrigmedic
+    - id: ClothingBeltCorpsmanWebbing
+    - id: HandheldGPSBasic
+    - id: BoxBodyBag
+    - id: EmergencyRollerBedSpawnFolded
+    - id: MedkitCombatFilled
+    - id: Portafib
+    - id: ChemistryBottleRevivopine
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+
+- type: entityTable
+  id: FillLockerDetectiveDeltaV
+  table: !type:AllSelector
+    children:
+    - id: BoxTapeRecorder
+    - id: ClothingHeadsetSecurity
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+    - id: DVBoxEvidenceBags
+      amount: 2

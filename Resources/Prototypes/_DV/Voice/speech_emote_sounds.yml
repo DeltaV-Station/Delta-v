@@ -257,11 +257,11 @@
     Laugh:
       collection: MaleLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: VulpkaninSneeze
     Cough:
       collection: MaleCoughs
     Yawn:
-      collection: MaleYawn
+      collection: VulpkaninYawns
     Snore:
       collection: Snores
     Honk:
@@ -286,6 +286,8 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+    Yip:
+      collection: VulpkaninYips
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -303,11 +305,11 @@
     Laugh:
       collection: FemaleLaugh
     Sneeze:
-      collection: FemaleSneezes
+      collection: VulpkaninSneeze
     Cough:
       collection: FemaleCoughs
     Yawn:
-      collection: FemaleYawn
+      collection: VulpkaninYawns
     Snore:
       collection: Snores
     Honk:
@@ -332,6 +334,8 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+    Yip:
+      collection: VulpkaninYips
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -734,3 +738,83 @@
   sounds:
     Mew:
       collection: FelinidMews
+
+- type: emoteSounds
+  id: MonkeySounds
+  sounds:
+    Clap:
+      collection: Claps
+      params:
+        pitch: 1.3
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+    Salute:
+      collection: Salutes
+    Laugh:
+      path: /Audio/Animals/ferret_happy.ogg
+      params:
+        variation: 0.125
+    Cough:
+      path: /Audio/Effects/Diseases/monkey2.ogg
+      params:
+        pitch: 0.9
+        variation: 0.125
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: MaleSigh
+      params:
+        variation: 0.125
+    Scream:
+      path: /Audio/Animals/monkey_scream.ogg
+      params:
+        variation: 0.125
+    Yawn:
+      path: /Audio/Animals/monkey_scream.ogg
+      params:
+        pitch: 0.6
+        variation: 0.125
+        volume: -4
+    Crying:
+      path: /Audio/Animals/ferret_happy.ogg
+      params:
+        pitch: 0.8
+    Snore:
+      collection: Snores
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+    Gasp:
+      collection: MaleGasp
+      params:
+        pitch: 1.3
+    DefaultDeathgasp:
+      collection: DeathGasp
+    Gulp:
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+      params:
+        pitch: 1.3
+        variation: 0.125
+    Blink: # Imp
+      collection: Blinks # Imp
+
+- type: emoteSounds
+  id: SyntheticEmoteSounds
+  params:
+    variation: 0.05
+  sounds:
+    Beep:
+      path: /Audio/Machines/twobeep.ogg
+    Chime:
+      path: /Audio/Machines/chime.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Buzz:
+      path: /Audio/Machines/buzz-sigh.ogg
+    Ping:
+      path: /Audio/Effects/Cargo/ping.ogg

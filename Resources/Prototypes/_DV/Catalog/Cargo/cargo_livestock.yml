@@ -28,3 +28,13 @@
   cost: 6000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: LivestockPitbull
+  icon:
+    sprite: _DV/Mobs/Animals/pitbull.rsi
+    state: pibble
+  product: CratePitbull
+  cost: 6000 # Anti LRP pibble spam prevention measure
+  category: Livestock
+  group: market

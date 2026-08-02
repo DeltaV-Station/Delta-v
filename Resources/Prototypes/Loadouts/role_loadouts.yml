@@ -103,6 +103,7 @@
   - CommonBackpack
   - ChefOuterClothing
   - ChefPDADelta # DeltaV
+  - ChefShoes # DeltaV - Adding group for chef shoes
   - Glasses
   - Survival
   - Trinkets
@@ -137,6 +138,7 @@
 
 - type: roleLoadout
   id: JobChaplain
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ChaplainHead
@@ -214,6 +216,7 @@
   - MimeBackpack
   - MimeOuterClothing
   - MimeBelt
+  - MimeShoes # DeltaV
   - Glasses
   - SurvivalMime
   - Trinkets
@@ -476,7 +479,7 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityHead # DeltaV
+  - SecurityCadetHead # DeltaV
   - SecurityNeck # DeltaV
   - SecurityGloves # DeltaV - Security can start with gloves
   - SecurityCadetJumpsuit
@@ -580,6 +583,8 @@
   groups:
   - GroupTankHarness
   - ReporterJumpsuit
+  - ReporterHead
+  - ReporterOuterClothing
   - CommonBackpack
   - Glasses
   - Survival

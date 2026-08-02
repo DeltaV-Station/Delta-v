@@ -240,6 +240,17 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFreighterCrew
+  name: freighter crew's jumpsuit
+  description: Smells minty.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+
 # Formal uniforms
 
 - type: entity
@@ -265,6 +276,19 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/brigmedic_alt.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/brigmedic_alt.rsi
+
+# Officer uniform
+
+- type: entity
+  parent: ClothingUniformRollableBase
+  id: ClothingUniformJumpsuitSecWhite
+  name: white security jumpsuit
+  description: A cool white shirt over charcoal trousers, for the calm and collected security officer.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
 
 # Detective uniform
 
@@ -318,14 +342,14 @@
 
 - type: entity
   parent: ClothingUniformRollableBase
-  id: ClothingUniformJumpsuitWardenBlue
-  name: blue warden's jumpsuit
-  description: A cool blue shirt with ice-white markings and warden's epaulettes.
+  id: ClothingUniformJumpsuitWardenWhite
+  name: white warden's jumpsuit
+  description: A cool white shirt with blue markings and warden's markings and epaulettes.
   components:
   - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_white.rsi
   - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_blue.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_white.rsi
 
 - type: entity
   parent: ClothingUniformRollableBase
@@ -361,6 +385,17 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_alt.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_alt.rsi
+
+- type: entity
+  parent: ClothingUniformRollableBase
+  id: ClothingUniformJumpsuitHoSWhite
+  name: head of security's white uniform
+  description: A white station security shirt with blue trousers. Features dull gold emblems and commander's epaulettes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
 
 # Central Command Uniform - ported from Velta
 
@@ -440,6 +475,28 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/chemshirtsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPharmacistShirt
+  name: pharmacist formal suit
+  description: A formal suit for the pharmacist. It has a few stains on it, but it's still presentable.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/pharmacistshirt.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/pharmacistshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPharmacist
+  name: pharmacist jumpsuit
+  description: There's still some odd stains on this jumpsuit. Hm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/pharmacist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/pharmacist.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -599,6 +656,18 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/elf.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecCadet
+  name: cadet jumpsuit
+  description: A simple uniform for security cadets. It's a bit small, but it should do for training purposes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/securitycadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/securitycadet.rsi
+
+
 # CMO
 
 - type: entity
@@ -736,3 +805,41 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeBlue.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/WrestlerCostumeBlue.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSodaJerk
+  name: soda jerk jumpsuit
+  description: Now I'm a jerk, and now everyone loves me!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/SodaJerk.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/SodaJerk.rsi
+
+# Mime
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMimeTurtleneckPants
+  name: mime turtleneck pants
+  description: A sleeveless turtleneck for mimes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/mime_turtleneck_pants.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/mime_turtleneck_pants.rsi
+
+# Chef
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChefKimono
+  name: chef kimono
+  description: A traditional chef's kimono, perfect for cooking up traditional Japanese dishes
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chef_kimono.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chef_kimono.rsi

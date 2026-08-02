@@ -24,6 +24,9 @@
   - type: Tag
     tags:
       - SilverSword
+  - type: RevealRevenantOnCollide
+  - type: CollisionWake
+    enabled: False
 
 - type: entity
   parent: SilverSword
@@ -37,7 +40,6 @@
   - type: Construction
     graph: RadiantSword
     node: embeddedsword
-
 
 - type: entity
   parent: SilverSword
@@ -60,6 +62,7 @@
     graph: RadiantSword
     node: radiantsword
   - type: RevealRevenantOnCollide
+    revealTime: 10
   - type: CollisionWake
     enabled: false
 
@@ -81,15 +84,17 @@
         Slash: 2
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .25
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 3
+        Slash: 4.5
   - type: Item
     sprite: _DV/Objects/Weapons/Melee/dualswords.rsi
   - type: JumpAbility
-    jumpDistance: 2
+    jumpDistance: 2.5
     jumpSound: /Audio/Effects/stealthoff.ogg
   - type: ActionGrant
     actions:
@@ -102,3 +107,34 @@
     slots:
     - back
     - suitStorage
+
+- type: entity
+  name: medium-frequency blade
+  parent: Katana
+  id: WeaponMFKatana
+  description: An incredibly sharp katana with a heated blade, able to cut through both flesh and steel.
+  components:
+   - type: Sprite
+     sprite: _DV/Objects/Weapons/Melee/mfkatana.rsi
+   - type: MeleeWeapon
+     attackRate: 1.25
+     wideAnimationRotation: -60
+     damage:
+       types:
+         Slash: 19
+         Heat: 6
+         Structural: 25
+   - type: Item
+     sprite: _DV/Objects/Weapons/Melee/mfkatana.rsi
+   - type: Clothing
+     sprite: _DV/Objects/Weapons/Melee/mfkatana.rsi
+     slots:
+     - Back
+     - Belt
+     - suitStorage
+   - type: Reflect
+     reflectProb: 0.1
+   - type: DisarmMalus
+     malus: 0.9
+   - type: StaticPrice
+     price: 3000 # It's good, but not *as* good as the original...

@@ -56,3 +56,16 @@ rules_file = "DeltaVRuleset"
 
 [control] # DeltaV
 storage_limit = 3
+
+[audio] # DeltaV
+attenuation = 4 # inversedistanceclamped 1 << 2, see audioparams.cs
+z_offset = -2
+
+[database]
+# Change to postgres if needed
+engine = "sqlite"
+pg_host = "localhost"
+pg_port = 5432
+pg_database = "ss14"
+pg_username = "postgres"
+pg_password = "postgres"

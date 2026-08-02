@@ -24,7 +24,7 @@
         Caustic: 0.75
         Heat: 0.75
         Holy: 0.85
-        Shadow: 0.85
+        Soul: 0.85
   - type: StaminaResistance
     damageCoefficient: 0.3 # It's a hardsuit, duh
   - type: ClothingSpeedModifier
@@ -78,7 +78,7 @@
         Caustic: 0.80
         Heat: 0.80
         Holy: 0.85
-        Shadow: 0.85
+        Soul: 0.85
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -124,7 +124,7 @@
         Caustic: 0.70
         Heat: 0.40
         Holy: 0.80
-        Shadow: 0.80
+        Soul: 0.80
   - type: StaminaResistance
     damageCoefficient: 0.2
   - type: ClothingSpeedModifier
@@ -132,6 +132,7 @@
     sprintModifier: 0.60
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
+  - type: HeavyClothing
 
 - type: entity
   parent: ClothingOuterHardsuitCombatRiot
@@ -172,7 +173,7 @@
         Caustic: 0.75
         Heat: 0.75
         Holy: 0.75
-        Shadow: 0.75
+        Soul: 0.75
   - type: StaminaResistance
     damageCoefficient: 0.2
   - type: ClothingSpeedModifier
@@ -218,7 +219,7 @@
         Caustic: 0.4
         Heat: 0.70
         Holy: 0.60
-        Shadow: 0.60
+        Soul: 0.60
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
@@ -395,7 +396,7 @@
         Radiation: 0
         Caustic: 0.35
         Holy: 0.50
-        Shadow: 0.50
+        Soul: 0.50
   - type: StaminaResistance
     damageCoefficient: 0.2
   - type: ClothingSpeedModifier
@@ -615,3 +616,34 @@
     tags:
     - Hardsuit
     - HidesHarpyWings
+
+#SRT Special Response Team hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTEliteBase
+  id: ClothingOuterHardsuitSRT
+  name: SRT Hardsuit
+  description: A uparmored version of the elite ERT hardsuit for boarding action. The serial numbers on this one have been removed.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSRT
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.2
+        Caustic: 0.2
+        Cold: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85

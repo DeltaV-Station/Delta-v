@@ -55,6 +55,7 @@
     Heat: 0.85
     Cold: 0.85
     Holy: 0.5
+    Soul: 0.5
 
 - type: damageModifierSet
   id: KitsuneFox
@@ -64,7 +65,7 @@
     Slash: 1.2
     Radiation: 1.5
     Holy: 0.5
-    Shadow: 0.5
+    Soul: 0.5
 
 - type: damageModifierSet
   id: Avali
@@ -107,11 +108,12 @@
   coefficients:
     Cold: 0.0
     Shock: 0.5
-    Blunt: 0.5
-    Slash: 0.5
-    Piercing: 0.5
+    Blunt: 0.0
+    Slash: 0.0
+    Piercing: 0.0
     Heat: 1.5
     Holy: 3.0
+    Soul: 0.0
 
 - type: damageModifierSet
   id: ShockAbsorber
@@ -129,9 +131,12 @@
   coefficients:
     Cold: 0.0
     Shock: 0.2
-    Heat: 3.0
-    Holy: 5.0
-    Shadow: 0.0
+    Blunt: 0.4
+    Slash: 0.4
+    Piercing: 0.4
+    Heat: 1.5
+    Holy: 4.0
+    Soul: 0.0
 
 - type: damageModifierSet
   id: Ifrit
@@ -141,7 +146,7 @@
     Slash: 0.7
     Blunt: 1.5
     Holy: 2.5
-    Shadow: 0.7
+    Soul: 0.7
 
 - type: damageModifierSet
   id: MountainRock
@@ -157,3 +162,31 @@
     Slash: 40
     Piercing: 15
     Heat: 10
+
+- type: damageModifierSet
+  id: ReinforcedCrate
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Shock: 1.5
+    Heat: 0.5
+    Structural: 0.5
+  flatReductions:
+    Blunt: 15
+    Slash: 20
+    Piercing: 20
+    Heat: 20
+    Structural: 40
+
+- type: damageModifierSet
+  id: NukieSpider
+  coefficients:
+    # A stock bloodred hardsuit, but made for a giant spider.
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.5
+    Radiation: 0.5
+    Caustic: 0.5
+    Cold: 0.8 # DeltaV - Cold res

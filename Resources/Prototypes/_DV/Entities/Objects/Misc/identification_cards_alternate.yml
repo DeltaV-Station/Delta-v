@@ -182,6 +182,16 @@
   - type: IdCard
     jobTitle: job-alt-title-mechanic
 
+- type: entity
+  parent: EngineeringIDCard
+  id: NuclearScientistIDCard
+  name: nuclear scientist ID card
+  components:
+  - type: IdCard
+    jobIcon: JobIconNuclearScientist
+    jobTitle: job-alt-title-nuclear-scientist
+
+
 # Cargo Technician
 
 - type: entity
@@ -304,4 +314,15 @@
     - SyndicateAgent
     - External
     - Robotics
+    - Maintenance
+
+# Hitman
+
+- type: entity
+  parent: AgentIDCard
+  id: HitmanIDCard
+  components:
+  - type: Access
+    tags:
+    - External
     - Maintenance

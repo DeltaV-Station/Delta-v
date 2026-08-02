@@ -88,6 +88,9 @@
           collection: GlassBreak
   - type: PlacementReplacement
     key: lights
+# ES START
+  - type: ESSparkOnHit
+# ES END
   placement:
     mode: SnapgridCenter
     snap:

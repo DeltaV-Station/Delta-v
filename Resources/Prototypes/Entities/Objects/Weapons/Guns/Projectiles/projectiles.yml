@@ -326,7 +326,6 @@
     damage:
       types:
         Heat: 0
-        Ion: 10 # DeltaV
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -369,7 +368,6 @@
     damage:
       types:
         Heat: 0
-        Ion: 5 # DeltaV
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -577,7 +575,7 @@
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.4 # DeltaV - Revert to Prebase stats, was 0.22
+    lifetime: 0.22 # roughly 5.5 tiles
   - type: GatheringProjectile
 
 - type: entity
@@ -1181,7 +1179,6 @@
     damage:
       types:
         Heat: 0
-        Ion: 4 # DeltaV
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1466,3 +1463,5 @@
   - type: SolutionInjectOnProjectileHit
     transferAmount: 1.5
     solution: bolt
+  - type: TimedDespawn # DeltaV - limit range to match taser
+    lifetime: 0.170

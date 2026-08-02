@@ -21,6 +21,7 @@ research-technology-service-borg-module = Advanced Service Borg Modules
 # Biochemical
 research-technology-basic-augmentation = Basic Augmentation
 research-technology-implanted-tools = Implanted Tools
+research-technology-medical-tracking = Remote Medical Tracking
 
 # Arsenal
 research-technology-exotic-ammunition = Exotic Ammunition

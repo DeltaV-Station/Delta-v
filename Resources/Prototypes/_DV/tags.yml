@@ -93,8 +93,14 @@
 - type: Tag
   id: HudMedicalSecurity #Craftable Corpsman Glasses
 
+- type: Tag
+  id: HeavyPlasmaBattery # SRT Gear
+
 - type: Tag # prevents ID chips being used for an id computer privileged id
   id: IdChip
+
+- type: Tag
+  id: IdChipXenoborg # Xenoborg ID chip whitelist
 
 - type: Tag
   id: JetInjector # Used to make the medical belt sprite show that a JetInjector is there.
@@ -133,6 +139,9 @@
   id: MothroachHide
 
 - type: Tag
+  id: Nachos # Food sequence key
+
+- type: Tag
   id: Natural
 
 - type: Tag
@@ -169,6 +178,9 @@
   id: SpeedLoaderSpecial
 
 - type: Tag
+  id: SyntheticEmotes # Allows characters with the synthetic trait to have silicon emotes.
+
+- type: Tag
   id: Vial # Storage Blacklist: CigPackBase
 
 - type: Tag
@@ -191,6 +203,9 @@
 
 - type: Tag
   id: LoneOpUplink # Used to allow loneop to buy jugsuit
+
+- type: Tag
+  id: LaserPlasmaBackpack # SRT Gear
 
 - type: Tag
   id: CleaningGrenade
@@ -254,11 +269,15 @@
 
 - type: Tag
   id: ReinforcedCameraSupply # Reinforced Cameras - Logistics
+
 - type: Tag
   id: GenderScarf
 
 - type: Tag
   id: GenderCloak
+
+- type: Tag
+  id: Jug
 
 - type: Tag # Service Chef Module
   id: Dinnerware
@@ -268,3 +287,24 @@
 
 - type: Tag # Service Chef Module
   id: Ingredients
+
+- type: Tag
+  id: PatientTransportation # Rollerbed/Hoverbed/Bodybags Whitelist for Medical Borg
+
+- type: Tag
+  id: Glowstick
+
+- type: Tag
+  id: PurifyingSalts
+
+- type: Tag
+  id: EletricGuitarInstrument # ConstructionGraph: SuperSynthesizerGraph
+
+- type: Tag
+  id: HarmonicaInstrument # ConstructionGraph: SuperSynthesizerGraph
+
+- type: Tag
+  id: DawInstrumentMachineCircuitboard # ConstructionGraph: SuperSynthesizerGraph
+
+- type: Tag
+  id: SynthesizerInstrument # ConstructionGraph: SuperSynthesizerGraph

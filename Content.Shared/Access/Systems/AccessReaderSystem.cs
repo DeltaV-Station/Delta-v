@@ -20,6 +20,11 @@ using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._DV.Access.Systems;
+using Content.Shared._DV.Access.Components;
+using Content.Shared.Mind; // DeltaV - Subdermal ID Cards
+using Content.Shared.Ninja.Components; // DeltaV
+using Content.Shared.Revenant.Components; // DeltaV
 
 namespace Content.Shared.Access.Systems;
 
@@ -28,12 +33,13 @@ public sealed class AccessReaderSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedGameTicker _gameTicker = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedStationRecordsSystem _recordsSystem = default!;
+    [Dependency] private readonly SharedSubdermalIdCardSystem _subdermalId = default!; // DeltaV - Subdermal ID Cards
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!; // DeltaV - Mind only access
 
     private static readonly ProtoId<TagPrototype> PreventAccessLoggingTag = "PreventAccessLogging";
 
@@ -146,7 +152,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)) // DeltaV - emag for lockers etc instead of doorjack
+        if (HasComp<SpaceNinjaComponent>(args.UserUid) || HasComp<RevenantComponent>(args.UserUid)) // DeltaV - Don't break access if its a ninja doing it
             return;
 
         if (!reader.BreakOnAccessBreaker)
@@ -209,6 +215,11 @@ public sealed class AccessReaderSystem : EntitySystem
 
         if (!IsAllowed(access, stationKeys, target, reader))
             return false;
+
+        // Begin DeltaV Additions - Mind only access
+        if (HasComp<MindOnlyAccessComponent>(user) && !_mindSystem.TryGetMind(user, out _, out _))
+            return false;
+        // End DeltaV Additions - Mind only access
 
         if (!_tag.HasTag(user, PreventAccessLoggingTag))
             LogAccess((target, reader), user);
@@ -851,6 +862,11 @@ public sealed class AccessReaderSystem : EntitySystem
         {
             items.Add(idUid.Value);
         }
+
+        // Begin DeltaV Additions - Subdermal ID chips
+        if (_subdermalId.TryGetIdCard(uid, out var idEntity))
+            items.Add(idEntity.Value);
+        // End DeltaV Additions - Subdermal ID chips
 
         return items.Any();
     }

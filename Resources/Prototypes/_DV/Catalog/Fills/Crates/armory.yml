@@ -1,6 +1,6 @@
 - type: entity
-  id: CrateArmoryGrand
   parent: CrateWeaponSecure
+  id: CrateArmoryGrand
   components:
   - type: EntityTableContainerFill
     containers:
@@ -11,8 +11,8 @@
         - id: BoxSpeedLoaderLightRifle
 
 - type: entity
-  id: CrateArmoryUniversal
   parent: CrateWeaponSecure
+  id: CrateArmoryUniversal
   components:
   - type: EntityTableContainerFill
     containers:
@@ -24,8 +24,8 @@
           amount: 4
 
 - type: entity
-  id: CrateArmoryAdjutant
   parent: CrateWeaponSecure
+  id: CrateArmoryAdjutant
   components:
   - type: EntityTableContainerFill
     containers:
@@ -37,8 +37,8 @@
           amount: 6
 
 - type: entity
-  id: CrateArmoryEnergyGun
   parent: CrateWeaponSecure
+  id: CrateArmoryEnergyGun
   components:
   - type: EntityTableContainerFill
     containers:
@@ -47,8 +47,8 @@
         amount: 3
 
 - type: entity
-  id: CrateArmoryEnergyGunMini
   parent: CrateWeaponSecure
+  id: CrateArmoryEnergyGunMini
   components:
   - type: EntityTableContainerFill
     containers:
@@ -57,8 +57,8 @@
         amount: 3
 
 - type: entity
-  id: CrateArmoryArmingSword
   parent: CrateWeaponSecure
+  id: CrateArmoryArmingSword
   components:
   - type: EntityTableContainerFill
     containers:
@@ -79,8 +79,8 @@
         amount: 3
 
 - type: entity
-  id: CrateNT3
   parent: CrateWeaponSecure
+  id: CrateNT3
   name: NT-3 crate
   description: Contains the refurbished NT-3, along with two magazine boxes filled with .40 anti-material ammunition and a blueprint for the ammunition.
   components:
@@ -88,3 +88,33 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: NT3Table
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateRevolver
+  name: revolver crate
+  description: Contains a .45 caliber revolver and a .38 caliber revolver, with 2 respective speed loaders for each ammo type. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RevolverCrateTable
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateArmoryCowboy
+  name: cowboy crate
+  description: Contains two lever action rifles and two revolvers both in .45 Magnum. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponLeverActionL93
+          amount: 2
+        - id: WeaponRevolverInspector
+          amount: 2
+        - id: MagazineBoxMagnum
+          amount: 4
+        - id: ClothingHeadHatCowboyBrown
+          amount: 2

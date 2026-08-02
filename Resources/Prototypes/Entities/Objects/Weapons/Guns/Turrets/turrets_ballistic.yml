@@ -32,7 +32,7 @@
         acts: [ "Destruction" ]
       - !type:TriggerBehavior
   - type: Gun
-    fireRate: 2
+    fireRate: 3 # DeltaV - was 2
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -45,7 +45,7 @@
     graph: WeaponTurretSyndicateDisposable
     node: disposableTurret
   - type: Repairable
-    qualityNeeded: "Anchoring"
+    qualityNeeded: Anchoring
     doAfterDelay: 3
   - type: TriggerOnEmptyGunshot
   - type: ExplodeOnTrigger

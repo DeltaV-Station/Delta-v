@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -122,6 +123,9 @@
       roleLoadout:
       - RoleSurvivalStandard
       components:
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
@@ -183,6 +187,8 @@
     weight: 5
     minimumPlayers: 20
     reoccurrenceDelay: 30
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing
@@ -222,6 +228,7 @@
         nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
@@ -269,6 +276,7 @@
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -336,6 +344,8 @@
     message: psionic-power-precognition-skia-result-message
   - type: AntagSpawner
     prototype: MobSkia
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagObjectives
     objectives:
     - SkiaReapObjective
@@ -388,7 +398,7 @@
   - type: GameRule
   - type: AntagObjectives
     objectives:
-    - EscapeShuttleObjectiveHitman
+    - HitmanEscapeShuttleObjective
     - HitmanTeachLessonRandomPersonObjective
   - type: AntagRandomObjectives
     sets:
@@ -408,6 +418,10 @@
         sound: /Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg
       mindRoles:
       - MindRoleHitman
+      components:
+      - type: AutoImplant
+        implants:
+        - HitmanCardImplant
 
 
 # nt agent sleeper event
@@ -420,12 +434,8 @@
     minimumPlayers: 25
     weight: 3
     maxOccurrences: 1
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/_DV/Announcements/attention.ogg
     duration: null
     occursDuringRoundEnd: false
-  - type: AlertLevelInterceptionRule
   - type: AntagRandomObjectives
     sets:
     - groups: NTAgentObjectiveGroup
@@ -453,3 +463,32 @@
         implants:
         - RadioImplantCentcomm
         - NanolinkSubImplant
+
+# NT Pest Control via Pitbulls
+- type: entity
+  id: PitbullMigration
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-pitbull-start-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg
+    earliestStart: 1
+    minimumPlayers: 10
+    weight: 1
+    duration: 15
+  - type: PrecognitionResult
+    message: psionic-power-precognition-pitbull-spawn-result-message
+  - type: VentCrittersRule
+    min: 1           # @  10 Pop -> Spawns  6 mice, 1 pitbull
+    max: 1           # @  50 Pop -> Spawns 12 mice, 2 pitbulls
+    playerRatio: 25  # @ 100 Pop -> Spawns 24 mice, 4 pitbulls
+    table: !type:AllSelector
+      children:
+      - id: MobMouse # VentCrittersRule is coded in a way that it ignores ranges, so we duplicate entries to ensure more mice than dogs
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouse2
+      - id: MobPitbullVent

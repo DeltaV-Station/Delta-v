@@ -19,14 +19,14 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 public abstract class SharedTurbineSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    // [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!; // Delta V - Never used
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    // [Dependency] private readonly IPrototypeManager _proto = default!; // Delta V - Never used
 
     public override void Initialize()
     {
@@ -118,9 +118,7 @@ public abstract class SharedTurbineSystem : EntitySystem
         }
 
         var loop = audioParams.Value.WithLoop(true);
-        var stream = false
-            ? _audio.PlayPredicted(sound, uid, uid, loop)
-            : _audio.PlayPvs(sound, uid, loop);
+        var stream = _audio.PlayPvs(sound, uid, loop); // Delta V - It was alwasy false... so it was always this
         audioStream = stream?.Entity is { } entity ? entity : null;
     }
 

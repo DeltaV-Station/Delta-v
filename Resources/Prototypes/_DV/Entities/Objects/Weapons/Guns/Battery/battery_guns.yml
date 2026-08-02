@@ -305,7 +305,7 @@
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponBeamCannon
   name: beam cannon
-  description: "For when a single shot just isn't enough"
+  description: "For when a single shot just isn't enough."
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
@@ -339,7 +339,7 @@
   parent: BaseWeaponBattery
   id: WeaponBeamDevastator
   name: beam devastator
-  description: A powerful energy weapon that fires multiple rapid laser beams per second
+  description: A powerful energy weapon that fires multiple rapid laser beams per second.
   components:
   - type: Item
     size: Ginormous
@@ -409,7 +409,7 @@
   parent: [ BaseWeaponBattery, BaseGunWieldable ]
   id: WeaponImmolator
   name: immolator cannon
-  description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot
+  description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/immolator.rsi
@@ -474,7 +474,7 @@
 - type: entity
   parent: WeaponDisabler
   id: WeaponDisablerSelfCharge
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges.
   suffix: AutoRecharge
   components:
   - type: BatterySelfRecharger
@@ -533,7 +533,7 @@
   parent: BaseWeaponBattery
   id: WeaponBorgBuccaneersRevolver
   name: buccaneer's revolver
-  description: A basic sidearm used by synthetic raiders, with low capacity but higher power
+  description: A basic sidearm used by synthetic raiders, with low capacity but higher power.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
@@ -660,3 +660,38 @@
     proto: BulletRadiation
     fireCost: 100
   - type: Appearance
+
+- type: entity
+  parent: WeaponLaserSvalinn
+  id: WeaponLaserSvalinnSecurity
+  name: SV-213 Laser Pistol
+  description: A slightly stronger variation of the Svalinn Laser Pistol made for security and military operations.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/SV213.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-7
+    sprite: _DV/Objects/Weapons/Guns/Battery/SV213.rsi
+  - type: BatteryAmmoProvider
+    proto: SVLaserRed
+    fireCost: 50
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: Magazine
+        startingItem: PowerCellMedium
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - PowerCell
+          - PowerCellSmall

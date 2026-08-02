@@ -1,5 +1,6 @@
 using Content.Shared._DV.Body.Components;
 using Content.Shared._DV.Body.Events;
+using Content.Shared._DV.Humanoid;
 using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -34,6 +35,7 @@ public sealed class PreenableSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -44,6 +46,7 @@ public sealed class PreenableSystem : EntitySystem
         SubscribeLocalEvent<PreenableComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<PreenableComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<PreenableComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<PreenableComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
     }
 
     private void OnCompInit(Entity<PreenableComponent> ent, ref ComponentInit args)
@@ -54,7 +57,7 @@ public sealed class PreenableSystem : EntitySystem
 
     private void AddVerb(Entity<PreenableComponent> ent, ref GetVerbsEvent<Verb> args)
     {
-        if (!args.CanInteract)
+        if (!args.CanInteract || !args.CanAccess)
             return;
 
         // can't preen with no feathers
@@ -108,16 +111,17 @@ public sealed class PreenableSystem : EntitySystem
 
     private void OnDamaged(Entity<PreenableComponent> ent, ref DamageChangedEvent args)
     {
-        if (args.DamageDelta == null || ent.Comp.ValidDamageGroups == null || !args.DamageIncreased)
+        if (args.DamageDelta == null || ent.Comp.ValidDamageTypes == null || !args.DamageIncreased)
             return;
 
         if (ent.Comp.CurrentFeathers <= 0)
             return;
 
         var totalApplicableDamage = FixedPoint2.Zero;
-        foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(_prototype))
+
+        foreach (var (type, value) in args.DamageDelta.DamageDict)
         {
-            if (!ent.Comp.ValidDamageGroups.Contains(group))
+            if (!ent.Comp.ValidDamageTypes.Contains(type))
                 continue;
 
             totalApplicableDamage += value;
@@ -138,9 +142,9 @@ public sealed class PreenableSystem : EntitySystem
         var feather = SpawnFeather(ent, true);
 
         // apply a random impulse so it's flying off the body. similar code to GibbingSystem
-        var scatterVector = rand.NextAngle().ToVec() * (rand.NextFloat(10, 40));
+        var scatterVector = _random.NextAngle().ToVec() * (_random.NextFloat(10, 40));
         _physics.ApplyLinearImpulse(feather, scatterVector);
-        _physics.ApplyAngularImpulse(feather, rand.NextFloat(-30, 30));
+        _physics.ApplyAngularImpulse(feather, _random.NextFloat(-30, 30));
 
         // update name/desc for increased validness
         var meta = MetaData(feather);
@@ -181,9 +185,9 @@ public sealed class PreenableSystem : EntitySystem
     {
         var feather = PredictedSpawnAtPosition(ent.Comp.FeatherPrototype.Id, Transform(ent).Coordinates);
 
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var appearance))
+        if (TryComp<HumanoidProfileComponent>(ent, out var appearance))
         {
-            _appearance.SetData(feather, FeatherVisuals.FeatherColor, appearance.SkinColor);
+            _appearance.SetData(feather, FeatherVisuals.FeatherColor, ent.Comp.Color ?? Color.White);
         }
 
         // best be careful, no cleaning this
@@ -200,6 +204,11 @@ public sealed class PreenableSystem : EntitySystem
         _appearance.SetData(feather, FeatherVisuals.BloodColor, solution.GetColor(_prototype));
 
         return feather;
+    }
+
+    private void OnProfileLoadFinished(Entity<PreenableComponent> ent, ref AppearanceLoadedEvent args)
+    {
+        ent.Comp.Color = args.SkinColor;
     }
 
     public override void Update(float deltaTime)

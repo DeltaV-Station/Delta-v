@@ -6,6 +6,11 @@
   components:
   - type: ApcPowerReceiver
     powerLoad: 500
+  # Delta V - Begin Set idlePowerDraw to initial Powerload
+  - type: PowerState
+    idlePowerDraw: 500
+    workingPowerDraw: 1000
+  # Delta V - End
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -50,6 +55,11 @@
   components:
   - type: ApcPowerReceiver
     powerLoad: 500
+  # Delta V - Begin Set idlePowerDraw to initial Powerload
+  - type: PowerState
+    idlePowerDraw: 500
+    workingPowerDraw: 1000
+  # Delta V - End
   - type: PointLight
     radius: 1.5
     energy: 1.6

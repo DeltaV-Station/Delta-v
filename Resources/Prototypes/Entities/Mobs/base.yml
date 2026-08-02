@@ -39,7 +39,6 @@
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes # goob edit - animated emotes
-  #- type: StunVisuals # DeltaV - No stars
 
 # The progenitor. This should only container the most basic components possible.
 # Only put things on here if every mob *must* have it. This includes ghosts.
@@ -112,7 +111,7 @@
       - !type:VomitBehavior
   - type: RadiationReceiver
   - type: Stamina
-  #- type: StunVisuals # DeltaV - No stars
+  - type: StunVisuals
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -148,6 +147,8 @@
   - type: LightningTarget
     priority: 2
     lightningExplode: false
+  - type: GhostOnMove
+    mustBeDead: true
 
 # Used for mobs that can enter combat mode and can attack.
 - type: entity
@@ -161,8 +162,8 @@
     soundHit:
       collection: MetalThud
     damage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 5
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity

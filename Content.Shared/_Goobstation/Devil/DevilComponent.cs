@@ -79,7 +79,7 @@ public sealed partial class DevilComponent : Component
     /// How much damage taken when a true name is spoken. Doubled if spoken by the chaplain.
     /// </summary>
     [DataField]
-    public DamageSpecifier DamageOnTrueName = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 15 }}};
+    public DamageSpecifier DamageOnTrueName = new() {DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>() {{ "Holy", 15.0f }}};
 
     /// <summary>
     /// Holy action damage multiplier if done by the chaplain. Also effects stums.

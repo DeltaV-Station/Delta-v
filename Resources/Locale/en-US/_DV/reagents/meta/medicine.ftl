@@ -4,7 +4,7 @@ reagent-name-netinadone = netinadone
 reagent-desc-netinadone = A cryogenic drug that slowly encourages rotting matter and brain tissue to regenerate.
 
 reagent-name-umbroxol = umbroxol
-reagent-desc-umbroxol = An ominous chemical. Used to treat holy damage from those weak to the veil. Overdoses may leave patients feeling cold.
+reagent-desc-umbroxol = An ominous chemical. Used to treat radiant damage from those weak to the veil. Overdoses may leave patients feeling cold.
 
 reagent-name-unholy-water = unholy water
 reagent-desc-unholy-water = Water treated with blood and sulfur. Just looking at it chills you to the bone.
@@ -24,3 +24,17 @@ reagent-name-stabilizine = stabilizine
 reagent-desc-stabilizine = A potent chemical used to stabliize and regulate body temperature.
 
 reagent-desc-omnizine-deltav = A soothing milky liquid with an iridescent gleam. A regenerative, miraculous chemical able to purge the body of most impurity. Overdose causes cancerous growth.
+
+reagent-name-necrosol = necrosol
+reagent-desc-necrosol = A quite necrotic wonder medicine capable of healing in the cold
+
+reagent-name-salbutamol-saline = salbutamol & saline
+
+reagent-name-pure-oil = pure oil
+reagent-desc-pure-oil = A form of lotophagoi oil purified with claridisol. while even this form can grant someone powers, it can be refined further.
+
+reagent-name-claridisol =  claridisol
+reagent-desc-claridisol = A psionically charged chemical that is almost useless on its own, but can be used for purifying Lotophagoi Oil
+
+reagent-name-combat-nanites = combat nanites
+reagent-desc-combat-nanites = Highly advanced nanobots in a saline solution. Great at healing combat related trauma, but are known to cause irreversible damage if overused.

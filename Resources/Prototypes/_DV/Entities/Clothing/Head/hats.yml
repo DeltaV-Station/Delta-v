@@ -357,6 +357,39 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatCapSec
+  name: security cap
+  description: A cap worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCadet
+  name: security cadet beret
+  description: A beret worn by security cadets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSecurityGrey
+  name: grey security beret
+  description: A light grey beret worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretMedical
   name: medical beret
   description: A light blue beret with a white cross.
@@ -477,3 +510,47 @@
     tags:
     - PetWearable
     - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSodaJerkCap
+  name: soda jerk cap
+  description: I was a wimp before the soda jerk.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSRT
+  name: SRT beret
+  description: A red beret with a dark blue NanoTrasen logo on it.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_SRT.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_SRT.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMimeTassledBlack
+  name: mime's black tassled beret
+  description: A black tassled beret for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_black.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMimeTassledWhite
+  name: mime's white tassled beret
+  description: A white tassled beret for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi

@@ -43,21 +43,6 @@
 
 - type: entity
   parent: BaseSubdermalImplant
-  id: MedicalTrackingImplant
-  categories: [ HideSpawnMenu ]
-  name: medical tracking implant
-  description: This implants transmits a message on the medical channel in case the user goes into critical state or dies.
-  components:
-  - type: TriggerOnMobstateChange
-    mobState:
-    - Critical
-    - Dead
-  - type: RattleOnTrigger
-    targetUser: true
-    radioChannel: Medical
-
-- type: entity
-  parent: BaseSubdermalImplant
   id: CentCommImplant
   name: centcomm implant
   description: This implant includes a MindShield and something labeled as "antag immune"? Whatever that is.
@@ -134,3 +119,92 @@
     icon:
       sprite: Objects/Devices/communication.rsi
       state: old-radio
+
+#hitman
+
+- type: entity
+  parent: [ BaseSubdermalImplant ]
+  id: HitmanCardImplant
+  name: hitman card implant
+  description: This implant lets the user make a calling card at will
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionCreateHitmanCard
+  - type: TriggerOnActivateImplant
+  - type: CreateHitmanCardOnTrigger
+
+# K9 ID card implant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: K9IDCardImplant
+  categories: [ HideSpawnMenu ]
+  name: K9 IDCard implant
+  description: A subdermal implant with a preloaded ID Card
+  components:
+  - type: SubdermalImplant
+    whitelist:
+      tags:
+      - K9
+  - type: ContainerContainer
+    containers:
+      subdermalIdCard: !type:Container { }
+  - type: SubdermalIdCard
+    idCardProto: K9OfficerIDCard
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: UnrevivableImplantSyndicate
+  name: true death implant
+  description: This implant contains syndicate nanites that are designed to rapidly decompose your organs and DNA post-mortem. Once you inject this, there will be absolutely no way to bring you back.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Unrevivable
+      cloneable: false
+      analyzable: false # We don't want to tip off that we're DAGD via health scans
+      reasonMessage: defibrillator-unrevivable-syndicate-implant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MicroBombImplantSyndicateDAGD
+  name: micro-bomb implant
+  description: This implant detonates the user after a few seconds upon activation or death.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateMicroBomb
+  - type: TimerTrigger
+    delay: 5
+    beepSound:
+      path: /Audio/Machines/Nuke/general_beep.ogg
+      params:
+        volume: -2
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TriggerOnActivateImplant
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: GibOnTrigger
+    targetUser: true
+    keysIn:
+    - timer
+    deleteItems: true
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 120
+    intensitySlope: 3
+    maxIntensity: 30
+    canCreateVacuum: true
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+    - MicroBomb

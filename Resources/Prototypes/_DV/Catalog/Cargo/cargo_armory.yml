@@ -50,8 +50,8 @@
 
 - type: cargoProduct
   id: ArmoryArmingSword
-  name: Arming Sword Crate
-  description: Contains two Plasteel Arming Swords. Requires Armory access to open.
+  name: cargo-armory-arming-swords-name
+  description: cargo-armory-arming-swords-desc
   icon:
     sprite: _NF/Objects/Weapons/Melee/armingsword.rsi
     state: icon
@@ -77,5 +77,25 @@
     state: icon
   product: CrateNT3
   cost: 13000
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryRevolver
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    state: icon
+  product: CrateRevolver
+  cost: 5200
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryCowboy
+  icon:
+    sprite: _DV/Objects/Weapons/Guns/Rifles/l93.rsi
+    state: icon
+  product: CrateArmoryCowboy
+  cost: 7600
   category: Armory
   group: market

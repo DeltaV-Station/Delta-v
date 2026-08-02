@@ -17,22 +17,25 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Timing;
 using Content.Server.Bible.Components;
+using Content.Shared.Body;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GoobBibleSystem _goobBible = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+
+    private static readonly ProtoId<DamageContainerPrototype> DamageContainerId = "BiologicalMetaphysical"; // Delta V - Metaphysical Biological for Holy Damage
+
     public override void Initialize()
     {
         base.Initialize();
@@ -49,13 +52,8 @@ public sealed class WeakToHolySystem : EntitySystem
         if (!TryComp<DamageableComponent>(ent, out var damageable))
             return;
 
-        var dmg = damageable.Damage;
-        if (dmg.DamageDict.ContainsKey("Holy"))
-        {
-            ent.Comp.HadHolyWeakness = true;
-            return;
-        }
-        dmg.DamageDict["Holy"] = 0;
+        var dmg = _damageableSystem.GetPositiveDamage((ent, damageable));
+        _damageableSystem.ChangeDamageContainer((ent, damageable), DamageContainerId); // Delta V - Changes the DamageContainer of the Entity from (presumably) Biological to BiologicalMetaphysical.
     }
 
     private void OnRemove(Entity<WeakToHolyComponent> ent, ref ComponentRemove args)
@@ -65,8 +63,10 @@ public sealed class WeakToHolySystem : EntitySystem
 
         if (!ent.Comp.HadHolyWeakness)
         {
-            var dmg = damageable.Damage;
-            dmg.DamageDict.Remove("Holy");
+            var dmg = _damageableSystem.GetPositiveDamage((ent, damageable));
+            dmg.DamageDict.TryGetValue("Holy", out var holyDmg);
+            DamageSpecifier heal = new() {DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>() {{ "Holy", -holyDmg }}};
+            _damageableSystem.TryChangeDamage((ent, damageable), heal, ignoreResistances: true);
         }
     }
     // End DeltaV additions
@@ -100,9 +100,10 @@ public sealed class WeakToHolySystem : EntitySystem
             if (!TryComp<DamageableComponent>(uid, out var damageable))
                 continue;
 
+            var dmg = _damageableSystem.GetPositiveDamage((uid, damageable));
+
             if (TerminatingOrDeleted(uid)
-                || _body.GetRootPartOrNull(uid, body: body) is not { }
-                || !damageable.Damage.DamageDict.TryGetValue("Holy", out _))
+                || !dmg.DamageDict.TryGetValue("Holy", out _))
                 continue;
 
             // Rune healing.

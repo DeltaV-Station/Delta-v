@@ -43,6 +43,7 @@
       - TrayScanner
       - GasAnalyzer
       - HandLabeler
+      - LightReplacer # DeltaV
   - type: ItemMapper
     sprite: &BeltOverlay Clothing/Belt/belt_overlay.rsi
     mapLayers:
@@ -185,6 +186,7 @@
       - SurgeryTool
       - Dropper
       - Vial # DeltaV
+      - PurifyingSalts # DeltaV
       components:
       - Injector
       - Pill

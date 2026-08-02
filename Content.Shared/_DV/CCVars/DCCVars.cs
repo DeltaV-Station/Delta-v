@@ -130,6 +130,12 @@ public sealed partial class DCCVars
     public static readonly CVarDef<string> HiddenSpecies =
         CVarDef.Create("species.hidden", "Motorkind", CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Whether a stunned entity will show the stun visuals (seeing stars effect) above their head.
+    /// </summary>
+    public static readonly CVarDef<bool> ShowStunVisuals =
+        CVarDef.Create("game.see_stun_visuals", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
      * Traits
      */
@@ -138,7 +144,7 @@ public sealed partial class DCCVars
     /// Maximum number of traits that can be selected globally.
     /// </summary>
     public static readonly CVarDef<int> MaxTraitCount =
-        CVarDef.Create("traits.max_count", 10, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("traits.max_count", 25, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// Maximum trait points available to spend.
@@ -209,10 +215,18 @@ public sealed partial class DCCVars
         CVarDef.Create("admin.alerts.latejoin_max_hours", 2.0, CVar.SERVERONLY);
 
     /// <summary>
-    ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
+    ///    Whether preset cooldowns should be considered by the SecretRuleSystem. Should be true in production.
+    ///    False by default to avoid breaking unit tests
+    ///    DeltaV specific, but ImpStation preset cooldown code is gated behind this.
     /// </summary>
-    public static readonly CVarDef<bool> EnableBacktoBack =
-        CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
+    public static readonly CVarDef<bool> EnablePresetCooldowns =
+        CVarDef.Create("game.enable_preset_cooldowns", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The amount of time a player must wait after spawning as a vent critter ghost role before spawning as another one
+    /// </summary>
+    public static readonly CVarDef<TimeSpan> VentCritterGhostRoleSpawnCooldown =
+        CVarDef.Create("ghost.vent_critter_spawn_cooldown", TimeSpan.FromMinutes(3), CVar.SERVERONLY);
 
     /// <summary>
     /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
@@ -308,4 +322,25 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> EsScreenshakeDisabled =
         CVarDef.Create("deltav.es_screenshake.disabled", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The total time a player has to be SSD to be considered cryoable (stage 3).
+    /// Default is 20 minutes. Value should be bigger than <see cref="SsdIndicatorRecentAfterSeconds"/>.
+    /// </summary>
+    public static readonly CVarDef<float> SsdIndicatorCryoableAfterSeconds =
+        CVarDef.Create("deltav.ssd.cryoable_after_seconds", 1200f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// The total time a player has to be SSD to be considered recently SSD (stage 2).
+    /// If the player has been SSD for less than this time, they are considered "very recently" SSD (stage 1).
+    /// Default is 5 minutes. Value should be smaller than <see cref="SsdIndicatorCryoableAfterSeconds"/>.
+    /// </summary>
+    public static readonly CVarDef<float> SsdIndicatorRecentAfterSeconds =
+        CVarDef.Create("deltav.ssd.recent_after_seconds", 300f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether the round end is an OOC vote.
+    /// </summary>
+    public static readonly CVarDef<bool> RoundEndIsOOCVote =
+        CVarDef.Create("deltav.round_end_is_ooc_vote", false, CVar.SERVER);
 }
