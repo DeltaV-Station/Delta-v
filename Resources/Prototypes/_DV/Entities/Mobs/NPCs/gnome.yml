@@ -111,14 +111,17 @@
     shape:
     - 0,0,0,2
   - type: Hands
-    count: 1
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
     showInHands: false # TODO: make displacement maps that just slide them down
   - type: Puller # needs hands to pull
     needsHands: true
   - type: ComplexInteraction
   - type: AutoImplant
     implants:
-    - StorageImplant # for trinkets
+    - GnomeStorageImplant # for trinkets
   - type: Thieving # for stealing said trinkets
     stealthy: false
   - type: Inventory
@@ -132,3 +135,13 @@
   - type: Tag
     tags:
     - FootstepSound
+
+- type: entity
+  parent: StorageImplant
+  id: GnomeStorageImplant 
+  description: This implant grants hidden storage within a person's body using bluespace technology.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionOpenStorageImplant
+    permanent: true # only change from normal storage implant
