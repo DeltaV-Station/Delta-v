@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Halo3moth
-  changes:
-  - message: Security long coats have been resprited to be more in line with other
-      security gear. (we ran out of red dye)
-    type: Tweak
-  id: 2104
-  time: '2026-01-27T05:50:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5288
 - author: EmberAstra
   changes:
   - message: Plasteel can now be printed at the Engineering Techfab.
@@ -4365,4 +4357,16 @@
   id: 2604
   time: '2026-07-29T15:42:01.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6376
+- author: ShepardToTheStars
+  changes:
+  - message: Remote Medical Tracking has been added to the Biochemical research tree
+      as a T3 technology. It allows you to print crew monitors and crew monitoring
+      server boards!
+    type: Add
+  - message: The crew monitoring crate from Logistics now requires medical access
+      to unlock instead of epistemics.
+    type: Tweak
+  id: 2605
+  time: '2026-07-30T17:30:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6272
 Order: 1
