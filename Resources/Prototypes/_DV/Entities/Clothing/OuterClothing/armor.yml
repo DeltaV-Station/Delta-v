@@ -12,7 +12,7 @@
   - type: Armor # Good against gunshots, decent against everything else. Balanced by reduced movement speed.
     modifiers:
       coefficients:
-        Blunt: 0.80
+        Blunt: 0.90
         Slash: 0.80
         Piercing: 0.50
         Heat: 0.80
@@ -42,10 +42,11 @@
   - type: Armor # Good against stabs and knocks, offers minimal protection from gunshots and lasfire.
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
+        Blunt: 0.50
+        Slash: 0.50
         Piercing: 0.90
-        Heat: 0.90
+        Heat: 0.80
+    staminaMeleeDamageCoefficient: 0.6
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
