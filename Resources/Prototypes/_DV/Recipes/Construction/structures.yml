@@ -65,6 +65,34 @@
   canRotate: false
 
 - type: construction
+  id: WindowTintedDirectional
+  graph: WindowDirectional
+  startNode: start
+  targetNode: tintedWindowDirectional
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+
+- type: construction
+  id: WindowTintedReinforcedDirectional
+  graph: WindowDirectional
+  startNode: start
+  targetNode: reinforcedTintedWindowDirectional
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+
+- type: construction
   id: RailingDeltaV
   graph: RailingDeltaVRecipes
   startNode: start
@@ -216,3 +244,358 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+# Convex Corner Windows
+- type: construction
+  id: WindowDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: windowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: PlasmaWindowDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: plasmaWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: UraniumWindowDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: uraniumWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: WindowReinforcedDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: windowReinforcedCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: PlasmaReinforcedWindowDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: plasmaReinforcedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: UraniumReinforcedWindowDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: uraniumReinforcedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: TintedWindowDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: tintedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: TintedWindowReinforcedDirectionalCorner
+  graph: WindowCornerRecipes
+  startNode: start
+  targetNode: reinforcedTintedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+# Concave Corner Windows
+- type: construction
+  id: WindowDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: windowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: PlasmaWindowDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: plasmaWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: UraniumWindowDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: uraniumWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: WindowReinforcedDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: windowReinforcedCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: PlasmaReinforcedWindowDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: plasmaReinforcedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: UraniumReinforcedWindowDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: uraniumReinforcedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: TintedWindowDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: tintedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: TintedWindowReinforcedDirectionalCornerConcave
+  graph: WindowCornerRecipesConcave
+  startNode: start
+  targetNode: reinforcedTintedWindowCorner
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+# End Piece Windows
+- type: construction
+  id: WindowDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: windowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: PlasmaWindowDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: plasmaWindowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: UraniumWindowDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: uraniumWindowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: WindowReinforcedDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: windowReinforcedEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: PlasmaReinforcedWindowDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: plasmaReinforcedWindowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: UraniumReinforcedWindowDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: uraniumReinforcedWindowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: TintedWindowDirectionalDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: tintedWindowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: TintedWindowReinforcedDirectionalEnd
+  graph: WindowDirectionalEndRecipes
+  startNode: start
+  targetNode: reinforcedTintedWindowEnd
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: ShuttersNormalDiagonal
+  graph: ShuttersDiagonal
+  startNode: start
+  targetNode: ShuttersDiagonal
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: ShuttersWindowDiagonal
+  graph: ShuttersDiagonal
+  startNode: start
+  targetNode: ShuttersWindowDiagonal
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: ShuttersRadiationDiagonal
+  graph: ShuttersDiagonal
+  startNode: start
+  targetNode: ShuttersRadiationDiagonal
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: BlastDoorDiagonal
+  graph: BlastDoorDiagonal
+  startNode: start
+  targetNode: blastdoor
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true

@@ -1,0 +1,228 @@
+## God help the poor soul condemed to review this shitcode    - Gray
+# Basic
+- type: entity
+  id: WindowDirectionalCornerConcave
+  parent: WindowDirectional
+  name: concave corner window
+  components:
+  - type: Sprite
+    sprite: /Textures/_DV/Structures/Windows/directional_corners_concave.rsi
+    state: window
+  - type: Icon
+    sprite: /Textures/_DV/Structures/Windows/directional_corners_concave.rsi
+    state: window
+  - type: Tag
+    tags:
+      - Window
+      - Directional
+      - ForceNoFixRotations
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.5,-0.28125,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.28125,-0.28125,0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: windowCorner
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+
+- type: entity
+  id: PlasmaWindowDirectionalCornerConcave
+  parent: [ WindowDirectionalCornerConcave, PlasmaWindowDirectional ]
+  name: concave corner plasma window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: plasma_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: plasma_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: plasmaWindowCorner
+
+- type: entity
+  id: UraniumWindowDirectionalCornerConcave
+  parent: [ WindowDirectionalCornerConcave, UraniumWindowDirectional ]
+  name: concave corner uranium window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: uranium_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: uranium_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: uraniumWindowCorner
+
+# Reinforced
+- type: entity
+  id: WindowReinforcedDirectionalCornerConcave
+  parent: [ WindowDirectionalCornerConcave, WindowReinforcedDirectional ]
+  name: concave corner reinforced window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: reinforced_window
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.5,-0.28125,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.28125,-0.28125,0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: windowReinforcedCorner
+
+- type: entity
+  id: PlasmaReinforcedWindowDirectionalCornerConcave
+  parent: [ WindowReinforcedDirectionalCornerConcave, PlasmaReinforcedWindowDirectional ]
+  name: concave corner reinforced plasma window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: plasma_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: plasma_reinforced_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: plasmaReinforcedWindowCorner
+
+- type: entity
+  id: UraniumReinforcedWindowDirectionalCornerConcave
+  parent: [ WindowReinforcedDirectionalCornerConcave, UraniumReinforcedWindowDirectional ]
+  name: concave corner reinforced uranium window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: uranium_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: uranium_reinforced_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: uraniumReinforcedWindowCorner
+
+# Tinted
+- type: entity
+  id: TintedWindowDirectionalCornerConcave
+  parent: [ WindowDirectionalCornerConcave, WindowTintedDirectional ]
+  name: concave corner tinted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: tinted_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: tinted_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,0.5,0.5"
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: tintedWindowCorner
+
+
+- type: entity
+  id: TintedWindowReinforcedDirectionalCornerConcave
+  parent: [ WindowDirectionalCornerConcave, WindowTintedReinforcedDirectional ]
+  name: concave corner reinforced tinted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: tinted_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: tinted_reinforced_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,-0.5,-0.5"
+  - type: Construction
+    graph: WindowCornerRecipesConcave
+    node: reinforcedTintedWindowCorner
+
+# Frosted
+- type: entity
+  id: WindowFrostedDirectionalCornerConcave
+  parent: [ WindowDirectionalCornerConcave, WindowFrostedDirectional ]
+  name: concave corner frosted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: frosted_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_corners_concave.rsi
+    state: frosted_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_corners_concave.rsi

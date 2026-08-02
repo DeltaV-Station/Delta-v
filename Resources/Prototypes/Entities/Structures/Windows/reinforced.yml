@@ -45,6 +45,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: rwindow
   - type: Construction
     graph: Window
@@ -138,7 +139,7 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: state
   - type: Icon
     sprite: _DV/Structures/Windows/reinforced_window_diagonal.rsi #Delta V - Resprite windows

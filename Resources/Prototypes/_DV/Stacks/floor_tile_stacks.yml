@@ -3,3 +3,17 @@
   name: stack-mowed-astro-snow-floor
   spawn: FloorTileItemMowedAstroSnow
   maxCount: 30
+
+- type: stack
+  id: FloorTileAstroGrassRed
+  icon: { sprite: _DV/Textures/Objects/Tiles/tile.rsi, state: grassred }
+  name: stack-astro-grass-red
+  spawn: FloorTileItemAstroGrassRed
+  maxCount: 30
+
+- type: stack
+  id: FloorTileAstroGrassPurple
+  icon: { sprite: _DV/Textures/Objects/Tiles/tile.rsi, state: grasspurple }
+  name: stack-astro-grass-purple
+  spawn: FloorTileItemAstroGrassPurple
+  maxCount: 30

@@ -35,6 +35,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: uwindow
   - type: Construction
     graph: Window
@@ -125,7 +126,7 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: state
   - type: Icon
     sprite: Structures/Windows/uranium_window_diagonal.rsi

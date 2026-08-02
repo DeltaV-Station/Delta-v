@@ -14,3 +14,5 @@ stack-biogenerator-plastic30 = plastic (30)
 stack-frosting = frosting
 
 stack-mowed-astro-snow-floor = mowed astro-snow floor
+stack-astro-grass-red = basalt astro-grass floor
+stack-astro-grass-purple = chromite astro-grass floor

@@ -33,13 +33,13 @@
   - type: SyncSprite
   - type: Clickable
   - type: Sprite
-    sprite: Tiles/Planet/lava.rsi
+    sprite: /Textures/_DV/Tiles/Planet/lava.rsi # DeltaV - Resprite
     drawdepth: BelowFloor
     layers:
       - state: lava
         shader: unshaded
   - type: Icon
-    sprite: Tiles/Planet/lava.rsi
+    sprite: /Textures/_DV/Tiles/Planet/lava.rsi # DeltaV - Resprite
     state: full
   - type: IconSmooth
     key: floor

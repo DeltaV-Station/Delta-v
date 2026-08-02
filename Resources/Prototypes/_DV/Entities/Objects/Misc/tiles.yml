@@ -14,3 +14,41 @@
     - FloorMowedAstroSnow
   - type: Stack
     stackType: FloorTileMowedAstroSnow
+
+- type: entity
+  id: FloorTileItemAstroGrassPurple
+  parent: FloorTileItemBase
+  name: chromite astro-grass
+  description: Fake grass that covers up wires and even comes with realistic NanoTrimmings!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
+    state: grasspurple
+  - type: Item
+    sprite: _DV/Objects/Tiles/tile.rsi
+    heldPrefix: purple
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorAstroGrassChromite
+  - type: Stack
+    stackType: FloorTileAstroGrassPurple
+
+- type: entity
+  id: FloorTileItemAstroGrassRed
+  parent: FloorTileItemBase
+  name: basalt astro-grass
+  description: Fake grass that covers up wires and even comes with realistic NanoTrimmings!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
+    state: grassred
+  - type: Item
+    sprite: _DV/Objects/Tiles/tile.rsi
+    heldPrefix: red
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorAstroGrassBasalt
+  - type: Stack
+    stackType: FloorTileAstroGrassRed

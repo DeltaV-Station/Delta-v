@@ -1,0 +1,12 @@
+- type: entity
+  parent: FloorDrain
+  id: FloorDrainCircular
+  suffix: Circular
+  name: drain
+  description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean. This one's more rotund.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      drawdepth: FloorObjects
+      sprite: _DV/Objects/Specific/Janitorial/drain.rsi
