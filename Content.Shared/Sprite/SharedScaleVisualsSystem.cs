@@ -63,11 +63,6 @@ public abstract class SharedScaleVisualsSystem : EntitySystem
 
         return scale;
     }
-
-    internal void SetSpriteScale(object uid, float v)
-    {
-        throw new NotImplementedException();
-    }
 }
 
 /// <summary>
