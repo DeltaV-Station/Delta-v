@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Pharaz4
-  changes:
-  - message: Wizard has been disabled pending a balance update.
-    type: Remove
-  id: 2106
-  time: '2026-01-27T17:55:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5228
 - author: Toby222
   changes:
   - message: Prevented the plasteel market from crashing and burning.
@@ -4370,4 +4363,15 @@
   id: 2606
   time: '2026-08-02T13:31:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/5846
+- author: TehFlaminTaco
+  changes:
+  - message: Removed Skia Ventcrawl
+    type: Remove
+  - message: Added Skia Shadowwalk
+    type: Add
+  - message: Replaced Skia NightVision with DarkVision
+    type: Tweak
+  id: 2607
+  time: '2026-08-03T02:45:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6346
 Order: 1
