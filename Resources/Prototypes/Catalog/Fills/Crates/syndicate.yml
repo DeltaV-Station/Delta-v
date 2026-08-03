@@ -2,10 +2,10 @@
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   id: CrateSyndicateSurplusBundle
   name: Syndicate surplus crate
-  description: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+  description: Contains 75 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
   components:
     - type: SurplusBundle
-      totalPrice: 50
+      totalPrice: 75
     - type: MappingCategories # DeltaV
       categories:
       - Syndicate
@@ -32,10 +32,10 @@
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   id: CrateSyndicateSuperSurplusBundle
   name: Syndicate super surplus crate
-  description: Contains 125 telecrystals worth of completely random Syndicate items.
+  description: Contains 200 telecrystals worth of completely random Syndicate items.
   components:
     - type: SurplusBundle
-      totalPrice: 125
+      totalPrice: 200
     - type: MappingCategories # DeltaV
       categories:
       - Syndicate
