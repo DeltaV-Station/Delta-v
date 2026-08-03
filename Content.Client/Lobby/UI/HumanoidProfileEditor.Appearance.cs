@@ -206,7 +206,6 @@ public sealed partial class HumanoidProfileEditor
         ReloadProfilePreview();
     }
 
-
     private void UpdateHeightControls()
     {
         if (Profile == null)
@@ -223,7 +222,6 @@ public sealed partial class HumanoidProfileEditor
         var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, sliderPercent), 2);
         CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(scaleReference * newHeight);
     }
-
     // End CD - Character Records
 
     private void SetAge(int newAge)

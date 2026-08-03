@@ -115,10 +115,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     public Vector2 BaseScale = new(1f, 1f);
     // End DV - CD Character Records shouldn't nuke species heights
 
-    // BEGIN DV - Allalulo scale
-
-    // 
-
     // Begin CD - Character Records
     /// <summary>
     /// The minimum height for this species
