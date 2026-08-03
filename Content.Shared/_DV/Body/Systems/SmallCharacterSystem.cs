@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._DV.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -7,9 +8,12 @@ using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Sprite;
 using JetBrains.Annotations;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+
 
 namespace Content.Shared._DV.Body.Systems;
 
@@ -20,6 +24,12 @@ namespace Content.Shared._DV.Body.Systems;
 public sealed partial class SmallCharacterSystem : EntitySystem
 {
     private const float NO_PENTALTY = 1.0f;
+
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+    [Dependency] private readonly SharedScaleVisualsSystem _scale = default!;
 
     public override void Initialize()
     {

@@ -113,19 +113,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField("baseScale")]
     public Vector2 BaseScale = new(1f, 1f);
-
-    /// <summary>
-    /// DeltaV - Because Allulalo are scaled differently than other species
-    /// This is purely for "mocking" the scale on the character customization
-    /// screen so it doesn't say that the Allulalo is 160cm (5ft).
-    /// 
-    /// Only use this if you want to fudge those values. This is not used
-    /// to size the sprite AT ALL.
-    /// 
-    /// TODO: Better name for this?
-    /// </summary>
-    [DataField("mockBaseScale")]
-    public Vector2? MockBaseScale = null;
     // End DV - CD Character Records shouldn't nuke species heights
 
     // BEGIN DV - Allalulo scale

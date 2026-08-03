@@ -223,10 +223,6 @@ namespace Content.Client.Lobby.UI
 
                 var speciesScale = prototype.BaseScale.Y;
 
-                // DeltaV - Allulalo scales are weird
-                if (prototype.MockBaseScale is { } mockScale)
-                    speciesScale = mockScale.Y;
-
                 CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(newHeight * speciesScale);
                 CDPullSpeedReductionLabel.Text = SmallCharacterSystem.GetPullSpeedPenaltyDisplayFromScale(newHeight);
                 SetProfileHeight(newHeight);

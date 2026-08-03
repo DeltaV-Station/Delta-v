@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Uristia Mc-Hands
+  name: Uristia McShorty
   parent:
   - AppearanceAllulalo
   - BaseSpeciesMobOrganic
@@ -222,6 +222,13 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Allulalo
+  # BEGIN DeltaV
+  # Allulalo are weird because they are small yet base scale 1.0 BUT since the height system uses
+  # base scale to determine the metric/imperial height values, so we're just correcting the scale
+  # because Allulalo have to be the special kid on the block.
+  - type: ScaleVisuals
+    scale: 2.0, 2.0 
+  # END DeltaV
 
 - type: entity
   parent: OrganBase

@@ -219,12 +219,7 @@ public sealed partial class HumanoidProfileEditor
                             (prototype.MaxHeight - prototype.MinHeight);
         CDHeightSlider.Value = sliderPercent;
 
-        // Allulalo scales are weird. Do this here so its only cosmetic text-wise
         var scaleReference = _defaultHeight * prototype.BaseScale.Y;
-
-        if (prototype.MockBaseScale is { } mockedScale)
-            scaleReference = _defaultHeight * mockedScale.Y;
-
         var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, sliderPercent), 2);
         CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(scaleReference * newHeight);
     }

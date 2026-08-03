@@ -1,13 +1,10 @@
 using System.Numerics;
-using Content.Shared.Humanoid; // DeltaV
-using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Sprite;
 
 public abstract class SharedScaleVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
@@ -43,14 +40,6 @@ public abstract class SharedScaleVisualsSystem : EntitySystem
         var comp = EnsureComp<ScaleVisualsComponent>(uid);
         comp.Scale = scale;
         Dirty(uid, comp);
-
-        // Begin DeltaV - Species Scaling
-        if (TryComp<HumanoidProfileComponent>(uid, out var profile))
-        {
-            var speciesProto = _proto.Index(profile.Species);
-            scale *= speciesProto.BaseScale;
-        }
-        // END DeltaV
 
         var appearanceComponent = EnsureComp<AppearanceComponent>(uid);
         _appearance.SetData(uid, ScaleVisuals.Scale, scale, appearanceComponent);
