@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Toby222
-  changes:
-  - message: Prevented the plasteel market from crashing and burning.
-    type: Fix
-  id: 2107
-  time: '2026-01-27T18:58:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5298
 - author: BarryNorfolk
   changes:
   - message: Upstream's November updates are here!
@@ -4374,4 +4367,25 @@
   id: 2607
   time: '2026-08-03T02:45:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6346
+- author: ShepardToTheStars
+  changes:
+  - message: The height slider on your profile now shows actual height measurements.
+    type: Tweak
+  - message: Characters now have a +/- 20% scale in the character creator for all
+      species.
+    type: Tweak
+  - message: In exchange for being harder to click on, characters that are smaller
+      than average for their species have pull speed penalties while pulling for being
+      so small. This effects only items that are not held in-hand, not in the air,
+      and do not have wheels.
+    type: Tweak
+  - message: Slightly reduced the density of Ovinia so they aren't as dense as an
+      Oni.
+    type: Tweak
+  - message: Increased the density of Thaven to slightly less than a normal human
+      player.
+    type: Tweak
+  id: 2608
+  time: '2026-08-04T16:27:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6320
 Order: 1
