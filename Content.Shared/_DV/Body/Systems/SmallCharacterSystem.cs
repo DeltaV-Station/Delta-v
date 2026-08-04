@@ -91,6 +91,7 @@ public sealed partial class SmallCharacterSystem : EntitySystem
         // need it.
         var comp = EnsureComp<SmallCharacterComponent>(uid);
         comp.PullSpeedPenalty = GetPullSpeedPenaltyFromScale(scale);
+        Dirty(uid, comp);
     }
     #endregion
 }
