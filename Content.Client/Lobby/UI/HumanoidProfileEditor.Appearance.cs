@@ -10,6 +10,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Content.Client._CD.Records.UI; // DeltaV
+using Content.Shared._DV.Body.Systems; // DeltaV
 
 namespace Content.Client.Lobby.UI;
 
@@ -221,6 +222,7 @@ public sealed partial class HumanoidProfileEditor
         var scaleReference = _defaultHeight * prototype.BaseScale.Y;
         var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, sliderPercent), 2);
         CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(scaleReference * newHeight);
+        CDPullSpeedReductionLabel.Text = SmallCharacterSystem.GetPullSpeedPenaltyDisplayFromScale(newHeight);
     }
     // End CD - Character Records
 
