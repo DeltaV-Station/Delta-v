@@ -3,7 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
-using Content.Shared.Sprite;
+using Content.Shared.Sprite; // DeltaV
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 
