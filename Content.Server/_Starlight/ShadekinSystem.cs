@@ -19,6 +19,7 @@ using Content.Shared._Goobstation.Flashbang;
 using Content.Shared._Starlight.Flash.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Flash; // Delta V - Flash Work
+using Content.Shared._DV.Body.Components; // Delta V - Remove various comps related to breathing
 
 
 namespace Content.Server._Starlight;
@@ -68,6 +69,8 @@ public sealed class ShadekinSystem : EntitySystem
     {
         UpdateAlert(uid, component, (short)component.CurrentState);
         RemComp<InternalsComponent>(uid);
+        RemComp<RespiratorComponent>(uid);
+        RemComp<AffectedByCPRComponent>(uid); // No lungs = no CPR
     }
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)

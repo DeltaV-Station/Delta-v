@@ -1,70 +1,4 @@
 ﻿Entries:
-- author: keekee38
-  changes:
-  - message: a new compact submachine gun for security should be shipping in soon!
-    type: Add
-  - message: added machine pistol magazines to the security techfab's recipes.
-    type: Tweak
-  - message: added rubber SMG mags to the security techfab.
-    type: Tweak
-  id: 2103
-  time: '2026-01-26T10:46:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5212
-- author: Halo3moth
-  changes:
-  - message: Security long coats have been resprited to be more in line with other
-      security gear. (we ran out of red dye)
-    type: Tweak
-  id: 2104
-  time: '2026-01-27T05:50:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5288
-- author: EmberAstra
-  changes:
-  - message: Plasteel can now be printed at the Engineering Techfab.
-    type: Add
-  id: 2105
-  time: '2026-01-27T16:05:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5284
-- author: Pharaz4
-  changes:
-  - message: Wizard has been disabled pending a balance update.
-    type: Remove
-  id: 2106
-  time: '2026-01-27T17:55:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5228
-- author: Toby222
-  changes:
-  - message: Prevented the plasteel market from crashing and burning.
-    type: Fix
-  id: 2107
-  time: '2026-01-27T18:58:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5298
-- author: BarryNorfolk
-  changes:
-  - message: Upstream's November updates are here!
-    type: Add
-  - message: Xenoborgs have arrived in DeltaV. Please report any foriegn borgs to
-      security!
-    type: Add
-  - message: APCs now trip when they are under high load.
-    type: Add
-  - message: Traitors can now find the iconic Mini Energy Crossbow in their uplink
-      for 5 TC.
-    type: Add
-  - message: Attorneys can find a new briefcase gun in their uplink.
-    type: Add
-  - message: Defibs will shock anyone interacting with the patient other than the
-      person using the defib.
-    type: Tweak
-  - message: Added mail cart.
-    type: Add
-  - message: Tourniquets can now fit in medical belts.
-    type: Tweak
-  - message: Make DAGD more likely but restrict it to 1 traitor per round.
-    type: Tweak
-  id: 2108
-  time: '2026-01-29T16:56:03.499291+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5087
 - author: Pharaz4
   changes:
   - message: Lizards now get hardsuit tails
@@ -4366,4 +4300,77 @@
   id: 2603
   time: '2026-07-29T12:18:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6311
+- author: ShepardToTheStars, rebe83
+  changes:
+  - message: Felinid's sink claws ability delay has been reduced from 3s to 0.5s.
+    type: Tweak
+  - message: Felinids now get a unique icon on their alert bar when they protract
+      their claws.
+    type: Add
+  id: 2604
+  time: '2026-07-29T15:42:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6376
+- author: ShepardToTheStars
+  changes:
+  - message: Remote Medical Tracking has been added to the Biochemical research tree
+      as a T3 technology. It allows you to print crew monitors and crew monitoring
+      server boards!
+    type: Add
+  - message: The crew monitoring crate from Logistics now requires medical access
+      to unlock instead of epistemics.
+    type: Tweak
+  id: 2605
+  time: '2026-07-30T17:30:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6272
+- author: ErhardSteinhauer, Stxcking
+  changes:
+  - message: 'Coming from Frontier: Added Construction Bags and Bag of Holding Variant
+      (T2) to the Engineering Techfab.'
+    type: Add
+  id: 2606
+  time: '2026-08-02T13:31:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5846
+- author: TehFlaminTaco
+  changes:
+  - message: Removed Skia Ventcrawl
+    type: Remove
+  - message: Added Skia Shadowwalk
+    type: Add
+  - message: Replaced Skia NightVision with DarkVision
+    type: Tweak
+  id: 2607
+  time: '2026-08-03T02:45:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6346
+- author: ShepardToTheStars
+  changes:
+  - message: The height slider on your profile now shows actual height measurements.
+    type: Tweak
+  - message: Characters now have a +/- 20% scale in the character creator for all
+      species.
+    type: Tweak
+  - message: In exchange for being harder to click on, characters that are smaller
+      than average for their species have pull speed penalties while pulling for being
+      so small. This effects only items that are not held in-hand, not in the air,
+      and do not have wheels.
+    type: Tweak
+  - message: Slightly reduced the density of Ovinia so they aren't as dense as an
+      Oni.
+    type: Tweak
+  - message: Increased the density of Thaven to slightly less than a normal human
+      player.
+    type: Tweak
+  id: 2608
+  time: '2026-08-04T16:27:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6320
+- author: ShepardToTheStars
+  changes:
+  - message: Shadekin cannot perform CPR anymore due to them not breathing or having
+      lungs.
+    type: Remove
+  - message: Shadekin should have an internal temperature now, so they can get cold
+      and hot.
+    type: Fix
+  id: 2609
+  time: '2026-08-04T16:41:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6381
 Order: 1
