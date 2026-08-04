@@ -1,4 +1,5 @@
 using Content.Shared._DV.Body.Systems;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Body.Components;
 
@@ -8,7 +9,8 @@ namespace Content.Shared._DV.Body.Components;
 ///
 /// Mostly used for things like wheeled/floating objects.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 [Access(typeof(SmallCharacterSystem))]
 public sealed partial class SmallCharacterComponent : Component
 {
@@ -16,6 +18,6 @@ public sealed partial class SmallCharacterComponent : Component
     /// The speed of which to scale the small character's pull speed by if the
     /// object is big enough to warrant a pull-speed slowdown.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float PullSpeedPenalty = 1f;
 }
