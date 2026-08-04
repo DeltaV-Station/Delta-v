@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: Pharaz4
   changes:
-  - message: Lizards now get hardsuit tails
-    type: Add
-  id: 2109
-  time: '2026-01-29T16:55:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5293
-- author: Pharaz4
-  changes:
   - message: removed syndicate comms from refugees and guards
     type: Remove
   id: 2110
@@ -4373,4 +4366,12 @@
   id: 2609
   time: '2026-08-04T16:41:14.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6381
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed changelog saying Shadekin can't perform CPR. Shadekin can still
+      perform CPR, but cannot receive it (as it would do nothing for them).
+    type: Fix
+  id: 2610
+  time: '2026-08-04T21:49:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6395
 Order: 1
