@@ -1,30 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Upstream's November updates are here!
-    type: Add
-  - message: Xenoborgs have arrived in DeltaV. Please report any foriegn borgs to
-      security!
-    type: Add
-  - message: APCs now trip when they are under high load.
-    type: Add
-  - message: Traitors can now find the iconic Mini Energy Crossbow in their uplink
-      for 5 TC.
-    type: Add
-  - message: Attorneys can find a new briefcase gun in their uplink.
-    type: Add
-  - message: Defibs will shock anyone interacting with the patient other than the
-      person using the defib.
-    type: Tweak
-  - message: Added mail cart.
-    type: Add
-  - message: Tourniquets can now fit in medical belts.
-    type: Tweak
-  - message: Make DAGD more likely but restrict it to 1 traitor per round.
-    type: Tweak
-  id: 2108
-  time: '2026-01-29T16:56:03.499291+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5087
 - author: Pharaz4
   changes:
   - message: Lizards now get hardsuit tails
@@ -4388,4 +4362,15 @@
   id: 2608
   time: '2026-08-04T16:27:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6320
+- author: ShepardToTheStars
+  changes:
+  - message: Shadekin cannot perform CPR anymore due to them not breathing or having
+      lungs.
+    type: Remove
+  - message: Shadekin should have an internal temperature now, so they can get cold
+      and hot.
+    type: Fix
+  id: 2609
+  time: '2026-08-04T16:41:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6381
 Order: 1
