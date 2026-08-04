@@ -92,6 +92,7 @@
   parent: LockerJustice
   id: LockerJusticeWarden # TODO - Resprite
   name: warden's locker
+  suffix: Justice
   components:
   - type: AccessReader
     access: [["JusticeWarden"]]
