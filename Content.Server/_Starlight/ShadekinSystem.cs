@@ -71,7 +71,6 @@ public sealed class ShadekinSystem : EntitySystem
         RemComp<InternalsComponent>(uid);
         RemComp<RespiratorComponent>(uid);
         RemComp<AffectedByCPRComponent>(uid); // No lungs = no CPR
-        RemComp<CanDoCPRComponent>(uid); // no lungs, no CPR
     }
 
     private void OnEyeColorChange(EntityUid uid, ShadekinComponent component, EyeColorInitEvent args)
