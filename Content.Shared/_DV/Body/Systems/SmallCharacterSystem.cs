@@ -14,7 +14,7 @@ namespace Content.Shared._DV.Body.Systems;
 /// </summary>
 public sealed partial class SmallCharacterSystem : EntitySystem
 {
-    private const float NO_PENTALTY = 1.0f;
+    private const float NO_PENALTY = 1.0f;
     public override void Initialize()
     {
         base.Initialize();
@@ -32,26 +32,26 @@ public sealed partial class SmallCharacterSystem : EntitySystem
     {
         // Ignore if they aren't pulling anything...
         if (!pulledEntity.HasValue)
-            return NO_PENTALTY;
+            return NO_PENALTY;
 
         // Ignore if they aren't a small character in the first place
         if (!Resolve(puller, ref puller.Comp, false))
-            return NO_PENTALTY;
+            return NO_PENALTY;
 
         // If the pulled entity has the component that ignores the penalty
         if (HasComp<UnaffectedBySizePenaltyComponent>(pulledEntity))
-            return NO_PENTALTY;
+            return NO_PENALTY;
 
         // Ignore if it's an item that can be held or stored. It would be weird to
         // slow by X% from pulling a piece of paper or a gun when you can just hold it
         // and not suffer from a penalty.
         if (HasComp<ItemComponent>(pulledEntity))
-            return NO_PENTALTY;
+            return NO_PENALTY;
 
         // Ignore if the object is floating in the air.
         if (TryComp<PhysicsComponent>(pulledEntity, out var pulledPhysics)
                 && pulledPhysics.BodyStatus == BodyStatus.InAir)
-            return NO_PENTALTY;
+            return NO_PENALTY;
 
         return puller.Comp.PullSpeedPenalty;
     }
