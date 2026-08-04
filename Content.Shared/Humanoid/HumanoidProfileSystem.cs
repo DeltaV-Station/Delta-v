@@ -1,4 +1,4 @@
-using System.Numerics;
+using System.Numerics; // DeltaV
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -13,7 +13,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly SharedScaleVisualsSystem _scale = default!;
+    [Dependency] private readonly SharedScaleVisualsSystem _scale = default!; // DeltaV
 
     public override void Initialize()
     {

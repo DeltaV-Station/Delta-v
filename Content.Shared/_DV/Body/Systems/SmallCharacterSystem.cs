@@ -5,7 +5,6 @@ using Content.Shared.Item;
 using JetBrains.Annotations;
 using Robust.Shared.Physics.Components;
 
-
 namespace Content.Shared._DV.Body.Systems;
 
 /// <summary>
