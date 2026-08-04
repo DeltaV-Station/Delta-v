@@ -1,7 +1,9 @@
+using System.Numerics; // DeltaV
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
+using Content.Shared.Sprite; // DeltaV
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 
@@ -11,6 +13,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!;
+    [Dependency] private readonly SharedScaleVisualsSystem _scale = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -28,6 +31,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
         ent.Comp.Sex = profile.Sex;
+        ent.Comp.Height = profile.Height; // DeltaV
         Dirty(ent);
 
         var sexChanged = new SexChangedEvent(ent.Comp.Sex, profile.Sex);
@@ -37,6 +41,19 @@ public sealed class HumanoidProfileSystem : EntitySystem
         {
             _grammar.SetGender((ent, grammar), profile.Gender);
         }
+
+        // START DeltaV - Apply profile/species size
+        Vector2 scale = new(profile.Height, profile.Height);
+
+        // If visuals already exist, then re-apply
+        if (TryComp<ScaleVisualsComponent>(ent, out var scaledVisuals))
+            scale *= scaledVisuals.Scale;
+
+        var speciesProto = _prototype.Index(profile.Species);
+        scale *= speciesProto.BaseScale;
+
+        _scale.SetSpriteScale(ent, scale);
+        // END DeltaV
     }
 
     private void OnExamined(Entity<HumanoidProfileComponent> ent, ref ExaminedEvent args)

@@ -41,6 +41,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceHarpy
+  name: harpy appearance
   components:
   - type: Inventory
     speciesId: harpy
@@ -75,8 +76,6 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Harpy
-  - type: ScaleVisuals
-    speciesScale: 0.9, 0.9
 
 - type: entity
   parent:
