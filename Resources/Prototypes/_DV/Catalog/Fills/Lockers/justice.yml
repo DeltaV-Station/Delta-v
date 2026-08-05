@@ -112,7 +112,7 @@
 - type: entity
   parent: LockerJusticeWarden
   id: LockerJusticeWardenFilled
-  suffix: Filled, Justice
+  suffix: Filled, Justice Warden
   components:
   - type: EntityTableContainerFill
     containers:
@@ -152,7 +152,7 @@
 - type: entity
   parent: LockerJusticeDetective
   id: LockerJusticeDetectiveFilled
-  suffix: Filled
+  suffix: Filled, Justice
   components:
   - type: EntityTableContainerFill
     containers:

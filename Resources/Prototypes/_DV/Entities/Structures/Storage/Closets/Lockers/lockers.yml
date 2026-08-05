@@ -84,6 +84,7 @@
   parent: LockerJustice
   id: LockerJusticeDetective # TODO - Resprite
   name: detective's locker
+  suffix: Justice
   components:
   - type: AccessReader
     access: [["Detective"]]
@@ -92,7 +93,7 @@
   parent: LockerJustice
   id: LockerJusticeWarden # TODO - Resprite
   name: warden's locker
-  suffix: Justice
+  suffix: Justice Warden
   components:
   - type: AccessReader
     access: [["JusticeWarden"]]
