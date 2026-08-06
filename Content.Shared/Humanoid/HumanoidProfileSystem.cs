@@ -43,14 +43,10 @@ public sealed class HumanoidProfileSystem : EntitySystem
         }
 
         // START DeltaV - Apply profile/species size
-        Vector2 scale = new(profile.Height, profile.Height);
-
-        // If visuals already exist, then re-apply
-        if (TryComp<ScaleVisualsComponent>(ent, out var scaledVisuals))
-            scale *= scaledVisuals.Scale;
-
-        var speciesProto = _prototype.Index(profile.Species);
-        scale *= speciesProto.BaseScale;
+        // Assume 1.0 scale unless the original scale exists (blame Allulalo)
+        var scale = Vector2.One;
+        if (TryComp<ScaleVisualsComponent>(ent, out var scaledVisuals) && scaledVisuals.OriginalScale is { } originalScale)
+            scale = originalScale;
 
         _scale.SetSpriteScale(ent, scale);
         // END DeltaV
