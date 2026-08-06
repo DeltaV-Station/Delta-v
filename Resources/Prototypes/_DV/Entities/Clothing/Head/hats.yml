@@ -532,3 +532,25 @@
     sprite: _DV/Clothing/Head/Hats/beret_SRT.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/beret_SRT.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMimeTassledBlack
+  name: mime's black tassled beret
+  description: A black tassled beret for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_black.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMimeTassledWhite
+  name: mime's white tassled beret
+  description: A white tassled beret for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi

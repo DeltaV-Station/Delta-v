@@ -20,9 +20,10 @@
     sprintModifier: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.95
-  - type: Construction
-    graph: ClothingOuterArmorMakeshiftGraph
-    node: vest
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: ClothingOuterArmorMakeshiftGraph
+  #  node: vest
 
 - type: entity
   parent: ClothingOuterArmorForged

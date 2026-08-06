@@ -41,7 +41,7 @@
   - type: GridFill
     path: /Maps/_DV/Shuttles/Misc/glacier_surface_shuttle.yml
 
-# Delta V specific roles
+# DeltaV specific roles
 - type: entity
   parent: AirlockScience
   id: AirlockMantisLocked
@@ -51,6 +51,7 @@
     containers:
       board: [ DoorElectronicsMantis ]
 
+# Justice
 - type: entity
   parent: AirlockCommand
   id: AirlockChiefJusticeLocked
@@ -107,7 +108,43 @@
 
 - type: entity
   parent: AirlockJustice
-  id: AirlockClerkLocked
+  id: AirlockAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockAttorneyGlassLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockJusticeDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockJusticeDetectiveGlassLocked
+  suffix: Detective, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockClerkLocked # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
   - type: ContainerFill
@@ -116,12 +153,48 @@
 
 - type: entity
   parent: AirlockJusticeGlass
-  id: AirlockClerkGlassLocked
+  id: AirlockClerkGlassLocked # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsClerk ]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockJusticeWardenLocked
+  suffix: Justice Warden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockJusticeWardenGlassLocked
+  suffix: Justice Warden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: AirlockJustice
+  id: AirlockMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockMarshalGlassLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
 
 # Maintenance
 - type: entity
@@ -155,12 +228,48 @@
 
 - type: entity
   parent: AirlockMaintJusticeLocked
-  id: AirlockMaintClerkLocked
+  id: AirlockMaintAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintJusticeDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintClerkLocked # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsClerk ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintJusticeWardenLocked
+  suffix: Justice Warden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
 
 - type: entity
   parent: AirlockSecurity
@@ -569,7 +678,7 @@
 - type: entity
   parent: AirlockMaintSecLocked
   id: AirlockMaintSecurityLawyerLocked
-  suffix: Security/Lawyer, Locked
+  suffix: Security/Justice, Locked
   components:
   - type: ContainerFill
     containers:
@@ -621,6 +730,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEngineering ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecJusticeLocked
+  suffix: Justice, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJustice ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecChiefJusticeLocked
+  suffix: Chief Justice, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefJustice ]
 
 #Syndicate high security door
 - type: entity

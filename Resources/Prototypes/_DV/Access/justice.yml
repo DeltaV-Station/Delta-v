@@ -11,8 +11,20 @@
   name: id-card-access-level-prosecutor
 
 - type: accessLevel
-  id: Clerk
+  id: Attorney
+  name: id-card-access-level-justice-attorney
+
+- type: accessLevel
+  id: Clerk # TODO - Remove for Justice Rework
   name: id-card-access-level-clerk
+
+- type: accessLevel
+  id: JusticeWarden
+  name: id-card-access-level-justice-warden
+
+- type: accessLevel
+  id: Marshal
+  name: id-card-access-level-marshal
 
 - type: accessGroup
   id: Justice

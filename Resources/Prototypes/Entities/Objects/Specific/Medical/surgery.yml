@@ -100,32 +100,13 @@
 - type: entity
   name: shiv
   id: ScalpelShiv
-  parent: Scalpel # DeltaV - Changed parent from scalpel because I dont want it to inherit MedicalSurgeryTool
+  parent: Scalpel
   description: A pointy piece of glass, abraded to an edge and wrapped in tape for a handle. # Could become a decent tool or weapon with right tool mods.
   components:
   - type: Sprite
     state: shiv
   - type: Item
     heldPrefix: shiv
-  # DeltaV - Copied components from previous parent
-  - type: Sharp
-    butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
-  - type: Tool
-    qualities:
-    - Slicing
-    speedModifier: 0.66 # pretend the sixes go on forever :)
-  - type: Utensil
-    types:
-      - Knife
-  - type: MeleeWeapon
-    wideAnimationRotation: 90
-    swingLeft: true
-    attackRate: 1.5
-    damage:
-      types:
-        Slash: 8
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
   - type: Fixtures
     fixtures:
       fix1:
