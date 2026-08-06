@@ -8,8 +8,8 @@ namespace Content.Shared.Sprite;
 public abstract class SharedScaleVisualsSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-
     [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
+
     public override void Initialize()
     {
         base.Initialize();
