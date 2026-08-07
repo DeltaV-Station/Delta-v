@@ -1,23 +1,23 @@
-﻿- Flags: QUERY
-  Commands:
-    - entities
-    - nearby
-    - map
-    - physics
-    - player
-    - splat
-    - bin
-    - extremes
-    - reduce
-    - sortby
-    - sort
-    - sortdownby
-    - sortdown
-    - sortmapby
-    - sortmapdownby
-    - iota
-    - rep
-    - to
+﻿#- Flags: QUERY  # DeltaV - moved to DEBUG
+#  Commands:
+#    - entities
+#    - nearby
+#    - map
+#    - physics
+#    - player
+#    - splat
+#    - bin
+#    - extremes
+#    - reduce
+#    - sortby
+#    - sort
+#    - sortdownby
+#    - sortdown
+#    - sortmapby
+#    - sortmapdownby
+#    - iota
+#    - rep
+#    - to
 
 - Flags: DEBUG
   Commands:
@@ -155,7 +155,26 @@
     - atanpi
     - pick
     - tee
-
+    # BEGIN DeltaV - PMs don't trust staff with upload so just tack it onto DEBUG i guess
+    - entities
+    - nearby
+    - map
+    - physics
+    - player
+    - splat
+    - bin
+    - extremes
+    - reduce
+    - sortby
+    - sort
+    - sortdownby
+    - sortdown
+    - sortmapby
+    - sortmapdownby
+    - iota
+    - rep
+    - to
+    # END DeltaV
 - Flags: HOST
   Commands:
     - methods
