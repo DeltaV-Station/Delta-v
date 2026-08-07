@@ -177,14 +177,10 @@
     access: [["Security"]]
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: WeaponShotgunKammererNonLethal
-          amount: 2
-        - id: BoxBeanbag
-          amount: 2
-        - id: BoxShotgunPractice
-          amount: 2
+      entity_storage: !type:NestedSelector
+        tableId: NonLethalKammerer
+        rolls: !type:ConstantNumberSelector
+          value: 2
 
 - type: entity
   parent: SecurityGunSafeBaseSecureDV

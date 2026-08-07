@@ -55,3 +55,6 @@ station-beacon-clerk = Clerk
 station-beacon-attorney = Attorney
 station-beacon-marshal = Marshal
 station-beacon-justice-armory = Justice Armory
+station-beacon-evidence-room = Evidence Room
+station-beacon-holding-cells = Holding Cells
+station-beacon-genpop = GenPop
