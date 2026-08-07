@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: ShepardToTheStars
-  changes:
-  - message: The uncloneable alert in the health analyzer window only shows up when
-      its relevant (i.e. when the patient is dead).
-    type: Tweak
-  id: 2112
-  time: '2026-01-30T21:11:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5330
 - author: verybigman311
   changes:
   - message: Wielding a guitar should no longer turn it invisible in your hands.
@@ -4373,4 +4365,12 @@
   id: 2612
   time: '2026-08-07T16:51:25.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6398
+- author: ShepardToTheStars
+  changes:
+  - message: Parcel wrapping when buckled to a chair no longer will make you invisible
+      and uninteractable.
+    type: Fix
+  id: 2613
+  time: '2026-08-07T23:24:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6399
 Order: 1
