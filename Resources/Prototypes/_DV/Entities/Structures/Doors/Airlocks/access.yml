@@ -712,6 +712,16 @@
     containers:
       board: [ DoorElectronicsSecurity ]
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalSecurityShuttleLocked
+  suffix: External, Glass, Security, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+
 # Station-Specific Airlocks
 - type: entity
   parent: HighSecDoor
@@ -723,13 +733,22 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: HighSecDoor
-  id: HighSecEngineeringLocked
-  suffix: Engineering, Locked
+  parent: AirlockMiningGlass
+  id: AirlockMiningGlassSecurity
+  suffix: Security, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsEngineering ]
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockMining
+  id: AirlockMiningSecurity
+  suffix: Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: HighSecDoor
