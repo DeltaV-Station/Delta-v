@@ -9,6 +9,28 @@
   - type: Sprite
     state: icon
   - type: AllowSuitStorage # DeltaV - allow suit storage for all outer clothing, no whitelist
+  # Funky Start - Clothing stains.
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: outerclothing
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: outerclothing
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+      stain:
+        maxVol: 5
+  - type: StainBlocker
+    slots: [INNERCLOTHING]
+  # Funky End - Clothing stains.
 
 - type: entity
   abstract: true
@@ -27,6 +49,18 @@
   - type: Tag
     tags:
       - WhitelistChameleon
+  # Funky Start - Clothing stains.
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: suitblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: suitbloodicon
+  - type: StainBlocker
+    slots: [INNERCLOTHING]
+  # Funky End - Clothing stains.
 
 - type: entity
   abstract: true
@@ -46,6 +80,16 @@
         type: StorageBoundUserInterface
   - type: StaticPrice
     price: 70
+  # Funky Start - Clothing stains.
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: coatblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: coatbloodicon
+  # Funky End - Clothing stains.
 
 - type: entity
   abstract: true
@@ -67,6 +111,16 @@
     - state: icon-open
       map: ["foldedLayer"]
       visible: false
+  # Funky Start - Clothing stains.
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: outerclothing
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: outerclothing
+  # Funky End - Clothing stains.
 
 - type: entity
   abstract: true
@@ -158,6 +212,8 @@
   - type: CosmicTransmutable # DeltaV
     transmutesTo: ClothingOuterHardsuitCosmicCult
     requiredGlyphType: CosmicGlyphWarding
+  - type: StainBlocker # Funky - Clothing stains.
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   abstract: true
@@ -180,9 +236,9 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
-  - type: Tag
+  - type: Tag # DeltaV - Harpy Wings with Hardsuit
     tags:
-    - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
+    - HidesHarpyWings
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
@@ -196,6 +252,8 @@
   - type: CosmicTransmutable # DeltaV
     transmutesTo: ClothingOuterHardsuitCosmicCult
     requiredGlyphType: CosmicGlyphWarding
+  - type: StainBlocker # Funky - Clothing stains.
+    slots: [INNERCLOTHING, FEET, GLOVES]
 
 - type: entity
   parent: ClothingOuterBase
