@@ -34,6 +34,7 @@ psionic-power-metapsionic-power-detected = You detect that {$power} was used nea
 # Mindswap
 psionic-power-mindswap-target-mindshielded = Your mindshield.. surprisingly shielded your mind from an psionic influence.
 psionic-power-mindswap-own-mindshield = Your mindshield.. stops your mind from leaving your body.
+psionic-power-mindswap-no-shield-still-fail = Your mind seemed to wander.. but found no place to stay.
 psionic-power-mindswap-original-lost = The psionic tether to your original body was severed!
 
 # Noospheric Zap
@@ -119,20 +120,6 @@ eruption-warning-window-prompt-text-part = You feel a strong pressure building u
                                             Do you understand?
 eruption-warning-window-acknowledge-button = I Understand
 
-## Psionic Gamerule Messages
-gamerule-noospheric-zap-seize = An external eruption overwhelms your mind!
-gamerule-noospheric-zap-seize-potential-regained = Your mind restructures.. it demands knowledge...
-
-psionic-nosebleed-message = Your nose starts gushing blood!
-
-mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Mass consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immediately.
-mass-mind-swap-event-sender = Sophic Grammateus
-
-minor-mass-mind-swap-event-announcement = Warning: abnormal glimmer discharge detected. Minor Mass Consciousness transfer event imminent, T-{$time} seconds. Please equip psionically-insulating headwear immedieately.
-minor-mass-mind-swap-event-sender = Sophic Grammateus
-
 psionic-power-mass-sleep-warning = Your eyelids begin to droop...
 
 telegnosis-power-ssd = { CAPITALIZE(POSS-ADJ($ent)) } eyes are unfocused and darting around, as if trying to see something that isn't there.
-
-glimmer-restyle-event = You feel like something changed about your looks...
