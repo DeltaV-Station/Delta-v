@@ -74,6 +74,9 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile # cats and dogs hate gnomes
+  - type: HTN
+    rootTask:
+      task: IdleCompound
   - type: Speech
     speechSounds: Gnome
   - type: Emoting
