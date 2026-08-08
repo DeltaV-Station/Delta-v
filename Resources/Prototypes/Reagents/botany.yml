@@ -146,14 +146,33 @@
             Asphyxiation: 1
             Heat: 2
             Poison: 1
-      - !type:Polymorph
-        prototype: TreeMorph
+      # Begin DeltaV changes - robust harvest OD makes more nymphs, not treemorph
+      - !type:SpawnEntity
+        entity: DVDionaNymphDeferredSpawn # deferred spawn to prevent crash from spawning a new metabolizer during metabolism
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [Plant]
-          - !type:ReagentCondition
-            reagent: RobustHarvest
-            min: 80
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
+        - !type:ReagentCondition
+          reagent: RobustHarvest
+          min: 40
+      - !type:AdjustReagent
+        reagent: RobustHarvest
+        amount: -20
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Plant]
+        - !type:ReagentCondition
+          reagent: RobustHarvest
+          min: 40
+      # - !type:Polymorph
+      #   prototype: TreeMorph
+      #   conditions:
+      #     - !type:MetabolizerTypeCondition
+      #       type: [Plant]
+      #     - !type:ReagentCondition
+      #       reagent: RobustHarvest
+      #       min: 80
+      # End DeltaV changes - robust harvest OD makes more nymphs, not treemorph
 
 - type: reagent
   id: Sedin

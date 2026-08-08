@@ -1,0 +1,39 @@
+- type: entity
+  parent: BaseAction
+  id: DVDionaAssimilateAction
+  name: Assimilate
+  description: Assimilate with another nymph.
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+      state: gestalt
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:DVAssimilateNymphActionEvent
+
+- type: entity
+  parent: BaseSuicideAction
+  id: DVDionaGibAction
+  name: Split up
+  description: Dissolve your gestalt and split apart.
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+      state: nymph
+  - type: InstantAction
+    event: !type:GibActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: DVDionaReformAction
+  name: Assume Humanoid Form
+  description: Assume a humanoid form. Requires three nymphs.
+  components:
+  - type: Action
+    icon:
+      sprite: Mobs/Species/Diona/parts.rsi
+      state: full
+  - type: InstantAction
+    event: !type:ReformEvent
