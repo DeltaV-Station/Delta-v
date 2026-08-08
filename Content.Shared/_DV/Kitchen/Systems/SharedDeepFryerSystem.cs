@@ -28,6 +28,8 @@ public abstract class SharedDeepFryerSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<DeepFryerComponent, DeepFryerTryEjectItemMessage>(OnUiItemEjected);
+
         SubscribeLocalEvent<DeepFryerComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<DeepFryerComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<DeepFryerComponent, DeepFryerInsertDoAfterEvent>(OnInsertDoAfter);
@@ -129,6 +131,17 @@ public abstract class SharedDeepFryerSystem : EntitySystem
         }
     }
 
+    private void OnUiItemEjected(Entity<DeepFryerComponent> ent, ref DeepFryerTryEjectItemMessage args)
+    {
+        if (!TryGetEntity(args.Item, out var itemEnt))
+            return;
+
+        if (!TryGetEntity(args.User, out var userEnt))
+            return;
+
+        TryEjectItem(ent, itemEnt.Value, userEnt.Value);
+    }
+
     /// <summary>
     /// Attempts to eject an item from the deep fryer
     /// </summary>
@@ -219,7 +232,7 @@ public abstract class SharedDeepFryerSystem : EntitySystem
         if (!_container.Insert(item, container))
             return false;
 
-        Popup.PopupClient(Loc.GetString("deep-fryer-insert-item", ("item", item)), ent, user ?? EntityUid.Invalid);
+        Popup.PopupClient(Loc.GetString("deep-fryer-insert-item-success", ("item", item)), ent, user ?? EntityUid.Invalid);
         return true;
     }
 
@@ -318,3 +331,17 @@ public abstract class SharedDeepFryerSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class DeepFryerInsertDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed class DeepFryerTryEjectItemMessage(NetEntity item, NetEntity? user) : BoundUserInterfaceMessage
+{
+    public NetEntity Item { get; set; } = item;
+
+    public NetEntity? User { get; set; } = user;
+}
+
+[Serializable, NetSerializable]
+public enum DeepFryerUiKey : byte
+{
+    DeepFryer
+}
