@@ -8,6 +8,7 @@ using Content.Server.Discord.DiscordLink;
 using Content.Server.Ghost;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
+using Content.Shared._DV.CCVars; // DeltaV - antagonist OOC
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -15,6 +16,7 @@ using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players; // DeltaV - OOC muting
 using Content.Shared.Players.RateLimiting;
+using Content.Shared.Roles; // DeltaV - antagonist OOC
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -60,6 +62,7 @@ internal sealed partial class ChatManager : IChatManager
 
     private bool _oocEnabled = true;
     private bool _adminOocEnabled = true;
+    private bool _antagOocEnabled = true; // DeltaV - antagonist OOC
 
     private readonly Dictionary<NetUserId, ChatUser> _players = new();
 
@@ -70,6 +73,7 @@ internal sealed partial class ChatManager : IChatManager
 
         _configurationManager.OnValueChanged(CCVars.OocEnabled, OnOocEnabledChanged, true);
         _configurationManager.OnValueChanged(CCVars.AdminOocEnabled, OnAdminOocEnabledChanged, true);
+        _configurationManager.OnValueChanged(DCCVars.AntagOOCEnabled, OnAntagOocEnabledChanged, true); // DeltaV - antagonist OOC
 
         _sawmill = _logManager.GetSawmill("SERVER");
 
@@ -91,6 +95,16 @@ internal sealed partial class ChatManager : IChatManager
         _adminOocEnabled = val;
         DispatchServerAnnouncement(Loc.GetString(val ? "chat-manager-admin-ooc-chat-enabled-message" : "chat-manager-admin-ooc-chat-disabled-message"));
     }
+
+    // Begin DeltaV - Antagonist OOC
+    private void OnAntagOocEnabledChanged(bool val)
+    {
+        if (_antagOocEnabled == val) return;
+
+        _antagOocEnabled = val;
+        DispatchServerAnnouncement(Loc.GetString(val ? "chat-manager-antag-ooc-chat-enabled-message" : "chat-manager-antag-ooc-chat-disabled-message"));
+    }
+    // End DeltaV - Antagonist OOC
 
         public void DeleteMessagesBy(NetUserId uid)
         {
@@ -266,6 +280,11 @@ internal sealed partial class ChatManager : IChatManager
             case OOCChatType.Admin:
                 SendAdminChat(player, message);
                 break;
+            // Begin DeltaV - Antag OOC
+            case OOCChatType.AntagOOC:
+                SendAntagOOC(player, message);
+                break;
+            // End DeltaV - Antag OOC
         }
     }
 
@@ -340,6 +359,41 @@ internal sealed partial class ChatManager : IChatManager
         _discordLink.SendMessage(message, player.Name, ChatChannel.AdminChat);
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
     }
+
+    // Begin DeltaV - Antagonist OOC
+    private void SendAntagOOC(ICommonSession player, string message)
+    {
+        var isAdmin = _adminManager.IsAdmin(player);
+        var roleSystem = _entityManager.System<SharedRoleSystem>();
+        var mindId = player.ContentData()?.Mind;
+
+        if (!isAdmin)
+        {
+            if (!_antagOocEnabled)
+                return;
+
+            if (!roleSystem.MindHasAntagonistOOC(mindId))
+            {
+                _adminLogger.Add(LogType.Chat, LogImpact.Extreme, $"{player:Player} attempted to send antag OOC message but was not admin or antagonist-OOC eligible");
+                return;
+            }
+        }
+
+        var wrappedMessage = Loc.GetString("chat-manager-send-antag-ooc-wrap-message",
+            ("antagChannelName", Loc.GetString("chat-manager-antag-ooc-channel-name")),
+            ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+
+        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel)
+            .Union(_player.Sessions
+                .Where(session => roleSystem.MindHasAntagonistOOC(session.ContentData()?.Mind))
+                .Select(session => session.Channel));
+
+        ChatMessageToMany(ChatChannel.AntagOOC, message, wrappedMessage, EntityUid.Invalid, false, true, clients.ToList(), author: player.UserId);
+
+        _discordLink.SendMessage(message, player.Name, ChatChannel.AntagOOC);
+        _adminLogger.Add(LogType.Chat, $"Antag OOC from {player:Player}: {message}");
+    }
+    // End DeltaV - Antagonist OOC
 
     #endregion
 
@@ -491,5 +545,6 @@ internal sealed partial class ChatManager : IChatManager
 public enum OOCChatType : byte
 {
     OOC,
-    Admin
+    Admin,
+    AntagOOC // DeltaV - Antagonist OOC
 }
