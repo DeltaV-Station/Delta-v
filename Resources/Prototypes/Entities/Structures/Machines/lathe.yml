@@ -1,6 +1,6 @@
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   abstract: true
   name: lathe
   components:
@@ -55,6 +55,10 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null
+    - !type:AutomatedPorts
+      sinks:
+      - LathePrint
+  - type: LatheAutomation # Goobstation
   - type: TechnologyDatabase
     supportedDisciplines: # DeltaV - don't add it to every map
     - Industrial

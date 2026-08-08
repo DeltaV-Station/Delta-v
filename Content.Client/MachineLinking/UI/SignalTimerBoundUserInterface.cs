@@ -21,8 +21,11 @@ public sealed class SignalTimerBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<SignalTimerWindow>();
         _window.OnStartTimer += StartTimer;
         _window.OnCurrentTextChanged += OnTextChanged;
-        _window.OnCurrentDelayMinutesChanged += OnDelayChanged;
-        _window.OnCurrentDelaySecondsChanged += OnDelayChanged;
+        // Begin Monolith
+        // _window.OnCurrentDelayMinutesChanged += OnDelayChanged;
+        // _window.OnCurrentDelaySecondsChanged += OnDelayChanged;
+        _window.OnCurrentDelayChanged += OnDelayChanged;
+        // End Monolith
     }
 
     public void StartTimer()
@@ -35,11 +38,11 @@ public sealed class SignalTimerBoundUserInterface : BoundUserInterface
         SendMessage(new SignalTimerTextChangedMessage(newText));
     }
 
-    private void OnDelayChanged(string newDelay)
+    private void OnDelayChanged(TimeSpan newDelay) // Monolith - Change from string to TimeSpan
     {
         if (_window == null)
             return;
-        SendMessage(new SignalTimerDelayChangedMessage(_window.GetDelay()));
+        SendMessage(new SignalTimerDelayChangedMessage(newDelay)); // Mono
     }
 
     /// <summary>
@@ -54,8 +57,11 @@ public sealed class SignalTimerBoundUserInterface : BoundUserInterface
             return;
 
         _window.SetCurrentText(cast.CurrentText);
-        _window.SetCurrentDelayMinutes(cast.CurrentDelayMinutes);
-        _window.SetCurrentDelaySeconds(cast.CurrentDelaySeconds);
+        // Begin Monolith
+        // _window.SetCurrentDelayMinutes(cast.CurrentDelayMinutes);
+        // _window.SetCurrentDelaySeconds(cast.CurrentDelaySeconds);
+        _window.SetCurrentDelay(cast.CurrentDelay);
+        // End Monolith
         _window.SetShowText(cast.ShowText);
         _window.SetTriggerTime(cast.TriggerTime);
         _window.SetTimerStarted(cast.TimerStarted);
