@@ -438,8 +438,10 @@
     occursDuringRoundEnd: false
   - type: AntagRandomObjectives
     sets:
-    - groups: NTAgentObjectiveGroup
-      maxPicks: 2
+    - groups: NTAgentBigObjectiveGroup
+      maxPicks: 1
+    - groups: NTAgentSmallObjectiveGroup
+      maxPicks: 1
     maxDifficulty: 100
   - type: AntagSelection
     agentName: NTAgent-round-end-name
