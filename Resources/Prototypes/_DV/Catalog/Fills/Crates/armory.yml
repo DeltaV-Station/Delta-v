@@ -104,7 +104,7 @@
   parent: CrateWeaponSecure
   id: CrateArmoryCowboy
   name: cowboy crate
-  description: Contains two lever action rifles and two revolvers both in .45 Magnum. Requires Armory access to open.
+  description: Contains two lever action rifles chambered in .45 Magnum, and outfits to match. Requires Armory access to open.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -112,9 +112,9 @@
         children:
         - id: WeaponLeverActionL93
           amount: 2
-        - id: WeaponRevolverInspector
-          amount: 2
         - id: MagazineBoxMagnum
-          amount: 4
-        - id: ClothingHeadHatCowboyBrown
+          amount: 2
+        - id: ClothingHeadHatCowboyBlack
+          amount: 2
+        - id: ClothingShoesBootsCowboyBlackFilled
           amount: 2
