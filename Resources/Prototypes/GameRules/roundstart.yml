@@ -623,7 +623,7 @@
     maximumSpanUntilFirstEvent: 900 # At longest takes an hour to show up.
     minMaxEventTiming:
       min: 1200 # 20 mins
-      max: 7200 # 120 mins # you probably arent getting a second visitor shuttle in one round, but it is possible.
+      max: 3600 # DeltaV - was 120 # 120 mins # you probably arent getting a second visitor shuttle in one round, but it is possible.
     scheduledGameRules: !type:NestedSelector
       prob: 0.05 # Only 1 in 20 rounds...
       tableId: SpaceTrafficControlTable

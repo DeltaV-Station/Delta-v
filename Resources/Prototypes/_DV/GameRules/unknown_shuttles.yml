@@ -1,5 +1,5 @@
 - type: entityTable
-  id: UnknownShuttlesFreelanceTableDeltaV
+  id: UnknownShuttlesTableDeltaV
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: SyndicateRecruiter
@@ -8,6 +8,7 @@
     - id: AsakimShuttle
     - id: HitmanShuttle
     - id: RoboNeuroticist
+    - id: UnknownShuttleSyndieEvacPod
 
 - type: entity
   parent: BaseUnknownShuttleRule
