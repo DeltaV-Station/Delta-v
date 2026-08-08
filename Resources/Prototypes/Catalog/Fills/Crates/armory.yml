@@ -89,7 +89,7 @@
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterArmorARC # DeltaV - ClothingOuterArmorRiot replaced in favour of ARC suit
+        - id: ClothingOuterArmorRiot # DeltaV - Reverted back to the riot suit
           amount: 2
         - id: ClothingHeadHelmetRiot
           amount: 2
