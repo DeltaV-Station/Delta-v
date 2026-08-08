@@ -8,6 +8,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared._DV.NodeCrawl;
 using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
+using Content.Shared.Polymorph;
 using Content.Shared.Zombies;
 using Robust.Shared.Reflection;
 using Robust.Shared.Utility;
@@ -30,6 +31,7 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
+        SubscribeLocalEvent<NodeCrawlerComponent, PolymorphActionEvent>(OnPolymorph);
 
         SubscribeLocalEvent<NodeCrawlerComponent, EntityZombifiedEvent>(OnZombify);
     }
@@ -221,5 +223,17 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     {
         ent.Comp.EnterDelay = ent.Comp.ZombieEnterDelay;
         Dirty(ent);
+    }
+
+    /// <summary>
+    /// Don't allow entities to polymorph while nodecrawling. It breaks movement for them.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnPolymorph(Entity<NodeCrawlerComponent> ent, ref PolymorphActionEvent args)
+    {
+        // Alternatively, we could just delete the mover?
+        if (ent.Comp.Mover.HasValue)
+            ExitNodeCrawl(ent);
     }
 }

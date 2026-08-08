@@ -27,7 +27,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared._DV.NodeCrawl; // DeltaV
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -122,10 +121,6 @@ public sealed partial class PolymorphSystem : EntitySystem
     private void OnPolymorphActionEvent(Entity<PolymorphableComponent> ent, ref PolymorphActionEvent args)
     {
         if (!_proto.Resolve(args.ProtoId, out var prototype) || args.Handled)
-            return;
-
-        // DeltaV - Prevent polymorphing while crawling because it just breaks the MoverController
-        if (TryComp<NodeCrawlerComponent>(ent, out var nodeCrawler) && nodeCrawler.Mover.HasValue)
             return;
 
         PolymorphEntity(ent, prototype.Configuration);
