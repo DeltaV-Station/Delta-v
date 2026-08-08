@@ -30,10 +30,12 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
-    #begin DeltaV additions - add hitman
+    #begin DeltaV additions - add hitman (now add conspirators)
     - id: Hitman
       prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+    - id: Conspirators
+      prob: 0.2
+    # end deltaV additions - add hitman (now add conspirators)
 
 - type: entity
   parent: BaseGameRule
@@ -49,10 +51,12 @@
     #- id: Xenoborgs
     #  prob: 0.05
     # End DeltaV additions - Disable Xenoborgs
-    #begin DeltaV additions - add hitman
+    #begin DeltaV additions - add hitman (now add conspirators)
     - id: Hitman
       prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+    - id: Conspirators
+      prob: 0.2
+    # end deltaV additions - add hitman (now add conspirators)
 
 - type: entity
   parent: BaseGameRule
@@ -64,10 +68,12 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
-    #begin DeltaV additions - add hitman
+    #begin DeltaV additions - add hitman (now add conspirators)
     - id: Hitman
       prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+    - id: Conspirators
+      prob: 0.2
+    # end deltaV additions - add hitman (now add conspirators)
 
 - type: entity
   parent: BaseGameRule
@@ -77,10 +83,12 @@
     rules:
     - id: Thief
       prob: 0.5
-    #begin DeltaV additions - add hitman
+    #begin DeltaV additions - add hitman (now add conspirators)
     - id: Hitman
       prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+    - id: Conspirators
+      prob: 0.2
+    # end deltaV additions - add hitman (now add conspirators)
 
 - type: entity
   parent: BaseGameRule
