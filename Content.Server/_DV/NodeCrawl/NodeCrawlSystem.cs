@@ -226,13 +226,12 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
     }
 
     /// <summary>
-    /// Don't allow entities to polymorph while nodecrawling. It breaks movement for them.
+    /// Exit on polymorph or else the entity's movement bugs out.
     /// </summary>
     /// <param name="ent"></param>
     /// <param name="args"></param>
     private void OnPolymorph(Entity<NodeCrawlerComponent> ent, ref PolymorphActionEvent args)
     {
-        // Alternatively, we could just delete the mover?
         if (ent.Comp.Mover.HasValue)
             ExitNodeCrawl(ent);
     }
