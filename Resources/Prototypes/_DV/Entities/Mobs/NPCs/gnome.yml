@@ -85,6 +85,11 @@
       Male: GnomeSounds
       Female: GnomeSounds
       Unsexed: GnomeSounds
+  - type: RandomMetadata
+    nameSegments:
+    - NamesGnome
+    - NamesGnomeLast
+    nameFormat: name-format-standard
   # abilities
   - type: Psionic
   - type: Jaunt
