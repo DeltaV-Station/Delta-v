@@ -70,6 +70,11 @@ public sealed class ConfirmButton : Button
     [ViewVariables]
     public bool IsConfirming = false;
 
+    // Begin DeltaV
+    [ViewVariables]
+    public bool ForceDisabled = false;
+    // End DeltaV
+
     public ConfirmButton()
     {
         IoCManager.InjectDependencies(this);
@@ -87,7 +92,7 @@ public sealed class ConfirmButton : Button
         }
 
         if (Disabled && _gameTiming.CurTime > _nextCooldown)
-            Disabled = false;
+            Disabled = ForceDisabled; // DeltaV
     }
 
     protected override void DrawModeChanged()
