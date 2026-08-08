@@ -142,3 +142,27 @@
         Heat: 50
         Radiation: 25
         Structural: 75
+
+- type: entity
+  parent: BasicHitscan
+  id: FocussedCoreExhaust
+  name: Focussed Core Exhaust
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_laser
+    travelFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam
+    impactFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_laser
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Radiation: 5
+        Caustic: 3
+  - type: HitscanTemperature
+    heatChange: 11000
