@@ -20,6 +20,12 @@
   - type: ContainerContainer
     containers:
       light_replacer_storage: !type:Container
+  # Begin DeltaV Additions - Added Radial Menu to Light Replacers
+  - type: UserInterface
+    interfaces:
+      enum.LightReplacerUiKey.Key:
+        type: LightReplacerMenuBoundUserInterface
+  # Begin DeltaV Additions - Added Radial Menu to Light Replacers
 
 - type: entity
   parent: LightReplacer
