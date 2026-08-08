@@ -6,3 +6,6 @@ reagent-desc-nectar = A drink from the gods of old, a rare delicacy amongst the 
 
 reagent-name-ambrosia = ambrosia
 reagent-desc-ambrosia = A food from the gods of old, a rare delicacy amongst the spiritual. It temporarily strengthens the body, gifting speed and stamina, while quenching it's hunger.
+
+reagent-name-xenonid-blood = acidic blood
+reagent-desc-xenonid-blood = A highly acidic blood sample. How does anything survive having this inside?

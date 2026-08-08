@@ -55,23 +55,30 @@
     message: psionic-power-precognition-xeno-vents-result-message
   - type: VentCrittersRule
     table: !type:GroupSelector
+      playerRatio: 30
       children:
       - id: MobXenoPlayer
         weight: 0.20
-      - id: MobXenoRouny
-        weight: 0.01
       - id: MobXenoDrone
         weight: 0.35
-      - id: MobXenoSpitter
-        weight: 0.14
       - id: MobXenoRunner
-        weight: 0.14
+        weight: 0.11
+      - id: MobXenoSpitter
+        weight: 0.11
+      - id: MobXenoLurker
+        weight: 0.11
       - id: MobXenoPraetorian
-        weight: 0.08
+        weight: 0.04
       - id: MobXenoRavager
-        weight: 0.05
+        weight: 0.02
+      - id: MobXenoCrusher
+        weight: 0.02
+      - id: MobXenoBoiler
+        weight: 0.02
       - id: MobXenoQueen
-        weight: 0.03
+        weight: 0.01
+      - id: MobXenoRouny
+        weight: 0.01
 # Mothroaches
 - type: entity
   parent: BaseGameRule
