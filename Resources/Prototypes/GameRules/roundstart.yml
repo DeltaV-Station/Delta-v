@@ -251,7 +251,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 9 # DeltaV - More objectives
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
@@ -270,8 +270,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 10 # DeltaV - raised from 8
-      playerRatio: 9 # DeltaV - lowered from 10
+      max: 8
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
