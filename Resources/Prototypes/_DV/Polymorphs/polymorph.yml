@@ -7,3 +7,13 @@
     transferDamage: true
     revertOnCrit: true
     revertOnDeath: true
+
+- type: polymorph
+  id: GnomeMorph
+  configuration:
+    entity: GnomeJaunt
+    cooldown: 20
+    forced: true
+    duration: 2
+    polymorphSound: /Audio/_DV/Voice/Gnome/gnomelaugh.ogg
+    inventory: Drop # drop items in hands when jaunting
