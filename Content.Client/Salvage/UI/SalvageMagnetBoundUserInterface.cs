@@ -6,6 +6,8 @@ using Content.Shared.Salvage.Magnet;
 using Robust.Client.Player; // DeltaV
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Content.Shared._DV.Salvage.Magnet; //DeltaV
+using Content.Client._DV.Salvage.UI; //DeltaV
 
 namespace Content.Client.Salvage.UI;
 
@@ -16,7 +18,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 
     private readonly MiningPointsSystem _points; // DeltaV
 
-    private OfferingWindow? _window;
+    private MagnetOfferingWindow? _window; //DeltaV - use MagnetOfferingWindow rather than base OfferingWindow
 
     public SalvageMagnetBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -28,7 +30,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindowCenteredLeft<OfferingWindow>();
+        _window = this.CreateWindowCenteredLeft<MagnetOfferingWindow>(); //DeltaV - use MagnetOfferingWindow rather than OfferingWindow
         _window.Title = Loc.GetString("salvage-magnet-window-title");
     }
 
@@ -48,6 +50,15 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
         _window.Cooldown = current.Cooldown;
         _window.ProgressionCooldown = current.Duration;
 
+        // BEGIN DeltaV - start of magnet release additions
+        _window.ReleaseTime = current.ReleaseTime;
+        _window.Duration = current.Duration;
+        _window.SetButtonPressed(_ =>
+        {
+            SendMessage(new MagnetReleaseEvent());
+        });
+        // END DeltaV
+
         for (var i = 0; i < current.Offers.Count; i++)
         {
             var seed = current.Offers[i];
@@ -66,21 +77,6 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                 });
             };
 
-            // Begin DeltaV Additions: Mining points cost for wrecks
-            if (offer.Cost > 0)
-            {
-                if (_player.LocalSession?.AttachedEntity is not {} user || !_points.UserHasPoints(user, offer.Cost))
-                    option.Disabled = true;
-
-                var label = new Label
-                {
-                    Text = Loc.GetString("salvage-magnet-mining-points-cost", ("points", offer.Cost)),
-                    HorizontalAlignment = Control.HAlignment.Center
-                };
-                option.AddContent(label);
-            }
-            // End DeltaV Additions
-
             switch (offer)
             {
                 case AsteroidOffering asteroid:
@@ -90,7 +86,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 
                     foreach (var resource in layerKeys)
                     {
-                        var count = asteroid.MarkerLayers[resource];
+                        var count = asteroid.MarkerLayers[resource] * 2; //DeltaV - Double count to reflect higher concentration of ore in generator
 
                         var container = new BoxContainer
                         {
@@ -121,8 +117,70 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                     break;
                 case DebrisOffering debris:
                     option.Title = Loc.GetString($"salvage-magnet-debris-{debris.Id}");
+                    //START DeltaV - Add dynamic debris loot
+                    int scrapCount = 0;
+                    int valuablesCount = 0;
+                    int arcanaCount = 0;
+
+                    switch (debris.LootId)
+                    {
+                        case "SpaceDebrisLootRegular":
+                            scrapCount = 2;
+                            valuablesCount = 2;
+                            arcanaCount = 2;
+                            break;
+                        case "SpaceDebrisLootScrap":
+                            scrapCount = 4;
+                            valuablesCount = 1;
+                            arcanaCount = 1;
+                            break;
+                        case "SpaceDebrisLootValuables":
+                            scrapCount = 1;
+                            valuablesCount = 4;
+                            arcanaCount = 1;
+                            break;
+                        case "SpaceDebrisLootArcana":
+                            scrapCount = 1;
+                            valuablesCount = 1;
+                            arcanaCount = 4;
+                            break;
+                    }
+
+                    AddDebrisLootContent("LootScrap", scrapCount);
+                    AddDebrisLootContent("LootValuables", valuablesCount);
+                    AddDebrisLootContent("LootArcana", arcanaCount);
+
+                    void AddDebrisLootContent(string debrisLoot, int count)
+                    {
+                        var debrisContainer = new BoxContainer
+                        {
+                            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                            HorizontalExpand = true,
+                        };
+
+                        var debrisResourceLabel = new Label
+                        {
+                            Text = Loc.GetString("salvage-magnet-debris-loot",
+                                ("loot", debrisLoot)),
+                            HorizontalAlignment = Control.HAlignment.Left,
+                        };
+
+                        var debrisCountLabel = new Label
+                        {
+                            Text = Loc.GetString("salvage-magnet-resources-count", ("count", count)),
+                            HorizontalAlignment = Control.HAlignment.Right,
+                            HorizontalExpand = true,
+                        };
+
+                        debrisContainer.AddChild(debrisResourceLabel);
+                        debrisContainer.AddChild(debrisCountLabel);
+
+                        option.AddContent(debrisContainer);
+                    }
+                    //END DeltaV
                     break;
-                case SalvageOffering salvage:
+
+                /* case SalvageOffering salvage: // BEGIN DeltaV - we no longer use Salvage wrecks, instead incorporating them into magnet pulls
                     option.Title = Loc.GetString($"salvage-map-wreck");
 
                     var salvContainer = new BoxContainer
@@ -149,6 +207,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 
                     option.AddContent(salvContainer);
                     break;
+                END DeltaV  */
                 default:
                     throw new ArgumentOutOfRangeException();
             }
