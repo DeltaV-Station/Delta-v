@@ -10,6 +10,18 @@ cmd-getping-desc = Prints the specified player's current ping
 cmd-getping-help = getping <username>
 cmd-getping-err = Unable to find specified player
 
+cmd-freeze-desc = Freezes and mutes the specified player
+cmd-freeze-help = freeze <username> [username 2] [username 3] ...
+cmd-freeze-success = Froze and muted {$username}.
+cmd-freeze-err-already-frozen = {$username} is already frozen.
+
+cmd-unfreeze-desc = Unfreezes and unmutes the specified player
+cmd-unfreeze-help = unfreeze <username> [username 2] [username 3] ...
+cmd-unfreeze-success = Unfroze and unmuted {$username}.
+cmd-unfreeze-err-not-frozen = {$username} isn't frozen.
+
+freeze-cmds-err-not-found = Unable to find player {$username}.
+
 # UI
 ui-options-admin-player-tab-mark-ghosted = Mark ghosted players
 ui-options-admin-player-tab-mark-ghosted-tooltip = Ghosts will have a "(G)" added to their character names (e.g. "(G) Glip-Glub")
