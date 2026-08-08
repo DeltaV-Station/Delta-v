@@ -7,13 +7,14 @@
     - id: SyndicateArmsdealer
     - id: AsakimShuttle
     - id: HitmanShuttle
+    - id: RoboNeuroticist
 
 - type: entity
   parent: BaseUnknownShuttleRule
   id: SyndicateRecruiter
   components:
   - type: StationEvent
-    weight: 4
+    weight: 6
     minimumPlayers: 20
     maxOccurrences: 1
     duration: null
@@ -58,7 +59,7 @@
   id: SynthesisSpecialist
   components:
   - type: StationEvent
-    weight: 4
+    weight: 6
     minimumPlayers: 20
     maxOccurrences: 1
     duration: null
@@ -102,7 +103,7 @@
   id: SyndicateArmsdealer
   components:
   - type: StationEvent
-    weight: 2
+    weight: 6
     minimumPlayers: 25
     maxOccurrences: 1
     duration: null
@@ -147,7 +148,7 @@
   id: HitmanShuttle
   components:
   - type: StationEvent
-    weight: 2
+    weight: 6
     minimumPlayers: 25
     maxOccurrences: 1
     duration: null
