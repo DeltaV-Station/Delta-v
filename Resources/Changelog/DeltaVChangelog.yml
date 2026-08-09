@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: verybigman311
   changes:
-  - message: Wielding a guitar should no longer turn it invisible in your hands.
-    type: Fix
-  id: 2113
-  time: '2026-02-01T19:29:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5331
-- author: verybigman311
-  changes:
   - message: The Brigmed beret is now avaliable in the Corpsman loadout.
     type: Add
   id: 2114
@@ -4373,4 +4366,12 @@
   id: 2613
   time: '2026-08-07T23:24:54.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6399
+- author: ShepardToTheStars
+  changes:
+  - message: Polymorphing/jaunting while ventcrawling will no longer break movement
+      for the polymorphed/jaunting player.
+    type: Fix
+  id: 2614
+  time: '2026-08-09T16:57:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6400
 Order: 1
