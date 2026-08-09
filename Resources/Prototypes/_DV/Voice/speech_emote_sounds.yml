@@ -740,6 +740,38 @@
       collection: FelinidMews
 
 - type: emoteSounds
+  id: GnomeSounds
+  params:
+    variation: 0.08
+  sounds:
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+    Blink:
+      collection: Blinks
+    Scream:
+      path: /Audio/_DV/Voice/Gnome/gnomescream.ogg
+    Laugh:
+      path: /Audio/_DV/Voice/Gnome/gnomelaugh.ogg
+    Sigh:
+      collection: MaleSigh
+      params:
+        variation: 0.125
+    Snore:
+      collection: Snores
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    DefaultDeathgasp:
+      path: /Audio/_DV/Voice/Gnome/gnomedeath.ogg
+
+- type: emoteSounds
   id: MonkeySounds
   sounds:
     Clap:

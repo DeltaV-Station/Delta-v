@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: GnomeSpawn
     - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
@@ -423,7 +424,6 @@
         implants:
         - HitmanCardImplant
 
-
 # nt agent sleeper event
 - type: entity
   id: NTAgentSleeper
@@ -463,6 +463,35 @@
         implants:
         - RadioImplantCentcomm
         - NanolinkSubImplant
+
+# Gnomes
+- type: entity
+  parent: BaseMidRoundAntag
+  id: GnomeSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 5
+    weight: 2
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-gnome-spawn-result-message
+  - type: AntagSpawner
+    prototype: MobGnome
+  - type: AntagSelection
+    agentName: gnome-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGnome
+      min: 1
+      max: 2
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      components:
+        - type: EmitSoundOnSpawn
+          sound: /Audio/Effects/bodyfall3.ogg
+        - type: SpawnOnTrigger
+          proto: EffectFlashBluespace
 
 # NT Pest Control via Pitbulls
 - type: entity
