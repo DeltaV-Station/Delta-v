@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Uristia Mc-Hands
+  name: Uristia McShorty
   parent:
   - AppearanceAllulalo
   - BaseSpeciesMobOrganic
@@ -119,103 +119,6 @@
   - type: Carriable # Delta V - grips the bird
     freeHandsRequired: 1
 
-# Begin Delta V Removals - Nubody
-#  - type: HumanoidAppearance
-#    species: Allulalo
-#    hideLayersOnEquip:
-#    - Hair
-#    - Snout
-#    - HeadTop
-#    - HeadSide
-#    - LLeg
-#    - RLeg
-#    - LFoot
-#    - RFoot
-
-#- type: entity
-#  parent: BaseSpeciesDummy
-#  id: MobAllulaloDummy
-#  categories: [ HideSpawnMenu ]
-#  components:
-#  - type: Sprite
-#    scale: 1, 1
-#  - type: Inventory
-#    speciesId: allulalo
-#    templateId: allulalo
-#    displacements:
-#      jumpsuit:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: jumpsuit
-#      head:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: head
-#      eyes:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: glasses
-#      ears:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: ears
-#      mask:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: mask
-#      neck:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: neck
-#      outerClothing:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: outerClothing
-#      gloves:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: hands
-#      shoes:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: feet
-#      belt:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: belt
-#      back:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: back
-#      suitstorage:
-#        sizeMaps:
-#          32:
-#            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi
-#            state: suitstorage
-#  - type: Hands
-#    leftHandDisplacement:
-#      sizeMaps:
-#        32:
-#          sprite: Mobs/Species/Vox/displacement.rsi
-#          state: hand_l
-#    rightHandDisplacement:
-#      sizeMaps:
-#        32:
-#          sprite: Mobs/Species/Vox/displacement.rsi
-#          state: hand_r
-# End Delta V Removals
-
 # Begin Delta V addition - Nubody
 - type: entity
   parent: BaseSpeciesAppearance
@@ -319,6 +222,14 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Allulalo
+  # BEGIN DeltaV
+  # Allulalo are weird because they are small yet base scale 1.0 BUT since the height system uses
+  # base scale to determine the metric/imperial height values, so we're just correcting the scale
+  # because Allulalo have to be the special kid on the block.
+  - type: ScaleVisuals
+    scale: 2.0, 2.0 
+    originalScale: 2.0, 2.0
+  # END DeltaV
 
 - type: entity
   parent: OrganBase

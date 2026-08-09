@@ -84,6 +84,7 @@
   parent: LockerJustice
   id: LockerJusticeDetective # TODO - Resprite
   name: detective's locker
+  suffix: Justice
   components:
   - type: AccessReader
     access: [["Detective"]]
@@ -92,6 +93,7 @@
   parent: LockerJustice
   id: LockerJusticeWarden # TODO - Resprite
   name: warden's locker
+  suffix: Justice Warden
   components:
   - type: AccessReader
     access: [["JusticeWarden"]]
@@ -407,6 +409,77 @@
   components:
   - type: AccessReader
     access: [["Armory"]]
+
+- type: entity
+  parent: SecurityGunSafeNonlethalDV
+  id: JusticeGunSafeNonlethalDV
+  suffix: Justice variant
+  #components:
+  #- type: Sprite # TODO: Resprite to justice colors.
+  #  sprite: _DV/Structures/Storage/Closets/nonlethalsafe.rsi
+  #  noRot: true
+
+- type: entity
+  parent: JusticeGunSafeNonlethalDV
+  id: JusticeGunSafeNonlethalSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+
+- type: entity
+  parent: SecurityGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeNonlethalHandgunDV
+  suffix: Justice variant
+  #components:
+  #- type: Sprite # TODO: Resprite to justice colors.
+  #  sprite: _DV/Structures/Storage/Closets/disablersafe.rsi
+  #  noRot: true
+
+- type: entity
+  parent: SecurityGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeNonlethalHandgunSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+
+- type: entity
+  parent: SecurityGunSafeNonlethalDV
+  id: JusticeGunSafeNonLethalShotgunDV
+  name: non-lethal shotgun safe
+  suffix: Justice variant
+  components:
+  #- type: Sprite # TODO: Resprite to justice colors.
+  #  sprite: _DV/Structures/Storage/Closets/nonlethalsafe.rsi
+  #  noRot: true
+  - type: EntityStorageVisuals
+    stateDoorClosed: shotgun
+
+- type: entity
+  parent: JusticeGunSafeNonLethalShotgunDV
+  id: JusticeGunSafeNonLethalShotgunSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+
+- type: entity
+  parent: JusticeGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeDisablerDV
+  name: disabler safe
+  suffix: Justice variant
+  components:
+  - type: EntityStorageVisuals
+    stateDoorClosed: disabler
+
+- type: entity
+  parent: JusticeGunSafeDisablerDV
+  id: JusticeGunSafeDisablerSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
 
 # Evac pod
 - type: entity
