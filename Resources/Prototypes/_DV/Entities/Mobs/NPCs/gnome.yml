@@ -70,7 +70,7 @@
         - SmallMobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
-    baseSprintSpeed: 4
+    baseSprintSpeed: 5
   - type: NpcFactionMember
     factions:
     - SimpleHostile # cats and dogs hate gnomes
@@ -140,6 +140,11 @@
     spawned:
     - id: Ash
     - id: ClothingHeadHatGnome
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Nothing
+        Quantity: 60
   - type: Tag
     tags:
     - FootstepSound
