@@ -1,8 +1,8 @@
 using Content.Shared._DV.Psionics.Events; // DeltaV - Psionics Refactor
 using Content.Shared.Body.Events;
 using Content.Shared.Damage.Events;
-using Content.Shared.Mobs.Events;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
