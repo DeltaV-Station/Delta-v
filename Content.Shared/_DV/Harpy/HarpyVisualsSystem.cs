@@ -9,7 +9,6 @@ namespace Content.Shared._DV.Harpy;
 public sealed class HarpyVisualsSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     private readonly ProtoId<TagPrototype> HarpyWingsTag = "HidesHarpyWings";
 
