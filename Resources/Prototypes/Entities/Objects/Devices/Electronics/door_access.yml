@@ -231,18 +231,18 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSecurityLawyer
-  suffix: Security/Justice, Locked #DV - Allow all justice dept to use
+  suffix: Security/Justice, Locked # DeltaV - Allow all justice dept to use
   components:
   - type: AccessReader
-    access: [["Security"], ["Justice"]] #DV - Allow all justice dept to use
+    access: [["Security"], ["Justice"]] # DeltaV - Allow all justice dept to use
 
-#- type: entity
-#  parent: DoorElectronics
-#  id: DoorElectronicsBrig
-#  suffix: Brig, Locked
-#  components:
-#  - type: AccessReader
-#    access: [["Brig"]]
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBrig
+  suffix: Brig, Locked
+  components:
+  - type: AccessReader
+    access: [["Brig"]]
 
 # Medical
 - type: entity

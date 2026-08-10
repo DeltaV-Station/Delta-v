@@ -8,15 +8,15 @@
     - id: NoosphericSilence
     - id: MassMindSwap
     - id: GlimmerWispSpawn
-    - id: FreeProber
+    - id: GlimmerSpawnProber
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
     - id: GlimmerRandomSentience
     - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
-    #- id: LockProbers
+    - id: GlimmerLockProbers
     - id: PsionicNosebleedEvent
-    - id: MinorMassMindSwap # Delta V
+    - id: MinorMassMindSwap
     - id: GlimmerFoxfireSpawn
     - id: GlimmerRestyle
 
@@ -121,7 +121,7 @@
 
 - type: entity
   parent: BaseGlimmerSignaturesEvent
-  id: FreeProber
+  id: GlimmerSpawnProber
   components:
   - type: FreeProberRule
 
@@ -184,13 +184,13 @@
     glimmerBurnUpper: 70
   - type: ThavenMoodUpsetRule
 
-#- type: entity
-#  parent: BaseGlimmerEvent
-#  id: LockProbers
-#  components:
-#  - type: GlimmerEvent
-#    minimumGlimmer: 500
-#  - type: LockProbersRule
+- type: entity
+  parent: BaseGlimmerEvent
+  id: GlimmerLockProbers
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 750
+  - type: LockProbersRule
 
 - type: entity
   parent: BaseGlimmerEvent
