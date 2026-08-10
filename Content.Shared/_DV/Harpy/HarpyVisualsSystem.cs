@@ -1,3 +1,4 @@
+using Content.Shared.Body;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Humanoid;
@@ -24,8 +25,13 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _appearanceSystem.SetData(uid, HumanoidVisualLayers.RArmExtension, false); // Frontier: RArm<RArmExtension
-            _appearanceSystem.SetData(uid, HumanoidVisualLayers.Tail, false);
+            // Delta V - Begin make this system work with Nubody
+            var evWing = new HumanoidLayerVisibilityChangedEvent(HumanoidVisualLayers.RArmExtension, false);
+            var evTail = new HumanoidLayerVisibilityChangedEvent(HumanoidVisualLayers.Tail, false);
+
+            RaiseLocalEvent(uid, ref evWing);
+            RaiseLocalEvent(uid, ref evTail);
+            // Delta V - End
         }
     }
 
@@ -33,8 +39,13 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _appearanceSystem.SetData(uid, HumanoidVisualLayers.RArmExtension, true); // Frontier: RArm<RArmExtension
-            _appearanceSystem.SetData(uid, HumanoidVisualLayers.Tail, true);
+            // Delta V - Begin make this system work with Nubody
+            var evWing = new HumanoidLayerVisibilityChangedEvent(HumanoidVisualLayers.RArmExtension, true);
+            var evTail = new HumanoidLayerVisibilityChangedEvent(HumanoidVisualLayers.Tail, true);
+
+            RaiseLocalEvent(uid, ref evWing);
+            RaiseLocalEvent(uid, ref evTail);
+            // Delta V - End
         }
     }
 }

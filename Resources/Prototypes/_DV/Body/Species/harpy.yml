@@ -200,6 +200,10 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganHarpyExternal ]
   id: OrganHarpyTorso
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Tail
 
 - type: entity
   parent: [ OrganHarpyTorso ]
@@ -238,6 +242,9 @@
   id: OrganHarpyArmRight
   components:
   - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.RArm
+    - enum.HumanoidVisualLayers.RArmExtension
     markingData:
       layers:
       - RArmExtension
