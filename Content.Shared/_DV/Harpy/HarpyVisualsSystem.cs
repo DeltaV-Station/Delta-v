@@ -16,8 +16,9 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HarpySingerComponent, DidEquipEvent>(OnDidEquipEvent);
-        SubscribeLocalEvent<HarpySingerComponent, DidUnequipEvent>(OnDidUnequipEvent);
+        // Delta V - Commented out since the layer system works differently.
+        // SubscribeLocalEvent<HarpySingerComponent, DidEquipEvent>(OnDidEquipEvent);
+        // SubscribeLocalEvent<HarpySingerComponent, DidUnequipEvent>(OnDidUnequipEvent);
     }
 
     private void OnDidEquipEvent(EntityUid uid, HarpySingerComponent component, DidEquipEvent args)
