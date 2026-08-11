@@ -7,6 +7,7 @@
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Handheld
+    toggleOnInteract: true # DeltaV - Only microphone toggles by primary interation
   - type: RadioSpeaker
     channels:
     - Handheld
