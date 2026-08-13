@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: verybigman311
-  changes:
-  - message: Feroxi can now waggy their tails.
-    type: Add
-  id: 2119
-  time: '2026-02-02T17:56:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5319
 - author: Pharaz4
   changes:
   - message: Fixed harpy suits not displaying on some clothing.
@@ -4379,4 +4372,19 @@
   id: 2619
   time: '2026-08-12T17:34:12.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6390
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed some visitor shuttles (e.g. Asakim, Interdyne Chemists, Syndie
+      Recruiter, etc) not spawning.
+    type: Fix
+  - message: There should roughly be 1.5x as many random shuttle events per round.
+    type: Tweak
+  - message: Slightly increased the chances of Asakim, LoneOp and SRN events to happen.
+    type: Tweak
+  - message: Asakim and Hitman shuttles are now more likely to appear during survival
+      rounds.
+    type: Tweak
+  id: 2620
+  time: '2026-08-13T01:17:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6401
 Order: 1
