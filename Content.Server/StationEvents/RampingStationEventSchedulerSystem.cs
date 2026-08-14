@@ -128,7 +128,6 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         var ruleTime = _timing.CurTime.Subtract(ruleActivated);
 
 #if DEBUG
-        // Too lazy to localize these since they are only for local debugging
         _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-round-time", ("time", _gameTicker.RoundDuration())));
         _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-ramping-time", ("time", ruleActivated)));
         // This will be what the keypoint system looks at to determine where to start ramping
