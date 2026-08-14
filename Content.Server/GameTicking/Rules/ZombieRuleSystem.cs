@@ -115,15 +115,11 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     /// </summary>
     private void CheckRoundEnd(ZombieRuleComponent zombieRuleComponent)
     {
-
-
         var healthy = GetHealthyHumans();
         if (healthy.Count == 1) // Only one human left. spooky
             _popup.PopupEntity(Loc.GetString("zombie-alone"), healthy[0], healthy[0]);
 
         // BEGIN DeltaV - Change mode to survival if zombies die
-
-
         if (zombieRuleComponent.IsRoundStartZombies)
         {
             // Zombies have failed to launch and the mode has been switched to survival
