@@ -441,7 +441,7 @@
       min: 600
       max: 900
   - type: ZombieRule
-    isRoundStartZombies: true # DeltaV - concert to survival if they all die
+    isRoundStartZombies: true # DeltaV - convert to survival if they all die
   - type: DelayedRule # DeltaV: Grace period of 5 minutes before you can turn, to avoid a random passenger ruining your plan
     delay: 300
     delayedComponents:

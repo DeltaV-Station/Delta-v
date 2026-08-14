@@ -528,9 +528,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         }
 
         var operativesAlive = operatives
-            .Any(op => op.Comp2.CurrentState == MobState.Alive
-                && op.Comp1.Running
-                && !TryComp<CuffableComponent>(op, out _)); // in the case the crew keeps one alive
+            .Any(op => op.Comp1.Running
+                && op.Comp2.CurrentState == MobState.Alive
+                && TryComp<CuffableComponent>(op, out var cuffable) && cuffable.CuffedHandCount == 0); // in the case the crew keeps one alive
         // END DeltaV
 
         if (operativesAlive)

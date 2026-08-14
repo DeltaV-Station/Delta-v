@@ -33,7 +33,7 @@ public sealed partial class GameTicker
     public bool ConvertRoundToSurvival()
     {
         // Ramping scheduler is already added. Do nothing.
-        if (IsGameRuleActive(RampingSchedulerProto))
+        if (IsGameRuleAdded(RampingSchedulerProto))
         {
             _chatManager.SendAdminAlert("RampingStationEventScheduler detected. No rules added.");
             return true;
