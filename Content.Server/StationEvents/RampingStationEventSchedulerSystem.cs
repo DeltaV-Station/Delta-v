@@ -45,14 +45,14 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         component.StartingChaos = component.MaxChaos / 10;
         */
 
-        component.RuleActivatedAt = _timing.CurTime; // DeltaV
         PickNextEventTime(uid, component);
 
         // Begin DeltaV Additions: init NextEventComp
         if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
             && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
         {
-            _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
+            var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent);
+            _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
             _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
         }
         // End DeltaV Additions: init NextEventComp
@@ -85,7 +85,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
                 if (_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                     continue;
 
-                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)scheduler.TimeUntilNextEvent)));
+                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
                 // Cycle the stashed event with the new generated event and time.
                 string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                 if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
@@ -118,21 +118,23 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         var timeUntilNextEventDeviation = _random.NextFloat(-1f, 1f) * component.TimeDeviation;
 
         var ruleActivated = TimeSpan.FromSeconds(0);
-        if (component.RuleActivatedAt is { } activationTime)
+        if (TryComp<GameRuleComponent>(uid, out var gameRule))
         {
-            ruleActivated = activationTime;
+            ruleActivated = gameRule.ActivatedAt;
         }
 
         var ruleTime = _timing.CurTime.Subtract(ruleActivated);
 
-        var absoluteTimePoint = 0f;
 #if DEBUG
-        _chatManager.SendAdminAlert($"Round Time @ {_gameTicker.RoundDuration()}");
-        _chatManager.SendAdminAlert($"Ramping rule Added @ {ruleActivated}");
+        // Too lazy to localize these since they are only for local debugging
+        _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-round-time", ("time", _gameTicker.RoundDuration())));
+        _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-ramping-time", ("time", ruleActivated)));
         // This will be what the keypoint system looks at to determine where to start ramping
-        _chatManager.SendAdminAlert($"Keypoint Time: {ruleTime}");
+        _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-keypoint-time", ("time", ruleTime)));
+        _chatManager.SendAdminAlert("_______________"); // Easier to read
 #endif
 
+        var absoluteTimePoint = 0f;
         foreach (var point in component.TimeKeyPoints)
         {
             absoluteTimePoint += point.X;
