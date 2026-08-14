@@ -456,6 +456,7 @@
   id: SpawnPointWarden
   parent: SpawnPointJobBase
   name: warden
+  suffix: Security # DeltaV
   components:
   - type: SpawnPoint
     job_id: Warden
