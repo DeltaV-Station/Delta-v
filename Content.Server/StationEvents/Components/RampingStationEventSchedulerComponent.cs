@@ -42,6 +42,12 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     };
 
     /// <summary>
+    /// DeltaV - The time this ramping scheduler was activated at. Used to calculate the
+    /// round time for TimeKeyPoints.
+    /// </summary>
+    public TimeSpan? RuleActivatedAt;
+
+    /// <summary>
     ///     DeltaV - Maximum possible error when randomly offsetting time until next event.
     /// </summary>
     [DataField]
