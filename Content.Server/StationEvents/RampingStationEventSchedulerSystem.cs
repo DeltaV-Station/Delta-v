@@ -14,7 +14,9 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     [Dependency] private readonly IChatManager _chatManager = default!; // DeltaV
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
+#if DEBUG // DeltaV - Only used if built by Debug
     [Dependency] private readonly GameTicker _gameTicker = default!;
+#endif
     [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
     [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
  
