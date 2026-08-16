@@ -41,6 +41,7 @@ namespace Content.Server.StationEvents
             if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
                 && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
             {
+                var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent);
                 _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
                 _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
             }
