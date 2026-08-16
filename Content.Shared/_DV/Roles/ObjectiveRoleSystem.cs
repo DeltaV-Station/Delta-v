@@ -15,7 +15,7 @@ public sealed class ObjectiveRoleSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ObjectiveRoleComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoMind);
-        SubscribeLocalEvent<ObjectiveRoleComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ObjectiveRoleComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromMind);
     }
 
     private void OnInsertedIntoMind(Entity<ObjectiveRoleComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -32,18 +32,17 @@ public sealed class ObjectiveRoleSystem : EntitySystem
         }
     }
 
-    private void OnShutdown(Entity<ObjectiveRoleComponent> ent, ref ComponentShutdown args)
+    private void OnRemovedFromMind(Entity<ObjectiveRoleComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         if (_net.IsClient)
             return;
 
-        if (!_container.TryGetContainingContainer(ent.Owner, out var container) ||
-            !TryComp<MindComponent>(container.Owner, out var mind))
+        if (!TryComp<MindComponent>(args.Container.Owner, out var mind))
             return;
 
         var indices = new List<int>();
 
-        for (var i = mind.Objectives.Count; i >= 0; i--)
+        for (var i = mind.Objectives.Count-1; i >= 0; i--)
         {
             var objective = mind.Objectives[i];
             if (MetaData(objective).EntityPrototype?.ID is { } id && ent.Comp.Objectives.Contains(id))
@@ -54,7 +53,7 @@ public sealed class ObjectiveRoleSystem : EntitySystem
 
         foreach (var index in indices)
         {
-            _mind.TryRemoveObjective(container.Owner, mind, index);
+            _mind.TryRemoveObjective(args.Container.Owner, mind, index);
         }
     }
 }
