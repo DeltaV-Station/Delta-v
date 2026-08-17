@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: keekee38
-  changes:
-  - message: added a new cryogenics chemical, photoxadone, that heals both holy and
-      shadow damage. it even works on the dead!
-    type: Add
-  - message: added purifying salt to the med vend, as well as a recipe in the techfab.
-    type: Tweak
-  id: 2125
-  time: '2026-02-24T05:05:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5276
 - author: IAmNotGray
   changes:
   - message: The maximum record length has been increased from 4096 to 8192. Remember
@@ -4384,4 +4374,27 @@
   id: 2625
   time: '2026-08-17T17:38:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6422
+- author: ShepardToTheStars
+  changes:
+  - message: Traitors now have an average of 4 objectives, up from 2.
+    type: Tweak
+  - message: The max number of traitors per Traitor shift has been reduced slightly,
+      from 10 to 8.
+    type: Tweak
+  - message: Added the Logistic Officer's Golden Knuckledusters as a traitor objective.
+    type: Add
+  - message: Added a new steal objective to the CMO, the sensitive medical documents.
+    type: Add
+  - message: Traitors with DAGD can now roll steal objectives, otherwise they end
+      up rolling all killing objectives.
+    type: Tweak
+  - message: The syndicate surplus and the super surplus crates have had their costs
+      adjusted to 30 and 60 TC respectively.
+    type: Tweak
+  - message: The syndicate surplus and the super surplus crates have had the number
+      of items increased to account for the increased cost.
+    type: Tweak
+  id: 2626
+  time: '2026-08-17T19:14:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6389
 Order: 1
