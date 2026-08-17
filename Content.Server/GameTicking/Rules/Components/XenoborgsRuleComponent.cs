@@ -45,7 +45,6 @@ public sealed partial class XenoborgsRuleComponent : Component
     [DataField]
     public bool XenoborgShuttleCalled = false;
 
-
     /// <summary>
     /// DeltaV - The behavior of the round if the mothership core is deleted.
     /// </summary>
