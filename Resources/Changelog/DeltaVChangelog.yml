@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: IAmNotGray
-  changes:
-  - message: The maximum record length has been increased from 4096 to 8192. Remember
-      that these things exist?
-    type: Tweak
-  id: 2126
-  time: '2026-02-24T19:11:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5385
 - author: HameyTychol
   changes:
   - message: removed ability for limbs to be placed in trash bag and recycled
@@ -4397,4 +4389,22 @@
   id: 2626
   time: '2026-08-17T19:14:31.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6389
+- author: ShepardToTheStars
+  changes:
+  - message: The ramping scheduler will now look at when it was added to determine
+      event density, rather than overall round time. This will result in less events
+      and more time to recover after a major antag is defeated.
+    type: Tweak
+  - message: The Xenoborgs gamemode no longer has a ramping scheduler at round start.
+      Instead, it gets added when the mothership core dies (like other game modes).
+    type: Tweak
+  - message: Fixed a bug where the ramping scheduler would get added if a nukie died
+      on nukie planet.
+    type: Fix
+  - message: Fixed a bug where a ramping scheduler would get added if the crew defeated
+      midround zombies.
+    type: Fix
+  id: 2627
+  time: '2026-08-17T20:26:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6416
 Order: 1
