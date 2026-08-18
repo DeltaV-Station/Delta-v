@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: HameyTychol
-  changes:
-  - message: removed ability for limbs to be placed in trash bag and recycled
-    type: Fix
-  id: 2127
-  time: '2026-02-24T19:11:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5416
 - author: rebe83
   changes:
   - message: Skias can now emote. Harvest souls with some flavor. and spin.
@@ -4407,4 +4400,15 @@
   id: 2627
   time: '2026-08-17T20:26:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6416
+- author: rebe83
+  changes:
+  - message: Hristovs are now bulkier and require use of a bipod to aim properly,
+      but fire slightly faster when aimed.
+    type: Tweak
+  - message: .60 antimateriel bullets now pierce up to 3 regular walls, windows, and
+      airlocks. To shreds you say?
+    type: Tweak
+  id: 2628
+  time: '2026-08-18T16:39:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5905
 Order: 1
