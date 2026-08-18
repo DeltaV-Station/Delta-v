@@ -245,12 +245,13 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
+    startingBalance: 30 # DeltaV - more TC for traitors
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 9 # DeltaV - More objectives
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
@@ -269,8 +270,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 12 # DeltaV - raised from 8
-      playerRatio: 8 # DeltaV - lowered from 10
+      max: 8
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -440,6 +441,7 @@
       min: 600
       max: 900
   - type: ZombieRule
+    isRoundStartZombies: true # DeltaV - convert to survival if they all die
   - type: DelayedRule # DeltaV: Grace period of 5 minutes before you can turn, to avoid a random passenger ruining your plan
     delay: 300
     delayedComponents:
@@ -622,9 +624,9 @@
     maximumSpanUntilFirstEvent: 900 # At longest takes an hour to show up.
     minMaxEventTiming:
       min: 1200 # 20 mins
-      max: 7200 # 120 mins # you probably arent getting a second visitor shuttle in one round, but it is possible.
+      max: 5400 # 120 mins # you probably arent getting a second visitor shuttle in one round, but it is possible. # DeltaV - was 7200, now 90min
     scheduledGameRules: !type:NestedSelector
-      prob: 0.05 # Only 1 in 20 rounds...
+      #prob: 0.05 # Only 1 in 20 rounds... # DeltaV - remove 1/20
       tableId: SpaceTrafficControlTable
 
 # variation passes

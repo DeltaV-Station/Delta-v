@@ -28,7 +28,7 @@
   - type: StealCondition
     verifyMapExistence: false
   - type: Objective
-    difficulty: 2.75
+    difficulty: 2.5 # DeltaV - Was 2.75
   - type: ObjectiveLimit
     limit: 2 # there is usually only 1 of each steal objective, have 2 max for drama
 
@@ -54,7 +54,7 @@
   description: Die.
   components:
   - type: Objective
-    difficulty: 0.5
+    difficulty: 0 # DeltaV - Was 0.5 but its not hard to die when you're trying to, esp with the implants
     icon:
       sprite: Mobs/Ghosts/ghost_human.rsi
       state: icon
@@ -62,7 +62,7 @@
     blacklist:
       components:
       - EscapeShuttleCondition
-      - StealCondition
+      #- StealCondition # DeltaV - Remove steal condition so DAGD can have more varied objectives. Its just kill otherwise.
   - type: DieCondition
   # BEGIN DelatV
   # The game turns into a massive suicide pact if enough of the traitors have it. Not fun for traitors or security!
@@ -97,7 +97,7 @@
   description: Do it however you like, just make sure they don't get off the station.
   components:
   - type: Objective
-    difficulty: 1.75
+    difficulty: 2.5 # DeltaV - Was 1.75
     unique: false
   - type: TargetObjective
     title: objective-condition-maroon-person-title
@@ -173,7 +173,7 @@
   description: Identify yourself at your own risk. We just need them to succeed.
   components:
   - type: Objective
-    difficulty: 2.5
+    difficulty: 2 # DeltaV - Not hard
   - type: TargetObjective
     title: objective-condition-other-traitor-progress-title
   - type: PickRandomPerson
