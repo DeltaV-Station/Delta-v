@@ -65,6 +65,11 @@
     revealTime: 10
   - type: CollisionWake
     enabled: false
+  - type: PointLight
+    radius: 3
+    energy: 4
+    softness: 5
+    color: "#f6adff"
 
 - type: entity
   parent: BaseSword
