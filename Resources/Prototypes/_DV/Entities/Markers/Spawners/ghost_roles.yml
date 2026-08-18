@@ -181,6 +181,19 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
+  id: SpawnPointGnome
+  name: gnome spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-gnome-name
+    description: ghost-role-information-gnome-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
   id: SpawnPointGhostHitman
   components:
   - type: GhostRole

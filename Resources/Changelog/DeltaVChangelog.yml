@@ -1,534 +1,4 @@
 ﻿Entries:
-- author: BunglesnortBoss
-  changes:
-  - message: Made AI Nanites a good option. Heals 50 HP with a shorter cooldown
-    type: Tweak
-  id: 2067
-  time: '2026-01-16T18:27:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5210
-- author: pootslap
-  changes:
-  - message: Carpy has acquired a fancy new pen and stamp and is ready to dispense
-      legal advice.
-    type: Tweak
-  - message: Removed the duplicate chaplain stamp from the listening post
-    type: Fix
-  id: 2068
-  time: '2026-01-16T18:29:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5169
-- author: cmorley191
-  changes:
-  - message: Harpies are now reliably more sensitive to pollutant gases than other
-      species. For example, 0.4% of CO2 will make harpies start gasping, while humans
-      are okay up to 1.1% CO2
-    type: Add
-  id: 2069
-  time: '2026-01-16T18:32:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5158
-- author: ShepardToTheStars
-  changes:
-  - message: Added CentComm Shipyard to order free ships with CentComm access.
-    type: Add
-  id: 2070
-  time: '2026-01-16T18:37:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5172
-- author: EmberAstra
-  changes:
-  - message: Made the Engineering Void Suit printable!
-    type: Tweak
-  id: 2071
-  time: '2026-01-16T18:41:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5222
-- author: cmorley191
-  changes:
-  - message: The Oracle will no longer request items that are "very" far away from
-      being researched.
-    type: Tweak
-  id: 2072
-  time: '2026-01-16T18:58:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4430
-- author: Proxysseia
-  changes:
-  - message: Prison Knives no longer spawn in Prison Lockers
-    type: Remove
-  id: 2073
-  time: '2026-01-16T18:59:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4934
-- author: Toby222
-  changes:
-  - message: Removed footprint prediction (for now)
-    type: Remove
-  id: 2074
-  time: '2026-01-16T19:07:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5224
-- author: Velcroboy
-  changes:
-  - message: Prisoners can find dull bread knives in the ChefVend.
-    type: Tweak
-  id: 2075
-  time: '2026-01-17T21:13:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5234
-- author: Halo3moth
-  changes:
-  - message: The T1 armored vest (slim) can now once again be picked in security loadouts.
-    type: Add
-  id: 2076
-  time: '2026-01-17T21:36:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5220
-- author: biddygelson
-  changes:
-  - message: 'Academy: added anti-meteor zones and anti-anomaly zone, AI restoration
-      console in Mystagogue, Robotics Console in robo, fishing hole added to park,
-      materials is cargo at roundstart.'
-    type: Add
-  - message: 'Academy: station starts with distro and waste enabled, spare atmos chambers
-      start as vacuums, split artifacts'' APCs for power management, botany has more
-      trays and is slightly larger, department-front holopads in the department.'
-    type: Tweak
-  id: 2077
-  time: '2026-01-18T01:54:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5130
-- author: DisposableCrewmember42
-  changes:
-  - message: You can no longer drink the deep fryer.
-    type: Fix
-  id: 2078
-  time: '2026-01-18T04:40:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5238
-- author: snowywinters
-  changes:
-  - message: Reinforced cameras can now be built! They have additional HP and are
-      more resistant to explosions and meteors.
-    type: Add
-  - message: The AI has its own section in the security cameras console.
-    type: Add
-  id: 2079
-  time: '2026-01-18T17:18:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5027
-- author: Dorragon
-  changes:
-  - message: Ready Manifest added to the lobby
-    type: Add
-  id: 2080
-  time: '2026-01-18T18:47:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5187
-- author: MilonPL
-  changes:
-  - message: Added a new traits system, supporting conditions and new effects. Make
-      sure to check out the Traits tab in the character editor!
-    type: Add
-  - message: All character traits have been reset.
-    type: Remove
-  id: 2081
-  time: '2026-01-20T11:49:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5208
-- author: pootslap
-  changes:
-  - message: You can now examine character descriptions from much further away.
-    type: Tweak
-  id: 2082
-  time: '2026-01-20T11:49:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5219
-- author: Eternally-Confused
-  changes:
-  - message: (TEST MERGE) Space pens now contain a chemical called Stabilizine instead
-      of Leporazine, which is better at stabilizing body temperature.
-    type: Tweak
-  - message: Avali no longer die from space pens.
-    type: Tweak
-  id: 2083
-  time: '2026-01-20T21:15:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5181
-- author: turtlemutt
-  changes:
-  - message: Added more names for ghost role spawns.
-    type: Add
-  id: 2084
-  time: '2026-01-21T05:17:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5254
-- author: Cepelinas1
-  changes:
-  - message: Logistics Officers can now use the shipyard to buy shuttles. No need
-      to beg Captain to buy it anymore!
-    type: Add
-  id: 2085
-  time: '2026-01-21T05:52:10.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5251
-- author: Colin-Tel
-  changes:
-  - message: Eked the Anglish tung tie. In other words, added a trait that lets you
-      talk like an Anglo Saxon with over 1,100 word replacements.
-    type: Add
-  id: 2086
-  time: '2026-01-21T09:37:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4092
-- author: ShepardToTheStars
-  changes:
-  - message: The ninja is now revealed with hit with attacks, projectiles, explosions,
-      and grenades that do damage.
-    type: Tweak
-  - message: The ninja is now revealed with hit with attacks, projectiles, explosions,
-      and grenades that do damage.
-    type: Fix
-  id: 2087
-  time: '2026-01-21T14:18:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5217
-- author: Toby222
-  changes:
-  - message: FTL times have been adjusted. Startup is shorter, travel is longer.
-    type: Tweak
-  - message: The FTL startup sound now lines up with the duration of startup again!!!
-    type: Fix
-  id: 2088
-  time: '2026-01-21T14:50:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5257
-- author: ShepardToTheStars, foxcumberland
-  changes:
-  - message: Added fashionable longcoats for command, security, and crew. Find them
-      in the loadouts for command, security, and passengers, or in the ClothesMate
-      on station!
-    type: Add
-  id: 2089
-  time: '2026-01-21T16:23:14.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5235
-- author: Apachito
-  changes:
-  - message: Made tide breaker actually craftable
-    type: Fix
-  id: 2090
-  time: '2026-01-21T16:28:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5239
-- author: ShepardToTheStars
-  changes:
-  - message: Certain painkillers are more long-lasting than others, based on how strong
-      they are.
-    type: Tweak
-  - message: Players with the chronic pain trait start with ~5 minutes of suppressed
-      pain before they start feeling the effects.
-    type: Tweak
-  - message: Fixed chronic pain's effects from pulsing continuously.
-    type: Fix
-  id: 2091
-  time: '2026-01-23T10:24:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5180
-- author: snowywinters
-  changes:
-  - message: Captain's armored winter coat a alternative to the carapace
-    type: Add
-  - message: Changed the defense of captain's EVA suit and carapace
-    type: Tweak
-  id: 2092
-  time: '2026-01-23T19:31:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5227
-- author: pootslap
-  changes:
-  - message: Listening Post Operatives only have the ability to hear binary comms
-      now. They can no longer talk on binary.
-    type: Tweak
-  id: 2093
-  time: '2026-01-23T19:35:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5243
-- author: MilonPL
-  changes:
-  - message: The traits points bar will now show up correctly.
-    type: Fix
-  id: 2094
-  time: '2026-01-24T20:55:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5275
-- author: MilonPL
-  changes:
-  - message: The uncloneable trait no longer prevents your character from getting
-      revived by defibrillators.
-    type: Fix
-  id: 2095
-  time: '2026-01-24T21:29:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5273
-- author: Halo3moth
-  changes:
-  - message: The energy magnums "magnum" rounds no longer pierce windows
-    type: Fix
-  id: 2096
-  time: '2026-01-25T13:48:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5270
-- author: Toby222
-  changes:
-  - message: Added buttons for build info and credits to the escape menu
-    type: Tweak
-  id: 2097
-  time: '2026-01-25T14:42:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5260
-- author: MilonPL
-  changes:
-  - message: Added the "Marked as Protected" trait which makes you immune to becoming
-      a target objective.
-    type: Add
-  id: 2098
-  time: '2026-01-25T16:30:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5274
-- author: AeraAuling
-  changes:
-  - message: Shadow damage no longer removes all your blood immediately
-    type: Tweak
-  id: 2099
-  time: '2026-01-25T16:31:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5268
-- author: ShepardToTheStars
-  changes:
-  - message: You can now toggle your hardsuit helmet on over your hat or beret!
-    type: Add
-  id: 2100
-  time: '2026-01-25T16:31:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5263
-- author: Pharaz4
-  changes:
-  - message: Bingus can no longer drink the **ENTIRE** keg.
-    type: Fix
-  - message: You can eat rice dishes with chopsticks now.
-    type: Add
-  - message: Fixed Smartfridge visuals always showing their wire panels open.
-    type: Fix
-  - message: Projectiles and Mr. Butlertion are now insulated against wizardry.
-    type: Fix
-  - message: Wording fix to initial infected's prompt. It now states that they can
-      explicitly kill people.
-    type: Fix
-  id: 2101
-  time: '2026-01-25T16:31:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5278
-- author: MantasDab360, whatston3, ShepardToTheStars
-  changes:
-  - message: Chemical Dispenser can now toggle between auto labeling!
-    type: Add
-  id: 2102
-  time: '2026-01-25T16:46:12.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5261
-- author: keekee38
-  changes:
-  - message: a new compact submachine gun for security should be shipping in soon!
-    type: Add
-  - message: added machine pistol magazines to the security techfab's recipes.
-    type: Tweak
-  - message: added rubber SMG mags to the security techfab.
-    type: Tweak
-  id: 2103
-  time: '2026-01-26T10:46:23.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5212
-- author: Halo3moth
-  changes:
-  - message: Security long coats have been resprited to be more in line with other
-      security gear. (we ran out of red dye)
-    type: Tweak
-  id: 2104
-  time: '2026-01-27T05:50:41.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5288
-- author: EmberAstra
-  changes:
-  - message: Plasteel can now be printed at the Engineering Techfab.
-    type: Add
-  id: 2105
-  time: '2026-01-27T16:05:20.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5284
-- author: Pharaz4
-  changes:
-  - message: Wizard has been disabled pending a balance update.
-    type: Remove
-  id: 2106
-  time: '2026-01-27T17:55:11.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5228
-- author: Toby222
-  changes:
-  - message: Prevented the plasteel market from crashing and burning.
-    type: Fix
-  id: 2107
-  time: '2026-01-27T18:58:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5298
-- author: BarryNorfolk
-  changes:
-  - message: Upstream's November updates are here!
-    type: Add
-  - message: Xenoborgs have arrived in DeltaV. Please report any foriegn borgs to
-      security!
-    type: Add
-  - message: APCs now trip when they are under high load.
-    type: Add
-  - message: Traitors can now find the iconic Mini Energy Crossbow in their uplink
-      for 5 TC.
-    type: Add
-  - message: Attorneys can find a new briefcase gun in their uplink.
-    type: Add
-  - message: Defibs will shock anyone interacting with the patient other than the
-      person using the defib.
-    type: Tweak
-  - message: Added mail cart.
-    type: Add
-  - message: Tourniquets can now fit in medical belts.
-    type: Tweak
-  - message: Make DAGD more likely but restrict it to 1 traitor per round.
-    type: Tweak
-  id: 2108
-  time: '2026-01-29T16:56:03.499291+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5087
-- author: Pharaz4
-  changes:
-  - message: Lizards now get hardsuit tails
-    type: Add
-  id: 2109
-  time: '2026-01-29T16:55:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5293
-- author: Pharaz4
-  changes:
-  - message: removed syndicate comms from refugees and guards
-    type: Remove
-  id: 2110
-  time: '2026-01-29T17:25:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5280
-- author: Toby222, PureBreadBagel
-  changes:
-  - message: Added the ability to see if a patient is uncloneable via the Health Analyzer!
-    type: Add
-  - message: Medical doctor and Cloning entries have been changed to reflect the new
-      uncloneable trait, as uncloneable and unrevivable are no longer the same.
-    type: Tweak
-  id: 2111
-  time: '2026-01-30T16:18:07.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5310
-- author: ShepardToTheStars
-  changes:
-  - message: The uncloneable alert in the health analyzer window only shows up when
-      its relevant (i.e. when the patient is dead).
-    type: Tweak
-  id: 2112
-  time: '2026-01-30T21:11:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5330
-- author: verybigman311
-  changes:
-  - message: Wielding a guitar should no longer turn it invisible in your hands.
-    type: Fix
-  id: 2113
-  time: '2026-02-01T19:29:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5331
-- author: verybigman311
-  changes:
-  - message: The Brigmed beret is now avaliable in the Corpsman loadout.
-    type: Add
-  id: 2114
-  time: '2026-02-01T19:30:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5333
-- author: keekee38
-  changes:
-  - message: modified the bandolier slightly, and added a recipe for it in the sec
-      techfab
-    type: Tweak
-  id: 2115
-  time: '2026-02-01T19:32:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5313
-- author: Pharaz4
-  changes:
-  - message: Changed the mapped enabled pumps from 310 to 300 kPa
-    type: Tweak
-  id: 2116
-  time: '2026-02-01T19:34:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5336
-- author: makyo
-  changes:
-  - message: Rodentia! Now your sneak action has an icon showing your sneak status.
-    type: Add
-  id: 2117
-  time: '2026-02-01T19:39:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5308
-- author: makyo
-  changes:
-  - message: Perma chefvends now get a few bowls!
-    type: Add
-  id: 2118
-  time: '2026-02-01T19:43:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5304
-- author: verybigman311
-  changes:
-  - message: Feroxi can now waggy their tails.
-    type: Add
-  id: 2119
-  time: '2026-02-02T17:56:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5319
-- author: Pharaz4
-  changes:
-  - message: Fixed harpy suits not displaying on some clothing.
-    type: Fix
-  - message: Added missing sprite for Lizards on multipe suits.
-    type: Add
-  - message: Removed upstream spawners from entity spawn panel.
-    type: Remove
-  id: 2120
-  time: '2026-02-05T20:04:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5325
-- author: Pharaz4
-  changes:
-  - message: Shoko improved!
-    type: Tweak
-  id: 2121
-  time: '2026-02-10T11:26:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5334
-- author: MantasDab360
-  changes:
-  - message: Gas condenser now uses 2kW instead of 10 kW!
-    type: Tweak
-  id: 2122
-  time: '2026-02-17T23:22:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5365
-- author: Pharaz4
-  changes:
-  - message: Fixed pew sprites!
-    type: Fix
-  id: 2123
-  time: '2026-02-20T23:13:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5375
-- author: Woljif
-  changes:
-  - message: Removed the slowdown penalty when wielding the Estoc DMR.
-    type: Tweak
-  id: 2124
-  time: '2026-02-24T04:26:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5242
-- author: keekee38
-  changes:
-  - message: added a new cryogenics chemical, photoxadone, that heals both holy and
-      shadow damage. it even works on the dead!
-    type: Add
-  - message: added purifying salt to the med vend, as well as a recipe in the techfab.
-    type: Tweak
-  id: 2125
-  time: '2026-02-24T05:05:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5276
-- author: IAmNotGray
-  changes:
-  - message: The maximum record length has been increased from 4096 to 8192. Remember
-      that these things exist?
-    type: Tweak
-  id: 2126
-  time: '2026-02-24T19:11:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5385
-- author: HameyTychol
-  changes:
-  - message: removed ability for limbs to be placed in trash bag and recycled
-    type: Fix
-  id: 2127
-  time: '2026-02-24T19:11:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5416
-- author: rebe83
-  changes:
-  - message: Skias can now emote. Harvest souls with some flavor. and spin.
-    type: Tweak
-  id: 2128
-  time: '2026-02-25T18:18:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5366
-- author: BarryNorfolk
-  changes:
-  - message: Shrapnel Landmines are once again actually dangerous and will murder
-      you.
-    type: Fix
-  id: 2129
-  time: '2026-02-25T18:19:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5379
 - author: Eternally-Confused
   changes:
   - message: Bluespace beakers and lead bottles can now only be obtained by emagging
@@ -4352,4 +3822,598 @@
   id: 2567
   time: '2026-07-16T20:24:27.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6283
+- author: ollyoaner
+  changes:
+  - message: Slime people upgrades! (Incl. ports from Impstation). Some slimeperson
+      characters might need their eye marking(s) fix due to them being eyeless by
+      default!
+    type: Add
+  id: 2568
+  time: '2026-07-17T03:50:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6288
+- author: Velitation
+  changes:
+  - message: Added 2 new hats, 3 new neck items, 1 new coat and, 1 pair of shoes to
+      the mime loadout.
+    type: Add
+  - message: Mimes can now select which shoes they start with.
+    type: Tweak
+  id: 2569
+  time: '2026-07-17T04:31:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6307
+- author: ArionGekkota
+  changes:
+  - message: 'Hitman: Added the ninja kit, for those who want a melee-oriented fight,
+      as well as its brand new medium-frequency blade!'
+    type: Add
+  - message: 'Hitman: Gave some extra goodies to the sharpshooter and poisoner kit.'
+    type: Tweak
+  - message: 'Hitman: Revamped the tracker kit to include way more tools to spy on
+      the crew.'
+    type: Tweak
+  - message: 'Hitman: Reworked the loud kit into the bounty hunter kit, now equipped
+      with a repeater and more cowboy attire'
+    type: Tweak
+  - message: 'Hitman: Merged the disguise and assassin kit into one kit, combining
+      stealth and the ability to blend in anywhere'
+    type: Tweak
+  - message: 'Hitman: Reworked the infiltrator kit into the saboteur kit, a kit more
+      focused on sabotage and setting up traps'
+    type: Tweak
+  - message: 'Hitman: Removed the escapist kit. The new ninja kit was given a scram
+      implant to compensate.'
+    type: Remove
+  id: 2570
+  time: '2026-07-17T04:40:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6270
+- author: SumofThreeParts
+  changes:
+  - message: Traitors are now less likely to have the escape to Midpoint objective.
+    type: Tweak
+  id: 2571
+  time: '2026-07-19T16:19:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6323
+- author: GooeyPancake
+  changes:
+  - message: Pills now have taste again! Sorry Lexorin-pilled people.
+    type: Add
+  id: 2572
+  time: '2026-07-19T16:38:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6299
+- author: BriBrooo
+  changes:
+  - message: Added new kimono and sandals loadout options for the chef.
+    type: Add
+  id: 2573
+  time: '2026-07-20T00:12:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6341
+- author: Eternally-Confused
+  changes:
+  - message: Cyborgs are once again able to "boop" and "whirr"
+    type: Add
+  id: 2574
+  time: '2026-07-20T00:24:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6310
+- author: kotobdev
+  changes:
+  - message: The Ardent Censer no longer requires fuel for deconversions.
+    type: Tweak
+  id: 2575
+  time: '2026-07-20T17:38:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5016
+- author: Halo3rat, kotobdev
+  changes:
+  - message: The Freighter Crew's Jumpsuit is now available in the AutoDrobe, for
+      those who value their dental hygiene.
+    type: Add
+  id: 2576
+  time: '2026-07-20T20:06:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6331
+- author: Mnemotechnician, kotobdev, ShepardToTheStars
+  changes:
+  - message: You can now offer items to other players by pressing F, and then clicking
+      on them! They can accept by clicking on the alert on the side of their screen.
+    type: Add
+  id: 2577
+  time: '2026-07-20T20:13:58.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5597
+- author: ShepardToTheStars
+  changes:
+  - message: Glimmer probers can once again turn on and lock into place when glimmer
+      is over 750.
+    type: Add
+  - message: Glimmer prober explosions are 1.5x bigger if glimmer is over 900. You
+      better build drainers! :)
+    type: Tweak
+  - message: The oracle can now give normality crystals when completing her requests.
+    type: Tweak
+  id: 2578
+  time: '2026-07-20T20:29:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6292
+- author: keekee38
+  changes:
+  - message: Added the novice mark, to help show that you're new! It is on intern
+      roles by default, and optional for everyone
+    type: Add
+  - message: Some clothes now have examine text, in particular pride clothes.
+    type: Tweak
+  id: 2579
+  time: '2026-07-20T22:08:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6118
+- author: Coryler
+  changes:
+  - message: Shadekin has arrived in the DeltaV sector.
+    type: Add
+  id: 2580
+  time: '2026-07-20T22:10:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5481
+- author: sowelipililimute
+  changes:
+  - message: The crew monitor now reports global coordinate positions.
+    type: Tweak
+  id: 2581
+  time: '2026-07-20T22:20:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6326
+- author: keekee38
+  changes:
+  - message: Vulpkanins can yip now.
+    type: Tweak
+  id: 2582
+  time: '2026-07-20T22:21:24.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6301
+- author: pootslap
+  changes:
+  - message: Improvised shotgun shells use the old upstream crafting recipe.
+    type: Tweak
+  - message: The improvised shotgun is craftable once again.
+    type: Fix
+  id: 2583
+  time: '2026-07-20T22:22:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6327
+- author: kotobdev
+  changes:
+  - message: Security cold weather ponchos are gone from loadouts and the SecDrobe.
+    type: Remove
+  id: 2584
+  time: '2026-07-20T22:44:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6332
+- author: sowelipililimute
+  changes:
+  - message: Security now has access to evidence bags, for storing all the illegal
+      things that can be stored.
+    type: Add
+  id: 2585
+  time: '2026-07-20T23:17:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6280
+- author: jessiscah23
+  changes:
+  - message: Added organizational capabilities to the cargo bounty computer.
+    type: Add
+  id: 2586
+  time: '2026-07-20T23:23:28.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6306
+- author: Proxysseia
+  changes:
+  - message: (TEST MERGE) Increased traitor starting telecrystal balance from 20 to
+      30.
+    type: Tweak
+  id: 2587
+  time: '2026-07-20T23:37:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6275
+- author: ArionGekkota
+  changes:
+  - message: reintroduced researchable PKA modkits
+    type: Add
+  - message: Changed the PKA to its current upstream state
+    type: Tweak
+  - message: Reduced the health of some salvage mobs
+    type: Tweak
+  id: 2588
+  time: '2026-07-20T23:46:11.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6258
+- author: nlaky
+  changes:
+  - message: Fixed incorrect Vulpkanin mask sprites.
+    type: Fix
+  id: 2589
+  time: '2026-07-21T00:05:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6201
+- author: Stxcking
+  changes:
+  - message: Vulps can yip properly now.
+    type: Fix
+  id: 2590
+  time: '2026-07-21T02:20:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6354
+- author: Coryler
+  changes:
+  - message: Shadekin meds working on them
+    type: Fix
+  - message: Shadekin emotes being available to other species
+    type: Fix
+  id: 2591
+  time: '2026-07-21T07:58:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6357
+- author: Coryler
+  changes:
+  - message: Add back Felinid root ability
+    type: Add
+  id: 2592
+  time: '2026-07-21T18:44:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6358
+- author: EmberAstra
+  changes:
+  - message: Cosmic Cult's Entropic Blades are now smaller (2x4 spaces)
+    type: Tweak
+  id: 2593
+  time: '2026-07-23T03:17:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6371
+- author: turtlemutt
+  changes:
+  - message: Gave Lighthouse new doorbells and pagers. Have fun harassing departments!
+    type: Tweak
+  id: 2594
+  time: '2026-07-23T16:29:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6088
+- author: ShepardToTheStars
+  changes:
+  - message: Buckling someone while they are being carried should work as intended
+      now.
+    type: Fix
+  - message: Picking someone up that is criticla will have priority over CPR unless
+      they are buckled to something.
+    type: Tweak
+  id: 2595
+  time: '2026-07-23T20:07:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6375
+- author: ManuDemoen
+  changes:
+  - message: Emergency access no longer allows anyone with a remote to bolt the door
+      and checks if the remote has access to bolt.
+    type: Fix
+  id: 2596
+  time: '2026-07-24T17:28:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6141
+- author: pootslap
+  changes:
+  - message: Monkeys now make sounds when using emotes!
+    type: Add
+  id: 2597
+  time: '2026-07-24T17:28:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5928
+- author: keekee38
+  changes:
+  - message: The WT550 once again fires at 5.5 rounds a second and has 30-round magazines.
+    type: Tweak
+  id: 2598
+  time: '2026-07-24T17:34:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6364
+- author: SirWarock
+  changes:
+  - message: The NT-3 cannot be parcel-wrapped anymore!
+    type: Tweak
+  - message: Adjusted the wielding sprites of the NT-3 to look less wrong.
+    type: Fix
+  - message: The NT-3 can pierce things again.
+    type: Fix
+  id: 2599
+  time: '2026-07-24T17:39:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5653
+- author: ShepardToTheStars
+  changes:
+  - message: The additional borg chassis from Cosmic Drift has been reverted due to
+      implementation issues.
+    type: Remove
+  id: 2600
+  time: '2026-07-27T13:48:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6385
+- author: JustAnOrange, Stxcking
+  changes:
+  - message: Added 6 departmental bomber jackets and 3 non-departmental ones, they're
+      zippable! They can be found in your loadout option or in the clothing drobes!
+    type: Add
+  id: 2601
+  time: '2026-07-27T16:43:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6220
+- author: CalliganSierre
+  changes:
+  - message: Ported TheDen Shadowkin scream, laugh, and talk sounds for Shadekin.
+      (CC-BY-SA-3.0 MajorMoth)
+    type: Add
+  - message: Shadekin now use custom laughs and speech voice instead of Slime-person
+      sounds for those lines.
+    type: Tweak
+  - message: Shadekin are assigned Felinid Growl, Hiss, and Purr emotes as is consistent
+      with most other servers.
+    type: Tweak
+  id: 2602
+  time: '2026-07-27T19:26:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6370
+- author: starabsurddark-png
+  changes:
+  - message: Increased the resistances of the Durathread Vest to 50% Blunt, Slash
+      and 20% Heat
+    type: Tweak
+  - message: Reduced the resistances of the Plate Carrier to 10% Blunt
+    type: Tweak
+  id: 2603
+  time: '2026-07-29T12:18:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6311
+- author: ShepardToTheStars, rebe83
+  changes:
+  - message: Felinid's sink claws ability delay has been reduced from 3s to 0.5s.
+    type: Tweak
+  - message: Felinids now get a unique icon on their alert bar when they protract
+      their claws.
+    type: Add
+  id: 2604
+  time: '2026-07-29T15:42:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6376
+- author: ShepardToTheStars
+  changes:
+  - message: Remote Medical Tracking has been added to the Biochemical research tree
+      as a T3 technology. It allows you to print crew monitors and crew monitoring
+      server boards!
+    type: Add
+  - message: The crew monitoring crate from Logistics now requires medical access
+      to unlock instead of epistemics.
+    type: Tweak
+  id: 2605
+  time: '2026-07-30T17:30:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6272
+- author: ErhardSteinhauer, Stxcking
+  changes:
+  - message: 'Coming from Frontier: Added Construction Bags and Bag of Holding Variant
+      (T2) to the Engineering Techfab.'
+    type: Add
+  id: 2606
+  time: '2026-08-02T13:31:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5846
+- author: TehFlaminTaco
+  changes:
+  - message: Removed Skia Ventcrawl
+    type: Remove
+  - message: Added Skia Shadowwalk
+    type: Add
+  - message: Replaced Skia NightVision with DarkVision
+    type: Tweak
+  id: 2607
+  time: '2026-08-03T02:45:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6346
+- author: ShepardToTheStars
+  changes:
+  - message: The height slider on your profile now shows actual height measurements.
+    type: Tweak
+  - message: Characters now have a +/- 20% scale in the character creator for all
+      species.
+    type: Tweak
+  - message: In exchange for being harder to click on, characters that are smaller
+      than average for their species have pull speed penalties while pulling for being
+      so small. This effects only items that are not held in-hand, not in the air,
+      and do not have wheels.
+    type: Tweak
+  - message: Slightly reduced the density of Ovinia so they aren't as dense as an
+      Oni.
+    type: Tweak
+  - message: Increased the density of Thaven to slightly less than a normal human
+      player.
+    type: Tweak
+  id: 2608
+  time: '2026-08-04T16:27:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6320
+- author: ShepardToTheStars
+  changes:
+  - message: Shadekin cannot receive CPR anymore due to them not breathing or having
+      lungs. They are still able to perform CPR.
+    type: Remove
+  - message: Shadekin should have an internal temperature now, so they can get cold
+      and hot.
+    type: Fix
+  id: 2609
+  time: '2026-08-04T16:41:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6381
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed changelog saying Shadekin can't perform CPR. Shadekin can still
+      perform CPR, but cannot receive it (as it would do nothing for them).
+    type: Fix
+  id: 2610
+  time: '2026-08-04T21:49:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6395
+- author: Stxcking
+  changes:
+  - message: Mothroach and Mouse can emote again.
+    type: Fix
+  - message: Moproaches ghostrole can be raffled for properly now.
+    type: Fix
+  id: 2611
+  time: '2026-08-04T22:18:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6356
+- author: ShepardToTheStars
+  changes:
+  - message: Nuclear operatives and ninjas will now be correctly scaled.
+    type: Fix
+  id: 2612
+  time: '2026-08-07T16:51:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6398
+- author: ShepardToTheStars
+  changes:
+  - message: Parcel wrapping when buckled to a chair no longer will make you invisible
+      and uninteractable.
+    type: Fix
+  id: 2613
+  time: '2026-08-07T23:24:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6399
+- author: ShepardToTheStars
+  changes:
+  - message: Polymorphing/jaunting while ventcrawling will no longer break movement
+      for the polymorphed/jaunting player.
+    type: Fix
+  id: 2614
+  time: '2026-08-09T16:57:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6400
+- author: rebe83, cepelinas, ShepardtotheStars, einknusprigestoast, Sloppr
+  changes:
+  - message: Added gnomes! Remember to secure your valuables and be polite.
+    type: Add
+  - message: Added gnome hats, for when you butcher the gnome. This kills the gnome.
+    type: Add
+  - message: Gnome guidebook. All good gnomes know their fae laws! (They don't believe
+      in SOP)
+    type: Add
+  id: 2615
+  time: '2026-08-09T18:24:26.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6027
+- author: Coryler
+  changes:
+  - message: Harpy Wing Layers on Hardsuits
+    type: Fix
+  id: 2616
+  time: '2026-08-10T16:14:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6406
+- author: SumofThreeParts
+  changes:
+  - message: Universals are cheaper now.
+    type: Tweak
+  id: 2617
+  time: '2026-08-12T16:49:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6366
+- author: keekee38
+  changes:
+  - message: the cowboy crate now has 2 rifles, 2 ammo boxes, 2 hats, and 2 pairs
+      of boots
+    type: Tweak
+  id: 2618
+  time: '2026-08-12T17:05:32.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6363
+- author: sowelipililimute
+  changes:
+  - message: The set of ion laws has been refined to a smaller set of the best laws.
+    type: Tweak
+  id: 2619
+  time: '2026-08-12T17:34:12.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6390
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed some visitor shuttles (e.g. Asakim, Interdyne Chemists, Syndie
+      Recruiter, etc) not spawning.
+    type: Fix
+  - message: There should roughly be 1.5x as many random shuttle events per round.
+    type: Tweak
+  - message: Slightly increased the chances of Asakim, LoneOp and SRN events to happen.
+    type: Tweak
+  - message: Asakim and Hitman shuttles are now more likely to appear during survival
+      rounds.
+    type: Tweak
+  id: 2620
+  time: '2026-08-13T01:17:04.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6401
+- author: ShepardToTheStars
+  changes:
+  - message: Onis should again be able to drink tea without getting poisoned.
+    type: Fix
+  id: 2621
+  time: '2026-08-13T15:01:47.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6409
+- author: Stop-Signs
+  changes:
+  - message: Cosmic Censer no longer mindwipes people who were not cultists.
+    type: Tweak
+  id: 2622
+  time: '2026-08-14T04:30:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6414
+- author: SirWarock
+  changes:
+  - message: Ejecting from a security belt now prioritizes the handgun instead of
+      the radio!
+    type: Tweak
+  id: 2623
+  time: '2026-08-16T14:07:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6418
+- author: ShepardToTheStars
+  changes:
+  - message: Holy water now heals when injected into someone's bloodstream.
+    type: Fix
+  id: 2624
+  time: '2026-08-16T15:04:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6421
+- author: ShepardToTheStars
+  changes:
+  - message: Kitsune can eat raw meat without getting poisoned again.
+    type: Fix
+  id: 2625
+  time: '2026-08-17T17:38:03.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6422
+- author: ShepardToTheStars
+  changes:
+  - message: Traitors now have an average of 4 objectives, up from 2.
+    type: Tweak
+  - message: The max number of traitors per Traitor shift has been reduced slightly,
+      from 10 to 8.
+    type: Tweak
+  - message: Added the Logistic Officer's Golden Knuckledusters as a traitor objective.
+    type: Add
+  - message: Added a new steal objective to the CMO, the sensitive medical documents.
+    type: Add
+  - message: Traitors with DAGD can now roll steal objectives, otherwise they end
+      up rolling all killing objectives.
+    type: Tweak
+  - message: The syndicate surplus and the super surplus crates have had their costs
+      adjusted to 30 and 60 TC respectively.
+    type: Tweak
+  - message: The syndicate surplus and the super surplus crates have had the number
+      of items increased to account for the increased cost.
+    type: Tweak
+  id: 2626
+  time: '2026-08-17T19:14:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6389
+- author: ShepardToTheStars
+  changes:
+  - message: The ramping scheduler will now look at when it was added to determine
+      event density, rather than overall round time. This will result in less events
+      and more time to recover after a major antag is defeated.
+    type: Tweak
+  - message: The Xenoborgs gamemode no longer has a ramping scheduler at round start.
+      Instead, it gets added when the mothership core dies (like other game modes).
+    type: Tweak
+  - message: Fixed a bug where the ramping scheduler would get added if a nukie died
+      on nukie planet.
+    type: Fix
+  - message: Fixed a bug where a ramping scheduler would get added if the crew defeated
+      midround zombies.
+    type: Fix
+  id: 2627
+  time: '2026-08-17T20:26:09.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6416
+- author: rebe83
+  changes:
+  - message: Hristovs are now bulkier and require use of a bipod to aim properly,
+      but fire slightly faster when aimed.
+    type: Tweak
+  - message: .60 antimateriel bullets now pierce up to 3 regular walls, windows, and
+      airlocks. To shreds you say?
+    type: Tweak
+  id: 2628
+  time: '2026-08-18T16:39:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5905
+- author: Coryler
+  changes:
+  - message: Vulpkanins have their own scream now.
+    type: Add
+  id: 2629
+  time: '2026-08-18T17:51:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6348
+- author: starabsurddark-png
+  changes:
+  - message: Reduced ARCS slowdown to 10%
+    type: Tweak
+  - message: Increased ARCS explosion resist to 40%, Caustic Resist to 10%. Reduced
+      the Heat resist to 10% and removed ranged stamina resist to match upstream Riot
+      Suit
+    type: Tweak
+  - message: Replaced the ARCS with the Riot Suit in the Swat Crate
+    type: Tweak
+  id: 2630
+  time: '2026-08-18T18:14:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6353
 Order: 1

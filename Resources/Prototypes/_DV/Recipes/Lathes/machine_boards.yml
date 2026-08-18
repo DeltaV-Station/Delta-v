@@ -1,5 +1,11 @@
-# Atmos
+#MARK: Atmos
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: KitchenFreezerMachineCircuitBoard
   result: KitchenFreezerMachineCircuitBoard
+
+#MARK: Medical
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: CrewMonitoringServerMachineCircuitboard
+  result: CrewMonitoringServerMachineCircuitboard

@@ -88,9 +88,9 @@ public sealed partial class CryoPodWindow : FancyWindow
         // Health analyzer
         var maybePatient = _entityManager.GetEntity(msg.Health.TargetEntity);
         var hasPatient = msg.Health.TargetEntity.HasValue;
-        var hasDamage = hasPatient && msg.HasDamage;
+        // var hasDamage = hasPatient && msg.HasDamage; // DeltaV - Health Analyzer Plus
 
-        NoDamageText.Visible = (hasPatient && !hasDamage);
+        NoDamageText.Visible = false; //(hasPatient && !hasDamage); // DeltaV - Health Analyzer Plus
         HealthSection.Visible = hasPatient;
         EjectPatientButton.Disabled = !hasPatient;
 
