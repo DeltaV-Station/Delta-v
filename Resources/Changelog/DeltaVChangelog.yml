@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: HameyTychol
-  changes:
-  - message: removed ability for limbs to be placed in trash bag and recycled
-    type: Fix
-  id: 2127
-  time: '2026-02-24T19:11:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5416
-- author: rebe83
-  changes:
-  - message: Skias can now emote. Harvest souls with some flavor. and spin.
-    type: Tweak
-  id: 2128
-  time: '2026-02-25T18:18:15.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5366
-- author: BarryNorfolk
-  changes:
-  - message: Shrapnel Landmines are once again actually dangerous and will murder
-      you.
-    type: Fix
-  id: 2129
-  time: '2026-02-25T18:19:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5379
 - author: Eternally-Confused
   changes:
   - message: Bluespace beakers and lead bottles can now only be obtained by emagging
@@ -4407,4 +4385,35 @@
   id: 2627
   time: '2026-08-17T20:26:09.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6416
+- author: rebe83
+  changes:
+  - message: Hristovs are now bulkier and require use of a bipod to aim properly,
+      but fire slightly faster when aimed.
+    type: Tweak
+  - message: .60 antimateriel bullets now pierce up to 3 regular walls, windows, and
+      airlocks. To shreds you say?
+    type: Tweak
+  id: 2628
+  time: '2026-08-18T16:39:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5905
+- author: Coryler
+  changes:
+  - message: Vulpkanins have their own scream now.
+    type: Add
+  id: 2629
+  time: '2026-08-18T17:51:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6348
+- author: starabsurddark-png
+  changes:
+  - message: Reduced ARCS slowdown to 10%
+    type: Tweak
+  - message: Increased ARCS explosion resist to 40%, Caustic Resist to 10%. Reduced
+      the Heat resist to 10% and removed ranged stamina resist to match upstream Riot
+      Suit
+    type: Tweak
+  - message: Replaced the ARCS with the Riot Suit in the Swat Crate
+    type: Tweak
+  id: 2630
+  time: '2026-08-18T18:14:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6353
 Order: 1
