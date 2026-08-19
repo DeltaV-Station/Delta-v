@@ -23,9 +23,9 @@ bounty-console-status-Undelivered = Undelivered
 bounty-console-status-Waiting = Processing
 bounty-console-status-OnShuttle = On Shuttle
 
-bounty-console-status-formatted-Undelivered = [color=orange]Undelivered[/color]
-bounty-console-status-formatted-Waiting = Processing
-bounty-console-status-formatted-OnShuttle = [color=limegreen]On Shuttle[/color]
+bounty-console-formatted-status-Undelivered = [color=orange]Undelivered[/color]
+bounty-console-formatted-status-Waiting = Processing
+bounty-console-formatted-status-OnShuttle = [color=limegreen]On Shuttle[/color]
 
 bounty-console-status-tooltip-Undelivered = This bounty has not yet been sent out for fulfilment
 bounty-console-status-tooltip-Waiting = This bounty has been sent out, and is waiting to be fulfilled
