@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: zelezniciar
-  changes:
-  - message: Added Engineering SOP, formalizing safety regs, building permits, hazard
-      areas, and more.
-    type: Add
-  - message: RCDs are now a controlled item, restricted to Engineering.
-    type: Tweak
-  id: 2131
-  time: '2026-02-25T20:35:40.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5282
 - author: Stxcking
   changes:
   - message: Gun safes have new sprites!
@@ -4415,4 +4405,15 @@
   id: 2631
   time: '2026-08-20T14:25:00.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6427
+- author: ShepardToTheStars
+  changes:
+  - message: Hitmen can no longer get nuclear operatives nor characters with the marked
+      as protected trait as targets.
+    type: Fix
+  - message: SRN will no longer get command with unborgable as a 'Condemn them to
+      Metal' objective.
+    type: Fix
+  id: 2632
+  time: '2026-08-20T17:19:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6426
 Order: 1
