@@ -36,4 +36,12 @@ public sealed partial class MessyDrinkerComponent : Component
 
     [DataField, AutoNetworkedField]
     public LocId? SpillMessagePopup;
+
+    // Delta V - Begin Addition Messy Drinker Speed
+    /// <summary>
+    /// Drinking Speed Delay Reduction, which speeds up the drinking speed of Vulpkanin
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 DrinkDelayReduction = 0.5;
+    // Delta V - End
 }
