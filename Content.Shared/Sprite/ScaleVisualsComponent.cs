@@ -25,11 +25,27 @@ public sealed partial class ScaleVisualsComponent : Component
     [ViewVariables]
     public Vector2? OriginalScale;
 
-    // Delta V Addition
     /// <summary>
-    /// Base Scale of the Species, which we use to set a new height relative to this.
+    /// DeltaV - Contains the species scale. Set dynamically by
+    /// baseScale in the Species prototype.
     /// </summary>
     [DataField, AutoNetworkedField]
     [ViewVariables]
-    public Vector2 SpeciesScale = Vector2.One;
+    public Vector2 SpeciesScale = new(1f, 1f);
+
+    /// <summary>
+    /// DeltaV - Contains the user-defined scale from the character creation
+    /// screen.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    [ViewVariables]
+    public Vector2 ProfileScale = new(1f, 1f);
+
+    /// <summary>
+    /// DeltaV - Contains the computer scale from applying Scale, SpeciesScale, and ProfileScale.
+    /// This will contain the actual scale after all modifiers are applied.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    [ViewVariables]
+    public Vector2 ComputedScale;
 }

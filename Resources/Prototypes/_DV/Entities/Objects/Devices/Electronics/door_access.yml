@@ -92,7 +92,7 @@
   suffix: Surgery, Locked
   components:
   - type: AccessReader
-    access: [["Surgery"]]
+    access: [["Medical"],["Surgery"]] # Added medical until surgeon is re-added
 
 - type: entity
   parent: DoorElectronics
@@ -100,7 +100,7 @@
   suffix: Surgery/Epistemics, Locked
   components:
   - type: AccessReader
-    access: [["Research"], ["Surgery"]]
+    access: [["Research"], ["Medical"], ["Surgery"]] # Added medical until surgeon is re-added
 
 - type: entity
   parent: DoorElectronics
@@ -108,7 +108,7 @@
   suffix: Surgery/Robotics, Locked
   components:
   - type: AccessReader
-    access: [["Robotics"], ["Surgery"]]
+    access: [["Robotics"], ["Medical"], ["Surgery"]] # Added medical until surgeon is re-added
 
 - type: entity
   parent: DoorElectronics
@@ -144,11 +144,35 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsClerk
+  id: DoorElectronicsAttorney
+  suffix: Attorney, Locked
+  components:
+  - type: AccessReader
+    access: [["Attorney"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsClerk # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
   - type: AccessReader
     access: [["Clerk"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsJusticeWarden
+  suffix: Justice Warden, Locked
+  components:
+  - type: AccessReader
+    access: [["JusticeWarden"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMarshal
+  suffix: Marshal, Locked
+  components:
+  - type: AccessReader
+    access: [["Marshal"]]
 
 - type: entity
   parent: DoorElectronics

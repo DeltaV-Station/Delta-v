@@ -1,3 +1,4 @@
+using Content.Server.RoundEnd; // DeltaV
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.GameTicking.Rules.Components;
@@ -43,4 +44,16 @@ public sealed partial class XenoborgsRuleComponent : Component
     /// </summary>
     [DataField]
     public bool XenoborgShuttleCalled = false;
+
+    /// <summary>
+    /// DeltaV - The behavior of the round if the mothership core is deleted.
+    /// </summary>
+    [DataField]
+    public RoundEndBehavior XenoborgRoundEndBehavior = RoundEndBehavior.BecomeSurvival;
+
+    /// <summary>
+    /// DeltaV - The amount of time before the evac shuttle will arrive if the XenoborgRoundEndBehavior is set to ShuttleCall.
+    /// </summary>
+    [DataField]
+    public TimeSpan XenoborgShuttleDelay = TimeSpan.FromMinutes(10);
 }

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, MobCombat, DVNodeCrawler ]
+  parent: [ SimpleSpaceMobBase, MobCombat ]
   id: MobSkia
   name: skia
   description: A shadow given form, lashing out at anything that comes too close.
@@ -46,10 +46,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.75
+  - type: ShadowWalker # Phases through walls and other static objects that are bathed in darkness.
   - type: NoSlip
   - type: MovedByPressure
     enabled: false
-  - type: JetpackUser
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
@@ -102,7 +102,7 @@
     darkMovementSpeedMultiplier: 1.25
     lightMovementSpeedMultiplier: 1.0
   - type: LightLevelDamageMult
-    lightReceivedMultiplier: 2.0
+    lightReceivedMultiplier: 1.5
     lightDealtMultiplier: 0.5
   - type: ResurrectWhenAble
     timeToResurrect: 30.0
@@ -129,8 +129,7 @@
     speedModifier: 2.5 # needs to be fast because they'll get ganked otherwise
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: NightVision
-    drawOverlay: false
+  - type: DarkVision # Not NightVision: keeps the lighting gradient visible so they can judge what's dark enough to heal/shadow-walk in.
   - type: EmbedImmune
     immuneTo:
       components:

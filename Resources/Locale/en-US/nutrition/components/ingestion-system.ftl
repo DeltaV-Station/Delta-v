@@ -34,7 +34,8 @@ edible-nom = Nom. {$flavors}{ -edible-satiated(satiated: $satiated, verb: "eat")
 edible-nom-other = Nom.
 edible-slurp = Slurp. {$flavors}{ -edible-satiated(satiated: $satiated, verb: "drink") }
 edible-slurp-other = Slurp.
-edible-swallow = You swallow { THE($food) }.{ -edible-satiated(satiated: $satiated, verb: "swallow") }
+# DeltaV - Fix pills not having a taste (#5063)
+edible-swallow = You swallow { THE($food) }. {$flavors}{ -edible-satiated(satiated: $satiated, verb: "swallow") }
 edible-gulp = Gulp. {$flavors}
 edible-gulp-other = Gulp.
 

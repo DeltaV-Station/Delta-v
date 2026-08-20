@@ -235,6 +235,7 @@
     - xenoborgs
   name: xenoborgs-title
   description: xenoborgs-description
+  cooldown: 2 # DeltaV
   showInVote: false
   rules:
   - Xenoborgs
@@ -244,6 +245,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV
 
 - type: gamePreset
   id: Zombie

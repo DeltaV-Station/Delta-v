@@ -115,7 +115,7 @@
     transmitFrequencyId: NTNet
   - type: PageSender
   # End DeltaV
-
+  - type: TooShortForUIWhitelist #imp change
 
 - type: entity
   name: long-range holopad
@@ -703,7 +703,7 @@
 - type: entity
   parent: HolopadSecurity # DeltaV
   id: HolopadSecurityWarden
-  suffix: Warden
+  suffix: Warden, Security # DeltaV - Added security.
   components:
   - type: Label
     currentLabel: holopad-security-warden

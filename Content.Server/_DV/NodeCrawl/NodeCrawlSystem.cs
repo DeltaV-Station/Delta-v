@@ -8,6 +8,8 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared._DV.NodeCrawl;
 using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
+using Content.Shared.Polymorph;
+using Content.Shared.Zombies;
 using Robust.Shared.Reflection;
 using Robust.Shared.Utility;
 
@@ -29,6 +31,9 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
         SubscribeLocalEvent<NodeCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<NodeCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
+        SubscribeLocalEvent<NodeCrawlerComponent, PolymorphActionEvent>(OnPolymorph);
+
+        SubscribeLocalEvent<NodeCrawlerComponent, EntityZombifiedEvent>(OnZombify);
     }
 
     private GasMixture? GetExistingAir(Entity<NodeCrawlerMovementComponent> movement)
@@ -206,5 +211,28 @@ public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 
         ent.Comp.ReachableNodes = set;
         Dirty(ent);
+    }
+
+    /// <summary>
+    /// Lengthens the amount of time that it takes a zombified vent crawling mob to get back into the vent.
+    /// They are really hard to kill otherwise.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnZombify(Entity<NodeCrawlerComponent> ent, ref EntityZombifiedEvent args)
+    {
+        ent.Comp.EnterDelay = ent.Comp.ZombieEnterDelay;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Exit on polymorph or else the entity's movement bugs out.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnPolymorph(Entity<NodeCrawlerComponent> ent, ref PolymorphActionEvent args)
+    {
+        if (ent.Comp.Mover.HasValue)
+            ExitNodeCrawl(ent);
     }
 }
