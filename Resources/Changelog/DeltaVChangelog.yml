@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Eternally-Confused
-  changes:
-  - message: Bluespace beakers and lead bottles can now only be obtained by emagging
-      the chemvend, instead of cutting the manager wire.
-    type: Tweak
-  id: 2130
-  time: '2026-02-25T18:20:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5392
 - author: zelezniciar
   changes:
   - message: Added Engineering SOP, formalizing safety regs, building permits, hazard
@@ -4416,4 +4408,11 @@
   id: 2630
   time: '2026-08-18T18:14:44.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6353
+- author: ShepardToTheStars
+  changes:
+  - message: Fixed missing locale strings on the cargo bounty request computer.
+    type: Fix
+  id: 2631
+  time: '2026-08-20T14:25:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6427
 Order: 1
