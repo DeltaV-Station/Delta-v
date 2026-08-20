@@ -63,3 +63,6 @@ trait-impaired-mobility-desc = You have difficulty moving without a mobility aid
 trait-hemophilia-name = Hemophilia
 trait-hemophilia-desc = Your body fails to make blood clots.
 
+trait-normal-drinker-name = Normal Drinker
+trait-normal-drinker-desc = You're not like your kin. You drink sophisticated.
+
