@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Stxcking
-  changes:
-  - message: Gun safes have new sprites!
-    type: Tweak
-  id: 2132
-  time: '2026-02-25T22:42:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5314
 - author: zelezniciar, AraiMaia
   changes:
   - message: Added Engineering Tape for use by Engineers to mark off hazardous areas.
@@ -4416,4 +4409,20 @@
   id: 2632
   time: '2026-08-20T17:19:46.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6426
+- author: Radezolid, FieldCommand
+  changes:
+  - message: The syndicate recruiter's ship no longer has AA on it's doors.
+    type: Fix
+  - message: The synthesis ship no longer has AA on it's doors.
+    type: Fix
+  - message: The synthesis ship is now power independent from the station, with a
+      17 kW generator.
+    type: Tweak
+  - message: New syndicate evacuation pod for the shuttle event
+    type: Add
+  - message: Most syndicate shuttles should now have a syndicate fax machine.
+    type: Tweak
+  id: 2633
+  time: '2026-08-21T02:38:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6094
 Order: 1
