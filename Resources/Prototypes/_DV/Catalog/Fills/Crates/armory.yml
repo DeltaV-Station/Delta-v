@@ -120,7 +120,7 @@
           amount: 2
 
 - type: entity
-  parent: CrateWeaponSecure
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateCargoArmoryPatos
   name: patos crate
   components:
