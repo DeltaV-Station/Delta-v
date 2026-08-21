@@ -190,12 +190,13 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: MedkitCombatFilled # DeltaV - Changed order from last to first
         - id: ChemistryBottleEpinephrine
           amount: 2
         - id: ChemistryBottleEphedrine
           amount: 2
         - id: ChemistryBottleOmnizine
-        - id: MedkitCombatFilled
+        #- id: MedkitCombatFilled # DeltaV - Moved a bit up
 
 - type: entity
   parent: ClothingBeltWand
