@@ -20,8 +20,9 @@
   components:
   - type: SubGamemodes
     rules:
-    # Delta V - Adding Subgamemode Traitors
+    # begin Delta V - Adding Subgamemode Traitors
     - id: SubTraitorRule
+    # end Delta V - Adding Subgamemode Traitors
       prob: 0.4
     - id: Thief
       prob: 0.5
