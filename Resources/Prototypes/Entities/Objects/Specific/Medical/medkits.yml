@@ -114,6 +114,4 @@
     state: blackkit
   - type: Item
     heldPrefix: blackkit
-    #size: Normal # DeltaV - Same size as the rest of them.
-  - type: ExplosionResistance # DeltaV - Gave explosion resistance to differentiate.
-    damageCoefficient: 0.1
+    size: Normal
