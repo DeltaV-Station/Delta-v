@@ -1,6 +1,8 @@
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Parallax.Biomes;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
+using Content.Shared.Procedural.PostGeneration;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage.Magnet;
@@ -12,30 +14,41 @@ namespace Content.Shared.Salvage;
 
 public abstract partial class SharedSalvageSystem
 {
-    private readonly List<SalvageMapPrototype> _salvageMaps = new();
+    //private readonly List<SalvageMapPrototype> _salvageMaps = new(); DeltaV - Salvage wreck maps are no longer used
 
     private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
     {
-        { new AsteroidOffering(), 2.0f }, // DeltaV: was 4.5f
-        { new DebrisOffering(), 3.5f }, // DeltaV: was 3.5f
-        { new SalvageOffering(), 4.5f }, // DeltaV: was 2.0f
+        { new AsteroidOffering(), 3.5f }, // DeltaV: was 4.5f
+        { new DebrisOffering(), 2f }, // DeltaV: was 3.5f
+        // { new SalvageOffering(), 1.5f } DeltaV: SalvageOffering (wrecks) is removed
     };
 
-    private readonly List<ProtoId<DungeonConfigPrototype>> _asteroidConfigs = new()
+    //BEGIN DeltaV - weight asteroid generation (to balance the varying Wreck spawns they each support)
+    private readonly Dictionary<ProtoId<DungeonConfigPrototype>, float> _asteroidConfigs = new()
     {
-        "BlobAsteroid",
-        "ClusterAsteroid",
-        "SpindlyAsteroid",
-        "SwissCheeseAsteroid"
+        { "GiantBlobAsteroid", 0.25f},
+        { "BlobAsteroid", 1f},
+        { "ClusterAsteroid", 1.3f},
+        { "SpindlyAsteroid", 1.3f},
+        { "SwissCheeseAsteroid", 1.3f}
     };
+    //DeltaV end
 
     private readonly ProtoId<WeightedRandomPrototype> _asteroidOreWeights = "AsteroidOre";
 
-    private readonly MinMax _asteroidOreCount = new(5, 7);
+    private readonly MinMax _asteroidOreCount = new(2, 4);
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _debrisConfigs = new()
     {
         "ChunkDebris"
+    };
+
+    private readonly List<ProtoId<BiomeTemplatePrototype>> _debrisLootConfigs = new()
+    {
+        "SpaceDebrisLootRegular",
+        "SpaceDebrisLootScrap",
+        "SpaceDebrisLootValuables",
+        "SpaceDebrisLootArcana"
     };
 
     public ISalvageMagnetOffering GetSalvageOffering(int seed)
@@ -46,8 +59,8 @@ public abstract partial class SharedSalvageSystem
         switch (type)
         {
             case AsteroidOffering:
-                var configId = _asteroidConfigs[rand.Next(_asteroidConfigs.Count)];
-                var configProto =_proto.Index(configId);
+                var configId = SharedRandomExtensions.Pick(_asteroidConfigs, rand); //DeltaV - we add weights to the asteroid types
+                var configProto = _proto.Index(configId);
                 var layers = new Dictionary<string, int>();
 
                 var config = new DungeonConfig
@@ -80,22 +93,34 @@ public abstract partial class SharedSalvageSystem
                 };
             case DebrisOffering:
                 var id = rand.Pick(_debrisConfigs);
+                //BEGIN DeltaV - Debris generation breaks loot out as a separatly added layer to support dynamic generation. Mirrors asteroids vs ore.
+                var debrisConfigProto = _proto.Index(id);
+
+                var debrisConfig = new DungeonConfig
+                {
+                    Layers = new(debrisConfigProto.Layers),
+                    MaxCount = debrisConfigProto.MaxCount,
+                    MaxOffset = debrisConfigProto.MaxOffset,
+                    MinCount = debrisConfigProto.MinCount,
+                    MinOffset = debrisConfigProto.MinOffset,
+                    ReserveTiles = debrisConfigProto.ReserveTiles
+                };
+
+                var debrisLootConfig = _debrisLootConfigs[rand.Next(_debrisLootConfigs.Count)];
+
+                debrisConfig.Layers.Add(new BiomeDunGen()
+                {
+                    BiomeTemplate = _proto.Index(debrisLootConfig)
+                });
+
                 return new DebrisOffering
                 {
-                    Id = id
+                    Id = id,
+                    DungeonConfig = debrisConfig,
+                    LootId = debrisLootConfig.Id
                 };
-            case SalvageOffering:
-                // Salvage map seed
-                _salvageMaps.Clear();
-                _salvageMaps.AddRange(_proto.EnumeratePrototypes<SalvageMapPrototype>());
-                _salvageMaps.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));
-                var mapIndex = rand.Next(_salvageMaps.Count);
-                var map = _salvageMaps[mapIndex];
+                //END DeltaV
 
-                return new SalvageOffering
-                {
-                    SalvageMap = map,
-                };
             default:
                 throw new NotImplementedException($"Salvage type {type} not implemented!");
         }
