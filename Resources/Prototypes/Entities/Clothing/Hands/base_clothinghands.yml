@@ -19,6 +19,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain: # Funky - Stainable Clothing.
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
@@ -27,6 +29,17 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
+  # Funky Start - Stainable Clothing.
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      gloves:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: gloveblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: glovebloodicon
+  # Funky End - Stainable Clothing.
 
 - type: entity
   abstract: true
