@@ -749,10 +749,19 @@
     containers:
       board: [ DoorElectronicsChiefJustice ]
 
-#Syndicate high security door
+# Syndicate
 - type: entity
   parent: HighSecDoor
   id: HighSecDoorSyndicateAgentLocked
+  suffix: Syndicate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAgent ]
+
+- type: entity
+  parent: AirlockHatch
+  id: AirlockHatchSyndicateLockedDisguised
   suffix: Syndicate, Locked
   components:
   - type: ContainerFill
