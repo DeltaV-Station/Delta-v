@@ -521,7 +521,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunAttorney
   name: cybersun attorney suit
   description: This durable Suit Jacket and Turtleneck Combo doubles as an Accounting suit, and includes an extra button. Take that, Nerd-otrasen!
@@ -534,7 +534,7 @@
     randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformInterdyneChemist
   name: interdyne chemist uniform
   description: An impeccable uniform, sign of a good chemist.
