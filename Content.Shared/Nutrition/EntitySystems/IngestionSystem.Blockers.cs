@@ -15,6 +15,8 @@ public sealed partial class IngestionSystem
 {
     [Dependency] private readonly OpenableSystem _openable = default!;
 
+    private static readonly string MessyDrinkerSolution = "Drink"; // Delta V - Solution Type for Messy Drinker
+
     public void InitializeBlockers()
     {
         SubscribeLocalEvent<UnremoveableComponent, IngestibleEvent>(OnUnremovableIngestion);
@@ -88,6 +90,13 @@ public sealed partial class IngestionSystem
 
         // Time is additive because I said so.
         args.Time += entity.Comp.Delay;
+
+        // Delta V - Begin Messy Drinker Speed
+        if (TryComp<MessyDrinkerComponent>(args.User, out var comp) && entity.Comp.Solution.ToLower() == MessyDrinkerSolution.ToLower())
+        {
+            args.Time *= comp.DrinkDelayReduction.Double();
+        }
+        // Delta V - End
     }
 
     private void OnStorageEdible(Entity<StorageComponent> ent, ref EdibleEvent args)
