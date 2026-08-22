@@ -530,6 +530,8 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
   parent: ClothingUniformBase
@@ -541,6 +543,8 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
   parent: ClothingUniformBase
@@ -591,7 +595,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunHazard
   name: cybersun hazard suit
   description: This high-visibility jumpsuit prevents you from getting run over, yet keeps you dark enough to stay unnoticed!
@@ -600,9 +604,11 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunCasual
   name: cybersun casual jumpsuit
   description: With all the non-descript gizmos they shoved in this thing, are you sure it's even safe to put on?
@@ -611,9 +617,11 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunRND
   name: cybersun research turtleneck
   description: It's another Turtleneck. What'd you expect?
@@ -622,6 +630,8 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
   parent: [ UnsensoredClothingUniformBase, BaseMinorContraband ]
@@ -635,7 +645,7 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/ninja.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformHarbingerTunic
   name: harbinger tunic
   description: Something easy to move in. Good for hunting.
@@ -644,6 +654,8 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
   parent: ClothingUniformBase
