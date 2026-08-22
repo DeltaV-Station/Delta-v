@@ -25,3 +25,28 @@
         sound: "/Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg"
   - type: DynamicRuleCost
     cost: 100 # bit more than thief
+
+  - type: entity
+    abstract: true
+    parent: BaseGameRule
+    id: SubTraitorRule
+    components:
+  - type: TraitorRule
+    startingBalance: 20 # Less TC for subgamemode
+    # TODO: codewords in yml
+    # TODO: uplink in yml
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorObjectiveGroups
+      maxDifficulty: 6 # Less objectives for subgamemode
+  - type: AntagSelection
+    agentName: traitor-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 2
+      playerRatio: 30 #a bit more impactful than thief which DV has at 25 so
+      lateJoinAdditional: true
+      allowNonHumans: true
+  - type: DynamicRuleCost
+    cost: 130 # traitors!
