@@ -1133,6 +1133,9 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
+  icon:
+    sprite: _NF/Structures/conveyor.rsi # Mono
+    state: conveyor_stopped_cw
   conditions:
     - !type:TileNotBlocked
 

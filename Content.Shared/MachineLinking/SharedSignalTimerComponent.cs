@@ -15,24 +15,33 @@ public enum SignalTimerUiKey : byte
 public sealed class SignalTimerBoundUserInterfaceState : BoundUserInterfaceState
 {
     public string CurrentText;
-    public string CurrentDelayMinutes;
-    public string CurrentDelaySeconds;
+    // Begin Monolith
+    // public string CurrentDelayMinutes;
+    // public string CurrentDelaySeconds;
+    public TimeSpan CurrentDelay;
+    // End Monolith
     public bool ShowText;
     public TimeSpan TriggerTime;
     public bool TimerStarted;
     public bool HasAccess;
 
     public SignalTimerBoundUserInterfaceState(string currentText,
-        string currentDelayMinutes,
-        string currentDelaySeconds,
+        // Begin Monolith
+        // string currentDelayMinutes,
+        // string currentDelaySeconds,
+        TimeSpan currentDelay,
+        // End Monolith
         bool showText,
         TimeSpan triggerTime,
         bool timerStarted,
         bool hasAccess)
     {
         CurrentText = currentText;
-        CurrentDelayMinutes = currentDelayMinutes;
-        CurrentDelaySeconds = currentDelaySeconds;
+        // Begin Monolith
+        // CurrentDelayMinutes = currentDelayMinutes;
+        // CurrentDelaySeconds = currentDelaySeconds;
+        CurrentDelay = currentDelay;
+        // End Monolith
         ShowText = showText;
         TriggerTime = triggerTime;
         TimerStarted = timerStarted;
