@@ -239,7 +239,7 @@ public abstract partial class SharedBorgSystem
 
             _hands.RemoveHand((chassis.Owner, hands), handId);
         }
-
+        module.Comp.Spawned = false; // DeltaV - replicators reset spawned modules on unselect.
         Dirty(module);
     }
     #endregion

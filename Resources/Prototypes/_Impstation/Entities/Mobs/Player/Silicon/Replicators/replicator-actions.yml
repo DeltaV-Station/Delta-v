@@ -1,0 +1,89 @@
+- type: entity
+  parent: BaseAction
+  id: ActionReplicatorSpawnNest
+  name: Manufacture Nest
+  description: Create a new nest for your hive.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/spawn_nest.png
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ReplicatorSpawnNestActionEvent
+  - type: ConfirmableAction
+    popup: replicator-nest-confirm
+
+- type: entity
+  parent: BaseAction
+  id: BaseReplicatorLevelupAction
+  components:
+  - type: ConfirmableAction
+    popup: replicator-levelup-confirm
+
+- type: entity
+  parent: BaseAction
+  id: ActionReplicatorSwapModule
+  name: Swap Module
+  description: Select this module, enabling you to use the tools it provides.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:BorgModuleActionSelectedEvent
+
+- type: entity
+  id: ActionReplicatorUpgrade1
+  parent: BaseReplicatorLevelupAction
+  name: Downgrade (Replicator)
+  description: Shed nanites. Reconfigure.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level1.png
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ReplicatorUpgradeActionEvent
+      nextStage: MobReplicator
+
+- type: entity
+  id: ActionReplicatorUpgrade2
+  parent: BaseReplicatorLevelupAction
+  name: Upgrade (Deconstructor)
+  description: Gather nanites. Gain manipulation.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level2.png
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ReplicatorUpgradeActionEvent
+      nextStage: MobReplicatorTier2
+
+- type: entity
+  id: ActionReplicatorUpgrade2Alt
+  parent: BaseReplicatorLevelupAction
+  name: Upgrade (Defender)
+  description: Gather nanites. Gain weaponry.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level2alt.png
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ReplicatorUpgradeActionEvent
+      nextStage: MobReplicatorTier2Alt
+
+- type: entity
+  id: ActionReplicatorUpgrade3
+  parent: BaseReplicatorLevelupAction
+  name: Upgrade (Protector)
+  description: Gather nanites. Become stronger.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon: _Impstation/Interface/Actions/replicator_level3.png
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ReplicatorUpgradeActionEvent
+      nextStage: MobReplicatorTier3
