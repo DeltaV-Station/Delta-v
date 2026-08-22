@@ -9,6 +9,8 @@
 
 $ignore = @{
     "PJBot" = $true
+    "DeltaV-Bot" = $true # DeltaV GH bot
+    "pre-commit-ci[bot]" = $true
     "github-actions[bot]" = $true
     "ZDDM" = $true
     "TYoung86" = $true
