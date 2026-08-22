@@ -580,7 +580,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ UnsensoredClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRoboNeuroticist
   name: robo-neuroticist's jumpsuit
   description: A suit fit with dozens of cybernetic gadgets.
@@ -624,7 +624,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ UnsensoredClothingUniformBase, BaseMinorContraband ]
   id: ClothingUniformJumpsuitAsakim
   name: combat jumpsuit
   description: A comfortable and flexible jumpsuit, designed to be worn under a hardsuit.
