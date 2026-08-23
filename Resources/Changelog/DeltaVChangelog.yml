@@ -1,31 +1,4 @@
 ﻿Entries:
-- author: AeraAuling
-  changes:
-  - message: certain tails no longer make skirts look like shorts
-    type: Tweak
-  id: 2134
-  time: '2026-02-26T20:00:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/4548
-- author: SuperGDPWYL, youtissoum, DisposableCrewmember42
-  changes:
-  - message: Conspirators have been ported from Harmony! Check the guidebook for more
-      details.
-    type: Add
-  - message: Conspirators are more likely to be chosen from different departments
-    type: Tweak
-  - message: Conspirators can use custom objective summaries
-    type: Tweak
-  id: 2135
-  time: '2026-02-27T18:24:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5218
-- author: zelezniciar
-  changes:
-  - message: Added a generic Slavic accent that can be selected as a character trait.
-      Very Nice!
-    type: Add
-  id: 2136
-  time: '2026-02-27T18:30:56.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5264
 - author: kotobdev
   changes:
   - message: You can now always equip items to your suit storage, even without any
@@ -4424,4 +4397,26 @@
   id: 2634
   time: '2026-08-21T18:29:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6413
+- author: ShepardToTheStars
+  changes:
+  - message: Removed suit coordinates for Arms Dealer, Asakim, and SRN ghost roles.
+    type: Fix
+  id: 2635
+  time: '2026-08-23T12:56:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6441
+- author: ShepardToTheStars
+  changes:
+  - message: Syndicate and hitman business cards now embed if they are throwing at
+      someone.
+    type: Add
+  id: 2636
+  time: '2026-08-23T12:57:01.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6439
+- author: ShepardToTheStars
+  changes:
+  - message: Mothroach grenades actually work again.
+    type: Fix
+  id: 2637
+  time: '2026-08-23T15:00:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6447
 Order: 1
