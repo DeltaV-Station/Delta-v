@@ -1086,12 +1086,6 @@
   - type: Item
     heldPrefix: green
   - type: AgentIDCard
-  - type: ActivatableUI # DeltaV - adds the agent ID ui
-    key: enum.AgentIDCardUiKey.Key
-  - type: UserInterface # DeltaV - adds the agent ID ui
-    interfaces:
-      enum.AgentIDCardUiKey.Key:
-        type: AgentIDCardBoundUserInterface
   - type: IdCard
     jobIcon: JobIconNinja
   - type: Access
