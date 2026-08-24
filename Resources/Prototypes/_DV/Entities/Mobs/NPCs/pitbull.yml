@@ -89,7 +89,7 @@
     needsHands: false
 
 - type: entity
-  parent: [MobBasePitbull, DVNodeCrawler] # Makes them able to actually do their job and patrol vents for mice.
+  parent: [ MobBasePitbull, DVNodeCrawler ] # Makes them able to actually do their job and patrol vents for mice.
   id: MobPitbullVent # ventbull
   name: Ventbull
   description: A subspecies of pitbull bred by NanoTrasen for quick and inexpensive pest control.
