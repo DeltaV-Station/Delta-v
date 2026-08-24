@@ -251,7 +251,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 9 # DeltaV - More objectives
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
@@ -270,8 +270,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 10 # DeltaV - raised from 8
-      playerRatio: 9 # DeltaV - lowered from 10
+      max: 8
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -441,6 +441,7 @@
       min: 600
       max: 900
   - type: ZombieRule
+    isRoundStartZombies: true # DeltaV - convert to survival if they all die
   - type: DelayedRule # DeltaV: Grace period of 5 minutes before you can turn, to avoid a random passenger ruining your plan
     delay: 300
     delayedComponents:
