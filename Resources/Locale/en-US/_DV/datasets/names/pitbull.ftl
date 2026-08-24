@@ -101,3 +101,4 @@ names-pitbull-dataset-97 = Shepard
 names-pitbull-dataset-98 = Gaster
 names-pitbull-dataset-99 = Roots
 names-pitbull-dataset-100 = Friend
+names-pitbull-dataset-101 = Pookie
