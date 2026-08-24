@@ -92,4 +92,12 @@ names-pitbull-dataset-88 = Singularity
 names-pitbull-dataset-89 = Singuloose
 names-pitbull-dataset-90 = Mustard
 names-pitbull-dataset-91 = Gravy
-
+names-pitbull-dataset-92 = Tesloose
+names-pitbull-dataset-93 = Root Beer
+names-pitbull-dataset-94 = Tritfire
+names-pitbull-dataset-95 = Gnomekiller
+names-pitbull-dataset-96 = Devil
+names-pitbull-dataset-97 = Shepard
+names-pitbull-dataset-98 = Gaster
+names-pitbull-dataset-99 = Roots
+names-pitbull-dataset-100 = Friend
