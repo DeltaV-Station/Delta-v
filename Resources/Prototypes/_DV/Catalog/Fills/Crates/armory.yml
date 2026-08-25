@@ -10,7 +10,7 @@
           amount: 2
         - id: BoxSpeedLoaderLightRifle
   - type: AntiTamper # DeltaV - port impstation's anti-tamper
-  containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
+    containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
 
 - type: entity
   parent: CrateWeaponSecure
@@ -91,7 +91,7 @@
       entity_storage: !type:NestedSelector
         tableId: NT3Table
   - type: AntiTamper # DeltaV - port impstation's anti-tamper
-  containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
+    containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
 
 - type: entity
   parent: CrateWeaponSecure
