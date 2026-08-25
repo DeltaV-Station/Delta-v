@@ -13,7 +13,7 @@
         - id: MagazinePistolSubMachineGunTopMounted
           amount: 4
   - type: AntiTamper # DeltaV - port impstation's anti-tamper
-  containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
+    containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
 
 - type: entity
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
@@ -117,4 +117,4 @@
         - id: MagazineRifle
           amount: 4
   - type: AntiTamper # DeltaV - port impstation's anti-tamper
-  containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
+    containers: [ entity_storage ] # DeltaV - port impstation's anti-tamper
