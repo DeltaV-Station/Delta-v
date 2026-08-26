@@ -28,7 +28,7 @@
     children:
     - id: FlashlightSeclite
     - id: WeaponDisabler
-    - id: WeaponTaser
+    #- id: WeaponTaser # DeltaV - removed taser
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
@@ -87,7 +87,7 @@
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
-    - id: WeaponTaser
+    #- id: WeaponTaser # DeltaV - removed taser
     #- id: ClothingUniformJumpsuitSecGrey # DeltaV - remove uniforms from sec lockers
     #  prob: 0.3
     - id: ClothingHeadHelmetBasic
@@ -122,7 +122,7 @@
     children:
     - !type:NestedSelector # DeltaV - Adds our modifications.
       tableId: FillLockerBrigmedicDeltaV
-    - id: WeaponTaser
+    #- id: WeaponTaser # DeltaV - removed taser
     - id: ClothingEyesGlassesCorpsman
     - id: WeaponDisabler
     - id: TrackingImplanter
