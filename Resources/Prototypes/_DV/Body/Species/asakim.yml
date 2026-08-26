@@ -101,12 +101,14 @@
     baseWalkSpeed : 2.7
     baseSprintSpeed : 4.65
     weightlessAcceleration: 1.5 # Slightly more manueverable in space.
+  - type: ClothingSlowResistance
+    modifier: 1.0 # Completely unaffected by clothing slow
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.48
+          radius: 0.39
         density: 275 # Its an abandoned bioweapon species with 4 arms, of course it should be able to fight a Oni.
         restitution: 0.0
         mask:
@@ -214,6 +216,11 @@
     color: "#ae65bf"
     activateSound: null
     deactivateSound: null
+  - type: MobThresholds
+    thresholds: 
+      0: Alive
+      120: Critical
+      240: Dead
 
 - type: entity
   parent: OrganBase
