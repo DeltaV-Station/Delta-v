@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: AeraAuling
-  changes:
-  - message: Removed PKA upgrade kits for Fire-Rate and Indoors.
-    type: Remove
-  - message: PKA damage stats have been tweaked.
-    type: Tweak
-  id: 2139
-  time: '2026-02-28T10:26:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5311
 - author: makyo
   changes:
   - message: Some clothing/item/etc forced accents removed; they can still be added
@@ -4420,4 +4411,21 @@
   id: 2639
   time: '2026-08-24T16:23:07.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6446
+- author: ShepardToTheStars
+  changes:
+  - message: Ninja's katana dash now has a 5 second cooldown between uses.
+    type: Tweak
+  - message: Ninja's katana dash now takes 30 seconds to recharge each use, up from
+      20 seconds.
+    type: Tweak
+  - message: Reduced skia's healing in the dark from 5 of each damage type to 2 of
+      each damage type.
+    type: Tweak
+  - message: Increased skia's damage from light from 1.5 brute to 2 brute.
+    type: Tweak
+  - message: Revenant's melee attack will now reveal them for 2 seconds.
+    type: Tweak
+  id: 2640
+  time: '2026-08-26T08:34:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6410
 Order: 1
