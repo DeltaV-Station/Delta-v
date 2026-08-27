@@ -19,22 +19,22 @@ public sealed partial class DVCommunicationsConsoleComponent : Component
     [DataField]
     public SoundSpecifier AnnouncementSound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool GlobalAnnouncements;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanAnnounce = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanAlertLevel = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanCallShuttles = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanConfigureScreens = true;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanKeycardAuthenticationDevice = true;
 
     [DataField, AutoNetworkedField]

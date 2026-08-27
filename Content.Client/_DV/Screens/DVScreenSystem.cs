@@ -1,5 +1,6 @@
 using System.Globalization;
 using Content.Client.GameTicking.Managers;
+using Content.Client.Interactable.Components;
 using Content.Client.TextScreen;
 using Content.Shared._DV.Screens;
 using Robust.Shared.Timing;
@@ -16,6 +17,7 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<DVScreenComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<DVScreenComponent, AfterAutoHandleStateEvent>(OnScreenState);
     }
 
@@ -42,6 +44,12 @@ public sealed class DVScreenSystem : DVSharedScreenSystem
                     throw new ArgumentOutOfRangeException();
             }
         }
+    }
+
+    private void OnInit(Entity<DVScreenComponent> ent, ref ComponentInit args)
+    {
+        // Remove interaction outline because it outlines the offscreen text and looks bad
+        RemComp<InteractionOutlineComponent>(ent);
     }
 
     private void OnScreenState(Entity<DVScreenComponent> ent, ref AfterAutoHandleStateEvent args)

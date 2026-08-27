@@ -5,15 +5,15 @@
     MinSize="400 300">
 
     <BoxContainer Name="HomeScreen" Orientation="Vertical" Margin="8">
-        <Label Text="{Loc 'comms-console-menu-station-title'}" StyleClasses="LabelKeyText" />
+        <Label Text="{Loc 'comms-console-menu-station-title'}" Name="StationHeaderLabel" StyleClasses="LabelKeyText" />
         <Button Name="AnnouncementTab" Text="{Loc 'comms-console-menu-tab.Announcement'}" />
         <Button Name="ScreenTab" Text="{Loc 'comms-console-menu-tab.Screen'}" />
         <Button Name="AlertLevelTab" Text="{Loc 'comms-console-menu-tab.AlertLevel'}" />
 
-        <Label Text="{Loc 'comms-console-menu-transit-title'}" StyleClasses="LabelKeyText" Margin="0 8 0 0" />
+        <Label Text="{Loc 'comms-console-menu-transit-title'}" Name="TransitHeaderLabel" StyleClasses="LabelKeyText" Margin="0 8 0 0" />
         <Button Name="ShuttlesTab" Text="{Loc 'comms-console-menu-tab.Shuttles'}" />
 
-        <Label Text="{Loc 'comms-console-menu-emergency-title'}" StyleClasses="LabelKeyText" Margin="0 8 0 0" />
+        <Label Text="{Loc 'comms-console-menu-emergency-title'}" Name="EmergencyHeaderLabel" StyleClasses="LabelKeyText" Margin="0 8 0 0" />
         <Button Name="KeycardAuthenticationDeviceTab" Text="{Loc 'comms-console-menu-tab.KeycardAuthenticationDevice'}" />
     </BoxContainer>
 
@@ -101,7 +101,7 @@
                 <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
                     <Label Text="{Loc 'comms-console-menu-declare-mayday.title'}" StyleClasses="LabelKeyText" />
                     <RichTextLabel Text="{Loc 'comms-console-menu-declare-mayday.desc'}" />
-                    <controls:ConfirmButton Name="CallZeta" Text="{Loc 'comms-console-menu-declare-mayday.button'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                    <controls:ConfirmButton Name="CallZeta" Text="{Loc 'comms-console-menu-declare-mayday.button'}" HorizontalAlignment="Stretch" Margin="0 8 0 0" />
                 </BoxContainer>
             </PanelContainer>
 
@@ -109,7 +109,7 @@
                 <BoxContainer Margin="8" HorizontalExpand="True" Orientation="Vertical">
                     <Label Text="{Loc 'comms-console-menu-request-codes.title'}" StyleClasses="LabelKeyText" />
                     <RichTextLabel Text="{Loc 'comms-console-menu-request-codes.desc'}" />
-                    <controls:ConfirmButton Name="RequestCodes" Text="{Loc 'comms-console-menu-request-codes.button'}" HorizontalAlignment="Right" Margin="0 8 0 0" />
+                    <controls:ConfirmButton Name="RequestCodes" Text="{Loc 'comms-console-menu-request-codes.button'}" HorizontalAlignment="Stretch" Margin="0 8 0 0" />
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>

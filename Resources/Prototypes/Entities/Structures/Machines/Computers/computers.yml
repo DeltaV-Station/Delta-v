@@ -695,16 +695,17 @@
       state: generic_panel_open
   - type: AccessReader
     access: [[ "Command" ]]
-  # Begin DeltaV Removals - our own thing
+  # Begin DeltaV - DV Comms Console
   # - type: CommunicationsConsole
   #   title: comms-console-announcement-title-station
-  # End DeltaV Removals - our own thing
+  - type: ActivatableUIRequiresAccess
   - type: DVCommunicationsConsole # DeltaV - new functionality
     announcementTitle: comms-console-announcement-title-station
+  # End DeltaV
   - type: DeviceNetwork
     deviceNetId: Wireless
-    transmitFrequencyId: ShuttleTimer
-    receiveFrequencyId: ShuttleTimer # DeltaV - new functionality
+    transmitFrequencyId: NTNet # DeltaV - DVComms console
+    receiveFrequencyId: NTNet # DeltaV - DVComms console
   - type: ActivatableUI
     key: enum.DVCommunicationsConsoleUi.Key # DeltaV - new UI
   - type: UserInterface

@@ -1,3 +1,5 @@
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Electrocution;
 using Content.Shared.Station;
@@ -12,6 +14,7 @@ public abstract class SharedDVStationKeycardAuthenticationDeviceSystem : EntityS
     [Dependency] protected readonly SharedStationSystem Station = default!;
     [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
     public override void Update(float frameTime)
     {
@@ -105,6 +108,9 @@ public abstract class SharedDVStationKeycardAuthenticationDeviceSystem : EntityS
             return;
 
         if (Station.GetOwningStation(user) is not { } station || !TryComp<DVStationKeycardAuthenticationDeviceComponent>(station, out var keycard))
+            return;
+
+        if (TryComp<AccessReaderComponent>(console, out var accessReader) && !_accessReader.IsAllowed(user, console, accessReader))
             return;
 
         if (keycard.SwipingFor is { } swipingFor && swipingFor != action)

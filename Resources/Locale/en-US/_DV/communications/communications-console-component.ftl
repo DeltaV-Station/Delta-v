@@ -42,7 +42,7 @@ comms-console-menu-emergency-title = Emergency
 comms-console-menu-declare-mayday =
     .title = Declare mayday
     .desc = Declare the station unfit for life and send out a distress signal to all nearby vessels. Requires two simultaneous authorizations.
-    .button = Declare Code Sigma
+    .button = Declare Code Zeta
 
 comms-console-menu-request-codes =
     .title = Scuttle the station

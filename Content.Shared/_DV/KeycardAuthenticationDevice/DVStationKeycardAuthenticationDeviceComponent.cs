@@ -18,7 +18,7 @@ public sealed partial class DVStationKeycardAuthenticationDeviceComponent : Comp
     public TimeSpan? SwipesStartedAt = null;
 
     [DataField]
-    public TimeSpan SwipeWindow = TimeSpan.FromSeconds(10);
+    public TimeSpan SwipeWindow = TimeSpan.FromSeconds(20);
 
     [DataField(required: true)]
     public Dictionary<DVStationKeycardAction, int> ActionThresholds;
