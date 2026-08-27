@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Stxcking
-  changes:
-  - message: Fixed medborg crew monitor not getting power and being able to remove
-      power cell.
-    type: Fix
-  id: 2144
-  time: '2026-02-28T20:42:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5342
 - author: Pharaz4
   changes:
   - message: Fixed blukie and paramed suit not displaying for harpy.
@@ -4436,4 +4428,13 @@
   id: 2644
   time: '2026-08-27T19:24:13.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6438
+- author: Coryler
+  changes:
+  - message: You can now save labels between rounds.
+    type: Add
+  - message: The original item name and label are now swapped.
+    type: Tweak
+  id: 2645
+  time: '2026-08-27T19:26:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6432
 Order: 1
