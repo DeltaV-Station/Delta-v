@@ -26,7 +26,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
     {
         // BEGIN DeltaV
         IntercomComponent? intercom = null;
-        if (!Resolve(uid, ref intercom))
+        if (!Resolve(uid, ref intercom, false))
             return;
 
         var ent = new Entity<IntercomComponent>(uid, intercom);

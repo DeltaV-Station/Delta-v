@@ -4,6 +4,7 @@
   parent: BaseItem
   id: RadioHandheld
   components:
+  - type: Appearance # DeltaV - Give the radio visual states for on/off microphone and speaker
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Handheld
@@ -13,18 +14,44 @@
     - Handheld
   - type: Speech
     speechVerb: Robotic
+  # BEGIN DeltaV - Give the radio visual states for on/off microphone and speaker
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _DV/Objects/Devices/communication.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: walkietalkie-off
+    - state: walkietalkie-broadcasting
+      map: ["broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: walkietalkie-speaker
+      map: ["speaker"]
+      shader: unshaded
+      visible: false
+#    state: walkietalkie
   - type: Item
-    sprite: Objects/Devices/communication.rsi
-    heldPrefix: walkietalkie
+    sprite: _DV/Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie-off
+  # END DeltaV
   - type: Tag
     tags:
     - Radio
+  - type: DVRadioVisuals # DeltaV - Give the radio visual states for on/off microphone and speaker
+    microphoneSpriteLayer: broadcasting
+    speakerSpriteLayer: speaker
+    microphoneInhandVisuals:
+      left:
+      - state: walkietalkie-broadcasting-inhand-left
+        shader: unshaded
+      right:
+      - state: walkietalkie-broadcasting-inhand-right
+        shader: unshaded
+    speakerInhandVisuals:
+      left:
+      - state: walkietalkie-speaker-inhand-left
+        shader: unshaded
+      right:
+      - state: walkietalkie-speaker-inhand-right
+        shader: unshaded
 
 - type: entity
   name: security radio
@@ -32,7 +59,6 @@
   parent: [ RadioHandheld, BaseSecurityContraband ]
   id: RadioHandheldSecurity
   components:
-  - type: Appearance # DeltaV - radio screen appearance control
   - type: RadioMicrophone
     broadcastChannel: Security
     listenRange: 1
@@ -42,16 +68,17 @@
   - type: Sprite
     sprite: _DV/Objects/Devices/securityhandy.rsi # DeltaV - resprite security radio
     layers:
-    - state: walkietalkie-off # DeltaV - show off screen when radio disabled
-    - state: walkietalkie-on # DeltaV - animated screen when radio enabled
-      map: ["enum.RadioDeviceVisualLayers.Speaker"]
-      visible: false # DeltaV - start with screen off
+    # BEGIN DeltaV - Give the radio visual states for on/off microphone and speaker
+    - state: walkietalkie-off
+    - state: walkietalkie-broadcasting
+      map: [ "broadcasting" ]
+      shader: unshaded
+      visible: false
+    - state: walkietalkie-speaker
+      map: [ "speaker" ]
+      shader: unshaded
+      visible: false
+    # END DeltaV
   - type: Item
     sprite: _DV/Objects/Devices/securityhandy.rsi # DeltaV - resprite security radio
-    heldPrefix: walkietalkie
-  - type: GenericVisualizer # DeltaV - toggle radio screen overlay
-    visuals:
-      enum.RadioDeviceVisuals.Speaker:
-        enum.RadioDeviceVisualLayers.Speaker:
-          True: { visible: true }
-          False: { visible: false }
+    heldPrefix: walkietalkie-off

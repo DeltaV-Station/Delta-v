@@ -10,7 +10,17 @@
     channels:
     - Syndicate
   - type: Sprite
-    sprite: Objects/Devices/securityhandy.rsi
+    sprite: _DV/Objects/Devices/communication.rsi
+    layers:
+    - state: syndietalkie-off
+    - state: syndietalkie-broadcasting
+      map: [ "broadcasting" ]
+      shader: unshaded
+      visible: false
+    - state: walkietalkie-speaker
+      map: [ "speaker" ]
+      shader: unshaded
+      visible: false
   - type: Item
-    sprite: Objects/Devices/securityhandy.rsi
-    heldPrefix: walkietalkie
+    sprite: _DV/Objects/Devices/communication.rsi
+    heldPrefix: syndietalkie-off

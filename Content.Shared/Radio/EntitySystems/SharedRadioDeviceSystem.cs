@@ -41,14 +41,34 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         {
             var state = GetStatusText(component); // DeltaV - Use method for getting state due to DRY
             var message = Loc.GetString("radio-speaker-component-on-use", ("radioState", state)); // DeltaV - Use locid specific to speaker
-            _popup.PopupEntity(message, user.Value, user.Value);
+            _popup.PopupPredicted(message, user.Value, user.Value); // DeltaV - Make predicted
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);
-        if (component.Enabled)
-            EnsureComp<ActiveRadioComponent>(uid).Channels.UnionWith(component.Channels);
+        // BEGIN DeltaV - Extracted to method
+        // if (component.Enabled)
+        //     EnsureComp<ActiveRadioComponent>(uid).Channels.UnionWith(component.Channels);
+        // else
+        //     RemCompDeferred<ActiveRadioComponent>(uid);
+        UpdateActiveRadioComponent((uid, component));
+        //END DeltaV
+    }
+
+    /// <summary>
+    /// DeltaV - Adds or removes <see cref="ActiveRadioComponent"/> on the entity based on
+    /// whether the <see cref="RadioSpeakerComponent"/> is enabled. And copies its channels too.
+    /// </summary>
+    /// <param name="entity">The entity that owns these components.</param>
+    private void UpdateActiveRadioComponent(Entity<RadioSpeakerComponent> entity)
+    {
+        if (entity.Comp.Enabled)
+        {
+            var activeRadio = EnsureComp<ActiveRadioComponent>(entity);
+            activeRadio.Channels.Clear();
+            activeRadio.Channels.UnionWith(entity.Comp.Channels);
+        }
         else
-            RemCompDeferred<ActiveRadioComponent>(uid);
+            RemCompDeferred<ActiveRadioComponent>(entity);
     }
     #endregion
 }

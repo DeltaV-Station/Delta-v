@@ -116,7 +116,7 @@ public abstract partial class SharedRadioDeviceSystem
         {
             var state = GetStatusText(component);
             var message = Loc.GetString("radio-microphone-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, uid, user.Value);
+            _popup.PopupPredicted(message, uid, user.Value);
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Broadcasting, component.Enabled);
@@ -124,6 +124,18 @@ public abstract partial class SharedRadioDeviceSystem
             EnsureComp<ActiveListenerComponent>(uid).Range = component.ListenRange;
         else
             RemCompDeferred<ActiveListenerComponent>(uid);
+    }
+
+    /// <summary>
+    /// Sets the <see cref="RadioSpeakerComponent"/>'s and <see cref="ActiveRadioComponent"/>'s channels.
+    /// </summary>
+    /// <param name="entity">The radio whose channels are being set.</param>
+    /// <param name="channels">The HashSet of channels to set.</param>
+    private void SetSpeakerChannels(Entity<RadioSpeakerComponent> entity, HashSet<ProtoId<RadioChannelPrototype>> channels)
+    {
+        entity.Comp.Channels.Clear();
+        entity.Comp.Channels.UnionWith(channels);
+        UpdateActiveRadioComponent(entity);
     }
     #endregion
 
@@ -136,7 +148,7 @@ public abstract partial class SharedRadioDeviceSystem
         if (!args.IsInDetailsRange)
             return;
 
-        var proto = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel);
+        var proto = _protoMan.Index(component.BroadcastChannel);
         var status = GetStatusText(component, true);
 
         // Analogous to Encryption Keyholder examine.
@@ -339,13 +351,13 @@ public abstract partial class SharedRadioDeviceSystem
         if (TryComp<RadioMicrophoneComponent>(ent, out var microphone))
         {
             microphone.BroadcastChannel = channel.Value;
-            Dirty(ent, microphone);
+            Dirty(ent.Owner, microphone);
         }
 
         if (TryComp<RadioSpeakerComponent>(ent, out var speaker))
         {
-            speaker.Channels = [ channel.Value ];
-            Dirty(ent, speaker);
+            SetSpeakerChannels((ent, speaker), [ channel.Value ]);
+            Dirty(ent.Owner, speaker);
         }
     }
     #endregion
