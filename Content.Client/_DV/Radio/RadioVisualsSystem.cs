@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.Items.Systems;
 using Content.Shared._DV.Radio.Components;
 using Content.Shared.Hands;

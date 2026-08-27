@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Radio.Components;
+namespace Content.Shared._DV.Radio.Components;
 
 /// <summary>
 /// Parent class for RadioMicrophoneComponent and RadioSpeakerComponent,
@@ -37,4 +37,3 @@ public abstract partial class DVRadioToggleable : Component
     [DataField]
     public abstract LocId DisableVerbText { get; set; }
 }
-

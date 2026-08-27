@@ -1,1 +1,1 @@
-﻿examine-encryption-channel = [color={$color}]{$key} for {$id} ({RADIOFREQUENCY($freq)})[/color]
+examine-encryption-channel = [color={$color}]{$key} for {$id} ({RADIOFREQUENCY($freq)})[/color]
