@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Darklyac
-  changes:
-  - message: Added 9 new Lobby Music and 11 new Jukebox Music!
-    type: Add
-  id: 2142
-  time: '2026-02-28T18:13:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5424
 - author: Pharaz4
   changes:
   - message: Added cloth wraps!
@@ -4424,4 +4417,23 @@
   id: 2642
   time: '2026-08-27T18:31:59.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6456
+- author: sowelipililimute, ShepardToTheStars
+  changes:
+  - message: Communications consoles have been redesigned!
+    type: Add
+  - message: Command can now declare alert level Zeta as a form of mayday to call
+      an expedited evacuation. Two authorizations are required.
+    type: Add
+  - message: Command can now request the nuclear authentication codes to scuttle the
+      station. Three authorizations are required.
+    type: Add
+  - message: Status displays have been redesigned and can now be configured to show
+      scrolling text, an image for the alert level, borders for the alert level, the
+      current time, or shuttle ETA/ETD
+    type: Add
+  - message: Code Orange has been removed because Zeta now exists.
+    type: Remove
+  id: 2643
+  time: '2026-08-27T18:37:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5954
 Order: 1
