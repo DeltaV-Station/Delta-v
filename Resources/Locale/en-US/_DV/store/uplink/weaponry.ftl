@@ -23,4 +23,3 @@ uplink-leveraction-desc = A bundle containing a SKL93 lever action sniper loaded
 
 uplink-anaconda-name = Anaconda
 uplink-anaconda-desc = A inaccurate one handed SMG with a 100 bullet mag. Does not come with any extra ammo.
-
