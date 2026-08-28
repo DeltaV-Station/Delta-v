@@ -21,6 +21,6 @@ uplink-dualswords-desc = A set of dual swords made for those who prefer somethin
 uplink-leveraction-name = SKL93 AP Bundle
 uplink-leveraction-desc = A bundle containing a SKL93 lever action sniper loaded with AP ammo. Comes with a spare box of standard magnum.
 
-uplink-leveraction-name = Anaconda
-uplink-leveraction-desc = A inaccurate one handed SMG with a 100 bullet mag. Does not come with any extra ammo.
+uplink-anaconda-name = Anaconda
+uplink-anaconda-desc = A inaccurate one handed SMG with a 100 bullet mag. Does not come with any extra ammo.
 
