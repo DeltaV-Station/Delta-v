@@ -26,11 +26,11 @@
   - type: DynamicRuleCost
     cost: 100 # bit more than thief
 
-  - type: entity
-    abstract: true
-    parent: BaseGameRule
-    id: SubTraitorRule
-    components:
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: SubTraitorRule
+  components:
   - type: TraitorRule
     startingBalance: 20 # Less TC for subgamemode
     # TODO: codewords in yml
