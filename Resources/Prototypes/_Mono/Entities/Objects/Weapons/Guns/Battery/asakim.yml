@@ -43,15 +43,15 @@
     zeroVisible: false
   - type: BatteryAmmoProvider
     proto: HandheldAutopulserProjectile
-    fireCost: 33 # DeltaV - increased fire cost, was 25. 33 comes out to 30 shots.
+    fireCost: 50 # DeltaV - doubled fire cost, was 25
   - type: BatteryWeaponFireModes # DeltaV - selectable disabler mode
     fireModes:
     - proto: HandheldAutopulserProjectile
-      fireCost: 33 # DeltaV - increased fire cost, was 25
+      fireCost: 50 # DeltaV - doubled fire cost, was 25
     - proto: HandheldAutopulserDisablerProjectile
-      fireCost: 25
+      fireCost: 35 # DeltaV - less than doubled fire cost for disable mode, was 25
   - type: Appearance
   - type: StaticPrice
     price: 1750
   - type: BatterySelfRecharger
-    autoRechargeRate: 25 # DeltaV - double to compensate for increased cost, was 15
+    autoRechargeRate: 30 # DeltaV - double to compensate for increased cost, was 15

@@ -216,11 +216,6 @@
     color: "#ae65bf"
     activateSound: null
     deactivateSound: null
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      120: Critical
-      240: Dead
 
 - type: entity
   parent: OrganBase
