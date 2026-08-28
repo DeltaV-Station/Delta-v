@@ -103,3 +103,17 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkAnaconda
+  name: uplink-anaconda-name
+  description: uplink-anaconda-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/SMGs/anaconda.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
+  productEntity: WeaponSubMachineGunAnaconda
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
