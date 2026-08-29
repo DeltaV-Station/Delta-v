@@ -154,3 +154,15 @@
   - TelescopicShield
   - BorgModuleSecurityEscalate
   - BorgModuleSecurityBastion
+
+- type: technology
+  id: AdvancedPlasmaManipulation
+  name: research-technology-advanced-plasma-manipulation
+  icon:
+    sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - PlasAxe
