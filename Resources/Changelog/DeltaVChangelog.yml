@@ -1,58 +1,4 @@
 ﻿Entries:
-- author: makyo
-  changes:
-  - message: Some clothing/item/etc forced accents removed; they can still be added
-      in traits!
-    type: Tweak
-  id: 2140
-  time: '2026-02-28T12:31:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5343
-- author: Cepelinas1
-  changes:
-  - message: NanoTrasen has permitted Engineering to choose between a voidsuit and
-      a hardsuit for their work. Check your lockers!
-    type: Add
-  - message: Increased Engineering Voidsuit speed by 5%.
-    type: Tweak
-  id: 2141
-  time: '2026-02-28T14:23:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5317
-- author: Darklyac
-  changes:
-  - message: Added 9 new Lobby Music and 11 new Jukebox Music!
-    type: Add
-  id: 2142
-  time: '2026-02-28T18:13:51.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5424
-- author: Pharaz4
-  changes:
-  - message: Added cloth wraps!
-    type: Add
-  id: 2143
-  time: '2026-02-28T20:06:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5335
-- author: Stxcking
-  changes:
-  - message: Fixed medborg crew monitor not getting power and being able to remove
-      power cell.
-    type: Fix
-  id: 2144
-  time: '2026-02-28T20:42:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5342
-- author: Pharaz4
-  changes:
-  - message: Fixed blukie and paramed suit not displaying for harpy.
-    type: Fix
-  id: 2145
-  time: '2026-03-01T11:18:43.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5414
-- author: Velcroboy
-  changes:
-  - message: Wizard now starts in the Wizard's Den and gets a teleport scroll
-    type: Tweak
-  id: 2146
-  time: '2026-03-01T13:38:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5215
 - author: rebe83
   changes:
   - message: Bottles, vials, and chem injectors no longer fit inside cigarette boxes.
@@ -4428,4 +4374,71 @@
   id: 2640
   time: '2026-08-26T08:34:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6410
+- author: SumofThreeParts
+  changes:
+  - message: The Patos can now be purchased from logistics.
+    type: Add
+  id: 2641
+  time: '2026-08-27T14:29:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6361
+- author: ShepardToTheStars
+  changes:
+  - message: Diona who become trees are 'rooted' in place again.
+    type: Fix
+  id: 2642
+  time: '2026-08-27T18:31:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6456
+- author: sowelipililimute, ShepardToTheStars
+  changes:
+  - message: Communications consoles have been redesigned!
+    type: Add
+  - message: Command can now declare alert level Zeta as a form of mayday to call
+      an expedited evacuation. Two authorizations are required.
+    type: Add
+  - message: Command can now request the nuclear authentication codes to scuttle the
+      station. Three authorizations are required.
+    type: Add
+  - message: Status displays have been redesigned and can now be configured to show
+      scrolling text, an image for the alert level, borders for the alert level, the
+      current time, or shuttle ETA/ETD
+    type: Add
+  - message: Code Orange has been removed because Zeta now exists.
+    type: Remove
+  id: 2643
+  time: '2026-08-27T18:37:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5954
+- author: SumofThreeParts
+  changes:
+  - message: the hushpup now  makes less sound when fired.
+    type: Tweak
+  id: 2644
+  time: '2026-08-27T19:24:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6438
+- author: Coryler
+  changes:
+  - message: You can now save labels between rounds.
+    type: Add
+  - message: The original item name and label are now swapped.
+    type: Tweak
+  id: 2645
+  time: '2026-08-27T19:26:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6432
+- author: CarolCuchara
+  changes:
+  - message: New caseless shotgun shells that wont leave behind a trace!
+    type: Add
+  - message: The Hushpup now comes equiped with caseless shotgun shells!
+    type: Tweak
+  id: 2646
+  time: '2026-08-28T16:38:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6457
+- author: Vapetastic-Gaming
+  changes:
+  - message: Survival Scheduler has been slightly tamed, and will give moments of
+      calm, while also applying pressure via spawns. Survival Scheduler refused to
+      read you a bedtime story, sorry chat.
+    type: Tweak
+  id: 2647
+  time: '2026-08-28T23:54:33.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6440
 Order: 1
