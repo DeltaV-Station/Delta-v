@@ -62,7 +62,7 @@ sophia-response-moth = Moths scarecely look human, but, strangely, their genes c
 
 sophia-response-lamiae = So, you remember? You must be remembering their mythological namesake. If you've really retained that fleeting memory over so many metempsychoses... Perhaps I've said too much.
 
-sophia-response-cyno = Were those... no... So faint. Ignorance! You cannot remember them! It's impossible!
+sophia-response-mushpeople = Were those... no... So faint. Ignorance! You cannot remember them! It's impossible!
 
 sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
 
@@ -73,8 +73,6 @@ sophia-response-narsie = The goddess of blood and ceaseless slaugher... A cruel,
 sophia-response-ratvar = The god of time and metal... A constant engine of progression. He is always gaining power thanks to the constant developments here. In return, he shares some of his power freely... All you have to do is look inside of the machinery you work with, and you shall see that telltale spark.
 
 sophia-response-honkmother = The goddess of chaos and humor... A unusual being, one who has only recently awakened... She spreads her humor far and wide, some of which in the form of the jokes and honking from those clowns. Attempts at gaining her attention have always failed in spectacular fashion, with the area becoming devastated and reduced to colorful ruins.
-
-sophia-response-
 
 sophia-response-glimmer = The current glimmer reading is {$glimmer}. {$tier}
 
