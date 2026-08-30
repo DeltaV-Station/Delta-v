@@ -37,12 +37,12 @@
 - type: npcConversationTree
   id: SophiaTree
   dialogue:
-  - prompts: [glimmer, reading]
+  - prompts: [glimmer, reading, psi]
     responses:
     - is: !type:NPCConversationGetGlimmerEvent
         text: sophia-response-glimmer
 
-  - prompts: [purpose, job, occupation, profession]
+  - prompts: [purpose, job, occupation, profession, role]
     weight: 0.5
     responses:
     - text: sophia-response-job
@@ -54,10 +54,15 @@
     - is: !type:NPCConversationHelpEvent
         text: sophia-response-help
 
-  - prompts: [nature, statue, snake, being]
+  - prompts: [nature, statue, being]
     weight: 0.3
     responses:
     - text: sophia-response-nature
+
+  - prompts: [Absence, Dormancy, "Period of Silence"] #Attempt at lore on why she never spoke since rebase
+    weight: 0.3
+    responses:
+    - text: sophia-response-absence
 
   - prompts: [epistemics, epi]
     weight: 0.2
@@ -84,12 +89,12 @@
     responses:
     - text: sophia-response-noosphere
 
-  - prompts: [metempsychosis, metempsychoses, reincarnation, death, dying, afterlife]
+  - prompts: [cloning, clones, reincarnation, death, dying, afterlife]
     weight: 0.2
     responses:
-    - text: sophia-response-metempsychosis
+    - text: sophia-response-cloning
 
-  - prompts: [calendar]
+  - prompts: [calendar, date]
     weight: 0.2
     responses:
     - text: sophia-response-calendar
@@ -111,7 +116,7 @@
     responses:
     - text: sophia-response-truth
 
-  - prompts: [human, humans, humanoid, unmutated]
+  - prompts: [human, humans, humanoid]
     weight: 0.1
     hidden: true
     responses:
@@ -135,13 +140,13 @@
     responses:
     - text: sophia-response-arachne
 
-  - prompts: [moth, moths, moff, moths]
+  - prompts: [moth, moths, moff, moths, mothpeople, mothperson]
     weight: 0.1
     hidden: true
     responses:
     - text: sophia-response-moth
 
-  - prompts: [lamiae, lamia, lamias]
+  - prompts: [lamiae, lamia, lamias, snakepeople, snakeperson]
     weight: 0.1
     hidden: true
     responses:
@@ -153,13 +158,13 @@
     responses:
     - text: sophia-response-grue
 
-  - prompts: [cynocephalus, cynocephali, cyno, cynos]
+  - prompts: [mushpeople, fungipeople] #Was originally something else, but I had zero clue as to what that race was. There was literally no mention of it in prebase code. I just replaced it with something more recognizable to those who have studied the ancient code of prebase.
     weight: 0.1
     hidden: true
     responses:
-    - text: sophia-response-cyno
+    - text: sophia-response-mushpeople
 
-  - prompts: [crisis, causality]
+  - prompts: [crisis, causality, incident]
     weight: 0.1
     hidden: true
     responses:
@@ -171,20 +176,35 @@
     responses:
     - text: sophia-response-oracle
 
-  - prompts: [abraxas]
+  - prompts: ["The Unknown", "Cosmic God", "Bringer of The Curtains Fall", "Cosmic Cult"] #Might as well since its no longer metashielded
     weight: 0.1
     hidden: true
     responses:
-    - text: sophia-response-abraxas
+    - text: sophia-response-theunknown
 
-  - prompts: [hi, hello, hey, greetings, salutations]
+  - prompts: ["Goddess of Slaughter", "Blood Goddess", "Goddess of Blood", Narsie]
+    weight: 0.1
+    responses:
+    - text: sophia-response-narsie
+
+  - prompts: ["Lord of Time", "Lord of Progress", "God of Time", "God of Progress", Ratvar]
+    weight: 0.1
+    responses:
+    - text: sophia-response-ratvar
+
+  - prompts: ["Goddess of Humor", "Goddess of Chaos", "Chaos Goddess", "Clown Goddess", Honkmother]
+    weight: 0.1
+    responses:
+    - text: sophia-response-honkmother
+
+  - prompts: [hi, hello, hey, greetings, salutations, yo]
     weight: 0.1
     hidden: true
     responses:
     - text: sophia-response-hello-1
     - text: sophia-response-hello-2
 
-  - prompts: [bye, goodbye, done, farewell, later, seeya]
+  - prompts: [bye, goodbye, done, farewell, later, seeya, godspeed]
     weight: 0.1
     hidden: true
     responses:
@@ -193,6 +213,8 @@
     - text: sophia-response-bye-2
       event: !type:NPCConversationByeEvent
     - text: sophia-response-bye-3
+      event: !type:NPCConversationByeEvent
+    - text: sophia-response-bye-4
       event: !type:NPCConversationByeEvent
 
   attention:

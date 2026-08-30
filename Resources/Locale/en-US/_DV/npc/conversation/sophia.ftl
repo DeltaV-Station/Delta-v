@@ -7,6 +7,7 @@ sophia-response-hello-2 = Salutations.
 sophia-response-bye-1 = Fare thee well.
 sophia-response-bye-2 = Gods be with you.
 sophia-response-bye-3 = Come back wiser.
+sophia-response-bye-4 = Godspeed.
 
 sophia-idle-phrase-1 = Mmmm, another portent.
 sophia-idle-phrase-2 = The noösphere is quite beautiful today. However, I don't think I could describe it in a way you could understand.
@@ -40,7 +41,7 @@ sophia-response-god = 'God' is such a vague term. There are so many entities out
 
 sophia-response-morphotype = In the first century, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories. Any specific morphotype you want to know about?
 
-sophia-response-calendar = It's currently {REPLACE WITH INGAME DATE}.
+sophia-response-calendar = It's currently (REPLACE WITH INGAME DATE).
 
 sophia-response-crisis = The first FTL travel was incompatible with the old ways. Fortunately, its resolution made more apparent the inherent futility in trying to give one history, one narrative, one account. Truth cannot be found in the material world, only higher ones.
 
@@ -66,7 +67,7 @@ sophia-response-mushpeople = Were those... no... So faint. Ignorance! You cannot
 
 sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
 
-sophia-response-theunkown = I avoid speaking of him... He has branded himself an enemy of all life in this universe. He invites only utter annihilation followed by unending silence, the end of all things. Pray he does not turn his gaze toward you.
+sophia-response-theunknown = I avoid speaking of him... He has branded himself an enemy of all life in this universe. He invites only utter annihilation followed by unending silence, the end of all things. Pray he does not turn his gaze toward you.
 
 sophia-response-narsie = The goddess of blood and ceaseless slaugher... A cruel, merciless mistress. To offer to her is to risk ones life for power, to become a harbinger of her will. She does not tolerate failure all too well, and many have failed in their attempts to appease her.
 
