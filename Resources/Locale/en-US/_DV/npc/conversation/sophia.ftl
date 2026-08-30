@@ -66,7 +66,15 @@ sophia-response-cyno = Were those... no... So faint. Ignorance! You cannot remem
 
 sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
 
-sophia-response-abraxas = That's a name of power, and I avoid speaking of him. He's the least content to rest, and the most infatuated with creating things from ignorance.
+sophia-response-theunkown = I avoid speaking of him... He has branded himself an enemy of all life in this universe. He invites only utter annihilation followed by unending silence, the end of all things. Pray he does not turn his gaze toward you.
+
+sophia-response-narsie = The goddess of blood and ceaseless slaugher... A cruel, merciless mistress. To offer to her is to risk ones life for power, to become a harbinger of her will. She does not tolerate failure all too well, and many have failed in their attempts to appease her.
+
+sophia-response-ratvar = The god of time and metal... A constant engine of progression. He is always gaining power thanks to the constant developments here. In return, he shares some of his power freely... All you have to do is look inside of the machinery you work with, and you shall see that telltale spark.
+
+sophia-response-honkmother = The goddess of chaos and humor... A unusual being, one who has only recently awakened... She spreads her humor far and wide, some of which in the form of the jokes and honking from those clowns. Attempts at gaining her attention have always failed in spectacular fashion, with the area becoming devastated and reduced to colorful ruins.
+
+sophia-response-
 
 sophia-response-glimmer = The current glimmer reading is {$glimmer}. {$tier}
 
