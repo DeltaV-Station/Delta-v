@@ -26,17 +26,18 @@
   id: OrganBaseOrganic
   name: organ
   abstract: true
-  parent: [ OrganBase, SolutionFood, SolutionTiny ]
+  parent: [ OrganBase ] #, SolutionFood, SolutionTiny ] # DeltaV - base solutions not ported
   components:
   - type: FlavorProfile
     flavors:
     - chicken # INTRODUCING OUR NEW EVERY-MEAT BURRITO, IT'S GOT EVERY MEAT!
   - type: Edible
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: UncookedAnimalProteins
-        Quantity: 20
+  - type: SolutionContainerManager # DeltaV - Solution -> SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
   - type: Tag # I am nearing my limit of tolerance for TagComponent.
     tags:
     - Raw
