@@ -343,8 +343,13 @@
   id: OrganVoxFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVoxInternal ]
+  parent: [ OrganBaseBrain, OrganVoxInternal ] # DeltaV - cortical stack sprite
   id: OrganVoxBrain
+  # Begin DeltaV - cortical stack sprite
+  components:  
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Vox/organs.rsi
+  # End DeltaV - cortical stack sprite
 
 - type: entity
   parent: [ OrganVoxVisual, OrganBaseEyes, OrganVoxInternal ]
