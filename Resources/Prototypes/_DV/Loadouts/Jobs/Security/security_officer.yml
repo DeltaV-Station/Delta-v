@@ -1,5 +1,5 @@
 # Sidearm
-
+WeaponFlareGunSecurity
 - type: loadout
   id: SecurityFirearmWeaponPistolPollock
   equipment:
@@ -19,6 +19,16 @@
   id: SecurityFirearmWeaponDisabler
   equipment:
     pocket1: WeaponDisabler
+
+- type: loadout
+  id: WeaponFlareGunSecurity
+  equipment:
+    pocket1: WeaponFlareGunSecurity
+    
+- type: loadout
+  id: BaseWeaponBatterySmall
+  equipment:
+    pocket1: BaseWeaponBatterySmall
 
 - type: loadout
   id: SecurityFirearmTruncheon
@@ -44,6 +54,12 @@
   storage:
     back:
     - MagazinePistol
+
+    - type: loadout
+  id: MagazineShotgun
+  storage:
+    back:
+    - MagazineShotgun
 
 - type: loadout
   id: SecurityFirearmPowercellMedium
