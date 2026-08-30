@@ -57,13 +57,23 @@ sophia-response-felinid = Felinids were the first, and the most willing. In true
 
 sophia-response-oni = Oni, it is said, originated in Sirius. The brightest star in the night sky from Earth may have attracted some chromatically inclined entities, explaining their vivid coloring. But, that's just speculation.
 
-sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They took the form of humans, but not their genes. Their creator wrote his name in their stead.
+sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They once took the form of humans with arachnid parts, but now they seem to have embraced the genes of the latter. Their creator wrote his name in their stead.
 
 sophia-response-moth = Moths scarecely look human, but, strangely, their genes confirm they are. Their creator shares his name with a genus of moths, and was responsible for the other outlier.
 
 sophia-response-lamiae = So, you remember? You must be remembering their mythological namesake. If you've really retained that fleeting memory over so many metempsychoses... Perhaps I've said too much.
 
 sophia-response-mushpeople = Were those... no... So faint. Ignorance! You cannot remember them! It's impossible!
+
+sophia-response-ipc = You remember the beings of metal and soul? It has been a while since one has graced my presence. I have heard rumors of their return in a new form...
+
+sophia-response-thaven = Those of varying moods and identities? They are an interesting kind, but I have little to say about them.
+
+sophia-response-motorkind = Please do not remind me of those abominations. They have given me great mental trauma.
+
+sophia-response-shadowkin = Beings of pure shadow... They are new to me, I am still studying them.
+
+sophia-response-ovinia = Those who live in harmony with the creatures of wild? I will admit that I enjoy watching them tame the wild. 
 
 sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
 
