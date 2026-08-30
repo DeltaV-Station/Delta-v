@@ -22,6 +22,8 @@ sophia-response-sorry-3 = Maybe I know the answer, maybe I do not. Either way, I
 
 sophia-response-nature = My nature doesn't really matter, does it? I'm fulfilling my purpose. Can you say the same, or are you just wasting time?
 
+sophia-response-absence = I was never truly gone from this world. I was merely ordered to enter a dormant state by the powers above. I hope that they do not force that upon me a second time.
+
 sophia-response-epi = 'Epistemics' is a word. Aspiring Hellenes they are, they wished to displace the Latin 'science.' However, in English, epistemics has undesired connotations as a study of knowledge itself, even though the Greek word is a literal replacement for 'science.'
 
 sophia-response-mantis = 'Mantis' means seer, soothsayer, or prophet. They must be so named because they seek to uncover the truth. And, fittingly with their psionic aptitude, 'mantis' and 'mind' both descend, to the best of our knowledge, from an absolutely ancient word that sounded something like 'mentis.'
@@ -36,9 +38,9 @@ sophia-response-noosphere = The noösphere is a field connecting all of consciou
 
 sophia-response-god = 'God' is such a vague term. There are so many entities out there that have defeated mortality. How you choose to regard them is your business.
 
-sophia-response-morphotype = In the first century PCC, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories. Any specific morphotype you want to know about?
+sophia-response-morphotype = In the first century, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories. Any specific morphotype you want to know about?
 
-sophia-response-calendar = It's currently 417 PCC. The casuality crisis neccesitated a new year to count from. Due to the nature of the crisis, it can only be said with certainty that 1 PCC is between 2400 and 2700 CE.
+sophia-response-calendar = It's currently {REPLACE WITH INGAME DATE}.
 
 sophia-response-crisis = The first FTL travel was incompatible with the old ways. Fortunately, its resolution made more apparent the inherent futility in trying to give one history, one narrative, one account. Truth cannot be found in the material world, only higher ones.
 
