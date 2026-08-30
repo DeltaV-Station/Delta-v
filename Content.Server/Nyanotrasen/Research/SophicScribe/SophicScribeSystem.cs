@@ -1,90 +1,66 @@
-using Content.Server.Chat.Systems;
+using Robust.Shared.Prototypes;
+using Content.Server.Abilities.Psionics;
+using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Shared.Chat;
-using Content.Shared._DV.Psionics.Components.PsionicPowers;
-using Content.Shared._DV.StationEvents.Events;
-using Content.Shared.Interaction;
+using Content.Server.StationEvents.Events;
+using Content.Server.NPC.Events;
+using Content.Server.NPC.Systems;
+using Content.Server.NPC.Prototypes;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Radio;
-using Content.Shared.Radio.Components;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
-namespace Content.Server.Nyanotrasen.Research.SophicScribe;
-
-public sealed partial class SophicScribeSystem : EntitySystem
+namespace Content.Server.Research.SophicScribe
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
-    private static readonly ProtoId<RadioChannelPrototype> ScienceEncryptName = "Science";
-    private static readonly ProtoId<RadioChannelPrototype> CommonEncryptName = "Common";
-
-    public override void Update(float frameTime)
+    public sealed partial class SophicScribeSystem : EntitySystem
     {
-        base.Update(frameTime);
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly RadioSystem _radioSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly NPCConversationSystem _conversationSystem = default!;
 
-        if (_glimmerSystem.Glimmer == 0)
-            return; // yes, return. Glimmer value is global.
+        private readonly ISawmill _sawmill = default!;
 
-        var curTime = _timing.CurTime;
-
-        var query = EntityQueryEnumerator<SophicScribeComponent>();
-        while (query.MoveNext(out var scribe, out var scribeComponent))
+        public override void Initialize()
         {
-            if (curTime < scribeComponent.NextAnnounceTime)
-                continue;
-
-            if (!TryComp<IntrinsicRadioTransmitterComponent>(scribe, out var radio))
-                continue;
-
-            var message = Loc.GetString("glimmer-report", ("level", _glimmerSystem.Glimmer));
-            var channel = _prototypeManager.Index<RadioChannelPrototype>(ScienceEncryptName);
-            _radioSystem.SendRadioMessage(scribe, message, channel, scribe);
-
-            scribeComponent.NextAnnounceTime = curTime + scribeComponent.AnnounceInterval;
+            base.Initialize();
+            SubscribeLocalEvent<SophicScribeComponent, NPCConversationGetGlimmerEvent>(OnGetGlimmer);
+            SubscribeLocalEvent<GlimmerEventEndedEvent>(OnGlimmerEventEnded);
         }
-    }
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<SophicScribeComponent, InteractHandEvent>(OnInteractHand);
-        SubscribeLocalEvent<GlimmerEventEndedEvent>(OnGlimmerEventEnded);
-    }
-
-    private void OnInteractHand(EntityUid uid, SophicScribeComponent component, InteractHandEvent args)
-    {
-        //TODO: the update function should be removed eventually too.
-        if (_timing.CurTime < component.StateTime)
-            return;
-
-        component.StateTime = _timing.CurTime + component.StateCD;
-
-        _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _glimmerSystem.Glimmer)), InGameICChatType.Speak, true);
-    }
-
-    private void OnGlimmerEventEnded(ref GlimmerEventEndedEvent args)
-    {
-        var query = EntityQueryEnumerator<SophicScribeComponent>();
-        while (query.MoveNext(out var scribe, out _))
+        private void OnGetGlimmer(EntityUid uid, SophicScribeComponent component, NPCConversationGetGlimmerEvent args)
         {
-            if (!TryComp<IntrinsicRadioTransmitterComponent>(scribe, out var radio)) return;
-
-            // mind entities when...
-            var speaker = scribe;
-            if (TryComp<MindSwappedReturnPowerComponent>(scribe, out var swapped))
+            if (args.Text == null)
             {
-                speaker = swapped.OriginalEntity;
+                _sawmill.Error($"{ToPrettyString(uid)} heard a glimmer reading prompt but has no text for it.");
+                return;
             }
 
-            var message = Loc.GetString(args.Message, ("decrease", args.GlimmerBurned), ("level", _glimmerSystem.Glimmer));
-            var channel = _prototypeManager.Index<RadioChannelPrototype>(CommonEncryptName);
-            _radioSystem.SendRadioMessage(speaker, message, channel, speaker);
+            var tier = _glimmerSystem.GetGlimmerTier() switch
+            {
+                GlimmerTier.Minimal => Loc.GetString("glimmer-reading-minimal"),
+                GlimmerTier.Low => Loc.GetString("glimmer-reading-low"),
+                GlimmerTier.Moderate => Loc.GetString("glimmer-reading-moderate"),
+                GlimmerTier.High => Loc.GetString("glimmer-reading-high"),
+                GlimmerTier.Dangerous => Loc.GetString("glimmer-reading-dangerous"),
+                _ => Loc.GetString("glimmer-reading-critical"),
+            };
+
+            var glimmerReadingText = Loc.GetString(args.Text,
+                ("glimmer", _glimmerSystem.Glimmer), ("tier", tier));
+
+            var response = new NPCResponse(glimmerReadingText);
+            _conversationSystem.QueueResponse(uid, response);
+        }
+
+        private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)
+            }
         }
     }
+
+    public sealed class NPCConversationGetGlimmerEvent : NPCConversationEvent
+    {
+        [DataField("text")]
+        public readonly string? Text;
+    }
 }
+// Hi! Solaris here, this is a test to see if the code will work as-is. Do not take this code seriously as this bullshit was probably written by Rane.
