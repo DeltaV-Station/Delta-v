@@ -51,7 +51,7 @@ sophia-response-truth = If you seek the truth, you're in the wrong place. From a
 
 sophia-response-job = I observe the glimmer here, and record it.
 
-sophia-response-human = Humans were the base for all the others. But they, too, were shaped. Long, long before the others.
+sophia-response-human = Humans were the most curious, even more than the felinids. They often strived to make their own fate.
 
 sophia-response-felinid = Felinids were the first, and the most willing. In true feline nature, they shaped themselves.
 
