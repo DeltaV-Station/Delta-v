@@ -36,14 +36,17 @@ internal sealed class StunOnCollideSystem : EntitySystem
         if (!_whitelist.IsWhitelistFailOrNull(ent.Comp.Blacklist, target))
             return;
 
-        var beforeStaminaDamageEvent = new BeforeStaminaDamageEvent(100f, FromMelee: false);
-        RaiseLocalEvent(target, ref beforeStaminaDamageEvent);
-
         // If the target is heavily protected, just deal stamina damage, no knockdown etc.
-        if (beforeStaminaDamageEvent.Value < ent.Comp.ProtectionThreshold)
+        if (ent.Comp.UseProtectionThreshold)
         {
-            _sharedStaminaSystem.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
-            return;
+            var beforeStaminaDamageEvent = new BeforeStaminaDamageEvent(100f, FromMelee: false);
+            RaiseLocalEvent(target, ref beforeStaminaDamageEvent);
+
+            if (beforeStaminaDamageEvent.Value < ent.Comp.ProtectionThreshold)
+            {
+                _sharedStaminaSystem.TakeStaminaDamage(target, ent.Comp.StaminaDamage);
+                return;
+            }
         }
         // End DeltaV Additions
 
