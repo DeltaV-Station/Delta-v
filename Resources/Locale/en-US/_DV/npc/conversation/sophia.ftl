@@ -75,8 +75,6 @@ sophia-response-shadowkin = Beings of pure shadow... They are new to me, I am st
 
 sophia-response-ovinia = Those who live in harmony with the creatures of this realm? I will admit that I enjoy watching them tame the wild.
 
-sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
-
 sophia-response-theunknown = I avoid speaking of him... He has branded himself an enemy of all life in this universe. He invites only utter annihilation followed by unending silence, the end of all things. Pray he does not turn his gaze toward you.
 
 sophia-response-narsie = The goddess of blood and ceaseless slaugher... A cruel, merciless mistress. To offer to her is to risk ones life for power, to become a harbinger of her will. She does not tolerate failure all too well, and many have failed in their attempts to appease her.

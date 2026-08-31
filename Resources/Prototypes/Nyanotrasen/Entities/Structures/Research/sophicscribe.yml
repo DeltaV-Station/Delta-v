@@ -152,12 +152,6 @@
     responses:
     - text: sophia-response-lamiae
 
-  - prompts: [grue, grues, batperson, batpeople]
-    weight: 0.1
-    hidden: true
-    responses:
-    - text: sophia-response-grue
-
   - prompts: [mushpeople, fungipeople] #Was originally something else, but I had zero clue as to what that race was. There was literally no mention of it in prebase code. I just replaced it with something more recognizable to those who have studied the ancient code of prebase.
     weight: 0.1
     hidden: true
