@@ -12,6 +12,8 @@ sophia-response-bye-4 = Godspeed.
 sophia-idle-phrase-1 = Mmmm, another portent.
 sophia-idle-phrase-2 = The noösphere is quite beautiful today. However, I don't think I could describe it in a way you could understand.
 sophia-idle-phrase-3 = I've been here before. You have, too.
+sophia-idle-phrase-4 = Hmm... A lot has changed since I was last awake. Let us see what this realm has to offer us this time.
+sophia-idle-phrase-5 = There are so many new faces to learn... Even more than those familar faces that are still around...
 
 sophia-response-attention-1 = What is it?
 sophia-response-attention-2 = What do you seek?
@@ -89,3 +91,4 @@ glimmer-reading-moderate = That is about the expected level on a psionically act
 glimmer-reading-high = That is sure to start attracting attention, although still quite manageable.
 glimmer-reading-dangerous = That's a bit concerning. You may want to redirect efforts to reducing it.
 glimmer-reading-critical = That's apocalyptic, in the original sense of the word. That is, to say, revealing. This is the sort of time and place to acquire secret knowledge.
+glimmer-reading-maximum = Whether it be due to your incompetence, your inaction, or some series of unfortunate events, the very gods themselves have taken notice of you... The consequence of your actions are fast approaching.
