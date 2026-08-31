@@ -146,6 +146,30 @@
     responses:
     - text: sophia-response-moth
 
+  - prompts: [thaven, ariral, arirals, thavens]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-thaven
+
+  - prompts: [motorkind, motorkin, carpeople, carperson, kachow]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-motorkind
+
+  - prompts: [shadowkin, shadowkind, shadowpeople, shadowperson]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-shadowkin
+
+  - prompts: [ovinia, harmonypeople, harmonyperson, livestockpeople, livestockperson, cowperson, cowpeople, sheepperson, sheeppeople, sheeperson, sheepeople]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-ovinia
+
   - prompts: [lamiae, lamia, lamias, snakepeople, snakeperson]
     weight: 0.1
     hidden: true
