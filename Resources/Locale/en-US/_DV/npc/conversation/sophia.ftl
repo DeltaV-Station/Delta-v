@@ -41,13 +41,11 @@ sophia-response-noosphere = The noösphere is a field connecting all of consciou
 
 sophia-response-god = 'God' is such a vague term. There are so many entities out there that have defeated mortality. How you choose to regard them is your business.
 
-sophia-response-morphotype = In the first century, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories. Any specific morphotype you want to know about?
-
 sophia-response-calendar = It's currently (REPLACE WITH INGAME DATE).
 
 sophia-response-crisis = The first FTL travel was incompatible with the old ways. Fortunately, its resolution made more apparent the inherent futility in trying to give one history, one narrative, one account. Truth cannot be found in the material world, only higher ones.
 
-sophia-response-cloning = You've died thousands of times, and you'll die thousands more. Some of those lives you may dedicate to trying to stop the cycle. We all carry at least some memory of past lives, usually temporally recent ones. One of the great mysteries of the persistence of fragments is the high concentration of memories from the 21st century, which, inverse to other periods, seem to be more common among the ignorant.
+sophia-response-cycle = Some believe that you've died thousands of times, and you'll die thousands more. Some may dedicate themselves to trying to stop that cycle, while others embrace it. Others may believe that death is final, that there is an afterlife, or that there is nothing but an unending void waiting for them. There are also those that believe there is no cycle at all, that life is to be enjoyed as is, that they should live in the moment and just let things happen. There are many versions that you may choose to believe in. Whether there is a correct answer or not... I do not know.
 
 sophia-response-truth = If you seek the truth, you're in the wrong place. From a perspective tainted by material reality, the best you can hope is to try and divine higher truths that are not dependent on it.
 
@@ -59,13 +57,13 @@ sophia-response-felinid = Felinids were the first, and the most willing. In true
 
 sophia-response-oni = Oni, it is said, originated in Sirius. The brightest star in the night sky from Earth may have attracted some chromatically inclined entities, explaining their vivid coloring. But, that's just speculation.
 
-sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They once took the form of humans with arachnid parts, but now they seem to have embraced the genes of the latter. Their creator wrote his name in their stead.
+sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They once took the form of humans with arachnid parts, but now they seem to have embraced the genes of the latter.
 
-sophia-response-moth = Moths scarecely look human, but, strangely, their genes confirm they are. Their creator shares his name with a genus of moths, and was responsible for the other outlier.
+sophia-response-moth = Moths scarecely look human, but, strangely, their genes confirm they are. They seem to take great joy in bright lights and the consumption of cloth.
 
-sophia-response-lamiae = So, you remember? You must be remembering their mythological namesake. If you've really retained that fleeting memory over so many metempsychoses... Perhaps I've said too much.
+sophia-response-lamiae = So, you remember the beings with long, slithering tails? You must be remembering their mythological namesake. If you've really retained that fleeting memory for that long... Perhaps I've said too much.
 
-sophia-response-mushpeople = Were those... no... So faint. Ignorance! You cannot remember them! It's impossible!
+sophia-response-mushpeople = Them... The ones lost to entropy... So faint, yet still remembered... Perhaps you will be the one to honor their memory?
 
 sophia-response-ipc = You remember the beings of metal and soul? It has been a while since one has graced my presence. I have heard rumors of their return in a new form...
 

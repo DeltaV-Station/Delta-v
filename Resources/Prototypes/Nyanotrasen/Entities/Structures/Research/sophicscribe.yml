@@ -89,20 +89,15 @@
     responses:
     - text: sophia-response-noosphere
 
-  - prompts: [cloning, clones, reincarnation, death, dying, afterlife]
-    weight: 0.2
-    responses:
-    - text: sophia-response-cloning
-
   - prompts: [calendar, date]
     weight: 0.2
     responses:
     - text: sophia-response-calendar
 
-  - prompts: [morphotypes, morphotype, species]
+  - prompts: [cycle, reincarnation, finality, death]
     weight: 0.2
     responses:
-    - text: sophia-response-morphotype
+    - text: sophia-response-cycle
 
   - prompts: [gods, god]
     weight: 0.1
@@ -188,23 +183,23 @@
     responses:
     - text: sophia-response-oracle
 
-  - prompts: ["The Unknown", "Cosmic God", "Bringer of The Curtains Fall", "Cosmic Cult"] #Might as well since its no longer metashielded
+  - prompts: ["the unknown", "cosmic god", "bringer of the curtains Fall", "cosmic cult"] #Might as well since its no longer metashielded
     weight: 0.1
     hidden: true
     responses:
     - text: sophia-response-theunknown
 
-  - prompts: ["Goddess of Slaughter", "Blood Goddess", "Goddess of Blood", Narsie]
+  - prompts: ["goddess of slaughter", "blood Goddess", "goddess of blood", narsie, nar'sie]
     weight: 0.1
     responses:
     - text: sophia-response-narsie
 
-  - prompts: ["Lord of Time", "Lord of Progress", "God of Time", "God of Progress", Ratvar]
+  - prompts: ["lord of Time", "lord of Progress", "god of time", "god of progress", ratvar, rat'var]
     weight: 0.1
     responses:
     - text: sophia-response-ratvar
 
-  - prompts: ["Goddess of Humor", "Goddess of Chaos", "Chaos Goddess", "Clown Goddess", Honkmother]
+  - prompts: ["goddess of humor", "goddess of chaos", "chaos goddess", "clown goddess", Honkmother]
     weight: 0.1
     responses:
     - text: sophia-response-honkmother
