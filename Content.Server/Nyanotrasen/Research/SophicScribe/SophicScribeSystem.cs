@@ -8,6 +8,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.NPC.Prototypes;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Radio;
+using Content.Shared.Interaction;
 
 namespace Content.Server.Research.SophicScribe
 {
