@@ -276,13 +276,14 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: UncookedAnimalProteins
-        Quantity: 15
-      - ReagentId: GreyMatter
-        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+        - ReagentId: GreyMatter
+          Quantity: 10
   - type: FoodSequenceElement
     entries:
       Burger: Brain
