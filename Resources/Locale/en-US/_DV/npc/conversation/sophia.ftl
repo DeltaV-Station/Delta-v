@@ -73,7 +73,7 @@ sophia-response-motorkind = Please do not remind me of those abominations. They 
 
 sophia-response-shadowkin = Beings of pure shadow... They are new to me, I am still studying them.
 
-sophia-response-ovinia = Those who live in harmony with the creatures of wild? I will admit that I enjoy watching them tame the wild. 
+sophia-response-ovinia = Those who live in harmony with the creatures of this realm? I will admit that I enjoy watching them tame the wild.
 
 sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
 
