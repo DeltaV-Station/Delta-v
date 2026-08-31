@@ -69,8 +69,6 @@ sophia-response-ipc = You remember the beings of metal and soul? It has been a w
 
 sophia-response-thaven = Those of varying moods and identities? They are an interesting kind, but I have little to say about them.
 
-sophia-response-motorkind = Please do not remind me of those abominations. They have given me great mental trauma.
-
 sophia-response-shadowkin = Beings of pure shadow... They are new to me, I am still studying them.
 
 sophia-response-ovinia = Those who live in harmony with the creatures of this realm? I will admit that I enjoy watching them tame the wild.
