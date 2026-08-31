@@ -1,12 +1,13 @@
 using Content.Server.Stunnable.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Movement.Systems;
 using JetBrains.Annotations;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Events;
-using Content.Shared.Whitelist; // DeltaV
+// Begin DeltaV
+using Content.Shared.Whitelist;
+using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
+// End DeltaV
 
 namespace Content.Server.Stunnable.Systems;
 
