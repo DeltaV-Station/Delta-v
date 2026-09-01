@@ -288,6 +288,8 @@
     entries:
       Burger: Brain
       Taco: Brain
+  - type: Edible # DeltaV - brains not edible
+    requiresSpecialDigestion: true
 
 - type: entity
   parent: OrganBase
