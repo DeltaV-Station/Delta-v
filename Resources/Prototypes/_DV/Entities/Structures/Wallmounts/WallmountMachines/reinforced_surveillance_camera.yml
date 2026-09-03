@@ -227,6 +227,20 @@
       - ReinforcedCameraAI
 
 - type: entity
+  parent: [ ReinforcedSurveillanceCameraBase, SurveillanceCameraJustice ]
+  id: ReinforcedSurveillanceCameraJustice
+  suffix: Justice
+  components:
+  - type: Construction
+    graph: ReinforcedSurveillanceCameraGraph
+    node: camera_justice
+  - type: WiresPanelSecurity
+    securityLevel: medJustice
+  - type: Tag
+    tags:
+    - ReinforcedCameraJustice
+
+- type: entity
   parent: ReinforcedSurveillanceCameraBase
   id: ReinforcedSurveillanceCameraConstructed
   suffix: Constructed

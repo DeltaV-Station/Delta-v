@@ -29,6 +29,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Server.Preferences.Managers; // DeltaV
+using Content.Shared._DV.Administration.EntitySystems; // DeltaV - Unorbitable
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
@@ -41,6 +42,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Mobs; // Starlight
 
 namespace Content.Server.Ghost
 {
@@ -74,6 +76,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GhostSpriteStateSystem _ghostState = default!;
         [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!; // DeltaV
         [Dependency] private readonly IAdminManager _admin = default!; // DeltaV
+        [Dependency] private readonly UnorbitableSystem _unorbitable = default!; // DeltaV - Unorbitable
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -339,6 +342,11 @@ namespace Content.Server.Ghost
                 Log.Warning($"User {player.Name} tried to warp to an invalid entity id: {target}");
                 return;
             }
+
+            // DeltaV - Unorbitable START
+            if (!_unorbitable.CanFollow(attached, realTarget))
+                return;
+            // DeltaV END
 
             WarpTo(attached, realTarget);
         }
@@ -619,7 +627,15 @@ namespace Content.Server.Ghost
                                       _damageable.GetTotalDamage((playerEntity.Value, damageable));
                     }
 
-                    DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
+                    // Starlight - Start
+                    //DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
+
+                    var damageType = _prototypeManager.Index(AsphyxiationDamageType);
+                    if (TryComp<DeathgaspComponent>(playerEntity, out var deathgasp))
+                        damageType = _prototypeManager.Index(deathgasp.DamageType);
+
+                    DamageSpecifier damage = new(damageType, dealtDamage);
+                    // Starlight - End
 
                     _damageable.ChangeDamage(playerEntity.Value, damage, true);
                 }

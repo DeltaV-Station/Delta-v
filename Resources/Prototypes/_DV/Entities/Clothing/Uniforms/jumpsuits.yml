@@ -240,6 +240,17 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFreighterCrew
+  name: freighter crew's jumpsuit
+  description: Smells minty.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/freighter_crew.rsi
+
 # Formal uniforms
 
 - type: entity
@@ -510,7 +521,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunAttorney
   name: cybersun attorney suit
   description: This durable Suit Jacket and Turtleneck Combo doubles as an Accounting suit, and includes an extra button. Take that, Nerd-otrasen!
@@ -519,9 +530,11 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformInterdyneChemist
   name: interdyne chemist uniform
   description: An impeccable uniform, sign of a good chemist.
@@ -530,6 +543,8 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/interdyneuniform.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
   parent: ClothingUniformBase
@@ -569,7 +584,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cargotechpants.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ UnsensoredClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRoboNeuroticist
   name: robo-neuroticist's jumpsuit
   description: A suit fit with dozens of cybernetic gadgets.
@@ -580,7 +595,7 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/roboneuroticistpurple.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunHazard
   name: cybersun hazard suit
   description: This high-visibility jumpsuit prevents you from getting run over, yet keeps you dark enough to stay unnoticed!
@@ -589,9 +604,11 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunhazard.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunCasual
   name: cybersun casual jumpsuit
   description: With all the non-descript gizmos they shoved in this thing, are you sure it's even safe to put on?
@@ -600,9 +617,11 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersuncasual.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformCybersunRND
   name: cybersun research turtleneck
   description: It's another Turtleneck. What'd you expect?
@@ -611,9 +630,11 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ UnsensoredClothingUniformBase, BaseMinorContraband ]
   id: ClothingUniformJumpsuitAsakim
   name: combat jumpsuit
   description: A comfortable and flexible jumpsuit, designed to be worn under a hardsuit.
@@ -624,7 +645,7 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/ninja.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformHarbingerTunic
   name: harbinger tunic
   description: Something easy to move in. Good for hunting.
@@ -633,6 +654,8 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/harbingertunic.rsi
+  - type: SuitSensor
+    randomMode: false
 
 - type: entity
   parent: ClothingUniformBase
@@ -806,3 +829,29 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/SodaJerk.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/SodaJerk.rsi
+
+# Mime
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMimeTurtleneckPants
+  name: mime turtleneck pants
+  description: A sleeveless turtleneck for mimes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/mime_turtleneck_pants.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/mime_turtleneck_pants.rsi
+
+# Chef
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChefKimono
+  name: chef kimono
+  description: A traditional chef's kimono, perfect for cooking up traditional Japanese dishes
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chef_kimono.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/chef_kimono.rsi
