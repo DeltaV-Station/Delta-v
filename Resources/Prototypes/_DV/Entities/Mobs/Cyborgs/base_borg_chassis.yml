@@ -6,11 +6,6 @@
   - type: DeviceNetwork
     receiveFrequencyId: SRNCyborgControl
     transmitFrequencyId: SRNRoboticsConsole
-  - type: SurveillanceCamera # they act like cameras for the SRN
-    networkSet: true
-    nameSet: True
-    id: SRNBorg
-    useEntityNameAsCameraId: true
 
 - type: entity
   id: SRNBaseBorgChassis
