@@ -1,0 +1,117 @@
+- type: entity
+  parent: BaseItem
+  id: BasePlasWeapon  #NT is a plasma company or sumthin, suposedly...
+  abstract: true
+  components:
+  - type: Sharp
+  - type: Item
+    size: Small
+  - type: ItemToggle
+    predictable: false
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    deactivatedSoundOnHitNoDamage:
+      collection: MetalThud
+    activatedDamage:
+      types:
+        Heat: 8
+        Caustic: 5
+        Slash: 12
+        Structural: 25
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggleHot
+  - type: Appearance
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: UseDelay
+    delay: 1.0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+        Slash: 5
+        Structural: 10
+    soundHit:
+      collection: MetalThud
+  - type: Welder
+    fuelConsumption: 0.03
+    fuelLitCost: 0.3
+    fuelReagent: Plasma
+    tankSafe: true
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: Plasma #chems worst nightmare
+          Quantity: 10
+        maxVol: 10
+  - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    energy: 2
+    color: blue
+  - type: Reflect
+    reflectProb: .05
+    spread: 100 #this is not hitting anything but the walls because NT deserves stormtrooper reflect at the least.
+  - type: IgnitionSource
+    temperature: 700
+    ignited: false
+  - type: ToggleableVisuals
+    spriteLayer: plasma_blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-plasma
+        shader: unshaded
+      right:
+      - state: inhand-right-plasma
+        shader: unshaded
+  - type: Tag
+    tags:
+    - WeldingTool
+
+- type: entity
+  name: Plas Axe MK-2
+  parent: BasePlasWeapon
+  id: PlasAxe
+  description: A bulky one handed battle axe, using a advanced magnetic field to keep the front end alight with plasma.
+  components:
+  - type: PointLight
+    color: blue
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/plas_axe.rsi
+    layers:
+    - state: plasma_axe
+    - state: plasma_blade
+      visible: false
+      shader: unshaded
+      map: [ "plasma_blade" ]
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/plas_axe.rsi
