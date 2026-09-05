@@ -50,5 +50,7 @@ namespace Content.Shared.PDA
         public string? StationAlertLevel;
         public Color StationAlertColor;
         public DateTime? CurrentDate; // DeltaV - PDA date
+        public TimeSpan? EvacArrival; // DeltaV - PDA Evac Status
+        public TimeSpan? EvacDockTime; // Delta - PDA Evac Status
     }
 }
