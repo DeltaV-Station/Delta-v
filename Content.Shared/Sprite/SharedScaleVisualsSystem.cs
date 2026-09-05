@@ -1,4 +1,6 @@
 using System.Numerics;
+using Content.Shared.Humanoid; // DeltaV
+using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Sprite;
@@ -6,6 +8,7 @@ namespace Content.Shared.Sprite;
 public abstract class SharedScaleVisualsSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -39,6 +42,24 @@ public abstract class SharedScaleVisualsSystem : EntitySystem
     {
         var comp = EnsureComp<ScaleVisualsComponent>(uid);
         comp.Scale = scale;
+
+        // BEGIN DeltaV - Apply species and profile height
+        // We have to ensure this is idempotent so that if it gets applied more than once
+        // the sprite size at the end is the same.
+        if (TryComp<HumanoidProfileComponent>(uid, out var profile))
+        {
+            var speciesProto = _proto.Index(profile.Species);
+            comp.SpeciesScale = speciesProto.BaseScale;
+            scale *= comp.SpeciesScale; // Apply both species scale and character-defined height
+
+            Vector2 profileHeight = new(profile.Height, profile.Height);
+            comp.ProfileScale = profileHeight;
+            scale *= comp.ProfileScale;
+        }
+
+        comp.ComputedScale = scale; // Nice to know what the computed size is in case of bugs
+        // END DeltaV
+
         Dirty(uid, comp);
 
         var appearanceComponent = EnsureComp<AppearanceComponent>(uid);

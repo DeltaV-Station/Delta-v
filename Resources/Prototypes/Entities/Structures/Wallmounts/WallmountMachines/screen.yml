@@ -1,4 +1,5 @@
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - use the other one
   parent: BaseWallmountMachine
   id: Screen
   name: screen
@@ -32,9 +33,10 @@
   - type: Screen
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: ShuttleTimer
+    receiveFrequencyId: NTNet # DeltaV - comms console
 
 - type: entity
+  categories: [ HideSpawnMenu ] # DeltaV - use the other one
   id: ArrivalsShuttleTimer
   parent: Screen
   name: arrivals screen

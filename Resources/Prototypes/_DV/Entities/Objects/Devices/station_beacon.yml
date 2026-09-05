@@ -337,3 +337,27 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-justice-armory
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconEvidenceRoom
+  suffix: Evidence Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-evidence-room
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconHoldingCells
+  suffix: Holding Cells
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-holding-cells
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconGenPop
+  suffix: GenPop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-genpop

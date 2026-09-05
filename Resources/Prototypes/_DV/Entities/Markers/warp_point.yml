@@ -114,6 +114,14 @@
   - type: WarpPoint
     location: Armorer
 
+- type: entity
+  parent: WarpPoint
+  id: WarpPointArmory
+  suffix: Armory
+  components:
+  - type: WarpPoint
+    location: Armory
+
 # Justice
 - type: entity
   id: WarpPointCourt
@@ -154,6 +162,22 @@
   components:
   - type: WarpPoint
     location: Marshal
+
+- type: entity
+  parent: WarpPoint
+  id: WarpPointNonLethalArmory
+  suffix: Non-lethal Armory
+  components:
+  - type: WarpPoint
+    location: Non-lethal armory
+
+- type: entity
+  parent: WarpPoint
+  id: WarpPointGenPop
+  suffix: GenPop
+  components:
+  - type: WarpPoint
+    location: GenPop
 
 #Medical
 - type: entity
