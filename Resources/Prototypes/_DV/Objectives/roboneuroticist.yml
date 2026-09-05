@@ -21,17 +21,6 @@
       state: icon
 
 - type: entity
-  parent: [ BaseRoboNeuroticistObjective, BaseSurviveObjective ]
-  id: RoboNeuroticistBorgObjective
-  name: Conspiracy to Convert
-  description: The crew of this station is yours to command, turn them into cyborgs till your have reaped your fill.
-  components:
-  - type: Objective
-    icon:
-      sprite: Interface/Actions/actions_borg.rsi
-      state: state-laws
-
-- type: entity
   parent: [ BaseRoboNeuroticistObjective, BaseKillObjective ]
   id: RoboNeuroticistKillObjective
   name: Condemn them to Metal
