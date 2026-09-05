@@ -7,3 +7,4 @@ role-subtype-armsdealer = Arms Dealer
 role-subtype-asakim = Asakim
 role-subtype-ntagent = NTAgent
 role-subtype-hitman = Hitman
+role-subtype-hamlet = Hamlet
