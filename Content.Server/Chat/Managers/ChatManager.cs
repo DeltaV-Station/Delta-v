@@ -294,7 +294,13 @@ internal sealed partial class ChatManager : IChatManager
 
         Color? colorOverride = null;
         var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", FormattedMessage.EscapeText(message)));
-        if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+        // DeltaV - Mapper color START
+        if (_adminManager.HasAdminFlag(player, AdminFlags.Mapper))
+        {
+            colorOverride = new Color(0x00, 0xCE, 0xCE); 
+        }
+        // DeltaV - END
+        else if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
