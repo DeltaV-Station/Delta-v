@@ -220,7 +220,7 @@
         melee:
           maxVol: 30
           reagents:
-          - ReagentId: Omnizine
+          - ReagentId: Negacordrazine
             Quantity: 30 #5 bites to heal 90hp/1 min
     - type: MeleeChemicalInjector
       solution: melee
@@ -230,7 +230,7 @@
       duration: 15 #regen 1u every 15 seconds. 7.5 mins to full
       generated:
         reagents:
-        - ReagentId: Omnizine
+        - ReagentId: Negacordrazine
           Quantity: 1
     - type: ReplacementAccent
       accent: xeno #Add cool snake accent later. wyci
