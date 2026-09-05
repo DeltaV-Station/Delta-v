@@ -89,11 +89,19 @@
     needsHands: false
 
 - type: entity
-  parent: MobBasePitbull
+  parent: [ MobBasePitbull, DVNodeCrawler ] # Makes them able to actually do their job and patrol vents for mice.
   id: MobPitbullVent # ventbull
   name: Ventbull
   description: A subspecies of pitbull bred by NanoTrasen for quick and inexpensive pest control.
   components:
+  - type: GhostRole # Honestly, I couldn't figure out how to make it truely random so this will work for now I guess.
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: "Ventbull"
+    description: "You are a ventbull, a genetically modified pitbull bred to hunt mice in the stations airvents!"
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
   - type: NpcFactionMember
     factions:
       - Passive
