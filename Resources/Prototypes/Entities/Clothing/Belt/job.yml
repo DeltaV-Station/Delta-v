@@ -433,24 +433,27 @@
         whitelist:
           tags:
           - Sidearm
-  - type: ContainerContainer # DeltaV
+  - type: ContainerContainer
     containers:
       storagebase: !type:Container
         ents: []
+  # DeltaV Start - Adding ItemSlots to the Belt.
       holster: !type:ContainerSlot {}
       radio: !type:ContainerSlot {}
-  - type: ItemSlots # DeltaV - add sidearm and radio slot
+  - type: ItemSlots
     slots:
-      holster:
+      holster: # Adding side-arm slot.
         name: clothing-belt-sidearm
+        priority: 1 # Prioritize ejecting the side-arm over the radio.
         whitelist:
           tags:
           - Sidearm
         insertOnInteract: false
-      radio:
+      radio: # Adding radio slot.
         name: clothing-belt-radio
         whitelist:
           tags:
           - Radio
         insertOnInteract: false
+  # DeltaV End - Adding ItemSlots to the Belt.
   - type: Appearance
