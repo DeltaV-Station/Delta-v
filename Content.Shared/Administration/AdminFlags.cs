@@ -125,6 +125,11 @@
         NameColor = 1 << 21,
 
         /// <summary>
+        ///     DeltaV - For mappers to get a color of their OOC name.
+        /// </summary>
+        Mapper = 1 << 22,
+
+        /// <summary>
         ///     DeltaV - The ability to whitelist people. Either this permission or +BAN is required for remove.
         /// </summary>
         Whitelist = 1 << 25,
