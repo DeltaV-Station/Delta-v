@@ -1,30 +1,22 @@
 - type: entity
   parent: Clothing
-  id: PortableRecharger
-  name: portable recharger
-  description: High-tech recharger adapted for portability.
+  id: BeltRecharger
+  name: belt recharger
+  description: A belt with a battery powered recharger.
   components:
   - type: Item
-    size: Huge
+    size: Ginormous
   - type: Sprite
-    sprite: Objects/Power/portable_recharger.rsi
-    layers:
-    - map: ["enum.PowerChargerVisualLayers.Base"]
-      state: charging
-    - map: ["enum.PowerChargerVisualLayers.Light"]
-      state: charging-unlit
-      shader: unshaded
+    sprite: _DV/Clothing/Belt/security.rsi
   - type: Clothing
     equippedPrefix: charging
     quickEquip: false
     slots:
-    - back
-    - Belt # Mono
-    - SuitStorage # Mono
+    - Belt
   - type: Charger
     slotId: charger_slot
     portable: true
-    chargeRate: 40
+    chargeRate: 10
   - type: PowerChargerVisuals
   - type: StaticPrice
     price: 500
