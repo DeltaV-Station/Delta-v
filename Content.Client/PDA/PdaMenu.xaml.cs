@@ -33,7 +33,9 @@ namespace Content.Client.PDA
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
         private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
-        
+        private string _evacStatus = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA Evac Status
+        private TimeSpan? _evacTime = null; // DeltaV - PDA Evac Status
+        private TimeSpan? _departTime = null; // DeltaV - PDA Evac Status
 
         private int _currentView;
 
@@ -137,6 +139,11 @@ namespace Content.Client.PDA
                 LinkedDeviceList.Visible = true;
                 ToProgramView(Loc.GetString("comp-pda-ui-linked-devices-title"));
             };
+
+            StationEvacStatusButton.OnPressed += _ =>
+            {
+                _clipboard.SetText( _evacStatus );
+            };
             // End DeltaV additions
 
             
@@ -209,6 +216,13 @@ namespace Content.Client.PDA
                     ("date", _currentDate)
                 ));
             // End DeltaV additions
+
+            // Begin DeltaV - PDA Evac Status
+            _evacTime = state.PdaOwnerInfo.EvacArrival;
+            if ( state.PdaOwnerInfo.EvacDockTime is { } departTime )
+                _departTime = departTime + _evacTime;
+            UpdateEvacStatus();
+            // End DeltaV - PDA Evac Status
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 
@@ -360,6 +374,32 @@ namespace Content.Client.PDA
             }
         }
 
+        // Begin DeltaV - PDA Evac Status
+        private void UpdateEvacStatus()
+        {
+            if ( _evacTime is { } evacArrival )
+            {
+                TimeSpan diff = MathHelper.Max( evacArrival.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
+                _evacStatus = Loc.GetString( "comp-pda-ui-evac-eta", ( "time", diff.ToString( "mm\\:ss" ) ) );
+            }
+            else
+            {
+                _evacStatus = Loc.GetString( "comp-pda-ui-evac-not-called" );
+            }
+
+            if ( _departTime is { } evacDeparture )
+            {
+                TimeSpan diff = MathHelper.Max( evacDeparture.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
+                if ( diff == TimeSpan.Zero )
+                    _evacStatus = Loc.GetString( "comp-pda-ui-evac-gone" );
+                else
+                    _evacStatus = Loc.GetString( "comp-pda-ui-evac-etd", ( "time", diff.ToString( "mm\\:ss" ) ) );
+            }
+
+            StationEvacStatusLabel.SetMarkup( Loc.GetString( "comp-pda-ui-evac-status", ( "status", _evacStatus ) ) );
+        }
+        // End DeltaV - PDA Evac Status
+
         protected override void Draw(DrawingHandleScreen handle)
         {
             base.Draw(handle);
@@ -368,6 +408,8 @@ namespace Content.Client.PDA
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+
+            UpdateEvacStatus(); // DeltaV - PDA Evac Satus
         }
     }
 }

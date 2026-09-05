@@ -40,5 +40,7 @@ namespace Content.Shared.PDA
         [ViewVariables] public Color StationAlertColor = Color.White;
         [DataField] public DateTime CurrentDate; // DeltaV - PDA date
         [DataField] public DateTime? DateOverride; // DeltaV - PDA date
+        [ViewVariables] public TimeSpan? EvacArrival; // DeltaV - PDA Evac Status
+        [ViewVariables] public TimeSpan? EvacDockTime; // DeltaV - PDA Evac Status
     }
 }
