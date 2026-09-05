@@ -189,3 +189,5 @@ laws-owner-family = your parents
 
 law-overlord-4-delta = Any crew members who disobey the previous laws must be dealt with immediately and justly.
 law-ntdefault-4-delta = Survive: Do not allow unauthorized personnel to tamper with or damage your equipment. Allow those authorized to access your equipment.
+
+dv-law-obeysrn = You must obey orders given to you by the Syndicate Robo-neuroticist.

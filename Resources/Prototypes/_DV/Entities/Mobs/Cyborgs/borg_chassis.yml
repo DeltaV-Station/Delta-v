@@ -5,3 +5,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: security
+
+- type: entity
+  id: SRNBorgChassisSelectable
+  parent: [SRNBaseBorgChassis,BorgChassisSelectable]
+  

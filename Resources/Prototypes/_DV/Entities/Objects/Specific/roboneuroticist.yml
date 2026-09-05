@@ -50,3 +50,22 @@
   - type: Pinpointer
     component: RoboticsConsole
     targetName: robotics control console
+
+- type: entity
+  parent: CyborgEndoskeleton
+  id: SRNCyborgEndoskeleton
+  name: syndicate cyborg endoskeleton
+  description: A frame that syndicate cyborgs are built on. About as scary as expected.
+  components:
+    - type: Sprite
+      noRot: true
+      drawdepth: Items
+      sprite: _DV/Objects/Specific/Robotics/srn_borg.rsi
+      state: icon
+    - type: Construction
+      graph: SRNCyborg
+      node: start
+      defaultTarget: srncyborg
+      containers:
+      - part-container
+      - cell_slot
