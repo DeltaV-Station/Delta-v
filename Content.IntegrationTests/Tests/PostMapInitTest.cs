@@ -89,6 +89,35 @@ namespace Content.IntegrationTests.Tests
             .Select(glob => new Regex(GlobToRegex(glob), RegexOptions.IgnoreCase | RegexOptions.Compiled))
             .ToArray();
 
+        private static readonly string[] GameMaps =
+        {
+            "Dev",
+            "TestTeg",
+            "CentComm",
+            "MeteorArena",
+            "Academy", //DeltaV
+            "Anvil", //DeltaV
+            "Arena", // DeltaV
+            "ArenaMedieval", //DeltaV
+            "Asterisk", // DeltaV
+            "Byoin", // DeltaV
+            "Chibi", // DeltaV
+            "Division", // DeltaV
+            "Edge", // DeltaV
+            "Elegance", // DeltaV
+            "Glacier", // DeltaV
+            "Hammurabi", // DeltaV
+            "Lighthouse", // DeltaV
+            "Micro", // DeltaV
+            "Ovni", //DeltaV
+            "Pebble", // DeltaV
+            "PebbleHiring", // DeltaV
+            "Shoukou", // DeltaV
+            "Submarine", //DeltaV
+            "Terra", //DeltaV
+            "TheHive", // DeltaV
+            "Tortuga" // DeltaV
+        };
         private static readonly string[] GameMaps = GameDataScrounger.PrototypesOfKind<GameMapPrototype>().Where(x => x != PoolManager.TestMap).ToArray();
         private static readonly ResPath[] AllMapFiles = GameDataScrounger.FilesInDirectoryInVfs("/Maps/", "*.yml");
         private static readonly ResPath[] ShuttleMapFiles = GameDataScrounger.FilesInDirectoryInVfs("/Maps/Shuttles", "*.yml");
