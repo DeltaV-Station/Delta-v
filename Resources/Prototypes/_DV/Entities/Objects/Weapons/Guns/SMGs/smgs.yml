@@ -87,3 +87,61 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: Anaconda
+  parent: BaseWeaponSubMachineGun
+  id: WeaponSubMachineGunAnaconda
+  description: A bulky and powerful one handed weapon, developed by Donk Co to outdo Waffle Corp. Too cumbersome to wield. Feeds from .30 ammo belts.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/SMGs/anaconda.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/SMGs/anaconda.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+    minAngle: 5
+    maxAngle: 30
+    fireRate: 4.5
+    angleIncrease: 5
+    angleDecay: 25
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleBox
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifleBox
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
