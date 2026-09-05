@@ -12,14 +12,15 @@ namespace Content.Client.Salvage.UI;
 /// Generic window for offering multiple selections with a timer.
 /// </summary>
 [GenerateTypedNameReferences]
-public sealed partial class OfferingWindow : FancyWindow,
+[Virtual] //DeltaV - make inheritable
+public partial class OfferingWindow : FancyWindow, //DeltaV - change to partial, make inheritable for variations
     IComputerWindow<EmergencyConsoleBoundUserInterfaceState>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly IGameTiming _timing = default!; //DeltaV - made protected for inheritence
 
     public bool Claimed;
     public TimeSpan NextOffer;
-    private TimeSpan? _progression;
+    protected TimeSpan? _progression; //DeltaV - made protected for inheritence
 
     /// <summary>
     /// Time between NextOffers
