@@ -76,7 +76,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
     private static readonly ProtoId<TagPrototype> DockTag = "DockEmergency";
 
-    public TimeSpan? EvacShuttleDockTime = null;
+    public TimeSpan? EvacShuttleDockTime = null; // DeltaV - PDA Evac Status
 
     public override void Initialize()
     {
