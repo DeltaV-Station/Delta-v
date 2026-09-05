@@ -1,4 +1,4 @@
-conspirator-objective-issuer = [color=#724F29]Conspiracy[/color]
+conspirator-objective-issuer = [color=#746694]Criminal[/color]
 
 conspirator-role-greeting = 
     You are a conspirator. 

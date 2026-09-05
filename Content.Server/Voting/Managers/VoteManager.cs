@@ -9,6 +9,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV - Cosmic Cult
+using Content.Shared._Harmony.Conspirators.Components; //deltaV conspirators v2
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -461,6 +462,13 @@ namespace Content.Server.Voting.Managers
                     return false;
             }
             // End DeltaV - Cosmic Cult
+            //begin deltaV conspirators v2
+            if (eligibility == VoterEligibility.Conspirators)
+            {
+                if (!_entityManager.HasComponent<ConspiratorComponent>(player.AttachedEntity))
+                    return false;
+            }
+            //end deltaV conspirators v2
 
             return true;
         }
@@ -561,6 +569,7 @@ namespace Content.Server.Voting.Managers
             GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
             MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
             CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
+            Conspirators // DeltaV - Player needs to be a Conspirators. Used by the Conspirators subgamemode.
         }
 
         #endregion

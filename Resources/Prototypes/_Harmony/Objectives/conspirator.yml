@@ -98,3 +98,115 @@
     icon:
       sprite: Mobs/Silicon/station_ai.rsi
       state: ai_camera
+
+
+# dv addtions - dv conspirators v2
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorPrepareObjective
+  name: Plan and prepare.
+  description: Gather with your other Conspirators and prepare your conspiracy.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/stunprod.rsi
+      state: stunprod_off
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorBusinessObjective
+  name: Set up a business outside Nanotrasen.
+  description: You dont wanna work for nt anymore. Get a shuttle and whatever else would let you set up a profitable business of your own.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/computers.rsi
+      state: avionics-systems
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorUsurpObjective
+  name: Become the true leaders of the station.
+  description: You want to be the top dogs. Through violence, blackmail, or popularity become the true captains.
+  components:
+  - type: Objective
+    icon: 
+      sprite: Clothing/Head/Hats/captain.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorHordeObjective
+  name: Build a horde of valuables.
+  description: You want it all. gather everything valuable on this station into a hidden location.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Materials/ingots.rsi
+      state: gold
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorDistrustObjective
+  name: Brew distrust and hatred.
+  description: A angry people is a controlable people. Try and get everyone isolated and angry at everyone else.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/computers.rsi
+      state: television
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorVigilanteObjective
+  name: Enforce the laws secuirty can not.
+  description: Trespassing, minor theft, contraband, demolish these criminals so secuirty can focus on the real problems.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi
+      state: icon
+    
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorFreedomObjective
+  name: Free the station of access.
+  description: The people are constrained by access and departments. Give the people the power to go anywhere.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Doors/Airlocks/Glass/basic.rsi
+      state: closed
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorNukeObjective
+  name: Steal the nuke disk
+  description: You know the nuclear operatives are coming. If you dont have the disk this station is doomed!
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/nukedisk.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorDangerObjective
+  name: Arm yourselves
+  description: You're all in danger, get as many weapons and armor as you can to protect yourself.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorFreeObjective
+  name: Make your own conspiracy.
+  description: you know what you want to do.
+  components:
+  - type: Objective
+    icon:
+      sprite: _ST/Effects/interaction.rsi
+      state: hand
