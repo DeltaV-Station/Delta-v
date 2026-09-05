@@ -253,3 +253,33 @@
   - type: MappingCategories
     categories:
     - Syndicate
+
+- type: entity
+  parent: ComputerRoboticsControl
+  id: SRNComputerRoboticsControl
+  name: syndicate robotics control console
+  description: Used to remotely monitor the SRN's cyborgs.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      sprite: _DV/Structures/Machines/computers.rsi
+      state: syndirobot
+    - map: ["computerLayerKeys"]
+      state: syndie_generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: RoboticsConsole
+    allowBorgControl: true
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SRNRoboticsConsole
+    transmitFrequencyId: SRNCyborgControl
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+  - type: Computer
+    board: SRNRoboticsConsoleCircuitboard
