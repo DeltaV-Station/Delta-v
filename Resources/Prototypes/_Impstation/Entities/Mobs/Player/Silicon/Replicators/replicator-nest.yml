@@ -1,0 +1,106 @@
+- type: entity
+  id: ReplicatorNest
+  name: replicator nest
+  description: A roiling mass of nanotechnology is eating through the station's infrastructure.
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapGridCenter
+  components:
+  - type: ReplicatorNest
+    fallingSound:
+      path: /Audio/_Impstation/Effects/falling.ogg
+      params:
+        variation: 0.1
+    spawnNewAt: 150
+    blacklist:
+      components:
+      - Nuke
+      - Cash
+      tags:
+      - Cartridge
+      - CartridgeMagnum
+      - Ectoplasm
+      - PrizeTicket
+    preservationBlacklist:
+      components:
+      - SiliconLawBound
+    preservationWhitelist:
+      components:
+      - HumanoidAppearance
+      - TimerTrigger
+      - StealTarget
+      - Mech
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.4
+    ignoreWeightless: true
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - WallLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Impstation/Mobs/Replicator/replicator_nest.rsi
+    layers:
+    - map: ["enum.ReplicatorNestVisuals.Level1"]
+      state: nest1
+    - map: ["enum.ReplicatorNestVisuals.Level2"]
+      state: nest2
+      visible: false
+    - map: ["enum.ReplicatorNestVisuals.Level2Unshaded"]
+      state: nest2unshaded
+      shader: unshaded
+      visible: false
+    - map: ["enum.ReplicatorNestVisuals.Level3"]
+      state: nest3
+      visible: false
+    - map: ["enum.ReplicatorNestVisuals.Level3Unshaded"]
+      state: nest3unshaded
+      shader: unshaded
+      visible: false
+    - map: ["enum.ReplicatorNestVisuals.Level1Unshaded"]
+      state: nest1unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: ReplicatorNest
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RequireProjectileTarget
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 1000
+  - type: Drain
+    unitsPerSecond: 10
+    unitsDestroyedPerSecond: 10
+  - type: PassiveDamage
+    damage:
+      types:
+        Heat: -1
+        Shock: -1
+        Structural: -1
+      groups:
+        Brute: -1
+  - type: AntiRottingContainer
