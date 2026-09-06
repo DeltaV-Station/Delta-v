@@ -376,16 +376,6 @@ namespace Content.Client.PDA
         // Begin DeltaV - PDA Evac Status
         private void UpdateEvacStatus()
         {
-            if ( _evacArrivalTime is { } evacArrivalTime )
-            {
-                TimeSpan diff = MathHelper.Max( evacArrivalTime.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
-                _evacStatus = Loc.GetString( "comp-pda-ui-evac-eta", ( "time", diff.ToString( "mm\\:ss" ) ) );
-            }
-            else
-            {
-                _evacStatus = Loc.GetString( "comp-pda-ui-evac-not-called" );
-            }
-
             if ( _evacDepartureTime is { } evacDepartureTime )
             {
                 TimeSpan diff = MathHelper.Max( evacDepartureTime.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
@@ -393,6 +383,18 @@ namespace Content.Client.PDA
                     _evacStatus = Loc.GetString( "comp-pda-ui-evac-gone" );
                 else
                     _evacStatus = Loc.GetString( "comp-pda-ui-evac-etd", ( "time", diff.ToString( "mm\\:ss" ) ) );
+            }
+            else
+            {
+                if ( _evacArrivalTime is { } evacArrivalTime )
+                {
+                    TimeSpan diff = MathHelper.Max( evacArrivalTime.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
+                    _evacStatus = Loc.GetString( "comp-pda-ui-evac-eta", ( "time", diff.ToString( "mm\\:ss" ) ) );
+                }
+                else
+                {
+                    _evacStatus = Loc.GetString( "comp-pda-ui-evac-not-called" );
+                }
             }
 
             StationEvacStatusLabel.SetMarkup( Loc.GetString( "comp-pda-ui-evac-status", ( "status", _evacStatus ) ) );
