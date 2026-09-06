@@ -34,8 +34,8 @@ namespace Content.Client.PDA
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
         private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
         private string _evacStatus = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA Evac Status
-        private TimeSpan? _evacTime = null; // DeltaV - PDA Evac Status
-        private TimeSpan? _departTime = null; // DeltaV - PDA Evac Status
+        private TimeSpan? _evacArrivalTime = null; // DeltaV - PDA Evac Status
+        private TimeSpan? _evacDepartureTime = null; // DeltaV - PDA Evac Status
 
         private int _currentView;
 
@@ -218,9 +218,8 @@ namespace Content.Client.PDA
             // End DeltaV additions
 
             // Begin DeltaV - PDA Evac Status
-            _evacTime = state.PdaOwnerInfo.EvacArrival;
-            if ( state.PdaOwnerInfo.EvacDockTime is { } departTime )
-                _departTime = departTime + _evacTime;
+            _evacArrivalTime = state.PdaOwnerInfo.EvacArrivalTime;
+            _evacDepartureTime = state.PdaOwnerInfo.EvacDepartureTime;
             UpdateEvacStatus();
             // End DeltaV - PDA Evac Status
 
@@ -377,9 +376,9 @@ namespace Content.Client.PDA
         // Begin DeltaV - PDA Evac Status
         private void UpdateEvacStatus()
         {
-            if ( _evacTime is { } evacArrival )
+            if ( _evacArrivalTime is { } evacArrivalTime )
             {
-                TimeSpan diff = MathHelper.Max( evacArrival.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
+                TimeSpan diff = MathHelper.Max( evacArrivalTime.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
                 _evacStatus = Loc.GetString( "comp-pda-ui-evac-eta", ( "time", diff.ToString( "mm\\:ss" ) ) );
             }
             else
@@ -387,9 +386,9 @@ namespace Content.Client.PDA
                 _evacStatus = Loc.GetString( "comp-pda-ui-evac-not-called" );
             }
 
-            if ( _departTime is { } evacDeparture )
+            if ( _evacDepartureTime is { } evacDepartureTime )
             {
-                TimeSpan diff = MathHelper.Max( evacDeparture.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
+                TimeSpan diff = MathHelper.Max( evacDepartureTime.Subtract( _gameTiming.CurTime ), TimeSpan.Zero );
                 if ( diff == TimeSpan.Zero )
                     _evacStatus = Loc.GetString( "comp-pda-ui-evac-gone" );
                 else

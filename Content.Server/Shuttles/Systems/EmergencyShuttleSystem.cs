@@ -76,7 +76,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
     private static readonly ProtoId<TagPrototype> DockTag = "DockEmergency";
 
-    public TimeSpan? EvacShuttleDockTime = null; // DeltaV - PDA Evac Status
+    public TimeSpan? EvacShuttleDepartureTime = null; // DeltaV - PDA Evac Status
 
     public override void Initialize()
     {
@@ -475,7 +475,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         _consoleAccumulator *= multiplier;
 
-        EvacShuttleDockTime = TimeSpan.FromSeconds( _consoleAccumulator ); // DeltaV - PDA Evac Status
+        EvacShuttleDepartureTime = TimeSpan.FromSeconds( _consoleAccumulator ) + _timing.CurTime; // DeltaV - PDA Evac Status
         RaiseLocalEvent(new EvacShuttleDockedEvent()); // DeltaV
 
         foreach (var shuttleDockResult in dockResults)
