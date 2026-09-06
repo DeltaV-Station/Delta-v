@@ -283,3 +283,18 @@
     access: [["SyndicateAgent"]]
   - type: Computer
     board: SRNRoboticsConsoleCircuitboard
+
+- type: entity
+  parent: ComputerSurveillanceWirelessCameraMonitor
+  id: SRNBorgCameraMonitor
+  name: syndicate borg camera monitor console
+  description: Used to remotely monitor the SRN's cyborgs.
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SRNRoboticsConsole
+    transmitFrequencyId: SRNRoboticsConsole
+  - type: WirelessNetworkConnection
+    range: 2000
+  - type: Computer
+    board: SRNBorgCameraMonitorCircuitboard
