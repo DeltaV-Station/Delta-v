@@ -14,11 +14,23 @@
 
 - type: entity
   id: SRNBaseBorgChassis
-  parent: [SRNBorgTransponder, BaseBorgChassisNT]
+  parent: [SRNBorgTransponder, BaseBorgChassis]
   abstract: true
   components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: AccessReader
+    access: [["Command"], ["Research"], ["Robotics"]] 
+    breakOnAccessBreaker: false 
   - type: SlavedBorg
     law: ObeySRN
+  - type: Wires
+    layoutId: Cyborg
+  - type: ShowJobIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
