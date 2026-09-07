@@ -1,4 +1,4 @@
-- type: entity
+F- type: entity
   id: BaseGameRule
   abstract: true
   components:
@@ -600,17 +600,10 @@
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
-    - 10, 10
-    - 10, 6
-    - 10, 1
-    - 10, 3
-    - 15, 5
-    - 15, 4
-    - 20, 2
-    - 10, 1
-    - 10, 4
-    - 10, 3
-    - 70, 4
+    - 14, 16
+    - 32, 8
+    - 8, 2
+    - 32, 8
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
