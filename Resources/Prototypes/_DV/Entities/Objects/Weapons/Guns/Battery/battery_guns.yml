@@ -714,8 +714,8 @@
     size: Ginormous
   - type: MultiHandedItem
   - type: ClothingSpeedModifier
-    walkModifier: 0.5
-    sprintModifier: 0.5
+    walkModifier: 0.6
+    sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/unstable_core_refractor.rsi
@@ -730,13 +730,13 @@
     availableModes: FullAuto
     minAngle: 1
     maxAngle: 45
-    angleIncrease: -1
-    angleDecay: -3
+    angleIncrease: -1.5
+    angleDecay: -5
   - type: Battery
     maxCharge: 12000
     startingCharge: 12000
   - type: BatterySelfRecharger
-    autoRechargeRate: 900
+    autoRechargeRate: 1050
   - type: BatteryAmmoProvider
     proto: FocussedCoreExhaust
     fireCost: 200
