@@ -28,6 +28,9 @@ public sealed class DVStationKeycardAuthenticationDeviceSystem : SharedDVStation
     {
         base.Mayday(station);
 
+        if (_alertLevel.GetLevel(station) == "zeta")
+            return;
+
         _alertLevel.SetLevel(station, "zeta", true, true, true, true);
         var alertLevel = Comp<AlertLevelComponent>(station);
         var level = _prototype.Index<AlertLevelPrototype>(alertLevel.AlertLevelPrototype).Levels[alertLevel.CurrentLevel];
