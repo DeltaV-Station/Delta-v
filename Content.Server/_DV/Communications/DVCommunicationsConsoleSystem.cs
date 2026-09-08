@@ -1,3 +1,4 @@
+using System.Threading;
 using Content.Server._DV.Station.Components;
 using Content.Server._DV.Station.Systems;
 using Content.Server.AlertLevel;
@@ -10,6 +11,7 @@ using Content.Shared.Database;
 using Content.Shared.Station;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._DV.Communications;
 
@@ -22,6 +24,8 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly StationExfiltrationSystem _stationExfiltration = default!;
+
+    private CancellationTokenSource? _thresholdUpdateTokenSource;
 
     public override void Initialize()
     {
@@ -62,7 +66,7 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
         }
     }
 
-    private void OnRoundEndChanged(RoundEndSystemChangedEvent ev)
+    private void OnRoundEndChanged(RoundEndSystemChangedEvent? ev)
     {
         var query = EntityQueryEnumerator<DVCommunicationsConsoleComponent>();
         while (query.MoveNext(out var uid, out var comp))
@@ -71,6 +75,23 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
             comp.ExpectedEvacuationDuration = _roundEnd.ExpectedShuttleLength;
             comp.ShuttlesCallable = ShuttlesCallable();
             Dirty(uid, comp);
+        }
+
+        var recallThreshold = _configuration.GetCVar(CCVars.EmergencyRecallTurningPoint);
+
+        _thresholdUpdateTokenSource?.Cancel();
+
+        // Queue up the next update for ShuttleCallable (necessary for the recall threshold)
+        if (ev is { } && _roundEnd.ShuttleTimeLeft is { } left && _roundEnd.ExpectedShuttleLength is { } expected) {
+            var shuttleCutoffExpected = expected.TotalSeconds * recallThreshold;
+            var shuttleCutoff = left.TotalSeconds - shuttleCutoffExpected;
+            if (shuttleCutoff > 0) {
+                _thresholdUpdateTokenSource = new CancellationTokenSource();
+                Timer.Spawn(TimeSpan.FromSeconds(shuttleCutoff), () =>
+                {
+                    OnRoundEndChanged(null);
+                }, _thresholdUpdateTokenSource.Token);
+            }
         }
     }
 
@@ -121,7 +142,7 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
             || _roundEnd.ExpectedShuttleLength is not { } expected)
             return false;
 
-        return !(left.TotalSeconds / expected.TotalSeconds < recallThreshold);
+        return !((int) left.TotalSeconds / expected.TotalSeconds <= recallThreshold);
     }
 
     protected override void OnAlertLevel(Entity<DVCommunicationsConsoleComponent> ent, ref DVCommunicationsConsoleAlertLevelMessage args)
