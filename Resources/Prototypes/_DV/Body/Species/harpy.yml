@@ -41,6 +41,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceHarpy
+  name: harpy appearance
   components:
   - type: Inventory
     speciesId: harpy
@@ -72,11 +73,9 @@
       Heart: OrganAnimalHeart
       Stomach: OrganAnimalStomach
       Liver: OrganAnimalLiver
-      Kidneys: OrganHumanKidneys
+      Kidneys: OrganAnimalKidneys
   - type: HumanoidProfile
     species: Harpy
-  - type: ScaleVisuals
-    speciesScale: 0.9, 0.9
 
 - type: entity
   parent:
@@ -201,6 +200,10 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganHarpyExternal ]
   id: OrganHarpyTorso
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Tail
 
 - type: entity
   parent: [ OrganHarpyTorso ]
@@ -239,6 +242,8 @@
   id: OrganHarpyArmRight
   components:
   - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.RArmExtension
     markingData:
       layers:
       - RArmExtension

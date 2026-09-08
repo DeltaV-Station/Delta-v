@@ -90,7 +90,7 @@ public sealed partial class LabelSystem : EntitySystem
     private void OnRefreshNameModifiers(Entity<LabelComponent> entity, ref RefreshNameModifiersEvent args)
     {
         if (!string.IsNullOrEmpty(entity.Comp.CurrentLabel))
-            args.AddModifier("comp-label-format", extraArgs: ("label", entity.Comp.CurrentLabel));
+            args.AddModifier("comp-label-format", 100, extraArgs: ("label", entity.Comp.CurrentLabel)); // Coyote: add priority of 100 to reverse order of label and baseName
     }
 
     private void OnComponentInit(Entity<PaperLabelComponent> ent, ref ComponentInit args)

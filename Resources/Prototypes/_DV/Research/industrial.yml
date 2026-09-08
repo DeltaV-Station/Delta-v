@@ -28,6 +28,18 @@
   - ClothingOuterHardsuitEngineering
   - ClothingOuterVoidsuitEngineering
 
+- type: technology
+  id: AdvancedConstruction
+  name: research-technology-advanced-construction
+  icon:
+    sprite: _NF/Objects/Specific/Engineering/construction_bag.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ConstructionBagOfHolding
+
 # Tier 3
 
 - type: technology

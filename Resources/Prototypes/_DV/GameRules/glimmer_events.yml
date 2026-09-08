@@ -11,6 +11,7 @@
     - id: GlimmerSpawnProber
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
+    - id: GlimmerGnomeSpawn
     - id: GlimmerRandomSentience
     - id: GlimmerRandomAnimation
     - id: ThavenMoodUpset
@@ -148,6 +149,17 @@
     mobPrototype: MobGlimmerMite
     glimmerTier: Low # get more mites earlier on
 
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerGnomeSpawn
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    maximumGlimmer: 900
+  - type: GlimmerMobRule
+    mobPrototype: MobGnome
+    maxSpawns: 2
+
 # Like upstream's event but can reoccur and tied to glimmer.
 - type: entity
   parent: [RandomSentience, BaseGlimmerEvent]
@@ -223,7 +235,6 @@
     - red
     - silver
     - yellow
-
 
 - type: entity
   id: GlimmerRestyle

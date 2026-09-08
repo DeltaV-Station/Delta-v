@@ -1,34 +1,25 @@
 # Last match in file takes precedence.
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#example-of-a-codeowners-file
 
-# C# code
-/Content.*/ @DeltaV-Station/maintainers
-
-# Any assets
-/Resources/ @DeltaV-Station/maintainers
+* @DeltaV-Station/maintainers
 
 # Server config files
-/Resources/ConfigPresets/ @Toby222
+/Resources/ConfigPresets/ @DeltaV-Station/lead-maintainers
+
+# Github workflows
+/.github/ @DeltaV-Station/lead-maintainers
 
 # Lobby art and music - automatically direction issues since its immediately visible to players
-/Resources/Audio/Lobby/ @DeltaV-Station/direction
-/Resources/Textures/LobbyScreens/ @DeltaV-Station/direction
+/Resources/Audio/Lobby/ @DeltaV-Station/direction @DeltaV-Station/maintainers
+/Resources/Textures/LobbyScreens/ @DeltaV-Station/direction @DeltaV-Station/maintainers
 
 # Maps
 /Resources/Maps/ @DeltaV-Station/maptainers
 /Resources/Prototypes/Maps/ @DeltaV-Station/maptainers
-/Content.IntegrationTests/Tests/PostMapInitTest.cs @DeltaV-Station/maptainers
+/Content.IntegrationTests/Tests/PostMapInitTest.cs @DeltaV-Station/maptainers @DeltaV-Station/maintainers 
 
 # Server rules
 /Resources/ServerInfo/Guidebook/_DV/Rules/ @DeltaV-Station/head-administrators
 
 # Wiki
 /.wiki/ @DeltaV-Station/direction
-
-# Tools and scripts
-/Tools/ @Toby222
-
-# Workflows, codeowners, templates, etc.
-/.github/ @Toby222
-
-# Standalone files in the root repo
-/* @Toby222

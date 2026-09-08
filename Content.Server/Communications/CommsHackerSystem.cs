@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ninja.Systems;
+using Content.Shared._DV.Communications; // DeltaV Comms Console
 using Content.Shared.Communications;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -35,7 +36,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     /// </summary>
     private void OnBeforeInteractHand(EntityUid uid, CommsHackerComponent comp, BeforeInteractHandEvent args)
     {
-        if (args.Handled || !HasComp<CommunicationsConsoleComponent>(args.Target))
+        if (args.Handled || !HasComp<DVCommunicationsConsoleComponent>(args.Target)) // DeltaV - Comms Console
             return;
 
         // TODO: generic check event

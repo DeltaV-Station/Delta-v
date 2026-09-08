@@ -1,0 +1,11 @@
+- type: entity
+  parent: BoxFolderBlackEmpty
+  id: BoxFolderStationWarrant
+  name: paper warrant folder
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperStationWarrant
+          amount: 10

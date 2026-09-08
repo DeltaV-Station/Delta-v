@@ -14,7 +14,7 @@
     sprite: Nyanotrasen/Objects/Weapons/Guns/Pistols/universal.rsi
     state: icon
   product: CrateArmoryUniversal
-  cost: 12500
+  cost: 9500 # was 12500
   category: Armory
   group: market
 
@@ -97,5 +97,15 @@
     state: icon
   product: CrateArmoryCowboy
   cost: 7600
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: CargoArmoryPatos
+  icon:
+    sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
+    state: icon
+  product: CrateCargoArmoryPatos
+  cost: 7500
   category: Armory
   group: market
