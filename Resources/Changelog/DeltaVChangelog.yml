@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: Jimboe
-  changes:
-  - message: SUBMARINE HAS GOTTEN SUBBIER - Power rework completed, Minor Atmos changes
-      to engineering. Atmos will eventually all reflect engineering soon. Solars have
-      been improved!
-    type: Tweak
-  id: 2152
-  time: '2026-03-03T03:16:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5394
 - author: Velcroboy
   changes:
   - message: 'Evac Shuttles: NTES- Fishbowl and NTES-BC20 are APC compliant'
@@ -4446,4 +4437,15 @@
   id: 2652
   time: '2026-09-09T14:15:30.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6449
+- author: pixelStrife
+  changes:
+  - message: Ethanol content of drinks has been re-standardized. No more adding ethanol
+      directly, only metabolizing. (Non-ethanol substances too!)
+    type: Fix
+  - message: Silencer is once again non-alcoholic, for mimes that would rather keep
+      their wits about them.
+    type: Fix
+  id: 2653
+  time: '2026-09-09T14:18:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6486
 Order: 1
