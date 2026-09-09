@@ -1,10 +1,14 @@
 [game]
-hostname           = "[EN][MRP] Delta-v (Ψ) | Periapsis [US East 2]"
+hostname           = "[EN][MRP] Delta-V (Ψ) | Periapsis [NA East 2]"
 soft_max_players   = 60
 desc = """\
 A medium roleplay fork based around the mysterious Noösphere, featuring unique content, custom maps, new species and a revamped science department.\
 This server focuses on calmer shifts.\
 """
+fallbackpreset = "Extended"
+
+[adminlogs]
+server_name = "Periapsis"
 
 [vote]
 preset_enabled = true

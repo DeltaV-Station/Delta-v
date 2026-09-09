@@ -157,8 +157,8 @@ cosmiccult-ui-deconverted-text-2 =
 cosmiccult-ui-mindwiped-text-1 =
     You have been mindwiped with a censer.
 cosmiccult-ui-mindwiped-text-2 =
-    You no longer remember anything that happened during this round.
-    There is no way to recover your memory.
+    Your memory is foggy and unclear on events that happened during this round.
+    Your headache will slowly fade and your memories will come back to you.
 
 cosmiccult-ui-popup-confirm = Confirm
 

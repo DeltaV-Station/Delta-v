@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: [ ClothingNeckBase, BaseObviousBadge ] # imp
   id: ClothingNeckProsecutorbadge
   name: prosecutor badge
   description: A badge to show that the owner is a 'legitimate' prosecutor who passed the NT bar exam required to practice law.
@@ -10,6 +10,8 @@
     sprite: _DV/Clothing/Neck/Misc/prosecutorbadge.rsi
   - type: TypingIndicatorClothing
     proto: lawyer
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-law-prosecution
 
 - type: entity
   parent: ClothingNeckBase
@@ -69,3 +71,14 @@
     sprite: _DV/Clothing/Neck/Misc/coppernecklace.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/Misc/coppernecklace.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimeStole
+  name: mime's stole
+  description: A striped stole for mimes aspiring to become famous.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Misc/mimestole.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Misc/mimestole.rsi

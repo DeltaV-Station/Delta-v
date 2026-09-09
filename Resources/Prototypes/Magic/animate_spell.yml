@@ -70,6 +70,7 @@
       - type: Hands
       - type: CanEscapeInventory
       - type: MobCollision
+      - type: ZombieImmune # DeltaV
       toRemove:
       - RequireProjectileTarget
       - BlockMovement

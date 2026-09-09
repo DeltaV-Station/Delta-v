@@ -1212,13 +1212,13 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
-      - !type:HealthChange # Delta-V
+    Bloodstream: # Delta-V
+      effects:
+      - !type:HealthChange 
         damage:
           types:
             Soul: -2
             Holy: 2
-
-
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]

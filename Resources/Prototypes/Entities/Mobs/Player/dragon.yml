@@ -171,6 +171,14 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
+    # Begin DeltaV additions - Give Dragons blood and night vision.
+  - type: NightVision
+    color: "#808080"
+  - type: SharkVision
+    pulseTime: 5
+    activateSound: null
+    deactivateSound: null
+    # End DeltaV additions
 
 - type: entity
   parent: BaseMobDragon

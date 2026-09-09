@@ -152,3 +152,59 @@
       subdermalIdCard: !type:Container { }
   - type: SubdermalIdCard
     idCardProto: K9OfficerIDCard
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: UnrevivableImplantSyndicate
+  name: true death implant
+  description: This implant contains syndicate nanites that are designed to rapidly decompose your organs and DNA post-mortem. Once you inject this, there will be absolutely no way to bring you back.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: Unrevivable
+      cloneable: false
+      analyzable: false # We don't want to tip off that we're DAGD via health scans
+      reasonMessage: defibrillator-unrevivable-syndicate-implant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MicroBombImplantSyndicateDAGD
+  name: micro-bomb implant
+  description: This implant detonates the user after a few seconds upon activation or death.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateMicroBomb
+  - type: TimerTrigger
+    delay: 5
+    beepSound:
+      path: /Audio/Machines/Nuke/general_beep.ogg
+      params:
+        volume: -2
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TriggerOnActivateImplant
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: GibOnTrigger
+    targetUser: true
+    keysIn:
+    - timer
+    deleteItems: true
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 120
+    intensitySlope: 3
+    maxIntensity: 30
+    canCreateVacuum: true
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+    - MicroBomb

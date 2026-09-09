@@ -1,4 +1,5 @@
-#- type: construction # DeltaV - made it uncraftable
+# DeltaV - Make forged weaponry unobtainable
+#- type: construction
 #  name: crafting-menu-name-FDB
 #  id: WeaponShotgunForged
 #  graph: ForgedShotgunGraph
@@ -8,17 +9,17 @@
 #  objectType: Item
 #  description: crafting-menu-text-FDB
 
-- type: construction
-  name: crafting-menu-name-IP
-  id: WeaponPistolImprovised
-  graph: ImprovisedPistolGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IP
+#- type: construction
+#  name: crafting-menu-name-IP
+#  id: WeaponPistolImprovised
+#  graph: ImprovisedPistolGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IP
 
-#- type: construction # DeltaV - made it uncraftable
+#- type: construction
 #  name: crafting-menu-name-FP
 #  id: WeaponPistolForged
 #  graph: ForgedPistolGraph
@@ -28,37 +29,37 @@
 #  objectType: Item
 #  description: crafting-menu-text-FP
 
-- type: construction
-  name: crafting-menu-name-IPB
-  id: CartridgePistolImprovised
-  graph: ImprovisedPistolBulletGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IPB
+#- type: construction
+#  name: crafting-menu-name-IPB
+#  id: CartridgePistolImprovised
+#  graph: ImprovisedPistolBulletGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IPB
 
-- type: construction
-  name: crafting-menu-name-IPM
-  id: MagazinePistolImprovised
-  graph: ImprovisedPistolMagazineGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IPM
+#- type: construction
+#  name: crafting-menu-name-IPM
+#  id: MagazinePistolImprovised
+#  graph: ImprovisedPistolMagazineGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IPM
 
-- type: construction
-  name: crafting-menu-name-IR
-  id: WeaponRevolverImprovised
-  graph: ImprovisedRevolverGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IR
+#- type: construction
+#  name: crafting-menu-name-IR
+#  id: WeaponRevolverImprovised
+#  graph: ImprovisedRevolverGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IR
 
-#- type: construction # DeltaV - made it uncraftable
+#- type: construction
 #  name: crafting-menu-name-FR
 #  id: WeaponRevolverForged
 #  graph: ForgedRevolverGraph
@@ -68,37 +69,36 @@
 #  objectType: Item
 #  description: crafting-menu-text-FR
 
-- type: construction
-  name: crafting-menu-name-IMB
-  id: CartridgeMagnumImprovised
-  graph: ImprovisedMagnumBulletGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMB
+#- type: construction
+#  name: crafting-menu-name-IMB
+#  id: CartridgeMagnumImprovised
+#  graph: ImprovisedMagnumBulletGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMB
 
-- type: construction
-  name: crafting-menu-name-IMS
-  id: SpeedLoaderMagnumImprovised
-  graph: ImprovisedMagnumSpeedLoaderGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMS
+#- type: construction
+#  name: crafting-menu-name-IMS
+#  id: SpeedLoaderMagnumImprovised
+#  graph: ImprovisedMagnumSpeedLoaderGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMS
 
-- type: construction
-  name: crafting-menu-name-MB
-  id: ModularBarrel
-  graph: ModularBarrelGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-misc
-  objectType: Item
-  description: crafting-menu-text-MB
+#- type: construction
+#  name: crafting-menu-name-MB
+#  id: ModularBarrel
+#  graph: ModularBarrelGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-misc
+#  objectType: Item
+#  description: crafting-menu-text-MB
 
-# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-IS
 #  id: WeaponSubMachineGunImprovised
@@ -118,29 +118,28 @@
 #  category: construction-category-weapons
 #  objectType: Item
 #  description: crafting-menu-text-FS
-# End DeltaV removal
 
-- type: construction
-  name: crafting-menu-name-ISM
-  id: MagazinePistolSubMachineGunImprovised
-  graph: ImprovisedMagazinePistolSubMachineGunGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-ISM
+#- type: construction
+#  name: crafting-menu-name-ISM
+#  id: MagazinePistolSubMachineGunImprovised
+#  graph: ImprovisedMagazinePistolSubMachineGunGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-ISM
 
-- type: construction
-  name: crafting-menu-name-IRR
-  id: WeaponSniperImprovised
-  graph: ImprovisedSniperGraph
-  startNode: start
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IRR
+#- type: construction
+#  name: crafting-menu-name-IRR
+#  id: WeaponSniperImprovised
+#  graph: ImprovisedSniperGraph
+#  startNode: start
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IRR
 
-#- type: construction # DeltaV - made it uncraftable
+#- type: construction
 #  name: crafting-menu-name-FRR
 #  id: WeaponSniperForged
 #  graph: ForgedSniperGraph
@@ -150,65 +149,65 @@
 #  objectType: Item
 #  description: crafting-menu-text-FRR
 
-- type: construction
-  name: crafting-menu-name-IRB
-  id: CartridgeLightRifleImprovised
-  graph: ImprovisedLightRifleBulletGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IRB
+#- type: construction
+#  name: crafting-menu-name-IRB
+#  id: CartridgeLightRifleImprovised
+#  graph: ImprovisedLightRifleBulletGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IRB
 
-- type: construction
-  name: crafting-menu-name-IMGB
-  id: BaseMagazineBoxImprovised
-  graph: ImprovisedMagazineBoxGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMGB
+#- type: construction
+#  name: crafting-menu-name-IMGB
+#  id: BaseMagazineBoxImprovised
+#  graph: ImprovisedMagazineBoxGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMGB
 
-- type: construction
-  name: crafting-menu-name-IMGP
-  id: MagazineBoxImprovisedPistol
-  graph: ImprovisedMagazineBoxGraph
-  startNode: startpistol
-  targetNode: pistol
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMGP
+#- type: construction
+#  name: crafting-menu-name-IMGP
+#  id: MagazineBoxImprovisedPistol
+#  graph: ImprovisedMagazineBoxGraph
+#  startNode: startpistol
+#  targetNode: pistol
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMGP
 
-- type: construction
-  name: crafting-menu-name-IMGR
-  id: MagazineBoxImprovisedRifle
-  graph: ImprovisedMagazineBoxGraph
-  startNode: startrifle
-  targetNode: rifle
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMGR
+#- type: construction
+#  name: crafting-menu-name-IMGR
+#  id: MagazineBoxImprovisedRifle
+#  graph: ImprovisedMagazineBoxGraph
+#  startNode: startrifle
+#  targetNode: rifle
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMGR
 
-- type: construction
-  name: crafting-menu-name-IMGM
-  id: MagazineBoxImprovisedMagnum
-  graph: ImprovisedMagazineBoxGraph
-  startNode: startmagnum
-  targetNode: magnum
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMGM
+#- type: construction
+#  name: crafting-menu-name-IMGM
+#  id: MagazineBoxImprovisedMagnum
+#  graph: ImprovisedMagazineBoxGraph
+#  startNode: startmagnum
+#  targetNode: magnum
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMGM
 
-- type: construction
-  name: crafting-menu-name-IMGS
-  id: MagazineBoxImprovisedShotgun
-  graph: ImprovisedMagazineBoxGraph
-  startNode: startshotgun
-  targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IMGS
+#- type: construction
+#  name: crafting-menu-name-IMGS
+#  id: MagazineBoxImprovisedShotgun
+#  graph: ImprovisedMagazineBoxGraph
+#  startNode: startshotgun
+#  targetNode: shotgun
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IMGS
 
 - type: construction
   name: crafting-menu-name-MC
@@ -290,67 +289,67 @@
 #  objectType: Item
 #  description: crafting-menu-text-FO
 
-- type: construction
-  name: crafting-menu-name-WH
-  id: HiltWood
-  graph: HiltWoodGraph
-  startNode: start
-  targetNode: hilt
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-WH
+#- type: construction
+#  name: crafting-menu-name-WH
+#  id: HiltWood
+#  graph: HiltWoodGraph
+#  startNode: start
+#  targetNode: hilt
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-WH
 
-- type: construction
-  name: crafting-menu-name-PH
-  id: HiltPlasteel
-  graph: HiltPlasteelGraph
-  startNode: start
-  targetNode: hilt
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-PH
+#- type: construction
+#  name: crafting-menu-name-PH
+#  id: HiltPlasteel
+#  graph: HiltPlasteelGraph
+#  startNode: start
+#  targetNode: hilt
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-PH
 
-- type: construction
-  name: crafting-menu-name-SB
-  id: BladeSteel
-  graph: BladeSteelGraph
-  startNode: start
-  targetNode: blade
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-SB
+#- type: construction
+#  name: crafting-menu-name-SB
+#  id: BladeSteel
+#  graph: BladeSteelGraph
+#  startNode: start
+#  targetNode: blade
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-SB
 
-- type: construction
-  name: crafting-menu-name-PB
-  id: BladePlasteel
-  graph: BladePlasteelGraph
-  startNode: start
-  targetNode: blade
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-PB
+#- type: construction
+#  name: crafting-menu-name-PB
+#  id: BladePlasteel
+#  graph: BladePlasteelGraph
+#  startNode: start
+#  targetNode: blade
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-PB
 
-- type: construction
-  name: crafting-menu-name-MSW
-  id: SwordMakeshift
-  graph: SwordMakeshiftGraph
-  startNode: start
-  targetNode: sword
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-MSW
+#- type: construction
+#  name: crafting-menu-name-MSW
+#  id: SwordMakeshift
+#  graph: SwordMakeshiftGraph
+#  startNode: start
+#  targetNode: sword
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-MSW
 
-- type: construction
-  name: crafting-menu-name-ISW
-  id: SwordImprovised
-  graph: SwordImprovisedGraph
-  startNode: start
-  targetNode: sword
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-ISW
+#- type: construction
+#  name: crafting-menu-name-ISW
+#  id: SwordImprovised
+#  graph: SwordImprovisedGraph
+#  startNode: start
+#  targetNode: sword
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-ISW
 
-#- type: construction # DeltaV - made it uncraftable
+#- type: construction
 #  name: crafting-menu-name-FSW
 #  id: SwordForged
 #  graph: SwordForgedGraph
@@ -360,37 +359,36 @@
 #  objectType: Item
 #  description: crafting-menu-text-FSW
 
-- type: construction
-  name: crafting-menu-name-DSW
-  id: SwordFlaming
-  graph: SwordFlamingGraph
-  startNode: start
-  targetNode: sword
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-DSW
+#- type: construction
+#  name: crafting-menu-name-DSW
+#  id: SwordFlaming
+#  graph: SwordFlamingGraph
+#  startNode: start
+#  targetNode: sword
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-DSW
 
-#- type: construction # DeltaV - made it uncraftable
+#- type: construction
 #  name: crafting-menu-name-TSW
 #  id: ClaymoreForged
 #  graph: ClaymoreForgedGraph
-# startNode: start
+#  startNode: start
 #  targetNode: sword
 #  category: construction-category-weapons
 #  objectType: Item
 #  description: crafting-menu-text-TSW
 
-- type: construction
-  name: crafting-menu-name-ISH
-  id: ImprovisedShield
-  graph: ImprovisedShieldGraph
-  startNode: start
-  targetNode: shield
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-ISH
+#- type: construction
+#  name: crafting-menu-name-ISH
+#  id: ImprovisedShield
+#  graph: ImprovisedShieldGraph
+#  startNode: start
+#  targetNode: shield
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-ISH
 
-# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FSH
 #  id: ForgedShieldBuckler
@@ -430,29 +428,27 @@
 #  category: construction-category-weapons
 #  objectType: Item
 #  description: crafting-menu-text-PSHG
-# End DeltaV removal
 
-- type: construction
-  name: crafting-menu-name-MVT
-  id: ClothingOuterArmorMakeshift
-  graph: ClothingOuterArmorMakeshiftGraph
-  startNode: start
-  targetNode: vest
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-MVT
+#- type: construction
+#  name: crafting-menu-name-MVT
+#  id: ClothingOuterArmorMakeshift
+#  graph: ClothingOuterArmorMakeshiftGraph
+#  startNode: start
+#  targetNode: vest
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-MVT
 
-- type: construction
-  name: crafting-menu-name-IVT
-  id: ClothingOuterArmorImprovised
-  graph: ClothingOuterArmorImprovisedGraph
-  startNode: start
-  targetNode: vest
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-IVT
+#- type: construction
+#  name: crafting-menu-name-IVT
+#  id: ClothingOuterArmorImprovised
+#  graph: ClothingOuterArmorImprovisedGraph
+#  startNode: start
+#  targetNode: vest
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-IVT
 
-# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FVT
 #  id: ClothingOuterArmorForged
@@ -472,29 +468,27 @@
 #  category: construction-category-clothing
 #  objectType: Item
 #  description: crafting-menu-text-PVT
-# End DeltaV removal
 
-- type: construction
-  name: crafting-menu-name-MVTH
-  id: ClothingHeadHelmetMakeshift
-  graph: ClothingHeadHelmetMakeshiftGraph
-  startNode: start
-  targetNode: helmet
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-MVTH
+#- type: construction
+#  name: crafting-menu-name-MVTH
+#  id: ClothingHeadHelmetMakeshift
+#  graph: ClothingHeadHelmetMakeshiftGraph
+#  startNode: start
+#  targetNode: helmet
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-MVTH
 
-- type: construction
-  name: crafting-menu-name-IVTH
-  id: ClothingHeadHelmetImprovised
-  graph: ClothingHeadHelmetImprovisedGraph
-  startNode: start
-  targetNode: helmet
-  category: construction-category-clothing
-  objectType: Item
-  description: crafting-menu-text-IVTH
+#- type: construction
+#  name: crafting-menu-name-IVTH
+#  id: ClothingHeadHelmetImprovised
+#  graph: ClothingHeadHelmetImprovisedGraph
+#  startNode: start
+#  targetNode: helmet
+#  category: construction-category-clothing
+#  objectType: Item
+#  description: crafting-menu-text-IVTH
 
-# Begin DeltaV removal - made it uncraftable
 #- type: construction
 #  name: crafting-menu-name-FVTH
 #  id: ClothingHeadHelmetForged
@@ -514,14 +508,13 @@
 #  category: construction-category-clothing
 #  objectType: Item
 #  description: crafting-menu-text-PVTH
-# End DeltaV removal
 
-- type: construction
-  name: crafting-menu-name-IRS
-  id: SpeedLoaderMagnumLeverImprovised
-  graph: SpeedLoaderMagnumLeverImprovisedGraph
-  startNode: start
-  targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
-  description: crafting-menu-text-IRS
+#- type: construction
+#  name: crafting-menu-name-IRS
+#  id: SpeedLoaderMagnumLeverImprovised
+#  graph: SpeedLoaderMagnumLeverImprovisedGraph
+#  startNode: start
+#  targetNode: shell
+#  category: construction-category-weapons
+#  objectType: Item
+#  description: crafting-menu-text-IRS

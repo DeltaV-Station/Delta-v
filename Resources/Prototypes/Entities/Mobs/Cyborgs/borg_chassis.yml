@@ -89,6 +89,7 @@
   parent: BorgChassisSelectable
   name: engineer cyborg
   components:
+  - type: ShowAccessReaderSettings # DeltaV
   - type: BorgSwitchableType
     selectedBorgType: engineering
 

@@ -1,0 +1,160 @@
+- type: entity
+  parent: [ MobBaseAncestorNoShitmed ]
+  id: MobGnome
+  name: gnome
+  description: A cheery fellow. Definitely not a goblin. Or an elf.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: gnome
+      sprite: _DV/Mobs/Animals/gnome.rsi
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gnome
+      Dead:
+        Base: dead
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      25: 0.8
+      40: 0.6
+  - type: Deathgasp
+    needsCritical: false
+  - type: StatusEffects
+    allowed:
+    - Electrocution
+    - Stunned
+    - Flashed
+    - Pacified
+    - Addicted # Funny
+  - type: GhostRole
+    name: ghost-role-information-gnome-name
+    description: ghost-role-information-gnome-description
+    rules: ghost-role-information-freeagent-rules
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 160
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile # cats and dogs hate gnomes
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: Speech
+    speechSounds: Gnome
+  - type: Emoting
+  - type: Vocal
+    sounds:
+      Male: GnomeSounds
+      Female: GnomeSounds
+      Unsexed: GnomeSounds
+  - type: RandomMetadata
+    nameSegments:
+    - NamesGnome
+    - NamesGnomeLast
+    nameFormat: name-format-standard
+  # abilities
+  - type: Psionic
+  - type: Jaunt
+    jauntAction: ActionPolymorphJauntGnome # 2 second jaunt with 20 second cooldown
+  - type: PsionicRegenerationPower
+  - type: PsionicInvisibilityPower
+  - type: NoSlip
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Effects/glass_knock.ogg # Fairy magic
+  - type: Clumsy
+    clumsySound:
+      path: /Audio/_DV/Voice/Gnome/gnomescream.ogg
+  - type: PseudoItem
+    shape:
+    - 0,0,0,2
+  - type: Hands
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
+    showInHands: false # TODO: make displacement maps that just slide them down
+  - type: Puller # needs hands to pull
+    needsHands: true
+  - type: ComplexInteraction
+  - type: AutoImplant
+    implants:
+    - GnomeStorageImplant # for trinkets
+  - type: Thieving # for stealing said trinkets
+    stealthy: false
+  - type: Inventory
+    templateId: pet
+    speciesId: gnome
+  - type: Butcherable
+    butcheringType: knife
+    spawned:
+    - id: Ash
+    - id: ClothingHeadHatGnome
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Nothing
+        Quantity: 60
+  - type: Tag
+    tags:
+    - FootstepSound
+
+- type: entity
+  parent: StorageImplant
+  id: GnomeStorageImplant
+  description: This implant grants hidden storage within a person's body using bluespace technology.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionOpenStorageImplant
+    permanent: true # only change from normal storage implant

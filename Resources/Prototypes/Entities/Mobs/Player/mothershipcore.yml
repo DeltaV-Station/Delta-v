@@ -245,6 +245,9 @@
   - type: DeployableTurretController
   - type: DeviceList
     isAllowList: true
+  - type: MaterialStorageMagnetPickup # Allow the core to suck up materials
+    magnetEnabled: true
+    range: 1
 # End DeltaV Additions
 
 - type: entity

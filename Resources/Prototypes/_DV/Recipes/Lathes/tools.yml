@@ -55,3 +55,11 @@
   materials:
     Plastic: 250
     Glass: 150
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AccessConfigurator
+  result: AccessConfigurator
+  materials: # Tiny bit more expensive than a network configurator
+    Steel: 400
+    Plastic: 300

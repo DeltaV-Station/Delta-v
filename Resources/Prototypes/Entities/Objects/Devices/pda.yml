@@ -430,9 +430,9 @@
       whitelist:
         components:
         - Cartridge
-    preinstalled:
-    - CrewManifestCartridge
-    - NewsReaderCartridge
+    #preinstalled: # DeltaV - Mime can use BasePDA cartridges
+    #- CrewManifestCartridge
+    #- NewsReaderCartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -972,6 +972,7 @@
   id: WardenPDA
   name: warden PDA
   description: The OS appears to have been jailbroken.
+  suffix: Security # DeltaV
   components:
   - type: Pda
     id: WardenIDCard

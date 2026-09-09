@@ -54,3 +54,73 @@
       blacklist:
         components:
           - SurplusBundle
+
+#MARK: DAGD Implants
+- type: listing
+  id: UplinkUnrevivableImplanterDAGD
+  name: uplink-dagd-syndicate-unrevivable-implanter-name
+  description: uplink-dagd-syndicate-unrevivable-implanter-desc
+  icon: { sprite: /Textures/Effects/crayondecals.rsi, state: skull }
+  productEntity: UnrevivableImplanterSyndicate
+  cost:
+    Telecrystal: 0 # Free for DAGD players
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:XORBuyCondition # You can only buy one of these
+    listings:
+    - UplinkAcidifierImplanterDAGD
+    - UpinkMicrobombImplanterDAGD
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkAcidifierImplanterDAGD
+  name: uplink-death-acidifier-implant-name
+  description: uplink-dagd-death-acidifier-implant-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidifierImplanter
+  cost:
+    Telecrystal: 0 # Free for DAGD players
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:XORBuyCondition # You can only buy one of these
+    listings:
+    - UplinkUnrevivableImplanterDAGD
+    - UpinkMicrobombImplanterDAGD
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UpinkMicrobombImplanterDAGD
+  name: uplink-micro-bomb-implanter-name
+  description: uplink-dagd-micro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanterSyndicateDAGD
+  cost:
+    Telecrystal: 2 # Available for DAGD players but costs a bit
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:XORBuyCondition # You can only buy one of these
+    listings:
+    - UplinkUnrevivableImplanterDAGD
+    - UplinkAcidifierImplanterDAGD
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

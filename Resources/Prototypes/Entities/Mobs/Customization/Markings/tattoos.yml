@@ -1,7 +1,7 @@
 - type: marking
   id: TattooHiveChest
   bodyPart: Chest
-  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
+  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali, Shadekin] # DeltaV - SlimePerson-Avali # Starlight - Shadekin
   sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
@@ -15,7 +15,7 @@
 - type: marking
   id: TattooNightlingChest
   bodyPart: Chest
-  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali] # DeltaV - SlimePerson-Avali
+  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune, Avali, Shadekin] # DeltaV - SlimePerson-Avali  # Starlight - Shadekin
   sexRestriction: [Male] # DeltaV: Splitting the scars and tattoos
   coloring:
     default:
@@ -23,13 +23,13 @@
         !type:TattooColoring
       fallbackColor: "#666666"
   sprites:
-  - sprite: _DV/Mobs/Customization/tattoos.rsi # DeltaV: Splitting the scars and tattoos
+  - sprite: _DV/Mobs/Customization/tattoos.rsi # DeltaV: Splitting the scars and tattoos  # Starlight - Shadekin
     state: tattoo_nightling
 
 - type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune  # Starlight - Shadekin
   coloring:
     default:
       type:
@@ -42,7 +42,7 @@
 - type: marking
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune  # Starlight - Shadekin
   coloring:
     default:
       type:
@@ -55,7 +55,7 @@
 - type: marking
   id: TattooCampbellLeftArm
   bodyPart: LArm
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune  # Starlight - Shadekin
   coloring:
     default:
       type:
@@ -68,7 +68,7 @@
 - type: marking
   id: TattooCampbellRightArm
   bodyPart: RArm
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune  # Starlight - Shadekin
   coloring:
     default:
       type:
@@ -81,7 +81,7 @@
 - type: marking
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune  # Starlight - Shadekin
   coloring:
     default:
       type:
@@ -94,7 +94,7 @@
 - type: marking
   id: TattooCampbellRightLeg
   bodyPart: RLeg
-  groupWhitelist: [Human, Felinid, Oni, Kitsune] # DeltaV - Felinid-Kitsune
+  groupWhitelist: [Human, Felinid, Oni, Kitsune, Shadekin] # DeltaV - Felinid-Kitsune  # Starlight - Shadekin
   coloring:
     default:
       type:

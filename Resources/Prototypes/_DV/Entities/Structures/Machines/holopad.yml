@@ -113,13 +113,53 @@
 
 - type: entity
   parent: Holopad
-  id: HolopadJusticeClerk
+  id: HolopadJusticeAttorney
+  suffix: Attorney
+  components:
+  - type: Label
+    currentLabel: holopad-justice-attorney
+  - type: PageSender
+    autoLinkJobs: [Attorney]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeDetective
+  suffix: Detective, Justice
+  components:
+  - type: Label
+    currentLabel: holopad-justice-detective
+  - type: PageSender
+    autoLinkJobs: [Detective]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeClerk # TODO - Remove for Justice Rework
   suffix: Clerk
   components:
   - type: Label
     currentLabel: holopad-justice-clerk
   - type: PageSender
     autoLinkJobs: [Clerk]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeJusticeWarden
+  suffix: Justice Warden
+  components:
+  - type: Label
+    currentLabel: holopad-justice-warden
+  - type: PageSender
+    autoLinkJobs: [JusticeWarden]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeMarshal
+  suffix: Marshal
+  components:
+  - type: Label
+    currentLabel: holopad-justice-marshal
+  - type: PageSender
+    autoLinkJobs: [Marshal]
 
 - type: entity
   parent: HolopadJustice
@@ -203,6 +243,16 @@
   components:
   - type: Label
     currentLabel: holopad-security-lobby
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityArmorer
+  suffix: Armorer
+  components:
+  - type: Label
+    currentLabel: holopad-security-armorer
+  - type: PageSender
+    autoLinkJobs: [Armorer]
 
 #Station Specific - Security
 - type: entity

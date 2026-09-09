@@ -25,12 +25,6 @@ public abstract class SharedEmpSystem : EntitySystem
     [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // Frontier
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
-    /// <summary>
-    ///     DeltaV. Default damage of EMPs, as dertermined by direction. There's no good component to put
-    ///     this on so its defined here.
-    /// </summary>
-    private static readonly DamageSpecifier? DefaultEmpDamage = new() { DamageDict = new() { { "Ion", 130 } } };
-
     private HashSet<EntityUid> _entSet = new();
     private EntityQuery<EmpResistanceComponent> _resistanceQuery;
 
@@ -59,12 +53,11 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse. In Joule.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>
-    /// <param name="damage">DeltaV - The damage that that EMP will do. If not specified or null, will do 130 Ion damage. To do no damage, pass in a DamageSpecifier with no damage types.</param>
-    public void EmpPulse(MapCoordinates mapCoordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
+    public void EmpPulse(MapCoordinates mapCoordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null)
     {
         foreach (var uid in _lookup.GetEntitiesInRange(mapCoordinates, range))
         {
-            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? DefaultEmpDamage); // DeltaV - Add Ion Damage
+            TryEmpEffects(uid, energyConsumption, duration, user);
         }
 
         // TODO: replace with PredictedSpawn once it works with animated sprites
@@ -92,15 +85,13 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>'
-    /// <param name="damage">DeltaV - The damage that that EMP will do. If not specified or null, will do 130 Ion damage. To do no damage, pass in a DamageSpecifier with no damage types.</param>
-    /// <param name="predicted">Whether this pulse is being replicated on the client.</param>
-    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null, bool predicted = true) // Delta V - Add ion damage
+    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, bool predicted = true)
     {
         _entSet.Clear();
         _lookup.GetEntitiesInRange(coordinates, range, _entSet);
         foreach (var uid in _entSet)
         {
-            TryEmpEffects(uid, energyConsumption, duration, user, damage ?? DefaultEmpDamage); // DeltaV - Add Ion Damage
+            TryEmpEffects(uid, energyConsumption, duration, user);
         }
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
@@ -123,37 +114,31 @@ public abstract class SharedEmpSystem : EntitySystem
 
     /// <summary>
     /// Attempts to apply the effects of an EMP pulse onto an entity by first raising an <see cref="EmpAttemptEvent"/>, followed by raising a <see cref="EmpPulseEvent"/> on it.
-    /// <br/>
-    /// <br/>DeltaV - In most cases, you will want to use <see cref="EmpPulse"/> instead.
     /// </summary>
     /// <param name="uid">The entity to apply the EMP effects on.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the EMP. For prediction purposes.</param>
-    /// <param name="damage">DeltaV - The damage that that EMP will do. If null, no damage is done.</param>
     /// <returns>If the entity was affected by the EMP.</returns>
-    public bool TryEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
+    public bool TryEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
     {
         var attemptEv = new EmpAttemptEvent();
         RaiseLocalEvent(uid, ref attemptEv);
         if (attemptEv.Cancelled)
             return false;
 
-        return DoEmpEffects(uid, energyConsumption, duration, user, damage); // DeltaV - Add Ion Damage
+        return DoEmpEffects(uid, energyConsumption, duration, user);
     }
 
     /// <summary>
     /// Applies the effects of an EMP pulse onto an entity by raising a <see cref="EmpPulseEvent"/> on it.
-    /// <br/>
-    /// <br/>DeltaV - In most cases, you will want to use <see cref="EmpPulse"/> instead.
     /// </summary>
     /// <param name="uid">The entity to apply the EMP effects on.</param>
     /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the EMP. For prediction purposes.</param>
-    /// <param name="damage">DeltaV - The damage that that EMP will do. If null, no damage is done.</param>
     /// <returns>If the entity was affected by the EMP.</returns>
-    public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null, DamageSpecifier? damage = null) // DeltaV - Add Ion Damage
+    public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
     {
         var strMultiplier = 1f;
         var durMultiplier = 1f;
@@ -162,7 +147,7 @@ public abstract class SharedEmpSystem : EntitySystem
             strMultiplier = resistance.StrengthMultiplier;
             durMultiplier = resistance.DurationMultiplier;
         }
-        var ev = new EmpPulseEvent(energyConsumption * strMultiplier, false, false, duration * durMultiplier, user, damage); // DeltaV - Add Ion Damage
+        var ev = new EmpPulseEvent(energyConsumption * strMultiplier, false, false, duration * durMultiplier, user);
         RaiseLocalEvent(uid, ref ev);
 
         // TODO: replace with PredictedSpawn once it works with animated sprites
@@ -235,7 +220,7 @@ public record struct EmpAttemptEvent(bool Cancelled);
 /// <param name="User">The player that caused the EMP. For prediction purposes.</param>
 
 [ByRefEvent]
-public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User, DamageSpecifier? Damage = null); // DeltaV - Added Damage
+public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User);
 
 /// <summary>
 /// Raised on an entity after <see cref="EmpDisabledComponent"/> is removed.

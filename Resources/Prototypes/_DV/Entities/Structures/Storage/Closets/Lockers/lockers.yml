@@ -25,6 +25,20 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
+# Justice
+
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerJustice
+  name: justice locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: clerk
+    stateDoorOpen: clerk_open
+    stateDoorClosed: clerk_door
+  - type: AccessReader
+    access: [["Justice"]]
+
 - type: entity
   parent: CommandLockerBaseSecureDeltaV
   id: LockerChiefJustice
@@ -40,10 +54,9 @@
 
 - type: entity
   parent: LockerBaseSecureDeltaV
-  id: LockerClerk
+  id: LockerClerk # TODO - Remove for Justice Rework
   name: clerk's locker
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: clerk
     stateDoorOpen: clerk_open
@@ -51,6 +64,49 @@
   - type: AccessReader
     access: [["Clerk"]]
 
+- type: entity
+  parent: LockerJustice
+  id: LockerProsecutor # TODO - Resprite
+  name: prosecutor's locker
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: LockerJustice
+  id: LockerAttorney # TODO - Resprite
+  name: attorney's locker
+  components:
+  - type: AccessReader
+    access: [["Attorney"]]
+
+- type: entity
+  parent: LockerJustice
+  id: LockerJusticeDetective # TODO - Resprite
+  name: detective's locker
+  suffix: Justice
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
+
+- type: entity
+  parent: LockerJustice
+  id: LockerJusticeWarden # TODO - Resprite
+  name: warden's locker
+  suffix: Justice Warden
+  components:
+  - type: AccessReader
+    access: [["JusticeWarden"]]
+
+- type: entity
+  parent: LockerJustice
+  id: LockerMarshal # TODO - Resprite
+  name: marshal's locker
+  components:
+  - type: AccessReader
+    access: [["Marshal"]]
+
+# Medical
 - type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerPsychologist
@@ -75,6 +131,7 @@
   - type: AccessReader
     access: [["Medical"], ["Surgery"]] # Added medical until surgeon returns
 
+# Service
 - type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerKitchen
@@ -99,6 +156,7 @@
   - type: AccessReader
     access: [["Janitor"]]
 
+# Logistic
 - type: entity
   parent: LockerBaseSecure
   id: LockerLogistics # Wizden has sprites for this but doesn't have an entity that uses them?
@@ -111,6 +169,7 @@
   - type: AccessReader
     access: [["Cargo"]]
 
+# Security
 - type: entity
   parent: LockerBaseSecureDeltaV
   id: LockerArmoryStorage
@@ -123,6 +182,19 @@
   - type: AccessReader
     access: [["Armory"]]
 
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerArmorer
+  name: armorer's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: warden
+    stateDoorOpen: warden_open
+    stateDoorClosed: warden_door
+  - type: AccessReader
+    access: [ [ "Armory" ] ]
+
+# Epistemics
 - type: entity
   parent: LockerBooze
   id: LockerForensicMantis
@@ -151,6 +223,17 @@
             min: 1
             max: 2
 
+- type: entity
+  parent: LockerForensicMantis
+  id: LockerArchivist
+  name: archivist's cabinet
+  suffix: Empty
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  components:
+  - type: AccessReader
+    access: [ [ "Library" ] ]
+
+# Gun safe
 - type: entity
   id: SalvageGunSafeBaseSecure
   parent: GunSafe
@@ -328,14 +411,75 @@
     access: [["Armory"]]
 
 - type: entity
-  parent: LockerForensicMantis
-  id: LockerArchivist
-  name: archivist's cabinet
-  suffix: Empty
-  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
+  parent: SecurityGunSafeNonlethalDV
+  id: JusticeGunSafeNonlethalDV
+  suffix: Justice variant
+  #components:
+  #- type: Sprite # TODO: Resprite to justice colors.
+  #  sprite: _DV/Structures/Storage/Closets/nonlethalsafe.rsi
+  #  noRot: true
+
+- type: entity
+  parent: JusticeGunSafeNonlethalDV
+  id: JusticeGunSafeNonlethalSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Library"]]
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+
+- type: entity
+  parent: SecurityGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeNonlethalHandgunDV
+  suffix: Justice variant
+  #components:
+  #- type: Sprite # TODO: Resprite to justice colors.
+  #  sprite: _DV/Structures/Storage/Closets/disablersafe.rsi
+  #  noRot: true
+
+- type: entity
+  parent: SecurityGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeNonlethalHandgunSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+
+- type: entity
+  parent: SecurityGunSafeNonlethalDV
+  id: JusticeGunSafeNonLethalShotgunDV
+  name: non-lethal shotgun safe
+  suffix: Justice variant
+  components:
+  #- type: Sprite # TODO: Resprite to justice colors.
+  #  sprite: _DV/Structures/Storage/Closets/nonlethalsafe.rsi
+  #  noRot: true
+  - type: EntityStorageVisuals
+    stateDoorClosed: shotgun
+
+- type: entity
+  parent: JusticeGunSafeNonLethalShotgunDV
+  id: JusticeGunSafeNonLethalShotgunSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+
+- type: entity
+  parent: JusticeGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeDisablerDV
+  name: disabler safe
+  suffix: Justice variant
+  components:
+  - type: EntityStorageVisuals
+    stateDoorClosed: disabler
+
+- type: entity
+  parent: JusticeGunSafeDisablerDV
+  id: JusticeGunSafeDisablerSecureDV
+  suffix: Armory, Marshal, JusticeWarden, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
 
 # Evac pod
 - type: entity

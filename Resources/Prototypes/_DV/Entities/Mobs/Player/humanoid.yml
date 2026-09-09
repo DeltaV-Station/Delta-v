@@ -561,6 +561,21 @@
     - type: RandomHumanoidSpawner
       settings: SRTAgentEpsilon
 
+- type: entity
+  id: RandomHumanoidSpawnerSRTHeavy
+  name: SRT agent
+  suffix: ERTRole, SRT, Heavy
+  components:
+    - type: Sprite
+      sprite: _DV/Clothing/OuterClothing/Hardsuits/SRT.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryLast
+      nameFormat: name-format-SRTagent
+    - type: RandomHumanoidSpawner
+      settings: SRTAgentHeavy
+
 - type: randomHumanoidSettings
   id: SRTAgentBlack
   parent: EventHumanoidCentcomm
@@ -588,3 +603,17 @@
     job: SRTAgent
   - type: Loadout
     prototypes: [ SRTOfficerEpsilon ]
+
+- type: randomHumanoidSettings
+  id: SRTAgentHeavy
+  parent: EventHumanoidCentcomm
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcom-srt-name
+    description: ghost-role-information-centcom-srt-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    job: SRTAgent
+  - type: Loadout
+    prototypes: [ SRTOfficerHeavy ]

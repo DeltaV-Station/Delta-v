@@ -55,6 +55,15 @@
       board: [ DoorElectronicsChiefJustice ]
 
 - type: entity
+  parent: WindoorJusticeLocked
+  id: WindoorProsecutorLocked
+  suffix: Prosecutor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProsecutor ]
+
+- type: entity
   parent: WindoorSecureJusticeLocked
   id: WindoorSecureProsecutorLocked
   suffix: Prosecutor, Locked
@@ -64,8 +73,26 @@
       board: [ DoorElectronicsProsecutor ]
 
 - type: entity
+  parent: WindoorJusticeLocked
+  id: WindoorAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
   parent: WindoorSecureJusticeLocked
-  id: WindoorSecureClerkLocked
+  id: WindoorSecureAttorneyLocked
+  suffix: Attorney, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAttorney ]
+
+- type: entity
+  parent: WindoorSecureJusticeLocked
+  id: WindoorSecureClerkLocked # TODO - Remove for Justice Rework
   suffix: Clerk, Locked
   components:
   - type: ContainerFill
@@ -74,12 +101,57 @@
 
 - type: entity
   parent: WindoorSecureJusticeLocked
-  id: WindoorSecureLawyerLocked
+  id: WindoorSecureLawyerLocked # TODO - Remove for Justice Rework
   suffix: Lawyer, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsLawyer ]
+
+- type: entity
+  parent: WindoorJusticeLocked
+  id: WindoorJusticeWardenLocked
+  suffix: Justice Warden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: WindoorSecureJusticeLocked
+  id: WindoorSecureJusticeWardenLocked
+  suffix: Justice Warden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: WindoorJusticeLocked
+  id: WindoorMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
+- type: entity
+  parent: WindoorSecureJusticeLocked
+  id: WindoorSecureMarshalLocked
+  suffix: Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
+- type: entity
+  parent: Windoor
+  id: WindoorArmoryLocked
+  suffix: Armory, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsArmory ]
 
 - type: entity
   parent: WindoorSecureScienceLocked

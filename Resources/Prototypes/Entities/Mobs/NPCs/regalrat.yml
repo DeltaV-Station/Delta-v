@@ -322,6 +322,8 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entityTable
   id: RatKingLoot

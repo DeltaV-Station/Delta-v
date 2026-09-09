@@ -11,6 +11,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.Player; // DeltaV
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using static Robust.Shared.Maths.Color;
@@ -22,6 +23,7 @@ namespace Content.Client.Overlays;
 /// </summary>
 public sealed class EntityHealthBarOverlay : Overlay
 {
+    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
     private readonly IEntityManager _entManager;
     private readonly IPrototypeManager _prototype;
 
@@ -40,6 +42,8 @@ public sealed class EntityHealthBarOverlay : Overlay
 
     public EntityHealthBarOverlay(IEntityManager entManager, IPrototypeManager prototype)
     {
+        IoCManager.InjectDependencies(this); // DeltaV
+
         _entManager = entManager;
         _prototype = prototype;
         _transform = _entManager.System<SharedTransformSystem>();
@@ -69,6 +73,11 @@ public sealed class EntityHealthBarOverlay : Overlay
             out var damageableComponent,
             out var spriteComponent))
         {
+            // BEGIN DeltaV - You can't see your own bar :godo:
+            if (_player.LocalEntity is { } player && player.Id == uid.Id)
+                continue;
+            // END DeltaV
+
             if (statusIcon != null && !_statusIconSystem.IsVisible((uid, _entManager.GetComponent<MetaDataComponent>(uid)), statusIcon))
                 continue;
 
