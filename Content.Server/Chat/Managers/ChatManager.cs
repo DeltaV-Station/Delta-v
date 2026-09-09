@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization; // DeltaV - OOC color parsing
 using System.Linq;
 using System.Runtime.InteropServices;
 using Content.Server.Administration.Logs;
