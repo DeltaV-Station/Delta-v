@@ -805,7 +805,7 @@
     containers:
       board: [ DoorElectronicsERT ]
 
-# Centcomm external doors
+# Centcomm doors
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCentralCommandLocked
@@ -819,6 +819,24 @@
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCentralCommandLocked
   suffix: External, Glass, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockFreezer
+  id: AirlockFreezerCentralCommanLocked
+  suffix: Freezer, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCentcommLocked
+  suffix: Maint, Centcomm, Locked
   components:
   - type: ContainerFill
     containers:
