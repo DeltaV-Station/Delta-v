@@ -310,7 +310,7 @@ internal sealed partial class ChatManager : IChatManager
             }
         }
         // DeltaV - END
-        else if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
+        else if (_adminManager.HasAdminFlag(player, AdminFlags.Admin)) // DeltaV - Added else
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
