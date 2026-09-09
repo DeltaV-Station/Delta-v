@@ -300,7 +300,7 @@ internal sealed partial class ChatManager : IChatManager
         {
             var mapperColor = _configurationManager.GetCVar(CCVars.MapperOocColor).Trim();
 
-            if (TryParseHexColor(mapperColor, out var parsedMapperColor))
+            if (Color.TryFromHex(mapperColor, out var parsedMapperColor))
             {
                 colorOverride = parsedMapperColor;
             }
