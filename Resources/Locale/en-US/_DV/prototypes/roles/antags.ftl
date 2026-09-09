@@ -35,3 +35,5 @@ roles-antag-hitman-name = Hitman
 roles-antag-hitman-objective = Kill your target in the way your client wishes.
 
 roles-antag-ntagent-name = Internal Affairs Agent
+
+roles-antag-roboneuroticist-name = Robo-Neuroticist
