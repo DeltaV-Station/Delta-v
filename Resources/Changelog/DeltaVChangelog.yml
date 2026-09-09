@@ -1,75 +1,4 @@
 ﻿Entries:
-- author: rebe83
-  changes:
-  - message: Bottles, vials, and chem injectors no longer fit inside cigarette boxes.
-      Use a combat kit like the rest of us!
-    type: Tweak
-  id: 2147
-  time: '2026-03-01T14:12:59.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5402
-- author: Stxcking
-  changes:
-  - message: Health analyzer can show who claimed a patient.
-    type: Tweak
-  id: 2148
-  time: '2026-03-01T19:47:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5110
-- author: pootslap
-  changes:
-  - message: Rat servants are slightly faster but weaker.
-    type: Tweak
-  - message: Rat Kings have a few new titles and are now more clearly labelled as
-      antagonists.
-    type: Tweak
-  id: 2149
-  time: '2026-03-02T17:48:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5326
-- author: JoulesBerg
-  changes:
-  - message: Vents, air injectors, and pumps can be pipes in their alternate configurations
-      now.
-    type: Add
-  id: 2150
-  time: '2026-03-02T18:17:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5372
-- author: Halo3moth
-  changes:
-  - message: Hos has a new robe for a significant aura increase, amazing sprites by
-      Ci1rus
-    type: Add
-  id: 2151
-  time: '2026-03-02T19:36:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5425
-- author: Jimboe
-  changes:
-  - message: SUBMARINE HAS GOTTEN SUBBIER - Power rework completed, Minor Atmos changes
-      to engineering. Atmos will eventually all reflect engineering soon. Solars have
-      been improved!
-    type: Tweak
-  id: 2152
-  time: '2026-03-03T03:16:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5394
-- author: Velcroboy
-  changes:
-  - message: 'Evac Shuttles: NTES- Fishbowl and NTES-BC20 are APC compliant'
-    type: Tweak
-  id: 2153
-  time: '2026-03-03T04:32:39.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5457
-- author: SirRequiem
-  changes:
-  - message: 'Terra: Added additional meteor shielding, meteor avoidance zones, Robotics
-      console, AI Recovery Console, AI subnet/cameras, mail cart, and medical crash
-      cart'
-    type: Add
-  - message: 'Terra: Waste and Distro have pre-enabled pumps now, and power bank has
-      been slightly improved'
-    type: Tweak
-  - message: 'Terra: APCs are now all below 20kw in regards to the new breaker system'
-    type: Fix
-  id: 2154
-  time: '2026-03-04T01:23:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5432
 - author: Woljif
   changes:
   - message: Sec jetpacks are no longer mini-jetpacks and can hold 3.0L
@@ -4441,4 +4370,75 @@
   id: 2647
   time: '2026-08-28T23:54:33.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6440
+- author: BriBrooo
+  changes:
+  - message: Hydroponics' booklet on reagents contained an error.
+    type: Fix
+  id: 2648
+  time: '2026-09-06T23:35:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6483
+- author: nlaky
+  changes:
+  - message: Vulp alt tail can now wag
+    type: Tweak
+  id: 2649
+  time: '2026-09-07T00:17:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6480
+- author: Macrocosm, Stxcking
+  changes:
+  - message: Added 20+ new Thaven markings, most notably, tails!
+    type: Add
+  - message: Thavens can select their undergarments again.
+    type: Fix
+  - message: Thaven markings display the correct locale marking name.
+    type: Fix
+  - message: Thavens have unique organ sprites now.
+    type: Tweak
+  id: 2650
+  time: '2026-09-07T00:18:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6162
+- author: AnimatorBrie
+  changes:
+  - message: Added surplus boots, a strictly-cosmetic variant of jackboots. Available
+      now at your local Clothesmate vendor.
+    type: Add
+  id: 2651
+  time: '2026-09-07T00:33:43.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6472
+- author: StarboundSolaris
+  changes:
+  - message: Added even more names for Pitbulls and Ventbulls!
+    type: Add
+  - message: Ventbulls also now actually roam the vents. Godspeed mice mains.
+    type: Add
+  - message: Ventbulls now appear as ghost roles!
+    type: Add
+  id: 2652
+  time: '2026-09-09T14:15:30.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6449
+- author: pixelStrife
+  changes:
+  - message: Ethanol content of drinks has been re-standardized. No more adding ethanol
+      directly, only metabolizing. (Non-ethanol substances too!)
+    type: Fix
+  - message: Silencer is once again non-alcoholic, for mimes that would rather keep
+      their wits about them.
+    type: Fix
+  id: 2653
+  time: '2026-09-09T14:18:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6486
+- author: EmberAstra
+  changes:
+  - message: Shadekins can now have hair and facial hair.
+    type: Add
+  id: 2654
+  time: '2026-09-09T14:54:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6453
+- author: SumofThreeParts
+  changes:
+  - message: Added the Anaconda to the uplink.
+    type: Add
+  id: 2655
+  time: '2026-09-09T15:49:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6458
 Order: 1
