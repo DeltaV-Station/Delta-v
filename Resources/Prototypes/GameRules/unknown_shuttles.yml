@@ -4,7 +4,9 @@
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    #- id: LoneOpsSpawn # DeltaV: This is already in antag events table
+    - !type:NestedSelector # DeltaV
+      tableId: UnknownShuttlesTableDeltaV
+    - id: LoneOpsSpawn
     - id: UnknownShuttleManOWar
     #- id: UnknownShuttleInstigator # DeltaV: remove random ops
 
@@ -48,7 +50,7 @@
   id: UnknownShuttleSyndieEvacPod
   components:
   - type: StationEvent
-    weight: 5 # lower because weird freelance roles
+    weight: 6
     maxOccurrences: 2
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/syndie_evacpod.yml # DeltaV - Switched to our version, was /Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml

@@ -1,6 +1,6 @@
 - type: entity
   id: LockerWardenFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Filled, Hardsuit, Security # DeltaV - Added security.
   parent: LockerWarden
   components:
   - type: EntityTableContainerFill
@@ -14,7 +14,7 @@
 
 - type: entity
   id: LockerWardenFilled
-  suffix: Filled
+  suffix: Filled, Security # DeltaV - Added security.
   parent: LockerWarden
   components:
   - type: EntityTableContainerFill
@@ -357,7 +357,7 @@
     - id: MagazinePistolSubMachineGunTopMounted
       amount: 4
 
-- type: entity 
+- type: entity
   parent: [SecurityGunSafeBaseSecureDV, BaseSecurityContraband]  # DeltaV - Changed GunSafeBaseSecure with SecurityGunSafeBaseSecureDV
   id: GunSafeLaserCarbine
   name: laser safe

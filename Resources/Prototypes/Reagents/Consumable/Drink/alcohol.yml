@@ -1543,7 +1543,7 @@
 - type: reagent
   id: Silencer
   name: reagent-name-silencer
-  parent: BaseAlcohol
+  parent: BaseDrink #Delta-V: drink was non-alcoholic before switch to Metabolites, components are all non-alcoholic
   desc: reagent-desc-silencer
   physicalDesc: reagent-physical-desc-nothing # DeltaV: Desc changed
   flavor: silencer #Delta-V Flavor additions

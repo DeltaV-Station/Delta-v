@@ -1,0 +1,15 @@
+- type: entity
+  parent: Turnstile
+  id: TurnstileGenpopBrigEnter
+  suffix: Genpop/Brig Enter
+  components:
+  - type: AccessReader
+    access: [["GenpopEnter"], ["Brig"]]
+
+- type: entity
+  parent: Turnstile
+  id: TurnstileGenpopBrigLeave
+  suffix: Genpop/Brig Leave
+  components:
+  - type: AccessReader
+    access: [["GenpopLeave"], ["Brig"]]

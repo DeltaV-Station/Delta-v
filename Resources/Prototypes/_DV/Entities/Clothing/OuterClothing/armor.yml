@@ -12,7 +12,7 @@
   - type: Armor # Good against gunshots, decent against everything else. Balanced by reduced movement speed.
     modifiers:
       coefficients:
-        Blunt: 0.80
+        Blunt: 0.90
         Slash: 0.80
         Piercing: 0.50
         Heat: 0.80
@@ -42,10 +42,11 @@
   - type: Armor # Good against stabs and knocks, offers minimal protection from gunshots and lasfire.
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
+        Blunt: 0.50
+        Slash: 0.50
         Piercing: 0.90
-        Heat: 0.90
+        Heat: 0.80
+    staminaMeleeDamageCoefficient: 0.6
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: ExplosionResistance # Better than nothing against a blast or shockwave.
@@ -71,14 +72,12 @@
         Blunt: 0.40
         Slash: 0.40
         Piercing: 0.70
-        Heat: 0.70
-  - type: StaminaResistance
-    damageCoefficient: 0.5
+        Heat: 0.90
+        Caustic: 0.90
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
-  - type: ExplosionResistance # Almost as good as a plate carrier! Still not going to save you from most bombs though.
-    damageCoefficient: 0.80
+    sprintModifier: 0.90
+  - type: ExplosionResistance # Same protection as the Advanced Plate Carrier.
+    damageCoefficient: 0.60
   - type: GroupExamine
   - type: AllowSuitStorage
   - type: Tag

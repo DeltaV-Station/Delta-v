@@ -183,7 +183,7 @@
 - type: entity
   parent: DefaultStationBeaconSecurity
   id: DefaultStationBeaconWardensOffice
-  suffix: Warden's Office
+  suffix: Warden's Office, Security # DeltaV - Added security.
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-warden

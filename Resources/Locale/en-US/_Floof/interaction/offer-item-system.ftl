@@ -1,3 +1,5 @@
+ui-options-function-offer-item = Offer Item
+
 offer-item-empty-hand = You don't have anything in your hand to give!
 
 offer-item-full-hand = Your hand isn't free to receive the item.

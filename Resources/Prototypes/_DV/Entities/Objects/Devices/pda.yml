@@ -79,7 +79,7 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: PrisonGuardPDA
+  id: PrisonGuardPDA # TODO - Remove for Justice Rework
   name: prison guard PDA
   description: Red to hide the stains of prisoner blood.
   components:
@@ -94,6 +94,15 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-prisonguard
+
+- type: entity
+  parent: WardenPDA
+  id: ArmorerPDA
+  name: armorer PDA
+  description: A top-of-the-line, brand-new PDA. Works exactly the same as all the others, just loads a little faster.
+  components:
+  - type: Pda
+    id: ArmorerIDCard
 
 # Justice
 
@@ -143,7 +152,7 @@
 
 - type: entity
   parent: BaseJusticePDA
-  id: ClerkPDA
+  id: ClerkPDA # TODO - Remove for Justice Rework
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
   components:
@@ -178,6 +187,75 @@
     state: pda-prosecutor
   - type: Pager
     autoLinkJobs: [Prosecutor]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: AttorneyPDA
+  name: attorney PDA
+  description: For attorney to poach dubious clients.
+  components:
+  - type: Pda
+    id: AttorneyIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-lawyer
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    state: pda-lawyer
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - CrimeAssistCartridge
+    - LogProbeCartridge
+  - type: Pager
+    autoLinkJobs: [Attorney]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: JusticeWardenPDA
+  name: warden PDA
+  suffix: Justice Warden
+  description: Covered in cracks and dents. Has seen more than its fair share of abuse.
+  components:
+  - type: Pda
+    id: JusticeWardenIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prisonguard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-prisonguard
+  - type: Pager
+    autoLinkJobs: [JusticeWarden]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: MarshalPDA
+  name: marshal PDA
+  description: Comes with a copy of SOP pre-installed, but it's already out of date.
+  components:
+  - type: Pda
+    id: MarshalIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-clerk
+  - type: PdaBorderColor
+    borderColor: "#611528"
+  - type: Icon
+    state: pda-clerk
+  - type: Pager
+    autoLinkJobs: [Marshal]
 
 # Misc
 

@@ -1,4 +1,5 @@
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems; // DeltaV
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
@@ -19,6 +20,7 @@ namespace Content.Shared.Remotes.EntitySystems;
 public abstract class SharedDoorRemoteSystem : EntitySystem
 {
     [Dependency] private readonly SharedAirlockSystem _airlock = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!; // DeltaV
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
     [Dependency] private readonly SharedElectrocutionSystem _electrify = default!;
@@ -95,6 +97,19 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
         // Unless allowed to bypass by the flag on the component.
         else if (entity.Comp.RequireTagWhitelist)
             return;
+
+        // Begin DeltaV - Emergency access only bypasses open/close; bolting and toggling emergency access still require actual access.
+        if (entity.Comp.Mode != OperatingMode.OpenClose
+            && accessComponent != null
+            && !_accessReader.IsAllowed(accessTarget, args.Target.Value, accessComponent))
+        {
+            if (isAirlock)
+                _doorSystem.Deny(args.Target.Value, doorComp, user: args.User, predicted: true);
+
+            _popup.PopupClient(Loc.GetString("door-remote-denied"), args.User, args.User);
+            return;
+        }
+        // End DeltaV
 
         switch (entity.Comp.Mode)
         {
