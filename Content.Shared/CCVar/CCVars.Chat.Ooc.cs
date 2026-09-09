@@ -26,6 +26,12 @@ public sealed partial class CCVars
         CVarDef.Create("ooc.show_ooc_patron_color", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
 
     /// <summary>
+    ///     Delta V - The color to use for mapper OOC messages.
+    /// </summary>
+    public static readonly CVarDef<string> MapperOocColor =
+        CVarDef.Create("ooc.mapper_color", "#00CECE", CVar.SERVERONLY);
+
+    /// <summary>
     ///     The discord channel ID to send OOC messages to (also recieve them). This requires the Discord Integration to be enabled and configured.
     /// </summary>
     public static readonly CVarDef<string> OocDiscordChannelId =
