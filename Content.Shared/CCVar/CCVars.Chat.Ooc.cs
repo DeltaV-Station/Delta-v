@@ -26,7 +26,7 @@ public sealed partial class CCVars
         CVarDef.Create("ooc.show_ooc_patron_color", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
 
     /// <summary>
-    ///     Delta V - The color to use for mapper OOC messages.
+    ///     DeltaV - The color to use for mapper OOC messages.
     /// </summary>
     public static readonly CVarDef<string> MapperOocColor =
         CVarDef.Create("ooc.mapper_color", "#00CECE", CVar.SERVERONLY);
