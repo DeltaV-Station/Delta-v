@@ -502,32 +502,6 @@ internal sealed partial class ChatManager : IChatManager
 
         return _netConfigManager.GetClientCVar(recipient, CCVars.InterfaceChatFollowButton);
     }
-    /// DELTA V - CCVars.Chat.Ooc.cs modified to allow for mapper OOC color to be set in hex format. If the color is invalid, it will default to the original cyan color.
-    private static bool TryParseHexColor(string value, out Color color)
-    {
-        color = default;
-
-        if (string.IsNullOrWhiteSpace(value))
-            return false;
-
-        var normalized = value.Trim();
-        if (normalized.StartsWith('#'))
-            normalized = normalized[1..];
-
-        if (normalized.Length != 6)
-            return false;
-
-        if (!byte.TryParse(normalized[..2], NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var red) ||
-            !byte.TryParse(normalized.Substring(2, 2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var green) ||
-            !byte.TryParse(normalized.Substring(4, 2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var blue))
-        {
-            return false;
-        }
-
-        color = new Color(red, green, blue);
-        return true;
-    }
-    /// DELTA V - END
 }
 
 public enum OOCChatType : byte
