@@ -5,6 +5,7 @@ using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Objectives.Systems;
 
 namespace Content.Server._DV.Objectives.Systems;
 
@@ -13,6 +14,7 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
+    [Dependency] private readonly TargetSystem _target = default!;
 
     public override void Initialize()
     {
@@ -47,7 +49,7 @@ public sealed class KidnapHeadsConditionSystem : EntitySystem
 
     private void GetTotalAndCuffedHeads(out int totalHeads, out int cuffedHeads)
     {
-        var allHumanMinds = _mind.GetAliveHumans();
+        var allHumanMinds = _target.GetAliveHumans();
         totalHeads = 0;
         cuffedHeads = 0;
         foreach (var mind in allHumanMinds)

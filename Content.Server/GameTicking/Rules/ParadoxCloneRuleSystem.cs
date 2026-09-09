@@ -35,7 +35,7 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         base.Started(uid, component, gameRule, args);
 
         // check if we got enough potential cloning targets, otherwise cancel the gamerule so that the ghost role does not show up
-        var allHumans = _mind.GetAliveHumans();
+        var allHumans = _target.GetAliveHumans();
         FilterTargets(allHumans); // DeltaV
 
         if (allHumans.Count == 0)
@@ -63,7 +63,7 @@ public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxClone
         else
         {
             // get possible targets
-            var allAliveHumanoids = _mind.GetAliveHumans();
+            var allAliveHumanoids = _target.GetAliveHumans();
             FilterTargets(allAliveHumanoids); // DeltaV
 
             // we already checked when starting the gamerule, but someone might have died since then.

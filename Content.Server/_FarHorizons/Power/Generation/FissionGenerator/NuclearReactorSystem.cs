@@ -12,6 +12,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Radiation.Components;
+using Content.Shared.Radiation.Systems;
 using Content.Shared.Radio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -70,6 +71,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedRadiationSystem _radiationSystem = default!;
 
     private sealed class LogData
     {
@@ -411,8 +413,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var reactor = ent.Comp;
         var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 
+        var intensity = (float)Math.Max(reactor.RadiationLevel <= reactor.MaximumRadiation ? reactor.RadiationLevel : reactor.MaximumRadiation + Math.Log(reactor.RadiationLevel - reactor.MaximumRadiation + 1), reactor.Melted ? reactor.MeltdownRadiation : 0);
+
         // Linear scaling up to maximum, logarithmic beyond that
-        comp.Intensity = (float)Math.Max(reactor.RadiationLevel <= reactor.MaximumRadiation ? reactor.RadiationLevel : reactor.MaximumRadiation + Math.Log(reactor.RadiationLevel - reactor.MaximumRadiation + 1), reactor.Melted ? reactor.MeltdownRadiation : 0);
+        _radiationSystem.SetIntensity((ent.Owner, comp), intensity);
         reactor.RadiationLevel /= Math.Max(reactor.RadiationStability, 1);
     }
 

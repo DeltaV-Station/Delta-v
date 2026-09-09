@@ -161,14 +161,11 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         if (_prototype.TryIndex(newJobProto, out var job)
             && _prototype.Resolve(job.Icon, out var jobIcon))
         {
-            jobProto = job;
             _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
             _idCard.TryChangeJobDepartment(targetId, job);
-
         }
 
-        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, jobProto);
-
+        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);
         if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
             || !_record.TryGetRecord<GeneralStationRecord>(key, out _))

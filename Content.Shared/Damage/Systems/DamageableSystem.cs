@@ -95,11 +95,4 @@ public sealed partial class DamageableSystem : EntitySystem
         }
         return damageTypes;
     }
-
-    // Delta V - Begin Workaround to Change the Camdage Container
-    public void ChangeDamageContainer(Entity<DamageableComponent> ent, ProtoId<DamageContainerPrototype> damageContainer)
-    {
-        ent.Comp.DamageContainerID = damageContainer;
-    }
-    // Delta V - End
 }

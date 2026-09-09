@@ -28,12 +28,12 @@ public sealed class ShockOnUnequipSystem : SharedShockOnUnequipSystem
         if (TryComp<ClothingComponent>(entity, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
 
-        if (entity.Comp.UseAccess && _accessReaderSystem.IsAllowed(args.Unequipee, args.Equipment))
+        if (entity.Comp.UseAccess && _accessReaderSystem.IsAllowed(args.UnEquipTarget, args.Equipment))
         {
             return;
         }
 
-        var wasStunned = _electrocutionSystem.TryDoElectrocution(args.Unequipee, args.Equipment, entity.Comp.Damage, entity.Comp.Duration, true);
+        var wasStunned = _electrocutionSystem.TryDoElectrocution(args.UnEquipTarget, args.Equipment, entity.Comp.Damage, entity.Comp.Duration, true);
         if (wasStunned)
         {
             args.Cancel();

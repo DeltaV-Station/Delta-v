@@ -89,8 +89,8 @@ public sealed class SharkVisionOverlay : Overlay
     private void GetVisionEntities(ProtoId<ReagentPrototype>[] bloodPrototypes, MapId mapId, Angle eyeRot)
     {
         _entries.Clear();
-        var entities = _entity.EntityQueryEnumerator<SolutionContainerManagerComponent, SpriteComponent, TransformComponent>();
-        while (entities.MoveNext(out var uid, out var body, out var sprite, out var xform))
+        var entities = _entity.EntityQueryEnumerator<SolutionManagerComponent, SpriteComponent, TransformComponent>();
+        while (entities.MoveNext(out var uid, out var solutionManager, out var sprite, out var xform))
         {
             if (!CanSee(uid, sprite))
                 continue;
@@ -100,21 +100,15 @@ public sealed class SharkVisionOverlay : Overlay
                 continue;
 
             // Should always be true but I'm just simplifying a future if statement
-            if (!_entity.TryGetComponent<SolutionContainerManagerComponent>(uid, out var solutionContainer))
-                continue;
-
-            if (solutionContainer.Containers == null)
+            if (!_entity.TryGetComponent<SolutionManagerComponent>(uid, out var solutionContainer))
                 continue;
 
             var bloodFound = false;
             // Someone calculate the Big O notation of this lmao
-            foreach (var individualContainer in solutionContainer.Containers)
+            foreach (var (_, solution) in _solution.EnumerateSolutions((uid, solutionManager)))
             {
-                if (_solution.TryGetSolution((uid, solutionContainer), individualContainer, out var _, out var solution))
-                {
-                    var reagentsInContainer = solution.GetReagentPrototypes(_proto).ToDictionary();
-                    bloodFound = reagentsInContainer.Keys.Any(reagentKey => bloodPrototypes.Any(x => reagentKey == x));
-                }
+                var reagentsInContainer = solution.Comp.Solution.GetReagentPrototypes(_proto);
+                bloodFound = reagentsInContainer.Keys.Any(reagentKey => bloodPrototypes.Any(x => reagentKey == x));
 
                 if (bloodFound)
                     break; // We don't need to keep searching if the entity has blood in at least one container

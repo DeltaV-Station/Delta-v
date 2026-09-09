@@ -162,7 +162,7 @@ public abstract class SharedTrayScannerSystem : EntitySystem
             return;
 
         // Toggle Logic
-        SetScannerEnabled(scanner, !scanner.Comp.Enabled, scanner);
+        SwitchMode(scanner, args.Performer);
 
         args.Handled = true;
     }

@@ -76,6 +76,11 @@
     - SynthesisSurviveObjective
     - SynthesisPrescribeObjective
   - type: AntagSelection
+    antags:
+    - !type:FixedAntagCount
+      proto: NukeopsCommander
+      count: 2
+  - type: AntagSelection
     agentName: synthesis-round-end-agent-name
     definitions:
     - spawnerPrototype: SpawnPointGhostSynthesis

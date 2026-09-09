@@ -67,7 +67,7 @@
       min: 750 # 12.5 min
       max: 930 # 17.5 min
     scheduledGameRules: !type:EntSelector # DeltaV: use old event
-      id: MeteorSwarm
+      id: DVMeteorSwarm
 
 - type: entity
   parent: BaseGameRule
@@ -81,7 +81,7 @@
       min: 750 # 12.5 min
       max: 930 # 17.5 min
     scheduledGameRules: !type:EntSelector # DeltaV: use old event but rarer (only used for allatonce so doesnt matter)
-      id: MeteorSwarm
+      id: DVMeteorSwarm
       prob: 0.25
 
 - type: entity

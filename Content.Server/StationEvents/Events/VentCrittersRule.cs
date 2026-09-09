@@ -60,7 +60,7 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         if (comp.Location is not {} coords)
             return;
 
-        var players = _antag.GetTotalPlayerCount(_player.Sessions);
+        var players = _player.PlayerCount;
         var min = Math.Max(comp.Min, comp.Min * players / comp.PlayerRatio);
         var max = Math.Max(comp.Max, comp.Max * players / comp.PlayerRatio);
         var count = Math.Max(RobustRandom.Next(min, max), 1);

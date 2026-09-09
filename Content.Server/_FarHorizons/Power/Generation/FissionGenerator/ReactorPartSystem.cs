@@ -7,6 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Nutrition;
 using Content.Shared.Radiation.Components;
+using Content.Shared.Radiation.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -27,6 +28,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedRadiationSystem _radiationSystem = default!;
 
     /// <summary>
     /// Changes the overall rate of events
@@ -78,7 +80,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         if (radvalue > 0)
         {
             var radcomp = EnsureComp<RadiationSourceComponent>(uid);
-            radcomp.Intensity = radvalue;
+            _radiationSystem.SetIntensity((uid, radcomp), radvalue);
         }
 
         if (component.Properties.NeutronRadioactivity > 0)

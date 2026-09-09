@@ -52,7 +52,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         if (!TryComp<PuddleComponent>(puddle, out var puddleComp))
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(puddle, out var solutionManager))
+        if (!TryComp<SolutionManagerComponent>(puddle, out var solutionManager))
             return;
 
         if (!_solutionContainer.ResolveSolution((puddle, solutionManager),
@@ -88,7 +88,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         }
 
         // Remove small amount of reagent from puddle
-        _solutionContainer.RemoveEachReagent(puddleComp.Solution.Value, footPrints.AmountToTransfer);
+        _solutionContainer.RemoveEachReagent(puddleComp.Solution!.Value, footPrints.AmountToTransfer);
     }
 
     private void AddColor(Color color, float quantity, FootPrintsComponent component)

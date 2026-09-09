@@ -728,7 +728,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         rule.Comp.TotalCult++;
 
-        cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!.Value; // nullable?
+        cultComp.StoredDamageContainer = Comp<InjurableComponent>(uid).DamageContainer!.Value; // nullable?
 
         Dirty(uid, cultComp);
 
@@ -786,7 +786,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var cultComp = EnsureComp<CosmicCultComponent>(uid);
         cultComp.EntropyBudget = 10; // pity balance
-        cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!.Value;
+        cultComp.StoredDamageContainer = Comp<InjurableComponent>(uid).DamageContainer!.Value;
         EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         TransferCultAssociation(converter, uid);
         if (TryComp<CosmicFinaleComponent>(cult.Comp.MonumentInGame, out var finaleComp) && finaleComp.FinaleActive)

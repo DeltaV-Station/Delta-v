@@ -35,22 +35,31 @@ public sealed class DelayedRuleSystem : GameRuleSystem<DelayedRuleComponent>
 
         // skip the delay if it's just 1 player, theres no plan to ruin if you are the only one
         var ends = ent.Comp.DelayEnds;
-        if (ent.Comp.IgnoreSolo && selection.AssignedMinds.Count < 2)
-            ends = Timing.CurTime;
+        if (ent.Comp.IgnoreSolo) {
+            var count = 0;
+            foreach (var minds in selection.AssignedMinds)
+            {
+                if (++count < 2) {
+                    ends = Timing.CurTime;
+                    break;
+                }
+            }
+        }
 
         if (Timing.CurTime < ends)
             return;
 
         var comps = ent.Comp.DelayedComponents;
-        foreach (var (mindId, _) in selection.AssignedMinds)
-        {
-            // using OriginalOwnedEntity as the player might have ghosted to try become an evil ghost antag
-            if (!TryComp<MindComponent>(mindId, out var mind) || !TryGetEntity(mind.OriginalOwnedEntity, out var mob))
-                continue;
+        foreach (var minds in selection.AssignedMinds.Values) {
+            foreach (var (mindId, _) in minds) {
+                // using OriginalOwnedEntity as the player might have ghosted to try become an evil ghost antag
+                if (!TryComp<MindComponent>(mindId, out var mind) || !TryGetEntity(mind.OriginalOwnedEntity, out var mob))
+                    continue;
 
-            var uid = mob.Value;
-            _popup.PopupEntity(Loc.GetString(ent.Comp.EndedPopup), uid, uid, PopupType.LargeCaution);
-            EntityManager.AddComponents(uid, comps);
+                var uid = mob.Value;
+                _popup.PopupEntity(Loc.GetString(ent.Comp.EndedPopup), uid, uid, PopupType.LargeCaution);
+                EntityManager.AddComponents(uid, comps);
+            }
         }
 
         RemCompDeferred<DelayedRuleComponent>(ent);
