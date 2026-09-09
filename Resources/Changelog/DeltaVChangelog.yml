@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: SirRequiem
-  changes:
-  - message: 'Terra: Added additional meteor shielding, meteor avoidance zones, Robotics
-      console, AI Recovery Console, AI subnet/cameras, mail cart, and medical crash
-      cart'
-    type: Add
-  - message: 'Terra: Waste and Distro have pre-enabled pumps now, and power bank has
-      been slightly improved'
-    type: Tweak
-  - message: 'Terra: APCs are now all below 20kw in regards to the new breaker system'
-    type: Fix
-  id: 2154
-  time: '2026-03-04T01:23:21.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5432
 - author: Woljif
   changes:
   - message: Sec jetpacks are no longer mini-jetpacks and can hold 3.0L
@@ -4448,4 +4434,11 @@
   id: 2654
   time: '2026-09-09T14:54:45.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6453
+- author: SumofThreeParts
+  changes:
+  - message: Added the Anaconda to the uplink.
+    type: Add
+  id: 2655
+  time: '2026-09-09T15:49:18.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6458
 Order: 1
