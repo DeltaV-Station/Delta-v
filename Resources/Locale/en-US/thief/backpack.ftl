@@ -54,7 +54,8 @@ thief-backpack-category-communicator-name = communicator kit
 thief-backpack-category-communicator-description =
     Money is power, and secrets are money. Use your silver tongue
     and wealth to subvert the station.
-    Includes: Master key for all station channels, a CyberSun pen,
+    Includes: Master key for all station channels,
+    a key for freelancer channels, a CyberSun pen,
     voice mask implanter, and 20k spesos inside a briefcase.
 
 thief-backpack-category-smuggler-name = smuggler kit
