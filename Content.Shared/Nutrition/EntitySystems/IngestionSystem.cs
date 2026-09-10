@@ -61,8 +61,6 @@ public sealed partial class IngestionSystem : EntitySystem
     [Dependency] private readonly ReactiveSystem _reaction = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
 
-    private static readonly string MessyDrinkerSolution = "Drink"; // Delta V - Solution Type for Messy Drinker
-
     /// <inheritdoc/>
     public override void Initialize()
     {
