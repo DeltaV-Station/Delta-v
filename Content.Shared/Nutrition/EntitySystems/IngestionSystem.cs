@@ -61,6 +61,8 @@ public sealed partial class IngestionSystem : EntitySystem
     [Dependency] private readonly ReactiveSystem _reaction = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
 
+    private static readonly string MessyDrinkerSolution = "Drink"; // Delta V - Solution Type for Messy Drinker
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -277,6 +279,16 @@ public sealed partial class IngestionSystem : EntitySystem
         // Check if despite being able to digest the item something is blocking us from eating.
         if (!CanConsume(args.User, entity, args.Ingested, out var solution, out var time))
             return;
+
+        // Delta V - Begin Messy Drinker Speed
+        var proto = GetEdibleType(food);
+
+        if (proto != null && args.User == entity.Owner && TryComp<MessyDrinkerComponent>(args.User, out var messyDrinkerComponent) &&
+            messyDrinkerComponent.SpillableTypes.Contains(proto.Value))
+        {
+            time *= messyDrinkerComponent.DrinkSpeedMultiplier;
+        }
+        // Delta V - End
 
         if (!_doAfter.TryStartDoAfter(GetEdibleDoAfterArgs(args.User, entity, food, time ?? TimeSpan.Zero)))
             return;

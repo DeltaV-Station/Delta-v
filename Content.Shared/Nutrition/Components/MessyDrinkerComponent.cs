@@ -42,6 +42,6 @@ public sealed partial class MessyDrinkerComponent : Component
     /// Drinking Speed Delay Reduction, which speeds up the drinking speed of Vulpkanin
     /// </summary>
     [DataField, AutoNetworkedField]
-    public FixedPoint2 DrinkDelayReduction = 0.5;
+    public float DrinkSpeedMultiplier = 0.5f;
     // Delta V - End
 }
