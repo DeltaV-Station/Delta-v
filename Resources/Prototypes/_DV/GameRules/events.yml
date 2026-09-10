@@ -96,7 +96,7 @@
       id: MobMothroach
 # Listening Post
 - type: entity
-  parent: BaseGameRule
+  parent: BaseAntagGhostRoleRule
   id: ListeningPost
   components:
   - type: StationEvent
@@ -118,33 +118,11 @@
   - type: AntagLoadProfileRule
   - type: AntagSelection
     agentName: listening-post-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSyndicateListener
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateListenerGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-        keepGender: true
-      - type: RandomMetadata
-        nameSegments:
-        - NamesDeathCommando
-      - type: AutoImplant
-        implants:
-        - DeathAcidifierImplant
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      - type: IntrinsicRadioReceiver
-      - type: ActiveRadio
-        channels:
-        - Binary
-      mindRoles:
-      - MindRoleListeningPost
+    antags:
+    - !type:FixedAntagCount
+      proto: SyndicateListener
+      count: 2
+
 # Malign Rifts
 - type: entity
   parent: BaseGameRule
@@ -173,7 +151,7 @@
 # Mid round antag spawns
 - type: entity
   abstract: true
-  parent: BaseGameRule
+  parent: BaseAntagGhostRoleRule
   id: BaseMidRoundAntag
   components:
   - type: StationEvent
@@ -194,14 +172,18 @@
   - type: MidRoundAntagRule
     preferVentSpawns: true
   - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRatKing
-      min: 1
-      max: 1
-      pickPlayer: false
+    antags:
+    - !type:FixedAntagCount
+      proto: RatKing
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: RatKing
+  spawnerPrototype: SpawnPointGhostRatKing
+  pickPlayer: false
 
 - type: entity
-  parent: BaseMidRoundAntag
+  parent: BaseAntagGhostRoleRule
   id: Fugitive
   components:
   - type: StationEvent
@@ -216,30 +198,13 @@
     - FugitiveEscapeObjective
   - type: AntagSelection
     agentName: fugitive-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostFugitive
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: FugitiveGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-        keepGender: true
-      - type: EmitSoundOnSpawn # fell out of the ceiling
-        sound: /Audio/Effects/clang.ogg
-      mindRoles:
-      - MindRoleFugitive
+    antags:
+    - !type:FixedAntagCount
+      proto: Fugitive
+
 # Syndicate RoboNeurotocist
 - type: entity
-  parent: BaseGameRule
+  parent: BaseAntagGhostRoleRule
   id: RoboNeuroticist
   components:
   - type: StationEvent
@@ -262,30 +227,10 @@
     - RoboNeuroticistUploadAILawObjective
   - type: AntagSelection
     agentName: roboneuroticist-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRoboNeuroticist
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: RoboNeuroticistGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesHologram
-        - NamesMilitaryLast
-        nameFormat: name-format-standard
-      - type: EmitSoundOnSpawn # evil sound
-        sound: /Audio/Ambience/Antag/emagged_borg.ogg
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-        keepGender: true
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleRoboNeuroticist
+    antags:
+    - !type:FixedAntagCount
+      proto: RoboNeuroticist
+
 # Noospheric Storm
 - type: entity
   parent: BaseGameRule
@@ -318,23 +263,10 @@
     maxDifficulty: 100 # ignore difficulty, use maxPicks instead
   - type: AntagSelection
     agentName: menace-skeleton-round-end-name
-    definitions:
-    - spawnerPrototype: SpawnPointMenaceSkeleton
-      min: 1
-      max: 1
-      pickPlayer: false
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: EmitSoundOnSpawn # fell out of the ceiling
-        sound: /Audio/Effects/clang.ogg
-      mindRoles:
-      - MindRoleMenaceSkeleton
+    antags:
+    - !type:FixedAntagCount
+      proto: MenaceSkeleton
+
 # Skia
 - type: entity
   parent: BaseMidRoundAntag
@@ -355,18 +287,9 @@
     - SkiaReapObjective
   - type: AntagSelection
     agentName: skia-round-end-name
-    definitions:
-    - spawnerPrototype: SpawnPointSkia
-      min: 1
-      max: 1
-      pickPlayer: false
-      mindRoles:
-      - MindRoleSkia
-      components:
-        - type: EmitSoundOnSpawn
-          sound: /Audio/_DV/Effects/creepyshriek.ogg
-        - type: BreakLightsOnSpawn
-          radius: 10
+    antags:
+    - !type:FixedAntagCount
+      proto: Skia
 
 # nt agent (this is usually for the admeme spawn)
 - type: entity
@@ -379,20 +302,13 @@
     - NTAgentObjective
   - type: AntagSelection
     agentName: NTAgent-round-end-name
-    definitions:
-    - min: 1
-      max: 2
-      pickPlayer: true
-      briefing:
-        text: NTAgent-role-greeting-human
-        color: lightblue
-        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
-      mindRoles:
-      - MindRoleNTAgent
-      components:
-      - type: AutoImplant
-        implants:
-        - RadioImplantCentcomm
+    antags:
+    - !type:LinearAntagCount
+      proto: NTAgent
+      range:
+        min: 1
+        max: 2
+      playerRatio: 10
 
 # Hitman (for the admeme spawn)
 - type: entity
@@ -410,22 +326,13 @@
       maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
     maxDifficulty: 300
   - type: AntagSelection
-    agentName: hitman-round-end-agent-name
-    definitions:
-    - min: 1
-      max: 2
-      pickPlayer: true
-      startingGear: HitmanGear
-      briefing:
-        text: hitman-role-greeting-human
-        color: yellow
-        sound: /Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg
-      mindRoles:
-      - MindRoleHitman
-      components:
-      - type: AutoImplant
-        implants:
-        - HitmanCardImplant
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: BaseHitman
+      range:
+        min: 1
+        max: 2
 
 # nt agent sleeper event
 - type: entity
@@ -446,26 +353,13 @@
     maxDifficulty: 100
   - type: AntagSelection
     agentName: NTAgent-round-end-name
-    definitions:
-    - prefRoles: [ NTAgent ]
-      min: 1
-      max: 2
+    antags:
+    - !type:LinearAntagCount
+      proto: NTAgentSleeper
+      range:
+        min: 1
+        max: 2
       playerRatio: 10
-      pickPlayer: true
-      blacklist:
-        components:
-        - AntagImmune
-      briefing:
-        text: NTAgent-role-greeting-human
-        color: lightblue
-        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
-      mindRoles:
-      - MindRoleNTAgent
-      components:
-      - type: AutoImplant
-        implants:
-        - RadioImplantCentcomm
-        - NanolinkSubImplant
 
 # Gnomes
 - type: entity
@@ -483,18 +377,25 @@
     prototype: MobGnome
   - type: AntagSelection
     agentName: gnome-round-end-name
-    definitions:
-    - spawnerPrototype: SpawnPointGnome
-      min: 1
-      max: 2
-      pickPlayer: false
-      mindRoles:
-      - MindRoleGhostRoleFreeAgent
-      components:
-        - type: EmitSoundOnSpawn
-          sound: /Audio/Effects/bodyfall3.ogg
-        - type: SpawnOnTrigger
-          proto: EffectFlashBluespace
+    antags:
+    - !type:LinearAntagCount
+      proto: Gnome
+      range:
+        min: 1
+        max: 2
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Gnome
+  spawnerPrototype: SpawnPointGnome
+  pickPlayer: false
+  mindRoles:
+  - MindRoleGhostRoleFreeAgent
+  components:
+    - type: EmitSoundOnSpawn
+      sound: /Audio/Effects/bodyfall3.ogg
+    - type: SpawnOnTrigger
+      proto: EffectFlashBluespace
 
 # NT Pest Control via Pitbulls
 - type: entity

@@ -364,6 +364,19 @@
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/mothership_dv.yml #DeltaV - Was: /Maps/Shuttles/mothership.yml
+  - type: AntagMultipleRoleSpawner
+    antagRoleToPrototypes:
+      MothershipCore: [ MothershipCore ]
+      Xenoborg: [ XenoborgEngi, XenoborgHeavy, XenoborgScout, XenoborgStealth ]
+    pickAndTake: true
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    antags:
+    - !type:FixedAntagCount
+      proto: MothershipCore
+    - !type:FixedAntagCount
+      proto: Xenoborg
+      count: 4
 
 - type: entity
   parent: [ BaseXenoborgsRule, BaseRoundstartAntagRule]

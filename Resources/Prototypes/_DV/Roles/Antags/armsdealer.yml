@@ -13,6 +13,28 @@
     department: Command
     time: 12h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: SyndicateArmsdealer
+  spawnerPrototype: SpawnPointGhostArmsdealer
+  pickPlayer: false
+  startingGear: SyndicateArmsdealerGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFakeHumanFirst
+    - NamesFakeHumanLast
+    nameFormat: name-format-standard
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  mindRoles:
+  - MindRoleArmsdealer
+
 - type: startingGear
   id: SyndicateArmsdealerGear
   equipment:
