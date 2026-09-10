@@ -285,6 +285,7 @@
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
       - type: SpaceNinja
+      - type: TargetObjectiveImmune # DeltaV - How would they know the ninja is there?
       - type: NpcFactionMember
         factions:
         - Syndicate

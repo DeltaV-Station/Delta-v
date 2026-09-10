@@ -118,3 +118,18 @@
           amount: 2
         - id: ClothingShoesBootsCowboyBlackFilled
           amount: 2
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateCargoArmoryPatos
+  name: patos crate
+  description: Contains two lightweight patos SMGs with four high-capacity clips. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunPatos
+          amount: 2
+        - id: MagazinePistolHighCapacity
+          amount: 4
