@@ -76,9 +76,9 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnRelayedEventToIdCard);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnRelayedEventToIdCard);
 
-            SubscribeLocalEvent<RoundEndSystemChangedEvent>( OnRoundEndChanged ); // DeltaV - PDA Evac Status
-            SubscribeLocalEvent<EvacShuttleDockedEvent>( OnShuttleDockedEvent ); // DeltaV - PDA Evac Status
-            SubscribeLocalEvent<EmergencyShuttleAuthorizedEvent>( OnShuttleEarlyLaunch ); // DeltaV - PDA Evac Status
+            SubscribeLocalEvent<RoundEndSystemChangedEvent>(OnRoundEndChanged); // DeltaV - PDA Evac Status
+            SubscribeLocalEvent<EvacShuttleDockedEvent>(OnShuttleDockedEvent); // DeltaV - PDA Evac Status
+            SubscribeLocalEvent<EmergencyShuttleAuthorizedEvent>(OnShuttleEarlyLaunch); // DeltaV - PDA Evac Status
 
             // Begin DeltaV additions
             Subs.CVar(_config,
@@ -170,41 +170,41 @@ namespace Content.Server.PDA
             UpdateAllPdaUisOnStation();
         }
 
-        // DeltaV - PDA Evac Status
-        private void OnRoundEndChanged( RoundEndSystemChangedEvent ev )
+        // Begin DeltaV - PDA Evac Status
+        private void OnRoundEndChanged(RoundEndSystemChangedEvent ev)
         {
             // When we get a change to the round end state, update all PDAs with new shuttle evac time
             // ExpectedCountdownEnd can be null which means no shuttle is coming (it was recalled)
-            var query = AllEntityQuery<PdaComponent>( );
-            while ( query.MoveNext( out var ent, out var comp ) )
+            var query = AllEntityQuery<PdaComponent>();
+            while (query.MoveNext(out var ent, out var comp))
             {
                 comp.EvacArrivalTime = _roundEnd.ExpectedCountdownEnd;
-                UpdatePdaUi( ent, comp );
+                UpdatePdaUi(ent, comp);
             }
         }
 
-        private void OnShuttleDockedEvent( EvacShuttleDockedEvent ev )
+        private void OnShuttleDockedEvent(EvacShuttleDockedEvent ev)
         {
             // Whenever the evac shuttle docks with the station, update all PDAs with the departure time
-            var query = AllEntityQuery<PdaComponent>( );
-            while ( query.MoveNext( out var ent, out var comp ) )
+            var query = AllEntityQuery<PdaComponent>();
+            while (query.MoveNext(out var ent, out var comp))
             {
                 comp.EvacDepartureTime = _evacShuttle.EvacShuttleDepartureTime;
-                UpdatePdaUi( ent, comp );
+                UpdatePdaUi(ent, comp);
             }
         }
 
-        private void OnShuttleEarlyLaunch( EmergencyShuttleAuthorizedEvent ev )
+        private void OnShuttleEarlyLaunch(EmergencyShuttleAuthorizedEvent ev)
         {
             // If evac early launch is activated, update the departure time
-            var query = AllEntityQuery<PdaComponent>( );
-            while ( query.MoveNext( out var ent, out var comp ) )
+            var query = AllEntityQuery<PdaComponent>();
+            while (query.MoveNext(out var ent, out var comp))
             {
                 comp.EvacDepartureTime = _evacShuttle.EvacShuttleDepartureTime;
-                UpdatePdaUi( ent, comp );
+                UpdatePdaUi(ent, comp);
             }
         }
-        // DeltaV - PDA Evac Status
+        // End DeltaV - PDA Evac Status
 
         private void UpdateAllPdaUisOnStation()
         {

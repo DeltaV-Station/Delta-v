@@ -475,7 +475,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         _consoleAccumulator *= multiplier;
 
-        EvacShuttleDepartureTime = TimeSpan.FromSeconds( _consoleAccumulator ) + _timing.CurTime; // DeltaV - PDA Evac Status
+        EvacShuttleDepartureTime = TimeSpan.FromSeconds(_consoleAccumulator) + _timing.CurTime; // DeltaV - PDA Evac Status
         RaiseLocalEvent(new EvacShuttleDockedEvent()); // DeltaV
 
         foreach (var shuttleDockResult in dockResults)
