@@ -1,7 +1,7 @@
 - type: entity
   name: rat king
   id: MobRatKing
-  parent: [ BaseMobRat, SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node Crawling
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat, BaseSlicingRefinable, DVNodeCrawler ] # DeltaV - node Crawling
   description: He's da rat. He make da roolz.
   components:
   - type: CombatMode
@@ -110,8 +110,8 @@
   - type: Speech
     speechVerb: SmallMob
     speechSounds: Squeak # DeltaV addition
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHeadHatFancyCrown #how did that get there?
       amount: 1
   - type: MobPrice
@@ -127,9 +127,10 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: Sharp
   - type: NightVision #Delta-v - Added nightvision
     color: "#808080"
+  - type: Tool
+    qualities: Slicing
 
 - type: entity
   id: MobRatKingBuff
@@ -171,7 +172,7 @@
 - type: entity
   name: rat servant
   id: MobRatServant
-  parent: [ BaseMobRat, SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat, BaseSlicingRefinable, DVNodeCrawler ] # DeltaV - node crawling
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
@@ -280,8 +281,8 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatRat
       amount: 1
   - type: Vocal

@@ -7,9 +7,9 @@ using Robust.Shared.Utility;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Stealth)]
-public sealed class StealthminCommand : LocalizedEntityCommands // DeltaV - Unorbitable, LocalizedCommands to LocalizedEntityCommands
+public sealed partial class StealthminCommand : LocalizedEntityCommands // DeltaV - Unorbitable, LocalizedCommands to LocalizedEntityCommands
 {
-    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
 
     public override string Command => "stealthmin";
 

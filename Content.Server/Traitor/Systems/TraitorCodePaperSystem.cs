@@ -8,11 +8,11 @@ using Content.Server.Codewords;
 
 namespace Content.Server.Traitor.Systems;
 
-public sealed class TraitorCodePaperSystem : EntitySystem
+public sealed partial class TraitorCodePaperSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private CodewordSystem _codewordSystem = default!;
 
     public override void Initialize()
     {

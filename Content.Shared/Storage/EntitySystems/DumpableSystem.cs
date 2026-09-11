@@ -18,17 +18,16 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Storage.EntitySystems;
 
-public sealed class DumpableSystem : EntitySystem
+public sealed partial class DumpableSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedSmartFridgeSystem _fridge = default!; // DeltaV - ough why do you not use events for this
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedSmartFridgeSystem _fridge = default!; // DeltaV - ough why do you not use events for this
 
-    [Dependency] private readonly EntityQuery<ItemComponent> _itemQuery = default!;
+    [Dependency] private EntityQuery<ItemComponent> _itemQuery = default!;
 
     public override void Initialize()
     {

@@ -1,41 +1,28 @@
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech.Hushing; // DeltaV
-using Content.Server.Nyanotrasen.Chat;
 using Content.Server.Speech.Components; // DeltaV
-using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
-using Content.Shared.Radio;
-using Content.Shared.Station.Components;
-using Content.Shared.Whitelist;
 using Robust.Server.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
-using Robust.Shared.Utility;
 using Content.Shared._DV.Chat; // DeltaV - chat enhancements
 
 namespace Content.Server.Chat.Systems;
@@ -47,24 +34,25 @@ namespace Content.Server.Chat.Systems;
 /// </summary>
 public sealed partial class ChatSystem : SharedChatSystem
 {
-    [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IChatSanitizationManager _sanitizer = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    
+    [Dependency] private IReplayRecordingManager _replay = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IChatSanitizationManager _sanitizer = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ReplacementAccentSystem _wordreplacement = default!;
+    [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private EntityQuery<GhostHearingComponent> _ghostHearingQuery = default!;
+
     //Nyano - Summary: pulls in the nyano chat system for psionics.
-    [Dependency] private readonly NyanoChatSystem _nyanoChatSystem = default!;
+    [Dependency] private NyanoChatSystem _nyanoChatSystem = default!;
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;

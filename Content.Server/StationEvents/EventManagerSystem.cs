@@ -15,16 +15,16 @@ using Content.Shared.Psionics.Glimmer; // DeltaV
 
 namespace Content.Server.StationEvents;
 
-public sealed class EventManagerSystem : EntitySystem
+public sealed partial class EventManagerSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] public readonly GameTicker GameTicker = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!; //Nyano - Summary: pulls in the glimmer system.
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] public GameTicker GameTicker = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!; //Nyano - Summary: pulls in the glimmer system.
 
     public bool EventsEnabled { get; private set; }
     private void SetEnabled(bool value) => EventsEnabled = value;

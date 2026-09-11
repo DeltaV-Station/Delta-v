@@ -16,12 +16,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 350 # DeltaV - Increased health cap by 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 275 # DeltaV - Increased health by 125 (more than plasma)
       behaviors:
       - !type:PlaySoundBehavior
@@ -84,12 +78,6 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 250 # DeltaV - Increased health cap by 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 150 # DeltaV - Increased health by 75 (more than plasma) 

@@ -375,16 +375,17 @@
     tags: []
 
 - type: entity
-  parent: FoodDoughBase
+  parent: [FoodDoughBase, BaseSlicingRefinableFood]
   id: FoodDough
   name: dough
   description: A piece of dough.
   components:
   - type: Sprite
     state: dough
-  - type: SliceableFood
-    count: 8
-    slice: FoodDoughSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodDoughSlice
+      amount: 8
   - type: Construction
     graph: Pizza
     node: start
@@ -414,16 +415,17 @@
     node: rolled
 
 - type: entity
-  parent: FoodDoughBase
+  parent: [FoodDoughBase, BaseSlicingRefinableFood]
   id: FoodDoughCornmeal
   name: cornmeal dough
   description: A piece of cornmeal dough.
   components:
   - type: Sprite
     state: cornmealdough
-  - type: SliceableFood
-    count: 8
-    slice: FoodDoughCornmealSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodDoughCornmealSlice
+      amount: 8
 
 - type: entity
   parent: FoodDoughSliceBase
@@ -435,16 +437,17 @@
     state: cornmealdough-slice
 
 - type: entity
-  parent: FoodDoughBase
+  parent: [FoodDoughBase, BaseSlicingRefinableFood]
   id: FoodDoughTortilla
   name: tortilla dough
   description: A piece of tortilla dough.
   components:
   - type: Sprite
     state: tortilladough
-  - type: SliceableFood
-    count: 8
-    slice: FoodDoughTortillaSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodDoughTortillaSlice
+      amount: 8
 
 - type: entity
   parent: FoodDoughSliceBase
@@ -476,7 +479,7 @@
         Quantity: 7.5
 
 - type: entity
-  parent: FoodDoughBase
+  parent: [FoodDoughBase, BaseSlicingRefinableFood]
   id: FoodDoughCotton
   name: cotton dough
   description: A piece of fabric dough.
@@ -487,9 +490,10 @@
     - cotton
   - type: Sprite
     state: cotton-dough
-  - type: SliceableFood
-    count: 8
-    slice: FoodDoughCottonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodDoughCottonSlice
+      amount: 8
   - type: Construction
     graph: CottonPizza
     node: start
@@ -585,7 +589,7 @@
     state: dough-pie
 
 - type: entity
-  parent: FoodDough
+  parent: [FoodDough, BaseSlicingRefinableFood]
   id: FoodDoughFlat
   name: flat dough
   description: A flattened dough.
@@ -598,12 +602,13 @@
   - type: Construction
     graph: Pizza
     node: flat
-  - type: SliceableFood
-    count: 4
-    slice: FoodCroissantRaw
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCroissantRaw
+      amount: 4
 
 - type: entity
-  parent: FoodDoughCotton
+  parent: [FoodDoughCotton, BaseSlicingRefinableFood]
   id: FoodDoughCottonFlat
   name: flat cotton dough
   description: A flattened cotton dough.
@@ -616,9 +621,10 @@
   - type: Construction
     graph: CottonPizza
     node: flat
-  - type: SliceableFood
-    count: 4
-    slice: FoodCroissantRawCotton
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCroissantRawCotton
+      amount: 4
 
 - type: entity
   parent: FoodDough
@@ -649,7 +655,7 @@
     state: cakebatter
 
 - type: entity
-  parent: [SolutionSmall, FoodBakingMixableBase]
+  parent: [SolutionSmall, FoodBakingMixableBase, BaseSlicingRefinableFood]
   id: FoodButter
   name: stick of butter
   description: A stick of delicious, golden, fatty goodness.
@@ -687,9 +693,10 @@
       reagents:
       - ReagentId: Butter
         Quantity: 30
-  - type: SliceableFood
-    count: 12
-    slice: FoodButterSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodButterSlice
+      amount: 12
   - type: Extractable # DeltaV - Makes butter extractable
     grindableSolutionName: food
 
@@ -736,7 +743,7 @@
 
 - type: entity
   name: cheese wheel
-  parent: [SolutionNormal, FoodBakingBase]
+  parent: [SolutionNormal, FoodBakingBase, BaseSlicingRefinableFood]
   id: FoodCheese
   description: A big wheel of delicious Cheddar.
   components:
@@ -745,9 +752,10 @@
       - cheesy
   - type: Sprite
     state: cheesewheel
-  - type: SliceableFood
-    count: 3
-    slice: FoodCheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCheeseSlice
+      amount: 4
   - type: Solution
     solution:
       reagents:
@@ -788,7 +796,7 @@
       - state: cheesewedge-inhand-right
 
 - type: entity
-  parent: [SolutionSmall, FoodBakingBase]
+  parent: [SolutionSmall, FoodBakingBase, BaseSlicingRefinableFood]
   id: FoodChevre
   name: chèvre log
   description: A soft log of creamy Chèvre.
@@ -803,9 +811,10 @@
       - creamy
   - type: Sprite
     state: chevrelog
-  - type: SliceableFood
-    count: 6
-    slice: FoodChevreSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodChevreSlice
+      amount: 6
   - type: Solution
     solution:
       reagents:
@@ -841,7 +850,7 @@
     - Slice
 
 - type: entity
-  parent: [SolutionNormal, FoodBakingBase]
+  parent: [SolutionNormal, FoodBakingBase, BaseSlicingRefinableFood]
   id: FoodTofu
   name: tofu
   description: Solid white block with a subtle flavor.
@@ -860,9 +869,10 @@
         Quantity: 45
       - ReagentId: Nutriment
         Quantity: 30
-  - type: SliceableFood
-    count: 5
-    slice: FoodTofuSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodTofuSlice
+      amount: 5
 
 - type: entity
   parent: [SolutionTiny, FoodBakingBase]

@@ -69,7 +69,7 @@
 
 - type: entity
   name: blueberry cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBlueberry
   description: Stains your teeth.
   components:
@@ -78,9 +78,10 @@
     - state: plain
     - state: alpha-filling
       color: blue
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeBlueberrySlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBlueberrySlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -127,7 +128,7 @@
 
 - type: entity
   name: cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakePlain
   description: A plain cake, not a lie.
   components:
@@ -136,9 +137,6 @@
     node: start
   - type: Sprite
     state: plain
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakePlainSlice
   - type: Item
     heldPrefix: plain
   # Floof section - Add tiered cakes
@@ -146,6 +144,10 @@
     tags:
       - CakeBase
   # Floof section end
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakePlainSlice
+      amount: 8
 
 # Added in type lines above
 
@@ -162,15 +164,16 @@
 
 - type: entity
   name: carrot cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeCarrot
   description: A favorite desert of a certain wascally wabbit.
   components:
   - type: Sprite
     state: carrot
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeCarrotSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeCarrotSlice
+      amount: 8
   - type: Solution
     solution:
       reagents:
@@ -244,15 +247,16 @@
 
 - type: entity
   name: brain cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBrain
   description: A squishy cake-thing.
   components:
   - type: Sprite
     state: brain
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeBrainSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBrainSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -299,15 +303,16 @@
 
 - type: entity
   name: cheese cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeCheese
   description: DANGEROUSLY cheesy.
   components:
   - type: Sprite
     state: cheese
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeCheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeCheeseSlice
+      amount: 8
   - type: Item
     inhandVisuals:
       left:
@@ -341,7 +346,7 @@
 
 - type: entity
   name: orange cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeOrange
   description: A cake with added orange.
   components:
@@ -350,9 +355,10 @@
     - state: plain
     - state: alpha-filling
       color: "#ff9900"
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeOrangeSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeOrangeSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -397,7 +403,7 @@
 
 - type: entity
   name: lime cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeLime
   description: A cake with added lime.
   components:
@@ -406,9 +412,10 @@
     - state: plain
     - state: alpha-filling
       color: "#00ff00"
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeLimeSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeLimeSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -453,7 +460,7 @@
 
 - type: entity
   name: lemon cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeLemon
   description: A cake with added lemon.
   components:
@@ -462,9 +469,10 @@
     - state: plain
     - state: alpha-filling
       color: "#ffff00"
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeLemonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeLemonSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -509,7 +517,7 @@
 
 - type: entity
   name: lemoon cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeLemoon
   description: A cake that represents the moon of earth.
   components:
@@ -519,9 +527,10 @@
     flavors:
       - lemoon
       - berry
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeLemoonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeLemoonSlice
+      amount: 8
   - type: Solution
     solution:
       reagents:
@@ -587,7 +596,7 @@
 
 - type: entity
   name: chocolate cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeChocolate
   description: A cake with added chocolate.
   components:
@@ -595,9 +604,10 @@
     layers:
     - state: alpha
       color: "#ba672e"
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeChocolateSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeChocolateSlice
+      amount: 8
   - type: Solution
     solution:
       reagents:
@@ -654,7 +664,7 @@
 
 - type: entity
   name: apple cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeApple
   description: A cake centred with apple.
   components:
@@ -663,9 +673,10 @@
     - state: plain
     - state: alpha-filling
       color: "#ff4300"
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeAppleSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeAppleSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -712,15 +723,16 @@
 
 - type: entity
   name: slime cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeSlime
   description: A cake made of slimes. Probably not electrified.
   components:
   - type: Sprite
     state: slime
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeSlimeSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeSlimeSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -767,15 +779,16 @@
 
 - type: entity
   name: pumpkin-spice cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakePumpkin
   description: A hollow cake with real pumpkin.
   components:
   - type: Sprite
     state: pumpkinspice
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakePumpkinSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakePumpkinSlice
+      amount: 8
   - type: Solution
     solution:
       reagents:
@@ -836,15 +849,16 @@
 
 - type: entity
   name: christmas cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeChristmas
   description: A cake made of christmas.
   components:
   - type: Sprite
     state: christmas
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeChristmasSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeChristmasSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -882,15 +896,16 @@
 
 - type: entity
   name: birthday cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBirthday
   description: Happy Birthday little clown...
   components:
   - type: Sprite
     state: birthday
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeBirthdaySlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBirthdaySlice
+      amount: 8
   - type: Item
     heldPrefix: birthday
 
@@ -908,15 +923,16 @@
 
 - type: entity
   name: vanilla cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeVanilla
   description: A vanilla frosted cake.
   components:
   - type: Sprite
     state: vanilla
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeVanillaSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeVanillaSlice
+      amount: 8
   - type: Item
     heldPrefix: vanilla
 
@@ -940,15 +956,16 @@
 
 - type: entity
   name: clown cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeClown
   description: A funny cake with a clown face on it.
   components:
   - type: Sprite
     state: clown
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeClownSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeClownSlice
+      amount: 8
   - type: Item
     heldPrefix: clown
 
@@ -966,15 +983,16 @@
 
 - type: entity
   name: spaceman's cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeSpaceman
   description: A spaceman's trumpet frosted cake.
   components:
   - type: Sprite
     state: trumpet
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeSpacemanSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeSpacemanSlice
+      amount: 8
   - type: Solution
     solution:
       reagents:
@@ -1109,15 +1127,16 @@
 
 - type: entity
   name: suppermatter
-  parent: [SolutionLarge, FoodCakeBase]
+  parent: [SolutionLarge, FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeSuppermatter
   description: Extremely dense and powerful food.
   components:
   - type: Sprite
     state: suppermatter
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeSuppermatterSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeSuppermatterSlice
+      amount: 8
   - type: Solution
     solution:
       reagents:
@@ -1176,15 +1195,16 @@
 
 - type: entity
   name: cotton cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeCotton
   description: A cake with a fiber frosting and a wad of cotton on top.
   components:
   - type: Sprite
     state: cotton
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeCottonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeCottonSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -1234,7 +1254,7 @@
 
 - type: entity
   name: berry delight
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBerryDelight
   description: This is a cake that is approaching.
   components:
@@ -1258,9 +1278,10 @@
         Quantity: 10
       - ReagentId: JuiceBerry
         Quantity: 10
-  - type: SliceableFood
-    count: 8
-    slice: FoodCakeBerryDelightSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBerryDelightSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake

@@ -5,10 +5,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Sprite;
 
-public abstract class SharedScaleVisualsSystem : EntitySystem
+public abstract partial class SharedScaleVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!; // DeltaV
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _proto = default!; // DeltaV
 
     public override void Initialize()
     {

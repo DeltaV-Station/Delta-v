@@ -15,9 +15,9 @@ namespace Content.Client.PDA
     [GenerateTypedNameReferences]
     public sealed partial class PdaMenu : PdaWindow
     {
-        [Dependency] private readonly IClipboardManager _clipboard = null!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+        [Dependency] private IClipboardManager _clipboard = null!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IEntitySystemManager _entitySystem = default!;
         private readonly ClientGameTicker _gameTicker;
 
         public const int HomeView = 0;
@@ -33,7 +33,6 @@ namespace Content.Client.PDA
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
         private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
-        
 
         private int _currentView;
 
@@ -139,9 +138,6 @@ namespace Content.Client.PDA
             };
             // End DeltaV additions
 
-            
-
-
             HideAllViews();
             ToHomeScreen();
         }
@@ -179,7 +175,7 @@ namespace Content.Client.PDA
             _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
             StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
                 ("station", _stationName)));
-            
+
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 

@@ -9,13 +9,18 @@
 ## Technical details
 <!-- Summary of code changes for easier review. -->
 
+## Test plan
+<!--
+Describe how you tested the pull request, and how someone reviewing this PR can test it themselves.
+-->
+
 ## Media
 <!-- Attach media if the PR makes in-game changes (clothing, items, features, etc).
 Small fixes/refactors are exempt. -->
 
 ## Requirements
 <!-- Confirm the following by placing an X in the brackets without spaces inside (for example: [X] ): -->
-- [ ] I have tested all added content and changes.
+- [ ] I have tested this pull request and written instructions on how to test it
 - [ ] I have added media to this PR or it does not require an in-game showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
@@ -28,7 +33,7 @@ This just saves them the trouble. Note that AGPL or MIT licensing is only applic
   - [X] MIT (https://github.com/DeltaV-Station/Delta-v/blob/master/LICENSE-MIT.txt) <!-- Optional - A lot of other SS14 forks use MIT -->
 <!-- Feel free to add more licenses as you see fit -->
 
-**Changelog**
+## Changelog
 <!-- Add a Changelog entry to make players aware of new features or changes that could affect gameplay.
 Make sure to read the guidelines and take this Changelog template out of the comment block in order for it to show up.
 Changelog must have a :cl: symbol, so the bot recognizes the changes and adds them to the game's changelog. -->

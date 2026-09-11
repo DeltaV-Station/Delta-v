@@ -15,15 +15,15 @@ namespace Content.Shared.Gravity;
 
 public abstract partial class SharedGravitySystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedFlightSystem _flight = default!; // DeltaV - Harpy Flight
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedFlightSystem _flight = default!; // DeltaV - Harpy Flight
 
     public static readonly ProtoId<AlertPrototype> WeightlessAlert = "Weightless";
 
-    [Dependency] protected readonly EntityQuery<GravityComponent> GravityQuery = default!;
-    [Dependency] private readonly EntityQuery<GravityAffectedComponent> _weightlessQuery = default!;
-    [Dependency] private readonly EntityQuery<PhysicsComponent> _physicsQuery = default!;
+    [Dependency] protected EntityQuery<GravityComponent> GravityQuery = default!;
+    [Dependency] private EntityQuery<GravityAffectedComponent> _weightlessQuery = default!;
+    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
     public override void Initialize()
     {
