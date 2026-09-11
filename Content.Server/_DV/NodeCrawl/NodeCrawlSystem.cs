@@ -17,10 +17,10 @@ namespace Content.Server._DV.NodeCrawl;
 
 public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly BarotraumaSystem _barotrauma = default!;
-    [Dependency] private readonly IReflectionManager _reflection = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private BarotraumaSystem _barotrauma = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

@@ -11,8 +11,8 @@ namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed partial class ReagentDispenserSystem : EntitySystem
 {
-    [Dependency] private readonly LabelSystem _label = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private LabelSystem _label = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     private void InitializeAutoLabeling()
     {

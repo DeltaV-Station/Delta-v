@@ -6,9 +6,9 @@ namespace Content.Server._DV.Abilities;
 
 public sealed partial class TechnokineticPulseAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EmpSystem _emp = default!;
 
 
     public override void Initialize()

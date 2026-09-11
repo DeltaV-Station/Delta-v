@@ -34,20 +34,20 @@ namespace Content.Shared._DV.Mail;
 
 public abstract class SharedMailSystem : EntitySystem
 {
-    [Dependency] protected readonly AccessReaderSystem Access = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly LogisticStatsSystem LogisticsStats = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedCargoSystem _cargo = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] protected readonly SharedStationSystem Station = default!;
-    [Dependency] protected readonly TagSystem Tag = default!;
+    [Dependency] protected AccessReaderSystem Access = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected LogisticStatsSystem LogisticsStats = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private SharedCargoSystem _cargo = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] protected SharedStationSystem Station = default!;
+    [Dependency] protected TagSystem Tag = default!;
 
     private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable";
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";

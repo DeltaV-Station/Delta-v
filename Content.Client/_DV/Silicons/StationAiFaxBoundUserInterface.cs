@@ -10,7 +10,7 @@ namespace Content.Client._DV.Silicons;
 [UsedImplicitly]
 public sealed class StationAiFaxBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private readonly IFileDialogManager _fileDialogManager = default!;
+    [Dependency] private IFileDialogManager _fileDialogManager = default!;
 
     private StationAiFaxWindow? _window;
     private List<StationAiFaxPageWindow> _windows = new();

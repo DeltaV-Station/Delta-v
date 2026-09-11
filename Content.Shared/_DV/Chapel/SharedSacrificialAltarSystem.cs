@@ -8,7 +8,7 @@ namespace Content.Shared._DV.Chapel;
 
 public abstract class SharedSacrificialAltarSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
+    [Dependency] protected SharedDoAfterSystem DoAfter = default!;
 
     public override void Initialize()
     {

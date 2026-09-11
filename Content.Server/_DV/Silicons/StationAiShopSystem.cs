@@ -15,14 +15,14 @@ namespace Content.Server._DV.Silicons;
 
 public sealed class StationAiShopSystem : SharedStationAiShopSystem
 {
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SpreaderSystem _spreader = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private StoreSystem _store = default!;
+    [Dependency] private IMapManager _map = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SpreaderSystem _spreader = default!;
+    [Dependency] private PoweredLightSystem _poweredLight = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
 
     public override void Initialize()
     {

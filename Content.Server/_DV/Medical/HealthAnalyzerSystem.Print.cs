@@ -19,12 +19,12 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
 {
     private static readonly Regex TemplateInsert = new(@"\{([\w.]+)\}", RegexOptions.Compiled);
 
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly LabelSystem _label = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private LabelSystem _label = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     public void InitializeReportPrinting()
     {

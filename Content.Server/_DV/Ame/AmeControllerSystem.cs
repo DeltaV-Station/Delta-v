@@ -7,8 +7,8 @@ namespace Content.Server.Ame.EntitySystems;
 
 public sealed partial class AmeControllerSystem
 {
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private void AlertLowFuel(EntityUid uid, AmeControllerComponent controller, AmeFuelContainerComponent fuelJar)
     {

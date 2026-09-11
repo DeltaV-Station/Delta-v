@@ -5,7 +5,7 @@ namespace Content.Client._DV.Administration.Commands;
 
 public sealed class AdminOverlayCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly AdminSystem _admin = default!;
+    [Dependency] private AdminSystem _admin = default!;
     public override string Command => "adminoverlay";
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {

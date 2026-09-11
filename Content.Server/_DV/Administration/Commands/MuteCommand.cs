@@ -22,9 +22,9 @@ namespace Content.Server._DV.Administration.Commands;
 [AdminCommand(AdminFlags.Ban)]
 public sealed class MuteCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogs = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IAdminLogManager _adminLogs = default!;
 
     private static readonly string[] ChannelCompletionOptions = ["OOC", "LOOC", "DEADCHAT"];
     private static readonly string ChannelListText = string.Join(", ", ChannelCompletionOptions);

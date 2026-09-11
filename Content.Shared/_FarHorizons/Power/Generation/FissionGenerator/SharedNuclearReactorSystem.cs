@@ -10,11 +10,11 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 public abstract class SharedNuclearReactorSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private ItemSlotsSystem _slotsSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public override void Initialize()
     {

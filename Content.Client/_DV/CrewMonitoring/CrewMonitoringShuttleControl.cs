@@ -15,7 +15,7 @@ namespace Content.Client._DV.CrewMonitoring;
 
 public sealed class CrewMonitoringShuttleControl : BaseShuttleControl
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
 

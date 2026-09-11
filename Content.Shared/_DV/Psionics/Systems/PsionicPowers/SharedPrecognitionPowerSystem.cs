@@ -17,9 +17,9 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 /// </summary>
 public abstract class SharedPrecognitionPowerSystem : BasePsionicPowerSystem<PrecognitionPowerComponent, PrecognitionPowerActionEvent>
 {
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
-    [Dependency] protected readonly MovementModStatusSystem Movement = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected StatusEffectsSystem StatusEffects = default!;
+    [Dependency] protected MovementModStatusSystem Movement = default!;
 
     public static readonly EntProtoId PrecognitionSlowdown = "PrecognitionSlowdownStatusEffect";
 

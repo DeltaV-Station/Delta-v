@@ -8,8 +8,8 @@ namespace Content.Server.Revenant.EntitySystems;
 
 public sealed class BloodCrayonSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RevenantSystem _revenant = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RevenantSystem _revenant = default!;
 
     public override void Initialize()
     {

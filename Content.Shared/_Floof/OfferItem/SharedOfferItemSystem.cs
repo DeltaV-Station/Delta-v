@@ -23,13 +23,13 @@ namespace Content.Shared._Floof.OfferItem;
 
 public abstract partial class SharedOfferItemSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly CarryingSystem _carrying = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private CarryingSystem _carrying = default!;
+    [Dependency] private PullingSystem _pulling = default!;
 
     public override void Initialize()
     {

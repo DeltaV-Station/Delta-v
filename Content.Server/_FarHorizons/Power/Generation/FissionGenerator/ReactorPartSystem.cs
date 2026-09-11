@@ -22,13 +22,13 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class ReactorPartSystem : SharedReactorPartSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedRadiationSystem _radiationSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private SharedPointLightSystem _lightSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedRadiationSystem _radiationSystem = default!;
 
     /// <summary>
     /// Changes the overall rate of events

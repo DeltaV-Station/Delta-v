@@ -9,8 +9,8 @@ namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
 
     public bool TryRollPsionic(Entity<PotentialPsionicComponent> potPsionic, float multiplier = 1.0f)
     {

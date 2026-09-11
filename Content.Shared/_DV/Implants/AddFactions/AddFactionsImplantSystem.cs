@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Implants.AddFactions;
 
 public sealed class AddFactionsImplantSystem : EntitySystem
 {
-    [Dependency] private readonly NpcFactionSystem _npc = default!;
+    [Dependency] private NpcFactionSystem _npc = default!;
     public override void Initialize()
     {
         base.Initialize();

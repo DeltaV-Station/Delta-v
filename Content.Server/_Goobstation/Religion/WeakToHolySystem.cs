@@ -29,10 +29,10 @@ namespace Content.Server._Goobstation.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly GoobBibleSystem _goobBible = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private GoobBibleSystem _goobBible = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     private static readonly ProtoId<DamageContainerPrototype> DamageContainerId = "BiologicalMetaphysical"; // Delta V - Metaphysical Biological for Holy Damage
 

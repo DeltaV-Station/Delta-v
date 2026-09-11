@@ -10,11 +10,11 @@ namespace Content.Shared._DV.KeycardAuthenticationDevice;
 
 public abstract class SharedDVStationKeycardAuthenticationDeviceSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] protected readonly SharedStationSystem Station = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected SharedStationSystem Station = default!;
+    [Dependency] private SharedElectrocutionSystem _electrocution = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
 
     public override void Update(float frameTime)
     {

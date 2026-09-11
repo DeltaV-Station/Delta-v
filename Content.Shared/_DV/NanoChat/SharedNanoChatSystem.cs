@@ -9,7 +9,7 @@ namespace Content.Shared._DV.NanoChat;
 /// </summary>
 public abstract class SharedNanoChatSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

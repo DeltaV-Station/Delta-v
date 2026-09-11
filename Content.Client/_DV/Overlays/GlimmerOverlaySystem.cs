@@ -7,8 +7,8 @@ namespace Content.Client._DV.Overlays;
 
 public sealed partial class GlimmerOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private GlimmerOverlay _overlay = default!;
 

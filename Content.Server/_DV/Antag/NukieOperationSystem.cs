@@ -9,10 +9,10 @@ namespace Content.Server._DV.Antag;
 
 public sealed class NukieOperationSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ObjectivesSystem _objectives = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private ObjectivesSystem _objectives = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     public override void Initialize()
     {
         base.Initialize();

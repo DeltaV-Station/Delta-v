@@ -19,10 +19,10 @@ namespace Content.Client._DV.CosmicCult.UI.Monument;
 [GenerateTypedNameReferences]
 public sealed partial class MonumentMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private readonly SpriteSystem _sprite;
 

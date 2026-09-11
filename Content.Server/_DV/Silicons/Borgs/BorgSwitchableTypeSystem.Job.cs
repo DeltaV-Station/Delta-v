@@ -12,8 +12,8 @@ namespace Content.Server.Silicons.Borgs;
 /// </summary>
 public sealed partial class BorgSwitchableTypeSystem
 {
-    [Dependency] private readonly IBanManager _banMan = default!;
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
+    [Dependency] private IBanManager _banMan = default!;
+    [Dependency] private PlayTimeTrackingSystem _playTime = default!;
 
     protected override FormattedMessage? IsJobAllowed(ICommonSession session, JobPrototype job)
     {

@@ -15,7 +15,7 @@ namespace Content.Client._Goobstation.Factory;
 /// </summary>
 public sealed class RoboticArmAnimationSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void FrameUpdate(float frameTime)
     {

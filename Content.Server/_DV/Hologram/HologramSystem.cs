@@ -9,7 +9,7 @@ namespace Content.Server._DV.Hologram;
 
 public sealed class HologramSystem : SharedHologramSystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();

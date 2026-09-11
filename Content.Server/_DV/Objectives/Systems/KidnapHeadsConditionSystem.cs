@@ -11,10 +11,10 @@ namespace Content.Server._DV.Objectives.Systems;
 
 public sealed class KidnapHeadsConditionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly NumberObjectiveSystem _number = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
-    [Dependency] private readonly TargetSystem _target = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private NumberObjectiveSystem _number = default!;
+    [Dependency] private SharedCuffableSystem _cuffable = default!;
+    [Dependency] private TargetSystem _target = default!;
 
     public override void Initialize()
     {

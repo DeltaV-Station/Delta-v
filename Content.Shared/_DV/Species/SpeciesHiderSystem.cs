@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Species;
 
 public sealed partial class SpeciesHiderSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private static HashSet<string> _hiddenSpecies = [];
 

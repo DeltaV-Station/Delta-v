@@ -18,9 +18,9 @@ namespace Content.Server._DV.Station.Systems;
 
 public sealed class AutomaticSpareIdSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private bool _autoUnlock;
     private TimeSpan _alertDelay;

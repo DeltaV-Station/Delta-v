@@ -25,10 +25,10 @@ namespace Content.Server.Cargo.Systems;
 /// </summary>
 public sealed partial class CargoSystem
 {
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private ShuttleConsoleSystem _console = default!;
 
     public EntityUid? CargoMap;
 

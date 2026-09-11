@@ -20,15 +20,15 @@ namespace Content.Server._DV.Chapel;
 
 public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
 {
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
 
     public override void Initialize()
     {

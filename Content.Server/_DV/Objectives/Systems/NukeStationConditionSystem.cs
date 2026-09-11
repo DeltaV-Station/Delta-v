@@ -9,7 +9,7 @@ namespace Content.Server._DV.Objectives.Systems;
 
 public sealed class NukeStationConditionSystem : EntitySystem
 {
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
 
     public override void Initialize()
     {

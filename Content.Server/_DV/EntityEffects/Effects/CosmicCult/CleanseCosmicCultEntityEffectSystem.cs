@@ -10,7 +10,7 @@ namespace Content.Server._DV.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class CleanseCosmicCultEntityEffectSystem : EntityEffectSystem<TransformComponent, CleanseCosmicCult>
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private EntityManager _ent = default!;
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<CleanseCosmicCult> args)
     {
         if (_ent.HasComponent<CosmicCultComponent>(entity))

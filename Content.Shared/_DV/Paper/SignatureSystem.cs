@@ -13,11 +13,11 @@ namespace Content.Shared._DV.Paper;
 
 public sealed class SignatureSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     public static readonly ProtoId<TagPrototype> WriteTag = "Write";
 

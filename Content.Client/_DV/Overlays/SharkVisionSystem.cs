@@ -9,7 +9,7 @@ namespace Content.Client._Goobstation.Overlays;
 
 public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent>
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private SharkVisionOverlay _sharkOverlay = default!;
     private BaseSwitchableOverlay<SharkVisionComponent> _overlay = default!;

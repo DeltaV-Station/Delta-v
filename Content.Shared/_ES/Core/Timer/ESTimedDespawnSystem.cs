@@ -11,8 +11,8 @@ namespace Content.Shared._ES.Core.Timer;
 /// </summary>
 public sealed class ESTimedDespawnSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     private readonly HashSet<EntityUid> _toDelete = [];
 

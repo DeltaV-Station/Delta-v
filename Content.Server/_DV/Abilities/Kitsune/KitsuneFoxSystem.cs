@@ -8,7 +8,7 @@ namespace Content.Server._DV.Abilities.Kitsune;
 
 public sealed class KitsuneFoxSystem : EntitySystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     public override void Initialize()
     {

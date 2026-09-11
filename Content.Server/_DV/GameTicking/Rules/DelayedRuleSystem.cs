@@ -9,7 +9,7 @@ namespace Content.Server._DV.GameTicking.Rules;
 
 public sealed class DelayedRuleSystem : GameRuleSystem<DelayedRuleComponent>
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     protected override void Started(EntityUid uid, DelayedRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

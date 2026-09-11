@@ -18,13 +18,13 @@ namespace Content.Server._DV.Salvage.Systems;
 
 public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
 {
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private DungeonSystem _dungeon = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public static readonly EntProtoId SmokePrototype = "Smoke";
 

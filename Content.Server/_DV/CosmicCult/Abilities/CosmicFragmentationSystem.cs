@@ -18,13 +18,13 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicFragmentationSystem : EntitySystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly CosmicCultSystem _cult = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private CosmicCultSystem _cult = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private ActionsSystem _actions = default!;
 
     private ProtoId<RadioChannelPrototype> _cultRadio = "CosmicRadio";
 

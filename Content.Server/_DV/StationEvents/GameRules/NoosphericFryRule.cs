@@ -20,13 +20,13 @@ namespace Content.Server._DV.StationEvents.GameRules;
 /// </summary>
 internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleComponent>
 {
-    [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
-    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
-    [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private AnchorableSystem _anchorableSystem = default!;
+    [Dependency] private GlimmerSystem _glimmerSystem = default!;
+    [Dependency] private GlimmerReactiveSystem _glimmerReactiveSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     protected override void Started(EntityUid uid, NoosphericFryRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

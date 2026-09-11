@@ -20,9 +20,9 @@ namespace Content.Server._DV.NanoChat;
 /// </summary>
 public sealed class NanoChatSystem : SharedNanoChatSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly NameIdentifierSystem _name = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private NameIdentifierSystem _name = default!;
 
     private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "NanoChat";
 

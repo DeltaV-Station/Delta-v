@@ -18,15 +18,15 @@ namespace Content.Server._Impstation.Containers.AntiTamper;
 
 public sealed partial class AntiTamperSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly LockSystem _lockSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    // [Dependency] private readonly SharedEntityStorageSystem _entityStorageSystem = default!; // Delta V - Never used
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private LockSystem _lockSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    // [Dependency] private SharedEntityStorageSystem _entityStorageSystem = default!; // Delta V - Never used
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

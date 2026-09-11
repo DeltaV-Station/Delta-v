@@ -16,9 +16,9 @@ namespace Content.Server._DV.Footprints.Systems;
 /// </summary>
 public sealed class PuddleFootPrintsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedFlightSystem _flight = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedFlightSystem _flight = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     private EntityQuery<FlightComponent> _flightQuery;
 

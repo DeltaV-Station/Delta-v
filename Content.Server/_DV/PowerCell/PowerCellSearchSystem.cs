@@ -6,7 +6,7 @@ namespace Content.Server._DV.PowerCell;
 
 public sealed class PowerCellSearchSystem : EntitySystem
 {
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

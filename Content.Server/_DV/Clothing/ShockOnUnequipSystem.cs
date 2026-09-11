@@ -13,8 +13,8 @@ namespace Content.Server._DV.Clothing;
 /// </summary>
 public sealed class ShockOnUnequipSystem : SharedShockOnUnequipSystem
 {
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
 
     public override void Initialize()
     {

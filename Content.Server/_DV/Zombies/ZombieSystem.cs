@@ -21,8 +21,8 @@ public sealed partial class ZombieSystem
     //private static readonly string MindRoleInitialInfected = "MindRoleInitialInfected";
     private static readonly EntProtoId InitialInfectedFailureSurviveObjective = "InitialInfectedFailureSurviveObjective";
 
-    [Dependency] private readonly PsionicSystem _psionic = default!; // DeltaV
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // DeltaV - Prevent Jetpacks on Zombies
+    [Dependency] private PsionicSystem _psionic = default!; // DeltaV
+    [Dependency] private SharedJetpackSystem _jetpack = default!; // DeltaV - Prevent Jetpacks on Zombies
 
     private void InitializeDV()
     {

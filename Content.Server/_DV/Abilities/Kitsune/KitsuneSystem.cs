@@ -17,12 +17,12 @@ namespace Content.Server._DV.Abilities.Kitsune;
 
 public sealed class KitsuneSystem : SharedKitsuneSystem
 {
-    [Dependency] private readonly AccessReaderSystem _reader = default!;
-    [Dependency] private readonly AccessSystem _access = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AccessReaderSystem _reader = default!;
+    [Dependency] private AccessSystem _access = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

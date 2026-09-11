@@ -18,14 +18,14 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 /// </summary>
 public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : BasePsionicPowerComponent where T1 : BaseActionEvent
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly SharedActionsSystem Action = default!;
-    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly SharedPsionicSystem Psionic = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedActionsSystem Action = default!;
+    [Dependency] protected SharedDoAfterSystem DoAfter = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected SharedPsionicSystem Psionic = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

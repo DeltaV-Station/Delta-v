@@ -1,4 +1,4 @@
-﻿using Content.Shared._Harmony.Conspirators.Components;
+using Content.Shared._Harmony.Conspirators.Components;
 using Content.Shared._Harmony.Conspirators.EntitySystems;
 using Content.Shared.Antag;
 using Content.Shared.Ghost; // DeltaV
@@ -10,8 +10,8 @@ namespace Content.Client._Harmony.Conspirators.EntitySystems;
 
 public sealed class ConspiratorSystem : SharedConspiratorSystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {

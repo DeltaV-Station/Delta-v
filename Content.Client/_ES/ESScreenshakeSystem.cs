@@ -11,9 +11,9 @@ namespace Content.Client._ES;
 // DeltaV - Anything not marked DeltaV is Ephemeral Space code moved from SharedESScreenshakeSystem
 public sealed class ESScreenshakeSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!; // DeltaV
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedESScreenshakeSystem _shared = default!;
+    [Dependency] private IConfigurationManager _config = default!; // DeltaV
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedESScreenshakeSystem _shared = default!;
 
     private bool _disabled; // DeltaV
 

@@ -15,10 +15,10 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class NoosphericZapPowerSystem : SharedNoosphericZapPowerSystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private ElectrocutionSystem _electrocution = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

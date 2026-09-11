@@ -6,7 +6,7 @@ namespace Content.Client._DV.PDA;
 
 public sealed class ClientEventNotificationReceiverSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
 
     public override void Initialize()
     {

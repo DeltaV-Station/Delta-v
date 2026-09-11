@@ -21,13 +21,13 @@ namespace Content.Shared._Goobstation.Factory;
 
 public abstract class SharedInteractorSystem : EntitySystem
 {
-    // [Dependency] private readonly AutomationSystem _automation = default!; // Delta V - Never used
-    [Dependency] private readonly AutomationFilterSystem _filter = default!;
-    [Dependency] private readonly CollisionWakeSystem _wake = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] protected readonly StartableMachineSystem Machine = default!;
-    [Dependency] protected readonly SharedHandsSystem Hands = default!;
+    // [Dependency] private AutomationSystem _automation = default!; // Delta V - Never used
+    [Dependency] private AutomationFilterSystem _filter = default!;
+    [Dependency] private CollisionWakeSystem _wake = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] protected StartableMachineSystem Machine = default!;
+    [Dependency] protected SharedHandsSystem Hands = default!;
 
     private EntityQuery<ActiveDoAfterComponent> _doAfterQuery;
     private EntityQuery<HandsComponent> _handsQuery;

@@ -15,13 +15,13 @@ namespace Content.Server._DV.Communications;
 
 public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsoleSystem
 {
-    [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly StationExfiltrationSystem _stationExfiltration = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private StationExfiltrationSystem _stationExfiltration = default!;
 
     public override void Initialize()
     {

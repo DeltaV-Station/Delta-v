@@ -20,11 +20,11 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 /// </summary>
 public sealed class PsychokineticScreamPowerSystem : BasePsionicPowerSystem<PsychokineticScreamPowerComponent, PsychokineticScreamPowerActionEvent>
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPoweredLightSystem _light = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPoweredLightSystem _light = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     protected override void OnPowerUsed(Entity<PsychokineticScreamPowerComponent> psionic, ref PsychokineticScreamPowerActionEvent args)
     {

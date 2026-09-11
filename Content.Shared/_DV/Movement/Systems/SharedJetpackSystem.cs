@@ -7,8 +7,8 @@ namespace Content.Shared.Movement.Systems;
 
 public abstract partial class SharedJetpackSystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
 
     private void OnJetpackToggle(Entity<JetpackComponent> jetpack, ref ToggleJetpackEvent args)
     {

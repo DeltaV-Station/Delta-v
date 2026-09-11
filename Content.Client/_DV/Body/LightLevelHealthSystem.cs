@@ -8,10 +8,10 @@ namespace Content.Client._DV.Body;
 
 public sealed class LightLevelHealthSystem : SharedLightLevelHealthSystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly LightReactiveSystem _lightReactive = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private LightReactiveSystem _lightReactive = default!;
 
     private ProtoId<AlertPrototype> _lightLevelDarkIcon = "LightLevelDarkIcon";
     private ProtoId<AlertPrototype> _lightLevelNeutralIcon = "LightLevelNeutralIcon";

@@ -14,8 +14,8 @@ namespace Content.Client._DV.Traits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TraitEntry : PanelContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public event Action<bool>? OnToggled;
 

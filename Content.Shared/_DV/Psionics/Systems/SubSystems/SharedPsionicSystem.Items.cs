@@ -15,10 +15,10 @@ namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwapPowerSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private SharedMindSwapPowerSystem _mindSwapPowerSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     private void InitializeItems()
     {

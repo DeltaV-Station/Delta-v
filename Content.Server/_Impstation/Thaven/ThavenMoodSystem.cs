@@ -23,13 +23,13 @@ namespace Content.Server._Impstation.Thaven;
 
 public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly UserInterfaceSystem _bui = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private UserInterfaceSystem _bui = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
     private readonly List<ThavenMood> _sharedMoods = new();
