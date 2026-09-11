@@ -26,7 +26,6 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
