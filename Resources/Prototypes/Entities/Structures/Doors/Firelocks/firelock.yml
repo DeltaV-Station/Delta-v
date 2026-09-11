@@ -115,10 +115,10 @@
   - type: WiresVisuals
   - type: WiresPanel
     # DeltaV modifications - Revert fire-fighting door remote removal.
-    - type: Wires
-      boardName: wires-board-name-firelock
-      layoutId: FireLock
-      alwaysRandomize: true
+  - type: Wires
+    boardName: wires-board-name-firelock
+    layoutId: FireLock
+    alwaysRandomize: true
     # DeltaV - End of modifications.
   - type: UserInterface
     interfaces:

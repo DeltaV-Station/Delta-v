@@ -16,7 +16,7 @@ public sealed partial class RampingStationEventSchedulerSystem : GameRuleSystem<
     [Dependency] private EventManagerSystem _event = default!;
 #if DEBUG // DeltaV - Only used if built by Debug
     [Dependency] private GameTicker _gameTicker = default!;
-#
+#endif
     [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
     [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
 

@@ -151,7 +151,7 @@ public sealed partial class DumpableSystem : EntitySystem
 
         if (evt.PlaySound)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, user);
+            _audio.PlayPredicted(component.DumpSound, uid, args.User);
         }
     }
 }

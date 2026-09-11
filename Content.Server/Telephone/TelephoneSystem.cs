@@ -263,8 +263,8 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
         // Begin DeltaV - pagers
         _pageSender.Notify(receiver.Owner,
             Loc.GetString("pager-message-call",
-                ("name", callerInfo.Item1 ?? Loc.GetString("pager-message-unknown-caller")),
-                ("job", callerInfo.Item2 ?? Loc.GetString("pager-message-unknown-job"))));
+                ("name", callerInfo.CallerId ?? Loc.GetString("pager-message-unknown-caller")),
+                ("job", callerInfo.CallerJob ?? Loc.GetString("pager-message-unknown-job"))));
         // End DeltaV - pagers
 
         return true;

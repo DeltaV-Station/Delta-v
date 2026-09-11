@@ -32,6 +32,7 @@ namespace Content.Server.Access.Systems
         [Dependency] private ChameleonControllerSystem _chamController = default!;
         [Dependency] private LockSystem _lock = default!;
         [Dependency] private SharedJobStatusSystem _jobStatus = default!;
+        [Dependency] private SharedNanoChatSystem _nanoChat = default!; // DeltaV
 
         public override void Initialize()
         {

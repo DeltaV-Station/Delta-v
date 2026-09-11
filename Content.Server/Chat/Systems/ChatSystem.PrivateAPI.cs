@@ -7,6 +7,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared._DV.Chat; // DeltaV - chat enhancements
+using Content.Shared.Ghost; // DeltaV
 
 namespace Content.Server.Chat.Systems;
 
@@ -178,6 +180,7 @@ public sealed partial class ChatSystem
         string action,
         ChatTransmitRange range,
         string? nameOverride,
+        EmoteType? emoteType, // DeltaV
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
@@ -191,11 +194,21 @@ public sealed partial class ChatSystem
         var ent = Identity.Entity(source, EntityManager);
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
 
+        // Begin DeltaV
+        string wrappedMessage;
+
         // Emotes use Identity.Name, since it doesn't actually involve your voice at all.
-        var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
-            ("entityName", name),
-            ("entity", ent),
-            ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+        if (emoteType == EmoteType.Possessive) // DeltaV - Emote types now get checked.
+            wrappedMessage = Loc.GetString("chat-manager-entity-me-possessive-wrap-message",
+                ("entityName", name),
+                ("entity", ent),
+                ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+        else
+            wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+                ("entityName", name),
+                ("entity", ent),
+                ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+        // End DeltaV
 
         if (checkEmote &&
             !TryEmoteChatInput(source, action))
@@ -208,6 +221,125 @@ public sealed partial class ChatSystem
             else
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source}: {action}");
     }
+
+    // DeltaV - Added this to differentiate between emotes that can be heard over radio and those which can't.
+    protected override void SendAudibleEntityEmote(
+       EntityUid source,
+       string action,
+       ChatTransmitRange range,
+       string? nameOverride,
+       RadioChannelPrototype? channel,
+       EmoteType? emoteType,
+       bool hideLog = false,
+       bool checkEmote = true,
+       bool ignoreActionBlocker = false,
+       NetUserId? author = null
+       )
+    {
+        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+            return;
+
+        EmoteType type = emoteType ?? EmoteType.Audible;
+
+        // get the entity's apparent name (if no override provided).
+        var ent = Identity.Entity(source, EntityManager);
+        string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
+
+        string wrappedMessage;
+
+        // Audible emotes use Identity.Name, since that is the status quo. Emotes like scream doesn't currently reveal identities so this won't either. [This may be changed with feedback as you can audibly emote over radios]
+        if (emoteType == EmoteType.AudiblePossessive)
+            wrappedMessage = Loc.GetString("chat-manager-entity-me-audible-possessive-wrap-message",
+                ("entityName", name),
+                ("entity", ent),
+                ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+        else
+            wrappedMessage = Loc.GetString("chat-manager-entity-me-audible-wrap-message",
+                ("entityName", name),
+                ("entity", ent),
+                ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+
+        if (checkEmote &&
+            !TryEmoteChatInput(source, action))
+            return;
+
+        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
+
+        var ev = new EntityAudiblyEmotedEvent(source, action, channel, type);
+        RaiseLocalEvent(source, ref ev, true);
+        if (!hideLog)
+            if (name != Name(source))
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source} as {name}: {action}");
+            else
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source}: {action}");
+    }
+    // DeltaV - End
+
+    // Begin Mono Changes
+    private void SendEntityDirect(
+        EntityUid source,
+        string originalMessage,
+        ChatTransmitRange range,
+        string? nameOverride,
+        List<EntityUid> recipients,
+        bool hideLog = false,
+        bool ignoreActionBlocker = false)
+    {
+        var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage));
+        if (message.Length == 0)
+            return;
+
+        string name;
+        if (nameOverride != null)
+        {
+            name = nameOverride;
+        }
+        else
+        {
+            var nameEv = new TransformSpeakerNameEvent(source, Name(source));
+            RaiseLocalEvent(source, nameEv);
+            name = nameEv.VoiceName;
+        }
+        name = FormattedMessage.EscapeText(name);
+
+        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+            ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
+
+        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        {
+            EntityUid listener;
+
+            if (session.AttachedEntity is not { Valid: true } playerEntity)
+                continue;
+            listener = session.AttachedEntity.Value;
+
+            if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full ||
+                !recipients.Contains(listener) &&
+                !HasComp<GhostComponent>(listener))
+                continue;
+
+            _chatManager.ChatMessageToOne(ChatChannel.Local, message, wrappedMessage, source, false, session.Channel); // DeltaV - no collective mind chat channel, use local..?
+        }
+
+        if (!hideLog)
+            if (originalMessage == message)
+            {
+                if (name != Name(source))
+                    _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Direct messaged from {ToPrettyString(source):user} as {name}: {originalMessage}.");
+                else
+                    _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Direct messaged from {ToPrettyString(source):user}: {originalMessage}.");
+            }
+            else
+            {
+                if (name != Name(source))
+                    _adminLogger.Add(LogType.Chat, LogImpact.Low,
+                        $"Direct messaged from {ToPrettyString(source):user} as {name}, original: {originalMessage}, transformed: {message}.");
+                else
+                    _adminLogger.Add(LogType.Chat, LogImpact.Low,
+                        $"Direct messaged from {ToPrettyString(source):user}, original: {originalMessage}, transformed: {message}.");
+            }
+    }
+    // End Mono Changes
 
     // ReSharper disable once InconsistentNaming
     private void SendLOOC(EntityUid source, ICommonSession player, string message, bool hideChat)

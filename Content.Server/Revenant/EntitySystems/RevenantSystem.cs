@@ -54,7 +54,6 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!; // Imp
     [Dependency] private readonly MetaDataSystem _meta = default!; // Imp
     [Dependency] private readonly SharedActionsSystem _action = default!; // Imp
-    [Dependency] private readonly TurfSystem _turf = default!;
 
     private readonly EntProtoId _revenantHaunt = "ActionRevenantHaunt"; // Imp
 

@@ -15,8 +15,8 @@ namespace Content.Server._Goobstation.Disposals;
 
 public sealed class DisposalSignalSystem : EntitySystem
 {
-    [Dependency] private readonly DisposalUnitSystem _disposal = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private DisposalUnitSystem _disposal = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
 
     public static readonly ProtoId<SinkPortPrototype> FlushPort = "DisposalFlush";
     public static readonly ProtoId<SinkPortPrototype> EjectPort = "DisposalEject";
@@ -32,9 +32,9 @@ public sealed class DisposalSignalSystem : EntitySystem
     private void OnSignalReceived(Entity<DisposalUnitComponent> ent, ref SignalReceivedEvent args)
     {
         if (args.Port == FlushPort)
-            _disposal.ToggleEngage(ent, ent);
+            _disposal.ToggleEngage(ent);
         else if (args.Port == EjectPort)
-            _disposal.TryEjectContents(ent, ent);
+            _disposal.EjectContents(ent);
         else if (args.Port == TogglePort)
             _power.TogglePower(ent);
     }

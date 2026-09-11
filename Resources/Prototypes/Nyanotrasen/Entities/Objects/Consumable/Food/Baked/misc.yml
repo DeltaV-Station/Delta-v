@@ -39,9 +39,10 @@
       - vanilla
       - sweet
       - sublime
-  - type: SliceableFood
-    count: 5
-    slice: FoodMothMothmallowSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothMothmallowSlice
+      amount: 5
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/misc.rsi
     state: mothmallow

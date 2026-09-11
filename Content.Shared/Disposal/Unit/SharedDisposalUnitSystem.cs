@@ -57,7 +57,7 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private INetManager _net = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
+    [Dependency] private SharedDeviceLinkSystem _device = default!; // Goobstation
     public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
 
     public override void Initialize()
@@ -81,9 +81,13 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
         SubscribeLocalEvent<DisposalUnitComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, ContainerRelayMovementEntityEvent>(OnMovement);
-
+        SubscribeLocalEvent<DisposalUnitComponent, CanDropTargetEvent>(OnCanDragDropOn);
+        SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
         SubscribeLocalEvent<DisposalUnitComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
         SubscribeLocalEvent<DisposalUnitComponent, DumpEvent>(OnDump);
+
+        // See SharedDisposalUnitSystem.Visuals
+        SubscribeLocalEvent<DisposalUnitComponent, DisposalUnitUiButtonPressedMessage>(OnUiButtonPressed);
     }
 
     #region: Event handling
@@ -262,7 +266,7 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
         if (state == DisposalsPressureState.Ready)
         {
             ent.Comp.NextPressurized = TimeSpan.Zero;
-            _device.InvokePort(uid, ReadyPort); // Goobstation
+            _device.InvokePort(ent.Owner, ReadyPort); // Goobstation
         }
 
         RecalculateFlushTime(ent, true);
@@ -511,24 +515,5 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
     protected virtual void IntakeAir(Entity<DisposalUnitComponent> ent, TransformComponent xform)
     {
         // Handled by the server
-    }
-
-    private void OnGetDumpableVerb(Entity<DisposalUnitComponent> ent, ref GetDumpableVerbEvent args)
-    {
-        args.Verb = Loc.GetString("dump-disposal-verb-name", ("unit", ent));
-    }
-
-    private void OnDump(Entity<DisposalUnitComponent> ent, ref DumpEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        args.Handled = true;
-        args.PlaySound = true;
-
-        foreach (var entity in args.DumpQueue)
-        {
-            DoInsertDisposalUnit(ent, entity, args.User);
-        }
     }
 }

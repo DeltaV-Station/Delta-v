@@ -10,6 +10,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Speech.Components; // DeltaV
 
 namespace Content.Server.Chat.Systems;
 
@@ -191,6 +192,7 @@ public sealed partial class ChatSystem
         // TODO proper speech occlusion
 
         var recipients = new Dictionary<ICommonSession, ICChatRecipientData>();
+        var blockListening = GetEntityQuery<BlockListeningComponent>(); // DeltaV - block listening
 
         var transformSource = Transform(source);
         var sourceMapId = transformSource.MapID;
@@ -205,6 +207,11 @@ public sealed partial class ChatSystem
 
             if (transformEntity.MapID != sourceMapId)
                 continue;
+
+            // Begin DeltaV - block listening
+            if (blockListening.HasComponent(playerEntity))
+                continue;
+            // End DeltaV - block listening
 
             var observer = _ghostHearingQuery.HasComponent(playerEntity);
 

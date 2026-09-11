@@ -48,6 +48,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IServerDbManager _dbManager = default!;
         [Dependency] private PlayerRateLimitManager _rateLimit = default!;
         [Dependency] private IServerPreferencesManager _preferencesManager = default!; // Frontier
+        [Dependency] private IBanManager _banManager = default!; // Starlight
 
         [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")] // Frontier: support alt discords
         private static partial Regex DiscordRegex();

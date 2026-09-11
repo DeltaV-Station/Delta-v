@@ -9,9 +9,10 @@
       - potato
       - cabbage
       - rice
-  - type: SliceableFood
-    count: 6
-    slice: FoodMothBakedRicePortion
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothBakedRicePortion
+      amount: 6
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/meal.rsi
     state: bakedrice
@@ -69,9 +70,10 @@
     flavors:
       - cheesy
       - pasta
-  - type: SliceableFood
-    count: 6
-    slice: FoodMothGreenLasagneSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothGreenLasagneSlice
+      amount: 6
   - type: Edible
     trash:
     - FoodPlate

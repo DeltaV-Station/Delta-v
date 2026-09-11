@@ -31,6 +31,8 @@ public sealed partial class RadioSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
+    [Dependency] private GhostSystem _ghost = default!; // DeltaV
+    [Dependency] private IChatManager _chatManager = default!; // DeltaV
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();

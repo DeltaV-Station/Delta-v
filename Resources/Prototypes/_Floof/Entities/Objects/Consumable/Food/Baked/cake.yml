@@ -67,9 +67,10 @@
           Quantity: 36
         - ReagentId: Vitamin
           Quantity: 12
-  - type: SliceableFood
-    slice: FoodCakeTieredSlice
-    count: 12
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeTieredSlice
+      amount: 12
 
 - type: entity
   parent: FoodCakeTieredBase
@@ -104,9 +105,10 @@
           Quantity: 54
         - ReagentId: Vitamin
           Quantity: 18
-  - type: SliceableFood
-    slice: FoodCakeTieredSlice
-    count: 18
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeTieredSlice
+      amount: 18
 
 - type: entity
   name: slice of cake

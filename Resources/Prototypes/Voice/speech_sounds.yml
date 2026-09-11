@@ -199,11 +199,11 @@
 - type: speechSounds
   id: Vulpkanin
   saySound:
-    path: /Audio/Voice/Talk/vulp.ogg
+    path: /Audio/_DV/Voice/Talk/vulp.ogg # DeltaV
   askSound:
-    path: /Audio/Voice/Talk/vulp_ask.ogg
+    path: /Audio/_DV/Voice/Talk/vulp_ask.ogg # DeltaV
   exclaimSound:
-    path: /Audio/Voice/Talk/vulp_exclaim.ogg
+    path: /Audio/_DV/Voice/Talk/vulp_exclaim.ogg # DeltaV
 
 - type: speechSounds
   id: Wawa

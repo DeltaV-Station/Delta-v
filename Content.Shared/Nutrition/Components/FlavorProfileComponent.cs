@@ -12,7 +12,7 @@ public sealed partial class FlavorProfileComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField] // DV - Deep Fryers
-    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; } = new(); // DV remove setter
+    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; set; } = new();
 
     /// <summary>
     ///     Reagent IDs to ignore when processing this flavor profile. Defaults to nutriment.
