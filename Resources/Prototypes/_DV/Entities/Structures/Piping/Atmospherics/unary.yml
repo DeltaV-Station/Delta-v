@@ -32,7 +32,7 @@
   - type: Machine
     board: KitchenFreezerMachineCircuitBoard
 
-# Sauna heater, cant go above 373,15 K (100C)
+# Sauna heater, cant go above 363,15 K (90C)
 - type: entity
   parent: GasThermoMachineHeater
   id: GasThermoMachineSaunaHeater
