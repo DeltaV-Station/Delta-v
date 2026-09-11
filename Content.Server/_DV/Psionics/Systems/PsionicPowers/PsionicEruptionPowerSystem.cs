@@ -189,6 +189,6 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
             GlimmerTier.Critical => 3000,
             _ => 0
         };
-        _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 4, 75, psionic, maxTileBreak: 5);
+        _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 5, 75, psionic, maxTileBreak: 5);
     }
 }
