@@ -72,6 +72,7 @@
     listings:
     - UplinkAcidifierImplanterDAGD
     - UpinkMicrobombImplanterDAGD
+    - UplinkPsionicEruptionDAGD
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:BuyerWhitelistCondition
@@ -95,6 +96,7 @@
     listings:
     - UplinkUnrevivableImplanterDAGD
     - UpinkMicrobombImplanterDAGD
+    - UplinkPsionicEruptionDAGD
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:BuyerWhitelistCondition
@@ -118,6 +120,31 @@
     listings:
     - UplinkUnrevivableImplanterDAGD
     - UplinkAcidifierImplanterDAGD
+    - UpinkPsionicEruptionDAGD
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkPsionicEruptionDAGD
+  name: uplink-dagd-psionic-eruption-implanter-name
+  description: uplink-dagd-psionic-eruption-implanter-desc
+  icon: { sprite: _DV/Interface/Actions/actions_psionics.rsi, state: eruption }
+  productEntity: PsionicEruptionKitDADG
+  cost:
+    Telecrystal: 2 # Available for DAGD players but costs a bit
+  categories:
+  - UplinkObjectives
+  conditions:
+  - !type:ObjectiveUnlockCondition
+  - !type:XORBuyCondition # You can only buy one of these
+    listings:
+    - UplinkUnrevivableImplanterDAGD
+    - UplinkAcidifierImplanterDAGD
+    - UpinkMicrobombImplanterDAGD
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:BuyerWhitelistCondition

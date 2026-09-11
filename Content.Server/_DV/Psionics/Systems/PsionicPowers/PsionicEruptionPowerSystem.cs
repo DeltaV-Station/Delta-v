@@ -50,7 +50,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         if (!_player.TryGetSessionByEntity(power, out var session))
             return;
 
-        _eui.OpenEui(new EruptionWarningEui(), session);
+        // _eui.OpenEui(new EruptionWarningEui(), session); // It's DAGD-only now, no need for a warning. You know what will happen.
         power.Comp.NextAnnoy = Timing.CurTime + TimeSpan.FromSeconds(60); // Minute grace period
     }
 
@@ -181,14 +181,14 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
 
         int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
         {
-            GlimmerTier.Minimal => 2,
-            GlimmerTier.Low => 3,
-            GlimmerTier.Moderate => 4,
-            GlimmerTier.High => 8,
-            GlimmerTier.Dangerous => 12,
-            GlimmerTier.Critical => 32,
+            GlimmerTier.Minimal => 10,
+            GlimmerTier.Low => 30,
+            GlimmerTier.Moderate => 60,
+            GlimmerTier.High => 120,
+            GlimmerTier.Dangerous => 600,
+            GlimmerTier.Critical => 3000,
             _ => 0
         };
-        _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 1, 5, psionic, maxTileBreak: 0);
+        _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 4, 75, psionic, maxTileBreak: 5);
     }
 }
