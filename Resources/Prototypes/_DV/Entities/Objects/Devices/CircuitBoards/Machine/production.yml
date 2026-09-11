@@ -101,3 +101,25 @@
     stackRequirements:
       Manipulator: 4
       Cable: 5
+  - type: Construction
+    graph: ThermomachineBoard
+    deconstructionTarget: null
+    node: kitchenfreezer
+
+- type: entity
+  id: SaunaHeaterMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: sauna heater thermomachine machine board
+  description: Used to make a sauna heater thermomachine.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: GasThermoMachineKitchenFreezer
+    stackRequirements:
+      Manipulator: 4
+      Cable: 5
+  - type: Construction
+    graph: ThermomachineBoard
+    deconstructionTarget: null
+    node: saunaheater

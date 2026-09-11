@@ -4,7 +4,7 @@
         "x": 32,
         "y": 32
     },
-    "copyright": "Base sprites taken from tgstation, edited by Pharaz",
+    "copyright": "Base sprites taken from tgstation, edited by Pharaz. Heater sprites edited by EmberAstra.",
     "license": "CC-BY-SA-3.0",
     "states": [
         {
@@ -17,6 +17,32 @@
         },
         {
             "name": "freezerOn",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "heaterOff",
+            "directions": 1
+        },
+        {
+            "name": "heaterPanelOpen",
+            "directions": 1
+        },
+        {
+            "name": "heaterOn",
             "directions": 1,
             "delays": [
                 [
