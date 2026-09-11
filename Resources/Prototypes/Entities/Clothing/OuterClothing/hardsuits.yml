@@ -426,16 +426,18 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.4 #DeltaV was 0.5
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.6
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.6
+        Blunt: 0.65 # DeltaV was 0.8
+        Slash: 0.65 # DeltaV was 0.8
+        Piercing: 0.55 #DeltaV was 0.6
+        Heat: 0.4 #DeltaV was 0.5
+        Radiation: 0.4 #DeltaV was 0.5
+        Caustic: 0.5 #DeltaV was 0.6
+        Holy: 0.8 #DeltaV
+        Soul: 0.8 #DeltaV
   - type: DamageOnShootProtection # imp
     slots: OUTERCLOTHING
     damageProtection:
@@ -444,8 +446,8 @@
   - type: StaminaResistance # DeltaV
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.85 # DeltaV was 8
+    sprintModifier: 0.85 # DeltaV was 8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
