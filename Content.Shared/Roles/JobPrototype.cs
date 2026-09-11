@@ -81,9 +81,6 @@ namespace Content.Shared.Roles
         [DataField]
         public bool? OverrideConsoleVisibility { get; private set; } = null;
 
-        [DataField]
-        public bool CanBeAntag { get; private set; } = true;
-
         /// <summary>
         /// Nyano/DV: For e.g. prisoners, they'll never use their latejoin spawner.
         /// </summary>

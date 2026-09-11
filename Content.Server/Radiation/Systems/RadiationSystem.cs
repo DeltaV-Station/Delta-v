@@ -2,6 +2,7 @@ using Content.Server.Radiation.Components;
 using Content.Shared.Nutrition.EntitySystems; // DeltaV
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Events;
+using Content.Shared.Radiation.Systems;
 using Content.Shared.Stacks;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -9,7 +10,7 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server.Radiation.Systems;
 
-public sealed partial class RadiationSystem : EntitySystem
+public sealed partial class RadiationSystem : SharedRadiationSystem
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -18,10 +19,9 @@ public sealed partial class RadiationSystem : EntitySystem
     [Dependency] private readonly OpenableSystem _openable = default!; // DeltaV
     [Dependency] private readonly SharedMapSystem _maps = default!;
 
-    private EntityQuery<RadiationBlockingContainerComponent> _blockerQuery;
-    private EntityQuery<RadiationGridResistanceComponent> _resistanceQuery;
-    private EntityQuery<MapGridComponent> _gridQuery;
-    private EntityQuery<StackComponent> _stackQuery;
+    [Dependency] private readonly EntityQuery<RadiationBlockingContainerComponent> _blockerQuery = default!;
+    [Dependency] private readonly EntityQuery<RadiationGridResistanceComponent> _resistanceQuery = default!;
+    [Dependency] private readonly EntityQuery<MapGridComponent> _gridQuery = default!;
 
     private float _accumulator;
     private List<SourceData> _sources = new();
@@ -31,11 +31,6 @@ public sealed partial class RadiationSystem : EntitySystem
         base.Initialize();
         SubscribeCvars();
         InitRadBlocking();
-
-        _blockerQuery = GetEntityQuery<RadiationBlockingContainerComponent>();
-        _resistanceQuery = GetEntityQuery<RadiationGridResistanceComponent>();
-        _gridQuery = GetEntityQuery<MapGridComponent>();
-        _stackQuery = GetEntityQuery<StackComponent>();
     }
 
     public override void Update(float frameTime)

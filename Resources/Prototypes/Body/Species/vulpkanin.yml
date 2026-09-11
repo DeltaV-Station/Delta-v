@@ -61,6 +61,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceVulpkanin
+  categories: [ HideSpawnMenu ]
   name: vulpkanin appearance
   components:
   - type: InitialBody
@@ -180,17 +181,26 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
-    # DV - No jumps for Vulpy
-#  - type: JumpAbility
-#    action: ActionVulpkaninGravityJump
-#    canCollide: true
-#    jumpDistance: 3
-#    jumpSound:
-#      path: /Audio/Weapons/punchmiss.ogg
-#      params:
-#        pitch: 1.33
-#        volume: -5
-#        variation: 0.05
+  # DV - No jumps for Vulpy
+  # - type: JumpAbility
+  #   action: ActionVulpkaninGravityJump
+  #   canCollide: true
+  #   jumpDistance: 3
+  #   jumpSound:
+  #     path: /Audio/Weapons/punchmiss.ogg
+  #     params:
+  #       pitch: 1.33
+  #       volume: -5
+  #       variation: 0.05
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SulfurBlood
+        Quantity: 600
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_vulpkanin
 
 - type: entity
   parent: OrganBase
@@ -250,6 +260,12 @@
     dependentHidingLayers:
       enum.HumanoidVisualLayers.Snout:
       - enum.HumanoidVisualLayers.SnoutCover
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hair
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]

@@ -32,6 +32,7 @@
           Piercing: 1
           Heat: 1
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: ExaminableDamage
       messages: ShieldMessages
@@ -580,6 +581,7 @@
           Piercing: 1
     - type: Appearance
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: ExaminableDamage
       messages: EnergyShieldMessages

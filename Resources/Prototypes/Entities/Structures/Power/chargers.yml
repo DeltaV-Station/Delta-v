@@ -115,6 +115,9 @@
         blacklist:
           tags:
           - PotatoBattery
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
@@ -187,6 +190,9 @@
           tags:
           - PotatoBattery
           - GamblagatorCartridge # DeltaV - prevents recharging of superweapon cartridges
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
 
 - type: entity
   parent: BaseItemRecharger
@@ -217,6 +223,9 @@
           tags:
           - PotatoBattery
           - GamblagatorCartridge # DeltaV - Disallows recharging of superweapon
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
 
 - type: entity
   parent: [ BaseItemRecharger, BaseWallmount ]

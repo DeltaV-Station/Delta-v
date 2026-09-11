@@ -164,10 +164,10 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
         // This should maybe double check that the entity currently in the slot is actually the attached clothing, but
         // if its not, then something else has gone wrong already...
         if (component.Container != null && component.Container.ContainedEntity == null && component.ClothingUid != null)
-            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true, triggerHandContact: true); // DeltaV - Allow hats under toggleable helms
+            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.EquipTarget, component.Slot, force: true, triggerHandContact: true); // DeltaV - Allow hats under toggleable helms
 
         // DeltaV - If the toggleable helm was uneqipped, try to equip whats in the under clothing container
-        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.Equipee, component))
+        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.EquipTarget, component))
             TryDropUnderClothing(component);
     }
 

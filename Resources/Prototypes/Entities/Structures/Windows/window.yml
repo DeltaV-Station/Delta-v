@@ -40,8 +40,9 @@
         layer:
         - GlassLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
@@ -176,8 +177,9 @@
     doAfterDelay: 2 # DeltaV
     qualityNeeded: Welding
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable

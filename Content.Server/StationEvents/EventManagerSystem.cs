@@ -182,6 +182,9 @@ public sealed class EventManagerSystem : EntitySystem
 
         foreach (var eventid in selectedEvents)
         {
+            if (GameTicker.IsIgnored(eventid))
+                continue;
+
             if (!_prototype.Resolve(eventid, out var eventproto))
             {
                 Log.Warning("An event ID has no prototype index!");

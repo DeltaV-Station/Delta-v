@@ -7,17 +7,20 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Gibbing.Components;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Mind;
+using Content.Shared.Objectives.Systems;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed partial class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComponent> // DeltaV - made partial
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SuitSensorSystem _sensor = default!;
+    [Dependency] private readonly TargetSystem _target = default!;
 
     public override void Initialize()
     {

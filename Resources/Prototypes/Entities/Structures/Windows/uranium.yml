@@ -10,8 +10,9 @@
     sprite: _DV/Structures/Windows/uranium_window.rsi #Delta V - Resprite windows
     state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

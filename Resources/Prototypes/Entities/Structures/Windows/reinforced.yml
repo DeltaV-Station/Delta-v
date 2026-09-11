@@ -13,8 +13,9 @@
     doAfterDelay: 2
     qualityNeeded: Welding # DeltaV
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     cost: 6
     delay: 6

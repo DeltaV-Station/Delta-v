@@ -135,7 +135,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         string newFullName,
         string newJobTitle,
         List<ProtoId<AccessLevelPrototype>> newAccessList,
-        ProtoId<JobPrototype> newJobProto,
+        ProtoId<JobPrototype>? newJobProto,
         EntityUid player,
         IdCardConsoleComponent? component = null)
     {
@@ -158,10 +158,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-        // DeltaV - Don't throw server errors if job is an empty string
-        JobPrototype? jobProto = null;
-        if (!string.IsNullOrEmpty(newJobProto)
-            && _prototype.Resolve(newJobProto, out var job)
+        if (_prototype.TryIndex(newJobProto, out var job)
             && _prototype.Resolve(job.Icon, out var jobIcon))
         {
             jobProto = job;
@@ -171,7 +168,6 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         }
 
         UpdateStationRecord(uid, targetId, newFullName, newJobTitle, jobProto);
-        // END DeltaV
 
         if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
