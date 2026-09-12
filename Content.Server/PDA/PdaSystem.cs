@@ -7,10 +7,6 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
-using Content.Server.RoundEnd; // DeltaV - PDA Evac Status
-using Content.Server.Shuttles.Systems; // DeltaV - PDA Evac Status
-using Content.Server._DV.Shuttles.Events; // DeltaV - PDA Evac Status
-using Content.Server.Shuttles.Events; // DeltaV - PDA Evac Status
 using Content.Shared._DV.CCVars; // DeltaV - PDA date
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
@@ -34,7 +30,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.PDA
 {
-    public sealed class PdaSystem : SharedPdaSystem
+    public sealed partial class PdaSystem : SharedPdaSystem
     {
         [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
         [Dependency] private readonly InstrumentSystem _instrument = default!;
@@ -47,9 +43,6 @@ namespace Content.Server.PDA
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
         [Dependency] private readonly IConfigurationManager _config = default!; // DeltaV
-
-        [Dependency] private readonly RoundEndSystem _roundEnd = default!; // DeltaV - PDA Evac Status
-        [Dependency] private readonly EmergencyShuttleSystem _evacShuttle = default!; // DeltaV - PDA Evac Status
 
         private static DateTime ServerDate; // DeltaV - PDA
 
@@ -76,9 +69,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnRelayedEventToIdCard);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnRelayedEventToIdCard);
 
-            SubscribeLocalEvent<RoundEndSystemChangedEvent>(OnRoundEndChanged); // DeltaV - PDA Evac Status
-            SubscribeLocalEvent<EvacShuttleDockedEvent>(OnShuttleDockedEvent); // DeltaV - PDA Evac Status
-            SubscribeLocalEvent<EmergencyShuttleAuthorizedEvent>(OnShuttleEarlyLaunch); // DeltaV - PDA Evac Status
+            InitializeExtras(); // DeltaV
 
             // Begin DeltaV additions
             Subs.CVar(_config,
@@ -169,42 +160,6 @@ namespace Content.Server.PDA
         {
             UpdateAllPdaUisOnStation();
         }
-
-        // Begin DeltaV - PDA Evac Status
-        private void OnRoundEndChanged(RoundEndSystemChangedEvent ev)
-        {
-            // When we get a change to the round end state, update all PDAs with new shuttle evac time
-            // ExpectedCountdownEnd can be null which means no shuttle is coming (it was recalled)
-            var query = AllEntityQuery<PdaComponent>();
-            while (query.MoveNext(out var ent, out var comp))
-            {
-                comp.EvacArrivalTime = _roundEnd.ExpectedCountdownEnd;
-                UpdatePdaUi(ent, comp);
-            }
-        }
-
-        private void OnShuttleDockedEvent(EvacShuttleDockedEvent ev)
-        {
-            // Whenever the evac shuttle docks with the station, update all PDAs with the departure time
-            var query = AllEntityQuery<PdaComponent>();
-            while (query.MoveNext(out var ent, out var comp))
-            {
-                comp.EvacDepartureTime = _evacShuttle.EvacShuttleDepartureTime;
-                UpdatePdaUi(ent, comp);
-            }
-        }
-
-        private void OnShuttleEarlyLaunch(EmergencyShuttleAuthorizedEvent ev)
-        {
-            // If evac early launch is activated, update the departure time
-            var query = AllEntityQuery<PdaComponent>();
-            while (query.MoveNext(out var ent, out var comp))
-            {
-                comp.EvacDepartureTime = _evacShuttle.EvacShuttleDepartureTime;
-                UpdatePdaUi(ent, comp);
-            }
-        }
-        // End DeltaV - PDA Evac Status
 
         private void UpdateAllPdaUisOnStation()
         {
