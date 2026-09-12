@@ -13,6 +13,7 @@
             <cc:CommandButton Command="aghost" Text="{Loc admin-player-actions-window-admin-ghost}" />
             <cc:CommandButton Command="permissions" Text="{Loc admin-player-actions-window-permissions}" />
             <cc:CommandButton Command="announceui" Text="{Loc admin-player-actions-window-announce}"/>
+            <!-- Delta V: custom shuttle call menu -->
             <cc:UICommandButton Command="callshuttle" Text="{Loc admin-player-actions-window-shuttle}" WindowType="{x:Type dv:DVAdminShuttleWindow}"/>
             <cc:CommandButton Command="adminlogs" Text="{Loc admin-player-actions-window-admin-logs}"/>
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>

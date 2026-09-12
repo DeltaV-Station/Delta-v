@@ -8,7 +8,7 @@
             <Control HorizontalExpand="True" SizeFlagsStretchRatio="1"/>
             <CheckBox Name="_callShuttleRecallable" Text="{Loc 'admin-shuttle-recallable'}" HorizontalExpand="True" SizeFlagsStretchRatio="4" Pressed="True"/>
         </BoxContainer>
-        <cc:CommandButton Command="callshuttle 4:00 False" Name="_callShuttleButton" Text="{Loc 'comms-console-menu-call-shuttle'}" HorizontalAlignment="Center"/>
+        <Button Name="_callShuttleButton" Text="{Loc 'comms-console-menu-call-shuttle'}" HorizontalAlignment="Center"/>
         <cc:CommandButton Command="recallshuttle" Name="_recallShuttleButton" Text="{Loc 'comms-console-menu-recall-shuttle'}" HorizontalAlignment="Center"/>
     </BoxContainer>
 </DefaultWindow>
