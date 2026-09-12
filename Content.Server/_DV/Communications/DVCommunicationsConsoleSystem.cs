@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Server._DV.Station.Components;
 using Content.Server._DV.Station.Systems;
 using Content.Server.AlertLevel;
@@ -11,7 +10,7 @@ using Content.Shared.Database;
 using Content.Shared.Station;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
-using Timer = Robust.Shared.Timing.Timer;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Communications;
 
@@ -24,8 +23,9 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly StationExfiltrationSystem _stationExfiltration = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private CancellationTokenSource? _thresholdUpdateTokenSource;
+    private TimeSpan? _expectedTurningPoint = null;
 
     public override void Initialize()
     {
@@ -35,6 +35,25 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
         SubscribeLocalEvent<StationExfiltrationChangedEvent>(OnExfiltrationChanged);
         SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
     }
+
+     public override void Update(float frameTime)
+     {
+        base.Update(frameTime);
+
+        if (_expectedTurningPoint is not { } expectedTurningPoint)
+            return;
+
+        if (_timing.CurTime >= expectedTurningPoint)
+        {
+            _expectedTurningPoint = null;
+            var query = EntityQueryEnumerator<DVCommunicationsConsoleComponent>();
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                comp.ShuttlesCallable = ShuttlesCallable();
+                Dirty(uid, comp);
+            }
+        }
+     }
 
     private void OnAlertLevelChanged(AlertLevelChangedEvent ev)
     {
@@ -66,7 +85,7 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
         }
     }
 
-    private void OnRoundEndChanged(RoundEndSystemChangedEvent? ev)
+    private void OnRoundEndChanged(RoundEndSystemChangedEvent ev)
     {
         var query = EntityQueryEnumerator<DVCommunicationsConsoleComponent>();
         while (query.MoveNext(out var uid, out var comp))
@@ -78,20 +97,16 @@ public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsol
         }
 
         var recallThreshold = _configuration.GetCVar(CCVars.EmergencyRecallTurningPoint);
+        _expectedTurningPoint = null;
 
-        _thresholdUpdateTokenSource?.Cancel();
-
-        // Queue up the next update for ShuttleCallable (necessary for the recall threshold)
-        if (ev is { } && _roundEnd.ShuttleTimeLeft is { } left && _roundEnd.ExpectedShuttleLength is { } expected) {
-            var shuttleCutoffExpected = expected.TotalSeconds * recallThreshold;
-            var shuttleCutoff = left.TotalSeconds - shuttleCutoffExpected;
-            if (shuttleCutoff > 0) {
-                _thresholdUpdateTokenSource = new CancellationTokenSource();
-                Timer.Spawn(TimeSpan.FromSeconds(shuttleCutoff), () =>
-                {
-                    OnRoundEndChanged(null);
-                }, _thresholdUpdateTokenSource.Token);
-            }
+        // Is the shuttle called?
+        if (_roundEnd.LastCountdownStart is { } start && _roundEnd.ExpectedShuttleLength is { } expected)
+        {
+            // Check if the point of no return has not yet been reached
+            TimeSpan expectedTurningPoint = start + (expected * recallThreshold);
+            if (_timing.CurTime < expectedTurningPoint)
+                // If it has not been reached, we set the expected turning point to be used in the Update() method
+                _expectedTurningPoint = expectedTurningPoint;
         }
     }
 
