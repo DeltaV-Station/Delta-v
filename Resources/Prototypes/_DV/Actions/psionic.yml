@@ -213,3 +213,19 @@
     useDelay: 60
   - type: InstantAction
     event: !type:PsychokineticScreamPowerActionEvent
+
+- type: entity
+  parent: BasePsionicAction
+  id: ActionAltruisticHemomancy
+  name: Coagulate
+  description: Command your blood to heal another alive being, exchanging your own crimson essence. Command it unto the dead to revert their rot, but it'll cost ya..
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics_small.rsi
+      state: altruistic_hemomancy
+    useDelay: 45
+  - type: TargetAction
+    range: 1
+  - type: EntityTargetAction
+    event: !type:AltruisticHemomancyPowerActionEvent

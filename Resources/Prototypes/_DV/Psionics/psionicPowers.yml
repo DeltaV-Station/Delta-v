@@ -1,4 +1,4 @@
-# Table
+# Tables
 - type: entityTable
   id: PsionicPowerTable
   table: !type:GroupSelector
@@ -13,10 +13,41 @@
       weight: 1
     - id: TelegnosisPowerEntity
       weight: 1
-    - id: MassSleepPowerEntity
-      weight: 0.3
     - id: MetapsionicPulsePowerEntity
       weight: 0.5
+    - id: AltruisticHemomancyPowerEntity
+      weight: 0.3
+    - id: MassSleepPowerEntity
+      weight: 0.3
+    - id: NoosphericZapPowerEntity
+      weight: 0.3
+    - id: MindSwapPowerEntity
+      weight: 0.15
+    #- id: PsionicEruptionPowerEntity
+    # weight: 0.1
+
+- type: entityTable
+  id: ChaplainPowerTable # Sadly, we need to copy the entire thing just to change one value.
+  table: !type:GroupSelector
+    children:
+    - id: AltruisticHemomancyPowerEntity
+      weight: 3 # Ten times the chance to gain this healing power as a chaplain.
+    - id: DispelPowerEntity
+      weight: 1
+    - id: PrecognitionPowerEntity
+      weight: 1
+    - id: PsionicRegenerationPowerEntity
+      weight: 1
+    - id: PsychokineticScreamPowerEntity
+      weight: 1
+    - id: TelegnosisPowerEntity
+      weight: 1
+    - id: MetapsionicPulsePowerEntity
+      weight: 0.5
+    - id: FracturedFormPowerEntity
+      weight: 0.3
+    - id: MassSleepPowerEntity
+      weight: 0.3
     - id: NoosphericZapPowerEntity
       weight: 0.3
     - id: MindSwapPowerEntity
@@ -84,3 +115,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TelegnosisPower
+
+- type: entity
+  id: AltruisticHemomancyPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AltruisticHemomancyPower
