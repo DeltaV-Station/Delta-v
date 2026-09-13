@@ -12,8 +12,8 @@ namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
 public sealed class StockTradingCartridgeSystem : EntitySystem
 {
-    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {

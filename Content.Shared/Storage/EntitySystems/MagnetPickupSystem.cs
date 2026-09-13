@@ -1,3 +1,4 @@
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle; // DeltaV
 using Content.Shared.Storage.Components;
@@ -10,24 +11,25 @@ namespace Content.Shared.Storage.EntitySystems;
 /// <summary>
 /// <see cref="MagnetPickupComponent"/>
 /// </summary>
-public sealed class MagnetPickupSystem : EntitySystem
+public sealed partial class MagnetPickupSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!; // DeltaV
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!; // DeltaV
 
+    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
-    private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
     }
 
@@ -53,21 +55,27 @@ public sealed class MagnetPickupSystem : EntitySystem
             // Begin DeltaV Addition: Make ore bags use ItemToggle
             if (!_toggle.IsActivated(uid))
                 continue;
+            var parentUid = xform.ParentUid;
             // End DeltaV Addition
 
             // Begin DeltaV Removals: Allow ore bags to work inhand
-            //if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
-            //    continue;
+            // if (comp.RequireActiveHand && (!_hands.TryGetActiveItem(parentUid, out var activeItem) || activeItem != uid))
+            //     continue;
 
-            //if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
-            //    continue;
+            // if (comp.SlotFlags != null)
+            // {
+            //     if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+            //         continue;
+
+            //     if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
+            //         continue;
+            // }
             // End DeltaV Removals
 
             // No space
             if (!_storage.HasSpace((uid, storage)))
                 continue;
 
-            var parentUid = xform.ParentUid;
             var playedSound = false;
             var finalCoords = xform.Coordinates;
             var moverCoords = _transform.GetMoverCoordinates(uid, xform);

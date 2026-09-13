@@ -38,31 +38,31 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly AlertLevelSystem _alert = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
-    [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MonumentSystem _monument = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private AlertLevelSystem _alert = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private CosmicCorruptingSystem _corrupting = default!;
+    [Dependency] private CosmicCultRuleSystem _cultRule = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private MonumentSystem _monument = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private AmbientSoundSystem _ambient = default!;
+    [Dependency] private SharedPointLightSystem _lights = default!;
 
     private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
 
@@ -171,17 +171,17 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #region Equipment Pickup
     private void OnGotCosmicItemEquipped(Entity<CosmicEquipmentComponent> ent, ref GotEquippedEvent args)
     {
-        if (!EntityIsCultist(args.Equipee))
+        if (!EntityIsCultist(args.EquipTarget))
         {
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.Equipee, EntropicDegen, TimeSpan.FromDays(1), true); // TimeSpan.MaxValue causes a crash here, so we use FromDays(1) instead.
-            if (TryComp<CosmicEntropyDebuffComponent>(args.Equipee, out var comp)) comp.Degen = new(){DamageDict = new(){{"Cold", 0.5}, {"Asphyxiation", 1.5}}};
+            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(args.EquipTarget, EntropicDegen, TimeSpan.FromDays(1), true); // TimeSpan.MaxValue causes a crash here, so we use FromDays(1) instead.
+            if (TryComp<CosmicEntropyDebuffComponent>(args.EquipTarget, out var comp)) comp.Degen = new(){DamageDict = new(){{"Cold", 0.5}, {"Asphyxiation", 1.5}}};
         }
     }
 
     private void OnGotCosmicItemUnequipped(Entity<CosmicEquipmentComponent> ent, ref GotUnequippedEvent args)
     {
-        if (!EntityIsCultist(args.Equipee))
-            _statusEffects.TryRemoveStatusEffect(args.Equipee, EntropicDegen);
+        if (!EntityIsCultist(args.EquipTarget))
+            _statusEffects.TryRemoveStatusEffect(args.EquipTarget, EntropicDegen);
     }
     private void OnGotHeld(Entity<CosmicEquipmentComponent> ent, ref GotEquippedHandEvent args)
     {
@@ -201,20 +201,20 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnGotSpeechOverrideEquipped(Entity<SpeechOverrideComponent> ent, ref GotEquippedEvent args)
     {
-        if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.EquipTarget, out var vocalComp)) return;
         ent.Comp.StoredIDs = vocalComp.Sounds;
         vocalComp.Sounds = overrides;
         var ev = new SoundsChangedEvent();
-        RaiseLocalEvent(args.Equipee, ref ev);
+        RaiseLocalEvent(args.EquipTarget, ref ev);
     }
 
     private void OnGotSpeechOverrideUnequipped(Entity<SpeechOverrideComponent> ent, ref GotUnequippedEvent args)
     {
-        if (ent.Comp.StoredIDs is not { } stored || !TryComp<VocalComponent>(args.Equipee, out var vocalComp)) return;
+        if (ent.Comp.StoredIDs is not { } stored || !TryComp<VocalComponent>(args.EquipTarget, out var vocalComp)) return;
         ent.Comp.StoredIDs = null;
         vocalComp.Sounds = stored;
         var ev = new SoundsChangedEvent();
-        RaiseLocalEvent(args.Equipee, ref ev);
+        RaiseLocalEvent(args.EquipTarget, ref ev);
     }
     #endregion
 

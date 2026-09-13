@@ -9,7 +9,7 @@ namespace Content.Client._DV.Waddle;
 
 public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
 
     public override void Initialize()
     {

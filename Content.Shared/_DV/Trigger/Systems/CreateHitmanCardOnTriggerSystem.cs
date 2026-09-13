@@ -6,8 +6,8 @@ namespace Content.Shared._DV.Trigger.Systems;
 
 public sealed class CreateHitmanCardOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

@@ -11,7 +11,7 @@ namespace Content.Server._DV.EntityEffects.Effects.Psionics;
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class RemovePsionicAbilitiesEntityEffectSystem : EntityEffectSystem<PsionicComponent, RemovePsionicAbilities>
 {
-    [Dependency] private readonly PsionicSystem _psionicSystem = default!;
+    [Dependency] private PsionicSystem _psionicSystem = default!;
 
     protected override void Effect(Entity<PsionicComponent> psionic, ref EntityEffectEvent<RemovePsionicAbilities> args)
     {

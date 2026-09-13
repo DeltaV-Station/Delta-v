@@ -1,4 +1,5 @@
 using Content.Shared.Damage; // DeltaV
+using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -68,23 +69,20 @@ namespace Content.Server.Dragon
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
         /// <summary>
-        /// DeltaV: Damage dealt to dragon on death
-        /// So we dont just delete it
-        /// </summary>
-        [DataField]
-        public DamageSpecifier DeathDamage = new()
-        {
-            DamageDict = new()
-            {
-                { "Blunt", 400 },
-            },
-        };
-
-        /// <summary>
         /// DeltaV: Stops the halftime popup from displaying 1000 times
         /// </summary>
         [DataField]
         public bool HalftimePopupShown;
 
+        /// The smoke to spawn upon rift timeout death.
+        /// </summary>
+        [DataField]
+        public EntProtoId SmokePrototype = "BloodSmoke";
+
+        /// <summary>
+        /// The solution to place into the smoke (mostly just needed for color)
+        /// </summary>
+        [DataField]
+        public Solution SmokeSolution = new ([new("Blood", 1)]);
     }
 }

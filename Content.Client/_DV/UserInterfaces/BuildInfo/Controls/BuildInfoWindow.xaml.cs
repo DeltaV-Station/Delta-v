@@ -9,7 +9,7 @@ namespace Content.Client._DV.UserInterfaces.BuildInfo.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class BuildInfoWindow : DefaultWindow
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     public BuildInfoWindow()
     {

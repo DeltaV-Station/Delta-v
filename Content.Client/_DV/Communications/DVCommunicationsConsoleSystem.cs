@@ -5,7 +5,7 @@ namespace Content.Client._DV.Communications;
 
 public sealed class DVCommunicationsConsoleSystem : SharedDVCommunicationsConsoleSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
 
     public override void Initialize()
     {

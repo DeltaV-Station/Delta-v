@@ -20,11 +20,11 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
 
     public override void Initialize()
     {

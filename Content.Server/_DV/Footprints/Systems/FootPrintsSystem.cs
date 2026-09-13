@@ -14,13 +14,13 @@ namespace Content.Server._DV.Footprints.Systems;
 // TODO: If upstream ever adds prediction to SharedDecalSystem, move this to Shared and implement footprint prediction
 public sealed partial class FootPrintsSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly DecalSystem _decalSystem = default!;
-    [Dependency] private readonly SharedFlightSystem _flight = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private IMapManager _map = default!;
+    [Dependency] private DecalSystem _decalSystem = default!;
+    [Dependency] private SharedFlightSystem _flight = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     private EntityQuery<FlightComponent> _flightQuery;
     private EntityQuery<TransformComponent> _transformQuery;

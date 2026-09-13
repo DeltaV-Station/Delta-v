@@ -10,8 +10,8 @@ namespace Content.Server._DV.Screens;
 
 public sealed class DVScreenSystem : DVSharedScreenSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStationSystem _station = default!;
 
     public override void Initialize()
     {

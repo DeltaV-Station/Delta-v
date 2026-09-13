@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Clothing.EntitySystems;
 
 public sealed class SpecialisedClothingSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     private readonly LocId _defaultReason = "specialized-clothing-default-failure";
 

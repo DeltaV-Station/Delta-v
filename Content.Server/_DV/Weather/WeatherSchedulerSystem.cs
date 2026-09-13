@@ -10,10 +10,10 @@ namespace Content.Server._DV.Weather;
 
 public sealed class WeatherSchedulerSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
 
     public override void Update(float frameTime)
     {

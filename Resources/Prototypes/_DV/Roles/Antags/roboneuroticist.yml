@@ -10,6 +10,31 @@
     role: JobRoboticist
     time: 2h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: RoboNeuroticist
+  spawnerPrototype: SpawnPointGhostRoboNeuroticist
+  pickPlayer: false
+  startingGear: RoboNeuroticistGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesHologram
+    - NamesMilitaryLast
+    nameFormat: name-format-standard
+  - type: EmitSoundOnSpawn # evil sound
+    sound: /Audio/Ambience/Antag/emagged_borg.ogg
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    keepGender: true
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  mindRoles:
+  - MindRoleRoboNeuroticist
+
 - type: startingGear
   id: RoboNeuroticistGear
   equipment:

@@ -14,8 +14,8 @@ public sealed class ChangeStocksPriceCommand : IConsoleCommand
     public string Description => Loc.GetString("cmd-changestocksprice-desc");
     public string Help => Loc.GetString("cmd-changestocksprice-help", ("command", Command));
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -80,8 +80,8 @@ public sealed class AddStocksCompanyCommand : IConsoleCommand
     public string Description => Loc.GetString("cmd-addstockscompany-desc");
     public string Help => Loc.GetString("cmd-addstockscompany-help", ("command", Command));
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {

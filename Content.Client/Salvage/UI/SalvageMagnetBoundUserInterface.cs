@@ -9,12 +9,12 @@ using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Salvage.UI;
 
-public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
+public sealed partial class SalvageMagnetBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _player = default!; // DeltaV
 
-    private readonly MiningPointsSystem _points; // DeltaV
+    private MiningPointsSystem _points; // DeltaV
 
     private OfferingWindow? _window;
 

@@ -8,7 +8,7 @@ namespace Content.Client._DV.UserInterfaces.BuildInfo.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class BuildInfoRow : BoxContainer
 {
-    [Dependency] private readonly IClipboardManager _clipboard = default!;
+    [Dependency] private IClipboardManager _clipboard = default!;
 
     public string? LabelText
     {

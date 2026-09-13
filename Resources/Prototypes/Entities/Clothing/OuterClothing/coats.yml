@@ -130,8 +130,20 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
 
+# DeltaV Begin - Removed for some reason?
+# - type: entity
+#   parent: ClothingOuterCoatJensen
+#   id: ClothingOuterCoatJensenSyndie
+#   suffix: Syndie
+#   components:
+#   - type: EntityTableContainerFill
+#     containers:
+#       storagebase:
+#         id: SyndieHandyFlag
+# DeltaV End
+
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageEdible
   id: ClothingOuterCoatTrench
   name: trench coat
   description: A comfy trench coat.
@@ -147,15 +159,6 @@
     modifiers:
       coefficients:
         Slash: 0.95
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 20
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -356,7 +359,7 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterClownPriest
-  name: robes of the honkmother
+  name: honkmother coat
   description: Meant for a clown of the cloth.
   components:
   - type: Sprite

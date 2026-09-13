@@ -16,9 +16,9 @@ namespace Content.Server._Mono.CorticalBorer;
 
 public sealed class CorticalBorerInfestedSystem : EntitySystem
 {
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly CorticalBorerSystem _borer = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private CorticalBorerSystem _borer = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

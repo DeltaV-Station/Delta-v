@@ -12,8 +12,8 @@ namespace Content.Client._ES.Sprite;
 /// </summary>
 public sealed class ESTimedDespawnSpriteFadeSystem : VisualizerSystem<ESTimedDespawnSpriteFadeComponent>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
 
     private const string FadeTrack = "es-sprite-fade";
 

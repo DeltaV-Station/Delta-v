@@ -12,7 +12,7 @@ namespace Content.Client._DV.Screens;
 [UsedImplicitly]
 public sealed class DVTextRenderingOverlay : Overlay
 {
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
     private readonly SpriteSystem _sprite;
     private readonly AnimationPlayerSystem _animationPlayer;
 

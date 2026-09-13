@@ -42,7 +42,7 @@ public sealed class DoExtCommand : ToolshedCommand
     /// </summary>
     private static readonly Regex TokenRegex = new(@"\$(\w+)", RegexOptions.Compiled);
 
-    [Dependency] private readonly IConsoleHost _console = default!;
+    [Dependency] private IConsoleHost _console = default!;
 
     private SharedTransformSystem? _xform;
 

@@ -5,7 +5,7 @@ namespace Content.Client._DV.NetworkConfigurator;
 
 public sealed class ToggleNetworkLinksCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
 
     public override string Command => "togglenetworklinks";
     public override string Description => Loc.GetString("cmd-togglenetworklinks-desc");

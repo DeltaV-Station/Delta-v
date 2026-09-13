@@ -2,7 +2,7 @@ namespace Content.Shared._DV.Screens;
 
 public abstract class DVSharedScreenSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     protected void UpdateVisuals(Entity<DVScreenComponent> ent)
     {

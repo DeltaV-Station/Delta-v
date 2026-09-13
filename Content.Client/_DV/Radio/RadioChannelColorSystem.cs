@@ -7,8 +7,8 @@ namespace Content.Client._DV.Radio;
 
 public sealed partial class RadioChannelColorSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     // Feels like there should be a better way to do this but I'd rather not add a client-side cvar ID or reference
     // to a prototype in Content.Shared, since I don't want people thinking they can ever use it on the server-side.

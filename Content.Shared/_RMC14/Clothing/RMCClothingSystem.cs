@@ -12,8 +12,8 @@ namespace Content.Shared._RMC14.Clothing;
 
 public sealed class RMCClothingSystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSystem _clothing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private ClothingSystem _clothing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

@@ -61,6 +61,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceVulpkanin
+  categories: [ HideSpawnMenu ]
   name: vulpkanin appearance
   components:
   - type: InitialBody
@@ -150,6 +151,8 @@
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
     allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl', 'Yip' ] # DeltaV - Added Yip Emote
+  - type: TypingIndicator
+    proto: vulpkanin
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
@@ -180,20 +183,29 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
-    # DV - No jumps for Vulpy
-#  - type: JumpAbility
-#    action: ActionVulpkaninGravityJump
-#    canCollide: true
-#    jumpDistance: 3
-#    jumpSound:
-#      path: /Audio/Weapons/punchmiss.ogg
-#      params:
-#        pitch: 1.33
-#        volume: -5
-#        variation: 0.05
+  # DV - No jumps for Vulpy
+  # - type: JumpAbility
+  #   action: ActionVulpkaninGravityJump
+  #   canCollide: true
+  #   jumpDistance: 3
+  #   jumpSound:
+  #     path: /Audio/Weapons/punchmiss.ogg
+  #     params:
+  #       pitch: 1.33
+  #       volume: -5
+  #       variation: 0.05
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SulfurBlood
+        Quantity: 600
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_vulpkanin
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganVulpkanin
   abstract: true
   suffix: vulpkanin
@@ -250,6 +262,12 @@
     dependentHidingLayers:
       enum.HumanoidVisualLayers.Snout:
       - enum.HumanoidVisualLayers.SnoutCover
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hair
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]

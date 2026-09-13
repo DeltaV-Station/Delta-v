@@ -90,12 +90,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 500
       behaviors:
       - !type:PlaySoundBehavior
@@ -122,8 +116,9 @@
     doAfterDelay: 3
     qualityNeeded: Welding
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -186,12 +181,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 500
       behaviors:
       - !type:PlaySoundBehavior
@@ -218,5 +207,6 @@
     doAfterDelay: 3
     qualityNeeded: Welding
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic

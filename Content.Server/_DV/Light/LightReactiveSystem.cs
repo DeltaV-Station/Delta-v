@@ -5,7 +5,7 @@ namespace Content.Server._DV.Light;
 
 public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
     private EntityQuery<PointLightComponent> _lightQuery = default!;
 
     public override void Initialize()

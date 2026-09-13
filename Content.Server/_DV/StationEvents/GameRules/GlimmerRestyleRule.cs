@@ -22,12 +22,12 @@ namespace Content.Server._DV.StationEvents.Events;
 
 public sealed class GlimmerRestyleRule : StationEventSystem<GlimmerRestyleRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly MarkingManager _markingManager = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
-    [Dependency] private readonly VisualBodySystem _visualBodySystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private MarkingManager _markingManager = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPsionicSystem _psionic = default!;
+    [Dependency] private VisualBodySystem _visualBodySystem = default!;
 
     protected override void Started(EntityUid uid, GlimmerRestyleRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

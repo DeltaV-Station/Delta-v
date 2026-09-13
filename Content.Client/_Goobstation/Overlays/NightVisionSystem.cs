@@ -16,8 +16,8 @@ namespace Content.Client._Goobstation.Overlays;
 
 public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly ILightManager _lightManager = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private ILightManager _lightManager = default!;
 
     private BaseSwitchableOverlay<NightVisionComponent> _overlay = default!;
 

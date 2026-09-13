@@ -15,3 +15,31 @@
   - !type:DepartmentTimeRequirement
     department: Command
     time: 11.1h
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: SyndicateListener
+  spawnerPrototype: SpawnPointGhostSyndicateListener
+  pickPlayer: false
+  startingGear: SyndicateListenerGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    keepGender: true
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDeathCommando
+  - type: AutoImplant
+    implants:
+    - DeathAcidifierImplant
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+  mindRoles:
+  - MindRoleListeningPost

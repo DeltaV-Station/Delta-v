@@ -4,15 +4,17 @@ using Content.Shared.Database;
 using Content.Shared.Mind;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.Objectives.Systems;
 
 namespace Content.Server._DV.CustomObjectiveSummary;
 
 public sealed class CustomObjectiveSummarySystem : EntitySystem
 {
-    [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private IServerNetManager _net = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private TargetSystem _target = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
 
     public override void Initialize()
     {
@@ -39,7 +41,7 @@ public sealed class CustomObjectiveSummarySystem : EntitySystem
 
     private void OnEvacShuttleLeft(EvacShuttleLeftEvent args)
     {
-        var allMinds = _mind.GetAliveHumans();
+        var allMinds = _target.GetAliveHumans();
 
         foreach (var mind in allMinds)
         {

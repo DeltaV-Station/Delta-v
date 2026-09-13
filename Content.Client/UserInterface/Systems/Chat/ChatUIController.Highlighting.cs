@@ -17,6 +17,7 @@ namespace Content.Client.UserInterface.Systems.Chat;
 /// </summary>
 public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSystem>
 {
+    // [Dependency] private ILocalizationManager _loc = default!; // DeltaV - Usage commented out
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
 
     private static readonly Regex StartDoubleQuote = new("\"$");

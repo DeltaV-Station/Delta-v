@@ -12,11 +12,11 @@ namespace Content.Shared._Starlight.Inventory;
 
 public sealed class SwitchableEquipModeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     private readonly Dictionary<EquipMode, string> _equipModeLocaleMapping = new() {
         { EquipMode.Remove, "equipmode-mode-remove" },

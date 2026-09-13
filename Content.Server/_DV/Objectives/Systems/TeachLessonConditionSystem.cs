@@ -11,7 +11,7 @@ namespace Content.Server._DV.Objectives.Systems;
 /// </summary>
 public sealed class TeachLessonConditionSystem : EntitySystem
 {
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
 
     public override void Initialize()
     {

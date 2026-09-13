@@ -10,7 +10,7 @@ namespace Content.Client._DV.Body;
 /// </summary>
 public sealed class FeatherVisualizer : VisualizerSystem<FeatherComponent>
 {
-    [Dependency] private readonly ClothingSystem _clothing = default!;
+    [Dependency] private ClothingSystem _clothing = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, FeatherComponent component, ref AppearanceChangeEvent args)
     {

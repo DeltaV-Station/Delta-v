@@ -6,8 +6,8 @@ namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedVisibilitySystem _visibility = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedVisibilitySystem _visibility = default!;
 
     private void InitializeInvisibility()
     {

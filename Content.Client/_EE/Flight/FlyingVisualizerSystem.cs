@@ -10,7 +10,7 @@ namespace Content.Client._EE.Flight;
 /// </summary>
 public sealed class FlyingVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
     public override void Initialize()
     {
         base.Initialize();

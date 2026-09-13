@@ -14,9 +14,9 @@ namespace Content.Server._DV.Recruiter;
 /// </summary>
 public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
 {
-    [Dependency] private readonly ForensicsSystem _forensics = default!;
-    [Dependency] private readonly SolutionTransferSystem _transfer = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private ForensicsSystem _forensics = default!;
+    [Dependency] private SolutionTransferSystem _transfer = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     protected override void DrawBlood(EntityUid uid, Entity<SolutionComponent> dest, EntityUid user)
     {

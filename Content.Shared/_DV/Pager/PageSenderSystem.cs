@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Pager;
 
 public sealed class PageSenderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private SharedDeviceNetworkSystem _deviceNetwork = default!;
 
     public override void Initialize()
     {

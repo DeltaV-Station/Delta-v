@@ -14,8 +14,8 @@ namespace Content.Client._DV.Traits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TraitsTab : BoxContainer
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     /// <summary>
     /// Event fired when trait selection changes.

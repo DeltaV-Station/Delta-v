@@ -7,7 +7,7 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class DispelPowerSystem : SharedDispelPowerSystem
 {
-    [Dependency] private readonly GuardianSystem _guardian = default!;
+    [Dependency] private GuardianSystem _guardian = default!;
 
     public override void Initialize()
     {

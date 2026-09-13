@@ -15,8 +15,8 @@ namespace Content.Server.Silicons.Borgs;
 /// </summary>
 public sealed partial class BorgSwitchableTypeSystem
 {
-    [Dependency] private readonly SlavedBorgSystem _slavedBorg = default!;
-    [Dependency] private readonly SiliconLawSystem _law = default!;
+    [Dependency] private SlavedBorgSystem _slavedBorg = default!;
+    [Dependency] private SiliconLawSystem _law = default!;
 
     private void ConfigureLawset(EntityUid uid, ProtoId<SiliconLawsetPrototype> id)
     {

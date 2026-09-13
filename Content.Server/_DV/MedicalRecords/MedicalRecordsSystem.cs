@@ -11,10 +11,10 @@ namespace Content.Server._DV.MedicalRecords;
 
 public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private IdCardSystem _idCard = default!;
     private static readonly TimeSpan ExpirationTime = TimeSpan.FromMinutes(5);
 
     public override void Initialize()
