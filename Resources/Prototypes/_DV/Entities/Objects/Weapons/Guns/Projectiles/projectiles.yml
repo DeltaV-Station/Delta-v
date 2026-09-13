@@ -204,3 +204,22 @@
       color: lightgreen
   - type: TimedDespawn
     lifetime: 0.08
+
+- type: entity
+  name : paralyzer bolt
+  id: ParalyzerBolt
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 200
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+  - type: HitscanTemperature
+    heatChange: -1000000
