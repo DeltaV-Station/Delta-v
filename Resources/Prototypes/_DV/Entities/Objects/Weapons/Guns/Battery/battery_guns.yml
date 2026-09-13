@@ -695,3 +695,58 @@
           tags:
           - PowerCell
           - PowerCellSmall
+
+- type: entity
+  name: EPU-U001 Integrity
+  parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
+  id: WeaponUniqueGunIntegrity
+  description: Heavy, foreboding, ominous, and unforgiving are all words you might describe this unit of a sidearm with. It's a little heavier than the average laser style pistol, but has better weight distribution than usual. Most believe it's a custom made Pulse-pattern pistol, using a technology kept so secret in Corporate documents, that there's not even rumors about it. The weapon is engraved in a few places, along the front cover it reads "EPU-U001", and the grip has a slightly worn but well kept  real terra gold 'T' engraved. The only part of its history you can know for sure, is that it's one-of-a-kind, and specially designed for an unassuming Central Commander, known for his undying loyalty, and integrity. You really should return this, because if you're caught with it, it surely won't end well... How did you get your hands on it anyway?
+  suffix: Admeme
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/uniquegun_integrity.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: -2,-5
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/uniquegun_integrity.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 2.5
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: BatteryAmmoProvider
+    proto: Pulse
+    fireCost: 250
+  - type: EnergyGun
+    fireModes:
+    - proto: Pulse
+      fireCost: 250
+      name: lethal
+    - proto: ParalyzerBolt
+      fireCost: 1850
+      name: paralyze
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 150
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
+    - ConcealCarry
