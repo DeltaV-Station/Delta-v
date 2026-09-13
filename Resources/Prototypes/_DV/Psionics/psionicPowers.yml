@@ -19,8 +19,6 @@
       weight: 0.5
     - id: NoosphericZapPowerEntity
       weight: 0.3
-    - id: MindSwapPowerEntity
-      weight: 0.15
     #- id: PsionicEruptionPowerEntity
     #  weight: 0.1
 
@@ -66,12 +64,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: NoosphericZapPower
-
-- type: entity
-  id: MindSwapPowerEntity
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: MindSwapPower
 
 - type: entity
   id: PsionicRegenerationPowerEntity

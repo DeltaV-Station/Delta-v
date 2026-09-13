@@ -9,8 +9,6 @@ using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Mech.Components;
 using Content.Shared.Medical.Cryogenics;
-using Content.Shared.Mindshield.Components;
-using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 
 namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
@@ -18,7 +16,7 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
+    [Dependency] private readonly PsionicSystem _psionic = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
@@ -32,17 +30,10 @@ public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
     // The logic for transferring minds is server-side only. If we don't put this here, it'll look bad for the person.
     protected override void OnPowerUsed(Entity<TelegnosisPowerComponent> psionic, ref TelegnosisPowerActionEvent args)
     {
-        // TODO: Fix this. MindSwapSystem cannot handle popups when called from serverside while the performer is the cause.
-        if (HasComp<MindShieldComponent>(psionic))
-        {
-            Popup.PopupEntity(Loc.GetString("psionic-power-mindswap-own-mindshield"), psionic, psionic, PopupType.SmallCaution);
-            return;
-        }
-
         var projection = Spawn(psionic.Comp.Prototype, Transform(psionic).Coordinates);
 
         _transform.AttachToGridOrMap(projection);
-        if (!_mindSwap.SwapMinds(args.Performer, projection))
+        if (!_psionic.SwapMinds(args.Performer, projection))
         {
             // If swap didn't work out, delete the spawned projection.
             QueueDel(projection);
