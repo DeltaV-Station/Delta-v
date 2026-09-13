@@ -9,4 +9,11 @@ namespace Content.Shared.Body;
 /// <seealso cref="GibbingSystem" />
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(GibbableOrganSystem))]
-public sealed partial class GibbableOrganComponent : Component;
+public sealed partial class GibbableOrganComponent : Component
+{
+    /// <summary>
+    /// DeltaV - whether the organ will become a giblet
+    /// </summary>
+    [DataField]
+    public bool Active = true;
+}

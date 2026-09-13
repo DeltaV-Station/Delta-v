@@ -1,0 +1,188 @@
+- type: entity
+  abstract: true
+  id: DVDionaMixin
+  components:
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Rootsong
+  - type: ActiveRadio
+    channels:
+    - Rootsong
+  - type: TypingIndicator
+    proto: diona
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Speech
+    speechVerb: Plant
+    speechSounds: Alto
+    allowedEmotes: ['Chirp']
+  - type: Vocal
+    sounds:
+      Male: UnisexDiona
+      Female: UnisexDiona
+      Unsexed: UnisexDiona
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: Nymph
+  - type: LightReactive # DeltaV
+    manual: true
+  - type: LightLevelHealth # DeltaV
+    darkThreshold: 0.4
+    lightThreshold: 1.2
+    darkDamage:
+      types:
+        Heat: 1.0
+    lightDamage:
+      types:
+        Blunt: -0.1
+        Piercing: -0.1
+        Slash: -0.1
+        Heat: -0.1
+        Poison: -0.1
+        Asphyxiation: -0.1
+    darkMovementSpeedMultiplier: 0.7
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganDionaBrain
+        - id: OrganDionaLungs
+        - id: OrganDionaStomach
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 60
+
+- type: entity
+  parent: [DVDionaMixin, BaseMobAnimal, SimpleMobBase, StripableInventoryBase, DVNodeCrawler]
+  id: DVMobDionaNymph
+  name: diona nymph
+  description: It's a little skittery critter. Chirp.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: nymph
+    - state: eyes_nymph
+      shader: unshaded
+  - type: DVNymphLead
+  - type: DVNymphFollower
+  - type: DVNymphProfile
+  - type: DVGestaltMember
+  - type: DVNymphMindMemory
+  - type: HTN
+    rootTask:
+      task: DVNymphCompound
+    blackboard:
+      IdleRange: !type:Single
+        2.5
+      FollowCloseRange: !type:Single
+        1.0
+      FollowRange: !type:Single
+        2.0
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    slots:
+    - HEAD
+    - NECK
+  - type: Item
+    size: Normal
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 100 # High, because wood is heavy.
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: cat
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: nymph
+      Critical:
+        Base: nymph_sleep
+      Dead:
+        Base: nymph_dead
+  - type: Butcherable
+    spawned:
+    - id: MaterialWoodPlank1
+      amount: 2
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-nymph
+    interactFailureString: petting-failure-nymph
+    interactSuccessSound:
+      path: /Audio/Animals/nymph_chirp.ogg
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Critical
+      60: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: ActionGrant
+    actions:
+    - DVDionaAssimilateAction
+
+- type: entity
+  parent: [DVDionaMixin, BaseMobAnimal, SimpleMobBase]
+  id: DVMobDionaGestalt
+  name: nascent diona gestalt
+  description: A heaving mass of nymphs. Chirp?
+  components:
+  - type: DVGestalt
+  - type: ComplexInteraction
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.0
+    baseSprintSpeed : 1.0
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/Mobs/Species/Diona/gestalt.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: gestalt
+    - state: eyes_gestalt
+      shader: unshaded
+  - type: ActionGrant
+    actions:
+    - DVDionaAssimilateAction
+    - DVDionaGibAction
+    - DVDionaReformAction
+
+
+- type: entity
+  id: DVDionaNymphDeferredSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - DVMobDionaNymph
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 2
