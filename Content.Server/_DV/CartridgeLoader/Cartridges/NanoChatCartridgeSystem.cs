@@ -676,7 +676,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
     private void OnUiReady(Entity<NanoChatCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
-        _cartridge.RegisterBackgroundProgram(args.Loader, ent);
         UpdateUI(ent, args.Loader);
     }
 

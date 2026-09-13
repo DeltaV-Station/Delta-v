@@ -197,14 +197,14 @@ public sealed class ShadekinSystem : EntitySystem
     {
         if (state == ShadekinState.Dark)
         {
-            var nightVisionComponent = EnsureComp<NightVisionComponent>(uid);
+            var nightVisionComponent = EnsureComp<GoobNightVisionComponent>(uid);
             nightVisionComponent.Color =  Color.FromHex("#808080"); // Delta V - Change Night Vision Color
         }
         else
         {
-            if (TryComp<NightVisionComponent>(uid, out var nightVision) &&  nightVision.IsActive)
+            if (TryComp<GoobNightVisionComponent>(uid, out var nightVision) &&  nightVision.IsActive)
                 _flashSystem.Flash(uid, uid, uid, TimeSpan.FromSeconds(0.5 * (int)state), 0.5f);
-            RemComp<NightVisionComponent>(uid);
+            RemComp<GoobNightVisionComponent>(uid);
         }
     }
 
@@ -256,7 +256,7 @@ public sealed class ShadekinSystem : EntitySystem
 
     private void OnShadekinFlashed(EntityUid uid, ShadekinComponent comp, AfterFlashedEvent ev)
     {
-        RemComp<NightVisionComponent>(uid);
+        RemComp<GoobNightVisionComponent>(uid);
     }
     // Delta V - End
 

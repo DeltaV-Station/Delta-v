@@ -108,6 +108,6 @@ public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent>
         }
 
         // Night vision overlay is prioritized
-        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>();
+        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<GoobNightVisionComponent>>();
     }
 }

@@ -780,7 +780,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
 
         var adminPrefixWebhook = string.Empty;
 
-        if (_config.GetCVar(CCVars.AhelpAdminPrefixWebhook) && senderAdmin is not null && senderAdmin.Title is not null)
+        if (_config.GetCVar(CCVars.AhelpAdminPrefix) && senderAdmin is not null && senderAdmin.Title is not null)
         {
             adminPrefixWebhook = $"[bold]\\[{senderAdmin.Title}\\][/bold] ";
         }

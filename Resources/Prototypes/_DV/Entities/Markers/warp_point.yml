@@ -10,7 +10,7 @@
 # Off station
 - type: entity
   id: WarpPointEvacShuttle
-  parent: GhostWarpPoint
+  parent: BaseStationBeacon
   suffix: Evac Shuttle
   components:
   - type: WarpPoint
@@ -18,7 +18,7 @@
 
 - type: entity
   id: WarpPointShuttle
-  parent: GhostWarpPoint
+  parent: BaseStationBeacon
   suffix: Shuttle
   components:
   - type: WarpPoint
@@ -26,7 +26,7 @@
 
 - type: entity
   id: WarpPointDebris
-  parent: GhostWarpPoint
+  parent: BaseStationBeacon
   suffix: Space Debris
   components:
   - type: WarpPoint
@@ -34,7 +34,7 @@
 
 - type: entity
   id: WarpPointRuin
-  parent: GhostWarpPoint
+  parent: BaseStationBeacon
   suffix: Space Ruin
   components:
   - type: WarpPoint

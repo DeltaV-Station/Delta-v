@@ -434,7 +434,7 @@ namespace Content.Server.Construction
                     args.SenderSession);
         }
 
-/// <summary>
+        /// <summary>
         /// Goobstation - Taken out of HandleStartStructureConstruction
         /// Changed to return false and only send the ack event to the user.
         /// </summary>
@@ -446,7 +446,7 @@ namespace Content.Server.Construction
             ICommonSession? senderSession = null)
         {
             // </Goobstation>
-            if (!ProtoMan.TryIndex(ev.PrototypeName, out ConstructionPrototype? constructionPrototype))
+            if (!ProtoMan.TryIndex(prototypeName, out ConstructionPrototype? constructionPrototype))
             {
                 Log.Error($"Tried to start construction of invalid recipe '{prototypeName}'!");
                 RaiseNetworkEvent(new AckStructureConstructionMessage(ack), user);

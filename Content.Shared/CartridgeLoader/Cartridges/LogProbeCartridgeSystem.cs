@@ -47,7 +47,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         if (TryComp<NanoChatCardComponent>(target, out var nanoChatCard))
         {
             ScanNanoChatCard(ent, args, target, nanoChatCard);
-            args.InteractEvent.Handled = true;
+            args.Args.Handled = true;
             return;
         }
         // DeltaV end

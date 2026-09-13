@@ -12,6 +12,7 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
+using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;

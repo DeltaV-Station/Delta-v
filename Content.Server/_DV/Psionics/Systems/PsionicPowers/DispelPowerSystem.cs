@@ -1,5 +1,6 @@
 using Content.Server.Bible.Components;
-using Content.Server.Guardian;
+using Content.Shared.Guardian;
+using Content.Shared.Guardian.Components;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
@@ -19,8 +20,8 @@ public sealed class DispelPowerSystem : SharedDispelPowerSystem
 
     private void OnGuardianDispelled(Entity<GuardianComponent> guardian, ref DispelledEvent args)
     {
-        if (TryComp<GuardianHostComponent>(guardian.Comp.Host, out var host))
-            _guardian.ToggleGuardian(guardian.Comp.Host.Value, host);
+        if (guardian.Comp.Host is { } hostUid && TryComp<GuardianHostComponent>(hostUid, out var host))
+            _guardian.ToggleGuardian((hostUid, host));
 
         DealDispelDamage(guardian, dispeller: args.Dispeller);
         args.Handled = true;

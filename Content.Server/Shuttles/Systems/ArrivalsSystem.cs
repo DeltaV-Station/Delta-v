@@ -345,7 +345,7 @@ public sealed partial class ArrivalsSystem : EntitySystem
             return;
 
         // Begin DeltaV - some jobs may not use arrivals
-        if (ev.Job is { } jobId && _protoManager.Index(ev.Job).AlwaysUseSpawner)
+        if (ev.Job is { } jobId && ProtoMan.Index(ev.Job).AlwaysUseSpawner)
             return;
         // End DeltaV
 

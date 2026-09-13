@@ -165,7 +165,7 @@ public sealed partial class GuardianSystem : EntitySystem
         args.Args.Cancelled = true;
     }
 
-    private void ToggleGuardian(Entity<GuardianHostComponent> ent)
+    public void ToggleGuardian(Entity<GuardianHostComponent> ent) // DeltaV: Make public
     {
         if (!TryComp<GuardianComponent>(ent.Comp.HostedGuardian, out var guardianComponent))
             return;

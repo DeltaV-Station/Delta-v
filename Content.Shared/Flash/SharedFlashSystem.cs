@@ -233,7 +233,7 @@ public abstract partial class SharedFlashSystem : EntitySystem
         // Goobstation end
 
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-        if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration * multiplier, true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection. Added Flashduration Multiplier
+        if (!_statusEffectsSystem.TryAddStatusEffectDuration(target, FlashedKey, flashDuration * multiplier) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection. Added Flashduration Multiplier
             return;
 
         if (stunDuration != null)

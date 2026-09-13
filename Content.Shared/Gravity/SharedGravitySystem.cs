@@ -83,7 +83,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
             return (false, false);
 
         if (_flight.IsFlying(entity.Owner)) // DeltaV - Harpy Flight
-            return true;
+            return (true, false);
 
         // Check if something other than the grid or map is overriding our gravity
         var ev = new IsWeightlessEvent();

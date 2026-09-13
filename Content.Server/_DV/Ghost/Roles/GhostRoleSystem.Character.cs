@@ -12,6 +12,7 @@ namespace Content.Server.Ghost.Roles
     public sealed partial class GhostRoleSystem
     {
         [Dependency] private IServerPreferencesManager _prefs = default!;
+        [Dependency] private EntityManager _ent = default!;
         [Dependency] private OutfitSystem _outfit = default!;
 
         private void OnSpawnerTakeCharacter(Entity<GhostRoleCharacterSpawnerComponent> ent,

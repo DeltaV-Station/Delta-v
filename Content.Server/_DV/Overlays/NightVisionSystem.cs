@@ -11,10 +11,10 @@ public sealed partial class NightVisionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NightVisionComponent, FlashAttemptEvent>(OnFlashAttempt);
+        SubscribeLocalEvent<GoobNightVisionComponent, FlashAttemptEvent>(OnFlashAttempt);
     }
 
-    private void OnFlashAttempt(Entity<NightVisionComponent> ent, ref FlashAttemptEvent args)
+    private void OnFlashAttempt(Entity<GoobNightVisionComponent> ent, ref FlashAttemptEvent args)
     {
         if (!ent.Comp.IsActive)
             return;

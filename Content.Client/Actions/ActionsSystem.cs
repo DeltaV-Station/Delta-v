@@ -346,7 +346,7 @@ namespace Content.Client.Actions
                 else if (map.TryGet<ValueDataNode>("entity", out var entityNode))
                 {
                     var id = new EntProtoId(entityNode.Value);
-                    var proto = _proto.Index(id);
+                    var proto = ProtoMan.Index(id);
                     actionId = Spawn(MappingEntityAction);
                     SetIcon(actionId, new SpriteSpecifier.EntityPrototype(id));
                     SetEvent(actionId, new StartPlacementActionEvent()
@@ -359,7 +359,7 @@ namespace Content.Client.Actions
                 else if (map.TryGet<ValueDataNode>("tileId", out var tileNode))
                 {
                     var id = new ProtoId<ContentTileDefinition>(tileNode.Value);
-                    var proto = _proto.Index(id);
+                    var proto = ProtoMan.Index(id);
                     actionId = Spawn(MappingEntityAction);
                     if (proto.Sprite is {} sprite)
                         SetIcon(actionId, new SpriteSpecifier.Texture(sprite));

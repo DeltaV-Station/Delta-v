@@ -830,7 +830,7 @@ namespace Content.Server.Administration.Systems
             var playSound = (senderAdmin == null || message.PlaySound) && !message.AdminOnly;
             var msg = new BwoinkTextMessage(message.UserId, senderId, bwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
 
-            LogBwoink(msg);
+            // LogBwoink(msg);
 
             var admins = GetTargetAdmins();
 
@@ -845,9 +845,9 @@ namespace Content.Server.Administration.Systems
 
             string adminPrefixWebhook = "";
 
-            if (_config.GetCVar(CCVars.AhelpAdminPrefixWebhook) && senderAdmin is not null && senderAdmin.Title is not null)
+            if (_config.GetCVar(CCVars.AhelpAdminPrefix) && senderAdmin is not null && senderAdmin!.Title is not null)
             {
-                adminPrefixWebhook = $"[bold]\\[{senderAdmin.Title}\\][/bold] ";
+                adminPrefixWebhook = $"[bold]\\[{senderAdmin!.Title}\\][/bold] ";
             }
 
             // Notify player

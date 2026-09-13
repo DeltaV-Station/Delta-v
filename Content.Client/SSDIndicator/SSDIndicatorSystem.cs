@@ -49,7 +49,7 @@ public sealed partial class SSDIndicatorSystem : EntitySystem
                 _ => throw new InvalidOperationException($"{ToPrettyString(uid)} has an invalid SSD stage {stage}."),
             };
 
-            args.StatusIcons.Add(_prototype.Index(icon));
+            args.StatusIcons.Add(ProtoMan.Index(icon));
             // End DeltaV Additions
 
             // args.StatusIcons.Add(ProtoMan.Index(component.Icon)); // DeltaV - commented out. status icon now added above

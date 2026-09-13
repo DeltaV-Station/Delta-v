@@ -201,20 +201,24 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnGotSpeechOverrideEquipped(Entity<SpeechOverrideComponent> ent, ref GotEquippedEvent args)
     {
+        /*
         if (ent.Comp.OverrideIDs is not { } overrides || !TryComp<VocalComponent>(args.EquipTarget, out var vocalComp)) return;
         ent.Comp.StoredIDs = vocalComp.Sounds;
         vocalComp.Sounds = overrides;
         var ev = new SoundsChangedEvent();
         RaiseLocalEvent(args.EquipTarget, ref ev);
+        */
     }
 
     private void OnGotSpeechOverrideUnequipped(Entity<SpeechOverrideComponent> ent, ref GotUnequippedEvent args)
     {
+        /*
         if (ent.Comp.StoredIDs is not { } stored || !TryComp<VocalComponent>(args.EquipTarget, out var vocalComp)) return;
         ent.Comp.StoredIDs = null;
         vocalComp.Sounds = stored;
         var ev = new SoundsChangedEvent();
         RaiseLocalEvent(args.EquipTarget, ref ev);
+        */
     }
     #endregion
 

@@ -120,7 +120,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
             return report;
         }
 
-        var species = PrototypeManager.Index(humanoid.Species);
+        var species = ProtoMan.Index(humanoid.Species);
 
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
         report.PushNewline();
@@ -168,7 +168,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
     private void AddCharges(FormattedMessage report, FugitiveRuleComponent rule)
     {
-        var crimeTypes = PrototypeManager.Index(rule.CrimesDataset);
+        var crimeTypes = ProtoMan.Index(rule.CrimesDataset);
         var crimes = new HashSet<LocId>();
         var total = RobustRandom.Next(rule.MinCrimes, rule.MaxCrimes + 1);
         while (crimes.Count < total)

@@ -19,7 +19,7 @@ namespace Content.Shared._DV.Movement;
 public sealed class TileMovementSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IMapManager _map = default!;
+    [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedMoverController _mover = default!;
@@ -391,7 +391,7 @@ public sealed class TileMovementSystem : EntitySystem
     /// </summary>
     private void ForceSnapToTile(Entity<PhysicsComponent, TransformComponent> target)
     {
-        var coords = target.Comp2.Coordinates.SnapToGrid(EntityManager, _map);
+        var coords = target.Comp2.Coordinates.SnapToGrid(EntityManager);
         _transform.SetCoordinates(target, target.Comp2, coords);
         _physics.WakeBody(target, body: target.Comp1);
     }

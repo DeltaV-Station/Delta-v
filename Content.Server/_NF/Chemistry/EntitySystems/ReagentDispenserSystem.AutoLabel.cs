@@ -84,7 +84,7 @@ public sealed partial class ReagentDispenserSystem : EntitySystem
         if (sol.GetPrimaryReagentId() is not { } reagentProtoId)
             return;
 
-        if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
+        if (!ProtoMan.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
             return;
 
         var reagentQuantity = sol.GetReagentQuantity(reagentProtoId);

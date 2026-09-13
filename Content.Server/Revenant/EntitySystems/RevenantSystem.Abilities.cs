@@ -278,7 +278,7 @@ public sealed partial class RevenantSystem
 
         foreach (var witness in witnesses)
         {
-            _statusEffects.TryAddStatusEffect<FlashedComponent>(GetEntity(witness),
+            _statusEffects.TryAddStatusEffect(GetEntity(witness),
                 FlashedId,
                 comp.HauntFlashDuration,
                 false

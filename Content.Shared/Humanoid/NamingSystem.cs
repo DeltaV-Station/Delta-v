@@ -111,7 +111,7 @@ namespace Content.Shared.Humanoid
 
         public string GetLastNameId(SpeciesPrototype speciesProto)
         {
-            return _random.PickId(_prototypeManager.Index(speciesProto.LastNames));
+            return _random.PickId(ProtoMan.Index(speciesProto.LastNames));
         }
 
         public string GetLastName(SpeciesPrototype speciesProto)

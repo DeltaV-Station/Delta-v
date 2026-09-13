@@ -58,8 +58,8 @@ public sealed class KitsuneSystem : SharedKitsuneSystem
 
         if (TryComp<HumanoidProfileComponent>(oldEntity, out var humanoidAppearance))
         {
-            var ev = new SexChangedEvent(Sex.Unsexed, humanoidAppearance.Sex);
-            RaiseLocalEvent(newEntity, ref ev);
+            var voiceChanged = new VoiceChangedEvent(null, humanoidAppearance.Voice);
+            RaiseLocalEvent(newEntity, ref voiceChanged);
         }
 
         // Code after this point will not run when reverting to human form.

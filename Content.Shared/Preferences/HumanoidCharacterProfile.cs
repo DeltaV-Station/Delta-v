@@ -164,7 +164,7 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts
+            Dictionary<string, RoleLoadout> loadouts,
             // Begin CD - Character Records
             float height,
             PlayerProvidedCharacterRecords? cdCharacterRecords
@@ -220,7 +220,7 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts)
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
                 other.Height, // CD - Character Records
                 other.CDCharacterRecords) // CD - Character Records
         {

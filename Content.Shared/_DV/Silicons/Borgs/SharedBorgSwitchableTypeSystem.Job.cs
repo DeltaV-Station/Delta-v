@@ -16,13 +16,13 @@ public abstract partial class SharedBorgSwitchableTypeSystem
     /// <returns>Null if successful, an error message if not.</returns>
     public FormattedMessage? TrySelect(EntityUid uid, ProtoId<BorgTypePrototype> id)
     {
-        var proto = Prototypes.Index(id);
+        var proto = ProtoMan.Index(id);
         if (proto.Job is not {} jobId)
             return null; // nothing to check
 
         // using an action requires a session so this should never fail
         var session = Comp<ActorComponent>(uid).PlayerSession;
-        return IsJobAllowed(session, Prototypes.Index(jobId));
+        return IsJobAllowed(session, ProtoMan.Index(jobId));
     }
 
     /// <summary>
