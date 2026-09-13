@@ -1,16 +1,5 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatSecretary
-  name: secretary hat
-  description: A hat for those dedicated to serve coffee and take notes.
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
-
-- type: entity
-  parent: ClothingHeadBase
   id: ClothingHeadHatFedoraBlack
   name: black fedora
   description: A black fedora. Lookin' classy.

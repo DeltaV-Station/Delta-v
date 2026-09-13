@@ -9,6 +9,7 @@ using Content.Shared.Item;
 using Content.Shared.Lock;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
+using Content.Shared._DV.Clothing.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -107,6 +108,16 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
             proto.TryGetComponent(out ClothingComponent? otherClothing, Factory))
         {
             _clothingSystem.CopyVisuals(uid, otherClothing, clothing);
+        }
+
+        //Delta-V make the color component work on chameleon clothing
+        if (proto.TryGetComponent(out JobColorComponent? jobColor, Factory))
+        {
+            EnsureComp<JobColorComponent>(uid, out var currentJobColor);
+            currentJobColor.JobMap = jobColor.JobMap;
+            currentJobColor.CurrentJobIcon = jobColor.CurrentJobIcon;
+            Dirty(uid, currentJobColor);
+            _itemSystem.VisualsChanged(uid);
         }
 
         // appearance data logic
