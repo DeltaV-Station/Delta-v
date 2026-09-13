@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
 
     steps:
     - name: Install dependencies
@@ -30,6 +33,12 @@ jobs:
         cd RobustToolbox
         git fetch --depth=1
         rm Robust.Shared.Tests/Networking/NetEncryptionDoSTest.cs # DeltaV - work around bug in the backport
+
+    - name: Apply Test Merge PRs
+      run: Tools/actions_apply_test_merges.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
 
     - name: Install dependencies
       run: dotnet restore
