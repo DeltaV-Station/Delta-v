@@ -608,6 +608,9 @@
     stateBaseClosed: clown
     stateDoorOpen: clown_open
     stateDoorClosed: clown_door
+  - type: StorageFill
+    contents:
+    - id: ClownMegaphone # goob - loudspeakers
 
 # Mime
 - type: entity
