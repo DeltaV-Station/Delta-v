@@ -1,0 +1,43 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:obj="clr-namespace:Content.Client._DV.Objectives.Eui"
+    Title="{Loc objective-editor-admin-ui-title}"
+    MinSize="800 400"
+>
+    <BoxContainer Orientation="Vertical" >
+        <BoxContainer Orientation="Horizontal" Align="End">
+            <CheckBox
+                Name="SilentSave"
+                Text="{Loc objective-editor-admin-ui-silent-save}"
+                ToolTip="{Loc objective-editor-admin-ui-silent-save-tooltip}"
+                Margin="5 0 5 0"/>
+            <controls:ConfirmButton
+                Name="ResetButton"
+                Text="{Loc objective-editor-admin-ui-reset-all}"
+                StyleClasses="OpenRight"
+                ModulateSelfOverride="Red" />
+            <controls:ConfirmButton
+                Name="SaveButton"
+                Text="{Loc objective-editor-admin-ui-save}"
+                StyleClasses="OpenLeft"/>
+        </BoxContainer>
+
+        <customControls:HSeparator Margin = "5"/>
+
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" MinWidth="200" Margin="5">
+                <ItemList Name="ObjectiveList" VerticalExpand="True" HorizontalExpand="True" />
+                <BoxContainer Orientation="Horizontal" >
+                    <Button Name="AddButton" Text="+" StyleClasses="OpenRight" />
+                    <controls:ConfirmButton Name="RemoveButton" Text="-" StyleClasses="OpenLeft" ModulateSelfOverride="Red"/>
+                </BoxContainer>
+            </BoxContainer>
+            <obj:ObjectiveContainer Name="Container"/>
+        </BoxContainer>
+
+        <customControls:HSeparator />
+        <Label Text="{Loc objective-editor-admin-ui-check-note}" FontColorOverride="Red" Align="Center"/>
+    </BoxContainer>
+</controls:FancyWindow>
