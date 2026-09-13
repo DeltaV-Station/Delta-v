@@ -1,9 +1,8 @@
 - type: entity
   name: space shrimp
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat , BaseFishRare ]
   id: MobSpaceShrimp
   description: Shrimply cursed...
-  suffix: METEM MACHINE ONLY #for now, only to be used as a very rare result for the metempsychosis machine. If fishing ever gets added, this suffix can be removed.
   components:
   - type: MeleeWeapon
     soundHit:
@@ -62,7 +61,9 @@
     canBeRemoved: false
   - type: NpcFactionMember
     factions:
-    - Passive
+    - SimpleHostile
+  - type: Body
+    prototype: Animal
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
