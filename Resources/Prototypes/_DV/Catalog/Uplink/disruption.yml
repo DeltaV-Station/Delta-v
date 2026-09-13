@@ -54,3 +54,14 @@
      blacklist:
        tags:
        - NukeOpsUplink
+
+- type: listing
+  id: UplinkFreelanceKey
+  name: uplink-freelance-Encryption-key-name
+  description: uplink-freelance-Encryption-key-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: pirate_label }
+  productEntity: EncryptionKeyFreelance
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
