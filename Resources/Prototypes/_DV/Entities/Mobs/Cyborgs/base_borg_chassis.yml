@@ -1,0 +1,36 @@
+- type: entity
+  abstract: true
+  parent: BaseBorgTransponder
+  id: SRNBorgTransponder
+  components:
+  - type: DeviceNetwork
+    receiveFrequencyId: SRNCyborgControl
+    transmitFrequencyId: SRNRoboticsConsole
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: true
+    id: SRNCyborgControl
+    useEntityNameAsCameraId: true
+
+- type: entity
+  id: SRNBaseBorgChassis
+  parent: [SRNBorgTransponder, BaseBorgChassis]
+  abstract: true
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesBorg
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: AccessReader
+    access: [["Command"], ["Research"], ["Robotics"]]
+    breakOnAccessBreaker: false
+  - type: SlavedBorg
+    law: ObeySRN
+  - type: Wires
+    layoutId: Cyborg
+  - type: ShowJobIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
