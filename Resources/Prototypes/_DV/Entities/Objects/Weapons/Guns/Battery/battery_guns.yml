@@ -695,3 +695,59 @@
           tags:
           - PowerCell
           - PowerCellSmall
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseSecurityContraband ]
+  id: WeaponUnstableCoreRefractor
+  name: Unstable core refractor
+  description: A distant relitive to a nuclear control rod. This device was made to utalize and contain radiation from a unstable reactor core by exausting core heat in concetrated beams.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/Unstable_Core_Refractor.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/unstable_core_refractor.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
+    selectedMode: FullAuto
+    fireRate: 20
+    availableModes: FullAuto
+    minAngle: 1
+    maxAngle: 45
+    angleIncrease: -1.5
+    angleDecay: -5
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1100
+  - type: BatteryAmmoProvider
+    proto: FocussedCoreExhaust
+    fireCost: 200
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Construction
+    graph: UnstableCoreRefractor
+    node: UnstableRefractor
+  - type: Tag
+    tags:
+    - UnstableCoreRefractor

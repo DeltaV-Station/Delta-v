@@ -101,6 +101,16 @@
   group: market
 
 - type: cargoProduct
+  id: ArmoryUnstableCore
+  icon:
+    sprite: _DV/Objects/Misc/unstablereactorcore.rsi
+    state: icon
+  product: CrateArmoryUnstableCore
+  cost: 10000
+  category: Armory
+  group: market
+
+- tpye: cargoProduct
   id: CargoArmoryPatos
   icon:
     sprite: _DV/Objects/Weapons/Guns/SMGs/patos.rsi
