@@ -71,12 +71,22 @@ public abstract class SharedLightReactiveSystem : EntitySystem
     /// </summary>
     public float GetLightLevelForPoint(EntityUid uid, TransformComponent? xform = null)
     {
+        return GetLightLevelAtPosition(uid, _transform.GetWorldPosition(uid), xform);
+    }
+
+    /// <summary>
+    /// Gets the light level at an arbitrary world position, using <paramref name="uid"/> for the
+    /// light lookup and map resolution. Lets callers sample somewhere other than the entity's
+    /// centre — e.g. a point just outside a wall, so the wall's own body can occlude the ray.
+    /// Avoid calling this too often, as it can be expensive.
+    /// </summary>
+    public float GetLightLevelAtPosition(EntityUid uid, Vector2 pos, TransformComponent? xform = null)
+    {
         float val = 0.0f;
         // Get the current map entity so we can get a MapLightComponent from it if it has one
         var map = _transform.GetMap((uid, xform));
         if (TryComp(map, out MapLightComponent? mapLight))
             val += (mapLight.AmbientLightColor.R + mapLight.AmbientLightColor.G + mapLight.AmbientLightColor.B) / 3f;
-        var pos = _transform.GetWorldPosition(uid);
 
         foreach (var (lightUid, lightComp) in GetLights(uid))
         {

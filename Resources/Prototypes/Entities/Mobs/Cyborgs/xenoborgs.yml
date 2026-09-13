@@ -35,8 +35,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - BorgModuleAdvancedTool
@@ -54,7 +52,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -129,7 +127,6 @@
       - !type:EmptyContainersBehaviour
         containers:
         - borg_brain
-        - borg_id_chip # DeltaV
         - borg_module
         - cell_slot
       - !type:DoActsBehavior
@@ -138,8 +135,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - XenoborgModuleTool
@@ -149,7 +144,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -194,8 +189,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - XenoborgModuleTool
@@ -205,7 +198,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -249,8 +242,6 @@
     containers:
       borg_brain:
       - MMIFilled
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - XenoborgModuleTool
@@ -261,7 +252,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 
 # xenoborgs empty
@@ -274,8 +265,6 @@
     containers:
       borg_brain:
       - MMI
-      borg_id_chip: # DeltaV
-      - IdChipXenoborg
       borg_module:
       - XenoborgModuleBasic
       - BorgModuleAdvancedTool
@@ -288,7 +277,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: XenoborgHeavy
@@ -308,7 +297,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: XenoborgScout
@@ -328,7 +317,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV
 
 - type: entity
   parent: XenoborgStealth
@@ -349,4 +338,4 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHighPrinted
+        startingItem: PowerCellHighXenoborg # DeltaV

@@ -209,20 +209,24 @@ namespace Content.Server.Psionics.Glimmer
 
         private void OnDestroyed(EntityUid uid, SharedGlimmerReactiveComponent component, DestructionEventArgs args)
         {
-            Spawn("MaterialBluespace1", Transform(uid).Coordinates);
-
+            var proberCoords = Transform(uid).Coordinates;
             var tier = _glimmerSystem.GetGlimmerTier();
             if (tier < GlimmerTier.High)
                 return;
 
-            var totalIntensity = (float) (_glimmerSystem.Glimmer * 2);
-            var slope = (float) (11 - _glimmerSystem.Glimmer / 100);
-            var maxIntensity = 20;
+            var explosionMultiplier = 2;
+            if (_glimmerSystem.GetGlimmerTier() == GlimmerTier.Critical) // YOU DONE FUCKED UP
+                explosionMultiplier = 3;
 
-            var removed = (float) _glimmerSystem.Glimmer * _random.NextFloat(0.06f, 0.08f);
-            _glimmerSystem.Glimmer -= (int) removed;
+            var totalIntensity = (float)(_glimmerSystem.Glimmer * explosionMultiplier);
+            var slope = (float)(11 - _glimmerSystem.Glimmer / 100);
+            var maxIntensity = 75; // Same as syndicate bomb
+
+            var removed = _glimmerSystem.Glimmer * _random.NextFloat(0.06f, 0.08f);
+            _glimmerSystem.Glimmer -= (int)removed;
             BeamRandomNearProber(uid, _glimmerSystem.Glimmer / 350, _glimmerSystem.Glimmer / 50);
-            _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
+            _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity, addLog: true);
+            Spawn("MaterialBluespace1", proberCoords); // Congrats on your bluespace!
         }
 
         private void OnUnanchorAttempt(EntityUid uid, SharedGlimmerReactiveComponent component, UnanchorAttemptEvent args)
@@ -230,7 +234,7 @@ namespace Content.Server.Psionics.Glimmer
             if (component.Locked)
             {
                 _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
-                _electrocutionSystem.TryDoElectrocution(args.User, null, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
+                _electrocutionSystem.TryDoElectrocution(args.User, uid, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
                 args.Cancel();
             }
         }

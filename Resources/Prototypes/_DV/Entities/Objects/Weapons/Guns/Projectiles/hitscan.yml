@@ -119,3 +119,26 @@
     damage:
       types:
         Heat: 42
+
+- type: entity
+  parent: BasicHitscan
+  id: XRayLaser
+  name: X-ray laser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/xenoborg.rsi
+      state: muzzle_flash
+    travelFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/xenoborg.rsi
+      state: laser
+    impactFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/xenoborg.rsi
+      state: impact
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 50
+        Radiation: 25
+        Structural: 75

@@ -232,6 +232,7 @@
   parent: [RubberStampBase, BaseSecurityContraband]
   id: RubberStampWarden
   categories: [ DoNotMap ]
+  suffix: Security # DeltaV
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-warden

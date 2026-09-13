@@ -78,7 +78,7 @@
 
 - type: entity
   parent: SpawnPointJobBase
-  id: SpawnPointClerk
+  id: SpawnPointClerk # TODO - Remove for Justice Rework
   name: clerk
   components:
   - type: SpawnPoint
@@ -101,6 +101,57 @@
     - state: green
     - sprite: *job-rsi-dv
       state: prosecutor
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointAttorney
+  name: attorney
+  components:
+  - type: SpawnPoint
+    job_id: Attorney
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointJusticeWarden
+  name: warden
+  suffix: Justice Warden
+  components:
+  - type: SpawnPoint
+    job_id: JusticeWarden
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: *job-rsi-dv
+      state: prisonguard
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointMarshal
+  name: marshal
+  components:
+  - type: SpawnPoint
+    job_id: Clerk
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: *job-rsi-dv
+      state: clerk
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: SpawnPointArmorer
+  name: armorer
+  components:
+  - type: SpawnPoint
+    job_id: Armorer
+  - type: Sprite
+    layers:
+    - state: green
+    - state: warden
 
 - type: entity
   parent: SpawnPointJobBase

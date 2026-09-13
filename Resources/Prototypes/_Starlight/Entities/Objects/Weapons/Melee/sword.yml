@@ -19,9 +19,10 @@
     sprite: _Starlight/Objects/Weapons/Melee/makeshift_sword.rsi
     slots:
     - suitStorage
-  - type: Construction
-    graph: SwordMakeshiftGraph
-    node: sword
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: SwordMakeshiftGraph
+  #  node: sword
 
 - type: entity
   name: improvised sword
@@ -44,9 +45,10 @@
     sprite: _Starlight/Objects/Weapons/Melee/improvised_sword.rsi
     slots:
     - suitStorage
-  - type: Construction
-    graph: SwordImprovisedGraph
-    node: sword
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: SwordImprovisedGraph
+  #  node: sword
 
 - type: entity
   name: forged sword
@@ -137,9 +139,10 @@
     sprite: _Starlight/Objects/Weapons/Melee/dawnbreaker.rsi
     slots:
     - suitStorage
-  - type: Construction
-    graph: SwordFlamingGraph
-    node: sword
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: SwordFlamingGraph
+  #  node: sword
 
 - type: entity
   name: tidebreaker

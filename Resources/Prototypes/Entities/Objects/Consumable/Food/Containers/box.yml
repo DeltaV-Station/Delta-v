@@ -569,7 +569,7 @@
   components:
   - type: Storage
     grid:
-    - 0,0,5,2
+    - 0,0,6,2 # DeltaV - Slightly bigger so tests don't fail when Python
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector

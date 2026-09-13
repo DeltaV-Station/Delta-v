@@ -5,6 +5,7 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: GnomeSpawn
     - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
@@ -18,6 +19,9 @@
     - id: SkiaSpawn
     - id: RatKingSpawn
     - id: NTAgentSleeper
+    - id: ColossusSpawn
+    - id: AsakimShuttle
+    - id: HitmanShuttle
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -239,7 +243,7 @@
   id: RoboNeuroticist
   components:
   - type: StationEvent
-    weight: 1
+    weight: 2
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
     reoccurrenceDelay: 30
     duration: null # so it shows up in round end
@@ -423,7 +427,6 @@
         implants:
         - HitmanCardImplant
 
-
 # nt agent sleeper event
 - type: entity
   id: NTAgentSleeper
@@ -464,6 +467,35 @@
         - RadioImplantCentcomm
         - NanolinkSubImplant
 
+# Gnomes
+- type: entity
+  parent: BaseMidRoundAntag
+  id: GnomeSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 5
+    weight: 2
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-gnome-spawn-result-message
+  - type: AntagSpawner
+    prototype: MobGnome
+  - type: AntagSelection
+    agentName: gnome-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGnome
+      min: 1
+      max: 2
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      components:
+        - type: EmitSoundOnSpawn
+          sound: /Audio/Effects/bodyfall3.ogg
+        - type: SpawnOnTrigger
+          proto: EffectFlashBluespace
+
 # NT Pest Control via Pitbulls
 - type: entity
   id: PitbullMigration
@@ -473,7 +505,7 @@
     startAnnouncement: station-event-pitbull-start-announcement
     startAudio:
       path: /Audio/_DV/Announcements/attention.ogg
-    earliestStart: 1
+    earliestStart: 30
     minimumPlayers: 10
     weight: 1
     duration: 15

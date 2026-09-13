@@ -43,9 +43,9 @@
   icon:
     sprite: Structures/Machines/server.rsi
     state: server
-  product: CrateCrewMonitoring
+  product: CrateCrewMonitoringDV # DeltaV - Was CrateCrewMonitoring
   cost: 2000
-  category: cargoproduct-category-name-epistemics  # DeltaV - Science renamed to Epistemics
+  category: cargoproduct-category-name-medical # DeltaV - Was science, now medical
   group: market
 
 - type: cargoProduct

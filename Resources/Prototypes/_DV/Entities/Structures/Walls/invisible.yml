@@ -1,0 +1,10 @@
+- type: entity
+  id: wallInvisible
+  parent: WallPlastitaniumIndestructible
+  name: invisible wall
+  suffix: Admeme, DO NOT MAP
+  components:
+  - type: Visibility
+    layer: 2
+  - type: Sprite
+    color: "#0000FF" # Blue is the universal colour of invisible.

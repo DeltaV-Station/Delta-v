@@ -155,3 +155,14 @@
   - type: TemperatureProtection # Doesn't inherit ClothingOuterWinterCoat because we don't want pockets on this
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingOuterWinterCoatLong
+  id: ClothingOuterFurCoatMime
+  name: mime's furred coat
+  description: A warm coat designed for mimes with expensive taste.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/mimefurcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/mimefurcoat.rsi

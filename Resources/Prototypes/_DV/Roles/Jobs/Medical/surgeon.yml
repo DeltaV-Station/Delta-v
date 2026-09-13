@@ -2,6 +2,7 @@
   id: Surgeon
   name: job-name-surgeon
   description: job-description-surgeon
+  setPreference: false
   playTimeTracker: JobSurgeon
   requirements:
     - !type:DepartmentTimeRequirement

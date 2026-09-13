@@ -1,0 +1,15 @@
+- type: entity
+  parent: [BaseItem, BaseGrandTheftContraband]
+  id: BookMedicalDocuments
+  name: sensitive medical documents
+  description: These documents contain sensitive medical information about various high-ranking CentComm personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/folders.rsi
+    state: folder-medical-docs
+  - type: Tag
+    tags:
+    - Book
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: BookMedicalDocuments
