@@ -343,4 +343,21 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> RoundEndIsOOCVote =
         CVarDef.Create("deltav.round_end_is_ooc_vote", false, CVar.SERVER);
+
+    /**
+     * Antagonist OOC
+     */
+
+    /// <summary>
+    ///     Whether the Antagonist OOC channel is enabled.
+    ///     Admins can always use it.
+    /// </summary>
+    public static readonly CVarDef<bool> AntagOOCEnabled =
+        CVarDef.Create("antag_ooc.enabled", true, CVar.NOTIFY);
+
+    /// <summary>
+    ///     The discord channel ID to relay Antagonist OOC messages to.
+    /// </summary>
+    public static readonly CVarDef<string> AntagOOCDiscordChannelId =
+        CVarDef.Create("antag_ooc.discord_channel_id", string.Empty, CVar.SERVERONLY);
 }

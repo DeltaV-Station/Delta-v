@@ -33,6 +33,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char AudibleEmotePrefix = '!'; // DeltaV - You may now scream audibly!
     public const char PossessiveEmotePrefix = '\''; // DeltaV - You may now be possessive of things! Whatever that means.
     public const char AdminPrefix = ']';
+    public const char AntagOOCPrefix = '%'; // DeltaV - Antagonist OOC
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.  
     public const char DefaultChannelKey = 'h';

@@ -1,4 +1,5 @@
 ﻿using Content.Server.Chat.Managers;
+using Content.Shared._DV.CCVars; // DeltaV - Antagonist OOC
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using NetCord;
@@ -20,6 +21,7 @@ public sealed class DiscordChatLink : IPostInjectInit
 
     private ulong? _oocChannelId;
     private ulong? _adminChannelId;
+    private ulong? _antagOocChannelId; // DeltaV - antagonist OOC
 
     public void Initialize()
     {
@@ -31,6 +33,7 @@ public sealed class DiscordChatLink : IPostInjectInit
 
         _configurationManager.OnValueChanged(CCVars.OocDiscordChannelId, OnOocChannelIdChanged, true);
         _configurationManager.OnValueChanged(CCVars.AdminChatDiscordChannelId, OnAdminChannelIdChanged, true);
+        _configurationManager.OnValueChanged(DCCVars.AntagOOCDiscordChannelId, OnAntagOocChannelIdChanged, true); // DeltaV - antagonist OOC
     }
 
     public void Shutdown()
@@ -39,6 +42,7 @@ public sealed class DiscordChatLink : IPostInjectInit
 
         _configurationManager.UnsubValueChanged(CCVars.OocDiscordChannelId, OnOocChannelIdChanged);
         _configurationManager.UnsubValueChanged(CCVars.AdminChatDiscordChannelId, OnAdminChannelIdChanged);
+        _configurationManager.UnsubValueChanged(DCCVars.AntagOOCDiscordChannelId, OnAntagOocChannelIdChanged); // DeltaV - antagonist OOC
     }
 
     #if DEBUG
@@ -71,6 +75,19 @@ public sealed class DiscordChatLink : IPostInjectInit
         _adminChannelId = ulong.Parse(channelId);
     }
 
+    // Begin DeltaV - Antagonist OOC
+    private void OnAntagOocChannelIdChanged(string channelId)
+    {
+        if (string.IsNullOrEmpty(channelId))
+        {
+            _antagOocChannelId = null;
+            return;
+        }
+
+        _antagOocChannelId = ulong.Parse(channelId);
+    }
+    // End DeltaV - Antagonist OOC
+
     private void OnMessageReceived(Message message)
     {
         if (message.Author.IsBot)
@@ -94,6 +111,7 @@ public sealed class DiscordChatLink : IPostInjectInit
         {
             ChatChannel.OOC => _oocChannelId,
             ChatChannel.AdminChat => _adminChannelId,
+            ChatChannel.AntagOOC => _antagOocChannelId, // DeltaV - Antagonist OOC
             _ => throw new InvalidOperationException("Channel not linked to Discord."),
         };
 

@@ -59,6 +59,12 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"asay \"{CommandParsing.Escape(str)}\"");
                 break;
 
+            // Begin DeltaV - Antag OOC
+            case ChatSelectChannel.AntagOOC:
+                _consoleHost.ExecuteCommand($"antagsay \"{CommandParsing.Escape(str)}\"");
+                break;
+            // End DeltaV - Antag OOC
+
             case ChatSelectChannel.Emotes:
                 _consoleHost.ExecuteCommand($"me \"{CommandParsing.Escape(str)}\"");
                 break;

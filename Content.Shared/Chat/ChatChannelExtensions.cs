@@ -14,6 +14,7 @@ public static class ChatChannelExtensions
             ChatChannel.Admin => Color.Red,
             ChatChannel.AdminAlert => Color.Red,
             ChatChannel.AdminChat => Color.HotPink,
+            ChatChannel.AntagOOC => Color.Crimson, // DeltaV - Antagonist OOC
             ChatChannel.Whisper => Color.DarkGray,
             _ => Color.LightGray
         };

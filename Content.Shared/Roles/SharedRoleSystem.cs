@@ -631,6 +631,21 @@ public abstract class SharedRoleSystem : EntitySystem
         return CheckAntagonistStatus(mindId.Value).ExclusiveAntag;
     }
 
+    // Begin DeltaV - Antagonist OOC
+    /// <summary>
+    /// Does this mind's current role type grant access to the Antagonist OOC channel
+    /// </summary>
+    /// <param name="mindId">The mind entity</param>
+    /// <returns>True if the mind's RoleTypePrototype has AntagonistOOC set</returns>
+    public bool MindHasAntagonistOOC(EntityUid? mindId)
+    {
+        if (mindId is null || !TryComp<MindComponent>(mindId.Value, out var mind))
+            return false;
+
+        return _prototypes.TryIndex(mind.RoleType, out var roleType) && roleType.AntagonistOOC;
+    }
+    // End DeltaV - Antagonist OOC
+
     private (bool Antag, bool ExclusiveAntag) CheckAntagonistStatus(Entity<MindComponent?> mind)
     {
         if (!Resolve(mind.Owner, ref mind.Comp))
