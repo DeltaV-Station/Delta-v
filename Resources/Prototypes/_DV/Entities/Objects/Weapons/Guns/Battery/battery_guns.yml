@@ -700,7 +700,7 @@
   name: EPU-U001 Integrity
   parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
   id: WeaponUniqueGunIntegrity
-  description: Heavy, foreboding, ominous, and unforgiving are all words you might describe this unit of a sidearm with. It's a little heavier than the average laser style pistol, but has better weight distribution than usual. Most believe it's a custom made Pulse-pattern pistol, using a technology kept so secret in Corporate documents, that there's not even rumors about it. The weapon is engraved in a few places, along the front cover it reads "EPU-U001", and the grip has a slightly worn but well kept  real terra gold 'T' engraved. The only part of its history you can know for sure, is that it's one-of-a-kind, and specially designed for an unassuming Central Commander, known for his undying loyalty, and integrity. You really should return this, because if you're caught with it, it surely won't end well... How did you get your hands on it anyway?
+  description: Hefty and unforgiving are both words you might describe this unit of a sidearm with. It's heavier than most laser pistols, but features better ergonomics than usual. It's a custom made Pulse-pattern pistol, using a technology kept confidential at the highest level. The sturdy metal frame is engraved in a few places, along the front cover it reads 'EPU-U001', and the grip has a well maintained NT logo made of pure brushed terran gold. The only thing you can tell, is that it's almost certainly one-of-a-kind, and was designed by a Central Commander, known for his integrity. Are you supposed to have this..?
   suffix: Admeme
   components:
   - type: Sprite
@@ -730,11 +730,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: BatteryAmmoProvider
-    proto: Pulse
+    proto: CompactPulse
     fireCost: 250
   - type: EnergyGun
     fireModes:
-    - proto: Pulse
+    - proto: CompactPulse
       fireCost: 250
       name: lethal
     - proto: ParalyzerBolt
