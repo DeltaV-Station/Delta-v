@@ -60,6 +60,7 @@ namespace Content.Server.Salvage
 
             InitializeExpeditions();
             InitializeMagnet();
+            InitializeMagnetRelease(); //DeltaV - for manual magnet release feature.
             InitializeRunner();
         }
 

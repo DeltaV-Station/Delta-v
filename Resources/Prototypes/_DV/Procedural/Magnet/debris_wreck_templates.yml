@@ -1,0 +1,288 @@
+- type: entity
+  id: DebrisWreckMarker
+  parent: BaseRoomMarker
+  name: Debris wreck marker
+  components:
+  - type: RoomFill
+    minSize: 0,0
+    maxSize: 65,65
+    roomWhitelist:
+      tags:
+      - DebrisWreck
+
+#List of MAPS that can be added to magnet debris pulls.
+
+#It is IMPORTANT that we use a mask tile to denote areas of space/incorporation into surrounding Debris.
+#This is because areas of space cause DunGen to produce exciting and often regrettable outcomes.
+
+- type: dungeonRoom
+  id: DVAnimalFarm_DebrisWreck
+  size: 15,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-animalfarm-debriswreck.yml
+  offset: -3,-4
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVMedChunk_DebrisWreck
+  size: 17,18
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-med-chunk-01-debriswreck.yml
+  offset: -9,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVMiningOutpost_DebrisWreck
+  size: 16,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-mining-outpost-01-debriswreck.yml
+  offset: -8,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasPerma_DebrisWreck
+  size: 17,16
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-perma-debriswreck.yml
+  offset: -6,-6
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasJailCells_DebrisWreck
+  size: 20,16
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-jailcells-debriswreck.yml
+  offset: -11,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasAtmos_DebrisWreck
+  size: 24,19
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-atmos-debriswreck.yml
+  offset: -14,-12
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasCargo_DebrisWreck
+  size: 25,18
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-cargo-debriswreck.yml
+  offset: -12,-10
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVMedService_DebrisWreck
+  size: 14,14
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-med-service-chunk-01-debriswreck.yml
+  offset: -8,-7
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVLaundromat_DebrisWreck
+  size: 40,38
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-laundromat-chunk-debriswreck.yml
+  offset: -14,-11
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVSolarFarm_DebrisWreck
+  size: 28,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-solar-farm-debriswreck.yml
+  offset: -8,-1
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVResearchOutpost_DebrisWreck
+  size: 29,40
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-research-outpost-01-debriswreck.yml
+  offset: -15,-16
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVLargeEngineering_DebrisWreck
+  size: 24,17
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-large-engineer-chunk-debriswreck.yml
+  offset: -12,-11
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasConferenceRoom_DebrisWreck
+  size: 19,27
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-conference-room-debriswreck.yml
+  offset: -10,-16
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+
+- type: dungeonRoom
+  id: DVAtlasDorms_DebrisWreck
+  size: 22,22
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-dorms-debriswreck.yml
+  offset: -3,-19
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+
+- type: dungeonRoom
+  id: DVAtlasEpi_DebrisWreck
+  size: 21,23
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-epi-debriswreck.yml
+  offset: -2,-18
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasMedical_DebrisWreck
+  size: 22,22
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-medical-debriswreck.yml
+  offset: -11,-19
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVAtlasSalvage_DebrisWreck
+  size: 16,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-atlas-salvage-debriswreck.yml
+  offset: -9,-7
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVMedium01_DebrisWreck
+  size: 16,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-medium-01-debriswreck.yml
+  offset: -8,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVMediuMVault_DebrisWreck
+  size: 15,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-med-vault-01-debriswreck.yml
+  offset: -8,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVSilentOrchestra_DebrisWreck
+  size: 15,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-med-silent-orchestra-debriswreck.yml
+  offset: -8,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVCargo01_DebrisWreck
+  size: 14,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-cargo-01-debriswreck.yml
+  offset: -9,-6
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVPirate_DebrisWreck
+  size: 10,15
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-med-pirate-debriswreck.yml
+  offset: -4,-10
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DERuinedEvacShuttle_DebrisWreck
+  size: 11,17
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-med-ruined-emergency-shuttle-debriswreck.yml
+  offset: -6,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVHaulingShuttle_DebrisWreck
+  size: 18,16
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-hauling-shuttle-debriswreck.yml
+  offset: -6,-8
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVStationStation_DebrisWreck
+  size: 52,42
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-stationstation-debriswreck.yml
+  offset: -17,-15
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVRuinCargoSalvage_DebrisWreck
+  size: 37,27
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-ruin-cargo-salvage-debriswreck.yml
+  offset: -15,-13
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck
+
+- type: dungeonRoom
+  id: DVSecurityChunk_DebrisWreck
+  size: 24,20
+  atlas: /Maps/_DV/Salvage/DebrisWrecks/DV-security-chunk-debriswreck.yml
+  offset: -10,-9
+  ignoreTile: FloorShuttleOrange
+  deleteAfterUse: true
+  tags:
+  - DebrisWreck

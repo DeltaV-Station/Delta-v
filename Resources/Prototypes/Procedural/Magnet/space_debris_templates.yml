@@ -1,4 +1,4 @@
-# Asteroid
+# Debris structures
 - type: biomeTemplate
   id: SpaceDebris
   layers:
@@ -75,7 +75,23 @@
     allowedTiles:
     - FloorSteel
     - Plating
-    threshold: 0.2
+    threshold: 0.925
+    noise:
+      seed: 1
+      frequency: 1
+    entities:
+    - SalvageSpawnerMobMagnet75
+
+
+#Debris Loot Regular
+- type: biomeTemplate
+  id: SpaceDebrisLootRegular
+  layers:
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.4
     noise:
       seed: 1
       frequency: 1
@@ -89,9 +105,137 @@
     allowedTiles:
     - FloorSteel
     - Plating
-    threshold: 0.7
+    threshold: 0.75
     noise:
       seed: 1
+      frequency: 1
+    entities:
+    - SalvageSpawnerArcanaCommon
+    - SalvageSpawnerArcanaUncommon
+    - SalvageSpawnerArcanaRare
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.85
+    noise:
+      seed: 1
+      frequency: 1
+    entities:
+    - SalvageSpawnerTreasure
+    - SalvageSpawnerTreasure
+    - SalvageSpawnerTreasureValuable
+
+#Debris Loot Scrap Rich
+- type: biomeTemplate
+  id: SpaceDebrisLootScrap
+  layers:
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.3
+    noise:
+      seed: 1
+      frequency: 1
+    entities:
+    - SalvageSpawnerScrapValuable
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon75
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.8
+    noise:
+      seed: 2
+      frequency: 1
+    entities:
+    - SalvageSpawnerArcanaCommon
+    - SalvageSpawnerArcanaUncommon
+    - SalvageSpawnerArcanaRare
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.9
+    noise:
+      seed: 3
+      frequency: 1
+    entities:
+    - SalvageSpawnerTreasure
+    - SalvageSpawnerTreasure
+    - SalvageSpawnerTreasureValuable
+
+#Debris Loot Valuables
+- type: biomeTemplate
+  id: SpaceDebrisLootValuables
+  layers:
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.5
+    noise:
+      seed: 1
+      frequency: 1
+    entities:
+    - SalvageSpawnerScrapValuable
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon75
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.75
+    noise:
+      seed: 2
+      frequency: 1
+    entities:
+    - SalvageSpawnerArcanaCommon
+    - SalvageSpawnerArcanaUncommon
+    - SalvageSpawnerArcanaRare
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.8
+    noise:
+      seed: 3
+      frequency: 1
+    entities:
+    - SalvageSpawnerTreasure
+    - SalvageSpawnerTreasure
+    - SalvageSpawnerTreasureValuable
+
+
+#Debris Loot Arcana
+- type: biomeTemplate
+  id: SpaceDebrisLootArcana
+  layers:
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.5
+    noise:
+      seed: 1
+      frequency: 1
+    entities:
+    - SalvageSpawnerScrapValuable
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon
+    - SalvageSpawnerScrapCommon75
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSteel
+    - Plating
+    threshold: 0.75
+    noise:
+      seed: 3
       frequency: 1
     entities:
     - SalvageSpawnerTreasure
@@ -101,9 +245,11 @@
     allowedTiles:
     - FloorSteel
     - Plating
-    threshold: 0.925
+    threshold: 0.8
     noise:
-      seed: 1
+      seed: 2
       frequency: 1
     entities:
-    - SalvageSpawnerMobMagnet75
+    - SalvageSpawnerArcanaCommon
+    - SalvageSpawnerArcanaUncommon
+    - SalvageSpawnerArcanaRare

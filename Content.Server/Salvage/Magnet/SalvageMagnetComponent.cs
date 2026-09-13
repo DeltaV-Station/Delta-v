@@ -8,7 +8,7 @@ public sealed partial class SalvageMagnetComponent : Component
     /// Scales from 50% to 100%.
     /// </summary>
     [DataField]
-    public float MagnetSpawnDistance = 64f;
+    public float MagnetSpawnDistance = 80f; //DeltaV - was 64
 
     /// <summary>
     /// How far offset to either side will the magnet wreck spawn.
