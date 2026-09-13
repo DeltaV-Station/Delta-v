@@ -34,8 +34,7 @@ using Content.Shared.VoiceMask;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Wieldable;
 using Content.Shared.Zombies;
-using Content.Shared.Examine; //Harmony
-
+using Content.Shared.Examine; // Harmony, imp
 
 namespace Content.Shared.Inventory;
 
@@ -67,7 +66,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, BeforeEmoteEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, StoodEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, DownedEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(RelayInventoryEvent); // Harmony - added for lanyards.
+        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(RelayInventoryEvent); // Harmony - added for lanyards, imp - examinable pins
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, RefreshFrictionModifiersEvent>(RefRelayInventoryEvent);
