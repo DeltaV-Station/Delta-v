@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._DV.Kitchen;
+using Content.Shared._DV.Kitchen.BUI;
 using Content.Shared._DV.Kitchen.Components;
 using Content.Shared._DV.Kitchen.Systems;
 using Content.Shared.Audio;
@@ -11,6 +12,7 @@ using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Throwing;
 using Content.Shared.Trigger.Systems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -30,6 +32,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
     /// <summary>
     /// The trigger key used when non-frying oil reagents are added to the fryer
@@ -46,9 +49,22 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
 
         SubscribeLocalEvent<DeepFryerComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
         SubscribeLocalEvent<DeepFryerComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
+        SubscribeLocalEvent<DeepFryerComponent, BoundUIOpenedEvent>(OnDeepFryerUIOpened);
         SubscribeLocalEvent<DeepFryerComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<DeepFryerComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<DeepFryerComponent, SolutionTransferredEvent>(OnSolutionTransferred);
         SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
+    }
+
+    private void OnSolutionChanged(Entity<DeepFryerComponent> ent, ref SolutionContainerChangedEvent args)
+    {
+        // This event also fires for drinking the oil (which does not count as transferring from the solution)
+        UpdateUserInterfaceState(ent);
+    }
+
+    private void OnDeepFryerUIOpened(Entity<DeepFryerComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        UpdateUserInterfaceState(ent);
     }
 
     private void OnSolutionTransferred(Entity<DeepFryerComponent> ent, ref SolutionTransferredEvent args)
@@ -91,6 +107,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     {
         UpdateAppearance(ent);
         ResetCookingItemsStartTime(ent);
+        UpdateUserInterfaceState(ent);
     }
 
     private void OnThrowHitBy(Entity<DeepFryerComponent> ent, ref ThrowHitByEvent args)
@@ -129,6 +146,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         }
 
         UpdateAppearance(ent);
+        UpdateUserInterfaceState(ent);
     }
 
     private void OnItemRemoved(Entity<DeepFryerComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -141,6 +159,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
         ent.Comp.CookingItems.Remove(args.Entity);
 
         UpdateAppearance(ent);
+        UpdateUserInterfaceState(ent);
     }
 
     /// <summary>
@@ -165,6 +184,30 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
     private void UpdateAmbience(Entity<DeepFryerComponent> ent, bool value)
     {
         _ambientSound.SetAmbience(ent, value);
+    }
+
+    private void UpdateUserInterfaceState(Entity<DeepFryerComponent> ent)
+    {
+        if (!Solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
+            return;
+
+        if (_uiSystem.HasUi(ent, DeepFryerUiKey.DeepFryer))
+        {
+            _uiSystem.SetUiState(ent.Owner, DeepFryerUiKey.DeepFryer, new DeepFryerBoundUserInterfaceState
+            {
+                IsPowered = _power.IsPowered(ent.Owner),
+
+                OilQuality = ent.Comp.OilQuality,
+
+                CookingItems = [..ent.Comp.CookingItems.Keys.Select(item => EntityManager.GetNetEntity(item))],
+                Capacity = ent.Comp.MaxItems,
+
+                MinimumVolume = ent.Comp.MinimumOilVolume,
+                SolutionMaxVolume = solution.MaxVolume,
+                SolutionVolume = solution.Volume,
+                SolutionColor = solution.GetColor(_prototype),
+            });
+        }
     }
 
     /// <summary>
