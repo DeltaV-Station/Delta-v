@@ -190,3 +190,8 @@
     Radiation: 0.5
     Caustic: 0.5
     Cold: 0.8 # DeltaV - Cold res
+
+- type: damageModifierSet
+  id: Xenonid
+  coefficients:
+    Caustic: 0.0 # Friendly fire begone
