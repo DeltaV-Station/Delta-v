@@ -278,6 +278,16 @@ public sealed partial class IngestionSystem : EntitySystem
         if (!CanConsume(args.User, entity, args.Ingested, out var solution, out var time))
             return;
 
+        // Delta V - Begin Messy Drinker Speed
+        var proto = GetEdibleType(food);
+
+        if (proto != null && args.User == entity.Owner && TryComp<MessyDrinkerComponent>(args.User, out var messyDrinkerComponent) &&
+            messyDrinkerComponent.SpillableTypes.Contains(proto.Value))
+        {
+            time *= messyDrinkerComponent.DrinkSpeedMultiplier;
+        }
+        // Delta V - End
+
         if (!_doAfter.TryStartDoAfter(GetEdibleDoAfterArgs(args.User, entity, food, time ?? TimeSpan.Zero)))
             return;
 

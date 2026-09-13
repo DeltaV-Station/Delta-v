@@ -102,3 +102,17 @@
   - !type:ApplyStatusEffect
     statusEffects:
     - StatusEffectHemophiliaTrait
+
+- type: trait
+  id: NormalDrinker
+  name: trait-normal-drinker-name
+  description: trait-normal-drinker-desc
+  category: Disabilities
+  cost: 2
+  effects:
+  - !type:RemCompsEffect
+    components:
+    - MessyDrinker
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Vulpkanin
