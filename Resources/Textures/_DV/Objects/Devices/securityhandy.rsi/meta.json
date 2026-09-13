@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC0-1.0",
-    "copyright": "Original work by TJohnson, modified by DarkenedSynergy.",
+    "copyright": "Original work by TJohnson, modified by DarkenedSynergy and och.",
     "size": {
         "x": 32,
         "y": 32
@@ -14,7 +14,7 @@
             "name": "walkietalkie-off"
         },
         {
-            "name": "walkietalkie-on",
+            "name": "walkietalkie-broadcasting",
             "delays": [
                 [
                     0.1,
@@ -23,6 +23,33 @@
                     0.1
                 ]
             ]
+        },
+        {
+            "name": "walkietalkie-off-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-off-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-broadcasting-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-broadcasting-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-speaker"
+        },
+        {
+            "name": "walkietalkie-speaker-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-speaker-inhand-left",
+            "directions": 4
         }
     ]
 }
