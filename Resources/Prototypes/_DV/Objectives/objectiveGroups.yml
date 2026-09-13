@@ -223,16 +223,25 @@
 
 # NTAgent
 - type: weightedRandom
-  id: NTAgentObjectiveGroup
+  id: NTAgentBigObjectiveGroup
+  weights:
+    NTAgentObjectiveGroupAudit: 1
+    NTAgentObjectiveGroupCutCosts: 1
+    NTAgentObjectiveGroupSlander: 1
+
+
+- type: weightedRandom
+  id: NTAgentSmallObjectiveGroup
   weights:
     NTAgentObjectiveGroupPerson: 1
-    NTAgentObjectiveGroupAudit: 1
 
 - type: weightedRandom
   id: NTAgentObjectiveGroupPerson
   weights:
     FrameRandomPersonObjective: 1
-    FireRandomPersonObjective: 1
+    # FireRandomPersonObjective: 1
+    DossierRandomPersonObjective: 1
+    SlanderRandomPersonObjective: 1
 
 - type: weightedRandom
   id: NTAgentObjectiveGroupAudit
@@ -240,4 +249,22 @@
     TestSecurityObjective: 1
     TestEngineeringObjective: 1
     TestMedicalObjective: 1
-    DefundDepartmentObjective: 1
+    TestEpistemicsObjective: 1
+    TestServiceObjective: 1
+    TestLogisticsObjective: 1
+
+- type: weightedRandom
+  id: NTAgentObjectiveGroupSlander
+  weights:
+    SlanderSecurityObjective: 1
+    SlanderEngineeringObjective: 1
+    SlanderMedicalObjective: 1
+    SlanderEpistemicsObjective: 1
+    SlanderLogisticsObjective: 1
+    SlanderCommandObjective: 0.5
+
+- type: weightedRandom
+  id: NTAgentObjectiveGroupCutCosts
+  weights:
+    # DefundDepartmentObjective: 1
+    CutCostsObjective: 1
