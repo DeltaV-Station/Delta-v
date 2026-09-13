@@ -70,10 +70,11 @@
   - type: ObjectiveLimit
     limit: 1
   - type: StoreUnlocker  # Allow DAGD to stay dead
-    listings: 
+    listings:
     - UplinkUnrevivableImplanterDAGD
     - UplinkAcidifierImplanterDAGD
     - UpinkMicrobombImplanterDAGD
+    - UplinkPsionicEruptionDAGD
   # END DeltaV
 
 #- type: entity
