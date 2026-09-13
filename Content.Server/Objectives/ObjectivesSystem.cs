@@ -27,7 +27,6 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
 {
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPlayerManager _player = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private SharedJobSystem _job = default!;
@@ -48,14 +47,14 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
 
         Subs.CVar(_cfg, DCCVars.MaxObjectiveSummaryLength, len => _maxLengthSummaryLength = len, true); // DeltaV
 
-        _prototypeManager.PrototypesReloaded += CreateCompletions;
+        ProtoMan.PrototypesReloaded += CreateCompletions;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
 
-        _prototypeManager.PrototypesReloaded -= CreateCompletions;
+        ProtoMan.PrototypesReloaded -= CreateCompletions;
     }
 
     /// <summary>
@@ -158,7 +157,7 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
                 //TO DO:
                 //check for the right group here. Getting the target issuer is easy: objectiveGroup.Key
                 //It should be compared to the type of the group's issuer.
-                if (!_prototypeManager.TryIndex(objectiveGroup.Key, out var issuer))
+                if (!ProtoMan.TryIndex(objectiveGroup.Key, out var issuer))
                 {
                     Log.Error($"Found incorrect objective issuer {issuer} when generating round end text.");
                     continue;
@@ -255,7 +254,7 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
 
     public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)
     {
-        if (!_prototypeManager.TryIndex(objectiveGroupProto, out var groupsProto))
+        if (!ProtoMan.TryIndex(objectiveGroupProto, out var groupsProto))
         {
             Log.Error($"Tried to get a random objective, but can't index WeightedRandomPrototype {objectiveGroupProto}");
             return null;
@@ -266,7 +265,7 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
 
         while (_random.TryPickAndTake(groups, out var groupName))
         {
-            if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(groupName, out var group))
+            if (!ProtoMan.TryIndex<WeightedRandomPrototype>(groupName, out var group))
             {
                 Log.Error($"Couldn't index objective group prototype {groupName}");
                 return null;
@@ -275,7 +274,7 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
             var objectives = group.Weights.ShallowClone();
             while (_random.TryPickAndTake(objectives, out var objectiveProto))
             {
-                if (!_prototypeManager.Index(objectiveProto).TryGetComponent<ObjectiveComponent>(out var objectiveComp, EntityManager.ComponentFactory))
+                if (!ProtoMan.Index(objectiveProto).TryComp<ObjectiveComponent>(out var objectiveComp, EntityManager.ComponentFactory))
                     continue;
 
                 if (objectiveComp.Difficulty <= maxDifficulty && TryCreateObjective((mindId, mind), objectiveProto, out var objective))
@@ -349,7 +348,7 @@ public sealed partial class ObjectivesSystem : SharedObjectivesSystem
 
     private void CreateCompletions()
     {
-        _objectives = _prototypeManager.EnumeratePrototypes<EntityPrototype>()
+        _objectives = ProtoMan.EnumeratePrototypes<EntityPrototype>()
             .Where(p => p.HasComponent<ObjectiveComponent>())
             .Select(p => p.ID)
             .Order();

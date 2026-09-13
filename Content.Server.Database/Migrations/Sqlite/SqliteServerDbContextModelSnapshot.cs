@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.6");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -868,35 +868,68 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DVModel+SeenTip", b =>
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
-                        .HasColumnName("dv_seen_tips_id");
+                        .HasColumnName("custom_vote_log_id");
 
-                    b.Property<DateTime>("DismissedAt")
+                    b.Property<Guid?>("InitiatorId")
                         .HasColumnType("TEXT")
-                        .HasColumnName("dismissed_at");
+                        .HasColumnName("initiator_id");
 
-                    b.Property<Guid>("PlayerUserId")
+                    b.Property<int>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.Property<byte>("State")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("state");
+
+                    b.Property<DateTime>("TimeCreated")
                         .HasColumnType("TEXT")
-                        .HasColumnName("player_user_id");
+                        .HasColumnName("time_created");
 
-                    b.Property<string>("TipProtoId")
+                    b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(64)
                         .HasColumnType("TEXT")
-                        .HasColumnName("tip_proto_id");
+                        .HasColumnName("title");
 
                     b.HasKey("Id")
-                        .HasName("PK_dv_seen_tips");
+                        .HasName("PK_custom_vote_log");
 
-                    b.HasIndex("PlayerUserId", "TipProtoId")
-                        .IsUnique()
-                        .HasDatabaseName("IX_dv_seen_tips_player_user_id_tip_proto_id");
+                    b.HasIndex("InitiatorId");
 
-                    b.ToTable("dv_seen_tips", (string)null);
+                    b.HasIndex("RoundId")
+                        .HasDatabaseName("IX_custom_vote_log_round_id");
+
+                    b.ToTable("custom_vote_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLogOption", b =>
+                {
+                    b.Property<int>("VoteId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("vote_id");
+
+                    b.Property<short>("OptionIdx")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("option_idx");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("text");
+
+                    b.Property<int>("VoteCount")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("vote_count");
+
+                    b.HasKey("VoteId", "OptionIdx")
+                        .HasName("PK_custom_vote_log_option");
+
+                    b.ToTable("custom_vote_log_option", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
@@ -1162,6 +1195,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
+
+                    b.Property<string>("Voice")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1875,15 +1912,37 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Server");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DVModel+SeenTip", b =>
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
                 {
-                    b.HasOne("Content.Server.Database.Player", null)
+                    b.HasOne("Content.Server.Database.Player", "Initiator")
                         .WithMany()
-                        .HasForeignKey("PlayerUserId")
+                        .HasForeignKey("InitiatorId")
                         .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_custom_vote_log_player_initiator_id1");
+
+                    b.HasOne("Content.Server.Database.Round", "Round")
+                        .WithMany("CustomVoteLogs")
+                        .HasForeignKey("RoundId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_dv_seen_tips_player_player_id");
+                        .HasConstraintName("FK_custom_vote_log_round_round_id");
+
+                    b.Navigation("Initiator");
+
+                    b.Navigation("Round");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLogOption", b =>
+                {
+                    b.HasOne("Content.Server.Database.CustomVoteLog", "Vote")
+                        .WithMany("Options")
+                        .HasForeignKey("VoteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_custom_vote_log_option_custom_vote_log_vote_id");
+
+                    b.Navigation("Vote");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>
@@ -2108,6 +2167,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("BanHits");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Navigation("Options");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
                     b.Navigation("AdminLogs");
@@ -2174,6 +2238,8 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.Round", b =>
                 {
                     b.Navigation("AdminLogs");
+
+                    b.Navigation("CustomVoteLogs");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Server", b =>

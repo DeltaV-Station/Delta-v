@@ -60,7 +60,6 @@ namespace Content.Server.Ghost
         [Dependency] private VisibilitySystem _visibilitySystem = default!;
         [Dependency] private MetaDataSystem _metaData = default!;
         [Dependency] private MobThresholdSystem _mobThresholdSystem = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private IConfigurationManager _configurationManager = default!;
         [Dependency] private IChatManager _chatManager = default!;
         [Dependency] private SharedMindSystem _mind = default!;
@@ -342,7 +341,7 @@ namespace Content.Server.Ghost
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (CanGhostWarp(args.SenderSession, out var uid))
+            if (!CanGhostWarp(args.SenderSession, out var uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
                 return;
@@ -614,9 +613,9 @@ namespace Content.Server.Ghost
                     // Starlight - Start
                     //DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
 
-                    var damageType = _prototypeManager.Index(AsphyxiationDamageType);
+                    var damageType = ProtoMan.Index(AsphyxiationDamageType);
                     if (TryComp<DeathgaspComponent>(playerEntity, out var deathgasp))
-                        damageType = _prototypeManager.Index(deathgasp.DamageType);
+                        damageType = ProtoMan.Index(deathgasp.DamageType);
 
                     DamageSpecifier damage = new(damageType, dealtDamage);
                     // Starlight - End

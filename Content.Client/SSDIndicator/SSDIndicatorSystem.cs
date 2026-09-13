@@ -4,10 +4,8 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.SSDIndicator;
-using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.SSDIndicator;
 
@@ -16,7 +14,6 @@ namespace Content.Client.SSDIndicator;
 /// </summary>
 public sealed partial class SSDIndicatorSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private Shared.SSDIndicator.SSDIndicatorSystem _shared = default!; // DeltaV - SSD Recency, don't want to rename the upstream class
@@ -55,7 +52,7 @@ public sealed partial class SSDIndicatorSystem : EntitySystem
             args.StatusIcons.Add(_prototype.Index(icon));
             // End DeltaV Additions
 
-            // args.StatusIcons.Add(_prototype.Index(component.Icon)); // DeltaV - commented out. status icon now added above
+            // args.StatusIcons.Add(ProtoMan.Index(component.Icon)); // DeltaV - commented out. status icon now added above
         }
     }
 }

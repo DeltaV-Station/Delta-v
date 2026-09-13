@@ -50,9 +50,7 @@ namespace Content.Shared.Weapons.Melee;
 public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 {
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] protected IMapManager MapManager = default!;
     [Dependency] private INetManager _netMan = default!;
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected ActionBlockerSystem Blocker = default!;
@@ -63,6 +61,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected MobStateSystem MobState = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] protected SharedCombatModeSystem CombatMode = default!;
+    [Dependency] protected SharedMapSystem Maps = default!;
     [Dependency] protected SharedInteractionSystem Interaction = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] protected SharedPopupSystem PopupSystem = default!;
@@ -595,7 +594,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         }
 
-        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);
+        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, ProtoMan), hitEvent.HitSoundOverride, component);
 
         if (damageResult.GetTotal() > FixedPoint2.Zero && !TerminatingOrDeleted(target.Value))
         {
@@ -770,7 +769,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         if (entities.Count != 0)
         {
             var target = entities.First();
-            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
+            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, ProtoMan), hitEvent.HitSoundOverride, component);
         }
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0)

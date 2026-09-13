@@ -1,14 +1,12 @@
 ﻿using Content.Shared.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared.RatKing;
 
 public abstract partial class SharedRatKingSystem : EntitySystem
 {
-    [Dependency] protected IPrototypeManager PrototypeManager = default!;
     [Dependency] protected IRobustRandom Random = default!;
     [Dependency] private SharedActionsSystem _action = default!;
 

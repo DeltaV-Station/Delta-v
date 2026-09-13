@@ -10,7 +10,6 @@
 
 // public sealed partial class TraitSystem : EntitySystem
 // {
-//     [Dependency] private IPrototypeManager _prototypeManager = default!;
 //     [Dependency] private SharedHandsSystem _sharedHandsSystem = default!;
 //     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
@@ -21,24 +20,24 @@
 //         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
 //     }
 
-//     // When the player is spawned in, add all trait components selected during character creation
-//     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
-//     {
-//         // Check if player's job allows to apply traits
-//         if (args.JobId == null ||
-//             !_prototypeManager.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
-//             !protoJob.ApplyTraits)
-//         {
-//             return;
-//         }
+    // When the player is spawned in, add all trait components selected during character creation
+    // private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
+    // {
+    //     // Check if player's job allows to apply traits
+    //     if (args.JobId == null ||
+    //         !ProtoMan.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
+    //         !protoJob.ApplyTraits)
+    //     {
+    //         return;
+    //     }
 
-//         foreach (var traitId in args.Profile.TraitPreferences)
-//         {
-//             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
-//             {
-//                 Log.Error($"No trait found with ID {traitId}!");
-//                 return;
-//             }
+    //     foreach (var traitId in args.Profile.TraitPreferences)
+    //     {
+    //         if (!ProtoMan.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+    //         {
+    //             Log.Error($"No trait found with ID {traitId}!");
+    //             return;
+    //         }
 
 //             if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
 //                 _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, args.Mob))

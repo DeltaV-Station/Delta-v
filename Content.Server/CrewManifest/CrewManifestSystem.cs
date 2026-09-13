@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -14,7 +13,6 @@ using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.CrewManifest;
 
@@ -24,7 +22,6 @@ public sealed partial class CrewManifestSystem : EntitySystem
     [Dependency] private StationRecordsSystem _recordsSystem = default!;
     [Dependency] private EuiManager _euiManager = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     ///     Cached crew manifest entries. The alternative is to outright
@@ -232,7 +229,7 @@ public sealed partial class CrewManifestSystem : EntitySystem
             // Delta-V: Added gender to crew manifest
             var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype);
 
-            _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
+            ProtoMan.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
         }
 

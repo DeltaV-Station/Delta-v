@@ -178,7 +178,7 @@ public sealed partial class CargoSystem
 
     public void SetupBountyLabel(EntityUid uid, EntityUid stationId, CargoBountyData bounty, PaperComponent? paper = null, CargoBountyLabelComponent? label = null)
     {
-        if (!Resolve(uid, ref paper, ref label) || !_protoMan.Resolve<CargoBountyPrototype>(bounty.Bounty, out var prototype))
+        if (!Resolve(uid, ref paper, ref label) || !ProtoMan.Resolve<CargoBountyPrototype>(bounty.Bounty, out var prototype))
             return;
 
         label.Id = bounty.Id;
@@ -221,7 +221,7 @@ public sealed partial class CargoSystem
         if (!TryGetBountyFromId(station, component.Id, out var bounty, database))
             return;
 
-        if (!_protoMan.Resolve(bounty.Value.Bounty, out var bountyPrototype) ||
+        if (!ProtoMan.Resolve(bounty.Value.Bounty, out var bountyPrototype) ||
             !IsBountyComplete(container.Owner, bountyPrototype))
             return;
 
@@ -340,7 +340,7 @@ public sealed partial class CargoSystem
 
     public bool IsBountyComplete(EntityUid container, CargoBountyData data, out HashSet<EntityUid> bountyEntities)
     {
-        if (!_protoMan.Resolve(data.Bounty, out var proto))
+        if (!ProtoMan.Resolve(data.Bounty, out var proto))
         {
             bountyEntities = new();
             return false;
@@ -351,7 +351,7 @@ public sealed partial class CargoSystem
 
     public bool IsBountyComplete(EntityUid container, string id)
     {
-        if (!_protoMan.TryIndex<CargoBountyPrototype>(id, out var proto))
+        if (!ProtoMan.TryIndex<CargoBountyPrototype>(id, out var proto))
             return false;
 
         return IsBountyComplete(container, proto.Entries);
@@ -359,7 +359,7 @@ public sealed partial class CargoSystem
 
     public bool IsBountyComplete(EntityUid container, ProtoId<CargoBountyPrototype> prototypeId)
     {
-        var prototype = _protoMan.Index(prototypeId);
+        var prototype = ProtoMan.Index(prototypeId);
 
         return IsBountyComplete(container, prototype.Entries);
     }
@@ -464,7 +464,7 @@ public sealed partial class CargoSystem
             return false;
 
         // todo: consider making the cargo bounties weighted.
-        var allBounties = _protoMan.EnumeratePrototypes<CargoBountyPrototype>()
+        var allBounties = ProtoMan.EnumeratePrototypes<CargoBountyPrototype>()
             .Where(p => p.Group == component.Group)
             .ToList();
         var filteredBounties = new List<CargoBountyPrototype>();
@@ -483,7 +483,7 @@ public sealed partial class CargoSystem
     [PublicAPI]
     public bool TryAddBounty(EntityUid uid, string bountyId, StationCargoBountyDatabaseComponent? component = null)
     {
-        if (!_protoMan.TryIndex<CargoBountyPrototype>(bountyId, out var bounty))
+        if (!ProtoMan.TryIndex<CargoBountyPrototype>(bountyId, out var bounty))
         {
             return false;
         }

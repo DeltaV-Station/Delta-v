@@ -43,7 +43,6 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
@@ -95,7 +94,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!component.AvailablePrototypes.Contains(args.ProtoId))
             return;
 
-        if (!_protoManager.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
+        if (!ProtoMan.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
             return;
 
         // Set the current RCD prototype to the one supplied
@@ -114,7 +113,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         var msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", Loc.GetString(prototype.SetName)));
 
@@ -123,7 +122,7 @@ public sealed partial class RCDSystem : EntitySystem
             var name = Loc.GetString(prototype.SetName);
 
             if (prototype.Prototype != null &&
-                _protoManager.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
+                ProtoMan.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
                 name = proto.Name;
 
             msg = Loc.GetString("rcd-component-examine-build-details", ("name", name));
@@ -139,7 +138,7 @@ public sealed partial class RCDSystem : EntitySystem
 
         var user = args.User;
         var location = args.ClickLocation;
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         // Initial validity checks
         if (!location.IsValid(EntityManager))
@@ -196,7 +195,7 @@ public sealed partial class RCDSystem : EntitySystem
                     var deconstructedTile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
                     var protoName = !_turf.IsSpace(deconstructedTile) ? _deconstructTileProto : _deconstructLatticeProto;
 
-                    if (_protoManager.Resolve(protoName, out var deconProto))
+                    if (ProtoMan.Resolve(protoName, out var deconProto))
                     {
                         cost = deconProto.Cost;
                         delay = deconProto.Delay;
@@ -345,7 +344,7 @@ public sealed partial class RCDSystem : EntitySystem
 
     public bool IsRCDOperationStillValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user, bool popMsgs = true)
     {
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         // Check that the RCD has enough ammo to get the job done
         var charges = _sharedCharges.GetCurrentCharges(uid);
@@ -390,7 +389,7 @@ public sealed partial class RCDSystem : EntitySystem
 
     private bool IsConstructionLocationValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid user, bool popMsgs = true)
     {
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         // Check rule: Must build on empty tile
         if (prototype.ConstructionRules.Contains(RcdConstructionRule.MustBuildOnEmptyTile) && !tile.Tile.IsEmpty)
@@ -589,7 +588,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!_net.IsServer)
             return;
 
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         if (prototype.Prototype == null)
             return;

@@ -197,7 +197,7 @@ namespace Content.Server.GameTicking
                 {
                     var roundStart = new List<ProtoId<SpeciesPrototype>>();
 
-                    var speciesPrototypes = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>();
+                    var speciesPrototypes = ProtoMan.EnumeratePrototypes<SpeciesPrototype>();
                     foreach (var proto in speciesPrototypes)
                     {
                         if (proto.RoundStart && !SpeciesHiderSystem.IsHidden(proto.ID)) // DeltaV - Don't include hidden species
@@ -210,7 +210,7 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
+                    var weights = ProtoMan.Index<WeightedRandomSpeciesPrototype>(weightId);
                     speciesId = weights.Pick(_robustRandom);
                 }
 
@@ -302,11 +302,6 @@ namespace Content.Server.GameTicking
                 // End DeltaV - announce these to departmental channels
             }
 
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
-            {
-                AddComp<OwOAccentComponent>(mob);
-            }
-
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
 
             if (lateJoin)
@@ -368,7 +363,7 @@ namespace Content.Server.GameTicking
 
             DebugTools.AssertNotNull(data);
 
-            jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+            jobPrototype = ProtoMan.Index<JobPrototype>(jobId);
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
@@ -512,7 +507,7 @@ namespace Content.Server.GameTicking
                 var spawn = _robustRandom.Pick(_possiblePositions);
                 var toMap = _transform.ToMapCoordinates(spawn);
 
-                if (_mapManager.TryFindGridAt(toMap, out var gridUid, out _))
+                if (_map.TryFindGridAt(toMap, out var gridUid, out _))
                 {
                     var gridXform = Transform(gridUid);
 

@@ -2,10 +2,12 @@ using System.Globalization;
 using System.Linq;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._DV.Species;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
+using Content.Shared.Speech.Components;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -20,6 +22,7 @@ public sealed partial class HumanoidProfileEditor
 
     private ColorSelectorSliders _rgbSkinColorSelector;
     private List<SpeciesPrototype> _species = new();
+    private List<EmoteSoundsPrototype> _voices = new();
     private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
 
     public void UpdateSpeciesGuidebookIcon()
@@ -99,6 +102,34 @@ public sealed partial class HumanoidProfileEditor
 
         _markingsModel.SetOrganEyeColor(Profile.Appearance.EyeColor);
         EyeColorPicker.SetData(Profile.Appearance.EyeColor);
+    }
+
+    private void UpdateVoiceControls()
+    {
+        if (Profile == null)
+            return;
+
+        VoiceButton.Clear();
+        _voices.Clear();
+
+        var speciesPrototype = _prototypeManager.Index(Profile.Species);
+        var availableVoices = speciesPrototype.Voices;
+
+        _voices.AddRange(availableVoices.Select(protoId => _prototypeManager.Index(protoId)));
+
+        if (_voices.All(proto => Profile?.Voice != proto.ID))
+            SetVoice(speciesPrototype.DefaultSoundsBySex[(int)Profile.Sex]);
+
+        for (var i = 0; i < availableVoices.Count; i++)
+        {
+            var name = Loc.GetString(_voices[i].VoiceSelectorName);
+            VoiceButton.AddItem(name, i);
+
+            if (Profile?.Voice.Equals(_voices[i].ID) == true)
+            {
+                VoiceButton.SelectId(i);
+            }
+        }
     }
 
     private void UpdateSkinColor()
@@ -194,6 +225,7 @@ public sealed partial class HumanoidProfileEditor
         // In case there's species restrictions for loadouts
         RefreshLoadouts();
         UpdateSexControls(); // update sex for new species
+        UpdateVoiceControls();
         UpdateSpeciesGuidebookIcon();
         UpdateHeightControls(); // DeltaV
         ReloadPreview();
@@ -249,9 +281,20 @@ public sealed partial class HumanoidProfileEditor
                 break;
         }
 
+        // this does the same as above but for voice
+        if (_prototypeManager.TryIndex(Profile?.Species, out var prototype))
+            SetVoice(prototype.DefaultSoundsBySex[(int)newSex]);
+
         UpdateGenderControls();
+        UpdateVoiceControls();
         _markingsModel.SetOrganSexes(newSex);
         ReloadPreview();
+    }
+
+    private void SetVoice(ProtoId<EmoteSoundsPrototype> newVoice)
+    {
+        Profile = Profile?.WithVoice(newVoice);
+        SetDirty();
     }
 
     private void SetGender(Gender newGender)

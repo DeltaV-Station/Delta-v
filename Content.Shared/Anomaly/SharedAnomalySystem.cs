@@ -34,7 +34,6 @@ public abstract partial class SharedAnomalySystem : EntitySystem
     [Dependency] protected SharedAppearanceSystem Appearance = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] protected SharedPopupSystem Popup = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedMapSystem _map = default!;
 
@@ -107,7 +106,7 @@ public abstract partial class SharedAnomalySystem : EntitySystem
         var powerMod = 1f;
         if (component.CurrentBehavior != null)
         {
-            var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
+            var beh = ProtoMan.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
         var ev = new AnomalyPulseEvent(uid, component.Stability, component.Severity, powerMod);
@@ -176,7 +175,7 @@ public abstract partial class SharedAnomalySystem : EntitySystem
         var powerMod = 1f;
         if (component.CurrentBehavior != null)
         {
-            var beh = _prototype.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
+            var beh = ProtoMan.Index<AnomalyBehaviorPrototype>(component.CurrentBehavior);
             powerMod = beh.PulsePowerModifier;
         }
 
@@ -318,7 +317,7 @@ public abstract partial class SharedAnomalySystem : EntitySystem
         //Apply behavior modifier
         if (component.CurrentBehavior != null)
         {
-            var behavior = _prototype.Index(component.CurrentBehavior.Value);
+            var behavior = ProtoMan.Index(component.CurrentBehavior.Value);
             lenght *= behavior.PulseFrequencyModifier;
         }
         return lenght;

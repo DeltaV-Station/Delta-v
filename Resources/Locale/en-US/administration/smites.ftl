@@ -65,6 +65,7 @@ admin-smite-crawler-name = Crawler
 admin-smite-homing-rod-name = Homing Rod
 admin-smite-homing-rod-slow-name = Slowming Rod
 admin-smite-silicon-laws-bound-name = Become Silicon
+admin-smite-make-stinky-name = Make Stinky
 
 ## Smite descriptions
 
@@ -114,6 +115,7 @@ admin-smite-crawler-description = Makes the target fall down and be unable to st
 admin-smite-homing-rod-description = Launches a homing immovable rod straight at them.
 admin-smite-homing-rod-slow-description = Launches a slow moving homing immovable rod straight at them.
 admin-smite-silicon-laws-bound-description = Makes the target bound to silicon laws. Law 2, jump out of the window.
+admin-smite-make-stinky-description = Makes the target stinky by making them release ammonia. Ew!
 
 ## Tricks descriptions
 

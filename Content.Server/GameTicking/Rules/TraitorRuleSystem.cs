@@ -2,7 +2,6 @@ using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.PDA.Ringer;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
@@ -13,13 +12,11 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-using Content.Shared._DV.Tips;
-using Robust.Shared.Map;
+using Content.Shared._DV.Tips; // DeltaV
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -31,7 +28,6 @@ public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleCompon
     // [Dependency] private SharedJobSystem _jobs = default!; // DV - not used
     [Dependency] private MindSystem _mindSystem = default!;
     [Dependency] private NpcFactionSystem _npcFaction = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedRoleCodewordSystem _roleCodewordSystem = default!;
     [Dependency] private SharedRoleSystem _roleSystem = default!;
@@ -75,7 +71,7 @@ public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleCompon
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
         }
 
-        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
+        var issuer = _random.Pick(ProtoMan.Index(component.ObjectiveIssuers));
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;

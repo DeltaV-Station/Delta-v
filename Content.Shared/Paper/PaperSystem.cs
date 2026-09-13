@@ -18,7 +18,6 @@ namespace Content.Shared.Paper;
 public sealed partial class PaperSystem : EntitySystem
 {
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;

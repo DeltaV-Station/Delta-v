@@ -15,7 +15,6 @@ namespace Content.Shared.Humanoid
         private static readonly ProtoId<SpeciesPrototype> FallbackSpecies = "Human";
 
         [Dependency] private IRobustRandom _random = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
 
         // DeltaV - i hate this hack but https://github.com/space-wizards/RobustToolbox/issues/6576
         private ISawmill _locSawmill = default!;
@@ -32,9 +31,9 @@ namespace Content.Shared.Humanoid
         {
             // if they have an old species or whatever just fall back to human I guess?
             // Some downstream is probably gonna have this eventually but then they can deal with fallbacks.
-            if (!_prototypeManager.TryIndex(species, out SpeciesPrototype? speciesProto))
+            if (!ProtoMan.TryIndex(species, out SpeciesPrototype? speciesProto))
             {
-                speciesProto = _prototypeManager.Index(FallbackSpecies);
+                speciesProto = ProtoMan.Index(FallbackSpecies);
                 Log.Warning($"Unable to find species {species} for name, falling back to {FallbackSpecies}");
             }
 
@@ -99,14 +98,14 @@ namespace Content.Shared.Humanoid
             switch (gender)
             {
                 case Gender.Male:
-                    return _random.PickId(_prototypeManager.Index(speciesProto.MaleFirstNames));
+                    return _random.Pick(ProtoMan.Index(speciesProto.MaleFirstNames));
                 case Gender.Female:
-                    return _random.PickId(_prototypeManager.Index(speciesProto.FemaleFirstNames));
+                    return _random.Pick(ProtoMan.Index(speciesProto.FemaleFirstNames));
                 default:
                     if (_random.Prob(0.5f))
-                        return _random.PickId(_prototypeManager.Index(speciesProto.MaleFirstNames));
+                        return _random.Pick(ProtoMan.Index(speciesProto.MaleFirstNames));
                     else
-                        return _random.PickId(_prototypeManager.Index(speciesProto.FemaleFirstNames));
+                        return _random.Pick(ProtoMan.Index(speciesProto.FemaleFirstNames));
             }
         }
 

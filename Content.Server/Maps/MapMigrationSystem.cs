@@ -17,9 +17,6 @@ namespace Content.Server.Maps;
 /// </summary>
 public sealed partial class MapMigrationSystem : EntitySystem
 {
-#if DEBUG
-    [Dependency] private IPrototypeManager _protoMan = default!;
-#endif
     [Dependency] private IResourceManager _resMan = default!;
 
     private const string MigrationDir = "/Migrations/"; // DeltaV - dir instead of a single file
@@ -40,7 +37,7 @@ public sealed partial class MapMigrationSystem : EntitySystem
             {
                 var newId = ((ValueDataNode) node).Value;
                 if (!string.IsNullOrEmpty(newId) && newId != "null")
-                    DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(newId),
+                    DebugTools.Assert(ProtoMan.HasIndex<EntityPrototype>(newId),
                         $"{newId} is not an entity prototype.");
             }
         }

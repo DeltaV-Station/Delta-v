@@ -1,6 +1,5 @@
 using Content.Server.GameTicking.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 using System.Linq;
 
 namespace Content.Server.GameTicking;
@@ -17,10 +16,19 @@ public sealed partial class GameTicker
 
     private void InitializeLobbyBackground()
     {
-        _lobbyBackgrounds = _prototypeManager.EnumeratePrototypes<LobbyBackgroundPrototype>()
-            .Select(x => x.Background)
-            .Where(x => WhitelistedBackgroundExtensions.Contains(x.Extension))
-            .ToList();
+        var allprotos = ProtoMan.EnumeratePrototypes<LobbyBackgroundPrototype>().ToList();
+        _lobbyBackgrounds ??= new List<ProtoId<LobbyBackgroundPrototype>>();
+
+        //create protoids from them
+        foreach (var proto in allprotos)
+        {
+            var ext = proto.Background.Extension;
+            if (!WhitelistedBackgroundExtensions.Contains(ext))
+                continue;
+
+            //create a protoid and add it to the list
+            _lobbyBackgrounds.Add(new ProtoId<LobbyBackgroundPrototype>(proto.ID));
+        }
 
         RandomizeLobbyBackground();
     }

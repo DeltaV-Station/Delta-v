@@ -188,6 +188,7 @@
   id: WizardSpider
   configuration:
     entity: MobGiantSpiderWizard #Not angry so ghosts can't just take over the wizard
+    revertConfirmationPopup: false
     transferName: true
     inventory: None
     revertOnDeath: true
@@ -229,6 +230,7 @@
     transferName: true # DeltaV - needed for player panel
     inventory: None
     forced: false
+    revertConfirmationPopup: false
     revertOnDeath: true
     allowRepeatedMorphs: false
     polymorphSound: /Audio/Magic/ethereal_enter.ogg

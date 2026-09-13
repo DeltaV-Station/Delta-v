@@ -13,7 +13,6 @@ namespace Content.Shared.Body;
 /// </summary>
 public abstract partial class SharedVisualBodySystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private MarkingManager _marking = default!;
     [Dependency] private SharedContainerSystem _container = default!;
 
@@ -151,7 +150,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!args.Args.Markings.TryGetValue(category, out var markingSet))
             return;
 
-        var groupProto = _prototype.Index(ent.Comp.MarkingData.Group);
+        var groupProto = ProtoMan.Index(ent.Comp.MarkingData.Group);
         var organMarkings = ent.Comp.Markings.ShallowClone();
 
         foreach (var layer in ent.Comp.MarkingData.Layers)

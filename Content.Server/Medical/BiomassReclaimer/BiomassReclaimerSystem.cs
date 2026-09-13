@@ -12,6 +12,7 @@ using Content.Shared.Climbing.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -212,7 +213,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                 _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution))
             {
                 component.BloodReagents = solution.Clone();
-                //component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume); // Delta V - This doesn't need to be here. It just always makes the solution ~50u but also might divide by 0. Just use the current blood level so more blood = more mess.
+                // var scale = component.BloodReagents.Volume <= FixedPoint2.Zero ? 0 : 50 / component.BloodReagents.Volume; // Delta V - This doesn't need to be here. It just always makes the solution ~50u. Just use the current blood level so more blood = more mess.
+                // component.BloodReagents.ScaleSolution(scale); // DeltaV
             }
             if (TryComp<ToolRefinableComponent>(toProcess, out var refinable))
             {

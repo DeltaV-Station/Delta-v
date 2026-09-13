@@ -1,74 +1,4 @@
 - type: cargoProduct
-  id: FunInstrumentsVariety
-  icon:
-    sprite: Objects/Fun/Instruments/accordion.rsi
-    state: icon
-  product: CrateFunInstrumentsVariety
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunInstrumentsBrass
-  icon:
-    sprite: Objects/Fun/Instruments/structureinstruments.rsi
-    state: tuba
-  product: CrateFunInstrumentsBrass
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunInstrumentsString
-  icon:
-    sprite: Objects/Fun/Instruments/bassguitar.rsi
-    state: icon
-  product: CrateFunInstrumentsString
-  cost: 2500
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunInstrumentsWoodwind
-  icon:
-    sprite: Objects/Fun/Instruments/harmonica.rsi
-    state: icon
-  product: CrateFunInstrumentsWoodwind
-  cost: 3000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunInstrumentsKeyedPercussion
-  icon:
-    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
-    state: icon
-  product: CrateFunInstrumentsKeyedPercussion
-  cost: 2500
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunInstrumentsSpecial
-  icon:
-    sprite: Objects/Fun/Instruments/gunpet.rsi
-    state: icon
-  product: CrateFunInstrumentsSpecial
-  cost: 10000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunInstrumentsRandom
-  icon:
-    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
-    state: supersynth
-  product: CrateFunInstrumentsRandom
-  cost: 2500
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
   id: FunArtSupplies
   icon:
     sprite: Objects/Fun/crayons.rsi
@@ -259,6 +189,14 @@
     state: church-organ
   product: ChurchOrganInstrument
   cost: 1500
+
+- type: cargoProduct
+  id: FunPlants
+  icon:
+    sprite: Structures/Furniture/potted_plants.rsi
+    state: random
+  product: CratePlants
+  cost: 1000
   category: cargoproduct-category-name-fun
   group: market
 
@@ -368,6 +306,13 @@
     sprite: Objects/Fun/Instruments/structureinstruments.rsi
     state: toms
   product: TomDrumsInstrument
+
+- type: cargoProduct
+  id: BigDrumsInstrument
+  icon:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: drum
+  product: BigDrumsInstrument
   cost: 1500
   category: cargoproduct-category-name-fun
   group: market

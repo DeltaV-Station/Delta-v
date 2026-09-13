@@ -157,11 +157,11 @@ public abstract partial class SharedToolSystem
             }
             else if (welderSolution.AvailableVolume <= 0)
             {
-                _popup.PopupClient(Loc.GetString("welder-component-already-full"), entity, args.User);
+                _popup.PopupClient(Loc.GetString("welder-component-already-full", ("owner", entity.Owner)), entity, args.User);
             }
             else
             {
-                _popup.PopupClient(Loc.GetString("welder-component-no-fuel-in-tank", ("owner", args.Target)), entity, args.User);
+                _popup.PopupClient(Loc.GetString("welder-component-no-fuel-in-tank", ("target", args.Target)), entity, args.User);
             }
 
             args.Handled = true;
@@ -172,7 +172,7 @@ public abstract partial class SharedToolSystem
     {
         if (!ItemToggle.IsActivated(entity.Owner))
         {
-            _popup.PopupClient(Loc.GetString("welder-component-welder-not-lit-message"), entity, user);
+            _popup.PopupClient(Loc.GetString("welder-component-welder-not-lit-message", ("owner", entity.Owner)), entity, user);
             ev.Cancel();
         }
 
@@ -180,7 +180,7 @@ public abstract partial class SharedToolSystem
 
         if (requiredFuel > currentFuel)
         {
-            _popup.PopupClient(Loc.GetString("welder-component-cannot-weld-message"), entity, user);
+            _popup.PopupClient(Loc.GetString("welder-component-cannot-weld-message", ("owner", entity.Owner)), entity, user);
             ev.Cancel();
         }
     }
@@ -215,14 +215,14 @@ public abstract partial class SharedToolSystem
         if (!SolutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.FuelSolutionName, out _, out var solution))
         {
             args.Cancelled = true;
-            args.Popup = Loc.GetString("welder-component-no-fuel-message");
+            args.Popup = Loc.GetString("welder-component-no-fuel-message", ("owner", entity.Owner));
             return;
         }
 
         var fuel = solution.GetTotalPrototypeQuantity(entity.Comp.FuelReagent);
         if (fuel == FixedPoint2.Zero || fuel < entity.Comp.FuelLitCost)
         {
-            args.Popup = Loc.GetString("welder-component-no-fuel-message");
+            args.Popup = Loc.GetString("welder-component-no-fuel-message", ("owner", entity.Owner));
             args.Cancelled = true;
         }
     }

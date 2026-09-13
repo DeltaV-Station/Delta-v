@@ -1,13 +1,11 @@
 ﻿using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
-using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
 
 namespace Content.Client.Chat.TypingIndicator;
 
 public sealed partial class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingIndicatorComponent>
 {
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private InventorySystem _inventory = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorComponent component, ref AppearanceChangeEvent args)
@@ -34,7 +32,7 @@ public sealed partial class TypingIndicatorVisualizerSystem : VisualizerSystem<T
         }
         // End DeltaV Additions
 
-        if (!_prototypeManager.Resolve(currentTypingIndicator, out var proto))
+        if (!ProtoMan.Resolve(currentTypingIndicator, out var proto))
         {
             Log.Error($"Unknown typing indicator id: {component.TypingIndicatorPrototype}");
             return;

@@ -4,7 +4,6 @@ using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing; // DeltaV - SSD time indicator
 
 namespace Content.Client.Administration.Systems
@@ -19,7 +18,6 @@ namespace Content.Client.Administration.Systems
         [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private IConfigurationManager _configurationManager = default!;
         [Dependency] private SharedRoleSystem _roles = default!;
-        [Dependency] private IPrototypeManager _proto = default!;
         [Dependency] private IGameTiming _timing = default!; // DeltaV - added for SSD time indicator
 
         private AdminNameOverlay _adminNameOverlay = default!;
@@ -38,7 +36,7 @@ namespace Content.Client.Administration.Systems
                 _userInterfaceManager,
                 _configurationManager,
                 _roles,
-                _proto,
+                ProtoMan,
                 _timing); // DeltaV - Add timing
             _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
         }

@@ -75,6 +75,20 @@ namespace Content.Shared.Chat
             Read = copyFrom.Read;
             RadioChannelProtoId = copyFrom.RadioChannelProtoId; // DeltaV
         }
+
+        public ChatMessage(ChatMessage copyFrom)
+        {
+            Channel = copyFrom.Channel;
+            Message = copyFrom.Message;
+            WrappedMessage = copyFrom.WrappedMessage;
+            SenderEntity = copyFrom.SenderEntity;
+            SenderKey = copyFrom.SenderKey;
+            HideChat = copyFrom.HideChat;
+            MessageColorOverride = copyFrom.MessageColorOverride;
+            AudioPath = copyFrom.AudioPath;
+            AudioVolume = copyFrom.AudioVolume;
+            Read = copyFrom.Read;
+        }
     }
 
     /// <summary>
