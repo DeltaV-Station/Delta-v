@@ -9,9 +9,11 @@ using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Body;
 using Content.Shared.DoAfter;
+using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Gibbing;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Stunnable;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -32,6 +34,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
 
     private static readonly EntProtoId? Sparks = "EffectSparks";
 
@@ -65,11 +68,19 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         var sparkFrom = detonateTime / 2;
 
         // Start the DoAfter.
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, detonateTime, new PsionicEruptionDoAfterEvent(), args.Performer);
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, detonateTime, new PsionicEruptionDoAfterEvent(), args.Performer)
+        {
+            RequireCanInteract = false,
+            BreakOnCritical = true,
+        };
+
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
             return;
 
         psionic.Comp.SaveDoAfterId(doAfterId.Value); // Save the DoAfterID to reference it later.
+
+        _stunSystem.TryAddStunDuration(args.Performer, detonateTime);
+        _stunSystem.SetKnockdownTime(args.Performer, detonateTime);
 
         var message = Loc.GetString("psionic-eruption-begin", ("user", args.Performer));
         Popup.PopupEntity(message, args.Performer, PopupType.LargeCaution);

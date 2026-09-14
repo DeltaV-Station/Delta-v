@@ -20,14 +20,14 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
     /// Half of it is the time for every spark.
     /// </summary>
     [DataField]
-    public TimeSpan MinDetonateDelay = TimeSpan.FromSeconds(10);
+    public TimeSpan MinDetonateDelay = TimeSpan.FromSeconds(2.5);
 
     /// <summary>
     /// Maximum time for the Detonation DoAfter to take effect.
     /// Half of it is the time for every spark.
     /// </summary>
     [DataField]
-    public TimeSpan MaxDetonateDelay = TimeSpan.FromSeconds(30);
+    public TimeSpan MaxDetonateDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The sound that appears when the action is pressed.
