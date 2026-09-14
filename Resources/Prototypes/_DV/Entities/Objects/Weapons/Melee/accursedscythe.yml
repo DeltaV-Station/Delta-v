@@ -4,7 +4,9 @@
   name: accursed scythe
   description: a deadly scythe radiating terrible energy
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Execution
     doAfterDuration: 2.5
   - type: Sprite

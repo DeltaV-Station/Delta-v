@@ -9,7 +9,7 @@ namespace Content.Server._CD.Records.Commands;
 [AdminCommand(AdminFlags.Ban)]
 public sealed class DelRecordEntryCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "delrecordentry";
 

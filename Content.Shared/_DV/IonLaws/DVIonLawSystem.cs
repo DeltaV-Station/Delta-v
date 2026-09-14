@@ -11,9 +11,9 @@ namespace Content.Shared._DV.IonLaws;
 
 public sealed class DVIonLawSystem : EntitySystem
 {
-    [Dependency] private readonly ILocalizationManager _localization = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private ILocalizationManager _localization = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     private const string Culture = "en-US";
 

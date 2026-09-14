@@ -20,11 +20,11 @@ namespace Content.Server._DV.Administration.Commands;
 public sealed class SpawnPlayer : LocalizedEntityCommands
 {
 
-    [Dependency] private readonly IEntitySystemManager _entitySys = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntitySystemManager _entitySys = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IServerPreferencesManager _prefs = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "spawnplayer";
 

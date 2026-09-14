@@ -9,9 +9,9 @@ namespace Content.Client._DV.Screens;
 
 public sealed class DVScreenSystem : DVSharedScreenSystem
 {
-    [Dependency] private readonly DVTextVisualsSystem _textVisuals = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ClientGameTicker _ticker = default!;
+    [Dependency] private DVTextVisualsSystem _textVisuals = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ClientGameTicker _ticker = default!;
 
     public override void Initialize()
     {

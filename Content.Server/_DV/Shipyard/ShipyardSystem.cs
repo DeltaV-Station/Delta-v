@@ -15,11 +15,11 @@ namespace Content.Server.Shipyard;
 /// </summary>
 public sealed class ShipyardSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly MapDeleterShuttleSystem _mapDeleterShuttle = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private MapDeleterShuttleSystem _mapDeleterShuttle = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
 
     public ProtoId<TagPrototype> DockTag = "DockShipyard";
 

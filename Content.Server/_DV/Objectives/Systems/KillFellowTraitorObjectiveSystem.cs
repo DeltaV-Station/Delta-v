@@ -12,9 +12,9 @@ namespace Content.Server._DV.Objectives.Systems;
 /// </summary>
 public sealed class KillFellowTraitorObjectiveSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
+    [Dependency] private TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {

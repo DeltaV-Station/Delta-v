@@ -7,7 +7,7 @@ namespace Content.Server._DV.Feroxi;
 
 public sealed class FeroxiDehydrateSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private BodySystem _body = default!;
 
     public override void Update(float frameTime)
     {

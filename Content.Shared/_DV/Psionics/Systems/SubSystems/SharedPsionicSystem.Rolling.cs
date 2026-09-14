@@ -9,8 +9,8 @@ namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
 
     public bool TryRollPsionic(Entity<PotentialPsionicComponent> potPsionic, float multiplier = 1.0f)
     {
@@ -50,11 +50,10 @@ public abstract partial class SharedPsionicSystem
         if (!_prototypeManager.Resolve(psionic.Comp.PsionicPowerTableId, out var powerTable))
             return;
 
-        var random = Random.GetRandom(); // This is called in GetSpawns(). We simply call it once to avoid calling it multiple times.
         var attempts = 0;
         while (attempts < 20) // 20 attempts to get a unique psionic power.
         {
-            var spawns = _entityTable.GetSpawns(powerTable, random);
+            var spawns = _entityTable.GetSpawns(powerTable, Random);
 
             foreach (var entProtoId in spawns)
             {

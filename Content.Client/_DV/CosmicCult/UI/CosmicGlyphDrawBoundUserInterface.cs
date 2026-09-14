@@ -10,7 +10,7 @@ namespace Content.Client._DV.CosmicCult.UI;
 [UsedImplicitly]
 public sealed class CosmicGlyphDrawBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private SimpleRadialMenu? _menu;
 

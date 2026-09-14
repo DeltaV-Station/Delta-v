@@ -20,11 +20,11 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
 
     public override void Initialize()
     {
@@ -120,7 +120,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
             return report;
         }
 
-        var species = PrototypeManager.Index(humanoid.Species);
+        var species = ProtoMan.Index(humanoid.Species);
 
         report.AddMarkupOrThrow(Loc.GetString("fugitive-report-morphotype", ("species", Loc.GetString(species.Name))));
         report.PushNewline();
@@ -168,7 +168,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
 
     private void AddCharges(FormattedMessage report, FugitiveRuleComponent rule)
     {
-        var crimeTypes = PrototypeManager.Index(rule.CrimesDataset);
+        var crimeTypes = ProtoMan.Index(rule.CrimesDataset);
         var crimes = new HashSet<LocId>();
         var total = RobustRandom.Next(rule.MinCrimes, rule.MaxCrimes + 1);
         while (crimes.Count < total)

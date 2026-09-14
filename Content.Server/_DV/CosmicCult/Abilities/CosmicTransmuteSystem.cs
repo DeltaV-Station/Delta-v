@@ -6,9 +6,9 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicTransmuteSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     private readonly HashSet<EntityUid> _entities = [];
 

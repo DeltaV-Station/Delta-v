@@ -10,7 +10,7 @@ namespace Content.Server._DV.EntityEffects.Effects.Glimmer;
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class AffectsGlimmerEntityEffectSystem : EntityEffectSystem<MetaDataComponent, AffectsGlimmer>
 {
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!;
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<AffectsGlimmer> args)
     {
         _glimmer.Glimmer += args.Effect.Amount;

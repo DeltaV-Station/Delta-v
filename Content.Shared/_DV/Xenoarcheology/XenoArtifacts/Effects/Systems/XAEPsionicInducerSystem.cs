@@ -7,8 +7,8 @@ namespace Content.Shared._DV.Xenoarcheology.XenoArtifacts.Effects.Systems;
 
 public sealed class XAEPsionicInducerSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPsionicSystem _psionic = default!;
 
     public override void Initialize()
     {

@@ -11,11 +11,11 @@ namespace Content.Shared._DV.ChronicPain.EntitySystems;
 
 public abstract partial class SharedChronicPainSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected IPrototypeManager ProtoManager = default!;
+    [Dependency] protected IRobustRandom RobustRandom = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected StatusEffectsSystem StatusEffects = default!;
     public static readonly EntProtoId ChronicPainStatusEffect = "StatusEffectChronicPainSuppressed";
 
     public override void Initialize()

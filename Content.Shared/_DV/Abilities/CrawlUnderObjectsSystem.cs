@@ -17,13 +17,13 @@ namespace Content.Shared._DV.Abilities;
 /// </summary>
 public sealed class CrawlUnderObjectsSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _moveSpeed = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveSpeed = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     public override void Initialize()
     {

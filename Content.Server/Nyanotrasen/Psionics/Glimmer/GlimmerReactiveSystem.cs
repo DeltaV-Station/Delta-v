@@ -44,6 +44,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly RevenantSystem _revenantSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly SharedPointLightSystem _pointLightSystem = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -340,7 +341,7 @@ namespace Content.Server.Psionics.Glimmer
 
             if (TryComp<MapGridComponent>(gridUid, out var grid))
             {
-                var tileIndices = grid.TileIndicesFor(coordinates);
+                var tileIndices = _map.TileIndicesFor((gridUid.Value, grid), coordinates);
 
                 if (_anchorableSystem.TileFree(grid, tileIndices, physics.CollisionLayer, physics.CollisionMask) &&
                     _transform.AnchorEntity(uid, xform))

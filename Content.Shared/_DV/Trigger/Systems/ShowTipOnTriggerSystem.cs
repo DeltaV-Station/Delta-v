@@ -7,8 +7,8 @@ namespace Content.Shared._DV.Trigger.Systems;
 
 public sealed class ShowTipOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTipSystem _tips = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private SharedTipSystem _tips = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {

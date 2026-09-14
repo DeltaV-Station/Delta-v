@@ -7,8 +7,8 @@ namespace Content.Server._DV.DeviceLinking.Systems;
 
 public sealed class DeadMansSignallerSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _link = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private DeviceLinkSystem _link = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {

@@ -15,13 +15,13 @@ namespace Content.Shared._DV.Psionics.Systems;
 /// </summary>
 public abstract partial class SharedPsionicSystem : EntitySystem
 {
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly GlimmerSystem Glimmer = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedStutteringSystem  _stuttering = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected GlimmerSystem Glimmer = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedStutteringSystem  _stuttering = default!;
 
     protected EntityQuery<PotentialPsionicComponent> PotentialQuery;
     protected EntityQuery<PsionicComponent> PsionicQuery;

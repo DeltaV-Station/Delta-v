@@ -5,7 +5,7 @@ namespace Content.Server._DV.Projectiles;
 
 public sealed class PressureProjectileSystem : SharedPressureProjectileSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
 
     protected override float GetPressure(EntityUid uid)
     {

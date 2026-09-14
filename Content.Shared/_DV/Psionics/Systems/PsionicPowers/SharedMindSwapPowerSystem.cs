@@ -9,8 +9,8 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 public abstract class SharedMindSwapPowerSystem : BasePsionicPowerSystem<MindSwapPowerComponent, MindSwapPowerActionEvent>
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly MindSwappedReturnPowerSystem _mindSwapped = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private MindSwappedReturnPowerSystem _mindSwapped = default!;
 
     private EntityQuery<MindSwappedReturnPowerComponent> _mindSwappedQuery;
     private EntityQuery<MindShieldComponent> _mindshieldQuery;

@@ -21,6 +21,19 @@
     role: JobLawyer
     time: 1h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Devil
+  name: devil-roundend-name
+  startingGear: DevilStartingGear
+  mindRoles:
+  - DevilMindRole
+  blacklist:
+    components:
+    - MindShield # DeltaV - Obvious
+    - AntagImmune # DeltaV - Obvious
+    - BibleUser # DeltaV - The people who can stop the devil shouldn't become the devil lol
+
 - type: startingGear
   id: DevilStartingGear
   storage:

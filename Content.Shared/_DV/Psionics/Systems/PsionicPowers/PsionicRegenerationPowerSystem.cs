@@ -14,8 +14,8 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class PsionicRegenerationPowerSystem : BasePsionicPowerSystem<PsionicRegenerationPowerComponent, PsionicRegenerationPowerActionEvent>
 {
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstreamSystem = default!;
 
     public override void Initialize()
     {

@@ -9,8 +9,8 @@ namespace Content.Shared._DV.Containers;
 
 public sealed class ContentContainerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private List<EntityUid> _found = new();
 

@@ -11,8 +11,8 @@ namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed partial class ReagentDispenserSystem : EntitySystem
 {
-    [Dependency] private readonly LabelSystem _label = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private LabelSystem _label = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     private void InitializeAutoLabeling()
     {
@@ -84,7 +84,7 @@ public sealed partial class ReagentDispenserSystem : EntitySystem
         if (sol.GetPrimaryReagentId() is not { } reagentProtoId)
             return;
 
-        if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
+        if (!ProtoMan.TryIndex<ReagentPrototype>(reagentProtoId.Prototype, out var reagent))
             return;
 
         var reagentQuantity = sol.GetReagentQuantity(reagentProtoId);

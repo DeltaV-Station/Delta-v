@@ -12,8 +12,8 @@ namespace Content.Server._DV.Silicons.Laws;
 /// </summary>
 public sealed class SlavedBorgSystem : SharedSlavedBorgSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedSiliconLawSystem _siliconLaws = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedSiliconLawSystem _siliconLaws = default!;
 
     public override void Initialize()
     {

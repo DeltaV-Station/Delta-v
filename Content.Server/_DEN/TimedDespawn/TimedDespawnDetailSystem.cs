@@ -11,9 +11,9 @@ namespace Content.Server._DEN.TimedDespawn;
 /// </summary>
 public sealed class TimedDespawnDetailedSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     private readonly HashSet<EntityUid> _timedDespawns = new();
 

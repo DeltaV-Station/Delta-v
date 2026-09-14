@@ -9,7 +9,7 @@ namespace Content.Server._DV.IonLaws;
 [ToolshedCommand, AdminCommand(AdminFlags.Fun)]
 public sealed class IonLawCommand : ToolshedCommand
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private DVIonLawSystem? _ionLaw;
 

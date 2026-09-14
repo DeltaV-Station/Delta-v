@@ -19,12 +19,12 @@ namespace Content.Server._DV.StationEvents.GameRules;
 /// </summary>
 internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSwapRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
-    [Dependency] private readonly MobStateSystem _mobstateSystem = default!;
-    [Dependency] private readonly PsionicSystem _psionic = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedMindSwapPowerSystem _mindSwap = default!;
+    [Dependency] private MobStateSystem _mobstateSystem = default!;
+    [Dependency] private PsionicSystem _psionic = default!;
 
     private TimeSpan _warningSoundLength;
     private ResolvedSoundSpecifier _resolvedWarningSound = string.Empty;

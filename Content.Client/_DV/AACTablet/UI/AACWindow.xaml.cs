@@ -16,7 +16,7 @@ namespace Content.Client._DV.AACTablet.UI;
 [GenerateTypedNameReferences]
 public sealed partial class AACWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     private readonly List<QuickPhrasePrototype> _phrases;
     private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
     public event Action<List<ProtoId<QuickPhrasePrototype>>, string>? PhraseButtonPressed;

@@ -10,9 +10,9 @@ namespace Content.Shared.Revenant.EntitySystems;
 
 public abstract class SharedRevealRevenantOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     private static readonly ProtoId<StatusEffectPrototype> CorporealStatusId = "Corporeal";
     private static readonly ProtoId<StatusEffectPrototype> StunStatusId = "Stun";

@@ -8,8 +8,8 @@ namespace Content.Client._DV.Shipyard.UI;
 
 public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private readonly AccessReaderSystem _access;
     private readonly EntityWhitelistSystem _whitelist;

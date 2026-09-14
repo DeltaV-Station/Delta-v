@@ -26,6 +26,8 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Injurable # DeltaV - Moved all these commented out attributes to BaseHolosign
+    damageContainer: Inorganic
 
 - type: entity
   parent: BaseHolosign

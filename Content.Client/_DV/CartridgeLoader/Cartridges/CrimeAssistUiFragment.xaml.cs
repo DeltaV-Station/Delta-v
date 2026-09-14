@@ -11,7 +11,7 @@ namespace Content.Client._DV.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class CrimeAssistUiFragment : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private CrimeAssistPage _currentPage;
     private List<CrimeAssistPage>? _pages;

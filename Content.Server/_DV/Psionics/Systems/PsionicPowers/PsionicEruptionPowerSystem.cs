@@ -22,17 +22,17 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicEruptionPowerComponent, PsionicEruptionPowerActionEvent>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
-    [Dependency] private readonly JitteringSystem _jittering = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private EuiManager _eui = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!;
+    [Dependency] private JitteringSystem _jittering = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private static readonly EntProtoId? Sparks = "EffectSparks";
 

@@ -8,9 +8,9 @@ namespace Content.Shared._DV.Silicons;
 
 public abstract class SharedStationAiFaxSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private PaperSystem _paper = default!;
 
     public override void Initialize()
     {

@@ -43,14 +43,10 @@
       storagebase: !type:AllSelector
         children:
         - id: JugBicaridine
-        - id: JugPuncturase
-        - id: JugDermaline
-        - id: JugDylovene
-        - id: JugHyronalin
-        - id: JugSaline
-        #- id: JugDexalinPlus # DeltaV - removed Dex+ Jug (it didn't spawn anyways)
-        - id: JugSalbutamol # DeltaV - Add salbu jug
-        - id: JugTranexamicAcid
+        - id: JugPunctTranex
+        - id: JugPyraDerma
+        #- id: JugDexPlusSaline # DeltaV - removed Dex+ Jug (it didn't spawn anyways)
+        - id: JugSalbutamolSaline # DeltaV - Add salbu jug
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
