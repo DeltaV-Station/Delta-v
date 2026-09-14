@@ -343,13 +343,23 @@
   result: ClothingShoesBootsSecurityMagboots
 
 - type: latheRecipe
-  parent: BaseWeaponRecipe
+  parent: BaseWeaponRecipeMelee
   id: AdvancedTruncheon
   result: AdvancedTruncheon
   completetime: 5
   materials:
     Steel: 1000
     Plastic: 800
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeMelee
+  id: HardlightHatchet
+  result: HardlightHatchet
+  materials:
+    Steel: 600
+    Glass: 500
+    Plastic: 400
+    Gold: 250
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
