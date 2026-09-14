@@ -68,12 +68,38 @@ public sealed partial class BlockingComponent : Component
     /// when not blocking
     /// </summary>
     [DataField]
-    public float PassiveBlockFraction = 0.5f;
+    public float PassiveBlockFraction = 0.25f; // DeltaV - Was 0.5
 
     /// <summary>
     /// Fraction of original damage shield will take instead of user
     /// when blocking
     /// </summary>
     [DataField]
-    public float ActiveBlockFraction = 1.0f;
+    public float ActiveBlockFraction = 0.9f; // DeltaV - Was 0.9
+
+    // DeltaV Start - Blocking no longer blocks entities from moving through the blocking entity.
+    /// <summary>
+    /// The slow applied to the entity's walking speed when holding the shield.
+    /// </summary>
+    [DataField]
+    public float WalkModifier = 1.0f;
+
+    /// <summary>
+    /// The slow applied to the entity's running speed when holding the shield.
+    /// </summary>
+    [DataField]
+    public float SprintModifier = 1.0f;
+
+    /// <summary>
+    /// The slow applied to the entity's walking speed when raising the shield.
+    /// </summary>
+    [DataField]
+    public float RaisedWalkModifier = 1.0f;
+
+    /// <summary>
+    /// The slow applied to the entity's running speed when raising the shield.
+    /// </summary>
+    [DataField]
+    public float RaisedSprintModifier = 0.75f;
+    // DeltaV End - Blocking no longer blocks entities from moving through the blocking entity.
 }

@@ -429,3 +429,18 @@
   materials:
     Steel: 1000
     Uranium: 250
+
+# Shields
+
+- type: latheRecipe
+  parent: RiotShield
+  id: RiotBulletShield
+  result: RiotBulletShield
+
+- type: latheRecipe
+  parent: BaseShieldRecipe
+  id: RiotLaserShield
+  result: RiotLaserShield
+  materials:
+    Plasma: 400
+    Glass: 400
