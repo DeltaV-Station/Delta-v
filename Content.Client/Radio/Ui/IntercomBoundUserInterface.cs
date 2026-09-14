@@ -25,7 +25,11 @@ public sealed class IntercomBoundUserInterface : BoundUserInterface
 
         if (EntMan.TryGetComponent(Owner, out IntercomComponent? intercom))
         {
-            _menu.Update((Owner, intercom));
+            // BEGIN DeltaV - Add microphone and speaker component parameters to Update
+            EntMan.TryGetComponent(Owner, out RadioMicrophoneComponent? microphone);
+            EntMan.TryGetComponent(Owner, out RadioSpeakerComponent? speaker);
+            _menu.Update(Owner, intercom, microphone, speaker);
+            // END DeltaV
         }
 
         _menu.OnMicPressed += enabled =>
@@ -44,6 +48,13 @@ public sealed class IntercomBoundUserInterface : BoundUserInterface
 
     public void Update(Entity<IntercomComponent> ent)
     {
-        _menu?.Update(ent);
+        // BEGIN DeltaV - Add microphone and speaker component parameters to Update
+        if (_menu == null)
+            return;
+
+        EntMan.TryGetComponent(Owner, out RadioMicrophoneComponent? microphone);
+        EntMan.TryGetComponent(Owner, out RadioSpeakerComponent? speaker);
+        _menu.Update(Owner, ent.Comp, microphone, speaker);
+        // END DeltaV
     }
 }
