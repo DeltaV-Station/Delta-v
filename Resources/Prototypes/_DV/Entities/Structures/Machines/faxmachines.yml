@@ -492,7 +492,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineWarden
-  suffix: Warden
+  suffix: Warden, Security
   components:
   - type: PageSender
     autoLinkJobs: [Warden]

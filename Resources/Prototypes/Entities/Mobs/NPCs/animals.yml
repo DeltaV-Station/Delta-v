@@ -506,6 +506,7 @@
   #   mindRoles:
   #   - MindRoleGhostRoleFreeAgentHarmless
   # End DeltaV Removals - players can spawn in as these at will
+  - type: Emoting # DeltaV - Allow them to emote!
   - type: Fixtures
     fixtures:
       fix1:
@@ -520,7 +521,7 @@
   # - type: GhostTakeoverAvailable # DeltaV - players can spawn in as these at will
   - type: Speech
     speechVerb: Moth
-    speechSounds: Chitter # Delta-V - Eep!
+    speechSounds: Chitter # DeltaV - Eep!
     allowedEmotes: ['Chitter', 'Squeak', 'Flap']
   - type: FaxableObject
     insertingState: inserting_mothroach
@@ -1874,6 +1875,7 @@
   #   - MindRoleGhostRoleFreeAgentHarmless
   # - type: GhostTakeoverAvailable
   # End DeltaV Removals - players can spawn in as these at will
+  - type: Emoting # DeltaV - Allow them to emote!
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob

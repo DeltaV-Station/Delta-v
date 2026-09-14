@@ -749,10 +749,19 @@
     containers:
       board: [ DoorElectronicsChiefJustice ]
 
-#Syndicate high security door
+# Syndicate
 - type: entity
   parent: HighSecDoor
   id: HighSecDoorSyndicateAgentLocked
+  suffix: Syndicate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAgent ]
+
+- type: entity
+  parent: AirlockHatch
+  id: AirlockHatchSyndicateLockedDisguised
   suffix: Syndicate, Locked
   components:
   - type: ContainerFill
@@ -796,7 +805,7 @@
     containers:
       board: [ DoorElectronicsERT ]
 
-# Centcomm external doors
+# Centcomm doors
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCentralCommandLocked
@@ -810,6 +819,24 @@
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCentralCommandLocked
   suffix: External, Glass, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockFreezer
+  id: AirlockFreezerCentralCommanLocked
+  suffix: Freezer, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCentcommLocked
+  suffix: Maint, Centcomm, Locked
   components:
   - type: ContainerFill
     containers:

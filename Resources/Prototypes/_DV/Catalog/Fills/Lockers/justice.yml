@@ -112,7 +112,7 @@
 - type: entity
   parent: LockerJusticeWarden
   id: LockerJusticeWardenFilled
-  suffix: Filled
+  suffix: Filled, Justice Warden
   components:
   - type: EntityTableContainerFill
     containers:
@@ -152,9 +152,60 @@
 - type: entity
   parent: LockerJusticeDetective
   id: LockerJusticeDetectiveFilled
-  suffix: Filled
+  suffix: Filled, Justice
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillLockerDetective
+
+# Non-lethal armory
+
+- type: entity
+  parent: SecurityGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeNonlethalHandgunSecureFilledDV
+  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: NonLethalMK58
+        rolls: !type:ConstantNumberSelector
+          value: 4
+
+- type: entityTable
+  id: NonLethalMK58
+  table: !type:AllSelector
+    children:
+    - id: WeaponPistolMk58Nonlethal
+    - id: MagazinePistolRubber
+      amount: 2
+
+- type: entity
+  parent: JusticeGunSafeNonLethalShotgunSecureDV
+  id: JusticeGunSafeNonLethalShotgunSecureFilledDV
+  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: NonLethalKammerer
+        rolls: !type:ConstantNumberSelector
+          value: 2
+
+- type: entityTable
+  id: NonLethalKammerer
+  table: !type:AllSelector
+    children:
+    - id: WeaponShotgunKammererNonLethal
+    - id: BoxBeanbag
+
+- type: entity
+  parent: JusticeGunSafeDisablerSecureDV
+  id: JusticeGunSafeDisablerSecureFilledDV
+  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeDisabler

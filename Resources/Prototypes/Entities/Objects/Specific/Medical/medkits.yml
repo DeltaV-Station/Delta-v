@@ -26,7 +26,9 @@
     grid:
     - 0,0,3,1
   - type: Item
-    size: Large
+    #size: Large # DeltaV - Change size
+    shape: # DeltaV - Change size
+    - 0,0,2,1
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     heldPrefix: firstaid
   - type: PhysicalComposition
@@ -113,4 +115,5 @@
   - type: Item
     heldPrefix: blackkit
     size: Normal
-
+    shape: # DeltaV - Retain 2x2
+    - 0,0,1,1

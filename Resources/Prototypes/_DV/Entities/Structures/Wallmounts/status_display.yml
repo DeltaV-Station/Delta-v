@@ -1,0 +1,105 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: StatusDisplay
+  name: status display
+  description: Displays the current status of the station.
+  components:
+  - type: Rotatable
+  - type: DVTextVisuals
+    rows:
+    - text: ""
+      layer: enum.DVTextScreenVisualLayers.Line1
+      offset: 0.03125,0.15625 # 1/32, 5/32
+    - text: ""
+      layer: enum.DVTextScreenVisualLayers.Line2
+      offset: 0.03125,-0.0625 # 1/32, 0/32
+  - type: DVScreen
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _DV/Structures/Wallmounts/screen.rsi
+    noRot: true
+    layers:
+    - state: frame
+    - shader: StencilClear
+      state: mask
+    - shader: StencilMask
+      state: mask
+    - map: ["enum.DVTextScreenVisualLayers.Line1"]
+      shader: StencilDraw
+      color: "#22ccff"
+      visible: false
+    - map: ["enum.DVTextScreenVisualLayers.Line2"]
+      shader: StencilDraw
+      color: "#22ccff"
+      visible: false
+    - map: ["alert_status"]
+      visible: false
+      state: status_display_green
+    - map: ["alert_border"]
+      visible: false
+      state: alert_border_green
+  - type: Appearance
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: GenericVisualizer
+    visuals:
+      enum.DVScreenVisuals.ShowAlertBorder:
+        alert_border:
+          True: { visible: true }
+          False: { visible: false }
+      enum.DVScreenVisuals.AlertLevel:
+        alert_border:
+          green: { state: alert_border_green }
+          blue: { state: alert_border_blue }
+          red: { state: alert_border_red }
+          white: { state: alert_border_white }
+          yellow: { state: alert_border_yellow }
+          violet: { state: alert_border_violet }
+          delta: { state: alert_border_delta }
+          epsilon: { state: alert_border_epsilon }
+          gamma: { state: alert_border_gamma }
+          octarine: { state: alert_border_octarine }
+          zeta: { state: alert_border_zeta }
+        alert_status:
+          green: { state: status_display_green }
+          blue: { state: status_display_blue }
+          red: { state: status_display_red }
+          white: { state: status_display_white }
+          yellow: { state: status_display_yellow }
+          violet: { state: status_display_violet }
+          delta: { state: status_display_delta }
+          epsilon: { state: status_display_epsilon }
+          gamma: { state: status_display_gamma }
+          octarine: { state: status_display_octarine }
+          zeta: { state: status_display_zeta }
+      enum.DVScreenVisuals.Content:
+        enum.DVTextScreenVisualLayers.Line1:
+          Text: { visible: true }
+          CurrentTime: { visible: true }
+          EstimatedTimeOfArrival: { visible: true }
+          AlertLevel: { visible: false }
+        enum.DVTextScreenVisualLayers.Line2:
+          Text: { visible: true }
+          CurrentTime: { visible: true }
+          EstimatedTimeOfArrival: { visible: true }
+          AlertLevel: { visible: false }
+        alert_status:
+          Text: { visible: false }
+          CurrentTime: { visible: false }
+          EstimatedTimeOfArrival: { visible: false }
+          AlertLevel: { visible: true }
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: NTNet
+
+- type: entity
+  parent: StatusDisplay
+  id: StatusDisplayShuttle
+  name: arrivals status display
+  description: Displays the current status of the arrivals shuttle.
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Private
+    receiveFrequencyId: ArrivalsShuttleTimer
+  - type: DVScreen
+    content: EstimatedTimeOfArrival
