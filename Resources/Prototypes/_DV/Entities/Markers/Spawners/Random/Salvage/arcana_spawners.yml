@@ -1,0 +1,48 @@
+
+- type: entity
+  parent: MarkerBase
+  id: SalvageSpawnerArcanaCommon
+  name: Salvage Arcana Spawner
+  suffix: Common, 40%
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+    - sprite: _DV/Objects/Misc/books.rsi
+      state: ancientbookdamaged2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: SalvageArcanaCommon
+      prob: 0.4
+
+- type: entity
+  parent: MarkerBase
+  id: SalvageSpawnerArcanaUncommon
+  name: Salvage Arcana Spawner
+  suffix: Uncommon, 20%
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+    - sprite: _DV/Objects/Misc/books.rsi
+      state: ancientbookdamaged2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: SalvageArcanaUncommon
+      prob: 0.2
+
+- type: entity
+  parent: MarkerBase
+  id: SalvageSpawnerArcanaRare
+  name: Salvage Arcana Spawner
+  suffix: Rare, 10%
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+    - sprite: _DV/Objects/Misc/books.rsi
+      state: ancientbookdamaged2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: SalvageArcanaRare
+      prob: 0.1
