@@ -29,20 +29,14 @@
           - MachineLayer
         hard: false
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+    sprite: _DV/Objects/Weapons/Guns/Turrets/EnergySentry/energy_sentry.rsi # DeltaV - New Turret Sprites
     drawdepth: HighFloorObjects
     granularLayersRendering: true
     layers:
     - state: support
       renderingStrategy: NoRotation
-    - state: base_shadow
-      map: [ "shadow" ]
     - state: base
       map: [ "base" ]
-    - state: stun
-      map: [ "enum.DeployableTurretVisuals.Weapon" ]
-      shader: "unshaded"
-      visible: false
     - state: cover_closed
       map: [ "enum.DeployableTurretVisuals.Turret" ]
       renderingStrategy: NoRotation
@@ -51,6 +45,12 @@
       shader: "unshaded"
       renderingStrategy: NoRotation
       visible: false
+    # BEGIN DeltaV - New Turret Sprites
+    - state: stun
+      map: [ "enum.DeployableTurretVisuals.Weapon" ]
+      shader: "unshaded"
+      visible: false
+      # END DeltaV
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       renderingStrategy: NoRotation
@@ -166,6 +166,8 @@
   id: WeaponEnergyTurretSecurity
   suffix: Security
   components:
+  - type: Sprite # DeltaV - New Turret Sprites
+    sprite: _DV/Objects/Weapons/Guns/Turrets/EnergySentry/security_sentry.rsi
   - type: AccessReader
     access: [["StationAi"], ["Security"]]
   - type: TurretTargetSettings
@@ -184,6 +186,8 @@
   id: WeaponEnergyTurretCommand
   suffix: Command
   components:
+  - type: Sprite # DeltaV - New Turret Sprites
+    sprite: _DV/Objects/Weapons/Guns/Turrets/EnergySentry/command_sentry.rsi
   - type: AccessReader
     access: [["StationAi"], ["Command"]]
   - type: StationAiTurret #DeltaV
