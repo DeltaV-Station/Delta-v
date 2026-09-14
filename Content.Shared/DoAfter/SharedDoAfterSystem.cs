@@ -6,6 +6,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -37,6 +38,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         SubscribeLocalEvent<DoAfterComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<DoAfterComponent, ComponentGetState>(OnDoAfterGetState);
         SubscribeLocalEvent<DoAfterComponent, ComponentHandleState>(OnDoAfterHandleState);
+        SubscribeLocalEvent<DoAfterComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<GetInteractingEntitiesEvent>(OnGetInteractingEntities);
     }
 
@@ -142,6 +144,24 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         else
             EnsureComp<ActiveDoAfterComponent>(uid);
     }
+
+    // Begin DeltaV Addition - Adding BreakOnCritical condition
+    private void OnMobStateChanged(EntityUid uid, DoAfterComponent comp, ref MobStateChangedEvent args)
+    {
+        var dirty = false;
+        foreach (var doAfter in comp.DoAfters.Values)
+        {
+            if (doAfter.Args.BreakOnCritical && args.NewMobState == MobState.Critical)
+            {
+                InternalCancel(doAfter, comp);
+                dirty = true;
+            }
+        }
+
+        if (dirty)
+            Dirty(uid, comp);
+    }
+    // End DeltaV Addition
 
     /// <summary>
     /// Adds entities which have an active DoAfter matching the target.
