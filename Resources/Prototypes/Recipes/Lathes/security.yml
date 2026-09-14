@@ -60,6 +60,19 @@
     Steel: 500
     Plastic: 250
     Cloth: 500
+    
+- type: latheRecipe
+  id: BeltRecharger
+  result: BeltRecharger
+  categories:
+  - Clothing
+  completetime: 10
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 250
+    Plasma: 250
+    Cloth: 500
 
 - type: latheRecipe
   id: ClothingEyesHudSecurity
