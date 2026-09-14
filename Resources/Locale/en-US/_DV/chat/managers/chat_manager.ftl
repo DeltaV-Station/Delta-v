@@ -53,3 +53,10 @@ chat-manager-entity-me-audible-possessive-wrap-message = [italic]{ PROPER($entit
     *[false] The {$entityName}'s {$message}[/italic]
      [true] {CAPITALIZE($entityName)}'s {$message}[/italic]
     }
+
+chat-manager-antag-ooc-chat-enabled-message = Antagonist OOC chat has been enabled.
+chat-manager-antag-ooc-chat-disabled-message = Antagonist OOC chat has been disabled.
+
+chat-manager-send-antag-ooc-wrap-message = {$antagChannelName}: {$playerName}: {$message}
+
+chat-manager-antag-ooc-channel-name = (ANTAG)

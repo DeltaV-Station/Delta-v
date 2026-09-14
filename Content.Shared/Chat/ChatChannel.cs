@@ -4,7 +4,7 @@ namespace Content.Shared.Chat
     ///     Represents chat channels that the player can filter chat tabs by.
     /// </summary>
     [Flags]
-    public enum ChatChannel : ushort
+    public enum ChatChannel : uint // DeltaV - MOAR CHANNELS
     {
         None = 0,
 
@@ -91,6 +91,11 @@ namespace Content.Shared.Chat
         Telepathic = 1 << 15,
 
         /// <summary>
+        ///     DeltaV - OOC for antagonists
+        /// </summary>
+        AntagOOC = 1 << 16,
+
+        /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
         IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | Notifications, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat..
@@ -113,6 +118,7 @@ namespace Content.Shared.Chat
             {
                 ChatChannel.OOC => Loc.GetString("chat-channel-humanized-ooc"),
                 ChatChannel.AdminChat => Loc.GetString("chat-channel-humanized-admin"),
+                ChatChannel.AntagOOC => Loc.GetString("chat-channel-humanized-antagooc"), // DeltaV - Antagonist OOC
                 _ => throw new ArgumentOutOfRangeException(nameof(channel), channel, null)
             };
         }

@@ -17,12 +17,14 @@
   name: role-type-solo-antagonist-name
   color: '#d82000'
   symbol: "🗡"
+  antagonistOOC: true # DeltaV - antagonist OOC
 
 - type: roleType
   id: TeamAntagonist
   name: role-type-team-antagonist-name
   color: '#d82000'
   symbol: "⚔"
+  antagonistOOC: true # DeltaV - antagonist OOC
 
 - type: roleType
   id: FreeAgent
@@ -47,3 +49,4 @@
   name: role-type-silicon-antagonist-name
   color: '#c832e6'
   symbol: "⛞"
+  antagonistOOC: true # DeltaV - antagonist OOC

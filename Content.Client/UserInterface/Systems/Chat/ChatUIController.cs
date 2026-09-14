@@ -23,6 +23,7 @@ using Content.Shared.Damage.ForceSay;
 using Content.Shared.Decals;
 using Content.Shared.Input;
 using Content.Shared.Radio;
+using Content.Shared.Roles; // DeltaV - Antag OOC
 using Content.Shared.Roles.RoleCodeword;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -69,6 +70,7 @@ public sealed partial class ChatUIController : UIController
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
+    [UISystemDependency] private readonly SharedRoleSystem? _roleSystem = default!; // DeltaV - Antag OOC
 
     private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
     private string[] _chatNameColors = default!;
@@ -88,7 +90,8 @@ public sealed partial class ChatUIController : UIController
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
-        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}, //Nyano - Summary: adds the telepathic prefix =.
+        {SharedChatSystem.AntagOOCPrefix, ChatSelectChannel.AntagOOC} // DeltaV - Antag OOC
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -102,7 +105,8 @@ public sealed partial class ChatUIController : UIController
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
-        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix }, //Nyano - Summary: associates telepathic with =.
+        {ChatSelectChannel.AntagOOC, SharedChatSystem.AntagOOCPrefix} // DeltaV - Antag OOC
     };
 
     /// <summary>
@@ -190,6 +194,7 @@ public sealed partial class ChatUIController : UIController
         _net.RegisterNetMessage<MsgChatMessage>(OnChatMessage);
         _net.RegisterNetMessage<MsgDeleteChatMessagesBy>(OnDeleteChatMessagesBy);
         SubscribeNetworkEvent<DamageForceSayEvent>(OnDamageForceSay);
+        SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnMindRoleTypeChanged); // DeltaV - Antag OOC
         _config.OnValueChanged(CCVars.ChatEnableColorName, (value) => { _chatNameColorsEnabled = value; });
         _chatNameColorsEnabled = _config.GetCVar(CCVars.ChatEnableColorName);
 
@@ -560,6 +565,22 @@ public sealed partial class ChatUIController : UIController
             CanSendChannels |= ChatSelectChannel.Dead;
         }
 
+        // Begin DeltaV - Antag OOC
+        // antags and admins can see antagsay
+        var localUserId = _player.LocalSession?.UserId;
+        var antagOOCEligible = _admin.IsActive()
+            || (localUserId is { } userId
+                && _mindSystem != null
+                && _roleSystem != null
+                && _roleSystem.MindHasAntagonistOOC(_mindSystem.GetMind(userId)));
+
+        if (antagOOCEligible)
+        {
+            FilterableChannels |= ChatChannel.AntagOOC;
+            CanSendChannels |= ChatSelectChannel.AntagOOC;
+        }
+        // End DeltaV - Antag OOC
+
         // only admins can see / filter asay
         if (_admin.HasFlag(AdminFlags.Adminchat))
         {
@@ -789,6 +810,13 @@ public sealed partial class ChatUIController : UIController
 
         _manager.SendMessage(text, prefixChannel == 0 ? channel : prefixChannel);
     }
+
+    // Begin DeltaV - Antagonist OOC
+    private void OnMindRoleTypeChanged(MindRoleTypeChangedEvent ev, EntitySessionEventArgs _)
+    {
+        UpdateChannelPermissions();
+    }
+    // End DeltaV - Antagonist OOC
 
     private void OnDamageForceSay(DamageForceSayEvent ev, EntitySessionEventArgs _)
     {

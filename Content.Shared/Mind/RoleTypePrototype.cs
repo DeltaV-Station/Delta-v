@@ -32,4 +32,10 @@ public sealed partial class RoleTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public string Symbol = FallbackSymbol;
+
+    /// <summary>
+    ///     DeltaV - Whether minds with this roletype can access AOOC
+    /// </summary>
+    [DataField]
+    public bool AntagonistOOC;
 }

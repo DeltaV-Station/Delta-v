@@ -7,7 +7,7 @@
     ///     Maps to <see cref="ChatChannel"/>, giving better names.
     /// </remarks>
     [Flags]
-    public enum ChatSelectChannel : ushort
+    public enum ChatSelectChannel : uint // DeltaV - Antagonist OOC
     {
         None = 0,
 
@@ -50,6 +50,11 @@
         ///     Admin chat
         /// </summary>
         Admin = ChatChannel.AdminChat,
+
+        /// <summary>
+        ///     DeltaV - OOC for antagonists
+        /// </summary>
+        AntagOOC = ChatChannel.AntagOOC,
 
         /// <summary>
         ///     Nyano - Summary:. Telepathic channel for all psionic entities. 
