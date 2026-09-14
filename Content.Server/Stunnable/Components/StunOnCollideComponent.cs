@@ -67,6 +67,25 @@ public sealed partial class StunOnCollideComponent : Component
     // Begin DeltaV Additions
     [DataField]
     public EntityWhitelist? Blacklist;
+
+    /// <summary>
+    /// Use the protection threshold
+    /// </summary>
+    [DataField]
+    public bool UseProtectionThreshold;
+
+    /// <summary>
+    /// Stuns if the target has ranged stun protection below the threshold, does stamina damage if above
+    /// </summary>
+    [DataField]
+    public short ProtectionThreshold = 45;
+
+    /// <summary>
+    /// The stamina damage dealt if the target has enough protection to avoid the stun
+    /// </summary>
+    [DataField]
+    public float StaminaDamage = 30;
+
     // End DeltaV Additions
 }
 
