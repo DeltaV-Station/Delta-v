@@ -311,3 +311,6 @@
 
 - type: Tag
   id: SynthesizerInstrument # ConstructionGraph: SuperSynthesizerGraph
+
+- type: Tag
+  id: EvidenceBag # Used to prevent evidence bags from being stored inside other evidence bags.
