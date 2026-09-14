@@ -1,5 +1,4 @@
 using Content.Server.DoAfter;
-using Content.Server.EUI;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Jittering;
 using Content.Server.Lightning;
@@ -195,10 +194,10 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
             GlimmerTier.Low => 30,
             GlimmerTier.Moderate => 60,
             GlimmerTier.High => 120,
-            GlimmerTier.Dangerous => 600,
-            GlimmerTier.Critical => 3000,
+            GlimmerTier.Dangerous => 500,
+            GlimmerTier.Critical => 2000,
             _ => 0
         };
-        _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 5, 75, psionic, maxTileBreak: 5);
+        _explosion.QueueExplosion(pos, SharedExplosionSystem.DefaultExplosionPrototypeId, boom, 2, 100, psionic, maxTileBreak: 1);
     }
 }
