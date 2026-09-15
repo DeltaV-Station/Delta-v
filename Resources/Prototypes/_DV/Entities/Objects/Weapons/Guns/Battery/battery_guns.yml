@@ -700,11 +700,11 @@
   name: EPU-001 Integrity
   parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
   id: WeaponPulseGunIntegrity
-  description: Hefty and unforgiving are both words you might describe this unit of a sidearm with. It's heavier than most laser pistols, but features better ergonomics than usual. It's a heavily modified Pulse-pattern pistol, using a technology kept confidential at the highest level. The sturdy metal frame is engraved in a few places, along the front cover it reads 'EPU-001', and the grip has a shiny NT logo made of pure brushed terran gold. The only thing you can tell, is that it's almost certainly a weapon for high class individual. Are you supposed to have this..?
+  description: Hefty and unforgiving are both words you might describe this unit of a sidearm with. It's heavier than most laser pistols, but features better ergonomics than usual. It's a heavily modified Pulse-pattern pistol, using a technology kept confidential at the highest level. The sturdy metal frame is engraved in a few places, along the front cover it reads 'EPU-001', and the grip has a shiny NT logo made of pure brushed terran gold. The only thing you can tell, is that it's almost certainly a weapon for person of high status. Are you supposed to have this..?
   suffix: Admeme
   components:
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Battery/uniquegun_integrity.rsi
+    sprite: _DV/Objects/Weapons/Guns/Battery/pulsegun_integrity.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
