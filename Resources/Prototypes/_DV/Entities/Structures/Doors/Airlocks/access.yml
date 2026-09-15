@@ -761,6 +761,15 @@
 
 - type: entity
   parent: HighSecDoor
+  id: HighSecEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
+
+- type: entity
+  parent: HighSecDoor
   id: HighSecChiefJusticeLocked
   suffix: Chief Justice, Locked
   components:
