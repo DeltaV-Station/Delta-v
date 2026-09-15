@@ -120,6 +120,23 @@
           amount: 2
 
 - type: entity
+  parent: CrateWeaponSecure
+  id: CrateArmoryUnstableCore
+  name: unstable reactor core crate
+  description: Contains a radiation suit and a unstable reactor core. Requires Armory access to open.
+  components:
+- type: RadiationBlockingContainer
+  resistance: 5
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: UnstableReactorCore
+          amount: 1
+        - id: ClothingOuterSuitRad
+          amount: 2
+
+- type: entity
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateCargoArmoryPatos
   name: patos crate

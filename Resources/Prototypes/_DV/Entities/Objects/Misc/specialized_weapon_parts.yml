@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseItem
+  id: UnstableReactorCore
+  name: Unstable Reactor Core
+  description: A compact, circular-shaped reactor, incapable of fully containing its energy. It's quite the fancy paperweight.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/unstablereactorcore.rsi
+    state: icon
+  - type: RadiationSource
+    intensity: 1
+    slope: 0.2
+  - type: PointLight
+    color: "#00FF00"
+  - type: Tag
+    tags:
+    - UnstableReactorCore
+
+- type: entity
+  parent: BaseItem
+  id: UnstableReactorHousing
+  name: Unstable Reactor Housing
+  description: A heavy housing engineered to contain the power output of an unstable reactor core and focus it into a dense, radioactive beam. It's missing its power source.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/unstablereactorhousing.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: Construction
+    graph: UnstableCoreRefractor
+    node: start
+  - type: Tag
+    tags:
+    - UnstableReactorHousing
