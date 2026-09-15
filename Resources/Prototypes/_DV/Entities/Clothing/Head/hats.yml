@@ -513,6 +513,54 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatGnome
+  name: gnome hat
+  description: For those that honor the first gnome in space, Gnome Chompsky. Still has a bit of magic that sparkles in its velvet sheen.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
+    clothingVisuals:
+      head:
+      - state: equipped
+        offset: "0, 0.35"
+  - type: EmbeddableProjectile # funny
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 180
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.40,-0.30
+            - -0.30,-0.40
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    maxItemSize: Small
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatSodaJerkCap
   name: soda jerk cap
   description: I was a wimp before the soda jerk.

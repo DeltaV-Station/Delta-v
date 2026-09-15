@@ -32,7 +32,6 @@ public sealed class StationExfiltrationSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly CommunicationsConsoleSystem _communicationsConsole = default!;
 
     public override void Initialize()
     {
@@ -169,7 +168,8 @@ public sealed class StationExfiltrationSystem : EntitySystem
             _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.CalledAnnouncement, ("time", ent.Comp.TravelTime.TotalSeconds), ("station", Name(ent))), sender: Loc.GetString(ent.Comp.Sender), colorOverride: Color.Gold);
         }
 
-        _communicationsConsole.UpdateCommsConsoleInterface();
+        var evt = new StationExfiltrationChangedEvent((ent, ent.Comp), true);
+        RaiseLocalEvent(ref evt);
     }
 
     public void Recall(Entity<StationExfiltrationComponent?> ent)
@@ -180,6 +180,10 @@ public sealed class StationExfiltrationSystem : EntitySystem
         ent.Comp.ArrivalTime = null;
         _chat.DispatchStationAnnouncement(ent, Loc.GetString(ent.Comp.RecalledAnnouncement, ("station", Name(ent))), sender: Loc.GetString(ent.Comp.Sender), colorOverride: Color.Gold);
 
-        _communicationsConsole.UpdateCommsConsoleInterface();
+        var evt = new StationExfiltrationChangedEvent((ent, ent.Comp), false);
+        RaiseLocalEvent(ref evt);
     }
 }
+
+[ByRefEvent]
+public readonly record struct StationExfiltrationChangedEvent(Entity<StationExfiltrationComponent> Station, bool Exfiltrating);

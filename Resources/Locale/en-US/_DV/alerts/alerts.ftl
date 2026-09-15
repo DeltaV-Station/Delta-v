@@ -17,3 +17,6 @@ alerts-resurrecting-desc = You are currently dead, but will resurrect soon.
 
 alert-heavy-clothing-name = You're [color=yellow]heavy[/color]
 alert-heavy-clothing-desc = Heavy gear is weighing you down, rendering you [color=yellow]immune[/color] to space wind and slippery surfaces!
+
+alerts-sunk-claws-name = Claws Protracted
+alerts-sunk-claws-desc = You're digging your claws into the ground. You can't slip but it is hard to move.
