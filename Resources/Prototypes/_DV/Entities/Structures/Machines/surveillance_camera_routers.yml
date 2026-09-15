@@ -15,3 +15,20 @@
   components:
   - type: SurveillanceCameraRouter
     subnetFrequency: SurveillanceCameraJustice
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SRNSurveillanceCameraRouter
+  name: syndicate borg monitoring router
+  suffix: Robo-Neuroticist
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SRNRoboticsConsole
+    transmitFrequencyId: SRNRoboticsConsole
+  - type: WirelessNetworkConnection
+    range: 2000
+  - type: SurveillanceCameraRouter
+    subnetFrequency: SRNCyborgControl
+  - type: Machine
+    board: SRNSurveillanceCameraRouterCircuitboard
