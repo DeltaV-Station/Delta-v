@@ -24,8 +24,8 @@
     factions:
     - Syndicate
   - type: AccessReader
-    access: [["Command"], ["Research"], ["Robotics"]] 
-    breakOnAccessBreaker: false 
+    access: [["Command"], ["Research"], ["Robotics"]]
+    breakOnAccessBreaker: false
   - type: SlavedBorg
     law: ObeySRN
   - type: Wires
