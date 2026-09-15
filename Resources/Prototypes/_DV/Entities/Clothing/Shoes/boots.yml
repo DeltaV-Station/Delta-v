@@ -20,3 +20,14 @@
     sprite: _DV/Clothing/Shoes/Boots/fishing_boots.rsi
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/fishing_boots.rsi
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable]
+  id: ClothingShoesBootsSurplus
+  name: surplus boots
+  description: An old pair of boots. Not so useful for combat, but still plenty stylish.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/jackboots.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/jackboots.rsi

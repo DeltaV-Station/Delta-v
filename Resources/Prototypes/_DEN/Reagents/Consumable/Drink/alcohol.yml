@@ -14,12 +14,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.4
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.2
   fizziness: 0.25
 
 - type: reagent
@@ -38,12 +40,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.2
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.1
   fizziness: 0.25
 
 - type: reagent
@@ -62,12 +66,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.2
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.1
   fizziness: 0.25
 
 - type: reagent
@@ -86,12 +92,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.12
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.24
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.12
   fizziness: 0.25
 
 - type: reagent
@@ -110,15 +118,18 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      - !type:AdjustReagent
-        reagent: LotophagoiOil
-        amount: 0.12
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.3
+        LotophagoiOil: 0.24
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.15
+#      - !type:AdjustReagent
+#        reagent: LotophagoiOil
+#        amount: 0.12
   fizziness: 0.25
 
 - type: reagent
@@ -137,12 +148,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.08
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.16
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.08
   fizziness: 0.25
 
 - type: reagent
@@ -161,12 +174,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.08
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.16
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.08
   fizziness: 0.25
 
 - type: reagent
@@ -185,12 +200,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.08
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.16
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.08
 
 
   fizziness: 0.25
@@ -211,12 +228,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.08
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.16
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.08
   fizziness: 0.25
 
 - type: reagent
@@ -235,12 +254,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.3
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.15
   fizziness: 0.25
 
 - type: reagent
@@ -259,12 +280,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.4
       effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.2
       - !type:GenericStatusEffect
         key: KnockedDown
         component: KnockedDown
@@ -297,12 +320,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.12
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.24
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.12
   fizziness: 0.25
 
 - type: reagent
@@ -321,12 +346,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.08
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.16
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.08
   fizziness: 0.25
 
 - type: reagent
@@ -345,12 +372,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.2
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.1
   fizziness: 0.25
 
 - type: reagent
@@ -369,12 +398,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.12
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.24
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.12
   fizziness: 0.25
 
 - type: reagent
@@ -393,12 +424,14 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.2
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.1
   fizziness: 0.25
 
 - type: reagent
@@ -417,10 +450,12 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
+      metabolites: #Delta-V - swap AdjustReagent to metabolites for consistency, SatiateThirst is on parent now
+        Ethanol: 0.2
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#      - !type:AdjustReagent
+#        reagent: Ethanol
+#        amount: 0.1
   fizziness: 0.25

@@ -179,9 +179,12 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         var unborgable = _unborgable.IsUnborgable(target.Value);
         var redshirt = _redshirt.IsRedshirt(target.Value) && mobStateComponent?.CurrentState == MobState.Dead; // DeltaV - Redshirt
         var uncloneable = _uncloneable.IsUncloneable(target.Value) && mobStateComponent?.CurrentState == MobState.Dead; // DeltaV - Unclonable
+
+        // I'm just going to lump them all into 'extraTraitAlerts' to group our modifications as a single bool in the next check
+        var extraTraitAlerts = unborgable || redshirt || uncloneable;
         // END DeltaV
 
-        var showAlerts = state.Unrevivable == true || state.Bleeding == true;
+        var showAlerts = state.Unrevivable == true || state.Bleeding == true || extraTraitAlerts; // DeltaV - extra alerts
 
         AlertsDivider.Visible = showAlerts;
         AlertsContainer.Visible = showAlerts;
