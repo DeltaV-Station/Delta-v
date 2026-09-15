@@ -180,6 +180,9 @@ uplink-encryption-key-desc = Two encryption keys for access to the secret freque
 uplink-binary-translator-key-name = Binary Translator Key
 uplink-binary-translator-key-desc = Lets you tap into the silicons' binary channel. Don't talk on it though, at least not without a voice mask.
 
+uplink-freelance-Encryption-key-name = Freelancer Encryption Key
+uplink-freelance-Encryption-key-desc = Lets you access freelancer communications. Perhaps you can find a criminal who will help you for the right price.
+
 uplink-hypopen-name = Hypopen
 uplink-hypopen-desc = A chemical hypospray disguised as a pen, capable of instantly injecting up to 10u of reagents. Starts empty.
 
