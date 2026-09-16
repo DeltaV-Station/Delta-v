@@ -1,0 +1,175 @@
+# Non-Departmental
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberCheckered
+  name: checkered bomber jacket
+  description: A thick, well-worn vintage leather bomber jacket. It's dark blue, brandishing a checkerboard pattern on the back.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/checkered.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/checkered.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberCheckered ]
+  id: ClothingOuterCoatBomberCheckeredOpened
+  categories: [ HideSpawnMenu ]
+
+# Engineering
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberEngineering
+  name: engineering bomber jacket
+  description: A thick, well-worn vintage leather bomber jacket brandishing engineering flair. It features a singularity patch on the back.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/engi.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/engi.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberEngineering ]
+  id: ClothingOuterCoatBomberEngineeringOpened
+  categories: [ HideSpawnMenu ]
+
+# Epistemic
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberEpistemic
+  name: epistemic bomber jacket
+  description: A thick, well-worn vintage leather bomber jacket brandishing epistemics flair. It features an alien patch on the back.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/epi.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/epi.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberEpistemic ]
+  id: ClothingOuterCoatBomberEpistemicOpened
+  categories: [ HideSpawnMenu ]
+
+# Logistic
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberLogistic
+  name: logistic bomber jacket
+  description: A thick, well-worn vintage leather bomber jacket brandishing logistics flair. It features a yellow band around the chest.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/logi.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/logi.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberEpistemic ]
+  id: ClothingOuterCoatBomberLogisticOpened
+  categories: [ HideSpawnMenu ]
+
+# Medical
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberMedical
+  name: medical bomber jacket
+  description: A thick, well-worn vintage leather bomber jacket brandishing medical flair. It features a medical Cross patch on the back.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/med.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/med.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberMedical ]
+  id: ClothingOuterCoatBomberMedicalOpened
+  categories: [ HideSpawnMenu ]
+
+# Security
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterArmoredWinterCoat ]
+  id: ClothingOuterCoatBomberSecurity
+  name: security bomber jacket
+  description: An armored, well-worn vintage leather bomber jacket brandishing security flair. It features a shield patch on the back.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/sec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/sec.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberSecurity ]
+  id: ClothingOuterCoatBomberSecurityOpened
+  categories: [ HideSpawnMenu ]
+
+# Service
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberService
+  name: service bomber jacket
+  description: A thick, well-worn vintage leather bomber jacket brandishing service flair. It features blue hook-and-loop fastener around the waist, but it seems to be non-functional.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/service.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/service.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberService ]
+  id: ClothingOuterCoatBomberServiceOpened
+  categories: [ HideSpawnMenu ]
+
+# Syndicate
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterWinterCoat ]
+  id: ClothingOuterCoatBomberSyndicate
+  name: syndicate bomber jacket
+  description: A sturdy, well-worn vintage leather bomber jacket brandishing syndicate flair. It's totally legal, officer! I swear!
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/syndi.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/syndi.rsi
+  - type: Armor # Same as Cybersun Windbreaker but cold instead of heat
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Cold: 0.75
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberSyndicate ]
+  id: ClothingOuterCoatBomberSyndicateOpened
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: ClothingOuterCoatBomberSyndicate
+  id: ClothingOuterCoatBomberCybersun
+  name: cybersun bomber jacket
+  description: A sturdy, well-worn vintage leather bomber jacket brandishing Cybersun flair. The fur seems to be glowing. The wonders of modern science.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/cybersun.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/Bombers/cybersun.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: unshaded
+        shader: unshaded
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatBomberCybersun ]
+  id: ClothingOuterCoatBomberCybersunOpened
+  categories: [ HideSpawnMenu ]

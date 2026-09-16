@@ -1,0 +1,7 @@
+- type: entity
+  id: BaseObviousScarf
+  abstract: true
+  components:
+  - type: WearerGetsExamineText
+    examineText: obvious-desc-colors
+    thing: obvious-thing-scarf

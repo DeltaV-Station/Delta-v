@@ -42,6 +42,14 @@ public sealed class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleComponent>
             colorOverride: AnnouncmentColor);
 
         ent.Comp.MothershipCoreDeathAnnouncmentSent = true;
+
+        // BEGIN DeltaV - Convert to Survival
+        if (ent.Comp.XenoborgRoundEndBehavior != RoundEndBehavior.Nothing)
+        {
+            _roundEnd.DoRoundEndBehavior(ent.Comp.XenoborgRoundEndBehavior, ent.Comp.XenoborgShuttleDelay);
+            ent.Comp.XenoborgRoundEndBehavior = RoundEndBehavior.Nothing;
+        }
+        // END DeltaV
     }
 
     // TODO: Refactor the end of round text

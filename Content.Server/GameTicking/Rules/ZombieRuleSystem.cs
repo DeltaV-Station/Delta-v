@@ -115,29 +115,30 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     /// </summary>
     private void CheckRoundEnd(ZombieRuleComponent zombieRuleComponent)
     {
-        // BEGIN DeltaV - Change mode to survival if zombies die
-        // Zombies have failed to launch and the mode has been switched to survival
-        if (zombieRuleComponent.ZombieRoundEndBehavior == RoundEndBehavior.Nothing)
-            return;
-        // END DeltaV
-
         var healthy = GetHealthyHumans();
         if (healthy.Count == 1) // Only one human left. spooky
             _popup.PopupEntity(Loc.GetString("zombie-alone"), healthy[0], healthy[0]);
 
-
         // BEGIN DeltaV - Change mode to survival if zombies die
-        var anyInitialInfectedAlive = EntityQuery<InitialInfectedComponent, MobStateComponent>(false)
-            .Any(x => x.Item2.CurrentState != MobState.Dead);
-        var anyLivingZombies = EntityQuery<ZombieComponent, MobStateComponent>(false)
-            .Any(x => x.Item2.CurrentState != MobState.Dead);
-        var anyPendingZombies = EntityQuery<PendingZombieComponent>(false).Any();
-
-        // All II turned/dead, all entities that have turned are dead, and there are no more pending zombies
-        if (!anyInitialInfectedAlive && !anyLivingZombies && !anyPendingZombies)
+        if (zombieRuleComponent.IsRoundStartZombies)
         {
-            _roundEnd.DoRoundEndBehavior(zombieRuleComponent.ZombieRoundEndBehavior, zombieRuleComponent.ZombieShuttleDelay);
-            zombieRuleComponent.ZombieRoundEndBehavior = RoundEndBehavior.Nothing; // stop this check in the future
+            // Zombies have failed to launch and the mode has been switched to survival
+            if (zombieRuleComponent.ZombieRoundEndBehavior == RoundEndBehavior.Nothing)
+                return;
+
+            // BEGIN DeltaV - Change mode to survival if zombies die
+            var anyInitialInfectedAlive = EntityQuery<InitialInfectedComponent, MobStateComponent>(false)
+                .Any(x => x.Item2.CurrentState != MobState.Dead);
+            var anyLivingZombies = EntityQuery<ZombieComponent, MobStateComponent>(false)
+                .Any(x => x.Item2.CurrentState != MobState.Dead);
+            var anyPendingZombies = EntityQuery<PendingZombieComponent>(false).Any();
+
+            // All II turned/dead, all entities that have turned are dead, and there are no more pending zombies
+            if (!anyInitialInfectedAlive && !anyLivingZombies && !anyPendingZombies)
+            {
+                _roundEnd.DoRoundEndBehavior(zombieRuleComponent.ZombieRoundEndBehavior, zombieRuleComponent.ZombieShuttleDelay);
+                zombieRuleComponent.ZombieRoundEndBehavior = RoundEndBehavior.Nothing; // stop this check in the future
+            }
         }
         // END DeltaV
 

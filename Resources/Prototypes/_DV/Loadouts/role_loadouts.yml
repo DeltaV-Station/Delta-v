@@ -83,7 +83,7 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobClerk
+  id: JobClerk # TODO: Remove for Justice Rework
   groups:
   - GroupTankHarness
   - ClerkJumpsuit
@@ -107,6 +107,19 @@
   - Glasses
   - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobAttorney
+  groups:
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
 # Epistemics

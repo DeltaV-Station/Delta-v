@@ -94,3 +94,4 @@ public sealed class BountySkipMessage : BoundUserInterfaceMessage
         BountyId = bountyId;
     }
 }
+

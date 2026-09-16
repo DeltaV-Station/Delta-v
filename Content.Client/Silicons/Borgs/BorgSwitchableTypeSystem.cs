@@ -1,12 +1,9 @@
-using Content.Client.PDA; // DeltaV
-using Content.Shared._CD.Silicons.Borgs; // CosmicDrift
+﻿using Content.Client.PDA; // DeltaV
 using Content.Shared.Movement.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
-using Robust.Client.ResourceManagement;  // CosmicDrift
-using Robust.Shared.Serialization.TypeSerializers.Implementations; // CosmicDrift
-using Robust.Shared.Timing; // CosmicDrift
+using Robust.Shared.Serialization; // DeltaV
 
 namespace Content.Client.Silicons.Borgs;
 
@@ -20,7 +17,6 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
     [Dependency] private readonly BorgSystem _borgSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // CosmicDrift - borg subtypes
 
     public override void Initialize()
     {
@@ -44,20 +40,15 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         Entity<BorgSwitchableTypeComponent> entity,
         BorgTypePrototype prototype)
     {
-        // Begin Afterlight Addition - added checks to stop sprite state errors
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        if (TryComp<BorgSwitchableSubtypeComponent>(entity, out var subtype) &&
-            subtype.BorgSubtype != null)
-        {
-            var ev = new TypeTryingToUpdateVisualsEvent();
-            RaiseLocalEvent(entity, ref ev);
-            return;
-        }
-        // End Afterlight Additions - added checks to stop sprite state errors
+        // Begin DeltaV Additions
+        if (prototype.ClientComponents is {} add)
+            EntityManager.AddComponents(entity, add);
+        // End DeltaV Additions
         if (TryComp(entity, out SpriteComponent? sprite))
         {
+            // Begin DeltaV Additions - work around engine bug with AddComponents
+            ((ISerializationHooks) sprite).AfterDeserialization();
+            // End DeltaV Additions
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
         }
@@ -85,26 +76,6 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         }
         // DeltaV - borg pdas
 
-        // Start CosmicDrift Changes - borg subtypes
-        if (prototype.SpriteBodyMovementState is { } movementState)
-        {
-            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
-            spriteMovement.NoMovementLayers.Clear();
-            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
-            {
-                State = prototype.SpriteBodyState,
-            };
-            spriteMovement.MovementLayers.Clear();
-            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
-            {
-                State = movementState,
-            };
-        }
-        else
-        {
-            RemComp<SpriteMovementComponent>(entity);
-        }
-        // End CosmicDrift Changes - borg subtypes
         base.UpdateEntityAppearance(entity, prototype);
     }
 }

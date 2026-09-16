@@ -42,6 +42,7 @@ station-beacon-pool = Pool
 station-beacon-barbershop = Barbershop
 station-beacon-zoo = Zoo
 
+station-beacon-armorer = Armorer
 station-beacon-corpsman = Corpsman
 station-beacon-security-solitary = Solitary Confinement
 station-beacon-bomb-training = Bomb Training
@@ -52,3 +53,8 @@ station-beacon-chiefjustice = Chief Justice
 station-beacon-prosecutor = Prosecutor
 station-beacon-clerk = Clerk
 station-beacon-attorney = Attorney
+station-beacon-marshal = Marshal
+station-beacon-justice-armory = Justice Armory
+station-beacon-evidence-room = Evidence Room
+station-beacon-holding-cells = Holding Cells
+station-beacon-genpop = GenPop
