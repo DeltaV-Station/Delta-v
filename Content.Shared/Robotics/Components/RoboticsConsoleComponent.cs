@@ -56,4 +56,12 @@ public sealed partial class RoboticsConsoleComponent : Component
     /// </summary>
     [DataField]
     public bool AllowBorgControl = true;
+
+    // Begin DeltaV - allow consoles to not annouce
+    /// <summary>
+    /// Whether the console logs its actions to a radio channel
+    /// </summary>
+    [DataField]
+    public bool RadioAnnounces = true;
+    // End DeltaV - allow consoles to not announce
 }

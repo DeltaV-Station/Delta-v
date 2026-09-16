@@ -275,6 +275,7 @@
       state: generic_panel_open
   - type: RoboticsConsole
     allowBorgControl: true
+    radioAnnounces: false
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: SRNRoboticsConsole

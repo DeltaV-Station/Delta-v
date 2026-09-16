@@ -136,7 +136,10 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         _deviceNetwork.QueuePacket(ent, args.Address, payload);
 
         var message = Loc.GetString(ent.Comp.DestroyMessage, ("name", data.Name));
-        _radio.SendRadioMessage(ent, message, ent.Comp.RadioChannel, ent);
+        // Begin DeltaV - allow consoles to not annouce
+        if (ent.Comp.RadioAnnounces)
+            _radio.SendRadioMessage(ent, message, ent.Comp.RadioChannel, ent);
+        // End DeltaV - allow consoles to not annouce
         _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.Actor):user} destroyed borg {data.Name} with address {args.Address}");
 
         ent.Comp.NextDestroy = now + ent.Comp.DestroyCooldown;
