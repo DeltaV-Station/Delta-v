@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Silicons no longer change their battery usage depending on the temperature
-      around them
-    type: Remove
-  - message: IPCs now once again have working alerts for their batteries
-    type: Fix
-  id: 2159
-  time: '2026-03-06T16:10:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5345
 - author: marigauge
   changes:
   - message: reverted soretizone changes hopefully fixing flashing
@@ -4440,4 +4430,12 @@
   id: 2659
   time: '2026-09-16T12:31:05.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6493
+- author: Apersos-coll
+  changes:
+  - message: Added new crewsided heavy laser gun the Unstable Core Refractor, for
+      when stable reactors weren't enough.
+    type: Add
+  id: 2660
+  time: '2026-09-16T12:44:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6491
 Order: 1
