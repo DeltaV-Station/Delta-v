@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: EmberAstra
-  changes:
-  - message: Added the power digi-board! Monitor your energy situation on the move!
-      Find it in CE's locker.
-    type: Add
-  id: 2158
-  time: '2026-03-06T15:36:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5435
 - author: BarryNorfolk
   changes:
   - message: Silicons no longer change their battery usage depending on the temperature
@@ -4441,4 +4433,11 @@
   id: 2658
   time: '2026-09-14T17:44:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6503
+- author: SumofThreeParts
+  changes:
+  - message: Glimmer prober locks out at 600 glimmer instead of 750 glimmer.
+    type: Tweak
+  id: 2659
+  time: '2026-09-16T12:31:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6493
 Order: 1
