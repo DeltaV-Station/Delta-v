@@ -8,13 +8,66 @@
     sprite: _DV/Objects/Misc/unstablereactorcore.rsi
     state: icon
   - type: RadiationSource
-    intensity: 1
+    intensity: 4
     slope: 0.2
   - type: PointLight
     color: "#00FF00"
   - type: Tag
     tags:
     - UnstableReactorCore
+
+- type: entity
+  parent: [BaseItem, BaseItemCabinet]
+  id: UnstableReactorContainer
+  name: unstable reactor container
+  description: Heavy container for containing radiation.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/unstable_reactor_container.rsi
+    layers:
+    - state: closed
+      map: [ "enum.OpenableVisuals.Layer" ]
+    - state: core_closed
+      map: [ "enum.ItemCabinetVisuals.Layer" ]
+      visible: false
+      shader: unshaded
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: RadiationBlockingContainer
+    resistance: 4
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        whitelist:
+          tags:
+          - UnstableReactorCore
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { state: open }
+          False: { state: closed }
+        enum.ItemCabinetVisuals.Layer:
+          True: { state: core_open }
+          False: { state: core_closed }
+      enum.ItemCabinetVisuals.ContainsItem:
+        enum.ItemCabinetVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  parent: UnstableReactorContainer
+  id: UnstableReactorContainerFilled
+  name: unstable reactor container
+  suffix: Filled
+  description: Heavy container for containing radiation.
+  components:
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        startingItem: UnstableReactorCore
 
 - type: entity
   parent: BaseItem
