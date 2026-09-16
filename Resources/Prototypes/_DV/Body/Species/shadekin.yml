@@ -2,10 +2,10 @@
   id: Shadekin
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 0
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 0
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
