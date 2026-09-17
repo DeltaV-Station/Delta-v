@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Cepelinas1
-  changes:
-  - message: 'A new antag role has been added: Internal Affairs! NanoTrasen is hiring
-      any employees who would love to protect the company.'
-    type: Add
-  id: 2162
-  time: '2026-03-07T20:35:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5450
 - author: Coryler
   changes:
   - message: Add Universal Pinpointer to the Syndicate Uplink
@@ -4439,4 +4431,18 @@
   id: 2662
   time: '2026-09-17T04:19:40.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6496
+- author: kotobdev
+  changes:
+  - message: Removed a shitmed-remnant Asakim objective.
+    type: Remove
+  - message: Asakim ghostrole rules have been reworded to be a little less friendly.
+    type: Tweak
+  - message: Asakim armor now slows any non-Asakim by 80%, to discourage crewmembers
+      from intentionally springlocking themselves.
+    type: Tweak
+  - message: Asakim shouldn't get stuck in doors.
+    type: Fix
+  id: 2663
+  time: '2026-09-17T04:22:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6452
 Order: 1
