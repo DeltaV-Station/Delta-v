@@ -5,3 +5,22 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: security
+
+- type: entity
+  id: SRNBorgChassisSelectable
+  suffix: Robo Neuroticist
+  parent: BorgChassisSelectable
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: SlavedBorg
+    law: ObeySRN
+  - type: DeviceNetwork
+    receiveFrequencyId: SRNCyborgControl
+    transmitFrequencyId: SRNRoboticsConsole
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: true
+    id: SRNCyborgControl
+    useEntityNameAsCameraId: true
