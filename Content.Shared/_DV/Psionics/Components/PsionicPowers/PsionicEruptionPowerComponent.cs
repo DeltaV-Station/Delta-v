@@ -11,23 +11,23 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
 
     public override string PowerName { get; set; } = "psionic-power-name-eruption";
 
-    public override int MinGlimmerChanged { get; set; } = -200;
+    public override int MinGlimmerChanged { get; set; } = 0;
 
-    public override int MaxGlimmerChanged { get; set; } = -100;
+    public override int MaxGlimmerChanged { get; set; } = 50;
 
     /// <summary>
     /// Minimum time for the Detonation DoAfter to take effect.
     /// Half of it is the time for every spark.
     /// </summary>
     [DataField]
-    public TimeSpan MinDetonateDelay = TimeSpan.FromSeconds(10);
+    public TimeSpan MinDetonateDelay = TimeSpan.FromSeconds(2.5);
 
     /// <summary>
     /// Maximum time for the Detonation DoAfter to take effect.
     /// Half of it is the time for every spark.
     /// </summary>
     [DataField]
-    public TimeSpan MaxDetonateDelay = TimeSpan.FromSeconds(30);
+    public TimeSpan MaxDetonateDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The sound that appears when the action is pressed.

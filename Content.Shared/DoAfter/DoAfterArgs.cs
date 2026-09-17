@@ -136,6 +136,14 @@ public sealed partial class DoAfterArgs
     [DataField]
     public FixedPoint2 DamageThreshold = 1;
 
+    // Begin DeltaV Addition
+    /// <summary>
+    ///     Whether entering critical state will cancel the DoAfter.
+    /// </summary>
+    [DataField]
+    public bool BreakOnCritical;
+    // End DeltaV Addition
+
     /// <summary>
     ///     If true, this DoAfter will be canceled if the user can no longer interact with the target.
     /// </summary>
