@@ -1,4 +1,4 @@
-﻿- type: constructionGraph
+- type: constructionGraph
   id: CatwalkReinforced
   start: start
   graph:
@@ -20,7 +20,7 @@
       edges:
         - to: start
           completed:
-          - !type:SpawnPrototype 
+          - !type:SpawnPrototype
                 prototype: PartRodMetal1
                 amount: 4
           - !type:SpawnPrototype
@@ -36,4 +36,3 @@
               doAfter: 1
             - tool: Cutting
               doAfter: 4
-
