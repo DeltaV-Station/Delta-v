@@ -9,7 +9,7 @@ namespace Content.Server._DV.Storage.EntitySystems;
 
 public sealed class MouthStorageSystem : SharedMouthStorageSystem
 {
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
     {

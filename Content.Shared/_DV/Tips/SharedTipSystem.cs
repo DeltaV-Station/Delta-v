@@ -12,8 +12,8 @@ namespace Content.Shared._DV.Tips;
 public abstract class SharedTipSystem : EntitySystem
 {
     [Dependency] protected new readonly IPrototypeManager Prototype = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] protected readonly SharedMindSystem Mind = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] protected SharedMindSystem Mind = default!;
 
     /// <summary>
     /// Shows a tip to a player.

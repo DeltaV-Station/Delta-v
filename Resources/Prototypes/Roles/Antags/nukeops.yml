@@ -51,6 +51,84 @@
   - !type:WhitelistRequirement # DeltaV - Whitelist requirement
   # should be changed to nukie playtime when thats tracked (wyci)
 
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseNukeops
+  prefRoles:
+  - GenericTeamAntagonist # For antag ban purposes
+  roleLoadout:
+  - RoleSurvivalNukie
+  components:
+  - type: NukeOperative
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: TargetObjectiveImmune # DeltaV - Makes sleepers unable to get nukie kill objectives
+  - type: RandomHumanoidAppearance # DeltaV - make nukies have random appearance
+    randomizeName: false
+    keepGender: true
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: NukeopsCommander
+  prefRoles:
+  - NukeopsCommander
+  spawnerPrototype: SpawnPointNukeopsCommander
+  startingGear: SyndicateCommanderGearFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicateElite
+    nameFormat: name-format-nukie-commander
+  mindRoles:
+  - MindRoleNukeopsCommander
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: NukeopsMedic
+  prefRoles:
+  - NukeopsMedic
+  spawnerPrototype: SpawnPointNukeopsMedic
+  startingGear: SyndicateOperativeMedicFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-agent
+  mindRoles:
+  - MindRoleNukeopsMedic
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: NukeopsOperative
+  prefRoles:
+  - Nukeops
+  spawnerPrototype: SpawnPointNukeopsOperative
+  startingGear: SyndicateOperativeGearFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-operator
+  mindRoles:
+  - MindRoleNukeops
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: LoneOp
+  spawnerPrototype: SpawnPointLoneNukeOperative
+  pickPlayer: false
+  startingGear: SyndicateLoneOperativeGearFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  mindRoles:
+  - MindRoleLoneops
+
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplink
   equipment:

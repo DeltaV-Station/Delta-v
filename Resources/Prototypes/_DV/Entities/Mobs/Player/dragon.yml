@@ -94,9 +94,9 @@
         Blunt: 30
         Slash: 40
         Structural: 60
-  - type: ActionGun
-    action: ActionDragonsBreath
-    gunProto: DragonsBreathGunMatriarch
+  - type: ActionGrant
+    actions:
+    - ActionDragonsBreath
   - type: Devourer
     foodPreferenceWhitelist:
       components:

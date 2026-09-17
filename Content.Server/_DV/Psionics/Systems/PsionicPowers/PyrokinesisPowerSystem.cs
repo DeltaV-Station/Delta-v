@@ -9,7 +9,7 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class PyrokinesisPowerSystem : SharedPyrokinesisPowerSystem
 {
-    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
+    [Dependency] private FlammableSystem _flammableSystem = default!;
 
     protected override void OnPowerUsed(Entity<PyrokinesisPowerComponent> psionic, ref PyrokinesisPowerActionEvent args)
     {

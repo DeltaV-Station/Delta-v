@@ -16,13 +16,13 @@ namespace Content.Shared._DV.Kitchen.Systems;
 
 public abstract class SharedDeepFryerSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly SharedSolutionContainerSystem Solution = default!;
-    [Dependency] protected readonly SharedTransformSystem Xform = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected SharedSolutionContainerSystem Solution = default!;
+    [Dependency] protected SharedTransformSystem Xform = default!;
 
     public override void Initialize()
     {

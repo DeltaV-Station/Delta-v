@@ -17,10 +17,10 @@ namespace Content.Client._DV.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ShopVendorWindow : FancyWindow
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     private readonly ShopVendorSystem _vendor;
 
     /// <summary>

@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 public sealed partial class ResurrectWhenAbleSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private ProtoId<AlertPrototype> _resurrectingIcon = "ResurrectingIcon";
 

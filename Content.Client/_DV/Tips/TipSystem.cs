@@ -15,9 +15,9 @@ namespace Content.Client._DV.Tips;
 /// </summary>
 public sealed class TipSystem : SharedTipSystem
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     /// <summary>
     /// Queue of tips waiting to be shown. Only one tip is displayed at a time.

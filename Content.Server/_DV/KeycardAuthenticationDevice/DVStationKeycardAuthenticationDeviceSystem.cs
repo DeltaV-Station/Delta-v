@@ -15,14 +15,14 @@ namespace Content.Server._DV.KeycardAuthenticationDevice;
 
 public sealed class DVStationKeycardAuthenticationDeviceSystem : SharedDVStationKeycardAuthenticationDeviceSystem
 {
-    [Dependency] private readonly NukeCodePaperSystem _nukeCodePaper = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly JukeboxSystem _jukebox = default!;
+    [Dependency] private NukeCodePaperSystem _nukeCodePaper = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private PoweredLightSystem _poweredLight = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private JukeboxSystem _jukebox = default!;
 
     protected override void Mayday(Entity<DVStationKeycardAuthenticationDeviceComponent> station)
     {

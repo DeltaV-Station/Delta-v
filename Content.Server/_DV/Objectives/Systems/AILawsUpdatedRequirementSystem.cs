@@ -12,9 +12,9 @@ namespace Content.Server._DV.Objectives.Systems;
 /// </summary>
 public sealed class AILawsUpdatedRequirementSystem : EntitySystem
 {
-    [Dependency] private readonly CodeConditionSystem _code = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private CodeConditionSystem _code = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedJobSystem _job = default!;
 
     public override void Initialize()
     {

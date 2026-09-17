@@ -25,42 +25,48 @@
   name: jetpack
   description: It's a jetpack. It can hold 5 L of gas.
   components:
-    - type: Sprite
-      sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-      state: icon
-    - type: Item
-      sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-      size: Huge
-    - type: UserInterface
-      interfaces:
-        enum.SharedGasTankUiKey.Key:
-          type: GasTankBoundUserInterface
-    - type: UseDelay
-      delays:
-        gasTank:
-          length: 1.0
-    - type: Clothing
-      sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
-      quickEquip: false
-      slots:
-        - Back
-        - SuitStorage # DeltaV - Allow all jetpacks to fit in the suit storage slot
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        volume: 5
-        temperature: 293.15
-    - type: Jetpack
-      moleUsage: 0.00085
-    - type: Appearance
-    - type: StaticPrice
-      price: 100
-#    - type: DynamicPrice
-#      price: 100
-    - type: ReverseEngineering # DeltaV: all jetpacks can RE to void jetpacks, the best kind which can't be bought
-      difficulty: 3
-      recipes:
-      - JetpackVoid
+  - type: Sprite
+    sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    layers:
+    - state: icon
+      map: ["enum.JetpackVisuals.Layer"]
+  - type: Item
+    sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    size: Huge
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  - type: Clothing
+    sprite: _DV/Objects/Tanks/Jetpacks/blue.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    quickEquip: false
+    slots:
+    - Back
+    - SuitStorage # DeltaV - Allow all jetpacks to fit in the suit storage slot
+  - type: GasTank
+    releasePressure: 21.3
+    air:
+      volume: 5
+      temperature: 293.15
+  - type: Jetpack
+    moleUsage: 0.00085
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.JetpackVisuals.Enabled:
+        enum.JetpackVisuals.Layer:
+          True: {state: icon-on}
+          False: {state: icon}
+  - type: StaticPrice
+    price: 100
+  - type: ReverseEngineering # DeltaV: all jetpacks can RE to void jetpacks, the best kind which can't be bought
+    difficulty: 3
+    recipes:
+    - JetpackVoid
 
 - type: entity
   parent: BaseAction
@@ -103,7 +109,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -140,7 +146,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -181,7 +187,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -209,7 +215,8 @@
         - suitStorage
         - Belt
     - type: GasTank
-      outputPressure: 42.6
+      overpressure: 1519.875 # Poorly manufactured, they also lose pressure quickly so this makes exploding them easier, at the cost of the explosion being tiny.
+      releasePressure: 42.6
       air:
         volume: 1.5
 
@@ -221,7 +228,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 4 minutes of thrust
       volume: 1.5
@@ -264,7 +271,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 8 minutes of thrust
       volume: 3 # DeltaV - Increase from 1.5L to 3L
@@ -301,7 +308,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 42.6
+    releasePressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5
@@ -318,7 +325,7 @@
   suffix: Infinite
   components:
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       volume: 5
       temperature: 293.15

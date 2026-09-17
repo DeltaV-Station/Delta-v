@@ -6,8 +6,8 @@ namespace Content.Client.Nyanotrasen.ReverseEngineering;
 
 public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private ReverseEngineeringMachineMenu? _menu;
 

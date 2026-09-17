@@ -20,9 +20,9 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComponent>
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
 
     public override void Initialize()
     {

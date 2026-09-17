@@ -7,6 +7,7 @@ using Content.Shared._DV.Psionics.Events.PowerActionEvents;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.Mech.Components;
 using Content.Shared.Medical.Cryogenics;
 using Content.Shared.Mindshield.Components;
@@ -17,9 +18,9 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class TelegnosisPowerSystem : SharedTelegnosisPowerSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private SharedMindSwapPowerSystem _mindSwap = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

@@ -11,7 +11,7 @@ namespace Content.Server._DV.StationEvents.Events;
 
 public sealed class GlimmerFoxfireSpawnRule : StationEventSystem<GlimmerFoxfireSpawnRuleComponent>
 {
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
 
     protected override void Started(EntityUid uid,
         GlimmerFoxfireSpawnRuleComponent comp,

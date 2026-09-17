@@ -28,13 +28,13 @@ namespace Content.Shared._Goobstation.Fishing.Systems;
 /// </summary>
 public abstract class SharedFishingSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly INetManager Net = default!;
-    [Dependency] protected readonly ThrowingSystem Throwing = default!;
-    [Dependency] protected readonly SharedTransformSystem Xform = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected INetManager Net = default!;
+    [Dependency] protected ThrowingSystem Throwing = default!;
+    [Dependency] protected SharedTransformSystem Xform = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     protected EntityQuery<ActiveFisherComponent> FisherQuery;
     protected EntityQuery<ActiveFishingSpotComponent> ActiveFishSpotQuery;

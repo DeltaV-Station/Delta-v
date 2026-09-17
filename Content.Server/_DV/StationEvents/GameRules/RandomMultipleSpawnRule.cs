@@ -7,7 +7,7 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class RandomMultipleSpawnRule : StationEventSystem<RandomMultipleSpawnRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Started(EntityUid uid, RandomMultipleSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

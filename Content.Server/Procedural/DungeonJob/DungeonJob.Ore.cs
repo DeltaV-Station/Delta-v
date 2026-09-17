@@ -18,7 +18,7 @@ public sealed partial class DungeonJob
         OreDunGen gen,
         List<Dungeon> dungeons,
         HashSet<Vector2i> reservedTiles,
-        Random random)
+        IRobustRandom random)
     {
         var remaining = new Dictionary<EntProtoId, int>();
 

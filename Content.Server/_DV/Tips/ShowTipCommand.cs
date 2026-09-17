@@ -12,9 +12,9 @@ public sealed class ShowTipCommand : LocalizedEntityCommands
 {
     public override string Command => "showtip";
 
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedTipSystem _tip = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedTipSystem _tip = default!;
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {

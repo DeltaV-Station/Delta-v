@@ -8,6 +8,28 @@
     department: Security
     time: 1h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Fugitive
+  spawnerPrototype: SpawnPointFugitive
+  pickPlayer: false
+  startingGear: FugitiveGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFakeHumanFirst
+      - NamesFakeHumanLast
+      nameFormat: name-format-standard
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      keepGender: true
+    - type: EmitSoundOnSpawn # fell out of the ceiling
+      sound: /Audio/Effects/clang.ogg
+  mindRoles:
+  - MindRoleFugitive
+
 - type: startingGear
   id: FugitiveGear
   equipment:

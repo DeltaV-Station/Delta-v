@@ -6,7 +6,7 @@ namespace Content.Client._DV.Pager;
 
 public sealed class PagerButtonSystem : SharedPagerButtonSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
 
     private const string AnimateKey = "pager-press";
 

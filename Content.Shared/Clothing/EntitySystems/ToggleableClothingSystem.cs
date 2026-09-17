@@ -16,17 +16,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - Made Partial
+public sealed partial class ToggleableClothingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedStrippableSystem _strippable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedStrippableSystem _strippable = default!;
 
     public override void Initialize()
     {
@@ -60,10 +60,6 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
         if (!args.CanAccess || !args.CanInteract || args.Hands == null || component.ClothingUid == null || component.Container == null)
             return;
 
-        var text = component.VerbText ?? (component.ActionEntity == null ? null : Name(component.ActionEntity.Value));
-        if (text == null)
-            return;
-
         if (!_inventorySystem.InSlotWithFlags(uid, component.RequiredFlags))
             return;
 
@@ -74,7 +70,7 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
         var verb = new EquipmentVerb()
         {
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-            Text = Loc.GetString(text),
+            Text = Loc.GetString(component.VerbText),
         };
 
         if (args.User == wearer)
@@ -164,10 +160,10 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
         // This should maybe double check that the entity currently in the slot is actually the attached clothing, but
         // if its not, then something else has gone wrong already...
         if (component.Container != null && component.Container.ContainedEntity == null && component.ClothingUid != null)
-            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true, triggerHandContact: true); // DeltaV - Allow hats under toggleable helms
+            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.EquipTarget, component.Slot, force: true, triggerHandContact: true); // DeltaV - Allow hats under toggleable helms
 
         // DeltaV - If the toggleable helm was uneqipped, try to equip whats in the under clothing container
-        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.Equipee, component))
+        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.EquipTarget, component))
             TryDropUnderClothing(component);
     }
 
@@ -254,7 +250,6 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
 
         if (component.Container.ContainedEntity == null)
             wasAttachedUnequipped = _inventorySystem.TryUnequip(user, parent, component.Slot, force: true);
-
         else
         {
             if (_inventorySystem.TryGetSlotEntity(parent, component.Slot, out var existing)
@@ -306,7 +301,7 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
         {
             DebugTools.Assert(Exists(component.ClothingUid), "Toggleable clothing is missing expected entity.");
             DebugTools.Assert(TryComp(component.ClothingUid, out AttachedClothingComponent? comp), "Toggleable clothing is missing an attached component");
-            DebugTools.Assert(comp?.AttachedUid == uid, "Toggleable clothing uid mismatch");
+            DebugTools.Assert(comp.AttachedUid == uid, "Toggleable clothing uid mismatch");
         }
         else
         {

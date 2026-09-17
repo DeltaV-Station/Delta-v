@@ -8,9 +8,9 @@ namespace Content.Client._DV.Overlays;
 
 public sealed class GlimmerOverlay : Overlay
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _glimmerShader;

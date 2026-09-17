@@ -12,8 +12,8 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed partial class ParadoxCloneRuleSystem
 {
-    [Dependency] private readonly PsionicSystem _psionic = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private PsionicSystem _psionic = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
 
     private void FilterTargets(HashSet<Entity<MindComponent>> minds)
     {

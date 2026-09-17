@@ -7,8 +7,8 @@ namespace Content.Client._DV.Silicons;
 
 public sealed class StationAiFaxSystem : SharedStationAiFaxSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

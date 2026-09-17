@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -11,7 +12,7 @@ public sealed partial class FlavorProfileComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField] // DV - Deep Fryers
-    public HashSet<string> Flavors = new(); // DV remove setter
+    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; set; } = new();
 
     /// <summary>
     ///     Reagent IDs to ignore when processing this flavor profile. Defaults to nutriment.

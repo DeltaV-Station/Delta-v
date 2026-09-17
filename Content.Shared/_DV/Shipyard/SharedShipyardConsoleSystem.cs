@@ -13,11 +13,11 @@ namespace Content.Shared.Shipyard;
 /// </summary>
 public abstract class SharedShipyardConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {

@@ -7,3 +7,30 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 24h
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: NTAgent
+  pickPlayer: true
+  briefing:
+    text: NTAgent-role-greeting-human
+    color: lightblue
+    sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+  mindRoles:
+  - MindRoleNTAgent
+  components:
+  - type: AutoImplant
+    implants:
+    - RadioImplantCentcomm
+
+- type: antagSpecifier
+  parent: NTAgent
+  id: NTAgentSleeper
+  blacklist:
+    components:
+    - AntagImmune
+  components:
+  - type: AutoImplant
+    implants:
+    - RadioImplantCentcomm
+    - NanolinkSubImplant

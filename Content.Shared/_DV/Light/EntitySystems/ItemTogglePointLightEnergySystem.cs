@@ -5,7 +5,7 @@ namespace Content.Shared._DV.Light.EntitySystems;
 
 public sealed partial class ItemTogglePointLightEnergySystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
 
     public override void Initialize()
     {

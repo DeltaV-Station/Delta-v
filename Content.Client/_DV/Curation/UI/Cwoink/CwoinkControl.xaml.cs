@@ -21,10 +21,10 @@ namespace Content.Client._DV.Curation.UI.Cwoink;
 [GenerateTypedNameReferences]
 public sealed partial class CwoinkControl : Control
 {
-    [Dependency] private readonly IClientAdminManager _adminManager = default!;
-    [Dependency] private readonly IClientConsoleHost _console = default!;
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IClientAdminManager _adminManager = default!;
+    [Dependency] private IClientConsoleHost _console = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     public CuratorCHelpUIHandler CHelpHelper = default!;
 
     private PlayerInfo? _currentPlayer;

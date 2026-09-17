@@ -12,10 +12,10 @@ namespace Content.Server._DV.StationEvents.Events;
 
 public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleComponent>
 {
-    [Dependency] private readonly ApcSystem _apcSystem = default!;
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private ApcSystem _apcSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private ServerGlobalSoundSystem _sound = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     protected override void Started(EntityUid uid, EpsilonEventRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

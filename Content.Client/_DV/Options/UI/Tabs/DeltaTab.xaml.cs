@@ -9,7 +9,7 @@ namespace Content.Client._DV.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class DeltaTab : Control
 {
-    [Dependency] private readonly IEntityNetworkManager _entNet = default!;
+    [Dependency] private IEntityNetworkManager _entNet = default!;
 
     public DeltaTab()
     {

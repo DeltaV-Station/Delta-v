@@ -11,7 +11,7 @@ namespace Content.Shared._DV.Access.Systems;
 /// </summary>
 public abstract class SharedSubdermalIdCardSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     /// <summary>
     /// Name for the container, inside the subdermal implant, where the ID card will be spawned.
