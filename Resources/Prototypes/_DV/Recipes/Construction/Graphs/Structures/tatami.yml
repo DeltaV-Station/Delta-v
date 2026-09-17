@@ -10,12 +10,12 @@
       steps:
       - material: Paper
         amount: 1
-        doAfter: 1
+        doafter: 1
     - to: tatamiPart
       steps:
       - material: Paper
         amount: 1
-        doAfter: 1
+        doafter: 1
 
   - node: tatamiSquare
     entity: tatamisingle
@@ -25,10 +25,10 @@
       - !type:SpawnPrototype
         prototype: SheetPaper1
         amount: 1
-        doAfter: 1
+        doafter: 1
       steps:
       - tool: Prying
-        doAfter: 1
+        doafter: 1
 
   - node: tatamiPart
     entity: tatamimat
@@ -38,7 +38,7 @@
       - !type:SpawnPrototype
         prototype: SheetPaper1
         amount: 1
-        doAfter: 1
+        doafter: 1
       steps:
       - tool: Prying
-        doAfter: 1
+        doafter: 1

@@ -100,7 +100,7 @@
               doAfter: 1
 
     - node: windowFrostedCorner
-      entity: WindowFrostedCorner
+      entity: WindowFrostedDirectionalCorner
       edges:
         - to: start
           completed:

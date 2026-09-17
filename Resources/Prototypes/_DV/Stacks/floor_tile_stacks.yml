@@ -6,14 +6,28 @@
 
 - type: stack
   id: FloorTileAstroGrassRed
-  icon: { sprite: _DV/Textures/Objects/Tiles/tile.rsi, state: grassred }
+  icon: { sprite: _DV/Objects/Tiles/tile.rsi, state: grassred }
   name: stack-astro-grass-red
   spawn: FloorTileItemAstroGrassRed
   maxCount: 30
 
 - type: stack
   id: FloorTileAstroGrassPurple
-  icon: { sprite: _DV/Textures/Objects/Tiles/tile.rsi, state: grasspurple }
+  icon: { sprite: _DV/Objects/Tiles/tile.rsi, state: grasspurple }
   name: stack-astro-grass-purple
   spawn: FloorTileItemAstroGrassPurple
   maxCount: 30
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileSquiggly
+  icon: { sprite: _DV/Objects/Tiles/tile.rsi, state: steel-squiggly }
+  name: stack-white-steel-squiggly-tile
+  spawn: FloorTileItemSteelSquiggly
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileWhiteSquiggly
+  icon: { sprite: _DV/Objects/Tiles/tile.rsi, state: white-squiggly }
+  name: stack-white-steel-squiggly-tile
+  spawn: FloorTileItemWhiteSquiggly

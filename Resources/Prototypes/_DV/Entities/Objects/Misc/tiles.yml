@@ -52,3 +52,33 @@
     - FloorAstroGrassBasalt
   - type: Stack
     stackType: FloorTileAstroGrassRed
+
+- type: entity
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelSquiggly
+  name: steel squiggly tile
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
+    state: steel-squiggly
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSteelSquiggly
+  - type: Stack
+    stackType: FloorTileSteelSquiggly
+
+- type: entity
+  parent: FloorTileItemWhite
+  id: FloorTileItemWhiteSquiggly
+  name: white steel squiggly tile
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
+    state: white-squiggly
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorWhiteSquiggly
+  - type: Stack
+    stackType: FloorTileWhiteSquiggly

@@ -16,3 +16,5 @@ stack-frosting = frosting
 stack-mowed-astro-snow-floor = mowed astro-snow floor
 stack-astro-grass-red = basalt astro-grass floor
 stack-astro-grass-purple = chromite astro-grass floor
+stack-white-steel-squiggly-tile = steel squiggly tile
+stack-steel-squiggly-tile = white steel squiggly tile
