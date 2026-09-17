@@ -53,7 +53,7 @@
   id: FloorPlanetGrass
   parent: BaseFloorPlanet
   name: tiles-grass-planet-floor
-  sprite: /Textures/Tiles/Planet/Grass/grass.png
+  sprite: /Textures/_DV/Tiles/Planet/Grass/grass.png # DeltaV - Resprite
   variants: 4
   placementVariants:
   - 1.0
@@ -62,14 +62,16 @@
   - 1.0
   edgeSpritePriority: 1
   edgeSprites:
-    SouthEast: /Textures/Tiles/Planet/Grass/single_edge.png
-    NorthEast: /Textures/Tiles/Planet/Grass/single_edge.png
-    NorthWest: /Textures/Tiles/Planet/Grass/single_edge.png
-    SouthWest: /Textures/Tiles/Planet/Grass/single_edge.png
-    South: /Textures/Tiles/Planet/Grass/double_edge.png
-    East: /Textures/Tiles/Planet/Grass/double_edge.png
-    North: /Textures/Tiles/Planet/Grass/double_edge.png
-    West: /Textures/Tiles/Planet/Grass/double_edge.png
+## Start of DeltaV Changes
+    SouthEast: /Textures/_DV/Tiles/Planet/Grass/single_edge.png
+    NorthEast: /Textures/_DV/Tiles/Planet/Grass/single_edge.png
+    NorthWest: /Textures/_DV/Tiles/Planet/Grass/single_edge.png
+    SouthWest: /Textures/_DV/Tiles/Planet/Grass/single_edge.png
+    South: /Textures/_DV/Tiles/Planet/Grass/double_edge.png
+    East: /Textures/_DV/Tiles/Planet/Grass/double_edge.png
+    North: /Textures/_DV/Tiles/Planet/Grass/double_edge.png
+    West: /Textures/_DV/Tiles/Planet/Grass/double_edge.png
+## End of DeltaV Changes
   baseTurf: FloorPlanetDirt
   footstepSounds:
     collection: FootstepGrass
@@ -79,7 +81,7 @@
   id: FloorBasalt
   name: tiles-basalt-floor
   parent: BaseFloorPlanet
-  sprite: /Textures/Tiles/Planet/basalt.png
+  sprite: /Textures/_DV/Tiles/Planet/Basalt/basalt.png # DeltaV - Resprite, was /Textures/Tiles/Planet/basalt.png
 
 # Snow
 - type: tile
