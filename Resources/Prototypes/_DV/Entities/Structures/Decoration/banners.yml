@@ -1,0 +1,9 @@
+- type: entity
+  parent: BannerBase
+  id: BannerJustice
+  name: justice banner
+  description: A banner displaying the color of the justice department. Where court hearings happen... probably.
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi # TODO: Resprite. Upstream security banner as placeholder.
+    state: banner_security

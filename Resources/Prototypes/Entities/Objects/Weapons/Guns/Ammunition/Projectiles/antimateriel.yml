@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 50 # DeltaV - was 75, reduced due to AP
+        Piercing: 55 # DeltaV - was 75, reduced due to AP
         Structural: 70 # DeltaV - was 226
     ignoreResistances: true # DeltaV - Hristov be spooky now
     penetrationThreshold: 360
@@ -15,3 +15,10 @@
     - Structural
   - type: StaminaDamageOnCollide
     damage: 60
+  - type: PiercingProjectile # DeltaV - pierces up to 3 walls/windows
+    pierceCounterWhitelist:
+      tags:
+      - Wall
+      - Window
+    maxPierceNumberThreshold: 3 # this seems to not work
+    healthThreshold: 200 # Normal walls have a threshold of 200.

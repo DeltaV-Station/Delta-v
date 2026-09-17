@@ -142,3 +142,27 @@
         Heat: 50
         Radiation: 25
         Structural: 75
+
+- type: entity
+  parent: BasicHitscan
+  id: FocussedCoreExhaust
+  name: Focussed Core Exhaust
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/unstable_rad_projectile.rsi
+      state: unstable_muzzle_flash
+    travelFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/unstable_rad_projectile.rsi
+      state: unstable_beam
+    impactFlash:
+      sprite: _DV/Objects/Weapons/Guns/Projectiles/unstable_rad_projectile.rsi
+      state: unstable_impact
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 2
+        Radiation: 4
+  - type: HitscanTemperature
+    heatChange: 11000

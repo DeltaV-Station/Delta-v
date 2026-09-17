@@ -2,9 +2,6 @@ using Content.Client.Humanoid;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
-using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Shared._DV.Species; // DeltaV - Species hider
-using Content.Shared.Body;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -22,13 +19,8 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Direction = Robust.Shared.Maths.Direction;
-// Begin CD - Character Records
-using System.Globalization;
-using Content.Client._CD.Records.UI;
-using Content.Shared._CD.Records;
-// End CD - Character Records
-using Content.Shared._DV.Traits;
-using Content.Shared.Humanoid.Prototypes; // DV - Traits
+using Content.Client._CD.Records.UI; // CD - Character Records
+using Content.Shared._DV.Body.Systems; // DV - Traits
 
 namespace Content.Client.Lobby.UI
 {
@@ -221,34 +213,18 @@ namespace Content.Client.Lobby.UI
             // Begin CD - Character Records
             #region CDHeight
 
-            CDHeight.OnTextChanged += args =>
-            {
-                if (Profile is null || !float.TryParse(args.Text, out var newHeight))
-                    return;
-
-                var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
-                newHeight = MathF.Round(Math.Clamp(newHeight, prototype.MinHeight, prototype.MaxHeight), 2);
-
-                // The percentage between the start and end numbers, aka "inverse lerp"
-                var sliderPercent = (newHeight - prototype.MinHeight) /
-                                    (prototype.MaxHeight - prototype.MinHeight);
-                CDHeightSlider.Value = sliderPercent;
-
-                SetProfileHeight(newHeight);
-            };
-
-            CDHeightReset.OnPressed += _ =>
-            {
-                CDHeight.SetText(_defaultHeight.ToString(CultureInfo.InvariantCulture), true);
-            };
-
             CDHeightSlider.OnValueChanged += _ =>
             {
                 if (Profile is null)
                     return;
-                var prototype = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+
+                var prototype = _prototypeManager.Index(Profile.Species);
                 var newHeight = MathF.Round(MathHelper.Lerp(prototype.MinHeight, prototype.MaxHeight, CDHeightSlider.Value), 2);
-                CDHeight.Text = newHeight.ToString(CultureInfo.InvariantCulture);
+
+                var speciesScale = prototype.BaseScale.Y;
+
+                CDHeightLabel.Text = UnitConversion.GetMetricAndImperialDisplayFromScale(newHeight * speciesScale);
+                CDPullSpeedReductionLabel.Text = SmallCharacterSystem.GetPullSpeedPenaltyDisplayFromScale(newHeight);
                 SetProfileHeight(newHeight);
             };
 

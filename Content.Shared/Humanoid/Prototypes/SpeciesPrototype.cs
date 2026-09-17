@@ -1,3 +1,4 @@
+using System.Numerics; // DeltaV
 using Content.Shared.Body;
 using Content.Shared.Dataset;
 using Content.Shared.Humanoid.Markings;
@@ -111,7 +112,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// The base height scale for this species
     /// </summary>
     [DataField("baseScale")]
-    public System.Numerics.Vector2 BaseScale = new(1f, 1f);
+    public Vector2 BaseScale = new(1f, 1f);
     // End DV - CD Character Records shouldn't nuke species heights
 
     // Begin CD - Character Records
@@ -119,13 +120,13 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// The minimum height for this species
     /// </summary>
     [DataField("minHeight")]
-    public float MinHeight = 0.9f; // DeltaV - less trolling with the heights
+    public float MinHeight = 0.8f; // DeltaV
 
     /// <summary>
     /// The maximum height for this species
     /// </summary>
     [DataField("maxHeight")]
-    public float MaxHeight = 1.1f; // DeltaV - less trolling with the heights
+    public float MaxHeight = 1.2f; // DeltaV
 
     /// <summary>
     /// The default height for this species
