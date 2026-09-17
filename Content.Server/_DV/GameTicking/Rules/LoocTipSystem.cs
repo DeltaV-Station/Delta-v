@@ -1,4 +1,4 @@
-﻿using Content.Server._DV.Tips;
+using Content.Server._DV.Tips;
 using Content.Shared._DV.Tips;
 using Content.Shared.Chat;
 using Robust.Server.Player;
