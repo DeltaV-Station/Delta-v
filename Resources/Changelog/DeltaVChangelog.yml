@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: snowywinters
-  changes:
-  - message: Watchdogs now work as a death rattle also decreased the price to 9k
-    type: Tweak
-  - message: Fixed watchdogs not working
-    type: Fix
-  id: 2165
-  time: '2026-03-09T10:17:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5475
 - author: Woljif
   changes:
   - message: The Kammerer is now a 2x4 in your bag
@@ -4446,4 +4437,15 @@
   id: 2665
   time: '2026-09-17T14:03:34.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6517
+- author: stormyatt
+  changes:
+  - message: hitmen now get freelancer comms roundstart
+    type: Add
+  - message: thieves now get freelancer comms roundstart
+    type: Add
+  - message: traitors can now buy freelancer comms for 1tc. hiring hours
+    type: Add
+  id: 2666
+  time: '2026-09-17T14:04:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6495
 Order: 1
