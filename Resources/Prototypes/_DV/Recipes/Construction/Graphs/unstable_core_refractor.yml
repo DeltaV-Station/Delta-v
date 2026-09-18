@@ -10,7 +10,7 @@
       - tag: UnstableReactorCore
         name: construction-graph-tag-unstable-reactor-core
         icon:
-          sprite: _DV/Objects/Misc/unstablereactorcore.rsi
+          sprite: _DV/Objects/Misc/unstable_reactor_core.rsi
           state: icon
         doAfter: 6
   - node: UnstableRefractor
@@ -27,13 +27,13 @@
       - tag: UnstableReactorHousing
         name: construction-graph-tag-unstable-reactor-housing
         icon:
-          sprite: _DV/Objects/Misc/unstablereactorhousing.rsi
+          sprite: _DV/Objects/Misc/unstable_reactor_housing.rsi
           state: icon
         doAfter: 1
       - tag: UnstableReactorCore
         name: construction-graph-tag-unstable-reactor-core
         icon:
-          sprite: _DV/Objects/Misc/unstablereactorcore.rsi
+          sprite: _DV/Objects/Misc/unstable_reactor_core.rsi
           state: icon
         doAfter: 6
   - node: UnstableRefractor
