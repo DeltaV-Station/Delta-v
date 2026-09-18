@@ -3,7 +3,6 @@ using Content.Server._DV.StationEvents.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared._DV.Psionics.Components;
-using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -15,21 +14,20 @@ using Robust.Shared.Random;
 namespace Content.Server._DV.StationEvents.GameRules;
 
 /// <summary>
-/// Forces a mind swap on a small amount of non-insulated psionic entities.
+/// Forces a mind swap on all non-insulated potential psionic entities.
 /// </summary>
-internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSwapRuleComponent>
+internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
-    [Dependency] private readonly MobStateSystem _mobstateSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PsionicSystem _psionic = default!;
 
     private TimeSpan _warningSoundLength;
-    private ResolvedSoundSpecifier _resolvedWarningSound = string.Empty;
+    private ResolvedSoundSpecifier _resolvedWarningSound = String.Empty;
 
-    protected override void Started(EntityUid uid, MinorMassMindSwapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, MassMindSwapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
@@ -39,11 +37,8 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         component.SwapTime = Timing.CurTime + component.Delay;
         component.SoundTime = component.SwapTime - _warningSoundLength;
 
-        component.MaxNumberOfPairs = component.MaxNumberOfPairs < 1 ? 1 : component.MaxNumberOfPairs;
-
-        var announcement = Loc.GetString("minor-mass-mind-swap-event-announcement", ("time", component.Delay.TotalSeconds));
-        var sender = Loc.GetString("minor-mass-mind-swap-event-sender");
-
+        var announcement = Loc.GetString(component.AnnouncementText, ("time", component.Delay.TotalSeconds));
+        var sender = Loc.GetString(component.AnnouncementSender);
         _chat.DispatchGlobalAnnouncement(announcement, sender, true, component.AnnouncementSound, Color.White);
     }
 
@@ -51,13 +46,9 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<MinorMassMindSwapRuleComponent, GameRuleComponent>();
-
+        var query = EntityQueryEnumerator<MassMindSwapRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var comp, out var ruleComp))
         {
-            if (comp.SwapTime == null)
-                continue;
-
             if (comp.SoundTime != null && comp.SoundTime <= Timing.CurTime)
             {
                 _audio.PlayGlobal(_resolvedWarningSound, Filter.Broadcast(), true);
@@ -65,7 +56,7 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
                 continue;
             }
 
-            if (comp.SwapTime > Timing.CurTime)
+            if (comp.SwapTime == null || comp.SwapTime > Timing.CurTime)
                 continue;
 
             SwapMinds(comp);
@@ -74,28 +65,48 @@ internal sealed class MinorMassMindSwapRule : StationEventSystem<MinorMassMindSw
         }
     }
 
-    private void SwapMinds(MinorMassMindSwapRuleComponent component)
+    private void SwapMinds(MassMindSwapRuleComponent component)
     {
-        List<EntityUid> psionicActors = [];
+        List<EntityUid> psionicPool = new();
+        List<EntityUid> psionicActors = new();
 
         var query = EntityQueryEnumerator<PotentialPsionicComponent, MobStateComponent>();
         while (query.MoveNext(out var psion, out _, out var mobState))
         {
-            if (_mobstateSystem.IsAlive(psion, mobState) && HasComp<ActorComponent>(psion) && _psionic.CanBeTargeted(psion))
-                // Only a list of Players
+            if (!_mobStateSystem.IsAlive(psion, mobState) || !_psionic.CanBeTargeted(psion))
+                continue;
+
+            if (HasComp<ActorComponent>(psion))
+            {
                 psionicActors.Add(psion);
+                psionicPool.Add(psion);
+            }
+            else if (!component.OnlyPlayers)
+                psionicPool.Add(psion);
         }
 
-        // We go with 4 pairs for now
-        List<EntityUid> actorsToSwap = [];
-        var swapPairCount = _random.Next(1, component.MaxNumberOfPairs);
+        var maxPairs = component.MaxNumberOfPairs;
+        if (maxPairs.HasValue)
+            _random.Next(1, maxPairs.Value);
 
-        for (; swapPairCount > 0 && psionicActors.Count > 1; swapPairCount--)
+        foreach (var actor in psionicActors)
         {
-            var target01 = _random.PickAndTake(psionicActors);
-            var target02 = _random.PickAndTake(psionicActors);
+            while (psionicPool.Count > 0 && maxPairs is null or > 0)
+            {
+                var other = _random.PickAndTake(psionicPool);
+                // Don't be yourself. Find someone else.
+                if (other == actor)
+                    continue;
 
-            _mindSwap.SwapMinds(target01, target02, false, component.IsTemporary);
+                // A valid swap target has been found.
+                // Remove this actor from the pool of swap candidates before they go.
+                psionicPool.Remove(actor);
+                if (maxPairs.HasValue)
+                    maxPairs--;
+
+                _psionic.SwapMinds(actor, other, false, component.IsTemporary, component.IgnoreMindshields);
+                break;
+            }
         }
     }
 }
