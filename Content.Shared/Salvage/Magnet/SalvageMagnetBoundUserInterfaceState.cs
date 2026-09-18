@@ -11,6 +11,8 @@ public sealed class SalvageMagnetBoundUserInterfaceState : BoundUserInterfaceSta
     public TimeSpan Cooldown;
     public TimeSpan Duration;
 
+    public float ReleaseTime;   //DeltaV - Magnet release code.
+
     public int ActiveSeed;
 
     public List<int> Offers;

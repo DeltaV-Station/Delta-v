@@ -35,7 +35,14 @@ public sealed partial class SalvageMagnetDataComponent : Component
     /// Cooldown between offerings after one ends.
     /// </summary>
     [DataField]
-    public TimeSpan OfferCooldown = TimeSpan.FromMinutes(2); //DeltaV: was 3 min
+    public TimeSpan OfferCooldown = TimeSpan.FromMinutes(3);
+
+    /// <summary>
+    ///  DeltaV  - Time to release magnet pulls after announcement or UI input.
+    /// </summary>
+    [DataField]
+    public float ReleaseTime = 59;
+    // Delta V - Magnet release code end
 
     /// <summary>
     /// Seeds currently offered
