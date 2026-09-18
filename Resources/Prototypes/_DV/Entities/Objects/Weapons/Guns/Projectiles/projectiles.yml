@@ -84,7 +84,7 @@
 - type: entity
   parent: BulletEnergyGunLaser
   id: BulletEnergyGunMediumImmolator
-  name: Medium Immolator Bolt
+  name: Immolator Bolt
   categories: [ HideSpawnMenu ]
   components:
   - type: IgniteOnCollide
@@ -115,6 +115,17 @@
     damage:
       types:
         Heat: 8
+
+- type: entity
+  parent: BulletEnergyGunLaser
+  id: BulletEnergyGunLightImmolatorWeakSpread
+  name: immolator barrage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: BulletEnergyGunLightImmolator
+    count: 4
+    spread: 15
 
 - type: entity
   parent: BulletEnergyGunLaser
