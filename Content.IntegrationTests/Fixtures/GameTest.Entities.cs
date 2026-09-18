@@ -225,4 +225,20 @@ public abstract partial class GameTest
     {
         CEntMan.QueueDeleteEntity(id);
     }
+
+    /// <summary>
+    /// DeltaV - Tracks a server entity for deletion.
+    /// </summary>
+    public void STrack(EntityUid id)
+    {
+        _serverEntitiesToClean.Add(id);
+    }
+
+    /// <summary>
+    /// DeltaV - Tracks a client entity for deletion.
+    /// </summary>
+    public void CTrack(EntityUid id)
+    {
+        _clientEntitiesToClean.Add(id);
+    }
 }
