@@ -5,7 +5,7 @@
   description: A compact, circular-shaped reactor, incapable of fully containing its energy. It's quite the fancy paperweight.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Misc/unstablereactorcore.rsi
+    sprite: _DV/Objects/Misc/unstable_reactor_core.rsi
     state: icon
   - type: RadiationSource
     intensity: 4
@@ -74,7 +74,7 @@
   description: A heavy housing engineered to contain the power output of an unstable reactor core and focus it into a dense, radioactive beam. It's missing its power source.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Misc/unstablereactorhousing.rsi
+    sprite: _DV/Objects/Misc/unstable_reactor_housing.rsi
     state: icon
   - type: Item
     size: Ginormous
@@ -84,7 +84,7 @@
     sprintModifier: 0.75
   - type: HeldSpeedModifier
   - type: Construction
-    graph: UnstableCoreRefractor
+    graph: UnstableCoreRefractorConstruct
     node: start
   - type: Tag
     tags:
