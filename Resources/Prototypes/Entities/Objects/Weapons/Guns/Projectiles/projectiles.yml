@@ -251,6 +251,9 @@
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
     # Begin DeltaV Additions
+    useProtectionThreshold: true
+    protectionThreshold: 45
+    staminaDamage: 30
     blacklist:
       tags:
       - TaserImmune
