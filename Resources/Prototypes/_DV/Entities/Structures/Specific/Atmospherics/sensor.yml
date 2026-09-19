@@ -1,7 +1,33 @@
+- type: entity
+  parent: [ AirSensor ]
+  id: AirSensorGray
+  suffix: gray
+  components:
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _DV/Structures/Specific/Atmospherics/sensor.rsi
+
+- type: entity
+  parent: [ AirSensorAssembly ]
+  id: AirSensorGrayAssembly
+  suffix: gray
+  components:
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _DV/Structures/Specific/Atmospherics/sensor.rsi
+    layers:
+    - state: gsensor0
+
+
 # put this in a burn chamber or something you don't want to have show up as dangerous
 - type: entity
   parent: [ AirSensor, BaseUnsetSensor ]
   id: AirSensorUnset
+
+- type: entity
+  parent: [ AirSensorGray, BaseUnsetSensor ]
+  id: AirSensorGrayUnset
+  suffix: Unset, gray
 
 - type: entity
   abstract: true
