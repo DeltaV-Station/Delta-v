@@ -57,3 +57,19 @@
         - id: ClothingEyesGlassesSunglasses
         - id: ClothingHeadHatCommandSoft
         - id: ClothingHeadHatBeretCommand
+        
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledAcidGrenadeLauncher
+  name: Pacifier bundle
+  description: "A Pacifier grenade launcher and 11 chemical grenades. Handle with care."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLauncherPacifier
+        - id: 40mmacid
+          amount: 10
+        - id: ClothingMaskInterdyneChemistry
+        - id: ClothingHandsGlovesChemist

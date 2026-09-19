@@ -12,3 +12,51 @@
         effectProto: StatusEffectPsionicsDisabled
         type: Add
         time: 5
+        
+- type: reagent
+  id: Goreicide
+  name: reagent-name-goreicide
+  group: Toxins
+  desc: reagent-desc-goreicide
+  physicalDesc: highly corrosive
+  contrabandSeverity: Major
+  flavor: acid
+  color: "#458254"
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 20
+  - !type:PlantAdjustWeeds
+    amount: -4
+  - !type:PlantAdjustHealth
+    amount: -8
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 2.3 #5u will do 11.5 caustic damage. Try not to exceed 3.0 as putting it in a spray bottle will just about insta crit
+      - !type:Emote
+        emote: Scream
+        probability: 0.5
+  metabolisms:
+    Bloodstream:
+      metabolismRate : 5.00 # High metabolism rate since the Pacifier uses a lot of gas to do its contact damage. Dead people will bleed out the chemical but still do not want excesses
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 5.0
+            Radiation: 5.0
+      - !type:ModifyBleed
+        amount: 1.5
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.6
+      - !type:Emote
+        emote: Scream
+        probability: 0.4

@@ -1,0 +1,74 @@
+- type: entity
+  parent: TimerGrenadeBase
+  id: ClusterAcid
+  categories: [ HideSpawnMenu ]
+  name: acid pellet
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Explosives/pacifier-grenade.rsi
+    layers:
+    - state: munition
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
+    keysIn:
+    - timer
+  - type: TimerTrigger
+    delay: 1.0 #less than one it just teleports, looks awful
+  - type: SmokeOnTrigger
+    keysIn:
+    - timer
+    duration: 12
+    spreadAmount: 11
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: Goreicide
+        Quantity: 80
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    positional: true
+    keysIn:
+    - timer
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: TileFrictionModifier
+    modifier: 40 #ProjectileGrenade in the spreading projectile will yeet this at mach fuck. This modifier slows it down to a reasonable spread.
+
+- type: entity
+  parent: [VolatileGrenadeBase, ScatteringGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband]
+  id: Clustertest
+  name: TEST GRENADE
+  description: Why use one grenade when you can use three at once!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/clusterbomb.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ScatteringGrenade
+    fillPrototype: ClusterAcid
+    distance: 4
+  - type: TimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 0.5
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+    positional: true
+  - type: StaticPrice
+    price: 2500
