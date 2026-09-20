@@ -662,16 +662,20 @@
       effects:
         - !type:CureZombieInfection
           conditions:
-            - !type:ReagentCondition
-              reagent: Ambuzol
-              min: 10
+#            - !type:ReagentCondition # Delta V - Begin changes - making ambu a cryo chem
+#              reagent: Ambuzol
+#              min: 10
+            - !type:TemperatureCondition
+              max: 213.0 # Delta V - End changes
     Digestion:
       effects:
         - !type:CureZombieInfection
           conditions:
-            - !type:ReagentCondition
-              reagent: Ambuzol
-              min: 10
+#            - !type:ReagentCondition # Delta V - Begin changes - making ambu a cryo chem
+#              reagent: Ambuzol
+#              min: 10
+            - !type:TemperatureCondition
+              max: 213.0 # Delta V - End changes
 
 - type: reagent
   id: AmbuzolPlus
@@ -687,17 +691,21 @@
         - !type:CureZombieInfection
           innoculate: true
           conditions:
-            - !type:ReagentCondition
-              reagent: AmbuzolPlus
-              min: 5
+#            - !type:ReagentCondition # Delta V - Begin changes - making ambu a cryo chem
+#              reagent: AmbuzolPlus
+#              min: 5
+            - !type:TemperatureCondition
+              max: 213.0 # Delta V - End changes
     Digestion:
       effects:
       - !type:CureZombieInfection
         innoculate: true
         conditions:
-        - !type:ReagentCondition
-          reagent: AmbuzolPlus
-          min: 5
+#        - !type:ReagentCondition # Delta V - Begin changes - making ambu a cryo chem
+#          reagent: AmbuzolPlus
+#          min: 5
+        - !type:TemperatureCondition
+          max: 213.0 # Delta V - End changes
 
 - type: reagent
   id: PulpedBananaPeel
@@ -1214,7 +1222,7 @@
             Cold: -0.2
     Bloodstream: # Delta-V
       effects:
-      - !type:HealthChange 
+      - !type:HealthChange
         damage:
           types:
             Soul: -2
