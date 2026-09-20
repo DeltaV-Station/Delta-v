@@ -30,7 +30,7 @@
   parent: BaseGameRule
   id: SubTraitorRule
   components:
-  - type: TraitorRule
+    - type: TraitorRule
     startingBalance: 20 # Less TC for subgamemode
     # TODO: codewords in yml
     # TODO: uplink in yml
