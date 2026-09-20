@@ -66,6 +66,9 @@
     slots:
       ItemCabinet:
         startingItem: UnstableReactorCore
+        whitelist:
+          tags:
+          - UnstableReactorCore
 
 - type: entity
   parent: BaseItem
