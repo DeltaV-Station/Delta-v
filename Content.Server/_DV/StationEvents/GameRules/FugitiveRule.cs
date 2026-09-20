@@ -1,7 +1,7 @@
 using Content.Server._DV.StationEvents.Components;
 using Content.Server.Antag;
-using Content.Server.Communications;
 using Content.Server.StationEvents.Events;
+using Content.Shared._DV.Communications;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
@@ -43,7 +43,7 @@ public sealed class FugitiveRule : StationEventSystem<FugitiveRuleComponent>
         ChatSystem.DispatchGlobalAnnouncement(announcement, sender: sender, colorOverride: comp.Color);
 
         // send the report to every comms console on the station
-        var query = EntityQueryEnumerator<TransformComponent, CommunicationsConsoleComponent>();
+        var query = EntityQueryEnumerator<TransformComponent, DVCommunicationsConsoleComponent>();
         var consoles = new List<TransformComponent>();
         while (query.MoveNext(out var console, out var xform, out _))
         {

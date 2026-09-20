@@ -3,6 +3,7 @@ steal-target-groups-lucky-bill = logistics officer's lucky bill
 steal-target-groups-ian-dossier = head of personnel's photobook
 steal-target-groups-secret-documents = secret documents
 steal-target-groups-hos-sidearm = energy sidearm
+steal-target-groups-medical-docs-documents = sensitive medical documents
 steal-target-groups-energy-shotgun = energy shotgun
 steal-target-groups-notary-stamp = notary stamp
 steal-target-groups-silvia = silvia

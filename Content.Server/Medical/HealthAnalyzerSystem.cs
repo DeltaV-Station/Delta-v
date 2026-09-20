@@ -85,11 +85,11 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
             if (component.MaxScanRange != null && !_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange.Value))
             {
                 //Range too far, disable updates
-                PauseAnalyzingEntity((uid, component), patient); // DeltaV - Analyzer Reactivation
+                PauseAnalyzingEntity((uid, component), patient);
                 continue;
             }
 
-            component.IsAnalyzerActive = true; // DeltaV - Analyzer Reactivation
+            component.IsAnalyzerActive = true;
             UpdateScannedUser(uid, patient, true);
         }
     }
@@ -197,7 +197,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
     }
 
     /// <summary>
-    /// DeltaV - If the scanner is active, sends one last update and sets it to inactive.
+    /// If the scanner is active, sends one last update and sets it to inactive.
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>

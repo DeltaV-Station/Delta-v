@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/01/2026 11:32:19
-  entityCount: 378
+  time: 06/21/2026 16:36:17
+  entityCount: 380
 maps: []
 grids:
 - 1
@@ -1008,15 +1008,15 @@ entities:
       parent: 1
 - proto: CigPackSyndicate
   entities:
-  - uid: 296
+  - uid: 302
     components:
     - type: Transform
-      pos: 8.577963,1.7425823
+      pos: -0.90750813,-2.503549
       parent: 1
-  - uid: 301
+  - uid: 380
     components:
     - type: Transform
-      pos: 8.702963,1.5238323
+      pos: -0.78250813,-2.3535655
       parent: 1
 - proto: ClothingHeadHatCardborg
   entities:
@@ -1298,12 +1298,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,2.5
       parent: 1
-- proto: FlippoEngravedLighter
+- proto: FaxMachineSyndie
   entities:
-  - uid: 302
+  - uid: 296
     components:
     - type: Transform
-      pos: 8.393478,1.5238323
+      pos: 8.5,1.5
       parent: 1
 - proto: FloorDrain
   entities:
@@ -1830,6 +1830,16 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: IntercomTraffic
+  entities:
+  - uid: 301
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,3.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: LeftArmBorg
   entities:
   - uid: 352
@@ -2475,6 +2485,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-0.5
+      parent: 1
+- proto: SyndicateFlippo
+  entities:
+  - uid: 379
+    components:
+    - type: Transform
+      pos: -0.96260333,-2.2285655
       parent: 1
 - proto: SyndicatePersonalAI
   entities:

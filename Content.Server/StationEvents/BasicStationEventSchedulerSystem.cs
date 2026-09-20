@@ -41,7 +41,8 @@ namespace Content.Server.StationEvents
             if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
                 && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
             {
-                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
+                var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent);
+                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
                 _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
             }
             // End DeltaV Additions
@@ -81,7 +82,7 @@ namespace Content.Server.StationEvents
                     if (_event.TryGenerateRandomEvent(eventScheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                         continue;
 
-                    _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)eventScheduler.TimeUntilNextEvent)));
+                    _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
                     // Cycle the stashed event with the new generated event and time.
                     var storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                     if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.

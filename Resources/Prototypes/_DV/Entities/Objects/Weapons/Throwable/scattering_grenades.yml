@@ -1,7 +1,7 @@
 - type: entity
   name: mothroach grenade
   description: A grenade containing 8 dehydrated mothroaches, trained to attack everything nearby.
-  parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [ScatteringGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband]
   id: MothroachGrenade
   components:
   - type: Sprite
@@ -16,8 +16,6 @@
           Primed: { state: primed }
           Unprimed: { state: icon }
   - type: TimerTrigger
-    keysIn:
-    - trigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:

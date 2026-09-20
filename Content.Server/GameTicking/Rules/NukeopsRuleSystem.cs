@@ -520,18 +520,17 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // BEGIN DeltaV - Detect Nukie Failure Better
         // We need to use a EntityQueryEnumerator instead of a EntityQuery, because we need the uid to check for cuffs
-        var operatives = new List<Entity<NukeOperativeComponent, MobStateComponent, TransformComponent>>();
-        var operativesEnumerator = EntityQueryEnumerator<NukeOperativeComponent, MobStateComponent, TransformComponent>();
-        while (operativesEnumerator.MoveNext(out var uid, out var nukeOp, out var mobState, out var transform))
+        var operatives = new List<Entity<NukeOperativeComponent, MobStateComponent>>();
+        var operativesEnumerator = EntityQueryEnumerator<NukeOperativeComponent, MobStateComponent>();
+        while (operativesEnumerator.MoveNext(out var uid, out var nukeOp, out var mobState))
         {
-            operatives.Add((uid, nukeOp, mobState, transform));
+            operatives.Add((uid, nukeOp, mobState));
         }
 
         var operativesAlive = operatives
-            .Where(op => op.Comp3.MapID == shuttleMapId
-                || op.Comp3.MapID == targetStationMap)
-            .Any(op => op.Comp2.CurrentState == MobState.Alive && op.Comp1.Running &&
-                !TryComp<CuffableComponent>(op, out _)); // in the case the crew keeps one alive
+            .Any(op => op.Comp1.Running
+                && op.Comp2.CurrentState == MobState.Alive
+                && TryComp<CuffableComponent>(op, out var cuffable) && cuffable.CuffedHandCount == 0); // in the case the crew keeps one alive
         // END DeltaV
 
         if (operativesAlive)
