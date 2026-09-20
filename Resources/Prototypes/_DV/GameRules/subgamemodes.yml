@@ -30,13 +30,13 @@
   parent: BaseGameRule
   id: SubTraitorRule
   components:
-    - type: TraitorRule
+  - type: TraitorRule
     startingBalance: 20 # Less TC for subgamemode
     # TODO: codewords in yml
     # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
-  - groups: TraitorObjectiveGroups
+    - groups: TraitorObjectiveGroups
     maxDifficulty: 6 # Less objectives for subgamemode
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
