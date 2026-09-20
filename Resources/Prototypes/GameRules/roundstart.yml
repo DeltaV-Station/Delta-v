@@ -45,6 +45,10 @@
   components:
   - type: SubGamemodes
     rules:
+    # begin Delta V - Adding Subgamemode Traitors
+    - id: SubTraitorRule
+      prob: 0.4
+    # end Delta V - Adding Subgamemode Traitors
     - id: Thief
       prob: 0.5
     - id: Devil # Goob
