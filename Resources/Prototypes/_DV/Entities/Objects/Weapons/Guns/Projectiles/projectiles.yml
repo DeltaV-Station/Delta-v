@@ -205,42 +205,6 @@
   - type: TimedDespawn
     lifetime: 0.08
 
-#- type: entity
-#  parent: [ScatteringGrenadeBase, ImpactGrenadeBase, BaseSyndicateContraband]
- # id: BulletGrenadeAcid
- # name: clustergrenade
-#  description: Why use one grenade when you can use three at once!
-#  components:
-#  - type: Sprite
-#    sprite: Objects/Weapons/Grenades/clusterbomb.rsi
-#    layers:
-#    - state: icon
-#      map: ["enum.TriggerVisualLayers.Base"]
-#  - type: ScatteringGrenade
-#    fillPrototype: ClusterAcid
-#    distance: 4
-#    capacity: 5
-#  - type: SmokeOnTrigger
-#    keysIn:
-#    - timer
-#    duration: 10
-#    spreadAmount: 11
-#    smokePrototype: Smoke
-#    solution:
-#      reagents:
-#      - ReagentId: Goreicide
-#        Quantity: 40
-#  - type: TimerTrigger
-#    delay: 0 # Instant triggers like on collide wont spawn cluster munition. To get around this i just gave it a timer of 0...
-#  - type: EmitSoundOnTrigger
-#    keysIn:
-#    - timer
-#    sound:
-#      path: "/Audio/Machines/door_lock_off.ogg"
-#    positional: true
-#  - type: StaticPrice
-#    price: 2500
-
 - type: entity
   parent: BaseBulletTrigger
   id: BulletGrenadeAcid
