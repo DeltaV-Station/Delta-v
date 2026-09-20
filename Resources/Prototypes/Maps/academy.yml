@@ -36,11 +36,11 @@
           # JUSTICE
           ChiefJustice: [ 1, 1 ]
           #Clerk: [ 1, 1 ] #Clerk decommissioned
-          Lawyer: [ 2, 2 ]
-          #Marshall: [ 2, 3 ]
+          JusticeWarden: [ 1 , 1 ]
+          Lawyer: [ 1, 2 ]
+          Marshal: [ 2, 3 ]
           Prisoner: [ 2, 2 ]
           Prosecutor: [ 1, 1 ]
-          #Warden: [ 1 , 1 ]
           # MEDICAL
           Chemist: [ 2, 2 ]
           ChiefMedicalOfficer: [ 1, 1 ]
@@ -49,14 +49,14 @@
           Paramedic: [ 1, 2 ]
           Psychologist: [ 1, 1 ]
           # SECURITY
-          #Armorer: [ 1 , 1 ]
+          Armorer: [ 1 , 1 ]
           Brigmedic: [ 1, 1 ]
           Detective: [ 1, 1 ]
           HeadOfSecurity: [ 1, 1 ]
           PrisonGuard: [ 1, 1 ]
           SecurityOfficer: [ 4, 6 ]
           SecurityCadet: [ 2, 2 ]
-          #Warden: [ 1, 1 ]
+          #Warden: [ 1, 1 ] #warden went to security.
           # SERVICE
           Bartender: [ 1, 2 ]
           Botanist: [ 2, 2 ]
