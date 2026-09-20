@@ -117,8 +117,8 @@
     Telecrystal: 20
   categories:
   - UplinkWeaponry
-  
-- type: listing  
+
+- type: listing
   id: UplinkPacifier
   name: uplink-pacifier-bundle-name
   description: uplink-pacifier-bundle-desc
@@ -132,4 +132,4 @@
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - NukeOpsUplink #I sure do hope this also spawns in surplus crates! 
+          - NukeOpsUplink #I sure do hope this also spawns in surplus crates!
