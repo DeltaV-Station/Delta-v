@@ -633,7 +633,6 @@ entities:
 - proto: ActionToggleLight
   entities:
   - uid: 1174
-    mapInit: true
     paused: true
     components:
     - type: Transform
@@ -912,8 +911,6 @@ entities:
       pos: 5.5,-4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 1165
     components:
     - type: Transform
@@ -5040,8 +5037,6 @@ entities:
       pos: 1.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
 - proto: GeneratorRTG
@@ -6563,8 +6558,6 @@ entities:
       pos: 8.5,8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 653
     components:
     - type: Transform
