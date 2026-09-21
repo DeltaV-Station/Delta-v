@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: UnstableCoreRefractor
+  start: start
+  graph:
+  - node: start
+    entity: UnstableReactorHousing
+    edges:
+    - to: UnstableRefractor
+      steps:
+      - tag: UnstableReactorCore
+        name: construction-graph-tag-unstable-reactor-core
+        icon:
+          sprite: _DV/Objects/Misc/unstablereactorcore.rsi
+          state: icon
+        doAfter: 3
+  - node: UnstableRefractor
+    entity: WeaponUnstableCoreRefractor
