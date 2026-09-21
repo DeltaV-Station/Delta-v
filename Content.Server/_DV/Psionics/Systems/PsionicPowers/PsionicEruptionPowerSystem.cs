@@ -52,7 +52,6 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         if (!_player.TryGetSessionByEntity(power, out var session))
             return;
 
-        // _eui.OpenEui(new EruptionWarningEui(), session); // It's DAGD-only now, no need for a warning. You know what will happen.
         power.Comp.NextAnnoy = Timing.CurTime + TimeSpan.FromSeconds(60); // Minute grace period
     }
 
