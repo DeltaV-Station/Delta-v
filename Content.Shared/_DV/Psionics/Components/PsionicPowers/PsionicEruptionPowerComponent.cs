@@ -46,4 +46,17 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan? NextSpark;
+
+    [DataField]
+    public int ExplosionPowerMinimal = 10;
+    [DataField]
+    public int ExplosionPowerLow = 30;
+    [DataField]
+    public int ExplosionPowerModerate = 60;
+    [DataField]
+    public int ExplosionPowerHigh = 120;
+    [DataField]
+    public int ExplosionPowerDangerous = 500;
+    [DataField]
+    public int ExplosionPowerCritical = 2000;
 }
