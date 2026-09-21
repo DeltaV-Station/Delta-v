@@ -10,6 +10,7 @@ using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Gibbing;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Stunnable;
@@ -70,7 +71,7 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, detonateTime, new PsionicEruptionDoAfterEvent(), args.Performer)
         {
             RequireCanInteract = false,
-            BreakOnCritical = true,
+            BreakOnMobState = [MobState.Critical, MobState.Dead],
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
