@@ -188,16 +188,8 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         var pos = _transform.GetMapCoordinates(args.User);
         _gibbing.Gib(args.User, user: args.User);
 
-        int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
-        {
-            GlimmerTier.Minimal => psionic.Comp.ExplosionPowerMinimal,
-            GlimmerTier.Low => psionic.Comp.ExplosionPowerLow,
-            GlimmerTier.Moderate => psionic.Comp.ExplosionPowerModerate,
-            GlimmerTier.High => psionic.Comp.ExplosionPowerHigh,
-            GlimmerTier.Dangerous => psionic.Comp.ExplosionPowerDangerous,
-            GlimmerTier.Critical => psionic.Comp.ExplosionPowerCritical,
-            _ => 0
-        };
+        int boom = psionic.Comp.ExplosionPower[_glimmer.GetGlimmerTier(_glimmer.Glimmer)];
+
         _explosion.QueueExplosion(pos, SharedExplosionSystem.DefaultExplosionPrototypeId, boom, 2, 100, psionic, maxTileBreak: 1);
     }
 }

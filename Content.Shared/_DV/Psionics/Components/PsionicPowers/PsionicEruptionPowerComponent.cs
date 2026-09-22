@@ -1,3 +1,4 @@
+using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -48,15 +49,13 @@ public sealed partial class PsionicEruptionPowerComponent : BasePsionicPowerComp
     public TimeSpan? NextSpark;
 
     [DataField]
-    public int ExplosionPowerMinimal = 10;
-    [DataField]
-    public int ExplosionPowerLow = 30;
-    [DataField]
-    public int ExplosionPowerModerate = 60;
-    [DataField]
-    public int ExplosionPowerHigh = 120;
-    [DataField]
-    public int ExplosionPowerDangerous = 500;
-    [DataField]
-    public int ExplosionPowerCritical = 2000;
+    public Dictionary<GlimmerTier, int> ExplosionPower = new()
+    {
+        [GlimmerTier.Minimal] = 10,
+        [GlimmerTier.Low] = 30,
+        [GlimmerTier.Moderate] = 60,
+        [GlimmerTier.High] = 120,
+        [GlimmerTier.Dangerous] = 500,
+        [GlimmerTier.Critical] = 2000,
+    };
 }
