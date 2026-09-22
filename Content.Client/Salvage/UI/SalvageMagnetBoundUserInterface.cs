@@ -14,7 +14,6 @@ namespace Content.Client.Salvage.UI;
 public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
 
     private readonly MiningPointsSystem _points; // DeltaV
 

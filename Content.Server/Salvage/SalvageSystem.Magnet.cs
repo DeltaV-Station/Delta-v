@@ -310,7 +310,7 @@ public sealed partial class SalvageSystem
                 {
                     await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid.Comp, Vector2i.Zero, seed);
                 }
-                catch (Exception e)
+                catch
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
                     QueueDel(grid);
@@ -325,7 +325,7 @@ public sealed partial class SalvageSystem
                 {
                     await  _dungeon.GenerateDungeonAsync(debris.DungeonConfig, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
                 }
-                catch (Exception e)
+                catch
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
                     QueueDel(debrisGrid);
