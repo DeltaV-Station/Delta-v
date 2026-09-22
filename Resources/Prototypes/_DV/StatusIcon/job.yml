@@ -78,6 +78,13 @@
     state: Surgeon
 
 - type: jobIcon
+  parent: JobIconSeniorEngineer
+  id: JobIconNuclearScientist
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    state: NuclearScientist
+
+- type: jobIcon
   parent: JobIcon
   id: JobIconSecurityK9Officer
   icon:

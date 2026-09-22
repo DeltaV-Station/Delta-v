@@ -103,6 +103,22 @@ public abstract class SharedItemSystem : EntitySystem
         VisualsChanged(uid);
     }
 
+    /// <summary>
+    ///     DeltaV - clear item visuals
+    /// </summary>
+    public void ClearVisuals(Entity<ItemComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.RsiPath = null;
+        ent.Comp.InhandVisuals = new();
+        ent.Comp.HeldPrefix = null;
+
+        Dirty(ent, ent.Comp);
+        VisualsChanged(ent.Owner);
+    }
+
     #endregion
 
     private void OnHandInteract(EntityUid uid, ItemComponent component, InteractHandEvent args)

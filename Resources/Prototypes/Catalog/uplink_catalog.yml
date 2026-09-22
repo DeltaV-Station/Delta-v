@@ -1262,7 +1262,7 @@
   description: uplink-surplus-bundle-desc
   productEntity: CrateSyndicateSurplusBundle
   cost:
-    Telecrystal: 20
+    Telecrystal: 30 # DeltaV - was 20
   categories:
   - UplinkDisruption
   conditions:
@@ -1281,7 +1281,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 40
+    Telecrystal: 60 # DeltaV - was 40
   categories:
   - UplinkDisruption
   conditions:
@@ -1782,21 +1782,6 @@
     Telecrystal: 2
   categories:
   - UplinkWearables
-
-# DeltaV - add back thieving gloves
-- type: listing
-  id: UplinkgClothingThievingGloves
-  name: uplink-clothing-chameleon-thieving-gloves-name
-  description: uplink-clothing-chameleon-thieving-gloves-desc
-  productEntity: ClothingHandsChameleonThief
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 4 # DeltaV - was 3
-  cost:
-    Telecrystal: 7 # DeltaV - Was 5, 5TC was too cheap for the items power
-  categories:
-  - UplinkWearables
-# DeltaV - end of changes
 
 - type: listing
   id: UplinkClothingOuterVestWeb

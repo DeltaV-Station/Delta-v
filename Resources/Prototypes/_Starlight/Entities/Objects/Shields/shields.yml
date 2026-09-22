@@ -98,7 +98,7 @@
       attackRate: 0.50 # Large and heavy but god help you if someone hits you with this thing.
       damage:
         types:
-          Blunt: 20    
+          Blunt: 20
     - type: ClothingSpeedModifier
       walkModifier: 0.7
       sprintModifier: 0.5
@@ -163,7 +163,7 @@
     - type: MeleeWeapon
       damage:
         types:
-          Blunt: 12 
+          Blunt: 12
     - type: Damageable
       damageContainer: Shield
     - type: Destructible
@@ -299,6 +299,7 @@
                 SheetSteel:
                   min: 2
                   max: 3
-    - type: Construction
-      graph: MakeshiftShield
-      node: makeshiftShield
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: MakeshiftShield
+  #  node: makeshiftShield

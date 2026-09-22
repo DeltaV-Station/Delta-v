@@ -1,4 +1,11 @@
 - type: stealTargetGroup
+  id: AntiPsychicKnife
+  name: steal-target-groups-anti-psychic-knife
+  sprite:
+    sprite: Nyanotrasen/Objects/Weapons/Melee/anti_psychic_knife.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: SpaceCashLuckyBill
   name: steal-target-groups-lucky-bill
   sprite:
@@ -13,11 +20,11 @@
     state: folder-hop-ian
 
 - type: stealTargetGroup
-  id: BookSecretDocuments
-  name: steal-target-groups-secret-documents
+  id: BookMedicalDocuments
+  name: steal-target-groups-medical-docs-documents
   sprite:
-    sprite: Objects/Misc/folders.rsi
-    state: folder-sec-doc
+    sprite: _DV/Objects/Misc/folders.rsi
+    state: folder-medical-docs
 
 - type: stealTargetGroup
   id: HoSSidearm

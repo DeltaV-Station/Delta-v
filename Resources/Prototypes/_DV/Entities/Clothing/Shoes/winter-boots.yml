@@ -211,3 +211,13 @@
     sprite: _DV/Clothing/Shoes/Boots/winterbootswarden.rsi
   - type: Clothing
     sprite: _DV/Clothing/Shoes/Boots/winterbootswarden.rsi
+
+- type: entity
+  parent: ClothingShoesBaseWinterBoots
+  id: ClothingShoesFurBootsMime
+  name: mime's furred boots
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Shoes/Boots/mimefurboots.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Shoes/Boots/mimefurboots.rsi

@@ -103,6 +103,11 @@
   - type: PointLight
     color: "#edecf7"
 
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCombatWarden
+  id: ClothingHeadHelmetHardsuitCombatArmorer
+  name: armorer's riot combat hardsuit helmet
+
 # Advanced Combat Hardsuits
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]

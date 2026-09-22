@@ -58,3 +58,17 @@
       entity_storage: !type:AllSelector
         children:
         - id: CrashCart
+
+- type: entity
+  parent: CrateMedicalSecure
+  id: CrateCrewMonitoringDV
+  name: crew monitoring crate
+  description: Contains a flatpack of a crew monitoring server and a few crew monitoring computers. Requires Medical access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: CrewMonitoringServerFlatpack
+        - id: CrewMonitoringComputerFlatpack
+          amount: 3

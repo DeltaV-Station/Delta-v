@@ -22,6 +22,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee.Events; // DeltaV
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
@@ -64,6 +65,7 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RevenantComponent, StatusEffectAddedEvent>(OnStatusAdded);
         SubscribeLocalEvent<RevenantComponent, StatusEffectEndedEvent>(OnStatusEnded);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
+        SubscribeLocalEvent<RevenantComponent, MeleeAttackEvent>(OnMeleeAttack); // DeltaV
 
         SubscribeLocalEvent<RevenantComponent, GetVisMaskEvent>(OnRevenantGetVis);
 
@@ -129,6 +131,14 @@ public sealed partial class RevenantSystem : EntitySystem
 
         var essenceDamage = args.DamageDelta.GetTotal().Float() * component.DamageToEssenceCoefficient * -1;
         ChangeEssenceAmount(uid, essenceDamage, component);
+    }
+
+    /// <summary>
+    /// DeltaV - No more attack spam and remaining invisible
+    /// </summary>
+    private void OnMeleeAttack(Entity<RevenantComponent> ent, ref MeleeAttackEvent args)
+    {
+        _statusEffects.TryAddStatusEffect<CorporealComponent>(ent, "Corporeal", ent.Comp.MeleeRevealTime, false);
     }
 
     public bool ChangeEssenceAmount(EntityUid uid, FixedPoint2 amount, RevenantComponent? component = null, bool allowDeath = true, bool regenCap = false)

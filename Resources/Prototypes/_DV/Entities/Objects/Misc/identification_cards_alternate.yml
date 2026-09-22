@@ -182,6 +182,16 @@
   - type: IdCard
     jobTitle: job-alt-title-mechanic
 
+- type: entity
+  parent: EngineeringIDCard
+  id: NuclearScientistIDCard
+  name: nuclear scientist ID card
+  components:
+  - type: IdCard
+    jobIcon: JobIconNuclearScientist
+    jobTitle: job-alt-title-nuclear-scientist
+
+
 # Cargo Technician
 
 - type: entity

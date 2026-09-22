@@ -371,6 +371,15 @@
   equipment:
     back: ClothingBackpackDeathSquadFilledEpsilon
 
+- type: startingGear
+  id: SRTOfficerHeavy
+  parent: SRTOfficerBase
+  equipment:
+    back:  ClothingBackpackPlasmaBattery
+  inhand:
+  - WeaponPlasmaBackpack
+
+
 - type: job
   id: SRTAgent
   name: job-name-srtagent

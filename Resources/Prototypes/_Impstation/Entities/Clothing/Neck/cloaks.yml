@@ -1,0 +1,8 @@
+- type: entity
+  id: BaseObviousCloak
+  abstract: true
+  components:
+  - type: WearerGetsExamineText
+    examineText: obvious-desc-colors
+    thing: obvious-thing-cloak
+    warnExamine: false # for funny jokes!
