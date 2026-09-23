@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.Computer;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
@@ -86,4 +86,3 @@ public sealed partial class MagnetOfferingWindowReleaseButton : Button
 
 
 }
-

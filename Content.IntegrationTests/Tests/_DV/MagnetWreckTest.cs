@@ -1,4 +1,4 @@
-﻿using Content.IntegrationTests.Fixtures;
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Procedural;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
