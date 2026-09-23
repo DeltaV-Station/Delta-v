@@ -1,6 +1,5 @@
 meta:
-  format: 7
-  category: Map
+  format: 6
   postmapinit: false
 tilemap:
   0: Space
@@ -18,9 +17,8 @@ entities:
     components:
     - type: MetaData
     - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
+      pos: -7,5.5
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
