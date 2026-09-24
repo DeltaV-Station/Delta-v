@@ -4,8 +4,8 @@
 - type: marking
   id: TajaranTailRetro
   bodyPart: Tail
-  markingCategory: Tail
-# speciesRestriction: [Tajaran]
+# markingCategory: Tail # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -14,8 +14,8 @@
 - type: marking
   id: TajaranTailAnim
   bodyPart: Tail
-  markingCategory: Tail
-# speciesRestriction: [Tajaran]
+# markingCategory: Tail # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -24,8 +24,8 @@
 - type: marking
   id: TajaranTailRetroRings
   bodyPart: Tail
-  markingCategory: Tail
-# speciesRestriction: [Tajaran]
+# markingCategory: Tail # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -36,8 +36,8 @@
 - type: marking
   id: TajaranTailAnimRings
   bodyPart: Tail
-  markingCategory: Tail
-# speciesRestriction: [Tajaran]
+# markingCategory: Tail # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -50,8 +50,8 @@
 - type: marking
   id: TajaranEarsRetro
   bodyPart: HeadTop
-  markingCategory: HeadTop
-# speciesRestriction: [Tajaran]
+# markingCategory: HeadTop # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/ears.rsi
@@ -60,8 +60,8 @@
 - type: marking
   id: TajaranEarsSeparate
   bodyPart: HeadTop
-  markingCategory: HeadTop
-# speciesRestriction: [Tajaran]
+# markingCategory: HeadTop # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/ears.rsi
@@ -72,8 +72,8 @@
 - type: marking
   id: TajaranEarsRetroNear
   bodyPart: HeadTop
-  markingCategory: HeadTop
-# speciesRestriction: [Tajaran]
+# markingCategory: HeadTop # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/ears.rsi
@@ -82,8 +82,8 @@
 - type: marking
   id: TajaranEarsSeparateNear
   bodyPart: HeadTop
-  markingCategory: HeadTop
-# speciesRestriction: [Tajaran]
+# markingCategory: HeadTop # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/ears.rsi
@@ -96,8 +96,8 @@
 - type: marking
   id: TajaranHeadNose
   bodyPart: Head
-  markingCategory: Head
-# speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
@@ -106,8 +106,8 @@
 - type: marking
   id: TajaranHeadMuzzle
   bodyPart: Head
-  markingCategory: Head
-# speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
@@ -116,8 +116,8 @@
 - type: marking
   id: TajaranHeadMuzzleLarge
   bodyPart: Head
-  markingCategory: Head
-# speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
@@ -126,8 +126,8 @@
 - type: marking
   id: TajaranHeadPoints
   bodyPart: Head
-  markingCategory: Head
-# speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
@@ -136,8 +136,8 @@
 - type: marking
   id: TajaranHeadTiger
   bodyPart: Head
-  markingCategory: Head
-# speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
@@ -146,8 +146,9 @@
 - type: marking
   id: TajaranHeadTigerAlt
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
+  groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
     state: tiger_head
@@ -155,8 +156,8 @@
 - type: marking
   id: TajaranHeadPatches
   bodyPart: Head
-  markingCategory: Head
-# speciesRestriction: [Tajaran]
+# markingCategory: Head # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/head.rsi
@@ -167,8 +168,8 @@
 - type: marking
   id: TajaranTorsoBelly
   bodyPart: Chest
-  markingCategory: Chest
-# speciesRestriction: [Tajaran]
+# markingCategory: Chest # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/torso.rsi
@@ -177,8 +178,8 @@
 - type: marking
   id: TajaranTorsoCrest
   bodyPart: Chest
-  markingCategory: Chest
-# speciesRestriction: [Tajaran]
+# markingCategory: Chest # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/torso.rsi
@@ -187,8 +188,8 @@
 - type: marking
   id: TajaranTorsoFullBelly
   bodyPart: Chest
-  markingCategory: Chest
-# speciesRestriction: [Tajaran]
+# markingCategory: Chest # DeltaV - old marking format
+# speciesRestriction: [Tajaran] # DeltaV - old marking format
   groupWhitelist: [Felinid]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/torso.rsi
