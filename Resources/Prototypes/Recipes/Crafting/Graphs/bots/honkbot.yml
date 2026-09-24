@@ -28,7 +28,7 @@
           state: l_hand
         name: construction-graph-tag-borg-arm
         doAfter: 2
-      - material: Bananium
+      - material: Bananium # DeltaV - Add Bananium to crafting cost
         amount: 1
   - node: bot
     entity: MobHonkBot
@@ -63,7 +63,7 @@
           state: l_hand
         name: construction-graph-tag-borg-arm
         doAfter: 2
-      - material: Bananium
+      - material: Bananium # DeltaV - Add Bananium to crafting cost
         amount: 1
   - node: bot
     entity: MobJonkBot
