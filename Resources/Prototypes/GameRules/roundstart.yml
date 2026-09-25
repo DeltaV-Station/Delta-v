@@ -621,6 +621,79 @@
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
+# Begin Delta V - A high, medium and low intensity RampingStationEventScheduler
+- type: entity
+  id: RampingStationEventSchedulerHigh # High is the same as the base for now, but separate for readability
+  parent: RampingStationEventScheduler
+
+- type: entity
+  id: RampingStationEventSchedulerMedium # Toned down medium scheduler that is less intense
+  parent: RampingStationEventScheduler
+  components:
+  - type: RampingStationEventScheduler
+    timeKeyPoints:
+    # Early action is a bit slower
+    - 10, 8
+    - 10, 7
+    - 10, 6
+    - 5, 4
+    - 15, 8
+    # Mid round toned down to not be that rapid
+    - 10, 6
+    - 10, 5
+    - 15, 7
+    - 10, 6
+    # Create breathing room, winding down the frequency a bit
+    - 10, 8
+    - 10, 10
+    - 20, 12
+    # Endgame goes back to the mid round frequency
+    - 10, 8
+    - 20, 6
+    - 20, 6
+    - 70, 6
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTable
+
+- type: entity
+  id: RampingStationEventSchedulerLow # Low scheduler that creates chill rounds
+  parent: RampingStationEventScheduler
+  components:
+  - type: RampingStationEventScheduler
+    timeKeyPoints:
+    # Slower start
+    - 15, 8
+    - 15, 10
+    - 20, 12
+    - 20, 8
+    - 25, 10
+    # Round has been going for a while, slow things down a little
+    - 20, 12
+    - 30, 15
+    # Calm endgame, similar pace as the start
+    - 40, 12
+    - 70, 12
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTable
+
+# Picks one ramping scheduler
+- type: entity
+  parent: BaseGameRule
+  id: RampingStationEventSchedulerRoll
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: RampingStationEventSchedulerLow
+      prob: 0.25 # 25% low
+      orGroup: rampingScheduler
+    - id: RampingStationEventSchedulerMedium
+      prob: 0.50 # 50% medium
+      orGroup: rampingScheduler
+    - id: RampingStationEventSchedulerHigh
+      prob: 0.25 # 25% high, used to be 100% before adding the medium and low variant
+      orGroup: rampingScheduler
+# End Delta V
+
 - type: entity
   id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,
   parent: BaseGameRule                  # we can remerge this with the other schedulers, but it will silently fail due to that limitation without a separate scheduler to balance atm.
