@@ -1,3 +1,4 @@
+using System.Globalization; // DeltaV - used for adding ftl functions
 using System.Linq;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
@@ -30,7 +31,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedWiresSystem _wires = default!;
-
+    [Dependency] private readonly ILocalizationManager _loc = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -42,7 +43,33 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         SubscribeLocalEvent<EncryptionKeyHolderComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<EncryptionKeyHolderComponent, EntRemovedFromContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<EncryptionKeyHolderComponent, EncryptionRemovalFinishedEvent>(OnKeyRemoval);
+
+        // BEGIN DeltaV - Add localization for radio frequencies
+        {
+            var culture = CultureInfo.CurrentCulture;
+            _loc.AddFunction(culture, "RADIOFREQUENCY", FormatRadioFrequency);
+        }
+        // END DeltaV
     }
+
+    // BEGIN DeltaV - Add localization for radio frequencies
+    #region Localization
+    /// <summary>
+    /// FTL Function for displaying radio frequencies!
+    /// E.G.: 123.4
+    /// </summary>
+    private ILocValue FormatRadioFrequency(LocArgs args)
+    {
+        var number = ((LocValueNumber) args.Args[0]).Value;
+        number /= 10f;
+        var maxDecimals = 1;
+        var culture = CultureInfo.CurrentCulture;
+        var formatter = (NumberFormatInfo)NumberFormatInfo.GetInstance(culture).Clone();
+        formatter.NumberDecimalDigits = maxDecimals;
+        return new LocValueString(string.Format(formatter, "{0:N}", number).TrimEnd('0').TrimEnd(char.Parse(formatter.NumberDecimalSeparator)));
+    }
+    #endregion
+    // END DeltaV
 
     private void OnKeyRemoval(EntityUid uid, EncryptionKeyHolderComponent component, EncryptionRemovalFinishedEvent args)
     {
@@ -222,7 +249,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 ("color", proto.Color),
                 ("key", key),
                 ("id", proto.LocalizedName),
-                ("freq", proto.Frequency / 10f)));
+                ("freq", proto.Frequency))); // DeltaV - Removed the `/ 10f` part, instead using RADIOFREQUENCY from ftl
         }
 
         if (defaultChannel != null && _protoManager.TryIndex(defaultChannel, out proto))
