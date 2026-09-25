@@ -1,35 +1,4 @@
 ﻿Entries:
-- author: DisposableCrewmember42
-  changes:
-  - message: Conspirators now requires 32 connected players to roll. The ingame delay
-      before choosing conspirators is increased.
-    type: Fix
-  id: 2167
-  time: '2026-03-09T11:39:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5490
-- author: Stxcking
-  changes:
-  - message: 'Added a new space ruin: Abandoned Dojo!'
-    type: Add
-  id: 2168
-  time: '2026-03-09T11:48:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5427
-- author: verybigman311
-  changes:
-  - message: Electropacks can no longer be removed by non-Security.
-    type: Tweak
-  - message: Shock collars work once more.
-    type: Fix
-  id: 2169
-  time: '2026-03-09T13:32:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5332
-- author: rebe83
-  changes:
-  - message: Makeshift crowbar-wrench now actually does wrenchy things.
-    type: Fix
-  id: 2170
-  time: '2026-03-09T13:31:50.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5388
 - author: jimbobby-the-FUCKING-first
   changes:
   - message: You can now saw off the forged shotgun.
@@ -4448,4 +4417,35 @@
   id: 2667
   time: '2026-09-20T20:10:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6523
+- author: Radezolid
+  changes:
+  - message: Fixed Smile's core not being able to be picked up.
+    type: Fix
+  id: 2668
+  time: '2026-09-21T17:15:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6529
+- author: Apersos-coll
+  changes:
+  - message: you now actually need to get all components to craft the unstable core
+      refractor. And the container can no longer hold the entire universe inside of
+      it.
+    type: Fix
+  id: 2669
+  time: '2026-09-22T09:22:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6522
+- author: Kashieru1987
+  changes:
+  - message: Ejecting from a security chest rig now prioritizes the handgun instead
+      of the radio, like the security belt!
+    type: Tweak
+  id: 2670
+  time: '2026-09-25T16:10:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6546
+- author: Stop-Signs , Gintoki23
+  changes:
+  - message: New lobby art courtesy of Gintoki23
+    type: Add
+  id: 2671
+  time: '2026-09-25T20:46:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6542
 Order: 1
