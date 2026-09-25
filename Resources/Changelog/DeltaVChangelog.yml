@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: verybigman311
-  changes:
-  - message: Electropacks can no longer be removed by non-Security.
-    type: Tweak
-  - message: Shock collars work once more.
-    type: Fix
-  id: 2169
-  time: '2026-03-09T13:32:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5332
 - author: rebe83
   changes:
   - message: Makeshift crowbar-wrench now actually does wrenchy things.
@@ -4449,4 +4440,12 @@
   id: 2669
   time: '2026-09-22T09:22:57.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6522
+- author: Kashieru1987
+  changes:
+  - message: Ejecting from a security chest rig now prioritizes the handgun instead
+      of the radio, like the security belt!
+    type: Tweak
+  id: 2670
+  time: '2026-09-25T16:10:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6546
 Order: 1
