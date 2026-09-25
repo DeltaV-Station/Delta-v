@@ -262,6 +262,32 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", ntAgent, Loc.GetString("admin-verb-text-make-NTAgent")),
         };
         args.Verbs.Add(agent);
+
+        args.Verbs.Add(new ()
+        {
+            Text = Loc.GetString("admin-verb-make-HeadInsurgent.text"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "UprisingRule", "HeadInsurgent");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-HeadInsurgent.message"),
+        });
+
+        args.Verbs.Add(new ()
+        {
+            Text = Loc.GetString("admin-verb-make-HeadLoyalist.text"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Nanotrasen"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<NTAgentRuleComponent>(targetPlayer, "UprisingRule", "HeadLoyalist");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-HeadLoyalist.message"),
+        });
         // End DeltaV Additions
         // start DeltaV Additions - add hitman
         var hitmanName = Loc.GetString("admin-verb-make-hitman");

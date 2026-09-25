@@ -1,0 +1,19 @@
+- type: antag
+  id: HeadLoyalist
+  name: antag-HeadLoyalist.name
+  antagonist: true
+  setPreference: true
+  objective: antag-HeadLoyalist.objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 24h
+
+- type: antag
+  id: HeadInsurgent
+  name: antag-HeadInsurgent.name
+  antagonist: true
+  setPreference: true
+  objective: antag-HeadInsurgent.objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 24h
