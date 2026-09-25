@@ -40,12 +40,15 @@
 - type: entity
   parent: PinpointerSyndicateNuclear
   id: RoboNeuroticistPointer
-  name: shuttle pointer
+  name: roboneuroticist shuttle pointer
   description: Always points back to the Robotocist's trusty robotics console
   components:
   - type: Pinpointer
-    component: RoboticsConsole
+    component: SRNConsoleTracker
     targetName: syndicate robotics control console
+  - type: Construction
+    graph: RepairRoboNeuroticistPointer
+    node: repairedPinpointer
 
 - type: entity
   parent: CyborgEndoskeleton
@@ -65,3 +68,26 @@
       containers:
       - part-container
       - cell_slot
+
+- type: entity
+  parent: BaseItem
+  id: PinpointerRoboNeuroticistPiece
+  name: piece of a syndicate pinpointer
+  description: A piece of a syndicate pinpointer. You need four pieces to repair it.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer-roboneuroticist-piece-1
+      map: [ "base" ]
+  - type: RandomSprite
+    available:
+    - base:
+        pinpointer-roboneuroticist-piece-1: ""
+        pinpointer-roboneuroticist-piece-2: ""
+        pinpointer-roboneuroticist-piece-3: ""
+        pinpointer-roboneuroticist-piece-4: ""
+  - type: Item
+  - type: Tag
+    tags:
+    - RoboNeuroticistPinpointerPiece
