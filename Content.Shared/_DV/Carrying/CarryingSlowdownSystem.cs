@@ -4,7 +4,7 @@ namespace Content.Shared._DV.Carrying;
 
 public sealed class CarryingSlowdownSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {

@@ -15,9 +15,9 @@ namespace Content.Shared._Starlight.Weapon;
 
 public abstract partial class SharedWeaponDismantleOnShootSystem : EntitySystem
 {
-    [Dependency] protected readonly ThrowingSystem Throwing = default!;
-    [Dependency] protected readonly DamageableSystem Damageable = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected ThrowingSystem Throwing = default!;
+    [Dependency] protected DamageableSystem Damageable = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
 
     public override void Initialize()
     {

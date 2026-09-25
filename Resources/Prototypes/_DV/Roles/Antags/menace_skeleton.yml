@@ -7,6 +7,24 @@
   - !type:OverallPlaytimeRequirement
     time: 48h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: MenaceSkeleton
+  spawnerPrototype: SpawnPointMenaceSkeleton
+  pickPlayer: false
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFakeHumanFirst
+    - NamesFakeHumanLast
+    nameFormat: name-format-standard
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: EmitSoundOnSpawn # fell out of the ceiling
+    sound: /Audio/Effects/clang.ogg
+  mindRoles:
+  - MindRoleMenaceSkeleton
+
 - type: startingGear
   id: MenaceSkeletonGear
   equipment:

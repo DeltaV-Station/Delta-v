@@ -7,7 +7,7 @@ namespace Content.Server._DV.Silicons;
 
 public sealed class StationAiFaxSystem : SharedStationAiFaxSystem
 {
-    [Dependency] private readonly FaxSystem _fax = default!;
+    [Dependency] private FaxSystem _fax = default!;
 
     public override void Initialize()
     {

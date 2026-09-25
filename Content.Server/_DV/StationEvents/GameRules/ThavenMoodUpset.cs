@@ -8,7 +8,7 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class ThavenMoodUpset : StationEventSystem<ThavenMoodUpsetRuleComponent>
 {
-    [Dependency] private readonly ThavenMoodsSystem _thavenMoods = default!;
+    [Dependency] private ThavenMoodsSystem _thavenMoods = default!;
 
     protected override void Started(EntityUid uid, ThavenMoodUpsetRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

@@ -25,13 +25,13 @@ namespace Content.Server._Goobstation.Devil.CheatDeath;
 
 public sealed partial class CheatDeathSystem : EntitySystem
 {
-    [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly JitteringSystem _jitter = default!;
-    [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private RejuvenateSystem _rejuvenateSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private ActionsSystem _actionsSystem = default!;
+    [Dependency] private JitteringSystem _jitter = default!;
+    [Dependency] private MobThresholdSystem _thresholdSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {

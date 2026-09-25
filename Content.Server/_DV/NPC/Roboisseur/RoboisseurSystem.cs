@@ -17,12 +17,12 @@ namespace Content.Server.Roboisseur.Roboisseur
 {
     public sealed partial class RoboisseurSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly MaterialStorageSystem _material = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IAdminLogManager _adminLog = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private ChatSystem _chat = default!;
+        [Dependency] private MaterialStorageSystem _material = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IAdminLogManager _adminLog = default!;
 
         public override void Initialize()
         {

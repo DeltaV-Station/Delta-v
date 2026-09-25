@@ -12,10 +12,10 @@ namespace Content.Server._DV.Weather;
 /// </summary>
 public sealed partial class WeatherEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
 

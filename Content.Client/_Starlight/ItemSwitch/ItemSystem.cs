@@ -1,4 +1,4 @@
-﻿using Content.Shared._Starlight.ItemSwitch;
+using Content.Shared._Starlight.ItemSwitch;
 using Content.Shared._Starlight.ItemSwitch.Components;
 using Robust.Client.GameObjects;
 
@@ -6,7 +6,7 @@ namespace Content.Client._Starlight.ItemSwitch;
 
 public sealed class ItemSwitchSystem : SharedItemSwitchSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

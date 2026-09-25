@@ -7,8 +7,8 @@ namespace Content.Client._DV.NodeCrawl;
 
 public sealed class NodeCrawlSystem : SharedNodeCrawlSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SubFloorHideSystem _subfloor = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SubFloorHideSystem _subfloor = default!;
 
     public override void Initialize()
     {

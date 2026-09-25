@@ -24,19 +24,19 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicEffigySystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly CosmicCultObjectiveSystem _cultObjective = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private CosmicCultObjectiveSystem _cultObjective = default!;
+    [Dependency] private IGameTiming _time = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

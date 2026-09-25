@@ -16,7 +16,7 @@ namespace Content.Client._Goobstation.Overlays;
 
 public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private ThermalVisionOverlay _thermalOverlay = default!;
     private BaseSwitchableOverlay<ThermalVisionComponent> _overlay = default!;
@@ -115,6 +115,6 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         }
 
         // Night vision overlay is prioritized
-        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>();
+        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<GoobNightVisionComponent>>();
     }
 }

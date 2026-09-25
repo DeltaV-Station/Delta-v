@@ -16,9 +16,9 @@ namespace Content.Server._DV.StationEvents.GameRules
 {
     public sealed class MeteorSwarmRule : StationEventSystem<MeteorSwarmRuleComponent>
     {
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private SharedPhysicsSystem _physics = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
 
 
         private (MapCoordinates target, Box2 targetArea) GetTarget()

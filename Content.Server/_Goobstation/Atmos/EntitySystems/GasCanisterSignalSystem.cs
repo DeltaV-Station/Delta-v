@@ -29,11 +29,11 @@ public sealed class GasCanisterSignalSystem : EntitySystem
         {
             "Open" => true,
             "Close" => false,
-            "Toggle" => !ent.Comp.ReleaseValve,
+            "Toggle" => !ent.Comp.ReleaseValveOpen,
             _ => false // fuck you c# cant just return
         };
 
-        if (ent.Comp.ReleaseValve == valve)
+        if (ent.Comp.ReleaseValveOpen == valve)
             return;
 
         var ev = new GasCanisterChangeReleaseValveMessage(valve);

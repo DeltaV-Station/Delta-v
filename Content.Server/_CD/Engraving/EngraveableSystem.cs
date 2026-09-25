@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration;
+using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Shared.Database;
@@ -12,9 +12,9 @@ namespace Content.Server._CD.Engraving;
 
 public sealed class EngraveableSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly QuickDialogSystem _dialog = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private QuickDialogSystem _dialog = default!;
 
     public override void Initialize()
     {

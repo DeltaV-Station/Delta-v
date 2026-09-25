@@ -18,12 +18,12 @@ namespace Content.Server._DV.StationEvents.GameRules;
 /// </summary>
 internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleComponent>
 {
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly PsionicSystem _psionic = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private PsionicSystem _psionic = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private SharedStutteringSystem _stuttering = default!;
 
     protected override void Started(EntityUid uid, NoosphericZapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

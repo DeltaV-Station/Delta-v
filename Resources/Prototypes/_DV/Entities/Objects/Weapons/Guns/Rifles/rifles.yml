@@ -209,8 +209,9 @@
   - type: MeleeRequiresWield
   - type: AltFireMelee
     attackType: Heavy
-  - type: Sharp
-    butcherDelayModifier: 2
+  - type: Tool
+    qualities:
+    - Slicing
   - type: SolutionContainerManager
     solutions:
       melee:

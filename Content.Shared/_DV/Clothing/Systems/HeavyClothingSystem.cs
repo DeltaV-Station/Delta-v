@@ -10,8 +10,8 @@ namespace Content.Shared._DV.Clothing.Systems;
 
 public sealed class HeavyClothingSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {

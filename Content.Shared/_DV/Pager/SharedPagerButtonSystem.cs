@@ -6,8 +6,8 @@ namespace Content.Shared._DV.Pager;
 
 public abstract class SharedPagerButtonSystem : EntitySystem
 {
-    [Dependency] private readonly PageSenderSystem _pageSender = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private PageSenderSystem _pageSender = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

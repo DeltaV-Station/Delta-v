@@ -16,9 +16,9 @@ namespace Content.Shared._DV.Pager;
 
 public sealed class PagerSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedDeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedDeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

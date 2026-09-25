@@ -24,14 +24,14 @@ namespace Content.Server._DV.Station.Systems;
 
 public sealed class StationExfiltrationSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly DockingSystem _docking = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private DockingSystem _docking = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
 
     public override void Initialize()
     {

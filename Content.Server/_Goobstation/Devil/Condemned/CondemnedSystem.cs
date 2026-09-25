@@ -24,10 +24,10 @@ namespace Content.Server._Goobstation.Devil.Condemned;
 
 public sealed partial class CondemnedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ForensicsSystem _forensics = default!; // DeltaV - Forensics DNA
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PolymorphSystem _poly = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ForensicsSystem _forensics = default!; // DeltaV - Forensics DNA
     public override void Initialize()
     {
         base.Initialize();

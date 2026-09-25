@@ -19,13 +19,13 @@ namespace Content.Shared._DV.Recruiter;
 /// </summary>
 public abstract class SharedRecruiterPenSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] protected readonly SharedMindSystem Mind = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] protected SharedMindSystem Mind = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
 
     private EntityQuery<MindShieldComponent> _shieldQuery;
 

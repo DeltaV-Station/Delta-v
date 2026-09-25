@@ -10,6 +10,28 @@
     role: JobChemist
     time: 2h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: SynthesisSpecialist
+  spawnerPrototype: SpawnPointGhostSynthesis
+  pickPlayer: false
+  startingGear: SyndicateSynthesisGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFakeHumanFirst
+    - NamesFakeHumanLast
+    nameFormat: name-format-standard
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  mindRoles:
+  - MindRoleSynthesis
+
 - type: startingGear
   id: SyndicateSynthesisGear
   equipment:

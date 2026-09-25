@@ -9,10 +9,10 @@ namespace Content.Server._DV.Body;
 
 public sealed class LightLevelHealthSystem : SharedLightLevelHealthSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly SharedLightReactiveSystem _lightReactive = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private SharedLightReactiveSystem _lightReactive = default!;
 
     private TimeSpan _nextUpdate = TimeSpan.MinValue;
     public override void Update(float frameTime)

@@ -16,11 +16,11 @@ namespace Content.Server.ReadyManifest;
 
 public sealed class ReadyManifestSystem : EntitySystem
 {
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+    [Dependency] private EuiManager _euiManager = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IServerPreferencesManager _prefsManager = default!;
 
     private readonly Dictionary<ICommonSession, ReadyManifestEui> _openEuis = new();
     private Dictionary<ProtoId<JobPrototype>, int> _jobCounts = new();

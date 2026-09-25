@@ -5,17 +5,15 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.Roles;
-using Content.Shared.StatusIcon;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Access.Systems;
 
-public sealed class PresetIdCardSystem : EntitySystem
+public sealed partial class PresetIdCardSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private IdCardSystem _cardSystem = default!;
+    [Dependency] private SharedAccessSystem _accessSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<PresetIdCardComponent, MapInitEvent>(OnMapInit);
@@ -71,7 +69,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         if (id.JobName == null)
             return;
 
-        if (!_prototypeManager.TryIndex(id.JobName, out JobPrototype? job))
+        if (!ProtoMan.TryIndex(id.JobName, out JobPrototype? job))
         {
             Log.Error($"Invalid job id ({id.JobName}) for preset card");
             return;
@@ -87,7 +85,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         _cardSystem.TryChangeJobDepartment(uid, job);
 
 
-        if (card.JobIcon == "JobIconUnknown" && _prototypeManager.Resolve(job.Icon, out var jobIcon)) // DeltaV: only set to the job's icon if the id doesn't specify one
+        if (card.JobIcon == "JobIconUnknown" && ProtoMan.Resolve(job.Icon, out var jobIcon)) // DeltaV: only set to the job's icon if the id doesn't specify one
             _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }

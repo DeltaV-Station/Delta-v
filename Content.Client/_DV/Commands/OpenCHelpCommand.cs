@@ -9,7 +9,7 @@ namespace Content.Client._DV.Commands;
 [AnyCommand]
 public sealed class OpenCHelpCommand : LocalizedCommands
 {
-    [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
+    [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
 
     public override string Command => "openchelp";
 

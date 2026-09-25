@@ -6,18 +6,12 @@
   components:
   - type: Sprite
     layers:
-    - state: condisposal
-      map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
     - state: disposal
       map: [ "enum.DisposalUnitVisualLayers.Base" ]
-    - state: disposal-charging
-      map: [ "enum.DisposalUnitVisualLayers.BaseCharging" ]
     - state: disposal-flush
-      map: [ "enum.DisposalUnitVisualLayers.OverlayFlush" ]
-    - state: dispover-charge
-      map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
+      map: [ "enum.DisposalUnitVisualLayers.OverlayFlushing" ]
     - state: dispover-ready
-      map: [ "enum.DisposalUnitVisualLayers.OverlayReady" ]
+      map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
     - state: dispover-full
       map: [ "enum.DisposalUnitVisualLayers.OverlayFull" ]
     - state: dispover-handle

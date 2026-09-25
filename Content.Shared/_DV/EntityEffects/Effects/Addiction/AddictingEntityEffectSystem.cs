@@ -12,7 +12,7 @@ namespace Content.Shared._DV.EntityEffects.Effects.Addiction;
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class AddictingEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, Addicting>
 {
-    [Dependency] private readonly SharedAddictionSystem _addiction = default!;
+    [Dependency] private SharedAddictionSystem _addiction = default!;
     protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<Addicting> args)
     {
         var addictionTime = args.Effect.Time * args.Scale;

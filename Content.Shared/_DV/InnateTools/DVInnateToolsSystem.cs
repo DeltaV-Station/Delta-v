@@ -8,8 +8,8 @@ namespace Content.Shared._DV.InnateTools;
 
 public sealed class DVInnateToolsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
 
     public override void Initialize()
     {

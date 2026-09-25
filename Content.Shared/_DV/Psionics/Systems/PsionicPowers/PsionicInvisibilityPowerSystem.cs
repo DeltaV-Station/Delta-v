@@ -13,9 +13,9 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class PsionicInvisibilityPowerSystem : BasePsionicPowerSystem<PsionicInvisibilityPowerComponent, PsionicInvisibilityPowerActionEvent>
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
 
     public override void Initialize()
     {

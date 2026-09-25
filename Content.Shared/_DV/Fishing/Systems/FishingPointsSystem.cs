@@ -6,8 +6,8 @@ namespace Content.Shared._DV.Fishing.Systems;
 
 public sealed class FishingPointsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
 
     private EntityQuery<FishingPointsComponent> _query;
 

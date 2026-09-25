@@ -24,14 +24,14 @@ namespace Content.Client._DV.CosmicCult.Visuals;
 public sealed class MonumentPlacementPreviewSystem : EntitySystem
 {
     //most of these aren't used by this system, see MonumentPlacementPreviewOverlay for a note on why they're here
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     private MonumentPlacementPreviewOverlay? _cachedOverlay;
     private CancellationTokenSource? _cancellationTokenSource;
