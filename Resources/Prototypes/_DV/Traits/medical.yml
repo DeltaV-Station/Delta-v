@@ -99,3 +99,37 @@
   - !type:AddCompsEffect
     components:
     - type: Synth
+  subTraits:
+    - SyntheticMechanical
+    - SyntheticIonStormSusceptible
+
+- type: trait
+  id: SyntheticMechanical
+  name: trait-mechanical-synthetic-name
+  description: trait-mechanical-synthetic-desc
+  category: Medical
+  conditions:
+  - !type:TraitDependencyCondition
+    requires:
+      - Synthetic
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: ESSparkOnHit
+      count: 2
+      prob: .32
+
+- type: trait
+  id: SyntheticIonStormSusceptible
+  name: trait-ion-storm-susceptible-name
+  description: trait-ion-storm-susceptible-desc
+  category: Medical
+  conditions:
+  - !type:TraitDependencyCondition
+    requires:
+      - Synthetic
+  effects:
+  - !type:OverrideCompsEffect
+    components:
+    - type: Synth
+      ionStormAffected: true
