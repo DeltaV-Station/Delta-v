@@ -1,111 +1,4 @@
 ﻿Entries:
-- author: Woljif
-  changes:
-  - message: Sec jetpacks are no longer mini-jetpacks and can hold 3.0L
-    type: Tweak
-  id: 2155
-  time: '2026-03-05T20:46:13.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5357
-- author: EmberAstra
-  changes:
-  - message: Fixed the Research Digi-Board storage space lacking an UI. Did you even
-      know it had some?
-    type: Fix
-  id: 2156
-  time: '2026-03-05T21:17:37.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5434
-- author: Stxcking
-  changes:
-  - message: Changed the mailbox sprite!
-    type: Tweak
-  id: 2157
-  time: '2026-03-05T21:18:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5433
-- author: EmberAstra
-  changes:
-  - message: Added the power digi-board! Monitor your energy situation on the move!
-      Find it in CE's locker.
-    type: Add
-  id: 2158
-  time: '2026-03-06T15:36:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5435
-- author: BarryNorfolk
-  changes:
-  - message: Silicons no longer change their battery usage depending on the temperature
-      around them
-    type: Remove
-  - message: IPCs now once again have working alerts for their batteries
-    type: Fix
-  id: 2159
-  time: '2026-03-06T16:10:00.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5345
-- author: marigauge
-  changes:
-  - message: reverted soretizone changes hopefully fixing flashing
-    type: Fix
-  id: 2160
-  time: '2026-03-07T09:45:22.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5391
-- author: Pharaz4
-  changes:
-  - message: Added kitchen freezer.
-    type: Add
-  id: 2161
-  time: '2026-03-07T16:24:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5443
-- author: Cepelinas1
-  changes:
-  - message: 'A new antag role has been added: Internal Affairs! NanoTrasen is hiring
-      any employees who would love to protect the company.'
-    type: Add
-  id: 2162
-  time: '2026-03-07T20:35:19.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5450
-- author: Coryler
-  changes:
-  - message: Add Universal Pinpointer to the Syndicate Uplink
-    type: Add
-  id: 2163
-  time: '2026-03-09T09:12:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5471
-- author: HameyTychol
-  changes:
-  - message: Made more items recyclable
-    type: Tweak
-  id: 2164
-  time: '2026-03-09T09:43:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5398
-- author: snowywinters
-  changes:
-  - message: Watchdogs now work as a death rattle also decreased the price to 9k
-    type: Tweak
-  - message: Fixed watchdogs not working
-    type: Fix
-  id: 2165
-  time: '2026-03-09T10:17:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5475
-- author: Woljif
-  changes:
-  - message: The Kammerer is now a 2x4 in your bag
-    type: Tweak
-  id: 2166
-  time: '2026-03-09T10:55:09.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5469
-- author: DisposableCrewmember42
-  changes:
-  - message: Conspirators now requires 32 connected players to roll. The ingame delay
-      before choosing conspirators is increased.
-    type: Fix
-  id: 2167
-  time: '2026-03-09T11:39:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5490
-- author: Stxcking
-  changes:
-  - message: 'Added a new space ruin: Abandoned Dojo!'
-    type: Add
-  id: 2168
-  time: '2026-03-09T11:48:58.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5427
 - author: verybigman311
   changes:
   - message: Electropacks can no longer be removed by non-Security.
@@ -4441,4 +4334,119 @@
   id: 2655
   time: '2026-09-09T15:49:18.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6458
+- author: BarryNorfolk
+  changes:
+  - message: Fixed displays for ETA/ETD not displaying
+    type: Fix
+  id: 2656
+  time: '2026-09-10T23:39:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6497
+- author: kotobdev
+  changes:
+  - message: Asakim should, once again, be very rare.
+    type: Fix
+  id: 2657
+  time: '2026-09-13T22:19:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6455
+- author: Pinoinha
+  changes:
+  - message: Fixed service borgs being unable to pickup beer bottles when using the
+      fishing module
+    type: Fix
+  id: 2658
+  time: '2026-09-14T17:44:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6503
+- author: SumofThreeParts
+  changes:
+  - message: Glimmer prober locks out at 600 glimmer instead of 750 glimmer.
+    type: Tweak
+  id: 2659
+  time: '2026-09-16T12:31:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6493
+- author: Apersos-coll
+  changes:
+  - message: Added new crewsided heavy laser gun the Unstable Core Refractor, for
+      when stable reactors weren't enough.
+    type: Add
+  id: 2660
+  time: '2026-09-16T12:44:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6491
+- author: pixelStrife
+  changes:
+  - message: Ovinia now make actual noise when gasping and deathgasping (instead of
+      text only.)
+    type: Tweak
+  id: 2661
+  time: '2026-09-17T04:05:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6481
+- author: keekee38
+  changes:
+  - message: slimes can have prosthetic limbs too
+    type: Add
+  id: 2662
+  time: '2026-09-17T04:19:40.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6496
+- author: kotobdev
+  changes:
+  - message: Removed a shitmed-remnant Asakim objective.
+    type: Remove
+  - message: Asakim ghostrole rules have been reworded to be a little less friendly.
+    type: Tweak
+  - message: Asakim armor now slows any non-Asakim by 80%, to discourage crewmembers
+      from intentionally springlocking themselves.
+    type: Tweak
+  - message: Asakim shouldn't get stuck in doors.
+    type: Fix
+  id: 2663
+  time: '2026-09-17T04:22:46.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6452
+- author: Apersos-coll
+  changes:
+  - message: Somebody at CC had an idea and too much money to spend, and somehow got
+      a new pulse style pistol designed. The EPU-U001
+    type: Add
+  id: 2664
+  time: '2026-09-17T10:41:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6507
+- author: Apersos-coll
+  changes:
+  - message: Fixed Unstable Core Refractors back/suit storage sprites
+    type: Fix
+  id: 2665
+  time: '2026-09-17T14:03:34.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6517
+- author: stormyatt
+  changes:
+  - message: hitmen now get freelancer comms roundstart
+    type: Add
+  - message: thieves now get freelancer comms roundstart
+    type: Add
+  - message: traitors can now buy freelancer comms for 1tc. hiring hours
+    type: Add
+  id: 2666
+  time: '2026-09-17T14:04:53.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6495
+- author: keekee38
+  changes:
+  - message: med kits no longer fit into pockets
+    type: Fix
+  id: 2667
+  time: '2026-09-20T20:10:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6523
+- author: Radezolid
+  changes:
+  - message: Fixed Smile's core not being able to be picked up.
+    type: Fix
+  id: 2668
+  time: '2026-09-21T17:15:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6529
+- author: Apersos-coll
+  changes:
+  - message: you now actually need to get all components to craft the unstable core
+      refractor. And the container can no longer hold the entire universe inside of
+      it.
+    type: Fix
+  id: 2669
+  time: '2026-09-22T09:22:57.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6522
 Order: 1
