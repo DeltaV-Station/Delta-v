@@ -45,7 +45,7 @@ public sealed partial class CryoPodComponent : Component
     /// (injection interval)
     /// </summary>
     [DataField]
-    public TimeSpan BeakerTransferTime = TimeSpan.FromSeconds(2);
+    public TimeSpan BeakerTransferTime = TimeSpan.FromSeconds(1); // Delta-v - Make cryopods inject at 0.5u/s to match cryo chem metabolism rates
 
     /// <summary>
     /// The timestamp for the next injection.
