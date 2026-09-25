@@ -244,3 +244,16 @@
     componentsToAdd:
     - type: PyrokinesisPower
     - type: Psionic
+
+- type: entity
+  parent: BasePsionCrystal
+  id: PsionCrystalEruption
+  name: eruption crystal
+  description: A small psionic crystal. It feels like it's about to explode...
+  components:
+  - type: Sprite
+    color: "#b5000f"
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: PsionicEruptionPower
+    - type: Psionic
