@@ -8,6 +8,7 @@ namespace Content.Shared._DV.Psionics.Systems;
 public abstract partial class SharedPsionicSystem
 {
     public static readonly EntProtoId PsionicsDisabledProtoId = "StatusEffectPsionicsDisabled";
+
     public void InitializeStatusEffects()
     {
         SubscribeLocalEvent<PsionicsDisabledComponent, StatusEffectRelayedEvent<PsionicPowerUseAttemptEvent>>(OnPowerUseAttempt);
