@@ -101,3 +101,12 @@
     stackRequirements:
       Manipulator: 4
       Cable: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SRNSurveillanceCameraRouterCircuitboard
+  name: syndicate borg camera router board
+  description: A machine printed circuit board for a syndicate borg camera router.
+  components:
+  - type: MachineBoard
+    prototype: SRNSurveillanceCameraRouter
