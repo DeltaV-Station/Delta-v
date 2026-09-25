@@ -244,3 +244,19 @@
     componentsToAdd:
     - type: PyrokinesisPower
     - type: Psionic
+
+- type: entity
+  parent: MicroManipulatorStockPart
+  id: MicroManipulatorStockPart10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialGunpowder
+  id: MaterialGunpowder30
+  suffix: 30
+  components:
+  - type: Stack
+    count: 30
