@@ -34,10 +34,10 @@ void fragment() {
         d = 0.0;
         highp float j = 0.0;
         for (int j = 1; j <= 4; j++)
-            p += sin(p.yzx * j - t + 0.2 * i) / j;
+            p += 1.15 * sin(p.yzx * j - t + 0.2 * i) / j;
 
         // distance to cylinder and waves
-        d = 0.2 * length(vec4(p.z, 0.1 * cos(p * 3.0) - 0.1));
+        d = 0.15 * length(vec4(p.z, 0.1 * cos(p * 3.0) - 0.1));
         z += d;
 
         // coloring and brightness
@@ -45,7 +45,7 @@ void fragment() {
     }
 
     // tanh tonemap
-    O = tanh(O * O / 900.0);
+    O = tanh(O * O / 750.0);
 
     COLOR = O;
 }
