@@ -29,7 +29,9 @@ namespace Content.Server.Construction
         ///          the entity does not have a <see cref="ConstructionComponent"/>.</returns>
         public bool AddContainer(EntityUid uid, string container, ConstructionComponent? construction = null)
         {
-            if (!Resolve(uid, ref construction))
+            if (!Resolve(uid, ref construction)
+                // DeltaV - Prohibit construction to manage specific containers, so it doesn't put contents into broken states.
+                || construction.ForbiddenContainers != null && construction.ForbiddenContainers.Contains(container))
                 return false;
 
             return construction.Containers.Add(container);
