@@ -72,7 +72,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Dead
+      30: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -83,7 +83,7 @@
       - !type:GibBehavior
         recursive: false
   - type: Stamina
-    baseCritThreshold: 15
+    baseCritThreshold: 30
     animationThreshold: 5
   - type: MovementAlwaysTouching
   - type: DamageStateVisuals
@@ -109,7 +109,8 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 2
+        Piercing: 3
+        Soul: 2
   - type: SolutionContainerManager
     solutions:
       food:
