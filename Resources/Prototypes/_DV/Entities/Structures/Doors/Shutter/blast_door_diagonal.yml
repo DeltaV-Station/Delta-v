@@ -1,0 +1,105 @@
+- type: entity
+  parent: BlastDoor
+  id: BlastDoorDiagonal
+  description: It opens kind of weird, but you don't feel like questioning it.
+  suffix: Diagonal
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Shutters/blastdoor_diagonal.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Door
+    closeTimeOne: 0.4
+    closeTimeTwo: 0.7
+    openTimeOne: 0.4
+    openTimeTwo: 0.7
+    openingAnimationTime: 1.1
+    closingAnimationTime: 1.0
+    canPry: false
+    crushDamage:
+      types:
+        Blunt: 25 # yowch
+    openSound:
+      path: /Audio/Machines/blastdoor.ogg
+    closeSound:
+      path: /Audio/Machines/blastdoor.ogg
+  - type: Occluder
+    enabled: false
+  - type: Construction
+    graph: BlastDoorDiagonal
+    node: blastdoor
+  - type: StaticPrice
+    price: 250
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+
+- type: entity
+  parent: [ BlastDoorDiagonal, BlastDoorOpen ]
+  id: BlastDoorDiagonalOpen
+  description: It opens kind of weird, but you don't feel like questioning it.
+  suffix: Diagonal, Open
+  components:
+  - type: Door
+    state: Open
+
+- type: entity
+  id: BlastDoorFrameDiagonal
+  parent: BaseStructureDynamic
+  name: diagonal blast door frame
+  description: This one says 'BLAST DONGER'.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Shutters/blastdoor_diagonal.rsi
+    state: assembly
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask:
+        - Impassable
+        - HighImpassable
+        layer:
+        - HighImpassable
+  - type: Transform
+    noRot: true
+  - type: Construction
+    graph: BlastDoorDiagonal
+    node: frame1
+  placement:
+    mode: SnapgridCenter

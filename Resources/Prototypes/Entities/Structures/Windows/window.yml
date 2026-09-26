@@ -271,7 +271,7 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # Delta V - makes diagonal windows smooth to other windows
     base: state
   - type: Icon
     sprite: _DV/Structures/Windows/window_diagonal.rsi #Delta V - Resprite windows
