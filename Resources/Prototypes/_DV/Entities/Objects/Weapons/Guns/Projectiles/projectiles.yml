@@ -204,3 +204,44 @@
       color: lightgreen
   - type: TimedDespawn
     lifetime: 0.08
+
+- type: entity
+  parent: BaseBulletTrigger
+  id: BulletGrenadeAcid
+  name: goricide gas greanade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Explosives/pacifier-grenade.rsi
+    layers:
+    - state: projectile
+  - type: SmokeOnTrigger
+    duration: 12
+    spreadAmount: 11
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: Goreicide
+        Quantity: 80
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Effects/flash_bang.ogg
+    positional: true
+  - type: Projectile
+    damage:
+      types:
+        Structural: 90 #shot breaks reinforced directional windows
+  - type: StaminaDamageOnCollide
+    damage: 75
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 0.01
+    intensitySlope: 1
+    maxIntensity: 0.01
+    tileBreakScale: 0.01
+  - type: ProjectileGrenade
+    triggerKey: trigger
+    fillPrototype: ClusterAcid
+    maxVelocity: 2
+    minVelocity: 1
+    capacity: 5

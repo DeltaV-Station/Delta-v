@@ -1,0 +1,20 @@
+- type: entity
+  parent: [BaseGrenade, BaseMajorContraband]
+  id: 40mmacid
+  name: acid grenade
+  description: Cluster grenade that releases five pellets of goreicide spreading smoke. Do NOT drop it!
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeAcid
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Explosives/pacifier-grenade.rsi
+    layers:
+    - state: item
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false
+  - type: Tag
+    tags:
+    - Acid40mm
