@@ -600,16 +600,23 @@
   - type: NextEvent # DeltaV: Queue Event for precognition
   - type: RampingStationEventScheduler
     timeKeyPoints: # DeltaV
-    - 10, 10
+    - 10, 7
     - 10, 6
-    - 10, 1
-    - 10, 3
-    - 15, 5
-    - 15, 4
-    - 20, 2
-    - 10, 1
+    - 10, 5
+    - 5, 2 # Heavy event density from minute 35 through 40
+    - 15, 10
+    - 10, 2 # Heavy event density from minute 50 through 60
     - 10, 4
-    - 10, 3
+    - 15, 6
+    - 10, 2 # Heavy density from minute 85 through 95
+    # Probable EOR, start winding down
+    - 10, 5
+    - 10, 7
+    - 20, 10
+    # Crew decided to stay so wind back up
+    - 10, 6
+    - 20, 4
+    - 20, 2
     - 70, 4
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable

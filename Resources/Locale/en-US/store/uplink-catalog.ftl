@@ -180,6 +180,9 @@ uplink-encryption-key-desc = Two encryption keys for access to the secret freque
 uplink-binary-translator-key-name = Binary Translator Key
 uplink-binary-translator-key-desc = Lets you tap into the silicons' binary channel. Don't talk on it though, at least not without a voice mask.
 
+uplink-freelance-encryption-key-name = Freelancer Encryption Key
+uplink-freelance-encryption-key-desc = Lets you access freelancer communications. Perhaps you can find a criminal who will help you for the right price.
+
 uplink-hypopen-name = Hypopen
 uplink-hypopen-desc = A chemical hypospray disguised as a pen, capable of instantly injecting up to 10u of reagents. Starts empty.
 
@@ -357,9 +360,6 @@ uplink-chameleon-desc = A backpack full of items that contain chameleon technolo
 
 uplink-clothing-no-slips-shoes-name = No-slip Shoes
 uplink-clothing-no-slips-shoes-desc = Chameleon shoes that protect you from slips.
-
-uplink-clothing-chameleon-thieving-gloves-name = Chameleon Thieving Gloves
-uplink-clothing-chameleon-thieving-gloves-desc = Discreetly steal from pockets and improve your thieving technique with these fancy new gloves. They can change appearance to match any pair of gloves!
 
 uplink-clothing-outer-vest-web-name = Web Vest
 uplink-clothing-outer-vest-web-desc = A synthetic armor vest. This one has added webbing and ballistic plates.

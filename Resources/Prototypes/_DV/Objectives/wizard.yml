@@ -94,7 +94,6 @@
         components:
         - CommandStaff
         - KillPersonCondition # Should also choose those who have targets on their heads by other antags :3
-    - !type:ObjectiveImmuneFilter
 
 - type: entity
   parent: [BaseWizardObjective, BaseKillObjective]
