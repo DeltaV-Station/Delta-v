@@ -11,6 +11,7 @@
     - id: GlimmerSpawnProber
     - id: GlimmerRevenantSpawn
     - id: GlimmerMiteSpawn
+    - id: GlimmerTickSpawn
     - id: GlimmerGnomeSpawn
     - id: GlimmerRandomSentience
     - id: GlimmerRandomAnimation
@@ -148,6 +149,15 @@
   - type: GlimmerMobRule
     mobPrototype: MobGlimmerMite
     glimmerTier: Low # get more mites earlier on
+    
+- type: entity
+  parent: BaseGlimmerSignaturesEvent
+  id: GlimmerTickSpawn
+  components:
+  - type: GlimmerEvent
+    minimumGlimmer: 600
+  - type: GlimmerMobRule
+    mobPrototype: MobGlimmerTick
 
 - type: entity
   parent: BaseGlimmerSignaturesEvent
