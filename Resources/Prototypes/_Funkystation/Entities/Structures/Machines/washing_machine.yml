@@ -9,6 +9,7 @@
   - type: Sprite
     sprite: _Funkystation/Structures/Machines/washing_machine.rsi
     snapCardinals: true
+    noRot: true
     layers:
     - state: base
       map: [ "enum.StorageVisualLayers.Base" ]
