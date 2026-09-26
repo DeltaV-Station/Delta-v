@@ -49,9 +49,9 @@
         damage:
           types:
             Caustic: 5.0
-            Radiation: 5.0
+            Heat: 4.0
       - !type:ModifyBleed
-        amount: 1.5
+        amount: 3
       - !type:PopupMessage
         type: Local
         visualType: Large
