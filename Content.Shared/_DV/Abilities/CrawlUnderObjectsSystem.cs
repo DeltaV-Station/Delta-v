@@ -32,8 +32,8 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
         SubscribeLocalEvent<CrawlUnderObjectsComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleCrawlingStateEvent>(OnToggleCrawling);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
-        SubscribeLocalEvent<CrawlUnderObjectsComponent, DownAttemptEvent>(CancelWhenSneaking);
-        SubscribeLocalEvent<CrawlUnderObjectsComponent, StandAttemptEvent>(CancelWhenSneaking);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, DownAttemptEvent>(CancelSneaking);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, StandAttemptEvent>(CancelSneaking);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, MobStateChangedEvent>(OnMobStateChanged);
 
@@ -62,10 +62,9 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    private void CancelWhenSneaking<TEvent>(Entity<CrawlUnderObjectsComponent> ent, ref TEvent args) where TEvent : CancellableEntityEventArgs
+    private void CancelSneaking<TEvent>(Entity<CrawlUnderObjectsComponent> ent, ref TEvent args)
     {
-        if (ent.Comp.Enabled)
-            args.Cancel();
+        SetEnabled(ent, false);
     }
 
     private void OnRefreshMoveSpeed(Entity<CrawlUnderObjectsComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -79,9 +78,8 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
         if (args.OldMobState != MobState.Alive || !ent.Comp.Enabled)
             return;
 
-        // crawling prevents downing, so when you go crit/die stop crawling and force downing
+        // Disable on crit/death
         SetEnabled(ent, false);
-        _standing.Down(ent);
     }
 
     private void OnCrawlingUpdated(Entity<FixturesComponent> ent, ref CrawlingUpdatedEvent args)
