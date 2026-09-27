@@ -1,5 +1,5 @@
 ﻿- type: entity
-  id: WashingMachine
+  id: WashingMachineFunky
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: Nanotrasen Commercial Model-C washing machine
   description: An industrial-grade washing machine designed to clean even the grimiest of uniforms. Keep hands, hard objects and small crewmembers away from drum during cycle.
@@ -9,7 +9,6 @@
   - type: Sprite
     sprite: _Funkystation/Structures/Machines/washing_machine.rsi
     snapCardinals: true
-    noRot: true
     layers:
     - state: base
       map: [ "enum.StorageVisualLayers.Base" ]
