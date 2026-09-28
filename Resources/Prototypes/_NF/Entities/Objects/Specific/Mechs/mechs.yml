@@ -1,0 +1,61 @@
+- type: entity
+  id: MechEmu
+  parent: BaseMech
+  name: Emu PLU
+  description: A lightweight cargo mech. While unsuited for bulk haulage, the Emu PLU's advanced servos can get freight where it's needed - fast.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _NF/Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: emu-empty
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_NF/Mecha/mechstep.ogg
+      params:
+        volume: -7
+  - type: Mech
+    baseState: emu
+    openState: emu-open
+    brokenState: emu-broken
+    mechToPilotDamageMultiplier: 0.9
+    pilotWhitelist:
+      components:
+      - HumanoidProfile
+    equipmentWhitelist:
+      tags:
+      - SmallMech
+    canRemoveEquipment: true
+    maxEquipmentAmount: 1
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 10
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.25
+    baseSprintSpeed: 6.2
+
+- type: entity
+  id: MechEmuBattery
+  parent: MechEmu
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+
+- type: entity
+  id: MechEmuCargo
+  parent: MechEmu
+  suffix: Cargo, Med Battery
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellMedium

@@ -1,0 +1,35 @@
+# Emu
+
+- type: entity
+  id: EmuCentralElectronics
+  parent: BaseElectronics
+  name: emu central control module
+  description: The electrical control center for the emu mech.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  - type: Tag
+    tags:
+    - EmuCentralControlModule
+  - type: GuideHelp
+    guides:
+    - Robotics
+
+- type: entity
+  id: EmuPeripheralsElectronics
+  parent: BaseElectronics
+  name: emu peripherals control module
+  description: The electrical peripherals control for the emu mech.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: id_mod
+  - type: Tag
+    tags:
+    - EmuPeripheralsControlModule
+  - type: GuideHelp
+    guides:
+    - Robotics
