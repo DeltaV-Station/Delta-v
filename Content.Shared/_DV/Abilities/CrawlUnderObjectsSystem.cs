@@ -33,7 +33,6 @@ public sealed class CrawlUnderObjectsSystem : EntitySystem
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleCrawlingStateEvent>(OnToggleCrawling);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, DownAttemptEvent>(CancelSneaking);
-        SubscribeLocalEvent<CrawlUnderObjectsComponent, StandAttemptEvent>(CancelSneaking);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, MobStateChangedEvent>(OnMobStateChanged);
 
