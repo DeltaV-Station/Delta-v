@@ -109,14 +109,14 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 3
-        Soul: 2
+        Piercing: 6
+        Soul: 4
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Ectoplasm
-          Quantity: 30
+          Quantity: 15
   - type: MeleeChemicalInjector
     solution: melee
   - type: ReplacementAccent
