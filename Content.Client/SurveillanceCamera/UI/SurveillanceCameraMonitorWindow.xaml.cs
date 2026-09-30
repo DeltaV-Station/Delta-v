@@ -69,11 +69,12 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
         // This could be done better. I don't want to deal with stylesheets at the moment.
         var texture = _resourceCache.GetTexture("/Textures/Interface/Nano/square_black.png");
 
-        // DeltaV - Choose which shader to use depending on accessibility settings.
+        // BEGIN DeltaV - Choose which shader to use depending on accessibility settings.
         var shader = _prototypeManager.Index(
             _cfg.GetCVar(DCCVars.DisableStaticShader)
             ? DisabledCameraStaticShader
             : CameraStaticShader).Instance().Duplicate();
+        // END DeltaV
 
         CameraView.ViewportSize = new Vector2i(500, 500);
         CameraView.Eye = _defaultEye; // sure

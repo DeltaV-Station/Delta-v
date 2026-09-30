@@ -11,7 +11,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration; // DeltaV - Added for accessibility settings.
 
-
 namespace Content.Client.Silicons.StationAi;
 
 public sealed class StationAiOverlay : Overlay
@@ -102,11 +101,12 @@ public sealed class StationAiOverlay : Overlay
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
-                // DeltaV - Choose which shader to use depending on accessibility settings.
+                // BEGIN DeltaV - Choose which shader to use depending on accessibility settings.
                 var shader = _proto.Index( 
                     _cfg.GetCVar(DCCVars.DisableStaticShader)
                     ? DisabledCameraStaticShader
                     : CameraStaticShader).Instance();
+                // END DeltaV
                 worldHandle.UseShader(shader);
                 worldHandle.DrawRect(worldBounds, Color.White);
             },
