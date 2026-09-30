@@ -37,8 +37,8 @@ public sealed partial class LabelSystem
             Category = VerbCategory.Examine,
             Disabled = !inDetailsRange,
             Message = inDetailsRange ? null : Loc.GetString("comp-paper-label-has-cant-read"),
-            // TODO change this because it conflicts with the examine icon for descriptions
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/examine.svg.192dpi.png")),
+            // uses the VV eye as an icon
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
         };
 
         args.Args.Verbs.Add(verb);
