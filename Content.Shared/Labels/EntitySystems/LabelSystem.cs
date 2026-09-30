@@ -131,12 +131,11 @@ public sealed partial class LabelSystem : EntitySystem
             args.PushMarkup(Loc.GetString("comp-paper-label-has-label"));
             var text = paper.Content;
             // Begin DeltaV - label examine cutoffs
-            if (ent.Comp.ExamineCharacterLimit != 0)
+            if (ent.Comp.ExamineCharacterLimit != 0
+                && text.Length > ent.Comp.ExamineCharacterLimit)
             {
                 // truncate text if it exceeds the character limit
-                text = text.Length <= ent.Comp.ExamineCharacterLimit
-                    ? text
-                    : text[..ent.Comp.ExamineCharacterLimit] + "...";
+                text = text[..ent.Comp.ExamineCharacterLimit] + "...";
             }
             // End DeltaV - label examine cutoffs
             args.PushMarkup(text.TrimEnd());
@@ -184,12 +183,11 @@ public sealed partial class LabelSystem : EntitySystem
             args.PushMarkup(Loc.GetString("comp-lanyard-has-lanyard", ("user", Identity.Entity(user, EntityManager))));
             var text = paper.Content;
             // Begin DeltaV - label examine cutoffs
-            if (comp.ExamineCharacterLimit != 0)
+            if (comp.ExamineCharacterLimit != 0
+                && text.Length > comp.ExamineCharacterLimit)
             {
                 // truncate text if it exceeds the character limit
-                text = text.Length <= comp.ExamineCharacterLimit
-                    ? text
-                    : text[..comp.ExamineCharacterLimit] + "...";
+                text = text[..comp.ExamineCharacterLimit] + "...";
             }
             // End DeltaV - label examine cutoffs
             args.PushMarkup(text.TrimEnd());
