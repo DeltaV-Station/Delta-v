@@ -118,6 +118,9 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<InnateVerb>>(OnGetInnateVerbs);
 
+        // DeltaV - lanyard examine tab
+        SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+
     }
 
     protected void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
@@ -182,6 +185,20 @@ public partial class InventorySystem
             RaiseLocalEvent(item, ev);
         }
     }
+
+    // Begin DeltaV - relay GetVerbsEvent<ExamineVerb>
+    private void OnGetExamineVerbs(EntityUid uid, InventoryComponent component, GetVerbsEvent<ExamineVerb> args)
+    {
+
+        // Automatically relay stripping related verbs to all equipped clothing.
+        var ev = new InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>(args, uid);
+        var enumerator = new InventorySlotEnumerator(component, SlotFlags.WITHOUT_POCKET);
+        while (enumerator.NextItem(out var item))
+        {
+            RaiseLocalEvent(item, ev);
+        }
+    }
+    // End DeltaV - relay GetVerbsEvent<ExamineVerb>
 
 }
 
