@@ -289,15 +289,15 @@
 #  objectType: Item
 #  description: crafting-menu-text-FO
 
-#- type: construction
-#  name: crafting-menu-name-WH
-#  id: HiltWood
-#  graph: HiltWoodGraph
-#  startNode: start
-#  targetNode: hilt
-#  category: construction-category-tools
-#  objectType: Item
-#  description: crafting-menu-text-WH
+- type: construction
+  name: crafting-menu-name-WH
+  id: HiltWood
+  graph: HiltWoodGraph
+  startNode: start
+  targetNode: hilt
+  category: construction-category-misc
+  objectType: Item
+  description: crafting-menu-text-WH
 
 #- type: construction
 #  name: crafting-menu-name-PH
@@ -309,15 +309,15 @@
 #  objectType: Item
 #  description: crafting-menu-text-PH
 
-#- type: construction
-#  name: crafting-menu-name-SB
-#  id: BladeSteel
-#  graph: BladeSteelGraph
-#  startNode: start
-#  targetNode: blade
-#  category: construction-category-tools
-#  objectType: Item
-#  description: crafting-menu-text-SB
+- type: construction
+  name: crafting-menu-name-SB
+  id: BladeSteel
+  graph: BladeSteelGraph
+  startNode: start
+  targetNode: blade
+  category: construction-category-misc
+  objectType: Item
+  description: crafting-menu-text-SB
 
 #- type: construction
 #  name: crafting-menu-name-PB
@@ -379,15 +379,15 @@
 #  objectType: Item
 #  description: crafting-menu-text-TSW
 
-#- type: construction
-#  name: crafting-menu-name-ISH
-#  id: ImprovisedShield
-#  graph: ImprovisedShieldGraph
-#  startNode: start
-#  targetNode: shield
-#  category: construction-category-weapons
-#  objectType: Item
-#  description: crafting-menu-text-ISH
+- type: construction
+  name: crafting-menu-name-ISH
+  id: ImprovisedShield
+  graph: ImprovisedShieldGraph
+  startNode: start
+  targetNode: shield
+  category: construction-category-weapons
+  objectType: Item
+  description: crafting-menu-text-ISH
 
 #- type: construction
 #  name: crafting-menu-name-FSH
@@ -429,15 +429,15 @@
 #  objectType: Item
 #  description: crafting-menu-text-PSHG
 
-#- type: construction
-#  name: crafting-menu-name-MVT
-#  id: ClothingOuterArmorMakeshift
-#  graph: ClothingOuterArmorMakeshiftGraph
-#  startNode: start
-#  targetNode: vest
-#  category: construction-category-clothing
-#  objectType: Item
-#  description: crafting-menu-text-MVT
+- type: construction
+  name: crafting-menu-name-MVT
+  id: ClothingOuterArmorMakeshift
+  graph: ClothingOuterArmorMakeshiftGraph
+  startNode: start
+  targetNode: vest
+  category: construction-category-weapons
+  objectType: Item
+  description: crafting-menu-text-MVT
 
 #- type: construction
 #  name: crafting-menu-name-IVT
