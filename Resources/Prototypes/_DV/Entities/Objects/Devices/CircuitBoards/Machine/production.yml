@@ -97,6 +97,8 @@
     state: security # TODO: Actually sprite a proper board color for Justice
   - type: MachineBoard
     prototype: JusticeTechFab
+  - type: StealTarget
+    stealGroup: JusticeTechFabCircuitboard
 
 # Kitchen Freezer
 - type: entity

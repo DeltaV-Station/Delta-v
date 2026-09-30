@@ -261,3 +261,7 @@
     - StampsStatic
   - type: Machine
     board: JusticeTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: JusticeTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Justice]
