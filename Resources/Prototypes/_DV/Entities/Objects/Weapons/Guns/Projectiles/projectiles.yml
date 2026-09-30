@@ -239,6 +239,9 @@
     intensitySlope: 1
     maxIntensity: 0.01
     tileBreakScale: 0.01
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: ProjectileGrenade
     triggerKey: trigger
     fillPrototype: ClusterAcid
