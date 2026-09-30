@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseGameRule
+  parent: BaseRoundstartAntagRule
   id: CosmicCult
   components:
   - type: CosmicCultRule
@@ -16,16 +16,18 @@
     - CosmicConversionObjective
     - CosmicEntropyObjective
   - type: AntagSelection
-    definitions:
-    - prefRoles: [ CosmicAntagCultist ]
-      min: 2
-      max: 6
+    antags:
+    - !type:LinearAntagCount
+      proto: CosmicCultist
+      range:
+        min: 2
+        max: 6
       playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-        - BibleUser
-      components:
-      - type: CosmicCult
-      mindRoles:
-      - MindRoleCosmicCult
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: CosmicCultist
+  components:
+  - type: CosmicCult
+  mindRoles:
+  - MindRoleCosmicCult

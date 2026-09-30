@@ -17,10 +17,10 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 /// </summary>
 public abstract class SharedDispelPowerSystem : BasePsionicPowerSystem<DispelPowerComponent, DispelPowerActionEvent>
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffectsNew = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private StatusEffectNew.StatusEffectsSystem _statusEffectsNew = default!;
 
 
     public override void Initialize()

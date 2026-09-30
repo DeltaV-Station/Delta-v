@@ -5,7 +5,7 @@ namespace Content.Shared._DV.Addictions;
 
 public abstract class SharedAddictionSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public ProtoId<StatusEffectPrototype> StatusEffectKey = "Addicted";
 

@@ -15,8 +15,8 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 /// </summary>
 public sealed class MindSwappedReturnPowerSystem : BasePsionicPowerSystem<MindSwappedReturnPowerComponent, MindSwappedReturnPowerActionEvent>
 {
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwap = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private SharedMindSwapPowerSystem _mindSwap = default!;
+    [Dependency] private MetaDataSystem _metaDataSystem = default!;
 
     private EntityQuery<MindSwappedReturnPowerComponent> _mindSwappedQuery;
 

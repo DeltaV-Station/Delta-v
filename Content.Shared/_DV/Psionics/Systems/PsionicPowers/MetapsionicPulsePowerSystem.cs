@@ -11,7 +11,7 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 /// </summary>
 public sealed class MetapsionicPulsePowerSystem : BasePsionicPowerSystem<MetapsionicPulsePowerComponent,  MetapsionicPulsePowerActionEvent>
 {
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private EntityLookupSystem _lookupSystem = default!;
 
     protected override void OnPowerInit(Entity<MetapsionicPulsePowerComponent> power, ref MapInitEvent args)
     {

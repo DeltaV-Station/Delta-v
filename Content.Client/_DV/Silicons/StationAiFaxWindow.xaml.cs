@@ -9,7 +9,7 @@ namespace Content.Client._DV.Silicons;
 [GenerateTypedNameReferences]
 public sealed partial class StationAiFaxWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public event Action? BlankButtonPressed;
     public event Action? FileButtonPressed;

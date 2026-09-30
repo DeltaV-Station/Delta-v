@@ -6,3 +6,16 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 48h
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Skia
+  spawnerPrototype: SpawnPointSkia
+  pickPlayer: false
+  mindRoles:
+  - MindRoleSkia
+  components:
+    - type: EmitSoundOnSpawn
+      sound: /Audio/_DV/Effects/creepyshriek.ogg
+    - type: BreakLightsOnSpawn
+      radius: 10

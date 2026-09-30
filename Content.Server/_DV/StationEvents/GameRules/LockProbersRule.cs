@@ -10,8 +10,8 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class LockProbersRule : StationEventSystem<LockProbersRuleComponent>
 {
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private GlimmerReactiveSystem _glimmerReactiveSystem = default!;
 
     protected override void Started(EntityUid uid, LockProbersRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

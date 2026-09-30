@@ -16,12 +16,12 @@ using Timer = Robust.Shared.Timing.Timer; // DV - used for synth trait delayed d
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
+public sealed partial class IonStormRule : StationEventSystem<IonStormRuleComponent>
 {
-    [Dependency] private readonly IonStormSystem _ionStorm = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!; // CD - Used for synth trait
-    [Dependency] private readonly ElectrocutionSystem _electrocution = default!; // DV - used for synth trait
-    [Dependency] private readonly ESSparksSystem _esSparks = default!; // DV - used for synth trait
+    [Dependency] private IonStormSystem _ionStorm = default!;
+    [Dependency] private IChatManager _chatManager = default!; // CD - Used for synth trait
+    [Dependency] private ElectrocutionSystem _electrocution = default!; // DV - used for synth trait
+    [Dependency] private ESSparksSystem _esSparks = default!; // DV - used for synth trait
 
     protected override void Started(EntityUid uid, IonStormRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

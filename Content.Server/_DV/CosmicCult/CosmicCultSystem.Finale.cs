@@ -14,8 +14,8 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _evac = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private EmergencyShuttleSystem _evac = default!;
 
     /// <summary>
     ///     Used to calculate when the finale song should start playing

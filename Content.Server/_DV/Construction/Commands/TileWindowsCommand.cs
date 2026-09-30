@@ -1,6 +1,7 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Maps;
+using Robust.Shared.Map;
 using Content.Shared.Tag;
 using Robust.Server.Player;
 using Robust.Shared.Console;
@@ -70,6 +71,7 @@ namespace Content.Server.Construction.Commands
 
             var tileDefinitionManager = IoCManager.Resolve<ITileDefinitionManager>();
             var tagSystem = entityManager.EntitySysManager.GetEntitySystem<TagSystem>();
+            var mapSystem = entityManager.System<SharedMapSystem>();
             var underplating = tileDefinitionManager[TilePrototypeId];
             var underplatingTile = new Tile(underplating.TileId);
             var changed = 0;
@@ -98,7 +100,7 @@ namespace Content.Server.Construction.Commands
                     continue;
                 }
 
-                var tile = grid.GetTileRef(childTransform.Coordinates);
+                var tile = mapSystem.GetTileRef((gridId.Value, grid), childTransform.Coordinates);
                 var tileDef = (ContentTileDefinition) tileDefinitionManager[tile.Tile.TypeId];
 
                 if (tileDef.ID == TilePrototypeId)
@@ -106,7 +108,7 @@ namespace Content.Server.Construction.Commands
                     continue;
                 }
 
-                grid.SetTile(childTransform.Coordinates, underplatingTile);
+                mapSystem.SetTile((gridId.Value, grid), childTransform.Coordinates, underplatingTile);
                 changed++;
             }
 

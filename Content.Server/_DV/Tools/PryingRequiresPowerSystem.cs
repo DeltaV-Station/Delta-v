@@ -6,8 +6,8 @@ namespace Content.Server._DV.Tools;
 
 public sealed class PryingRequiresPowerSystem : EntitySystem
 {
-    [Dependency] private readonly PowerCellSystem _cell = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private PowerCellSystem _cell = default!;
+    [Dependency] private BatterySystem _battery = default!;
 
     public override void Initialize()
     {

@@ -14,10 +14,10 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class PsionicNosebleedRule : StationEventSystem<PsionicNosebleedRuleComponent>
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly MobStateSystem _mob = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
+    [Dependency] private MobStateSystem _mob = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPsionicSystem _psionic = default!;
 
     protected override void Started(EntityUid uid, PsionicNosebleedRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

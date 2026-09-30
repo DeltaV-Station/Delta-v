@@ -11,7 +11,7 @@
     - id: UnknownShuttleSyndieEvacPod
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: [BaseUnknownShuttleRule, BaseAntagGhostRoleRule]
   id: SyndicateRecruiter
   components:
   - type: StationEvent
@@ -33,30 +33,12 @@
     - RecruiterKeepPenObjective
   - type: AntagSelection
     agentName: recruiter-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostRecruiter
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: SyndicateRecruiterGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleRecruiter
+    antags:
+    - !type:FixedAntagCount
+      proto: SyndicateRecruiter
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: [BaseUnknownShuttleRule, BaseAntagGhostRoleRule]
   id: SynthesisSpecialist
   components:
   - type: StationEvent
@@ -77,30 +59,13 @@
     - SynthesisPrescribeObjective
   - type: AntagSelection
     agentName: synthesis-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostSynthesis
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateSynthesisGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleSynthesis
+    antags:
+    - !type:FixedAntagCount
+      proto: SynthesisSpecialist
+      count: 2
 
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: [BaseUnknownShuttleRule, BaseAntagGhostRoleRule]
   id: SyndicateArmsdealer
   components:
   - type: StationEvent
@@ -121,31 +86,14 @@
     - ArmsdealerSaleObjective
   - type: AntagSelection
     agentName: armsdealer-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostArmsdealer
-      min: 2
-      max: 2
-      pickPlayer: false
-      startingGear: SyndicateArmsdealerGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleArmsdealer
+    antags:
+    - !type:FixedAntagCount
+      proto: SyndicateArmsdealer
+      count: 2
 
 # Hitman (for the admeme spawn)
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: [BaseUnknownShuttleRule, BaseAntagGhostRoleRule]
   id: HitmanShuttle
   components:
   - type: StationEvent
@@ -170,21 +118,6 @@
     maxDifficulty: 300
   - type: AntagSelection
     agentName: hitman-round-end-agent-name
-    definitions:
-    - spawnerPrototype: SpawnPointGhostHitman
-      min: 1
-      max: 1
-      pickPlayer: false
-      startingGear: HitmanGhostGear
-      roleLoadout:
-      - RoleSurvivalStandard
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesFakeHumanFirst
-        - NamesFakeHumanLast
-        nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
-      mindRoles:
-      - MindRoleHitman
+    antags:
+    - !type:FixedAntagCount
+      proto: ShuttleHitman

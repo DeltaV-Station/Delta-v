@@ -9,10 +9,10 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 
 public sealed class CosmicIngressSystem : EntitySystem
 {
-    [Dependency] private readonly CosmicCultSystem _cult = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private CosmicCultSystem _cult = default!;
+    [Dependency] private DoorSystem _door = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {

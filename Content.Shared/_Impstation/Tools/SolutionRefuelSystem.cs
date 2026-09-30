@@ -15,7 +15,7 @@ public abstract partial class SharedToolSystem
         SubscribeLocalEvent<SolutionRefuelComponent, AfterInteractEvent>(OnSolutionRefuelAfterInteract);
     }
 
-    public (FixedPoint2 fuel, FixedPoint2 capacity) GetSolutionFuelAndCapacity(EntityUid uid, SolutionRefuelComponent? welder = null, SolutionContainerManagerComponent? solutionContainer = null)
+    public (FixedPoint2 fuel, FixedPoint2 capacity) GetSolutionFuelAndCapacity(EntityUid uid, SolutionRefuelComponent? welder = null, SolutionManagerComponent? solutionContainer = null)
     {
         if (!Resolve(uid, ref welder, ref solutionContainer))
             return default;

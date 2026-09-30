@@ -4,10 +4,15 @@
   name: Revert
   description: Revert back into your original form.
   components:
-  #- type: ConfirmableAction # DeltaV - Don't ask for confirmation, affects Kitsune Foxes reverting
-  #  popup: revert-polymorph-action-popup
   - type: InstantAction
     event: !type:RevertPolymorphActionEvent
+
+- type: entity
+  parent: ActionRevertPolymorph
+  id: ActionRevertPolymorphConfirm
+  #components: # DeltaV - Don't ask for confirmation, affects Kitsune Foxes reverting
+  #- type: ConfirmableAction
+  #  popup: revert-polymorph-action-popup
 
 - type: entity
   abstract: true

@@ -10,7 +10,7 @@ namespace Content.Client.Revenant;
 
 public sealed class RevenantRegenModifierSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!; // DV - Not used error
+    [Dependency] private SpriteSystem _sprite = default!; // DV - Not used error
 
     private readonly SpriteSpecifier _witnessIndicator = new SpriteSpecifier.Texture(new ResPath("Interface/Actions/scream.png"));
 

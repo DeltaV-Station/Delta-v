@@ -10,19 +10,14 @@
     sprite: _DV/Structures/Windows/uranium_window.rsi #Delta V - Resprite windows
     state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200 # DeltaV - Increased health cap by 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 90 # DeltaV - Increased health by 15 (more than plasma) 
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -83,13 +78,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100 # DeltaV - Increased health cap by 25 
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50 # DeltaV - Increased health by 13 (more than plasma)
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:

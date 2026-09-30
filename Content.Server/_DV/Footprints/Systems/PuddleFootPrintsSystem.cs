@@ -16,9 +16,9 @@ namespace Content.Server._DV.Footprints.Systems;
 /// </summary>
 public sealed class PuddleFootPrintsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedFlightSystem _flight = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedFlightSystem _flight = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     private EntityQuery<FlightComponent> _flightQuery;
 
@@ -52,7 +52,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         if (!TryComp<PuddleComponent>(puddle, out var puddleComp))
             return;
 
-        if (!TryComp<SolutionContainerManagerComponent>(puddle, out var solutionManager))
+        if (!TryComp<SolutionManagerComponent>(puddle, out var solutionManager))
             return;
 
         if (!_solutionContainer.ResolveSolution((puddle, solutionManager),
@@ -88,7 +88,7 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
         }
 
         // Remove small amount of reagent from puddle
-        _solutionContainer.RemoveEachReagent(puddleComp.Solution.Value, footPrints.AmountToTransfer);
+        _solutionContainer.RemoveEachReagent(puddleComp.Solution!.Value, footPrints.AmountToTransfer);
     }
 
     private void AddColor(Color color, float quantity, FootPrintsComponent component)

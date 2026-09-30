@@ -17,11 +17,11 @@ public sealed class MailToCommand : LocalizedEntityCommands
     public override string Description => Loc.GetString("cmd-mailto-description", ("requiredComponent", nameof(MailReceiverComponent)));
     public override string Help => Loc.GetString("cmd-mailto-help", ("command", Command));
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly MailSystem _mail = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedMailSystem _sharedMail = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private MailSystem _mail = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedMailSystem _sharedMail = default!;
 
     private static readonly EntProtoId BlankMailPrototype = "MailAdminFun";
     private static readonly EntProtoId BlankLargeMailPrototype = "MailLargeAdminFun";
@@ -142,7 +142,7 @@ public sealed class MailNowCommand : LocalizedEntityCommands
     public override string Description => Loc.GetString("cmd-mailnow");
     public override string Help => Loc.GetString("cmd-mailnow-help", ("command", Command));
 
-    [Dependency] private readonly MailSystem _mail = default!;
+    [Dependency] private MailSystem _mail = default!;
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {

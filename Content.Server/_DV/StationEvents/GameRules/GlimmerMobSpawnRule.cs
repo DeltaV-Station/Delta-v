@@ -15,8 +15,8 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class GlimmerMobRule : StationEventSystem<GlimmerMobRuleComponent>
 {
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     protected override void Started(EntityUid uid, GlimmerMobRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

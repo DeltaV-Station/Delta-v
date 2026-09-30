@@ -8,7 +8,7 @@ namespace Content.Server._DV.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class GetPingCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override string Command => "getping";
 

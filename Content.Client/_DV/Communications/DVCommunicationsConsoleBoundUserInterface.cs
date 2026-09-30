@@ -5,7 +5,7 @@ namespace Content.Client._DV.Communications;
 
 public sealed class DVCommunicationsConsoleBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     private DVCommunicationsConsoleMenu? _menu;
 

@@ -6,8 +6,8 @@ namespace Content.Shared._DV.Implants;
 
 public sealed class DVInsertableImplantSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {

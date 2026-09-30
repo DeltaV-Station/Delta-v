@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Weapons.Hitscan.Systems;
 
 public sealed class HitscanTemperatureSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTemperatureSystem _temp = default!;
+    [Dependency] private SharedTemperatureSystem _temp = default!;
 
     public override void Initialize()
     {

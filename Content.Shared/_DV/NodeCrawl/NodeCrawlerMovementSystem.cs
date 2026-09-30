@@ -8,10 +8,10 @@ namespace Content.Shared._DV.NodeCrawl;
 
 public sealed class NodeCrawlerMovementSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedNodeCrawlSystem _nodeCrawl = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedNodeCrawlSystem _nodeCrawl = default!;
 
     public bool TryTick(
         Entity<InputMoverComponent, PhysicsComponent, TransformComponent> sharedMover)

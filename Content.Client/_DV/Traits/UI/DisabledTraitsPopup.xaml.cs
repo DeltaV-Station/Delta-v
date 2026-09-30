@@ -13,8 +13,8 @@ namespace Content.Client._DV.Traits.UI;
 [GenerateTypedNameReferences]
 public sealed partial class DisabledTraitsPopup : FancyWindow
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private bool _initialSkipState;
 

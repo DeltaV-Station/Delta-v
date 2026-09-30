@@ -8,8 +8,8 @@ namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
 
     public override void Initialize()
     {

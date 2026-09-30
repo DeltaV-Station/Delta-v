@@ -7,7 +7,7 @@ namespace Content.Server._DV.Movement;
 
 public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
 {
-    [Dependency] private readonly SharedContentEyeSystem _eye = default!;
+    [Dependency] private SharedContentEyeSystem _eye = default!;
 
     public override void Initialize()
     {

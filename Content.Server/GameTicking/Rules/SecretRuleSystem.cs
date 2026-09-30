@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
-using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared._DV.CCVars; // DeltaV
@@ -17,14 +16,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
+public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
-    [Dependency] private readonly GameTicker _ticker = default!; // begin Imp
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+
+    [Dependency] private IPlayerManager _player = default!; // DeltaV
+    [Dependency] private GameTicker _ticker = default!; // begin Imp
 
     // Dictionary that contains the minimum round number for certain preset
     // prototypes to be allowed to roll again
@@ -64,6 +63,9 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 
         foreach (var rule in preset.Rules)
         {
+            if (GameTicker.IsIgnored(rule))
+                continue;
+
             EntityUid ruleEnt;
 
             // if we're pre-round (i.e. will only be added)
@@ -90,7 +92,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 
     private bool TryPickPreset(ProtoId<WeightedRandomPrototype> weights, [NotNullWhen(true)] out GamePresetPrototype? preset)
     {
-        var options = _prototypeManager.Index(weights).Weights.ShallowClone();
+        var options = ProtoMan.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
         var totalPlayers = _player.PlayerCount; //DeltaV
 
@@ -106,7 +108,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
                 if (accumulated < rand)
                     continue;
 
-                if (!_prototypeManager.TryIndex(key, out selectedPreset))
+                if (!ProtoMan.TryIndex(key, out selectedPreset))
                     Log.Error($"Invalid preset {selectedPreset} in secret rule weights: {weights}");
 
                 options.Remove(key);
@@ -139,7 +141,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     /// </summary>
     public bool CanPickAny(ProtoId<WeightedRandomPrototype> weightedPresets)
     {
-        var ids = _prototypeManager.Index(weightedPresets).Weights.Keys
+        var ids = ProtoMan.Index(weightedPresets).Weights.Keys
             .Select(x => new ProtoId<GamePresetPrototype>(x));
 
         return CanPickAny(ids);
@@ -154,7 +156,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         var totalPlayers = _player.PlayerCount; //DeltaV
         foreach (var id in protos)
         {
-            if (!_prototypeManager.TryIndex(id, out var selectedPreset))
+            if (!ProtoMan.TryIndex(id, out var selectedPreset))
                 Log.Error($"Invalid preset {selectedPreset} in secret rule weights: {id}");
 
             if (CanPick(selectedPreset, players, totalPlayers)) // DeltaV - total playercount
@@ -172,21 +174,6 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         if (selected == null)
             return false;
 
-        foreach (var ruleId in selected.Rules)
-        {
-            if (!_prototypeManager.TryIndex(ruleId, out EntityPrototype? rule)
-                || !rule.TryGetComponent(_ruleCompName, out GameRuleComponent? ruleComp))
-            {
-                Log.Error($"Encountered invalid rule {ruleId} in preset {selected.ID}");
-                return false;
-            }
-
-            if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
-                return false;
-
-            if (ruleComp.MinTotalPlayers > totalPlayers) return false; // DeltaV
-        }
-
         if (_configurationManager.GetCVar(DCCVars.EnablePresetCooldowns)) // DeltaV
         {
             if (_nextRoundAllowed.ContainsKey(selected.ID) && _nextRoundAllowed[selected.ID] > _ticker.RoundId) // Begin Imp
@@ -196,6 +183,6 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             } // End Imp
         } // DeltaV
 
-        return true;
+        return players >= GameTicker.GetMinimumPlayerCount(selected);
     }
 }

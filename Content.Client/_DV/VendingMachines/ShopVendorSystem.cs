@@ -7,8 +7,8 @@ namespace Content.Client._DV.VendingMachines;
 
 public sealed class ShopVendorSystem : SharedShopVendorSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

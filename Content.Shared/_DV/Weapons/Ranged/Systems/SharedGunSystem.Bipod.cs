@@ -12,7 +12,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
+    [Dependency] private ActionContainerSystem _actionContainerSystem = default!;
 
     private void InitializeBipods()
     {

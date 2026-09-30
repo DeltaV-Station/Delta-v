@@ -16,8 +16,8 @@ namespace Content.Shared.Weapons.Ranged.Upgrades;
 /// </summary>
 public sealed partial class GunUpgradeSystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     public static readonly ProtoId<ToolQualityPrototype> ExtractQuality = "Prying";
 

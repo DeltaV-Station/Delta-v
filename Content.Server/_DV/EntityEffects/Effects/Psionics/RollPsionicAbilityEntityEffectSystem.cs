@@ -11,7 +11,7 @@ namespace Content.Server._DV.EntityEffects.Effects.Psionics;
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class RollPsionicAbilityEntityEffectSystem : EntityEffectSystem<PotentialPsionicComponent, RollPsionicAbility>
 {
-    [Dependency] private readonly PsionicSystem _psionic = default!;
+    [Dependency] private PsionicSystem _psionic = default!;
     protected override void Effect(Entity<PotentialPsionicComponent> psionic, ref EntityEffectEvent<RollPsionicAbility> args)
     {
         _psionic.TryRollPsionic(psionic, args.Effect.BonusMultiplier);

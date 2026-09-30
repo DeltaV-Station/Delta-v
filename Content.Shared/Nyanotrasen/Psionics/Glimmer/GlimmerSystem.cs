@@ -10,7 +10,7 @@ namespace Content.Shared.Psionics.Glimmer
     /// </summary>
     public sealed class GlimmerSystem : EntitySystem
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
         private int _glimmer = 0;
         public int Glimmer
         {

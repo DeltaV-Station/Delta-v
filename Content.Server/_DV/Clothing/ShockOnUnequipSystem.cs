@@ -13,8 +13,8 @@ namespace Content.Server._DV.Clothing;
 /// </summary>
 public sealed class ShockOnUnequipSystem : SharedShockOnUnequipSystem
 {
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
 
     public override void Initialize()
     {
@@ -28,12 +28,12 @@ public sealed class ShockOnUnequipSystem : SharedShockOnUnequipSystem
         if (TryComp<ClothingComponent>(entity, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
 
-        if (entity.Comp.UseAccess && _accessReaderSystem.IsAllowed(args.Unequipee, args.Equipment))
+        if (entity.Comp.UseAccess && _accessReaderSystem.IsAllowed(args.UnEquipTarget, args.Equipment))
         {
             return;
         }
 
-        var wasStunned = _electrocutionSystem.TryDoElectrocution(args.Unequipee, args.Equipment, entity.Comp.Damage, entity.Comp.Duration, true);
+        var wasStunned = _electrocutionSystem.TryDoElectrocution(args.UnEquipTarget, args.Equipment, entity.Comp.Damage, entity.Comp.Duration, true);
         if (wasStunned)
         {
             args.Cancel();

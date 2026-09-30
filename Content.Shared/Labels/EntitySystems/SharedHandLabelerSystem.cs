@@ -12,19 +12,18 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.Labels.EntitySystems;
 
-public abstract class SharedHandLabelerSystem : EntitySystem
+public abstract partial class SharedHandLabelerSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedUserInterfaceSystem UserInterfaceSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly LabelSystem _labelSystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] protected SharedUserInterfaceSystem UserInterfaceSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private LabelSystem _labelSystem = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // DeltaV
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string PreventTag = "PreventLabel";
-
+    [ValidatePrototypeId<TagPrototype>] // DeltaV
+    private const string PreventTag = "PreventLabel"; // DeltaV
 
     public override void Initialize()
     {
@@ -107,6 +106,7 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
         var user = args.User;   // can't use ref parameter in lambdas
 
+        // Don't add the Label verb if the labeler's text is blank.
         if (ent.Comp.AssignedLabel != string.Empty)
         {
             var labelVerb = new UtilityVerb()
@@ -121,18 +121,22 @@ public abstract class SharedHandLabelerSystem : EntitySystem
             args.Verbs.Add(labelVerb);
         }
 
-        // add the unlabel verb to the menu even when the labeler has text
-        var unLabelVerb = new UtilityVerb()
+        // Add the Remove Label verb whether or not the labeler's text is blank,
+        // but only if the target is already labeled.
+        if (_labelSystem.HasLabel(target))
         {
-            Act = () =>
+            var unLabelVerb = new UtilityVerb()
             {
-                RemoveLabelFrom(ent, user, target);
-            },
-            Text = Loc.GetString("hand-labeler-remove-label-text"),
-            Priority = -1,
-        };
+                Act = () =>
+                {
+                    RemoveLabelFrom(ent, user, target);
+                },
+                Text = Loc.GetString("hand-labeler-remove-label-text"),
+                Priority = -1,
+            };
 
-        args.Verbs.Add(unLabelVerb);
+            args.Verbs.Add(unLabelVerb);
+        }
     }
 
     private void AfterInteractOn(Entity<HandLabelerComponent> ent, ref AfterInteractEvent args)

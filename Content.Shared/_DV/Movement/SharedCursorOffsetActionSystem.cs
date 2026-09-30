@@ -4,7 +4,7 @@ namespace Content.Shared._DV.Movement;
 
 public abstract class SharedCursorOffsetActionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

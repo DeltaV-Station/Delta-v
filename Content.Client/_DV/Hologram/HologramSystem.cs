@@ -7,9 +7,9 @@ namespace Content.Client._DV.Hologram;
 
 public sealed class HologramSystem : SharedHologramSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly OccluderSystem _occluder = default!;
-    [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private OccluderSystem _occluder = default!;
+    [Dependency] private EntityManager _entMan = default!;
 
     private static readonly ProtoId<ShaderPrototype> HologramProto = "HologramDeltaV";
     private ShaderInstance _shader = default!;

@@ -6,7 +6,7 @@ namespace Content.Server._DV.Projectiles.Systems;
 
 public sealed class PiercingProjectileSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     // Mobs return a required Damage amount of Float.MaxValue. Therefore, we need to check for absurdly high values.
     private readonly int _indestructibleNumber = 20000000;

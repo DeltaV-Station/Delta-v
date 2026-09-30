@@ -17,7 +17,7 @@ namespace Content.Server._Goobstation.Devil.Contract;
 
 public sealed partial class DevilContractSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
 
     private void InitializeSpecialActions()
     {

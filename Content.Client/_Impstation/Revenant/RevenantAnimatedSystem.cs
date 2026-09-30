@@ -5,7 +5,7 @@ namespace Content.Client.Revenant;
 
 public sealed class RevenantAnimatedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private SharedPointLightSystem _lights = default!;
 
     public override void Initialize()
     {

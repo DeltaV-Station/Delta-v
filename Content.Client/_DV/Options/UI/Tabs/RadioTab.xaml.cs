@@ -11,7 +11,7 @@ namespace Content.Client._DV.Options.UI.Tabs;
 [GenerateTypedNameReferences]
 public sealed partial class RadioTab : Control
 {
-    [Dependency] private readonly IConfigurationManager _config = default!; // DeltaV
+    [Dependency] private IConfigurationManager _config = default!; // DeltaV
 
     public RadioTab()
     {

@@ -13,7 +13,7 @@ namespace Content.Client._Goobstation.Factory.UI;
 [GenerateTypedNameReferences]
 public sealed partial class StackFilterWindow : FancyWindow
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private EntityManager _entMan = default!;
 
     public event Action<int>? OnSetMin;
     public event Action<int>? OnSetSize;

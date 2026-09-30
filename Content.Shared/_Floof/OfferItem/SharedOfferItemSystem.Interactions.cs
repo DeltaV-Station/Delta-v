@@ -11,8 +11,8 @@ namespace Content.Shared._Floof.OfferItem;
 
 public abstract partial class SharedOfferItemSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
 
     private void InitializeInteractions()

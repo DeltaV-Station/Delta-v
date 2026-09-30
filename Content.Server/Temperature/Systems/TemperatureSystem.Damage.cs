@@ -20,15 +20,15 @@ namespace Content.Server.Temperature.Systems;
 /// </summary>
 public sealed partial class TemperatureSystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
-    private EntityQuery<TemperatureDamageComponent> _tempDamageQuery;
-    private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery;
-    private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery;
-    private EntityQuery<TemperatureImmunityComponent> _immuneQuery; // DeltaV
+    [Dependency] private EntityQuery<TemperatureDamageComponent> _tempDamageQuery = default!;
+    [Dependency] private EntityQuery<ContainerTemperatureComponent> _containerTemperatureQuery = default!;
+    [Dependency] private EntityQuery<ThermalRegulatorComponent> _thermalRegulatorQuery = default!;
+    [Dependency] private EntityQuery<TemperatureImmunityComponent> _immuneQuery = default!; // DeltaV
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -63,11 +63,6 @@ public sealed partial class TemperatureSystem
         SubscribeLocalEvent<TemperatureDamageComponent, EntParentChangedMessage>(OnParentChange);
         SubscribeLocalEvent<ContainerTemperatureComponent, ComponentStartup>(OnParentThresholdStartup);
         SubscribeLocalEvent<ContainerTemperatureComponent, ComponentShutdown>(OnParentThresholdShutdown);
-
-        _tempDamageQuery = GetEntityQuery<TemperatureDamageComponent>();
-        _containerTemperatureQuery = GetEntityQuery<ContainerTemperatureComponent>();
-        _thermalRegulatorQuery = GetEntityQuery<ThermalRegulatorComponent>();
-        _immuneQuery = GetEntityQuery<TemperatureImmunityComponent>(); // DeltaV
     }
 
     private void UpdateDamage()

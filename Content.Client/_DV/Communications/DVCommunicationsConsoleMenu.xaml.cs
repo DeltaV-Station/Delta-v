@@ -18,8 +18,8 @@ namespace Content.Client._DV.Communications;
 [GenerateTypedNameReferences]
 public sealed partial class DVCommunicationsConsoleMenu : FancyWindow
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     private readonly SharedStationSystem _station;
 

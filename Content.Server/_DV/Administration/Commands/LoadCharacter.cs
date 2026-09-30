@@ -21,9 +21,9 @@ namespace Content.Server._DV.Administration.Commands;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class LoadCharacter : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IServerPreferencesManager _prefs = default!;
 
     public string Command => "loadcharacter";
     public string Description => Loc.GetString("loadcharacter-command-description");

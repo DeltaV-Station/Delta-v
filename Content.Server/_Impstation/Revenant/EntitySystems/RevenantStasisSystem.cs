@@ -27,15 +27,15 @@ namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantStasisSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly GhostRoleSystem _ghostRoles = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private GhostRoleSystem _ghostRoles = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private TagSystem _tags = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string RevenantStasisId = "Stasis";

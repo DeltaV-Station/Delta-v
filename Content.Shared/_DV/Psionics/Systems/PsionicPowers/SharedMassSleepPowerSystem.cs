@@ -9,7 +9,7 @@ namespace Content.Shared._DV.Psionics.Systems.PsionicPowers;
 
 public abstract class SharedMassSleepPowerSystem : BasePsionicPowerSystem<MassSleepPowerComponent, MassSleepPowerActionEvent>
 {
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstreamSystem = default!;
 
     public override void Update(float frameTime)
     {

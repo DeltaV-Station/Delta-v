@@ -9,6 +9,35 @@
   - !type:OverallPlaytimeRequirement
     time: 12h # DeltaV - was 1h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: InitialInfected
+  prefRoles: [ InitialInfected ]
+  blacklist:
+    components:
+    - ZombieImmune
+    - AntagImmune
+  briefing:
+    text: zombie-bioterrorist-role-greeting # DeltaV: Different greeting
+    color: Plum
+    sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+  components:
+  - type: PendingZombie #less time to prepare than normal
+    minInitialInfectedGrace: 300
+    maxInitialInfectedGrace: 450
+  - type: AutoImplant # DeltaV: Let them communicate to come up with a plan of action
+    implants:
+    - RadioSyndicateImplant
+  # Begin DeltaV Removals: Moved to DelayedRule above
+  #- type: PendingZombie
+  #- type: ZombifyOnDeath
+  #- type: IncurableZombie
+  # End DeltaV Removals
+  mindRoles:
+  - MindRoleInitialInfected
+
+# TODO: Make it so creating new zombies uses antag prototypes! This saves a *lot* of boilerplate for conversion antags.
+
 - type: antag
   id: Zombie
   name: roles-antag-zombie-name

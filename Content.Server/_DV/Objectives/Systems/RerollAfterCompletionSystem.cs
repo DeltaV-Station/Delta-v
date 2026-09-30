@@ -11,10 +11,10 @@ namespace Content.Server._DV.Objectives.Systems;
 
 public sealed class RerollAfterCompletionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private JobSystem _job = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     private readonly HashSet<RerollAfterCompletionComponent> _objectivesToAdd = new();
 

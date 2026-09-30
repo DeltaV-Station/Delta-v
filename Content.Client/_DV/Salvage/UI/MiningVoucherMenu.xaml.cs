@@ -13,8 +13,8 @@ namespace Content.Client._DV.Salvage.UI;
 [GenerateTypedNameReferences]
 public sealed partial class MiningVoucherMenu : RadialMenu
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly SpriteSystem _sprite;
 

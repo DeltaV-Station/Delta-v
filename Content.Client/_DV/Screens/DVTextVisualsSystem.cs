@@ -6,10 +6,10 @@ namespace Content.Client._DV.Screens;
 
 public sealed class DVTextVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IResourceCache _resource = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IResourceCache _resource = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
 
     private DVTextRenderingOverlay _textRendering = default!;
 

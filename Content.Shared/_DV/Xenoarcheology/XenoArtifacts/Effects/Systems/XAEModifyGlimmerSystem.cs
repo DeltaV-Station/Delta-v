@@ -6,7 +6,7 @@ namespace Content.Shared._DV.Xenoarcheology.XenoArtifacts.Effects.Systems;
 
 public sealed class XAEModifyGlimmerSystem : EntitySystem
 {
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] private GlimmerSystem _glimmer = default!;
 
     public override void Initialize()
     {

@@ -13,9 +13,9 @@ namespace Content.Server._DV.Psionics.Systems.PsionicPowers;
 
 public sealed class MassSleepPowerSystem : SharedMassSleepPowerSystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private MovementModStatusSystem _movementMod = default!;
 
     public static readonly EntProtoId MassSleepSlowdown = "MassSleepSlowdownStatusEffect";
     public static readonly EntProtoId MassSleepStatusEffect = "MassSleepForcedSleepStatusEffect";

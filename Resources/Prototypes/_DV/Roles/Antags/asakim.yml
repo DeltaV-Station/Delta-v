@@ -6,3 +6,28 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 48h
+
+# Begin DeltaV Additions
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Asakim
+  spawnerPrototype: SpawnPointGhostAsakim
+  pickPlayer: false
+  startingGear: AsakimGear
+  roleLoadout:
+  - RoleSurvivalStandard # maybe remove this
+  briefing:
+    text: asakim-role-briefing
+    color: "#5085fa"
+    sound: "/Audio/_DV/Ambience/Antag/asakimbriefing.ogg"
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  #- type: PsionicBonusChance # uncomment when psionics are cool
+  #  multiplier: 999 # no way to guarentee random psionics so. next best thing
+  mindRoles:
+  - MindRoleAsakim
+# End DeltaV Additions

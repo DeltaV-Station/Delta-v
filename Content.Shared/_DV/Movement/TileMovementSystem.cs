@@ -18,13 +18,13 @@ namespace Content.Shared._DV.Movement;
 
 public sealed class TileMovementSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<TileMovementComponent> _query;
     private EntityQuery<FixturesComponent> _fixturesQuery;
@@ -391,7 +391,7 @@ public sealed class TileMovementSystem : EntitySystem
     /// </summary>
     private void ForceSnapToTile(Entity<PhysicsComponent, TransformComponent> target)
     {
-        var coords = target.Comp2.Coordinates.SnapToGrid(EntityManager, _map);
+        var coords = target.Comp2.Coordinates.SnapToGrid(EntityManager);
         _transform.SetCoordinates(target, target.Comp2, coords);
         _physics.WakeBody(target, body: target.Comp1);
     }

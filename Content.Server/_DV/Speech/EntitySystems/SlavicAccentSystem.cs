@@ -7,8 +7,8 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class SlavicAccentSystem : EntitySystem
 {
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     // Sound replacement regexes
     private static readonly Regex ThToZVowelRegex = new(@"\bTh(?=[aeiou])", RegexOptions.Compiled);

@@ -5,7 +5,7 @@ namespace Content.Server._DV.Pager;
 
 public sealed class PagerButtonSystem : SharedPagerButtonSystem
 {
-    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
 
     protected override string Location(Entity<PagerButtonComponent> ent)
     {

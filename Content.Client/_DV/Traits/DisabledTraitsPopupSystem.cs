@@ -11,7 +11,7 @@ namespace Content.Client._DV.Traits;
 /// </summary>
 public sealed class DisabledTraitsPopupSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private DisabledTraitsPopup? _window;
 

@@ -15,14 +15,14 @@ namespace Content.Shared._ES.Sparks;
 
 public sealed partial class ESSparksSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly ESPreventCollideSystem _preventCollide = default!;
-    // [Dependency] private readonly ESSharedTileFireSystem _tileFire = default!; // DeltaV - we don't have tilefires
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private ESPreventCollideSystem _preventCollide = default!;
+    // [Dependency] private ESSharedTileFireSystem _tileFire = default!; // DeltaV - we don't have tilefires
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public static readonly EntProtoId DefaultSparks = "ESEffectSparks";
 

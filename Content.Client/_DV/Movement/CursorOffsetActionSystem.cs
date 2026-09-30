@@ -7,7 +7,7 @@ namespace Content.Client._DV.Movement;
 
 public sealed class CursorOffsetActionSystem : SharedCursorOffsetActionSystem
 {
-    [Dependency] private readonly IClientGameTiming _gameTiming = default!;
+    [Dependency] private IClientGameTiming _gameTiming = default!;
 
     protected override void OnInit(Entity<CursorOffsetActionComponent> ent, ref ComponentInit args)
     {

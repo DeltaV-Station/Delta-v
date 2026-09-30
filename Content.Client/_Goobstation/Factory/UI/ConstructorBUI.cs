@@ -21,7 +21,7 @@ namespace Content.Client._Goobstation.Factory.UI;
 
 public sealed class ConstructorBUI : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     private readonly ConstructionSystem _construction;
     private readonly EntityWhitelistSystem _whitelist;
     private readonly SpriteSystem _sprite;
@@ -53,13 +53,13 @@ public sealed class ConstructorBUI : BoundUserInterface
         _menu.RecipeSelected += (_, item) =>
         {
             _menu.ClearRecipeInfo();
-            if (item != null && item.Prototype != null)
+            if (item != null && item.ConstructionProto != null)
             {
-                _id = item.Prototype.ID;
-                _menu.SetRecipeInfo(item.Prototype.Name ?? "", item.Prototype.Description ?? "", item?.TargetPrototype,
-                    item!.Prototype.Type != ConstructionType.Item, true); // TODO: favourites
+                _id = item.ConstructionProto.ID;
+                _menu.SetRecipeInfo(item.ConstructionProto.Name ?? "", item.ConstructionProto.Description ?? "", item?.EntityProto,
+                    item!.ConstructionProto.Type != ConstructionType.Item, true); // TODO: favourites
 
-                GenerateStepList(item.Prototype);
+                GenerateStepList(item.ConstructionProto);
             }
             else
             {
@@ -157,13 +157,13 @@ public sealed class ConstructorBUI : BoundUserInterface
             _recipes.Add(new(recipe, proto));
         }
 
-        _recipes.Sort((a, b) => string.Compare(a.Prototype.Name, b.Prototype.Name, StringComparison.InvariantCulture));
+        _recipes.Sort((a, b) => string.Compare(a.EntityProto.Name, b.EntityProto.Name, StringComparison.InvariantCulture));
 
-        var recipesList = menu.Recipes;
+        var recipesList = menu.ListViewRecipes;
         recipesList.PopulateList(_recipes);
 
-        menu.RecipesGridScrollContainer.Visible = false;
-        menu.Recipes.Visible = true;
+        menu.GridViewRecipesScrollContainer.Visible = false;
+        menu.ListViewRecipes.Visible = true;
     }
 
     private void GenerateStepList(ConstructionPrototype proto)

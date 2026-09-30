@@ -14,12 +14,12 @@ namespace Content.Shared._DV.Communications;
 
 public abstract class SharedDVCommunicationsConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] protected readonly AccessReaderSystem AccessReader = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
-    [Dependency] private readonly SharedDVStationKeycardAuthenticationDeviceSystem _stationKeycardAuthenticationDevice = default!;
+    [Dependency] private SharedDeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] protected AccessReaderSystem AccessReader = default!;
+    [Dependency] protected ISharedAdminLogManager AdminLog = default!;
+    [Dependency] private SharedDVStationKeycardAuthenticationDeviceSystem _stationKeycardAuthenticationDevice = default!;
 
     public override void Initialize()
     {
@@ -76,7 +76,7 @@ public abstract class SharedDVCommunicationsConsoleSystem : EntitySystem
         if (!AccessReader.IsAllowed(args.Actor, ent))
             return;
 
-        var identity = new TryGetIdentityShortInfoEvent(ent, args.Actor);
+        var identity = new TryGetIdentityShortInfoEvent(ent, args.Actor, false);
         RaiseLocalEvent(identity);
 
         Loc.TryGetString(ent.Comp.AnnouncementTitle, out var title);

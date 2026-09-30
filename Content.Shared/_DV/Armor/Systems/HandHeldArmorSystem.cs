@@ -15,8 +15,8 @@ namespace Content.Shared._DV.Armor.Systems;
 /// </summary>
 public sealed class HandHeldArmorSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     /// <inheritdoc />
     public override void Initialize()

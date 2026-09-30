@@ -15,10 +15,10 @@ namespace Content.Server._DV.StationEvents.GameRules;
 /// </summary>
 internal sealed class NoosphericSilenceRule : StationEventSystem<NoosphericSilenceRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPsionicSystem _psionic = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPsionicSystem _psionic = default!;
+    [Dependency] private StatusEffectsSystem _statusEffectsSystem = default!;
 
     protected override void Started(EntityUid uid, NoosphericSilenceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

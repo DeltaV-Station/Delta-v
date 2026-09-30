@@ -10,7 +10,7 @@ namespace Content.Shared._DV.EntityConditions.Conditions;
 /// <inheritdoc cref="EntityConditionSystem{T, TCondition}"/>
 public sealed partial class HasComponentsConditionSystem : EntityConditionSystem<MetaDataComponent, HasComponentCondition>
 {
-    [Dependency] private readonly EntityManager _ent = default!;
+    [Dependency] private EntityManager _ent = default!;
 
     protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HasComponentCondition> args)
     {

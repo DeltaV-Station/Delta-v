@@ -17,6 +17,7 @@ internal sealed class FreeProberRule : StationEventSystem<FreeProberRuleComponen
     [Dependency] private readonly AnchorableSystem _anchorable = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private static readonly string ProberPrototype = "GlimmerProber";
     private static readonly int SpawnDirections = 4;
@@ -61,7 +62,7 @@ internal sealed class FreeProberRule : StationEventSystem<FreeProberRuleComponen
                 if (CompOrNull<MapGridComponent>(gridUid) is not {} grid)
                     continue;
 
-                var tileIndices = grid.TileIndicesFor(coordinates);
+                var tileIndices = _map.TileIndicesFor((gridUid!.Value, grid), coordinates);
 
                 for (var i = 0; i < SpawnDirections; i++)
                 {
@@ -72,7 +73,7 @@ internal sealed class FreeProberRule : StationEventSystem<FreeProberRuleComponen
                     if (!_anchorable.TileFree(grid, offsetIndices))
                         continue;
 
-                    Spawn(ProberPrototype, grid.GridTileToLocal(offsetIndices));
+                    Spawn(ProberPrototype, _map.GridTileToLocal(gridUid!.Value, grid, offsetIndices));
                     return;
                 }
             }

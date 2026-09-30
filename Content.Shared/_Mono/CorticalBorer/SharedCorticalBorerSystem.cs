@@ -19,15 +19,15 @@ namespace Content.Shared._Mono.CorticalBorer;
 
 public abstract class SharedCorticalBorerSystem : EntitySystem
 {
-    // [Dependency] private readonly BodySystem _bodySystem = default!; // Delta V - Not used
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] protected readonly SharedPopupSystem _popup = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] protected readonly SharedActionsSystem _actions = default!;
-    [Dependency] protected readonly SharedContainerSystem _container = default!;
+    // [Dependency] private BodySystem _bodySystem = default!; // Delta V - Not used
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] protected SharedPopupSystem _popup = default!;
+    [Dependency] protected SharedUserInterfaceSystem _ui = default!;
+    [Dependency] protected SharedActionsSystem _actions = default!;
+    [Dependency] protected SharedContainerSystem _container = default!;
 
     public bool CanUseAbility(Entity<CorticalBorerComponent> ent, EntityUid target)
     {

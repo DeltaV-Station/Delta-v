@@ -24,7 +24,6 @@
           amount: 2
         - id: BoxCleanerGrenades
         - id: WireBrush
-          amount: 2
 
 - type: entity
   parent: CratePlastic
@@ -233,6 +232,7 @@
         - id: RubberStampApproved
         - id: RubberStampDenied
         # End DeltaV - More folders & colored paper reams in the bureaucracy crate + denied/approved stamp, low chance of paperwork hater stamp
+        - id: DeskBell
 
 - type: entity
   parent: CrateGenericSteel

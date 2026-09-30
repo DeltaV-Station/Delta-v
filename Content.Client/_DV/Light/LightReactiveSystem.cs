@@ -5,7 +5,7 @@ namespace Content.Client._DV.Light;
 
 public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     private readonly HashSet<Entity<PointLightComponent>> _lightsInRange = new();
     private readonly HashSet<Entity<SharedPointLightComponent>> _validLightsInRange = new();

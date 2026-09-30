@@ -21,10 +21,10 @@ namespace Content.Client.Silicons.Borgs;
 [GenerateTypedNameReferences]
 public sealed partial class BorgSelectTypeMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!; // DeltaV
-    [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    private readonly BorgSwitchableTypeSystem _borgSwitchable; // DeltaV
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entMan = default!; // DeltaV
+    [Dependency] private IPlayerManager _player = default!; // DeltaV
+    private BorgSwitchableTypeSystem _borgSwitchable; // DeltaV
 
     private BorgTypePrototype? _selectedBorgType;
 

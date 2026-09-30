@@ -10,8 +10,8 @@ namespace Content.Server._DV.CosmicCult.Abilities.Colossus;
 
 public sealed class CosmicColossusBuffsSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

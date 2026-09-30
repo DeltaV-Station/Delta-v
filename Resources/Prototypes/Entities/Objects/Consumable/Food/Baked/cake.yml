@@ -2,7 +2,7 @@
 # Base
 
 - type: entity
-  parent: FoodInjectableBase
+  parent: [SolutionNormal, FoodInjectableBase]
   id: FoodCakeBase
   abstract: true
   components:
@@ -11,15 +11,15 @@
       - sweet
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/cake.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55 # flavored cakes have less room for spiking
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40
-        - ReagentId: Vitamin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 10
   - type: Item
     size: Normal
   - type: Tag
@@ -40,7 +40,7 @@
       stash: !type:ContainerSlot {}
 
 - type: entity
-  parent: FoodCakeBase
+  parent: [SolutionVeryTiny, FoodCakeBase]
   id: FoodCakeSliceBase
   abstract: true
   description: Just a slice of cake, it is enough for everyone.
@@ -49,15 +49,15 @@
     flavors:
       - sweet
   - type: Edible
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: Sugar
+        Quantity: 1.25
   - type: Item
     size: Tiny
   - type: Tag
@@ -69,7 +69,7 @@
 
 - type: entity
   name: blueberry cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBlueberry
   description: Stains your teeth.
   components:
@@ -78,8 +78,10 @@
     - state: plain
     - state: alpha-filling
       color: blue
-  - type: SliceableFood
-    slice: FoodCakeBlueberrySlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBlueberrySlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -126,7 +128,7 @@
 
 - type: entity
   name: cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakePlain
   description: A plain cake, not a lie.
   components:
@@ -135,17 +137,6 @@
     node: start
   - type: Sprite
     state: plain
-  - type: SliceableFood
-    slice: FoodCakePlainSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Vitamin
-          Quantity: 5
   - type: Item
     heldPrefix: plain
   # Floof section - Add tiered cakes
@@ -153,6 +144,10 @@
     tags:
       - CakeBase
   # Floof section end
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakePlainSlice
+      amount: 8
 
 # Added in type lines above
 
@@ -163,40 +158,35 @@
   components:
   - type: Sprite
     state: plain-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 1
   - type: Item
     heldPrefix: plain-slice
 # Tastes like sweetness, cake.
 
 - type: entity
   name: carrot cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeCarrot
   description: A favorite desert of a certain wascally wabbit.
   components:
   - type: Sprite
     state: carrot
-  - type: SliceableFood
-    slice: FoodCakeCarrotSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: JuiceCarrot
-          Quantity: 15
-        - ReagentId: Sugar
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeCarrotSlice
+      amount: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 24
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: JuiceCarrot
+        Quantity: 10
+      - ReagentId: Oculine
+        Quantity: 6
   - type: Tag
     tags:
     - Cake
@@ -222,17 +212,19 @@
   components:
   - type: Sprite
     state: carrot-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: JuiceCarrot
-          Quantity: 3
-        - ReagentId: Sugar
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 3
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: JuiceCarrot
+        Quantity: 1.25
+      - ReagentId: Oculine
+        Quantity: 0.75
   - type: Tag
     tags:
     - Cake
@@ -255,14 +247,16 @@
 
 - type: entity
   name: brain cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBrain
   description: A squishy cake-thing.
   components:
   - type: Sprite
     state: brain
-  - type: SliceableFood
-    slice: FoodCakeBrainSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBrainSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -309,14 +303,16 @@
 
 - type: entity
   name: cheese cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeCheese
   description: DANGEROUSLY cheesy.
   components:
   - type: Sprite
     state: cheese
-  - type: SliceableFood
-    slice: FoodCakeCheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeCheeseSlice
+      amount: 8
   - type: Item
     inhandVisuals:
       left:
@@ -350,7 +346,7 @@
 
 - type: entity
   name: orange cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeOrange
   description: A cake with added orange.
   components:
@@ -359,8 +355,10 @@
     - state: plain
     - state: alpha-filling
       color: "#ff9900"
-  - type: SliceableFood
-    slice: FoodCakeOrangeSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeOrangeSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -405,7 +403,7 @@
 
 - type: entity
   name: lime cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeLime
   description: A cake with added lime.
   components:
@@ -414,8 +412,10 @@
     - state: plain
     - state: alpha-filling
       color: "#00ff00"
-  - type: SliceableFood
-    slice: FoodCakeLimeSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeLimeSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -460,7 +460,7 @@
 
 - type: entity
   name: lemon cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeLemon
   description: A cake with added lemon.
   components:
@@ -469,8 +469,10 @@
     - state: plain
     - state: alpha-filling
       color: "#ffff00"
-  - type: SliceableFood
-    slice: FoodCakeLemonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeLemonSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -515,7 +517,7 @@
 
 - type: entity
   name: lemoon cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeLemoon
   description: A cake that represents the moon of earth.
   components:
@@ -525,19 +527,23 @@
     flavors:
       - lemoon
       - berry
-  - type: SliceableFood
-    slice: FoodCakeLemoonSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 70
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40
-        - ReagentId: Vitamin
-          Quantity: 20
-        - ReagentId: Milk
-          Quantity: 10
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeLemoonSlice
+      amount: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 64
+      - ReagentId: Vitamin
+        Quantity: 20
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Milk
+        Quantity: 10
+      - ReagentId: JuiceBerry
+        Quantity: 6
   - type: Tag
     tags:
     - Cake
@@ -557,17 +563,19 @@
     flavors:
       - lemoon
       - berry
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Milk
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8
+      - ReagentId: Vitamin
+        Quantity: 2.5
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Milk
+        Quantity: 1.25
+      - ReagentId: JuiceBerry
+        Quantity: 0.75
   - type: Tag
     tags:
     - Cake
@@ -588,7 +596,7 @@
 
 - type: entity
   name: chocolate cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeChocolate
   description: A cake with added chocolate.
   components:
@@ -596,19 +604,23 @@
     layers:
     - state: alpha
       color: "#ba672e"
-  - type: SliceableFood
-    slice: FoodCakeChocolateSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeChocolateSlice
+      amount: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 16
+      - ReagentId: CocoaPowder
+        Quantity: 8
+      - ReagentId: Theobromine
+        Quantity: 8
   - type: Item
     inhandVisuals:
       left:
@@ -627,17 +639,19 @@
     layers:
     - state: alpha-slice
       color: "#ba672e"
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: Sugar
+        Quantity: 2
+      - ReagentId: CocoaPowder
+        Quantity: 1
+      - ReagentId: Theobromine
+        Quantity: 1
   - type: Item
     inhandVisuals:
       left:
@@ -650,7 +664,7 @@
 
 - type: entity
   name: apple cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeApple
   description: A cake centred with apple.
   components:
@@ -659,8 +673,10 @@
     - state: plain
     - state: alpha-filling
       color: "#ff4300"
-  - type: SliceableFood
-    slice: FoodCakeAppleSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeAppleSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -707,14 +723,16 @@
 
 - type: entity
   name: slime cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeSlime
   description: A cake made of slimes. Probably not electrified.
   components:
   - type: Sprite
     state: slime
-  - type: SliceableFood
-    slice: FoodCakeSlimeSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeSlimeSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -761,23 +779,25 @@
 
 - type: entity
   name: pumpkin-spice cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakePumpkin
   description: A hollow cake with real pumpkin.
   components:
   - type: Sprite
     state: pumpkinspice
-  - type: SliceableFood
-    slice: FoodCakePumpkinSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 60
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 35
-        - ReagentId: Vitamin
-          Quantity: 15
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakePumpkinSlice
+      amount: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 84
+      - ReagentId: Vitamin
+        Quantity: 16
+      - ReagentId: Sugar
+        Quantity: 10
   - type: Tag
     tags:
     - Cake
@@ -801,15 +821,15 @@
   components:
   - type: Sprite
     state: pumpkinspice-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.5
+      - ReagentId: Vitamin
+        Quantity: 2
+      - ReagentId: Sugar
+        Quantity: 1.25
   - type: Tag
     tags:
     - Cake
@@ -829,14 +849,16 @@
 
 - type: entity
   name: christmas cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeChristmas
   description: A cake made of christmas.
   components:
   - type: Sprite
     state: christmas
-  - type: SliceableFood
-    slice: FoodCakeChristmasSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeChristmasSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -874,14 +896,16 @@
 
 - type: entity
   name: birthday cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBirthday
   description: Happy Birthday little clown...
   components:
   - type: Sprite
     state: birthday
-  - type: SliceableFood
-    slice: FoodCakeBirthdaySlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBirthdaySlice
+      amount: 8
   - type: Item
     heldPrefix: birthday
 
@@ -899,25 +923,16 @@
 
 - type: entity
   name: vanilla cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeVanilla
   description: A vanilla frosted cake.
   components:
   - type: Sprite
     state: vanilla
-  - type: SliceableFood
-    slice: FoodCakeVanillaSlice
-  - type: SolutionContainerManager #TODO Sprinkles
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 25
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Sugar
-          Quantity: 15
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeVanillaSlice
+      amount: 8
   - type: Item
     heldPrefix: vanilla
 
@@ -929,17 +944,6 @@
   components:
   - type: Sprite
     state: vanilla-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Sugar
-          Quantity: 5
   - type: Item
     inhandVisuals:
       left:
@@ -952,25 +956,16 @@
 
 - type: entity
   name: clown cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeClown
   description: A funny cake with a clown face on it.
   components:
   - type: Sprite
     state: clown
-  - type: SliceableFood
-    slice: FoodCakeClownSlice
-  - type: SolutionContainerManager #TODO Sprinkles
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Sugar
-          Quantity: 15
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeClownSlice
+      amount: 8
   - type: Item
     heldPrefix: clown
 
@@ -982,42 +977,33 @@
   components:
   - type: Sprite
     state: clown-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 5
   - type: Item
     heldPrefix: clown-slice
 # Tastes like sweetness, cake, clown.
 
 - type: entity
   name: spaceman's cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeSpaceman
   description: A spaceman's trumpet frosted cake.
   components:
   - type: Sprite
     state: trumpet
-  - type: SliceableFood
-    slice: FoodCakeSpacemanSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: PolypyryliumOligomers
-          Quantity: 15
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeSpacemanSlice
+      amount: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 16
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: PolypyryliumOligomers
+        Quantity: 12
   - type: Item
     heldPrefix: trumpet
 
@@ -1029,17 +1015,17 @@
   components:
   - type: Sprite
     state: trumpet-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: PolypyryliumOligomers
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 2
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: PolypyryliumOligomers
+        Quantity: 1.5
   - type: Item
     heldPrefix: trumpet-slice
 # Tastes like sweetness, cake, jam.
@@ -1047,7 +1033,7 @@
 - type: entity
   name: cak
   id: MobCatCake
-  parent: EdibleBase
+  parent: [SolutionLarge, FoodBase]
   description: It's a cake. It's a cat. It's a cak.
   components:
   - type: FlavorProfile
@@ -1057,15 +1043,19 @@
     solution: food
   - type: RefillableSolution
     solution: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 88
+      - ReagentId: Vitamin
+        Quantity: 16
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Protein
+        Quantity: 12
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 24
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -1137,28 +1127,31 @@
 
 - type: entity
   name: suppermatter
-  parent: FoodCakeBase
+  parent: [SolutionLarge, FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeSuppermatter
   description: Extremely dense and powerful food.
   components:
   - type: Sprite
     state: suppermatter
-  - type: SliceableFood
-    slice: FoodCakeSuppermatterSlice
-    count: 8
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 125 # SUPER dense cake
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 80
-        - ReagentId: Sugar
-          Quantity: 30
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeSuppermatterSlice
+      amount: 8
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 120
+      - ReagentId: Vitamin
+        Quantity: 20
+      - ReagentId: Sugar
+        Quantity: 50
+      - ReagentId: Plasma
+        Quantity: 10
   - type: Edible
     transferAmount: 12
   - type: Item
-    size: Normal
+    size: Large
     heldPrefix: suppermatter
   - type: PointLight
     color: "#FFFF00"
@@ -1173,15 +1166,17 @@
   components:
   - type: Sprite
     state: suppermatter-shard
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Sugar
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Vitamin
+        Quantity: 2.5
+      - ReagentId: Sugar
+        Quantity: 6.25
+      - ReagentId: Plasma
+        Quantity: 1.25
   - type: Edible
     transferAmount: 3
   - type: PointLight
@@ -1200,29 +1195,31 @@
 
 - type: entity
   name: cotton cake
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeCotton
   description: A cake with a fiber frosting and a wad of cotton on top.
   components:
   - type: Sprite
     state: cotton
-  - type: SliceableFood
-    slice: FoodCakeCottonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeCottonSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
     - ClothMade
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Vitamin
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Item
     heldPrefix: cotton
 
@@ -1239,17 +1236,17 @@
     - Cake
     - ClothMade
     - Slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: Fiber
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.5
+      - ReagentId: Vitamin
+        Quantity: 1.25
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Fiber
+        Quantity: 1.25
   - type: Item
     heldPrefix: cotton-slice
 
@@ -1257,7 +1254,7 @@
 
 - type: entity
   name: berry delight
-  parent: FoodCakeBase
+  parent: [FoodCakeBase, BaseSlicingRefinableFood]
   id: FoodCakeBerryDelight
   description: This is a cake that is approaching.
   components:
@@ -1268,19 +1265,23 @@
       - sweet
       - berry
       - motivating
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 40
-        - ReagentId: Vitamin
-          Quantity: 10
-        - ReagentId: Milk
-          Quantity: 10
-  - type: SliceableFood
-    slice: FoodCakeBerryDelightSlice
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 70
+      - ReagentId: Vitamin
+        Quantity: 20
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: Milk
+        Quantity: 10
+      - ReagentId: JuiceBerry
+        Quantity: 10
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodCakeBerryDelightSlice
+      amount: 8
   - type: Tag
     tags:
     - Cake
@@ -1309,17 +1310,19 @@
       - sweet
       - berry
       - motivating
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Milk
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 8.75
+      - ReagentId: Vitamin
+        Quantity: 2.5
+      - ReagentId: Sugar
+        Quantity: 1.25
+      - ReagentId: Milk
+        Quantity: 1.25
+      - ReagentId: JuiceBerry
+        Quantity: 1.25
   - type: Tag
     tags:
     - Cake

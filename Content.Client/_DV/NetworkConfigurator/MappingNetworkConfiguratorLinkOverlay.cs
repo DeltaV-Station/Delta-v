@@ -15,8 +15,8 @@ namespace Content.Client._DV.NetworkConfigurator;
 /// </summary>
 public sealed class MappingNetworkConfiguratorLinkOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     private readonly DeviceListSystem _deviceListSystem;
     private readonly SharedTransformSystem _transformSystem;
 

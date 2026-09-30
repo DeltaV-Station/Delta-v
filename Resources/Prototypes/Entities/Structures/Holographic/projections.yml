@@ -21,17 +21,18 @@
     lifetime: 300
   - type: Holosign # DeltaV - Whitelist for holoprojector pickup
   # END DeltaV
-  #- type: Clickable
-  #- type: Damageable # DeltaV - Moved all these commented out attributes to BaseHolosign
-  # damageContainer: Inorganic
-  #- type: Destructible
-  #  thresholds:
-  #    - trigger:
-  #        !type:DamageTrigger
-  #        damage: 30
-  #      behaviors:
-  #        - !type:DoActsBehavior
-  #          acts: [ "Destruction" ]
+  # - type: Clickable # DeltaV - Moved all these commented out attributes to BaseHolosign
+  # - type: Damageable # DeltaV - Moved all these commented out attributes to BaseHolosign
+  # - type: Injurable # DeltaV - Moved all these commented out attributes to BaseHolosign
+  #   damageContainer: Inorganic
+  # - type: Destructible # DeltaV - Moved all these commented out attributes to BaseHolosign
+  #   thresholds:
+  #   - trigger:
+  #       !type:DamageTrigger
+  #       damage: 30
+  #     behaviors:
+  #     - !type:DoActsBehavior
+  #       acts: [ "Destruction" ]
 
 - type: entity
   id: HoloFan

@@ -6,7 +6,7 @@ namespace Content.Client._DV.Curation.Systems;
 
 public sealed class CwoinkSystem : SharedCwoinkSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public event EventHandler<CwoinkTextMessage>? OnCwoinkTextMessageReceived;
     private (TimeSpan Timestamp, bool Typing) _lastTypingUpdateSent;

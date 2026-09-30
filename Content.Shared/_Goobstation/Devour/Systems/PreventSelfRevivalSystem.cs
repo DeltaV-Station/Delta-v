@@ -6,7 +6,7 @@ namespace Content.Shared._Goobstation.Devour.Systems;
 
 public sealed class PreventSelfRevivalSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

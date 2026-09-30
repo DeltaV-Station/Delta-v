@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, StorePresetUplink ] #PDA's have uplinks so they have to inherit the data.
+  parent: [ BaseItem ]
   id: BasePDA
   name: PDA
   description: Personal Data Assistant.
@@ -55,7 +55,8 @@
       PDA-pen: !type:ContainerSlot {}
       PDA-pai: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
-      program-container: !type:Container
+      preinstalled-program-container: !type:Container
+      removable-program-container: !type:Container
   - type: ItemSlots
   - type: Clothing
     quickEquip: false
@@ -81,12 +82,6 @@
     range: 500
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - NanoChatCartridge # DeltaV
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -95,6 +90,15 @@
       whitelist:
         components:
           - Cartridge
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: NanoChatCartridge # DeltaV
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -110,6 +114,7 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+  - type: RemoteStore # PDAs can access uplinks so they need this component.
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -152,15 +157,18 @@
   id: BaseSecurityPDA
   abstract: true
   components:
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - CrimeAssistCartridge # DeltaV
-    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-    - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: WantedListCartridge
+        - id: CrimeAssistCartridge # DeltaV
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: NanoChatCartridge # DeltaV
   # Begin DeltaV
   - type: Pager
     autoLinkDepartments: [Security]
@@ -171,15 +179,16 @@
   id: BaseMedicalPDA
   abstract: true
   components:
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: NanoChatCartridge # DeltaV
   # Begin DeltaV
   - type: Pager
     autoLinkDepartments: [Medical]
@@ -430,9 +439,6 @@
       whitelist:
         components:
         - Cartridge
-    #preinstalled: # DeltaV - Mime can use BasePDA cartridges
-    #- CrewManifestCartridge
-    #- NewsReaderCartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -444,6 +450,12 @@
   - type: Icon
     state: pda-mime
   - type: Muted # for random sentience event
+  # - type: EntityTableContainerFill # DeltaV - Mime can use BasePDA cartridges
+  #   containers:
+  #     preinstalled-program-container: !type:AllSelector
+  #       children:
+  #       - id: CrewManifestCartridge
+  #       - id: NewsReaderCartridge
 
 - type: entity
   name: chaplain PDA
@@ -494,16 +506,18 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - NanoChatCartridge
-    - MailMetricsCartridge
-    - StockTradingCartridge
-    - AstroNavCartridge
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+        - id: NanoChatCartridge # DeltaV
+        - id: MailMetricsCartridge # DeltaV
+        - id: StockTradingCartridge # DeltaV
 
 - type: entity
   parent: [BaseLogisticsPDA, BasePDA] # DeltaV
@@ -549,15 +563,16 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-miner
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: [BaseServicePDA, BasePDA] # DeltaV
@@ -951,16 +966,19 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - CrimeAssistCartridge # DeltaV
-    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-    - LogProbeCartridge
-    - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: WantedListCartridge
+        - id: LogProbeCartridge
+        - id: CrimeAssistCartridge # DeltaV
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: NanoChatCartridge # DeltaV
   # Begin DeltaV
   - type: Pager
     autoLinkDepartments: [Command, Security]
@@ -1027,18 +1045,19 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-      - LogProbeCartridge
-      - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: LogProbeCartridge
+        - id: AstroNavCartridge
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: [BaseVisitorPDA, CentcomPDA] # DeltaV
@@ -1054,20 +1073,21 @@
     scanDelay: 0
     silent: true
   - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
-    diskSpace: 10 # DeltaV
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - LogProbeCartridge
-      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-      - MedTekCartridge
-      - AstroNavCartridge
-      - StockTradingCartridge # Delta-V
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: LogProbeCartridge
+        - id: MedTekCartridge
+        - id: AstroNavCartridge
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: StockTradingCartridge # Delta-V
+        - id: NanoChatCartridge # DeltaV
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1188,12 +1208,13 @@
     borderColor: "#891417"
   - type: Icon
     state: pda-syndi
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: [ SyndiPDA, BaseSyndicateContraband ]
@@ -1227,13 +1248,14 @@
        pda-syndi-agent # DeltaV
   - type: Icon
     state: pda-syndi-agent # DeltaV
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - MedTekCartridge
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: MedTekCartridge
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
@@ -1271,18 +1293,19 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-ert
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-      - LogProbeCartridge
-      - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: LogProbeCartridge
+        - id: AstroNavCartridge
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1452,16 +1475,17 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - CrimeAssistCartridge # DeltaV
-    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-    - LogProbeCartridge
-    - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: LogProbeCartridge
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1482,16 +1506,17 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NanoTaskCartridge
-    - NewsReaderCartridge
-    - CrimeAssistCartridge # DeltaV
-    - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
-    - MedTekCartridge
-    - NanoChatCartridge # DeltaV
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: MedTekCartridge
+        - id: SecWatchCartridge # DeltaV: SecWatch replaces WantedList
+        - id: NanoChatCartridge # DeltaV
 
 - type: entity
   parent: ClownPDA

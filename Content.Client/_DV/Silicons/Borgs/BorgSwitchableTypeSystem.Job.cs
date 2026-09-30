@@ -10,7 +10,7 @@ namespace Content.Client.Silicons.Borgs;
 /// </summary>
 public sealed partial class BorgSwitchableTypeSystem
 {
-    [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+    [Dependency] private JobRequirementsManager _jobRequirements = default!;
 
     protected override FormattedMessage? IsJobAllowed(ICommonSession session, JobPrototype job)
     {

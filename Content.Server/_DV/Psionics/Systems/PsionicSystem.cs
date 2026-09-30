@@ -8,7 +8,7 @@ namespace Content.Server._DV.Psionics.Systems;
 
 public sealed partial class PsionicSystem : SharedPsionicSystem
 {
-    [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private EuiManager _euiManager = default!;
 
     public override void Initialize()
     {

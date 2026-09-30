@@ -7,8 +7,8 @@ namespace Content.Shared._DV.Administration.EntitySystems;
 
 public sealed class UnorbitableSystem : EntitySystem
 {
-    [Dependency] private readonly FollowerSystem _followerSystem = default!;
-    [Dependency] private readonly ISharedAdminManager _admin = default!;
+    [Dependency] private FollowerSystem _followerSystem = default!;
+    [Dependency] private ISharedAdminManager _admin = default!;
 
     public override void Initialize()
     {

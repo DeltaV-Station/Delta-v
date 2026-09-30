@@ -10,8 +10,8 @@ namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevealRevenantOnCollideSystem : SharedRevealRevenantOnCollideSystem
 {
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly CollisionWakeSystem _collisionWake = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private CollisionWakeSystem _collisionWake = default!;
 
     private const string FixtureId = "revenantReveal";
 

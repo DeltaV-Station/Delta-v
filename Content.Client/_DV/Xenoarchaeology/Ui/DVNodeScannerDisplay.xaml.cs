@@ -22,8 +22,8 @@ namespace Content.Client._DV.Xenoarchaeology.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class DVNodeScannerDisplay : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IGameTiming _timing= default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IGameTiming _timing= default!;
 
     private readonly SharedXenoArtifactSystem _artifact;
     private readonly SpriteSystem _spriteSystem;

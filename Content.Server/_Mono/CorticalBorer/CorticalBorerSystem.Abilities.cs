@@ -18,7 +18,7 @@ namespace Content.Server._Mono.CorticalBorer;
 
 public sealed partial class CorticalBorerSystem
 {
-    [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private VomitSystem _vomit = default!;
 
     private void SubscribeAbilities()
     {

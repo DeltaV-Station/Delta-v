@@ -18,8 +18,8 @@ public sealed class DVSpawnableGhostRoleWindow : FancyWindow
 
     private GhostRoleRulesWindow? _windowRules;
     private readonly BoxContainer _entries;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private readonly List<Button> _spawnButtons = new();
     private TimeSpan? _cooldownEnd;
 

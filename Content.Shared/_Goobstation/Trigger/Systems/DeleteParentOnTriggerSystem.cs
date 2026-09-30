@@ -9,8 +9,8 @@ namespace Content.Shared._Goobstation.Trigger.Systems;
 
 public sealed class DeleteParentOnTriggerSystem : EntitySystem
 {
-    // [Dependency] private readonly BodySystem _body = default!; // Delta V - Not used
-    // [Dependency] private readonly InventorySystem _inventory = default!; // Delta V - Not used
+    // [Dependency] private BodySystem _body = default!; // Delta V - Not used
+    // [Dependency] private InventorySystem _inventory = default!; // Delta V - Not used
 
     public override void Initialize()
     {

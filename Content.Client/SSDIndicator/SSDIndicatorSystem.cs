@@ -4,22 +4,19 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.SSDIndicator;
-using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.SSDIndicator;
 
 /// <summary>
 ///     Handles displaying SSD indicator as status icon
 /// </summary>
-public sealed class SSDIndicatorSystem : EntitySystem
+public sealed partial class SSDIndicatorSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly Shared.SSDIndicator.SSDIndicatorSystem _shared = default!; // DeltaV - SSD Recency, don't want to rename the upstream class
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private Shared.SSDIndicator.SSDIndicatorSystem _shared = default!; // DeltaV - SSD Recency, don't want to rename the upstream class
 
     public override void Initialize()
     {
@@ -52,10 +49,10 @@ public sealed class SSDIndicatorSystem : EntitySystem
                 _ => throw new InvalidOperationException($"{ToPrettyString(uid)} has an invalid SSD stage {stage}."),
             };
 
-            args.StatusIcons.Add(_prototype.Index(icon));
+            args.StatusIcons.Add(ProtoMan.Index(icon));
             // End DeltaV Additions
 
-            // args.StatusIcons.Add(_prototype.Index(component.Icon)); // DeltaV - commented out. status icon now added above
+            // args.StatusIcons.Add(ProtoMan.Index(component.Icon)); // DeltaV - commented out. status icon now added above
         }
     }
 }

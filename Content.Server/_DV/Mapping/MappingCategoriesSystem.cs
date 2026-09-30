@@ -5,8 +5,8 @@ namespace Content.Server._DV.Mapping;
 
 public sealed class MappingCategoriesSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     private readonly HashSet<ProtoId<MappingCategoryPrototype>> _ignoreInsideContainers = new();
     private readonly HashSet<ProtoId<MappingCategoryPrototype>> _emptyCategories = new();

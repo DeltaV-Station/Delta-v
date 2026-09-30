@@ -9,9 +9,9 @@ namespace Content.Server._DV.Biscuit;
 
 public sealed class BiscuitSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _slotSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private ItemSlotsSystem _slotSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
 
     public override void Initialize()
     {

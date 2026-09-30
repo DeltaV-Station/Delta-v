@@ -9,7 +9,7 @@ namespace Content.Shared._DV.DeviceLinking.Systems;
 
 public sealed class PowerTogglePortSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
 
     public override void Initialize()
     {

@@ -21,14 +21,14 @@ namespace Content.Server._DV.Cargo.Systems;
 /// </summary>
 public sealed class StockMarketSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IdCardSystem _idCard = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IdCardSystem _idCard = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private ISawmill _sawmill = default!;
     private const float MaxPrice = 262144; // 1/64 of max safe integer

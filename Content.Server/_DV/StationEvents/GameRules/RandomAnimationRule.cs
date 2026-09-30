@@ -13,9 +13,9 @@ namespace Content.Server._DV.StationEvents.GameRules;
 public sealed class RandomAnimationRule : StationEventSystem<RandomAnimationRuleComponent>
 {
 
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimated = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private RevenantAnimatedSystem _revenantAnimated = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
 

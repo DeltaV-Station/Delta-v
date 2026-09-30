@@ -7,8 +7,8 @@ namespace Content.Server._DV.Radio;
 
 public sealed partial class EncryptionKeySystem : EntitySystem
 {
-    [Dependency] private readonly CloningSystem _clone = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private CloningSystem _clone = default!;
+    [Dependency] private ContainerSystem _container = default!;
 
     public override void Initialize()
     {

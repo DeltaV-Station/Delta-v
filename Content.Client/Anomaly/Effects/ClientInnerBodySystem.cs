@@ -1,3 +1,4 @@
+using Content.Client.DisplacementMap;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
 using Content.Shared.Humanoid;
@@ -5,9 +6,12 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Anomaly.Effects;
 
-public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
+public sealed partial class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private DisplacementMapSystem _displacement = default!;
+
+    [Dependency] private EntityQuery<InnerBodyAnomalyVisualsComponent> _visualsQuery = default!;
 
     public override void Initialize()
     {
@@ -37,6 +41,22 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         _sprite.LayerSetVisible((ent.Owner, sprite), index, true);
         sprite.LayerSetShader(index, "unshaded");
+
+        if (_visualsQuery.TryGetComponent(ent, out var visuals) && visuals.Displacement != null)
+        {
+            if (ProtoMan.Resolve(visuals.Displacement, out var displacement))
+            {
+                _displacement.TryAddDisplacement(displacement.Displacement,
+                    (ent.Owner, sprite),
+                    index,
+                    ent.Comp.LayerMap,
+                    out _);
+            }
+            else
+            {
+                _displacement.EnsureDisplacementIsNotOnSprite((ent.Owner, sprite), ent.Comp.LayerMap);
+            }
+        }
     }
 
     private void OnCompShutdown(Entity<InnerBodyAnomalyComponent> ent, ref ComponentShutdown args)
@@ -44,7 +64,11 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (sprite.LayerMapTryGet(ent.Comp.LayerMap, out var index)) // imp. added this check to prevent errors on anomalites - not having it was bad code on upstream's part
-            sprite.LayerSetVisible(index, false);
+        if (!_sprite.LayerMapTryGet((ent.Owner, sprite), ent.Comp.LayerMap, out var index, false)) // imp. added this check to prevent errors on anomalites - not having it was bad code on upstream's part
+            return; // delta v
+
+        _sprite.LayerSetVisible((ent.Owner, sprite), index, false);
+
+        _displacement.EnsureDisplacementIsNotOnSprite((ent.Owner, sprite), ent.Comp.LayerMap);
     }
 }

@@ -13,9 +13,9 @@ namespace Content.Server._DV.Access.Systems;
 /// </summary>
 public sealed class SubdermalIdCardSystem : SharedSubdermalIdCardSystem
 {
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly SharedNanoChatSystem _nanochat = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private IdCardSystem _cardSystem = default!;
+    [Dependency] private SharedNanoChatSystem _nanochat = default!;
 
     public override void Initialize()
     {

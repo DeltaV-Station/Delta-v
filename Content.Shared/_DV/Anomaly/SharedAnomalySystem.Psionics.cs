@@ -7,7 +7,7 @@ namespace Content.Shared.Anomaly;
 
 public abstract partial class SharedAnomalySystem
 {
-    [Dependency] private readonly SharedDispelPowerSystem _dispel = default!;
+    [Dependency] private SharedDispelPowerSystem _dispel = default!;
 
     private void InitializePsionics()
     {

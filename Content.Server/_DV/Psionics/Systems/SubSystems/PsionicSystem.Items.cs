@@ -10,8 +10,8 @@ namespace Content.Server._DV.Psionics.Systems;
 
 public sealed partial class PsionicSystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
 
     public void InitializeItems()
     {

@@ -12,8 +12,8 @@ namespace Content.Client._DV.Overlays;
 /// </summary>
 public sealed class DarkVisionOverlay : Overlay
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 

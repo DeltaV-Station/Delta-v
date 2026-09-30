@@ -60,18 +60,19 @@ public sealed class EntityHealthBarOverlay : Overlay
         var handle = args.WorldHandle;
         var rotation = args.Viewport.Eye?.Rotation ?? Angle.Zero;
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+        var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
 
         const float scale = 1f;
         var scaleMatrix = Matrix3Helpers.CreateScale(new Vector2(scale, scale));
         var rotationMatrix = Matrix3Helpers.CreateRotation(-rotation);
         _prototype.Resolve(StatusIcon, out var statusIcon);
 
-        var query = _entManager.AllEntityQueryEnumerator<MobThresholdsComponent, MobStateComponent, DamageableComponent, SpriteComponent>();
+        var query = _entManager.AllEntityQueryEnumerator<MobThresholdsComponent, MobStateComponent, DamageableComponent, InjurableComponent>();
         while (query.MoveNext(out var uid,
             out var mobThresholdsComponent,
             out var mobStateComponent,
             out var damageableComponent,
-            out var spriteComponent))
+            out var injurableComponent))
         {
             // BEGIN DeltaV - You can't see your own bar :godo:
             if (_player.LocalEntity is { } player && player.Id == uid.Id)
@@ -86,11 +87,15 @@ public sealed class EntityHealthBarOverlay : Overlay
                 xform.MapID != args.MapId)
                 continue;
 
-            if (damageableComponent.DamageContainerID == null || !DamageContainers.Contains(damageableComponent.DamageContainerID))
+            if (injurableComponent.DamageContainer == null || !DamageContainers.Contains(injurableComponent.DamageContainer))
+                continue;
+
+            if (!spriteQuery.TryGetComponent(uid, out var sprite))
                 continue;
 
             // we use the status icon component bounds if specified otherwise use sprite
-            var bounds = _entManager.GetComponentOrNull<StatusIconComponent>(uid)?.Bounds ?? _spriteSystem.GetLocalBounds((uid, spriteComponent));
+            var bounds = _entManager.GetComponentOrNull<StatusIconComponent>(uid)?.Bounds ?? _spriteSystem.GetLocalBounds(
+                (uid, sprite));
             var worldPos = _transform.GetWorldPosition(xform, xformQuery);
 
             if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
@@ -144,9 +149,6 @@ public sealed class EntityHealthBarOverlay : Overlay
         var totalDamage = _damageable.GetTotalDamage((uid, dmg));
         if (_mobStateSystem.IsAlive(uid, component))
         {
-            if (dmg.HealthBarThreshold != null && totalDamage < dmg.HealthBarThreshold)
-                return null;
-
             if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
                 return (1, false);

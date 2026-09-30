@@ -9,10 +9,10 @@ namespace Content.Server.Damage.Systems
     /// <summary>
     /// Damages the thrown item when it lands.
     /// </summary>
-    public sealed class DamageOnLandSystem : EntitySystem
+    public sealed partial class DamageOnLandSystem : EntitySystem
     {
-        [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly SafeSolutionThrowerSystem _safesolthrower = default!; // DeltaV - Beergoggles enable safe throw
+        [Dependency] private Shared.Damage.Systems.DamageableSystem _damageableSystem = default!;
+        [Dependency] private SafeSolutionThrowerSystem _safesolthrower = default!; // DeltaV - Beergoggles enable safe throw
 
         public override void Initialize()
         {

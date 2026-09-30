@@ -9,7 +9,7 @@ namespace Content.Client._Goobstation.Overlays;
 
 public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent>
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private SharkVisionOverlay _sharkOverlay = default!;
     private BaseSwitchableOverlay<SharkVisionComponent> _overlay = default!;
@@ -108,6 +108,6 @@ public sealed class SharkVisionSystem : EquipmentHudSystem<SharkVisionComponent>
         }
 
         // Night vision overlay is prioritized
-        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>();
+        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<GoobNightVisionComponent>>();
     }
 }

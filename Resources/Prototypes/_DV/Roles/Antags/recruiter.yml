@@ -10,6 +10,28 @@
     role: JobLawyer
     time: 1h
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: SyndicateRecruiter
+  spawnerPrototype: SpawnPointGhostRecruiter
+  pickPlayer: false
+  startingGear: SyndicateRecruiterGear
+  roleLoadout:
+  - RoleSurvivalStandard
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFakeHumanFirst
+    - NamesFakeHumanLast
+    nameFormat: name-format-standard
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  mindRoles:
+  - MindRoleRecruiter
+
 - type: startingGear
   id: SyndicateRecruiterGear
   equipment:

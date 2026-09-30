@@ -22,5 +22,5 @@ public sealed partial class SpeechOverrideComponent : Component
     /// Entity's original sounds to use when the item is unequipped.
     /// </summary>
     [AutoNetworkedField]
-    public Dictionary<Sex, ProtoId<EmoteSoundsPrototype>>? StoredIDs = null;
+    public ProtoId<EmoteSoundsPrototype>? StoredIDs = null;
 }

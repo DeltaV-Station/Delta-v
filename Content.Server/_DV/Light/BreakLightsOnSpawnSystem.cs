@@ -5,7 +5,7 @@ namespace Content.Server._DV.Light;
 
 public sealed partial class BreakLightsOnSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly PsychokineticScreamPowerSystem _psychokineticScream = default!;
+    [Dependency] private PsychokineticScreamPowerSystem _psychokineticScream = default!;
 
     public override void Initialize()
     {

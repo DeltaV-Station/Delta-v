@@ -17,12 +17,12 @@ namespace Content.Server._DV.Administration;
 
 public sealed class EventAlertSystem : EntitySystem
 {
-    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private PlayTimeTrackingManager _playTime = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     private double _lateJoinAlertMaxHours;
     private HashSet<EntityUid> _eorgAlerted = new();

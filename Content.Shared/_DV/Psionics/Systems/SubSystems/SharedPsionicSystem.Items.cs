@@ -15,10 +15,10 @@ namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwapPowerSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private SharedMindSwapPowerSystem _mindSwapPowerSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     private void InitializeItems()
     {
@@ -40,13 +40,13 @@ public abstract partial class SharedPsionicSystem
 
         if (!gear.Comp.AllowsPsionicUsage)
         {
-            var ev = new PsionicSuppressedEvent(args.Equipee);
-            RaiseLocalEvent(args.Equipee, ref ev);
+            var ev = new PsionicSuppressedEvent(args.EquipTarget);
+            RaiseLocalEvent(args.EquipTarget, ref ev);
         }
         if (gear.Comp.ShieldsFromPsionics)
         {
-            var ev = new PsionicShieldedEvent(args.Equipee);
-            RaiseLocalEvent(args.Equipee, ref ev);
+            var ev = new PsionicShieldedEvent(args.EquipTarget);
+            RaiseLocalEvent(args.EquipTarget, ref ev);
         }
     }
 
@@ -55,15 +55,15 @@ public abstract partial class SharedPsionicSystem
         if (_timing.ApplyingState)
             return;
 
-        if (!gear.Comp.AllowsPsionicUsage && CanUsePsionicAbility(args.Equipee))
+        if (!gear.Comp.AllowsPsionicUsage && CanUsePsionicAbility(args.EquipTarget))
         {
-            var ev = new PsionicStoppedSuppressedEvent(args.Equipee);
-            RaiseLocalEvent(args.Equipee, ref ev);
+            var ev = new PsionicStoppedSuppressedEvent(args.EquipTarget);
+            RaiseLocalEvent(args.EquipTarget, ref ev);
         }
-        if (gear.Comp.ShieldsFromPsionics && CanBeTargeted(args.Equipee, showPopup: false))
+        if (gear.Comp.ShieldsFromPsionics && CanBeTargeted(args.EquipTarget, showPopup: false))
         {
-            var ev = new PsionicStoppedShieldedEvent(args.Equipee);
-            RaiseLocalEvent(args.Equipee, ref ev);
+            var ev = new PsionicStoppedShieldedEvent(args.EquipTarget);
+            RaiseLocalEvent(args.EquipTarget, ref ev);
         }
     }
 

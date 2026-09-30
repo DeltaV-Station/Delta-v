@@ -21,11 +21,11 @@ namespace Content.Server._DV.Tips;
 /// </summary>
 public sealed class TipSystem : SharedTipSystem
 {
-    [Dependency] private readonly IComponentFactory _component = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playtime = default!;
+    [Dependency] private IComponentFactory _component = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private JobSystem _job = default!;
+    [Dependency] private PlayTimeTrackingManager _playtime = default!;
 
     /// <summary>
     /// Tracks scheduled tips for each player session.

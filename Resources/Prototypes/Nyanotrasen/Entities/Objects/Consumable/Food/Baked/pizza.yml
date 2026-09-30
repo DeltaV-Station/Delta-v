@@ -10,8 +10,10 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: corncob
-  - type: SliceableFood
-    slice: FoodPizzaCorncobSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodPizzaCorncobSlice
+      amount: 8
   - type: SolutionContainerManager
     solutions:
       food:
@@ -62,8 +64,10 @@
       - spicy
       - corn
       - cheesy
-  - type: SliceableFood
-    slice: FoodMothPizzaFirecrackerSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothPizzaFirecrackerSlice
+      amount: 8
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: firecracker
@@ -130,8 +134,10 @@
       - bread
       - oily
       - cheesy
-  - type: SliceableFood
-    slice: FoodMothPizzaFiveCheeseSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothPizzaFiveCheeseSlice
+      amount: 8
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: fivecheese
@@ -172,8 +178,10 @@
       - garlic
       - nutty
       - cheesy
-  - type: SliceableFood
-    slice: FoodMothPizzaPestoSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothPizzaPestoSlice
+      amount: 8
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: pesto
@@ -235,8 +243,10 @@
       - bread
       - cotton
       - cheesy
-  - type: SliceableFood
-    slice: FoodMothPizzaCottonSlice
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMothPizzaCottonSlice
+      amount: 8
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
     state: cotton

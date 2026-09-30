@@ -14,10 +14,10 @@ namespace Content.Shared._DV.ShadowWalk;
 /// </summary>
 public sealed partial class SharedShadowWalkSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedLightReactiveSystem _lightReactive = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedLightReactiveSystem _lightReactive = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     /// <summary>
     /// How far outside a tagged object's AABB the walker's centre must be before the object is untagged (and so becomes solid again on the next collision).

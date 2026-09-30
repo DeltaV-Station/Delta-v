@@ -26,7 +26,8 @@ namespace Content.Server.Entry
             "OptionsVisualizer",
             "DrawDepthVisualizer", // DeltaV
             "AnomalyScannerScreen",
-            "MultipartMachineGhost"
+            "MultipartMachineGhost",
+            "DirectionalArrowIndicator"
         };
     }
 }
