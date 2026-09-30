@@ -1,0 +1,105 @@
+# Reams
+- type: latheRecipe
+  id: BoxReamWhite
+  result: BoxReamWhite
+  completetime: 2
+  materials:
+    Paper: 300
+
+- type: latheRecipe
+  parent: BoxReamWhite
+  id: BoxReamClassic
+  result: BoxReamClassic
+
+- type: latheRecipe
+  parent: BoxReamWhite
+  id: BoxReamBright
+  result: BoxReamBright
+
+- type: latheRecipe
+  id: PaperStickyNoteStackFilled
+  result: PaperStickyNoteStackFilled
+  materials:
+    Paper: 200
+
+# Sticky notes
+- type: latheRecipe
+  parent: PaperStickyNoteStackFilled
+  id: PaperStickyNoteStackFilledBlue
+  result: PaperStickyNoteStackFilledBlue
+
+- type: latheRecipe
+  parent: PaperStickyNoteStackFilled
+  id: PaperStickyNoteStackFilledGreen
+  result: PaperStickyNoteStackFilledGreen
+
+- type: latheRecipe
+  parent: PaperStickyNoteStackFilled
+  id: PaperStickyNoteStackFilledPink
+  result: PaperStickyNoteStackFilledPink
+
+# Pens
+- type: latheRecipe
+  id: Pen
+  result: Pen
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: LuxuryPen
+  result: LuxuryPen
+  materials:
+    Steel: 300
+    Gold: 100
+
+# Folders
+
+- type: latheRecipe
+  id: BoxFolderBaseEmpty
+  result: BoxFolderBaseEmpty
+  materials:
+    Cardboard: 100
+    Paper: 100
+
+- type: latheRecipe
+  parent: BoxFolderBaseEmpty
+  id: BoxFolderBlackEmpty
+  result: BoxFolderBlackEmpty
+
+- type: latheRecipe
+  parent: BoxFolderBaseEmpty
+  id: BoxFolderBlueEmpty
+  result: BoxFolderBlueEmpty
+
+- type: latheRecipe
+  parent: BoxFolderBaseEmpty
+  id: BoxFolderGreenEmpty
+  result: BoxFolderGreenEmpty
+
+- type: latheRecipe
+  parent: BoxFolderBaseEmpty
+  id: BoxFolderGreyEmpty
+  result: BoxFolderGreyEmpty
+
+- type: latheRecipe
+  parent: BoxFolderBaseEmpty
+  id: BoxFolderRedEmpty
+  result: BoxFolderRedEmpty
+
+- type: latheRecipe
+  parent: BoxFolderBaseEmpty
+  id: BoxFolderYellowEmpty
+  result: BoxFolderYellowEmpty
+
+# Stamps
+
+- type: latheRecipe
+  id: RubberStampApproved
+  result: RubberStampApproved
+  materials:
+    Plastic: 500
+
+- type: latheRecipe
+  parent: RubberStampApproved
+  id: RubberStampDenied
+  result: RubberStampDenied
