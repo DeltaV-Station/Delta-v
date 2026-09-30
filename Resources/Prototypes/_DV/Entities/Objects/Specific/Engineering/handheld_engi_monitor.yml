@@ -1,0 +1,49 @@
+- type: entity
+  name: Handheld Engineering Monitor
+  categories: [ DoNotMap ]
+  parent: [ BaseHandheldComputer ]
+  id: HandheldEngineeringMonitor
+  description: Handheld computer to monitor status of Power and Atmos networks
+  components:
+  - type: Item
+    heldPrefix: scanner
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Engineering/handheldatmosmonitor.rsi
+    layers:
+      - map: ["monitorLayerScreen"]
+        state: scanner-alert-0
+  - type: MultipleUiKey
+    index: 0
+    modes:
+      - uiKey: enum.PowerMonitoringConsoleUiKey.Key
+        name: handheld-engineering-monitor-power-monitor-mode-name
+      - uiKey: enum.AtmosMonitoringConsoleUiKey.Key
+        name: handheld-engineering-monitor-atmos-monitor-mode-name
+      - uiKey: enum.AtmosAlertsComputerUiKey.Key
+        name: handheld-engineering-monitor-atmos-alerts-mode-name
+  - type: ActivatableUI
+    key: enum.PowerMonitoringConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PowerMonitoringConsoleUiKey.Key:
+        type: PowerMonitoringConsoleBoundUserInterface
+      enum.AtmosMonitoringConsoleUiKey.Key:
+        type: AtmosMonitoringConsoleBoundUserInterface
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+  - type: PowerMonitoringConsole
+  - type: PowerMonitoringCableNetworks
+  - type: AtmosAlertsComputer
+  - type: AtmosMonitoringConsole
+    navMapTileColor: "#1a1a1a"
+    navMapWallColor: "#404040"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        monitorLayerScreen:
+          0: { state: scanner-alert-0 }
+          1: { state: scanner-alert-0 }
+          2: { state: scanner-alert-1 }
+          3: { state: scanner-alert-2 }
+          4: { state: scanner-alert-2 }
