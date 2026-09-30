@@ -130,7 +130,16 @@ public sealed partial class LabelSystem : EntitySystem
 
             args.PushMarkup(Loc.GetString("comp-paper-label-has-label"));
             var text = paper.Content;
-            args.PushMarkup(text.TrimEnd());
+            // Begin DeltaV - label examine cutoffs
+            if (ent.Comp.ExamineCharacterLimit != 0)
+            {
+                // truncate text if it exceeds the character limit
+                text = text.Length <= ent.Comp.ExamineCharacterLimit
+                    ? text
+                    : text[..ent.Comp.ExamineCharacterLimit] + "...";
+            }
+            // End DeltaV - label examine cutoffs
+            args.PushMarkup(text.TrimEnd()); // DeltaV
             // Harmony addition begins - shows which stamps have been applied to a label when inspected. Copied from PaperSystem.
             if (paper.StampedBy.Count > 0)
             {

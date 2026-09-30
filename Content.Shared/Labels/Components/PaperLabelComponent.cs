@@ -16,4 +16,13 @@ public sealed partial class PaperLabelComponent : Component
     /// </summary>
     [DataField]
     public ItemSlot LabelSlot = new();
+
+    // Begin DeltaV - label examine cutoffs
+    /// <summary>
+    /// Limit at which examine text gets cut off,
+    /// or 0 for no cutoff
+    /// </summary>
+    [DataField]
+    public int ExamineCharacterLimit = 0;
+    // End DeltaV - label examine cutoffs
 }
