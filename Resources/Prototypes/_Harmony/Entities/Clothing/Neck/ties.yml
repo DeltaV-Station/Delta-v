@@ -22,7 +22,7 @@
           - Access # Prevents PaperSlipSpareID (Emergency Access Biscuit)
         tags:
         - Book
-    examineCharacterLimit: 500
+    examineCharacterLimit: 500 # DeltaV - lanyard text truncation
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
