@@ -139,7 +139,7 @@ public sealed partial class LabelSystem : EntitySystem
                     : text[..ent.Comp.ExamineCharacterLimit] + "...";
             }
             // End DeltaV - label examine cutoffs
-            args.PushMarkup(text.TrimEnd()); // DeltaV
+            args.PushMarkup(text.TrimEnd());
             // Harmony addition begins - shows which stamps have been applied to a label when inspected. Copied from PaperSystem.
             if (paper.StampedBy.Count > 0)
             {
