@@ -11,6 +11,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes; // DeltaV
 using Robust.Shared.Utility;
 using System.Linq; //Harmony Lanyards
+using Content.Shared.Verbs; // DeltaV
 
 namespace Content.Shared.Labels.EntitySystems;
 
@@ -42,6 +43,9 @@ public sealed partial class LabelSystem : EntitySystem
         // This would cause any other neck slot item with the label component to be described as a lanyard on inspection,
         // but currently no others exist.
         SubscribeLocalEvent<PaperLabelComponent, InventoryRelayedEvent<ExaminedEvent>>((e, c, ev) => OnExaminedInInventory(e, c, ev.Args));
+
+        // DeltaV - truncate labels over character limit on worn lanyards
+        SubscribeLocalEvent<PaperLabelComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(AddLanyardFullExamineFromInventory);
     }
 
     private void OnLabelCompMapInit(Entity<LabelComponent> ent, ref MapInitEvent args)
@@ -130,14 +134,6 @@ public sealed partial class LabelSystem : EntitySystem
 
             args.PushMarkup(Loc.GetString("comp-paper-label-has-label"));
             var text = paper.Content;
-            // Begin DeltaV - label examine cutoffs
-            if (ent.Comp.ExamineCharacterLimit != 0
-                && text.Length > ent.Comp.ExamineCharacterLimit)
-            {
-                // truncate text if it exceeds the character limit
-                text = text[..ent.Comp.ExamineCharacterLimit] + "...";
-            }
-            // End DeltaV - label examine cutoffs
             args.PushMarkup(text.TrimEnd());
             // Harmony addition begins - shows which stamps have been applied to a label when inspected. Copied from PaperSystem.
             if (paper.StampedBy.Count > 0)
