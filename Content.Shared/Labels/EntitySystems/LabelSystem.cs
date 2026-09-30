@@ -183,6 +183,15 @@ public sealed partial class LabelSystem : EntitySystem
 
             args.PushMarkup(Loc.GetString("comp-lanyard-has-lanyard", ("user", Identity.Entity(user, EntityManager))));
             var text = paper.Content;
+            // Begin DeltaV - label examine cutoffs
+            if (comp.ExamineCharacterLimit != 0)
+            {
+                // truncate text if it exceeds the character limit
+                text = text.Length <= comp.ExamineCharacterLimit
+                    ? text
+                    : text[..comp.ExamineCharacterLimit] + "...";
+            }
+            // End DeltaV - label examine cutoffs
             args.PushMarkup(text.TrimEnd());
             // Harmony - shows which stamps have been applied to a lanyard's label when inspected. Copied from PaperSystem.
             if (paper.StampedBy.Count > 0)
