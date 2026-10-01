@@ -712,6 +712,16 @@
     containers:
       board: [ DoorElectronicsSecurity ]
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalSecurityShuttleLocked
+  suffix: External, Glass, Security, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+
 # Station-Specific Airlocks
 - type: entity
   parent: HighSecDoor
@@ -723,13 +733,22 @@
       board: [ DoorElectronicsSecurity ]
 
 - type: entity
-  parent: HighSecDoor
-  id: HighSecEngineeringLocked
-  suffix: Engineering, Locked
+  parent: AirlockMiningGlass
+  id: AirlockMiningGlassSecurity
+  suffix: Security, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsEngineering ]
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockMining
+  id: AirlockMiningSecurity
+  suffix: Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: HighSecDoor
@@ -739,6 +758,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJustice ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecEngineeringLocked
+  suffix: Engineering, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
 
 - type: entity
   parent: HighSecDoor
@@ -805,7 +833,7 @@
     containers:
       board: [ DoorElectronicsERT ]
 
-# Centcomm external doors
+# Centcomm doors
 - type: entity
   parent: AirlockExternal
   id: AirlockExternalCentralCommandLocked
@@ -819,6 +847,24 @@
   parent: AirlockExternalGlass
   id: AirlockExternalGlassCentralCommandLocked
   suffix: External, Glass, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockFreezer
+  id: AirlockFreezerCentralCommanLocked
+  suffix: Freezer, Centcomm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCentcommLocked
+  suffix: Maint, Centcomm, Locked
   components:
   - type: ContainerFill
     containers:
