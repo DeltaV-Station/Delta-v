@@ -17,8 +17,6 @@ public sealed class LanyardSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
 
-    public const string ContainerName = "lanyard_label";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -198,7 +196,7 @@ public sealed class LanyardSystem : EntitySystem
 
     private void OnComponentInit(Entity<LanyardComponent> ent, ref ComponentInit args)
     {
-        _itemSlots.AddItemSlot(ent, ContainerName, ent.Comp.LabelSlot);
+        _itemSlots.AddItemSlot(ent, ent.Comp.ContainerName, ent.Comp.LabelSlot);
     }
 
     private void OnComponentRemove(Entity<LanyardComponent> ent, ref ComponentRemove args)

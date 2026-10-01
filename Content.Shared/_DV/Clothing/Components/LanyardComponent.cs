@@ -17,4 +17,10 @@ public sealed partial class LanyardComponent : Component
     /// </summary>
     [DataField]
     public ItemSlot LabelSlot = new();
+
+    /// <summary>
+    /// The container name which holds the lanyard label
+    /// </summary>
+    [DataField]
+    public string ContainerName = "lanyard_label";
 }
