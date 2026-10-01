@@ -25,5 +25,5 @@
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
-      paper_label: !type:ContainerSlot
+      lanyard_label: !type:ContainerSlot # DeltaV - paper_label -> lanyard_label
   - type: ItemSlots
