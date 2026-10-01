@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._DV.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
@@ -44,7 +46,10 @@ public sealed class LanyardSystem : EntitySystem
             // push lanyard contents
             args.PushMarkup(Loc.GetString("comp-lanyard-examine-text"));
             args.PushMarkup(paper.Content.TrimEnd());
-            // TODO stamps
+
+            // push paper stamps if they exist
+            if (GetPaperStampString(ref paper, out var stampString))
+                args.PushMarkup(stampString);
         }
     }
 
@@ -64,7 +69,12 @@ public sealed class LanyardSystem : EntitySystem
 
             // Add basic descriptions (is it empty, is it blank, etc)
             AddLanyardStatusExamineText(ref args.Args, ref paper);
-            // TODO stamps?
+
+            if (paper is null)
+                return;
+
+            if (GetPaperStampString(ref paper, out var stampString))
+                args.Args.PushMarkup(stampString);
         }
     }
 
@@ -112,6 +122,23 @@ public sealed class LanyardSystem : EntitySystem
         }
 
         paperComponent = paper;
+        return true;
+    }
+
+    private bool GetPaperStampString(ref PaperComponent paper, [NotNullWhen(true)] out string? str)
+    {
+        if (paper.StampedBy.Count <= 0)
+        {
+            str = null;
+            return false;
+        }
+
+        var commaSeparated =
+            string.Join(", ", paper.StampedBy.Select(s => Loc.GetString(s.StampedName)));
+
+        str = Loc.GetString(
+            "comp-lanyard-examine-detail-stamped-by",
+            ("stamps", commaSeparated));
         return true;
     }
 
