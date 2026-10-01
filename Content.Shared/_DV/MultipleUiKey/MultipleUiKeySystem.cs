@@ -13,7 +13,6 @@ namespace Content.Shared._DV.MultipleUiKey;
 public abstract partial class SharedMultipleUiKeySystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly ActivatableUISystem _activatableUI = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
