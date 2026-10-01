@@ -33,7 +33,7 @@ public sealed class LanyardSystem : EntitySystem
         using (args.PushGroup(nameof(LanyardComponent)))
         {
             // Get the paper in the lanyard
-            TryGetLanyardPaper(ent, out var paper);
+            TryGetLanyardPaper(ent.Comp, out var paper);
 
             // Add basic descriptions (is it empty, is it blank, etc)
             AddLanyardStatusExamineText(ref args, ref paper);
@@ -56,7 +56,7 @@ public sealed class LanyardSystem : EntitySystem
         using (args.Args.PushGroup(nameof(LanyardComponent)))
         {
             // Get the paper in the lanyard
-            TryGetLanyardPaper(ent, out var paper);
+            TryGetLanyardPaper(ent.Comp, out var paper);
 
             // Inform the examiner that whoever they're examining is wearing a lanyard
             // var user = Comp<TransformComponent>(args.Args.Examined);
@@ -64,6 +64,7 @@ public sealed class LanyardSystem : EntitySystem
 
             // Add basic descriptions (is it empty, is it blank, etc)
             AddLanyardStatusExamineText(ref args.Args, ref paper);
+            // TODO stamps?
         }
     }
 
@@ -101,16 +102,16 @@ public sealed class LanyardSystem : EntitySystem
     /// <summary>
     /// Tries to get the paper inside the lanyard
     /// </summary>
-    private bool TryGetLanyardPaper(Entity<LanyardComponent> ent, out PaperComponent? comp)
+    private bool TryGetLanyardPaper(LanyardComponent lanyardComponent, out PaperComponent? paperComponent)
     {
-        if (ent.Comp.LabelSlot.Item is not { Valid: true } item
+        if (lanyardComponent.LabelSlot.Item is not { Valid: true } item
             || !TryComp<PaperComponent>(item, out var paper))
         {
-            comp = null;
+            paperComponent = null;
             return false;
         }
 
-        comp = paper;
+        paperComponent = paper;
         return true;
     }
 
