@@ -1,7 +1,7 @@
-comp-lanyard-item-examine-empty = { CAPITALIZE(SUBJECT($examined)) } { CONJUGATE-BE($examined) } empty.
-comp-lanyard-item-examine-too-far = { CAPITALIZE(SUBJECT($examined)) } { CONJUGATE-BE($examined) } too far away to read.
-comp-lanyard-item-examine-blank = { CAPITALIZE(SUBJECT($examined)) } { CONJUGATE-BE($examined) } blank.
-comp-lanyard-item-examine-written = { CAPITALIZE(SUBJECT($examined)) } { CONJUGATE-HAVE($examined) } something written on { SUBJECT($examined) }.
+comp-lanyard-item-examine-empty = The lanyard is empty.
+comp-lanyard-item-examine-too-far = The lanyard is too far away to read.
+comp-lanyard-item-examine-blank = The lanyard is blank.
+comp-lanyard-item-examine-written = The lanyard has something written on it.
 
 comp-lanyard-wearing-examine-empty = { CAPITALIZE(SUBJECT($examined)) } { CONJUGATE-BE($examined) } wearing an empty lanyard.
 comp-lanyard-wearing-examine-too-far = { CAPITALIZE(SUBJECT($examined)) } { CONJUGATE-BE($examined) } wearing a lanyard, but you can't read it from this distance.
