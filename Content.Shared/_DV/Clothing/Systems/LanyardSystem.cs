@@ -51,7 +51,7 @@ public sealed class LanyardSystem : EntitySystem
             }
 
             // push lanyard contents
-            args.PushMarkup("comp-lanyard-item-examine");
+            args.PushMarkup(Loc.GetString("comp-lanyard-item-examine-text"));
             args.PushMarkup(paper.Content.TrimEnd());
             // TODO stamps
         }
