@@ -5,7 +5,7 @@ using Content.Shared.Paper;
 
 namespace Content.Shared._DV.Clothing.Systems;
 
-public abstract class LanyardSystem : EntitySystem
+public sealed class LanyardSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
