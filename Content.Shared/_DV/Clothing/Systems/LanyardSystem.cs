@@ -73,6 +73,7 @@ public sealed class LanyardSystem : EntitySystem
             if (paper is null)
                 return;
 
+            // push paper stamps if they exist
             if (GetPaperStampString(paper, out var stampString))
                 args.Args.PushMarkup(stampString);
         }
@@ -125,6 +126,9 @@ public sealed class LanyardSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    /// Get string that contains all stamps applied to the paper
+    /// </summary>
     private bool GetPaperStampString(PaperComponent paper, [NotNullWhen(true)] out string? str)
     {
         if (paper.StampedBy.Count <= 0)
