@@ -36,7 +36,7 @@ public sealed class LanyardSystem : EntitySystem
             TryGetLanyardPaper(ent, out var paper);
 
             // Add basic descriptions (is it empty, is it blank, etc)
-            AddLanyardStatusExamineText(ent, ref args, ref paper);
+            AddLanyardStatusExamineText(ref args, ref paper);
 
             if (paper is null || string.IsNullOrWhiteSpace(paper.Content))
                 return;
@@ -63,7 +63,7 @@ public sealed class LanyardSystem : EntitySystem
             // args.Args.PushMarkup(Loc.GetString("comp-lanyard-wearing-lanyard"), ("user", Identity.Entity(user, EntityManager)));
 
             // Add basic descriptions (is it empty, is it blank, etc)
-            AddLanyardStatusExamineText(ent, ref args.Args, ref paper);
+            AddLanyardStatusExamineText(ref args.Args, ref paper);
         }
     }
 
@@ -71,7 +71,7 @@ public sealed class LanyardSystem : EntitySystem
     /// Adds lanyard text status to examined event
     /// Tells examiner if lanyard is empty, blank, etc
     /// </summary>
-    private void AddLanyardStatusExamineText(Entity<LanyardComponent> ent, ref ExaminedEvent args, ref PaperComponent? paper)
+    private void AddLanyardStatusExamineText(ref ExaminedEvent args, ref PaperComponent? paper)
     {
         if (paper is null)
         {
