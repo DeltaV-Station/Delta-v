@@ -1,17 +1,21 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Metadata;
 using Content.Shared._DV.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Paper;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._DV.Clothing.Systems;
 
 public sealed class LanyardSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
 
     public const string ContainerName = "lanyard_label";
 
@@ -23,8 +27,8 @@ public sealed class LanyardSystem : EntitySystem
         SubscribeLocalEvent<LanyardComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeLocalEvent<LanyardComponent, ExaminedEvent>(OnExamined);
-
         SubscribeLocalEvent<LanyardComponent, InventoryRelayedEvent<ExaminedEvent>>(OnExaminedInInventory);
+        SubscribeLocalEvent<LanyardComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(OnGetExamineVerbs);
     }
 
     /// <summary>
@@ -79,6 +83,52 @@ public sealed class LanyardSystem : EntitySystem
         }
     }
 
+    private void OnGetExamineVerbs(EntityUid uid, LanyardComponent comp, ref InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>> args)
+    {
+        // Return if there's no paper or if the paper is empty
+        if (!TryGetLanyardPaper(comp, out var paper)
+            || string.IsNullOrWhiteSpace(paper.Content))
+            return;
+
+        var isInDetailsRange = _examineSystem.IsInDetailsRange(args.Args.User, args.Args.Target);
+        var user = args.Args.User;
+
+        var verb = new ExamineVerb()
+        {
+            Act = () =>
+            {
+                var examineText = CreateLanyardFullExamineText(paper);
+                _examineSystem.SendExamineTooltip(user, uid, examineText, false, false);
+            },
+            Text = Loc.GetString("comp-lanyard-verb-read"),
+            Category = VerbCategory.Examine,
+            Disabled = !isInDetailsRange,
+            Message = isInDetailsRange ? null : Loc.GetString("comp-lanyard-verb-read-out-of-range"),
+            // uses the VV eye as icon
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
+        };
+
+        args.Args.Verbs.Add(verb);
+    }
+
+    private FormattedMessage CreateLanyardFullExamineText(PaperComponent paper)
+    {
+        var ret = new FormattedMessage();
+
+        // add paper contents
+        var text = paper.Content;
+        ret.AddMarkupPermissive(text.TrimEnd());
+
+        // add stamps if we have them
+        if (GetPaperStampString(paper, out var stampString))
+        {
+            ret.PushNewline();
+            ret.AddMarkupOrThrow(stampString);
+        }
+
+        return ret;
+    }
+
     /// <summary>
     /// Adds lanyard text status to examined event
     /// Tells examiner if lanyard is empty, blank, etc
@@ -113,7 +163,7 @@ public sealed class LanyardSystem : EntitySystem
     /// <summary>
     /// Tries to get the paper inside the lanyard
     /// </summary>
-    private bool TryGetLanyardPaper(LanyardComponent lanyardComponent, out PaperComponent? paperComponent)
+    private bool TryGetLanyardPaper(LanyardComponent lanyardComponent, [NotNullWhen(true)] out PaperComponent? paperComponent)
     {
         if (lanyardComponent.LabelSlot.Item is not { Valid: true } item
             || !TryComp<PaperComponent>(item, out var paper))
