@@ -38,7 +38,7 @@ public sealed class LanyardSystem : EntitySystem
             TryGetLanyardPaper(ent.Comp, out var paper);
 
             // Add basic descriptions (is it empty, is it blank, etc)
-            AddLanyardStatusExamineText(ref args, ref paper);
+            AddLanyardStatusExamineText(ref args, paper);
 
             if (paper is null || string.IsNullOrWhiteSpace(paper.Content))
                 return;
@@ -48,7 +48,7 @@ public sealed class LanyardSystem : EntitySystem
             args.PushMarkup(paper.Content.TrimEnd());
 
             // push paper stamps if they exist
-            if (GetPaperStampString(ref paper, out var stampString))
+            if (GetPaperStampString(paper, out var stampString))
                 args.PushMarkup(stampString);
         }
     }
@@ -68,12 +68,12 @@ public sealed class LanyardSystem : EntitySystem
                 ("user", Identity.Entity(args.Args.Examined, EntityManager))));
 
             // Add basic descriptions (is it empty, is it blank, etc)
-            AddLanyardStatusExamineText(ref args.Args, ref paper);
+            AddLanyardStatusExamineText(ref args.Args, paper);
 
             if (paper is null)
                 return;
 
-            if (GetPaperStampString(ref paper, out var stampString))
+            if (GetPaperStampString(paper, out var stampString))
                 args.Args.PushMarkup(stampString);
         }
     }
@@ -82,7 +82,7 @@ public sealed class LanyardSystem : EntitySystem
     /// Adds lanyard text status to examined event
     /// Tells examiner if lanyard is empty, blank, etc
     /// </summary>
-    private void AddLanyardStatusExamineText(ref ExaminedEvent args, ref PaperComponent? paper)
+    private void AddLanyardStatusExamineText(ref ExaminedEvent args, PaperComponent? paper)
     {
         if (paper is null)
         {
@@ -125,7 +125,7 @@ public sealed class LanyardSystem : EntitySystem
         return true;
     }
 
-    private bool GetPaperStampString(ref PaperComponent paper, [NotNullWhen(true)] out string? str)
+    private bool GetPaperStampString(PaperComponent paper, [NotNullWhen(true)] out string? str)
     {
         if (paper.StampedBy.Count <= 0)
         {
