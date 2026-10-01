@@ -59,8 +59,8 @@ public sealed class LanyardSystem : EntitySystem
             TryGetLanyardPaper(ent.Comp, out var paper);
 
             // Inform the examiner that whoever they're examining is wearing a lanyard
-            // var user = Comp<TransformComponent>(args.Args.Examined);
-            // args.Args.PushMarkup(Loc.GetString("comp-lanyard-wearing-lanyard"), ("user", Identity.Entity(user, EntityManager)));
+            args.Args.PushMarkup(Loc.GetString("comp-lanyard-wearing-lanyard",
+                ("user", Identity.Entity(args.Args.Examined, EntityManager))));
 
             // Add basic descriptions (is it empty, is it blank, etc)
             AddLanyardStatusExamineText(ref args.Args, ref paper);
