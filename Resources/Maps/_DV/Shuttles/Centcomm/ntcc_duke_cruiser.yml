@@ -4,7 +4,7 @@ meta:
   engineVersion: 275.2.1
   forkId: ""
   forkVersion: ""
-  time: 10/01/2026 01:41:24
+  time: 10/02/2026 23:30:31
   entityCount: 1217
 maps: []
 grids:
@@ -548,7 +548,8 @@ entities:
           2,-1:
             0: 20895
           0,-4:
-            0: 61678
+            0: 61614
+            2: 64
           -1,-4:
             0: 58606
           0,-3:
@@ -624,6 +625,11 @@ entities:
         - volume: 2500
           immutable: True
           moles: {}
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         chunkSize: 4
     - type: GasTileOverlay
     - type: ExplosionAirtightGrid
@@ -870,6 +876,8 @@ entities:
     - type: Transform
       pos: 5.5,-12.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 332
     components:
     - type: MetaData
@@ -1505,16 +1513,25 @@ entities:
     - type: Transform
       pos: 10.5,-10.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal:
+      - - ERT
   - uid: 304
     components:
     - type: Transform
       pos: 10.5,-12.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal:
+      - - ERT
   - uid: 305
     components:
     - type: Transform
       pos: 10.5,-11.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal:
+      - - ERT
   - uid: 306
     components:
     - type: Transform
@@ -6676,6 +6693,14 @@ entities:
     - type: Transform
       pos: 2.5,-14.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: AccessReader
       accessListsOriginal:
       - - Armory
@@ -6687,8 +6712,8 @@ entities:
           showEnts: False
           occludes: True
           ents:
+          - 1063
           - 709
-          - 1062
           - 1061
           - 1060
           - 1059
@@ -6700,7 +6725,7 @@ entities:
           - 713
           - 712
           - 710
-          - 1063
+          - 1062
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -8501,18 +8526,12 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 718
-- proto: WeaponPulseGunIntegrity
+- proto: WeaponPulsePistol
   entities:
   - uid: 1062
     components:
     - type: Transform
       parent: 705
-    - type: EnergyGun
-      currentFireMode:
-        state: ""
-        name: lethal
-        fireCost: 250
-        proto: CompactPulse
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
