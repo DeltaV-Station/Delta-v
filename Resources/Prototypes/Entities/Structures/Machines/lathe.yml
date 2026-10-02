@@ -373,6 +373,9 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: ActivatableUIRequiresAccess # DeltaV - Limit access
+  - type: AccessReader # DeltaV - Limit access
+    access: [["Robotics"]]
 
 - type: entity
   id: Biofabricator
@@ -484,6 +487,9 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
+  - type: ActivatableUIRequiresAccess # DeltaV - Limit access
+  - type: AccessReader # DeltaV - Limit access
+    access: [["Security"]]
 
 - type: entity
   id: AmmoTechFab
@@ -536,6 +542,9 @@
     - type: MaterialStorage
       whitelist: *StandardMaterialWhitelist
     - type: OreSiloClient
+    - type: ActivatableUIRequiresAccess # DeltaV - Limit access
+    - type: AccessReader # DeltaV - Limit access
+      access: [["Security"]]
 
 - type: entity
   id: MedicalTechFab
@@ -588,6 +597,9 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
+  - type: ActivatableUIRequiresAccess # DeltaV - Limit access
+  - type: AccessReader # DeltaV - Limit access
+    access: [["Medical"]]
 
 - type: entity
   parent: BaseLathe

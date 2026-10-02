@@ -101,6 +101,9 @@
     stealGroup: EngineeringTechFabCircuitboard
   - type: LatheAnnouncing
     channels: [Engineering]
+  - type: ActivatableUIRequiresAccess 
+  - type: AccessReader 
+    access: [["Engineering"]]
 
 - type: entity
   parent: BaseTechFabDepartmental
@@ -142,6 +145,9 @@
     stealGroup: LogisticsTechFabCircuitboard
   - type: LatheAnnouncing
     channels: [Supply]
+  - type: ActivatableUIRequiresAccess 
+  - type: AccessReader 
+    access: [["Cargo"]]
 
 - type: entity
   parent: BaseTechFabDepartmental
@@ -225,6 +231,9 @@
     board: EpistemicsTechFabCircuitboard
   - type: StealTarget
     stealGroup: EpistemicsTechFabCircuitboard
+  - type: ActivatableUIRequiresAccess 
+  - type: AccessReader 
+    access: [["Research"]]
 
 - type: entity
   parent: BaseTechFabDepartmental
@@ -265,3 +274,6 @@
     stealGroup: JusticeTechFabCircuitboard
   - type: LatheAnnouncing
     channels: [Justice]
+  - type: ActivatableUIRequiresAccess 
+  - type: AccessReader 
+    access: [["Justice"]]
