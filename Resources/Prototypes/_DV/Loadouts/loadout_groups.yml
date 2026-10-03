@@ -113,6 +113,7 @@
   name: loadout-group-assistant-head
   minLimit: 0
   loadouts:
+  - SkullBandanaPassenger
   - BlackBandana
   - BlueBandana
   - GoldBandana
@@ -120,29 +121,39 @@
   - GreyBandana
   - RedBandana
   - BrownBandana
-  - SkullBandana
-  - BartenderHead
-  - BartenderBowler
-  - RedBeret
   - BrownFedora
   - GreyFedora
   - BlackFedora
   - ChocFedora
   - WhiteFedora
-  - GreyFlatCap
-  - BlackFlatCap
-  - BrownFlatCap
   - BrownCowboyHat
   - BlackCowboyHat
   - GreyCowboyHat
   - RedCowboyHat
   - WhiteCowboyHat
   - BountyHunterHat
+  - GreyFlatCap
+  - BlackFlatCap
+  - BrownFlatCap
+  - BartenderHead
+  - BartenderBowler
+  - RedBeret
   - StrawHat
   - HeadBand
   - OutlawHat
   - WitchHat
   - PirateHat
+
+- type: loadoutGroup #Delta V
+  id: PassengerBackpack
+  name: loadout-group-assistant-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+  - MercBag
+  - LeatherSatchel
+
 
 # Logistics
 ## Courier
