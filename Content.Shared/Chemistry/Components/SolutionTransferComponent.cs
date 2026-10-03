@@ -25,7 +25,7 @@ public sealed partial class SolutionTransferComponent : Component
     ///     The maximum amount of solution that can be transferred at once from this solution.
     /// </summary>
     [DataField("maxTransferAmount"), AutoNetworkedField]
-    public FixedPoint2 MaximumTransferAmount = FixedPoint2.New(120); // Delta-v - Base 12 Chemistry
+    public FixedPoint2 MaximumTransferAmount = FixedPoint2.New(120); // DeltaV - Base 12 Chemistry
 
     /// <summary>
     ///     Can this entity take reagent from reagent tanks?
