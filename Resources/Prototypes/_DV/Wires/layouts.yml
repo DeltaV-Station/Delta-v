@@ -46,10 +46,11 @@
 
 - type: wireLayout
   id: Fabicator
-  dummyWires: 3
+  dummyWires: 2
   wires:
   - !type:PowerWireAction
   - !type:AiInteractWireAction
+  - !type:AccessWireAction
 
 - type: wireLayout
   id: Cyborg
