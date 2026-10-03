@@ -172,6 +172,12 @@
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
+      # Begin DeltaV additions
+      params:
+        maxDistance: 10
+        volume: 0
+        pitch: 1
+      # End DeltaV additions
   - type: MovementAlwaysTouching # it flies in space with tiny thrusters
   - type: FlashImmunity
   - type: BorgChassis
@@ -226,6 +232,12 @@
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
+     # Begin DeltaV additions
+      params:
+        maxDistance: 6
+        volume: -5    #Maximum distance and sound volume is lowered to be stealthy
+        pitch: 1
+      # End DeltaV additions  
   - type: BorgChassis
     maxModules: 5
     hasMindState: xenoborg_stealth_e
@@ -253,6 +265,10 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHighXenoborg # DeltaV
+   # Begin DeltaV additions
+  - type: NightVision
+    color: "#6C719E"
+   # End DeltaV additions
 
 
 # xenoborgs empty
