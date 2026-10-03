@@ -6,12 +6,14 @@
   description: Handheld computer to monitor status of Power and Atmos networks
   components:
   - type: Item
-    heldPrefix: scanner
+    heldPrefix: monitor
   - type: Sprite
     sprite: _DV/Objects/Specific/Engineering/handheldatmosmonitor.rsi
     layers:
+      - state: monitor
       - map: ["monitorLayerScreen"]
-        state: scanner-alert-0
+        state: power-monitor-overlay
+      - map: ["warningLevelLights"]
   - type: MultipleUiKey
     index: 0
     modes:
@@ -40,10 +42,15 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+      enum.MultipleUiKeyVisuals.CurrentIndex:
         monitorLayerScreen:
-          0: { state: scanner-alert-0 }
-          1: { state: scanner-alert-0 }
-          2: { state: scanner-alert-1 }
-          3: { state: scanner-alert-2 }
-          4: { state: scanner-alert-2 }
+          0: { state: power-monitor-overlay }
+          1: { state: atmos-monitor-overlay }
+          2: { state: atmos-alerts-overlay }
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        warnLevelLights:
+          0: { state: warn-lights-green }
+          1: { state: warn-lights-green }
+          2: { state: warn-lights-yellow }
+          3: { state: warn-lights-red }
+          4: { state: warn-lights-red }

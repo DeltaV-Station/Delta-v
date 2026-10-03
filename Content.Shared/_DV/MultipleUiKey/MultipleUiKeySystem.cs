@@ -14,6 +14,7 @@ public abstract partial class SharedMultipleUiKeySystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -92,6 +93,9 @@ public abstract partial class SharedMultipleUiKeySystem : EntitySystem
             return;
 
         comp.Index = index;
+
+        if (_entManager.TryGetComponent<AppearanceComponent>(uid, out var appearanceComp))
+            _appearance.SetData(uid, MultipleUiKeyVisuals.CurrentIndex, index, appearanceComp);
 
         // Dirty the component so that both client+server will see the new index
         Dirty(uid, comp);

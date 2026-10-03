@@ -4,37 +4,61 @@
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation https://github.com/tgstation/tgstation/commit/ab4abf318f293a701754656dd4e9261eb70f8824#diff-9ab5c8a5e47ab7cfaeadd859a23e32b05de1fe839e99ea767fd7e340b6385d67, in-hands modified by SeamLesss (github) from Objects/Misc/qm_clipboard.rsi/inhand-(left/right)",
     "states": [
         {
-            "name": "scanner-alert-0",
-            "directions": 1
-        },
-        {
-            "name": "scanner-alert-1",
-            "directions": 1
-        },
-        {
-            "name": "scanner-alert-2",
+            "name": "power-monitor-overlay",
             "directions": 1,
             "delays": [
                 [
-                    0.4,
-                    0.4
+                    0.6,
+                    0.6,
+                    0.6,
+                    0.6
                 ]
             ]
         },
         {
-            "name": "scanner-inhand-left",
+            "name": "atmos-monitor-overlay",
+            "directions": 1
+        },
+        {
+            "name": "atmos-alerts-overlay",
+            "directions": 1
+        },
+        {
+            "name": "warn-lights-green",
+            "directions": 1
+        },
+        {
+            "name": "warn-lights-yellow",
+            "directions": 1,
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "warn-lights-red",
+            "directions": 1,
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "monitor-inhand-left",
             "directions": 4
         },
         {
-            "name": "scanner-inhand-right",
+            "name": "monitor-inhand-right",
             "directions": 4
         },
         {
-            "name": "icon",
+            "name": "monitor",
             "directions": 1
         }
     ]

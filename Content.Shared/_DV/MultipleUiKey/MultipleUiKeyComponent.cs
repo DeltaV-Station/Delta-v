@@ -1,7 +1,7 @@
 using Robust.Shared.Network;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._DV.MultipleUiKey;
 
@@ -51,4 +51,10 @@ public sealed partial class MultipleUiKeyComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool LabelUpdateNeeded = false;
+}
+
+[NetSerializable, Serializable]
+public enum MultipleUiKeyVisuals
+{
+    CurrentIndex,
 }
