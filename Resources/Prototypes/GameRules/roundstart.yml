@@ -34,6 +34,10 @@
     - id: Hitman
       prob: 0.2 #as requested
     # end deltaV additions - add hitman
+    #begin DeltaV additions - ntagent subgamemode
+    - id: NTAgent
+      prob: 0.25 #as requested
+    # end deltaV additions - ntagent subgamemode
 
 - type: entity
   parent: BaseGameRule
@@ -53,6 +57,10 @@
     - id: Hitman
       prob: 0.2 #as requested
     # end deltaV additions - add hitman
+    #begin DeltaV additions - ntagent subgamemode
+    - id: NTAgent
+      prob: 0.25 #as requested
+    # end deltaV additions - ntagent subgamemode
 
 - type: entity
   parent: BaseGameRule
@@ -67,7 +75,10 @@
     #begin DeltaV additions - add hitman
     - id: Hitman
       prob: 0.2 #as requested
-    # end deltaV additions - add hitman
+    # end deltaV additions - add hitman\#begin DeltaV additions - ntagent subgamemode
+    - id: NTAgent
+      prob: 0.25 #as requested
+    # end deltaV additions - ntagent subgamemode
 
 - type: entity
   parent: BaseGameRule
@@ -81,6 +92,10 @@
     - id: Hitman
       prob: 0.2 #as requested
     # end deltaV additions - add hitman
+    #begin DeltaV additions - ntagent subgamemode
+    - id: NTAgent
+      prob: 0.25 #as requested
+    # end deltaV additions - ntagent subgamemode
 
 - type: entity
   parent: BaseGameRule
