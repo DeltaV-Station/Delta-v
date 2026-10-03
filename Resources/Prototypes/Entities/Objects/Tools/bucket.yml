@@ -18,10 +18,10 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 250
+        maxVol: 360 # Delta-v - Base 12 Chemistry
   - type: SolutionTransfer
-    transferAmount: 100
-    maxTransferAmount: 100
+    transferAmount: 120 # Delta-v - Base 12 Chemistry
+    maxTransferAmount: 360 # Delta-v Base 12 Chemistry
     minTransferAmount: 10
   - type: SpillWhenWorn
     solution: drink
