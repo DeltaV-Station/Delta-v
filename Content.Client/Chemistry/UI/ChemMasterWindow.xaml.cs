@@ -111,19 +111,27 @@ namespace Content.Client.Chemistry.UI
             if (!addReagentButtons)
                 return new List<ReagentButton>(); // Return an empty list if reagentTransferButton creation is disabled.
 
+            // Begin DeltaV - Base 12 chemistry
             var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
             {
                 ("1", ChemMasterReagentAmount.U1, StyleClass.ButtonOpenBoth),
+                ("3", ChemMasterReagentAmount.U3, StyleClass.ButtonOpenBoth),
+                ("4", ChemMasterReagentAmount.U4, StyleClass.ButtonOpenBoth),
                 ("5", ChemMasterReagentAmount.U5, StyleClass.ButtonOpenBoth),
+                ("6", ChemMasterReagentAmount.U6, StyleClass.ButtonOpenBoth),
+                ("8", ChemMasterReagentAmount.U8, StyleClass.ButtonOpenBoth),
                 ("10", ChemMasterReagentAmount.U10, StyleClass.ButtonOpenBoth),
+                ("12", ChemMasterReagentAmount.U12, StyleClass.ButtonOpenBoth),
                 ("15", ChemMasterReagentAmount.U15, StyleClass.ButtonOpenBoth),
                 ("20", ChemMasterReagentAmount.U20, StyleClass.ButtonOpenBoth),
-                ("25", ChemMasterReagentAmount.U25, StyleClass.ButtonOpenBoth),
+                ("24", ChemMasterReagentAmount.U24, StyleClass.ButtonOpenBoth),
                 ("30", ChemMasterReagentAmount.U30, StyleClass.ButtonOpenBoth),
-                ("50", ChemMasterReagentAmount.U50, StyleClass.ButtonOpenBoth),
-                ("100", ChemMasterReagentAmount.U100, StyleClass.ButtonOpenBoth),
+                ("40", ChemMasterReagentAmount.U40, StyleClass.ButtonOpenBoth),
+                ("60", ChemMasterReagentAmount.U60, StyleClass.ButtonOpenBoth),
+                ("120", ChemMasterReagentAmount.U120, StyleClass.ButtonOpenBoth),
                 (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleClass.ButtonOpenLeft),
             };
+            // End DeltaV - Base 12 chemistry
 
             var buttons = new List<ReagentButton>();
 

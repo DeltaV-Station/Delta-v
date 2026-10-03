@@ -96,20 +96,27 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public sealed class ChemMasterSortingTypeCycleMessage : BoundUserInterfaceMessage;
 
-
+    // Begin DeltaV - Base 12 chemistry
     public enum ChemMasterReagentAmount
     {
         U1 = 1,
+        U3 = 3,
+        U4 = 4,
         U5 = 5,
+        U6 = 6,
+        U8 = 8,
         U10 = 10,
+        U12 = 12,
         U15 = 15,
         U20 = 20,
-        U25 = 25,
+        U24 = 24,
         U30 = 30,
-        U50 = 50,
-        U100 = 100,
+        U40 = 40,
+        U60 = 60,
+        U120 = 120,
         All,
     }
+    // End DeltaV - Base 12 chemistry
 
     public enum ChemMasterDrawSource
     {

@@ -21,6 +21,6 @@ namespace Content.Server.Chemistry.Components
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public ReagentDispenserDispenseAmount DispenseAmount = ReagentDispenserDispenseAmount.U10;
+        public ReagentDispenserDispenseAmount DispenseAmount = ReagentDispenserDispenseAmount.U1; // DeltaV - Base 12 Chemistry
     }
 }

@@ -29,16 +29,32 @@ namespace Content.Shared.Chemistry
         /// </summary>
         public ReagentDispenserSetDispenseAmountMessage(String s)
         {
+            // Begin DeltaV - Base 12 Chemistry
             switch (s)
             {
                 case "1":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U1;
                     break;
+                case "3":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U3;
+                    break;
+                case "4":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U4;
+                    break;
                 case "5":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U5;
                     break;
+                case "6":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U6;
+                    break;
+                case "8":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U8;
+                    break;
                 case "10":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U10;
+                    break;
+                case "12":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U12;
                     break;
                 case "15":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U15;
@@ -46,21 +62,25 @@ namespace Content.Shared.Chemistry
                 case "20":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U20;
                     break;
-                case "25":
-                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U25;
+                case "24":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U24;
                     break;
                 case "30":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U30;
                     break;
-                case "50":
-                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U50;
+                case "40":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U40;
                     break;
-                case "100":
-                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U100;
+                case "60":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U60;
+                    break;
+                case "120":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U120;
                     break;
                 default:
                     throw new Exception($"Cannot convert the string `{s}` into a valid ReagentDispenser DispenseAmount");
             }
+            // End DeltaV - Base 12 Chemistry
         }
     }
 
@@ -95,18 +115,26 @@ namespace Content.Shared.Chemistry
 
     }
 
+    // Begin DeltaV - Base 12 Chemistry
     public enum ReagentDispenserDispenseAmount
     {
         U1 = 1,
+        U3 = 3,
+        U4 = 4,
         U5 = 5,
+        U6 = 6,
+        U8 = 8,
         U10 = 10,
+        U12 = 12,
         U15 = 15,
         U20 = 20,
-        U25 = 25,
+        U24 = 24,
         U30 = 30,
-        U50 = 50,
-        U100 = 100,
+        U40 = 40,
+        U60 = 60,
+        U120 = 120,
     }
+    // End DeltaV - Base 12 Chemistry
 
     [Serializable, NetSerializable]
     public sealed class ReagentInventoryItem(ItemStorageLocation storageLocation, string reagentLabel, FixedPoint2 quantity, Color reagentColor)

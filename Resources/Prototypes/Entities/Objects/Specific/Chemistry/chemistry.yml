@@ -24,7 +24,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
   - type: MixableSolution
     solution: beaker
   - type: FitsInDispenser
@@ -124,7 +124,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
   - type: MixableSolution
     solution: beaker
   - type: FitsInDispenser
@@ -193,10 +193,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Cryoxadone
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Beaker
@@ -208,10 +208,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Arithrazine
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Beaker
@@ -223,10 +223,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Sigynate
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Beaker
@@ -238,10 +238,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Phalanximine
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Beaker
@@ -253,10 +253,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Diphenhydramine
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Beaker
@@ -268,10 +268,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Bruizine
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Beaker
@@ -283,10 +283,10 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 50
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         reagents:
         - ReagentId: Lacerinol
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
 
 - type: entity
   name: large beaker
@@ -309,7 +309,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 100
+        maxVol: 120 # DeltaV - Base 12 Chemistry
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -339,7 +339,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 60
+        maxVol: 60 # DeltaV - Base 12 Chemistry
         canReact: false
 
 - type: entity
@@ -359,7 +359,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 1000
+        maxVol: 1200 # DeltaV - Base 12 Chemistry
         canReact: true
   - type: ReverseEngineering # DeltaV
     difficulty: 4
