@@ -2,6 +2,7 @@ using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events.PowerActionEvents;
 using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;
 using Content.Shared.Atmos.Rotting;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -24,6 +25,7 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
         base.Initialize();
 
         SubscribeLocalEvent<AltruisticHemomancyPowerComponent, AltruisticHemomancyDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<AltruisticHemomancyPowerComponent, ComponentShutdown>(OnShutdown);
     }
 
     protected override void OnPowerInit(Entity<AltruisticHemomancyPowerComponent> power, ref MapInitEvent args)
@@ -31,6 +33,21 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
         base.OnPowerInit(power, ref args);
 
         Popup.PopupEntity(Loc.GetString("psionic-power-altruistic-hemomancy-init"), power.Owner, power.Owner, PopupType.LargeCaution);
+
+        if (!TryComp<BloodstreamComponent>(power, out var comp))
+            return;
+
+        _bloodstream.ModifyBloodlossHealAmount((power, comp), power.Comp.BloodRegenerationMultiplier);
+        _bloodstream.ModifyBloodRefreshAmount((power, comp), comp.BloodRefreshAmount * power.Comp.BloodRegenerationMultiplier);
+    }
+
+    private void OnShutdown(Entity<AltruisticHemomancyPowerComponent> power, ref ComponentShutdown args)
+    {
+        if (!TryComp<BloodstreamComponent>(power, out var comp))
+            return;
+
+        _bloodstream.ModifyBloodlossHealAmount((power, comp), 1 / power.Comp.BloodRegenerationMultiplier);
+        _bloodstream.ModifyBloodRefreshAmount((power, comp), comp.BloodRefreshAmount / power.Comp.BloodRegenerationMultiplier);
     }
 
     protected override void OnPowerUsed(Entity<AltruisticHemomancyPowerComponent> psionic, ref AltruisticHemomancyPowerActionEvent args)
@@ -133,7 +150,8 @@ public sealed class AltruisticHemomancyPowerSystem : BasePsionicPowerSystem<Altr
 
     private void HealDamage(Entity<AltruisticHemomancyPowerComponent> psionic, EntityUid user, EntityUid target, DamageableComponent damageable)
     {
-        var bloodPercentageCost = psionic.Comp.BloodCost;
+        // Cost for the 1st heal is 1x, 2nd is 2x, and 3rd is 4x. 2^0 = 1, 2^1 = 2, 2^2 = 4.
+        var bloodPercentageCost = psionic.Comp.BloodCost * Math.Pow(2, psionic.Comp.TickCounter);
         if (_mobState.IsCritical(target))
             bloodPercentageCost *= psionic.Comp.CriticalHealingCostModifier;
 

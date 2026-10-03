@@ -36,10 +36,10 @@ public sealed partial class AltruisticHemomancyPowerComponent : BasePsionicPower
     public float CriticalHealingCostModifier = 1.25f;
 
     /// <summary>
-    /// The standard blood cost of using the power. It's 1/10th of a human entire blood reserves.
+    /// The standard blood cost of using the power. 300u is the normal blood capacity of a human.
     /// </summary>
     [DataField]
-    public float BloodCost = -30f;
+    public float BloodCost = -15f;
 
     /// <summary>
     /// The minimum blood percentage someone has to have to use the power.
@@ -53,10 +53,9 @@ public sealed partial class AltruisticHemomancyPowerComponent : BasePsionicPower
     [DataField]
     public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> Heal = new()
     {
-        { "Brute", -20 },
-        { "Burn", -20 },
-        { "Airloss", -20 },
-        { "Toxin", -20 },
+        { "Brute", -5 },
+        { "Burn", -5 },
+        { "Airloss", -5 },
     };
 
     /// <summary>
@@ -118,4 +117,16 @@ public sealed partial class AltruisticHemomancyPowerComponent : BasePsionicPower
     /// </summary>
     [DataField]
     public float RotDoAfterDurationModifier = 2f;
+
+    /// <summary>
+    /// The multiplier of their normal blood regeneration.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BloodRegenerationMultiplier = 2f;
+
+    /// <summary>
+    /// The multiplier of their normal bloodloss healing when above 90% blood level.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BloodlossHealMultiplier = 2f;
 }
