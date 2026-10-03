@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._DV.Throwing;
 using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Camera;
 using Content.Shared.Damage;
@@ -24,6 +25,7 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
     [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly CatchableSystem _catchable = default!; //Delta-V
 
     public override void Initialize()
     {
@@ -35,6 +37,11 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
     private void OnDoHit(EntityUid uid, DamageOtherOnHitComponent component, ThrowDoHitEvent args)
     {
         if (TerminatingOrDeleted(args.Target))
+            return;
+
+        var ev = new ThrowDamageAttemptedEvent(){ Thrown = uid }; // Delta-V
+        RaiseLocalEvent(args.Target, ref ev);
+        if (ev.Cancelled)
             return;
 
         var dmg = _damageable.ChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Component.Thrower);
@@ -60,4 +67,6 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
             // ES END
         }
     }
+
+
 }

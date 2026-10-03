@@ -1,3 +1,4 @@
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.DeviceLinking.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
@@ -19,6 +20,8 @@ namespace Content.Shared.DeviceLinking.Systems
             SubscribeLocalEvent<TwoWayLeverComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<TwoWayLeverComponent, ActivateInWorldEvent>(OnActivated);
             SubscribeLocalEvent<TwoWayLeverComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
+
+            SubscribeLocalEvent<TwoWayLeverComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V
         }
 
         private void OnInit(EntityUid uid, TwoWayLeverComponent component, ComponentInit args)
@@ -112,6 +115,21 @@ namespace Content.Shared.DeviceLinking.Systems
 
             Dirty(uid, component);
             _signalSystem.InvokePort(uid, port);
+        }
+
+        private void OnTelekinesisUsed(Entity<TwoWayLeverComponent> ent, ref TelekinesisUsedEvent args) // Delta-V
+        {
+
+            ent.Comp.State = ent.Comp.State switch
+            {
+                TwoWayLeverState.Middle => ent.Comp.NextSignalLeft ? TwoWayLeverState.Left : TwoWayLeverState.Right,
+                TwoWayLeverState.Right => TwoWayLeverState.Middle,
+                TwoWayLeverState.Left => TwoWayLeverState.Middle,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            StateChanged(ent.Owner, ent.Comp);
+            args.Cancel();
         }
     }
 }

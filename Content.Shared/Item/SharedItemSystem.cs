@@ -1,9 +1,13 @@
+using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Throwing;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Storage;
+using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Shared.Collections;
 using Robust.Shared.Containers;
@@ -18,6 +22,8 @@ public abstract class SharedItemSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // Delta-V
+    [Dependency] private readonly StatusEffectsSystem _status = default!; // Delta-V
 
     public override void Initialize()
     {
@@ -29,6 +35,8 @@ public abstract class SharedItemSystem : EntitySystem
         SubscribeLocalEvent<ItemComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ItemToggleSizeComponent, ItemToggledEvent>(OnItemToggle);
+
+        SubscribeLocalEvent<ItemComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V
     }
 
     private void OnItemAutoState(EntityUid uid, ItemComponent component, ref AfterAutoHandleStateEvent args)
@@ -285,5 +293,21 @@ public abstract class SharedItemSystem : EntitySystem
                 SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.DeactivatedSize, item);
             }
         }
+    }
+
+    private void OnTelekinesisUsed(Entity<ItemComponent> ent, ref TelekinesisUsedEvent args) // Delta-V
+    {
+        if (args.Cancelled)
+            return;
+        // // Barely does anything to standing things, but can move objects quite a distance. Small items get brought into hand.
+        _throwing.TryThrow(args.Target, Transform(args.User).Coordinates);
+        _status.TryAddStatusEffectDuration(args.User, "StatusEffectCatcher", TimeSpan.FromSeconds(2.5));
+        if (_status.TryEffectsWithComp<CatcherStatusEffectComponent>(args.User, out var statuses))
+        {
+            foreach (var status in statuses)
+                status.Comp1.Catchable.Add(args.Target);
+        }
+
+        args.Cancel();
     }
 }
