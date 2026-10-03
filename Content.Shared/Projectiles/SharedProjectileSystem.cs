@@ -26,6 +26,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly CatchableSystem _catchable = default!; // Delta-V
 
     public override void Initialize()
     {
@@ -79,7 +80,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)
     {
-        if (!embeddable.Comp.EmbedOnThrow)
+        if (!embeddable.Comp.EmbedOnThrow || _catchable.CheckCatching(args.Target, embeddable, out _)) // Delta-V
             return;
 
         EmbedAttach(embeddable, args.Target, null, embeddable.Comp);
