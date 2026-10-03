@@ -503,6 +503,7 @@
   parent: VisitorCivilian
   components:
     - type: MimePowers
+    - type: DiscouragedWriter # DeltaV - Make Mimes Mime
     - type: GhostRole
       name: job-name-mime
     - type: Loadout

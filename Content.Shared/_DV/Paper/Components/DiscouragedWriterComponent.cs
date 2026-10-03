@@ -19,30 +19,38 @@ public sealed partial class DiscouragedWriterComponent : Component
     [DataField, AutoNetworkedField]
     public int PreviousAttempts;
 
+    [DataField, AutoNetworkedField, AutoPausedField]
+    public TimeSpan ActiveDelay = TimeSpan.Zero;
+
     /// <summary>
     /// When the next <see cref="PunishStacks"/> decays.
     /// </summary>
     [DataField, AutoNetworkedField, AutoPausedField]
-    public TimeSpan NextStackDecay = TimeSpan.Zero;
+    public TimeSpan? NextStackDecay;
 
     /// <summary>
-    /// The time of the last writing attempt.
-    /// This determines when to decay <see cref="AttemptDecay"/>. Additionally, successfully writing clears it too.
+    /// When the <see cref="PreviousAttempts"/> counter resets.
+    /// Additionally, successfully writing resets it too.
     /// </summary>
     [DataField, AutoNetworkedField, AutoPausedField]
-    public TimeSpan LastAttemptTime = TimeSpan.Zero;
+    public TimeSpan? NextAttemptReset;
 
     /// <summary>
-    /// The delay after which all <see cref="PreviousAttempts"/> get cleared.
+    /// The delay after which the <see cref="PreviousAttempts"/> counter gets reset.
     /// </summary>
+    /// <remarks>
+    /// This is added on top of <see cref="Delay"/>.
+    /// A <see cref="Delay"/> of 5 and a <see cref="AttemptDecay"/> of 5 will result in attempts being cleared after 10 seconds.
+    /// This prevents situations where the decay time is lower than the delay time, making writing impossible.
+    /// </remarks>
     [DataField]
-    public TimeSpan AttemptDecay = TimeSpan.FromSeconds(10);
+    public TimeSpan AttemptDecay = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// How much each <see cref="PunishStacks"/> delays an attempt to write on a paper.
     /// </summary>
     [DataField]
-    public TimeSpan Delay = TimeSpan.FromSeconds(5);
+    public TimeSpan Delay = TimeSpan.FromSeconds(2.5);
 
     /// <summary>
     /// How long it takes for <see cref="PunishStacks"/> to start decaying after gaining one.

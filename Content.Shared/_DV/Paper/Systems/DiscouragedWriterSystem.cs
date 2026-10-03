@@ -40,7 +40,7 @@ public sealed class DiscouragedWriterSystem : EntitySystem
         failReason = null;
 
         // If the delay is active, do nothing.
-        if (writer.Comp.LastAttemptTime + writer.Comp.Delay > _timing.CurTime)
+        if (writer.Comp.ActiveDelay > _timing.CurTime)
         {
             failReason = GetFailReason(writer.Comp);
             return false;
@@ -57,7 +57,11 @@ public sealed class DiscouragedWriterSystem : EntitySystem
         }
 
         failReason = GetFailReason(writer.Comp);
+
         writer.Comp.PreviousAttempts++;
+        writer.Comp.ActiveDelay = _timing.CurTime + writer.Comp.Delay;
+        // We add decay on top of the delay for the reset to ensure writing isn't impossible.
+        writer.Comp.NextAttemptReset = writer.Comp.ActiveDelay + writer.Comp.AttemptDecay;
         Dirty(writer);
         return false;
     }
@@ -78,12 +82,24 @@ public sealed class DiscouragedWriterSystem : EntitySystem
         var query = EntityQueryEnumerator<DiscouragedWriterComponent>();
         while (query.MoveNext(out var uid, out var writer))
         {
-            if (writer.NextStackDecay < _timing.CurTime)
-                return;
+            if (writer.NextStackDecay != null && writer.NextStackDecay <= _timing.CurTime)
+            {
+                writer.PunishStacks--;
 
-            writer.NextStackDecay = _timing.CurTime + writer.DecayInterval;
-            writer.PunishStacks--;
-            Dirty(uid, writer);
+                if (writer.PunishStacks == 0)
+                    writer.NextStackDecay = null;
+                else
+                    writer.NextStackDecay = _timing.CurTime + writer.DecayInterval;
+
+                Dirty(uid, writer);
+            }
+            else if (writer.NextAttemptReset != null && writer.NextAttemptReset <= _timing.CurTime)
+            {
+                // Fully reset the attempt counter.
+                writer.NextAttemptReset = null;
+                writer.PreviousAttempts = 0;
+                Dirty(uid, writer);
+            }
         }
     }
 }
