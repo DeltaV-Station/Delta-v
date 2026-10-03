@@ -51,7 +51,7 @@
   id: PlatingDamaged
   parent: BasePlating
   name: tiles-plating
-  sprite: /Textures/Tiles/plating_damaged.png
+  sprite: /Textures/_DV/Tiles/plating_damaged.png # DeltaV - Resprite
   variants: 3
   placementVariants:
   - 1.0
@@ -62,7 +62,7 @@
   id: PlatingAsteroid
   parent: BasePlating
   name: tiles-asteroid-plating
-  sprite: /Textures/Tiles/Asteroid/asteroid_plating.png
+  sprite: /Textures/_DV/Tiles/asteroid_plating.png # DeltaV - Resprite, was /Textures/Tiles/Asteroid/asteroid_plating.png
 
 - type: tile
   id: PlatingBrass
@@ -74,7 +74,7 @@
   id: PlatingSnow
   name: tiles-snow-plating
   parent: BasePlating
-  sprite: /Textures/Tiles/snow_plating.png #Not in the snow planet RSI because it doesn't have any metadata. Should probably be moved to its own folder later.
+  sprite: /Textures/_DV/Tiles/snow_plating.png #Not in the snow planet RSI because it doesn't have any metadata. Should probably be moved to its own folder later.   # Delta-V - Resprite
   friction: 0.75 #a little less then actual snow
 
 - type: tile

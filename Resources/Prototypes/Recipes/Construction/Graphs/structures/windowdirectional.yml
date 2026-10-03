@@ -54,6 +54,24 @@
               amount: 1
               doAfter: 2
 
+        # Start DeltaV additions
+        - to: tintedWindowDirectional
+          steps:
+            - material: Glass
+              amount: 1
+            - material: Plastic
+              amount: 2
+              doAfter: 1.5
+
+        - to: reinforcedTintedWindowDirectional
+          steps:
+            - material: ReinforcedGlass
+              amount: 1
+            - material: Plastic
+              amount: 2
+              doAfter: 1.5
+        # End DeltaV additions
+
     - node: windowDirectional
       entity: WindowDirectional
       edges:
@@ -245,3 +263,54 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+
+        # Start DeltaV additions
+    - node: tintedWindowDirectional
+      entity: WindowTintedDirectional
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: SheetGlass1
+              amount: 1
+            - !type:GivePrototype
+              prototype: SheetPlastic1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 2
+        - to: reinforcedTintedWindowDirectional
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+
+    - node: reinforcedTintedWindowDirectional
+      entity: WindowTintedReinforcedDirectional
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: SheetRGlass1
+              amount: 1
+            - !type:GivePrototype
+              prototype: SheetPlastic1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 2
+    # End DeltaV additions

@@ -1,0 +1,236 @@
+## God help the poor soul condemed to review this shitcode    - Gray
+# Basic
+- type: entity
+  id: WindowDirectionalEnd
+  parent: WindowDirectional
+  name: directional end window
+  components:
+  - type: Sprite
+    sprite: /Textures/_DV/Structures/Windows/directional_end.rsi
+    state: window
+  - type: Icon
+    sprite: /Textures/_DV/Structures/Windows/directional_end.rsi
+    state: window
+  - type: Tag
+    tags:
+      - Window
+      - Directional
+      - ForceNoFixRotations
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.5,-0.28125,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,-0.5,0.28125,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.28125,-0.28125,-0.28125,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: windowEnd
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+
+- type: entity
+  id: PlasmaWindowDirectionalEnd
+  parent: [ WindowDirectionalEnd, PlasmaWindowDirectional ]
+  name: directional end plasma window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: plasma_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: plasma_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: plasmaWindowEnd
+
+- type: entity
+  id: UraniumWindowDirectionalEnd
+  parent: [ WindowDirectionalEnd, UraniumWindowDirectional ]
+  name: directional end uranium window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: uranium_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: uranium_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: uraniumWindowEnd
+
+# Reinforced
+- type: entity
+  id: WindowReinforcedDirectionalEnd
+  parent: [ WindowDirectionalEnd, WindowReinforcedDirectional ]
+  name: directional end reinforced window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: reinforced_window
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.5,-0.28125,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.28125,-0.28125,0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: windowReinforcedEnd
+
+- type: entity
+  id: PlasmaReinforcedWindowDirectionalEnd
+  parent: [ WindowReinforcedDirectionalEnd, PlasmaReinforcedWindowDirectional ]
+  name: directional end reinforced plasma window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: plasma_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: plasma_reinforced_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: plasmaReinforcedWindowEnd
+
+- type: entity
+  id: UraniumReinforcedWindowDirectionalEnd
+  parent: [ WindowReinforcedDirectionalEnd, UraniumReinforcedWindowDirectional ]
+  name: directional end reinforced uranium window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: uranium_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: uranium_reinforced_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: uraniumReinforcedWindowEnd
+
+# Tinted
+- type: entity
+  id: TintedWindowDirectionalEnd
+  parent: [ WindowDirectionalEnd, WindowTintedDirectional ]
+  name: directional end tinted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: tinted_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: tinted_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,0.5,0.5"
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: tintedWindowEnd
+
+
+- type: entity
+  id: TintedWindowReinforcedDirectionalEnd
+  parent: [ WindowDirectionalEnd, WindowTintedReinforcedDirectional ]
+  name: directional end reinforced tinted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: tinted_reinforced_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: tinted_reinforced_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
+  - type: Occluder
+    boundingBox: "-0.5,-0.5,-0.5,-0.5"
+  - type: Construction
+    graph: WindowDirectionalEndRecipes
+    node: reinforcedTintedWindowEnd
+
+# Frosted
+- type: entity
+  id: WindowFrostedDirectionalEnd
+  parent: [ WindowDirectionalEnd, WindowFrostedDirectional ]
+  name: directional end frosted window
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: frosted_window
+  - type: Icon
+    sprite: _DV/Structures/Windows/directional_end.rsi
+    state: frosted_window
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _DV/Structures/Windows/cracks_end.rsi
