@@ -42,25 +42,6 @@
 
 - type: entity
   parent: BasePsionicAction
-  id: ActionMindSwapPsionic
-  name: Mind Swap
-  description: Swap minds with the target. Either can change back after 20 seconds.
-  components:
-  - type: Action
-    icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: mind_swap
-    useDelay: 240
-    checkCanInteract: false
-  - type: TargetAction
-    checkCanAccess: false
-    range: 8
-  - type: EntityTargetAction
-    canTargetSelf: false
-    event: !type:MindSwapPowerActionEvent
-
-- type: entity
-  parent: BasePsionicAction
   id: ActionMindSwapReturn
   name: Reverse Mind Swap
   description: Return to your original body.

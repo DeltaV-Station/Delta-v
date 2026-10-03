@@ -100,8 +100,12 @@
     minimumGlimmer: 750
     glimmerBurnLower: 40
     glimmerBurnUpper: 80
-  - type: MinorMassMindSwapRule
+  - type: MassMindSwapRule
+    delay: 60
     isTemporary: true
+    onlyPlayers: true
+    ignoreMindshields: false
+    maxNumberOfPairs: 3
 
 - type: entity
   abstract: true
