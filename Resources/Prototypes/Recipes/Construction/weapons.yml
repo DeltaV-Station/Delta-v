@@ -1,18 +1,18 @@
-- type: construction
-  id: BladedFlatcapGrey
-  graph: BladedFlatcapGrey
-  startNode: start
-  targetNode: icon
-  category: construction-category-weapons
-  objectType: Item
+#- type: construction
+#  id: BladedFlatcapGrey
+#  graph: BladedFlatcapGrey
+#  startNode: start
+#  targetNode: icon
+#  category: construction-category-weapons
+#  objectType: Item
 
-- type: construction
-  id: BladedFlatcapBrown
-  graph: BladedFlatcapBrown
-  startNode: start
-  targetNode: icon
-  category: construction-category-weapons
-  objectType: Item
+#- type: construction
+#  id: BladedFlatcapBrown
+#  graph: BladedFlatcapBrown
+#  startNode: start
+#  targetNode: icon
+#  category: construction-category-weapons
+#  objectType: Item
 
 - type: construction
   id: Shiv
@@ -94,20 +94,20 @@
   category: construction-category-weapons
   objectType: Item
 
-- type: construction
-  id: WoodenBuckler
-  graph: WoodenBuckler
-  startNode: start
-  targetNode: woodenBuckler
-  category: construction-category-weapons
-  objectType: Item
+#- type: construction
+#  id: WoodenBuckler
+#  graph: WoodenBuckler
+#  startNode: start
+#  targetNode: woodenBuckler
+#  category: construction-category-weapons
+#  objectType: Item
 
 - type: construction
   id: CardShield
   graph: CardShield
   startNode: start
   targetNode: cardShield
-  category: construction-category-weapons
+  category: construction-category-misc
   objectType: Item
 
 - type: construction
@@ -155,7 +155,7 @@
   graph: CardArrow
   startNode: start
   targetNode: CardArrow
-  category: construction-category-weapons
+  category: construction-category-misc
   objectType: Item
 
 - type: construction
@@ -166,13 +166,13 @@
   category: construction-category-weapons
   objectType: Item
 
-- type: construction
-  id: SpearBone
-  graph: SpearBone
-  startNode: start
-  targetNode: spear
-  category: construction-category-weapons
-  objectType: Item
+#- type: construction
+#  id: SpearBone
+#  graph: SpearBone
+#  startNode: start
+#  targetNode: spear
+#  category: construction-category-weapons
+#  objectType: Item
 
 - type: construction
   id: ClothingHandsKnuckleDustersBrass
@@ -187,5 +187,5 @@
   graph: CardSword
   startNode: start
   targetNode: cardSword
-  category: construction-category-weapons
+  category: construction-category-misc
   objectType: Item

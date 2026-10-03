@@ -173,7 +173,26 @@
   effects:
     - !type:SpawnEntity
       entity: MaterialGunpowder
-
+      
+- type: reaction
+  id: Greypowder
+  impact: Low
+  quantized: true
+  reactants:
+    Rum:
+      amount: 5
+    Sugar:
+      amount: 7
+    Ash:
+      amount: 6
+    JuiceBanana:
+      amount: 4
+    WeldingFuel:
+      amount: 7
+  effects:
+    - !type:SpawnEntity
+      entity: MaterialGunpowder
+      
 - type: reaction
   id: SolidifyGold
   impact: Low

@@ -36,41 +36,8 @@
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard3
         doAfter: 0.5
-      - tag: Matchstick
+      - tag: gunpowder
         name: construction-graph-tag-match-stick
         icon:
-          sprite: Objects/Tools/matches.rsi
-          state: match_unlit
-        doAfter: 0.5
-      - tag: Matchstick
-        name: construction-graph-tag-match-stick
-        icon:
-          sprite: Objects/Tools/matches.rsi
-          state: match_unlit
-        doAfter: 0.5
-      - tag: Matchstick
-        name: construction-graph-tag-match-stick
-        icon:
-          sprite: Objects/Tools/matches.rsi
-          state: match_unlit
-        doAfter: 0.5
-      - tag: Matchstick
-        name: construction-graph-tag-match-stick
-        icon:
-          sprite: Objects/Tools/matches.rsi
-          state: match_unlit
-        doAfter: 0.5
-      - tag: Matchstick
-        name: construction-graph-tag-match-stick
-        icon:
-          sprite: Objects/Tools/matches.rsi
-          state: match_unlit
-        doAfter: 0.5
-      - tag: Matchstick
-        name: construction-graph-tag-match-stick
-        icon:
-          sprite: Objects/Tools/matches.rsi
-          state: match_unlit
-        doAfter: 0.5
   - node: shell
     entity: ShellShotgunImprovised
