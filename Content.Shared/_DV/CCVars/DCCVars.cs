@@ -136,6 +136,12 @@ public sealed partial class DCCVars
     public static readonly CVarDef<bool> ShowStunVisuals =
         CVarDef.Create("game.see_stun_visuals", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Whether you see interaction particles
+    /// </summary>
+    public static readonly CVarDef<bool> ShowInteractionParticles =
+        CVarDef.Create("game.see_interaction_particles", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
      * Traits
      */

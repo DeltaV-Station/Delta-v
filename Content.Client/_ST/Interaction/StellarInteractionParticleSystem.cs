@@ -3,9 +3,11 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
+using Content.Shared._DV.CCVars; // DeltaV
 using Content.Shared._ST.Interaction;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Configuration; // DeltaV
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -17,6 +19,7 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // DeltaV - accessibility disable
 
     private const string AnimateKey = "particle-animation";
 
@@ -35,6 +38,10 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
 
     private void OnInteractionParticle(StellarInteractionParticleEvent ev)
     {
+        // DeltaV - accessibility disable
+        if (!_cfg.GetCVar(DCCVars.ShowInteractionParticles))
+            return;
+
         var performer = GetEntity(ev.Performer);
         var used = GetEntity(ev.Used);
         var target = GetEntity(ev.Target);
