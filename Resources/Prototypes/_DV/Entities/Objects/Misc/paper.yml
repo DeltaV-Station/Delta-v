@@ -535,15 +535,31 @@
           - Write
   - type: PowerMonitoringConsole
   - type: PowerMonitoringCableNetworks
+  - type: AtmosAlertsComputer
+  - type: AtmosMonitoringConsole
+    navMapTileColor: "#1a1a1a"
+    navMapWallColor: "#404040"
   - type: UserInterface
     interfaces:
       enum.PowerMonitoringConsoleUiKey.Key:
         type: PowerMonitoringConsoleBoundUserInterface
+      enum.AtmosMonitoringConsoleUiKey.Key:
+        type: AtmosMonitoringConsoleBoundUserInterface
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: ActivatableUI
-    verbText: ce-clipboard-computer-verb-text
     key: enum.PowerMonitoringConsoleUiKey.Key
+  - type: MultipleUiKey
+    index: 0
+    modes:
+      - uiKey: enum.PowerMonitoringConsoleUiKey.Key
+        name: handheld-engineering-monitor-power-monitor-mode-name
+      - uiKey: enum.AtmosMonitoringConsoleUiKey.Key
+        name: handheld-engineering-monitor-atmos-monitor-mode-name
+      - uiKey: enum.AtmosAlertsComputerUiKey.Key
+        name: handheld-engineering-monitor-atmos-alerts-mode-name
   - type: MeleeWeapon
     damage:
       types:
