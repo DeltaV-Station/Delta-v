@@ -134,7 +134,7 @@
       storagebase: !type:AllSelector
         children:
         - id: SRTBlackInjector
-        - id: Truncheon
+        - id: PoweredMace
         - id: BurnAutoInjector
         - id: PunctAutoInjector
         - id: PyraAutoInjector
@@ -143,3 +143,21 @@
         - id: PunctAutoInjector
         - id: PyraAutoInjector
         - id: AntiPoisonMedipen
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingERTMedicineHeavy
+  parent: ClothingBeltMilitaryWebbingERT
+  suffix: Filled, Tools
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SRTBlackInjector
+        - id: PoweredMace
+        - id: ToolDebug
+        - id: BluespaceLifelineImplanter
+        - id: PunctAutoInjector
+        - id: PunctAutoInjector
+        - id: BurnAutoInjector
+        - id: BurnAutoInjector

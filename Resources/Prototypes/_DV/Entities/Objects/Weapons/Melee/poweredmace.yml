@@ -1,0 +1,67 @@
+- type: entity
+  name: powered mace
+  parent: BaseItem
+  id: PoweredMace
+  suffix: ERT
+  description: A plasteel mace equipped with an internal microreactor, capable of dealing stunning, but deadly shocks.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/poweredmace.rsi
+    layers:
+    - state: icon_off
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Stunbaton
+    energyPerUse: 50
+  - type: ItemToggle
+    predictable: false
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemTogglePrefix
+    prefixOn: on
+    prefixOff: off
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 20
+        Shock: 10
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 20
+    bluntStaminaDamageFactor: 1.5
+    angle: 60
+    wideAnimation: WeaponArcThrust
+  - type: ESSparkOnItemToggle
+    count: 1
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: Battery
+    maxCharge: 150
+    startingCharge: 150
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: icon}
+          False: {state: icon-off}
