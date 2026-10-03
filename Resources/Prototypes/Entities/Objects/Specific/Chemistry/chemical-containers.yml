@@ -18,6 +18,8 @@
     solutions:
       drink:
         maxVol: 240 # DeltaV - Base 12 Chemistry
+  - type: SolutionTransfer # DeltaV - Base 12 Chemistry
+    maxTransferAmount: 240 # DeltaV - Base 12 Chemistry
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 5

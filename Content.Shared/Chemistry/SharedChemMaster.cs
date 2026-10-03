@@ -100,16 +100,10 @@ namespace Content.Shared.Chemistry
     public enum ChemMasterReagentAmount
     {
         U1 = 1,
-        U3 = 3,
-        U4 = 4,
         U5 = 5,
-        U6 = 6,
-        U8 = 8,
         U10 = 10,
-        U12 = 12,
         U15 = 15,
         U20 = 20,
-        U24 = 24,
         U30 = 30,
         U40 = 40,
         U60 = 60,

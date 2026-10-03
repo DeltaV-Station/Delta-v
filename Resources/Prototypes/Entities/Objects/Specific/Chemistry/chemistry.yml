@@ -41,6 +41,7 @@
   - type: InjectableSolution
     solution: beaker
   - type: SolutionTransfer
+    maxTransferAmount: 60 # DeltaV - Base 12 Chemistry
     canChangeTransferAmount: true
   - type: SolutionItemStatus
     solution: beaker
@@ -310,6 +311,8 @@
     solutions:
       beaker:
         maxVol: 120 # DeltaV - Base 12 Chemistry
+  - type: SolutionTransfer # DeltaV - Base 12 Chemistry
+    maxTransferAmount: 120 # DeltaV - Base 12 Chemistry
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -361,6 +364,8 @@
       beaker:
         maxVol: 1200 # DeltaV - Base 12 Chemistry
         canReact: true
+  - type: SolutionTransfer # DeltaV - Base 12 Chemistry
+    maxTransferAmount: 240 # DeltaV - Base 12 Chemistry
   - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
