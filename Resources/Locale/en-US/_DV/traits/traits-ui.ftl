@@ -26,6 +26,9 @@ trait-category-traits = {$selected} / {$max} traits
 trait-category-traits-unlimited = {$selected} traits
 trait-category-points = ({$selected} / {$max} pts)
 
+## Sub-traits
+sub-traits-label = Trait Extras
+
 ## Condition tooltips
 trait-conditions-tooltip = [bold]Requirements:[/bold]
     {$requirements}
