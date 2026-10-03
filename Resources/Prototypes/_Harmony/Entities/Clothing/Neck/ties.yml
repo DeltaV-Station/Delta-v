@@ -8,7 +8,7 @@
     sprite: _Harmony/Clothing/Neck/Misc/lanyard.rsi
   - type: Clothing
     sprite: _Harmony/Clothing/Neck/Misc/lanyard.rsi
-  - type: PaperLabel
+  - type: Lanyard # DeltaV - PaperLabel -> Lanyard
     labelSlot:
       insertVerbText: comp-paper-label-insert
       ejectVerbText: comp-paper-label-eject
@@ -25,5 +25,5 @@
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
-      paper_label: !type:ContainerSlot
+      lanyard_label: !type:ContainerSlot # DeltaV - paper_label -> lanyard_label
   - type: ItemSlots
