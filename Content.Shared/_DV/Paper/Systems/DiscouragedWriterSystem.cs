@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._DV.AACTablet.Events;
 using Content.Shared._DV.Paper.Components;
 using Content.Shared.Paper;

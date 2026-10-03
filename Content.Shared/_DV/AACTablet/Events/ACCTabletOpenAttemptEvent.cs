@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.AACTablet.Events;
+namespace Content.Shared._DV.AACTablet.Events;
 
 /// <summary>
 /// Cancellable event for attempting to use an AAC tablet, raised on the user.
