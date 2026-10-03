@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Chemistry.Components;
+using Content.Shared._DV.Chemistry.Components;
 using Content.Shared._DV.Chemistry.Events;
 using Content.Shared.Access.Systems;
 

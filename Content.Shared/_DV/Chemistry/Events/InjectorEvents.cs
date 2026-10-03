@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Chemistry.Events;
+namespace Content.Shared._DV.Chemistry.Events;
 
 /// <summary>
 /// This event is raised on the injector before the target is injected.
