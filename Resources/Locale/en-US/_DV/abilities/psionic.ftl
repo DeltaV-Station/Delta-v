@@ -1,6 +1,7 @@
 ## Names of Psionic Powers
 psionic-power-name-dispel = Dispel
 psionic-power-name-eruption = Psionic Eruption
+psionic-power-name-hysterical-strength = Hysterical Strength
 psionic-power-name-mass-sleep = Mass Sleep
 psionic-power-name-mindswap = Mind Swap
 psionic-power-name-mindswap-return = Mind Swap Return
@@ -26,6 +27,11 @@ psionic-equipped-shielded-in-doafter = The insulative gear broke your concentrat
 psionic-dispelled = Someone dispelled your psionic concentration!
 
 ## Specific Psionic messages
+# Hysterical Strength
+psionic-power-hysterical-strength-used = Your muscles begin to burn.. it's hard to breathe.
+psionic-power-hysterical-strength-used-others = {CAPITALIZE(THE($user))}'s muscles begin to convulse!
+psionic-power-hysterical-strength-being-dispelled = {CAPITALIZE(THE($dispelled))}'s muscles seize up!
+
 # Metapsionic Pulse
 psionic-power-metapsionic-success = You detect psychic presence there.
 psionic-power-metapsionic-failure = You don't detect any psychic presence there.

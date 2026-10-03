@@ -9,5 +9,5 @@ public sealed partial class ClothingSlowResistanceComponent : Component
     /// Modifier for both walk and sprint slowdown.
     /// </summary>
     [DataField(required: true)]
-    public float Modifier = 0.25f;
+    public float Modifier;
 }
