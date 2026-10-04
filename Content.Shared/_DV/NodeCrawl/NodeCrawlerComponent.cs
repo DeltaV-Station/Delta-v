@@ -40,7 +40,7 @@ public sealed partial class NodeCrawlerComponent : Component
     /// How long it takes to enter the node if entity is zombified.
     /// </summary>
     [DataField]
-    public TimeSpan ZombieEnterDelay = TimeSpan.FromSeconds(6.0f);
+    public TimeSpan ZombieEnterDelay = TimeSpan.FromSeconds(5.0f);
 }
 
 [Serializable, NetSerializable]
