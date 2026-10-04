@@ -9,13 +9,11 @@ using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
@@ -34,7 +32,7 @@ public abstract partial class SharedPsionicSystem
 
     private void OnInsulativeGearEquipped(Entity<PsionicallyInsulativeComponent> gear, ref GotEquippedEvent args)
     {
-        if (_timing.ApplyingState)
+        if (Timing.ApplyingState)
             return;
 
         if (!gear.Comp.AllowsPsionicUsage)
@@ -51,7 +49,7 @@ public abstract partial class SharedPsionicSystem
 
     private void OnInsulativeGearUnequipped(Entity<PsionicallyInsulativeComponent> gear, ref GotUnequippedEvent args)
     {
-        if (_timing.ApplyingState)
+        if (Timing.ApplyingState)
             return;
 
         if (!gear.Comp.AllowsPsionicUsage && CanUsePsionicAbility(args.Equipee))

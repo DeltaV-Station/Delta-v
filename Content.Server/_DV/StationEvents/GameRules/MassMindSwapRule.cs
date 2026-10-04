@@ -104,7 +104,7 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
                 if (maxPairs.HasValue)
                     maxPairs--;
 
-                _psionic.SwapMinds(actor, other, false, component.IsTemporary, component.IgnoreMindshields);
+                _psionic.SwapMinds(actor, other, false, component.IsTemporary, component.IgnoreMindshields, swapCooldown: component.ReturnSwapCooldown);
                 break;
             }
         }

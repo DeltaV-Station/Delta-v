@@ -35,7 +35,7 @@ public sealed partial class MassMindSwapRuleComponent : Component
     /// How long victims have to wait to swap back if <see cref="IsTemporary"/> is true.
     /// </summary>
     [DataField]
-    public int ReturnSwapCooldown = 120;
+    public TimeSpan ReturnSwapCooldown = TimeSpan.FromMinutes(2);
 
     /// <summary>
     /// The FTL reference for what will be written in the announcement.

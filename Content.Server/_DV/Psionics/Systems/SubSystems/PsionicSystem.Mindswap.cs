@@ -52,9 +52,16 @@ public sealed partial class PsionicSystem
     /// <param name="reversible">Whether the swap is reversible via the return power.</param>
     /// <param name="ignoreMindshields">Whether the swap should ignore mindshields.</param>
     /// <param name="ignorePsionicShielding">Whether the swap should ignore psionic shielding.</param>
+    /// <param name="swapCooldown">How long it'll take for the swapped to change back to their original entity.</param>
     /// <returns>True if the two were swapped, false if otherwise.</returns>
     [PublicAPI]
-    public bool SwapMinds(EntityUid performer, EntityUid target, bool performerIsCause = true, bool reversible = true, bool ignoreMindshields = false, bool ignorePsionicShielding = false)
+    public bool SwapMinds(EntityUid performer,
+        EntityUid target,
+        bool performerIsCause = true,
+        bool reversible = true,
+        bool ignoreMindshields = false,
+        bool ignorePsionicShielding = false,
+        TimeSpan? swapCooldown = null)
     {
         if (performerIsCause && !CanPerformerSwapWithTarget(performer, target, ignoreMindshields, ignorePsionicShielding))
             return false;
@@ -113,6 +120,12 @@ public sealed partial class PsionicSystem
 
         var perfComp = EnsureComp<MindSwappedReturnPowerComponent>(performer);
         var targetComp = EnsureComp<MindSwappedReturnPowerComponent>(target);
+
+        if (swapCooldown != null)
+        {
+            _action.SetCooldown(perfComp.ActionEntity, Timing.CurTime + swapCooldown.Value);
+            _action.SetCooldown(targetComp.ActionEntity, Timing.CurTime + swapCooldown.Value);
+        }
 
         perfComp.OriginalEntity = target;
         targetComp.OriginalEntity = performer;
@@ -219,7 +232,7 @@ public sealed partial class PsionicSystem
 
         if (!firstTargetBlocked)
             Popup.PopupEntity(message, firstTarget, firstTarget, PopupType.MediumCaution);
-        else // No need to check, as the second one NEEDS to be true if the first one was false.
+        else if (!secondTargetBlocked)
             Popup.PopupEntity(message, secondTarget, secondTarget, PopupType.MediumCaution);
 
         return false;
