@@ -35,6 +35,17 @@
   - PortableRecharger
 
 - type: thiefBackpackSet
+  id: ERTkammerer
+  name: ert-amber-gun-name-kammerer
+  description: ert-amber-gun-desc-kammerer
+  sprite:
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    state: icon
+  content:
+  - WeaponShotgunKammerer
+  - BoxLethalshot
+
+- type: thiefBackpackSet
   id: ERTMedkit
   name: ert-medkit-name
   description: ert-medkit-desc
@@ -346,6 +357,24 @@
   - MagazineLaser
   - MagazineLaser
   - MagazineLaser
+
+- type: thiefBackpackSet
+  id: ERTGammaSecJackdaw
+  name: ert-jackdawkit-name
+  description: ert-jackdawkit-desc
+  sprite:
+   sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
+   state: icon
+  content:
+  - WeaponRifleJackdaw
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
+  - MagazineCaselessRifleShort
 
 - type: thiefBackpackSet
   id: ERTGammaC4
