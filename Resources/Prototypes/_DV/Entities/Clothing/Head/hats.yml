@@ -554,8 +554,12 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-  - type: PsionicallyInsulative
+  - type: PsionicallyInsulative 
     canBeFried: false
+    allowsPsionicUsage: true
+  - type: GuideHelp
+    guides:
+    - Psionics
   - type: Tag
     tags:
     - PetWearable
