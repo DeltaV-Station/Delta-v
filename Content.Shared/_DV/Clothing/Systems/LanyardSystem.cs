@@ -70,10 +70,6 @@ public sealed class LanyardSystem : EntitySystem
 
             if (paper is null)
                 return;
-
-            // push paper stamps if they exist
-            if (GetPaperStampString(paper, out var stampString))
-                args.Args.PushMarkup(stampString);
         }
     }
 
