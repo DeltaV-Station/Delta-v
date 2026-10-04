@@ -21,7 +21,6 @@ public sealed class LanyardSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<LanyardComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<LanyardComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeLocalEvent<LanyardComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<LanyardComponent, InventoryRelayedEvent<ExaminedEvent>>(OnExaminedInInventory);
@@ -156,7 +155,7 @@ public sealed class LanyardSystem : EntitySystem
     /// </summary>
     private bool TryGetLanyardPaper(LanyardComponent lanyardComponent, [NotNullWhen(true)] out PaperComponent? paperComponent)
     {
-        if (lanyardComponent.LabelSlot.Item is not { Valid: true } item
+        if (lanyardComponent.LabelSlot?.Item is not { Valid: true } item
             || !TryComp<PaperComponent>(item, out var paper))
         {
             paperComponent = null;
@@ -189,11 +188,7 @@ public sealed class LanyardSystem : EntitySystem
 
     private void OnComponentInit(Entity<LanyardComponent> ent, ref ComponentInit args)
     {
-        _itemSlots.AddItemSlot(ent, ent.Comp.ContainerName, ent.Comp.LabelSlot);
-    }
-
-    private void OnComponentRemove(Entity<LanyardComponent> ent, ref ComponentRemove args)
-    {
-        _itemSlots.RemoveItemSlot(ent, ent.Comp.LabelSlot);
+        _itemSlots.TryGetSlot(ent, ent.Comp.SlotName, out var slot);
+        ent.Comp.LabelSlot = slot;
     }
 }
