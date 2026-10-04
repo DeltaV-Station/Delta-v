@@ -1,19 +1,12 @@
 - type: entity
-  name: Handheld Engineering Monitor
-  categories: [ DoNotMap ]
-  parent: [ BaseHandheldComputer ]
-  id: HandheldEngineeringMonitor
-  description: Handheld computer to monitor status of Power and Atmos networks
+  abstract: true
+  parent: [ BaseItem ]
+  id: BaseHandheldEngineeringMonitor
   components:
   - type: Item
     heldPrefix: monitor
-  - type: Sprite
-    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
-    layers:
-      - state: monitor
-      - map: ["monitorLayerScreen"]
-        state: power-monitor-overlay
-      - map: ["warningLevelLights"]
+  - type: ItemToggle
+    onUse: false
   - type: MultipleUiKey
     index: 0
     modes:
@@ -39,6 +32,21 @@
   - type: AtmosMonitoringConsole
     navMapTileColor: "#1a1a1a"
     navMapWallColor: "#404040"
+
+- type: entity
+  name: handheld engineering monitor
+  categories: [ DoNotMap ]
+  parent: [ BaseHandheldComputer, BaseHandheldEngineeringMonitor ]
+  id: HandheldEngineeringMonitor
+  description: Handheld computer to monitor status of Power and Atmos networks
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
+    layers:
+      - state: monitor
+      - map: ["monitorLayerScreen"]
+        state: power-monitor-overlay
+      - map: ["warningLevelLights"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
