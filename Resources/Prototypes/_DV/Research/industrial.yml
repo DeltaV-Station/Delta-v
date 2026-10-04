@@ -40,6 +40,18 @@
   recipeUnlocks:
   - ConstructionBagOfHolding
 
+- type: technology
+  id: PortableEngineering
+  name: research-technology-portable-engineering
+  icon:
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
+    state: monitor
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - HandheldEngineeringMonitorRecipe
+
 # Tier 3
 
 - type: technology
