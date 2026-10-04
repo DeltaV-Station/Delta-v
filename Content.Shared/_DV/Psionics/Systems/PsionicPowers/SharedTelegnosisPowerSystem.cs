@@ -60,7 +60,7 @@ public abstract class SharedTelegnosisPowerSystem : BasePsionicPowerSystem<Teleg
         if (GetCasterProjection(entity) == default)
             return;
 
-        args.PushMarkup($"[color=yellow]{Loc.GetString("telegnosis-power-ssd", ("ent", entity))}[/color]");
+        args.PushMarkup(Loc.GetString("telegnosis-power-ssd", ("ent", entity)));
     }
 
     public EntityUid GetCasterProjection(Entity<TelegnosisPowerComponent> entity)
