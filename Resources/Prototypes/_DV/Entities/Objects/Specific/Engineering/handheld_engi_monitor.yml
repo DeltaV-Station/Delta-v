@@ -8,7 +8,7 @@
   - type: Item
     heldPrefix: monitor
   - type: Sprite
-    sprite: _DV/Objects/Specific/Engineering/handheldatmosmonitor.rsi
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
     layers:
       - state: monitor
       - map: ["monitorLayerScreen"]
@@ -54,3 +54,13 @@
           2: { state: warn-lights-yellow }
           3: { state: warn-lights-red }
           4: { state: warn-lights-red }
+
+- type: entity
+  id: HandheldEngineeringMonitorEmpty
+  parent: HandheldEngineeringMonitor
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
