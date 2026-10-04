@@ -334,7 +334,7 @@
         Heat: 0.9
         Caustic: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.6 # DeltaV - Changed from 10% explosion resist to 40%
   - type: GroupExamine
 
 - type: entity

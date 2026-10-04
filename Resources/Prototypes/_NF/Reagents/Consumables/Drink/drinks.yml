@@ -8,15 +8,18 @@
   color: "#a45c08"
   metabolisms:
     Digestion:
+      metabolites: # Delta-V: switch from AdjustReagent system to Metabolites for consistency
+        Theobromine: 0.1
+        Sugar: 0.4
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.2
+#      - !type:AdjustReagent # Delta-V -See above
+#        reagent: Theobromine
+#        amount: 0.05
+#      - !type:AdjustReagent
+#        reagent: Sugar
+#        amount: 0.2
   metamorphicSprite:
     sprite: _NF/Objects/Consumable/Drinks/pumpkinspicelatte.rsi
     state: icon_empty

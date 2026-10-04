@@ -506,6 +506,7 @@
   #   mindRoles:
   #   - MindRoleGhostRoleFreeAgentHarmless
   # End DeltaV Removals - players can spawn in as these at will
+  - type: Emoting # DeltaV - Allow them to emote!
   - type: Fixtures
     fixtures:
       fix1:
@@ -520,7 +521,7 @@
   # - type: GhostTakeoverAvailable # DeltaV - players can spawn in as these at will
   - type: Speech
     speechVerb: Moth
-    speechSounds: Chitter # Delta-V - Eep!
+    speechSounds: Chitter # DeltaV - Eep!
     allowedEmotes: ['Chitter', 'Squeak', 'Flap']
   - type: FaxableObject
     insertingState: inserting_mothroach
@@ -1613,6 +1614,16 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+#Begin DeltaV additions
+  - type: Vocal
+    sounds:
+      Male: MonkeySounds
+      Female: MonkeySounds
+      Unsexed: MonkeySounds
+    wilhelmProbability: 0.01
+  - type: BodyEmotes
+    soundsId: MonkeySounds
+#End DeltaV additions
 
 
 - type: entity
@@ -1647,6 +1658,16 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [SyndicateOperativeGearMonkey]
+  #Begin DeltaV additions
+  - type: Vocal
+    sounds:
+      Male: MonkeySounds
+      Female: MonkeySounds
+      Unsexed: MonkeySounds
+    wilhelmProbability: 0.01
+  - type: BodyEmotes
+    soundsId: MonkeySounds
+#End DeltaV additions
 
 - type: entity
   id: MobMonkeySyndicateAgent
@@ -1854,6 +1875,7 @@
   #   - MindRoleGhostRoleFreeAgentHarmless
   # - type: GhostTakeoverAvailable
   # End DeltaV Removals - players can spawn in as these at will
+  - type: Emoting # DeltaV - Allow them to emote!
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob

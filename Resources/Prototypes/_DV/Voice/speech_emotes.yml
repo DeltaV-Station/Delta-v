@@ -231,6 +231,24 @@
     - awooing
     - awooed
 
+- type: emote
+  id: Yip
+  name: delta-chat-emote-name-yip
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["delta-chat-emote-msg-yip"]
+  chatTriggers:
+  - yip
+  - yips
+  - yipping
+  - yipped
+
 # Feroxi
 - type: emote
   id: Gnash

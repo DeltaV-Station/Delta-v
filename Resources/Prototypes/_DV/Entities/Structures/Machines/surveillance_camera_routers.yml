@@ -6,3 +6,12 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraAI
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterJustice
+  name: justice camera router
+  suffix: Justice
+  components:
+  - type: SurveillanceCameraRouter
+    subnetFrequency: SurveillanceCameraJustice

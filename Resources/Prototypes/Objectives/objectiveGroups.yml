@@ -4,9 +4,9 @@
   weights:
     TraitorObjectiveGroupSteal: 1
     TraitorObjectiveGroupKill: 1
-    TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
-    TraitorObjectiveGroupSocial: 0.5 # DeltaV #Involves helping/harming others without killing them or stealing their stuff
-    TraitorObjectiveGroupSpecial: .2 # DeltaV
+    TraitorObjectiveGroupState: 0.5 #As in, something about your character. Alive, dead, arrested, gained an ability... # DeltaV - was 1
+    TraitorObjectiveGroupSocial: 0.2 # DeltaV #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupSpecial: 0.2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -15,44 +15,43 @@
     CMOHyposprayStealObjective: 1
     #CMOCrewMonitorStealObjective: 1 # DeltaV - You can buy this + paramedics all have them
     RDHardsuitStealObjective: 1
-    NukeDiskStealObjective: 0.25 # DeltaV - was 1
+    NukeDiskStealObjective: 1
     MagbootsStealObjective: 1
     # CorgiMeatStealObjective: 1 # DeltaV - Disable the horrible murder of Ian as an objective
-    ClipboardStealObjective: 1
-    # KnuckleDustersStealObjective: 1 # DeltaV - RIP Knuckledusters. We hardly knew thee.
-    CaptainGunStealObjective: 0.5
+    ClipboardStealObjective: 0.75 # DeltaV - was 1, LO has a lot of objectives
+    KnuckleDustersStealObjective: 0.75 # DeltaV - was 1, LO has a lot of objectives
+    CaptainGunStealObjective: 0.75 # DeltaV - was 0.5
     CaptainJetpackStealObjective: 0.5
-    HandTeleporterStealObjective: 0.5
+    HandTeleporterStealObjective: 0.75 # DeltaV - was 0.5
     #EnergyShotgunStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     #EnergyMagnumStealObjective: 0.5 # DeltaV - replaced by X-01 objective
     # Begin DeltaV Additions
     ClerkNotaryStealObjective: 0.5
-    HoPBookIanDossierStealObjective: 1
-    HoSGunStealObjective: 0.5
-    BibleMystagogueStealObjective: 0.5
-    HardsuitRhinoStealObjective: 0.5
+    HoPBookIanDossierStealObjective: 0.5 # DeltaV - Also ninja objective, so make it less likely
+    HoSGunStealObjective: 1
+    BibleMystagogueStealObjective: 0.75
+    HardsuitRhinoStealObjective: 0.75
     PlutoniumCoreStealObjective: 0.5
     MantisKnifeStealObjective: 1
     RdClipboardStealObjective: 1
     CeClipboardStealObjective: 1
+    MedicalFolderStealObjective: 0.75
     # End DeltaV Additions
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
-    # KillRandomPersonObjective: 1 # DeltaV Replaced for Teach Lesson
+    KillRandomPersonObjective: 0.1 # DeltaV, was 1. Very unlikely but possible.
     TeachLessonRandomPersonObjective: 1
-    KillRandomHeadObjective: 0.25
+    KillRandomHeadObjective: 0.5
     KillRandomTraitorObjective: 0.2 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    DieObjective: 0.05
+    DieObjective: 0.1 # DeltaV - was 0.05
     #HijackShuttleObjective: 0.02
-    #BecomePsionicObjective: 1 # Nyanotrasen - Become Psionic objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
-    #BecomeGolemObjective: 0.5 # Nyanotrasen - Become a golem objective, see Resources/Prototypes/Nyanotrasen/Objectives/traitor.yml
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

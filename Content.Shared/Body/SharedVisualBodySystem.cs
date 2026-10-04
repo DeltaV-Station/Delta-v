@@ -1,9 +1,7 @@
 using System.Linq;
-using System.Numerics;
-using Content.Shared._DV.Humanoid;
+using Content.Shared._DV.Humanoid; // DeltaV
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid;
-using Content.Shared.Sprite;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -18,7 +16,6 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedScaleVisualsSystem _scaleVisualsSystem = default!;
 
     public override void Initialize()
     {
@@ -28,7 +25,6 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         SubscribeLocalEvent<VisualOrganMarkingsComponent, BodyRelayedEvent<OrganCopyAppearanceEvent>>(OnMarkingsOrganCopyAppearance);
         SubscribeLocalEvent<VisualOrganComponent, BodyRelayedEvent<ApplyOrganProfileDataEvent>>(OnVisualOrganApplyProfile);
         SubscribeLocalEvent<VisualOrganMarkingsComponent, BodyRelayedEvent<ApplyOrganMarkingsEvent>>(OnMarkingsOrganApplyMarkings);
-        SubscribeLocalEvent<HumanoidProfileComponent, ApplyOrganProfileDataEvent>(OnApplyOrganProfileData); // Delta V - Taking the solution from CD
 
         InitializeModifiers();
         InitializeInitial();
@@ -100,35 +96,8 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!other.Layer.Equals(ent.Comp.Layer))
             return;
 
-        // Delta V - Begin Fix Height for Cloning
-        var height = other.Profile.Height;
-        if (TryComp<HumanoidProfileComponent>(args.Body.Owner, out var component))
-            ScaleBody((args.Body.Owner, component), height, height);
-        // Delta V - End
-
         SetOrganAppearance(ent, other.Data);
     }
-
-    // Delta V - BEGIN CD Solution
-    private void OnApplyOrganProfileData(Entity<HumanoidProfileComponent> entity, ref ApplyOrganProfileDataEvent args)
-    {
-        var speciesPrototype = _prototype.Index(entity.Comp.Species);
-        if (args.Base == null)
-            return;
-
-        var height = Math.Clamp(MathF.Round(args.Base.Value.Height, 2), speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
-
-        ScaleBody(entity, speciesPrototype.ScaleHeight ? height : 1f, height);
-    }
-
-    private void ScaleBody(Entity<HumanoidProfileComponent> entity, float heightX, float heightY)
-    {
-        _scaleVisualsSystem.SetSpriteScale(
-            entity.Owner,
-            new Vector2(heightX, heightY)
-        );
-    }
-    // Delta V - END
 
 
     private void OnMarkingsOrganCopyAppearance(Entity<VisualOrganMarkingsComponent> ent, ref BodyRelayedEvent<OrganCopyAppearanceEvent> args)

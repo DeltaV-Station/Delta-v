@@ -23,6 +23,7 @@ using Content.Server.Body.Systems;
 // Begin DeltaV
 using Content.Server._DV.MedicalRecords;
 using Content.Shared._DV.MedicalRecords;
+using Content.Shared.Chemistry.Components;
 // End DeltaV
 
 namespace Content.Server.Medical;
@@ -84,11 +85,11 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
             if (component.MaxScanRange != null && !_transformSystem.InRange(patientCoordinates, transform.Coordinates, component.MaxScanRange.Value))
             {
                 //Range too far, disable updates
-                PauseAnalyzingEntity((uid, component), patient); // DeltaV - Analyzer Reactivation
+                PauseAnalyzingEntity((uid, component), patient);
                 continue;
             }
 
-            component.IsAnalyzerActive = true; // DeltaV - Analyzer Reactivation
+            component.IsAnalyzerActive = true;
             UpdateScannedUser(uid, patient, true);
         }
     }
@@ -196,7 +197,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
     }
 
     /// <summary>
-    /// DeltaV - If the scanner is active, sends one last update and sets it to inactive.
+    /// If the scanner is active, sends one last update and sets it to inactive.
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>
@@ -269,9 +270,11 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
         var bleeding = false;
         var unrevivable = false;
 
+        Solution? bloodSolution = null; // DeltaV - Health Analyzer Plus
+
         if (TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(entity, bloodstream.BloodSolutionName,
-                ref bloodstream.BloodSolution, out var bloodSolution))
+                ref bloodstream.BloodSolution, out bloodSolution)) // DeltaV - Health Analyzer Plus
         {
             bloodAmount = _bloodstreamSystem.GetBloodLevel(entity);
             bleeding = bloodstream.BleedAmount > 0;
@@ -287,6 +290,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem // DeltaV - Made
             null,
             bleeding,
             unrevivable,
+            bloodSolution, // DeltaV - Health Analyzer Plus
             _medicalRecords.GetMedicalRecords(entity) // DeltaV - Medical Records
         );
     }

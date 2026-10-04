@@ -26,6 +26,17 @@
       entity_storage: !type:NestedSelector
         tableId: FillSuitStorageSecurityDV
 
+# Armorer hardsuit
+- type: entity
+  parent: SuitStorageSec
+  id: SuitStorageArmorer
+  suffix: Armorer, DeltaV
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerArmorerHardsuit
+
 #Paramedic hardsuit
 - type: entityTable
   id: ParamedicSuitStorageFill
@@ -49,8 +60,8 @@
     access: [["Paramedic"]]
 
 - type: entity
-  id: SuitStorageCorpsman
   parent: SuitStorageBase
+  id: SuitStorageCorpsman
   suffix: Corpsman
   components:
   - type: EntityTableContainerFill

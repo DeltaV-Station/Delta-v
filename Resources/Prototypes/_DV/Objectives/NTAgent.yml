@@ -47,12 +47,12 @@
     title: objective-condition-frame-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune # DeltaV
 
 # fire someone
 - type: entity
@@ -70,12 +70,12 @@
     title: objective-condition-fired-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune # DeltaV
 
 # auditing
 - type: entity

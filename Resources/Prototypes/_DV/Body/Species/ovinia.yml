@@ -94,8 +94,6 @@
       Kidneys: OrganAnimalKidneys
   - type: HumanoidProfile
     species: Ovinia
-  - type: ScaleVisuals
-    scale: 0.9, 0.9
 
 - type: entity
   parent:
@@ -110,7 +108,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 215 # sheep be heavy
+        density: 200 # sheep be heavy
         restitution: 0.0
         mask:
         - MobMask
