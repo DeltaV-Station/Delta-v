@@ -90,6 +90,13 @@
     state: supply
 
 - type: stealTargetGroup
+  id: JusticeTechFabCircuitboard
+  name: steal-target-groups-justice-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: security
+
+- type: stealTargetGroup
   id: ServiceTechFabCircuitboard
   name: steal-target-groups-service-techfab-circuitboard
   sprite:
