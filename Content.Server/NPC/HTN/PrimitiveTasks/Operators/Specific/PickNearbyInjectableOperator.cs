@@ -10,6 +10,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Bots;
 using Content.Shared.Emag.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared._DV.NPC.Components; // DeltaV
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
@@ -25,6 +26,7 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
     private EntityQuery<NPCRecentlyInjectedComponent> _recentlyInjected = default!;
     private EntityQuery<MobStateComponent> _mobState = default!;
     private EntityQuery<EmaggedComponent> _emaggedQuery = default!;
+    private EntityQuery<NPCIsInjectionTargetComponent> _isInjectionTargetQuery = default!; // DeltaV
 
     [DataField("rangeKey")] public string RangeKey = NPCBlackboard.MedibotInjectRange;
 
@@ -52,7 +54,33 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
         _recentlyInjected = _entManager.GetEntityQuery<NPCRecentlyInjectedComponent>();
         _mobState = _entManager.GetEntityQuery<MobStateComponent>();
         _emaggedQuery = _entManager.GetEntityQuery<EmaggedComponent>();
+        _isInjectionTargetQuery = _entManager.GetEntityQuery<NPCIsInjectionTargetComponent>(); // DeltaV
     }
+
+    // DeltaV start - Do not swarm medibots
+    private bool IsTargetAvailable(EntityUid target, EntityUid owner)
+    {
+        // If target is not an injection target, it is valid
+        if (!_isInjectionTargetQuery.TryGetComponent(target, out var injectionTarget) || injectionTarget.Medibot == null)
+            return true;
+
+        // If we are the currently treating medibot, we can continue to be
+        if (injectionTarget.Medibot == owner)
+            return true;
+
+        // If the other medibot is not valid, the target is available
+        // Check if the other medibot only very recently got the task (its AI might not have assigned the target yet)
+        if (injectionTarget.Accumulator < 0.5f)
+            return false;
+
+        // Check if the other medibot is still running its AI
+        if (!_entManager.TryGetComponent<HTNComponent>(injectionTarget.Medibot.Value, out var htn) || htn.Plan == null)
+            return true;
+
+        // If the other medibot is treating someone else, the target is available
+        return !htn.Blackboard.TryGetValue<EntityUid>("Target", out var currentTarget, _entManager) || currentTarget != target;
+    }
+    // DeltaV end
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
         CancellationToken cancelToken)
@@ -74,7 +102,8 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
             if (_mobState.TryGetComponent(entity, out var state) &&
                 _injectQuery.HasComponent(entity) &&
                 _damageQuery.TryGetComponent(entity, out var damage) &&
-                !_recentlyInjected.HasComponent(entity))
+                !_recentlyInjected.HasComponent(entity) &&
+                IsTargetAvailable(entity, owner)) // DeltaV - Do not swarm medibots
             {
                 // no treating dead bodies
                 if (!_medibot.TryGetTreatment(medibot, state.CurrentState, out var treatment))
@@ -92,6 +121,16 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
 
                 if (path.Result == PathResult.NoPath)
                     continue;
+
+                // DeltaV start - Do not swarm medibots
+                // Pathfinding is done async, so the condition needs to be double checked to avoid a race condition
+                if (!IsTargetAvailable(entity, owner))
+                    continue;
+
+                var isInjectionTarget = _entManager.EnsureComponent<NPCIsInjectionTargetComponent>(entity);
+                isInjectionTarget.Medibot = owner;
+                isInjectionTarget.Accumulator = 0f;
+                // DeltaV end
 
                 return (true, new Dictionary<string, object>()
                 {
