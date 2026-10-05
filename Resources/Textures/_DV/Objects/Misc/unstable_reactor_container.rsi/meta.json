@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Apersos, or coll1079 for Delta V",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "open"
+        },
+        {
+            "name": "closed"
+        },
+        {
+            "name": "core_open",
+            "delays": [
+                [
+                    2.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "core_closed",
+            "delays": [
+                [
+                    2.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

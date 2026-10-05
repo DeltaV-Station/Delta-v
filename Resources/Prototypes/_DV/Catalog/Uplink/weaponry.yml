@@ -103,3 +103,33 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkAnaconda
+  name: uplink-anaconda-name
+  description: uplink-anaconda-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/SMGs/anaconda.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
+  productEntity: BriefcaseSyndieAnacondaBundleFilled
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkPacifier
+  name: uplink-pacifier-bundle-name
+  description: uplink-pacifier-bundle-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Launchers/pacifier_acid_launcher.rsi, state: base }
+  productEntity: ClothingBackpackDuffelSyndicateFilledAcidGrenadeLauncher
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink #I sure do hope this also spawns in surplus crates!
