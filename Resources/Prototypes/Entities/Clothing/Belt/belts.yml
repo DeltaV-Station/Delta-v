@@ -159,6 +159,7 @@
     slots:
       holster:
         name: clothing-belt-sidearm
+        priority: 1 # DeltaV - Prioritize ejecting the side-arm over the radio
         whitelist:
           tags:
           - Sidearm
