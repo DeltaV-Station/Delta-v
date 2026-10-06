@@ -19,7 +19,7 @@ public sealed class SynthSystem : EntitySystem
     private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
     private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
     private static readonly ProtoId<EmoteSoundsPrototype> SyntheticEmoteSounds = "SyntheticEmoteSounds";
-    private static readonly ProtoId<EmotePrototype>[] SiliconEmotes = ["Beep", "Chime", "Buzz", "Buzz-Two", "Ping"];
+    private static readonly ProtoId<EmotePrototype>[] SiliconEmotes = ["Beep", "Chime", "Buzz", "Buzz-Two", "Ping", "Whirr", "Boop"];
     // End DeltaV
 
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
