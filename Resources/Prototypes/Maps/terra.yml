@@ -30,9 +30,12 @@
             TechnicalAssistant: [ 3, 4 ]
           #justice
             ChiefJustice: [ 1, 1 ]
-            Clerk: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Marshal: [ 2, 3 ]
+            Detective: [ 2, 2 ]
             Lawyer: [ 1, 1 ]
             Prosecutor: [ 1, 1 ]
+            Prisoner: [ 2, 3 ]
           #medical
             Chemist: [ 2, 2 ]
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -41,15 +44,12 @@
             Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
           #security
-            Brigmedic: [ 1, 1 ]
-            Detective: [ 2, 2 ]
+            Brigmedic: [ 2, 2 ]
+            Armorer: [ 1, 1 ]
             Gladiator: [ 2, 2 ]
             HeadOfSecurity: [ 1, 1 ]
-            Prisoner: [ 2, 3 ]
-            PrisonGuard: [ 2, 2 ]
             SecurityOfficer: [ 6, 8 ]
             SecurityCadet: [ 2, 4 ]
-            Warden: [ 1, 1 ]
           #service
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
