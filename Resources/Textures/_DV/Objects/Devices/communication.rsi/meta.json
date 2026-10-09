@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Inspired by the cheese wedge sprite from tg station https://github.com/tgstation/tgstation/blob/master/icons/obj/food/food.dmi modified by @ps3moira. Syndicat sprite by Aleksh, yarn radio by @Stxcking,taken from space wizards https://github.com/space-wizards/space-station-14/tree/master/Resources/Textures/Mobs/Silicon/chassis.rsi old radio synd_engi modified by dahalo3rat on Discord.",
+    "copyright": "Inspired by the cheese wedge sprite from tg station https://github.com/tgstation/tgstation/blob/master/icons/obj/food/food.dmi modified by @ps3moira. Syndicat sprite by Aleksh, yarn radio by @Stxcking,taken from space wizards https://github.com/space-wizards/space-station-14/tree/master/Resources/Textures/Mobs/Silicon/chassis.rsi old radio synd_engi modified by dahalo3rat on Discord. Walkietalkie taken from cev-eris, modified by Swept (https://github.com/discordia-space/CEV-Eris/commit/efce5b6c3be75458ce238dcc01510e8f8a653ca6) and och.",
     "size": {
         "x": 32,
         "y": 32
@@ -29,6 +29,53 @@
         },
         {
             "name": "old-radio-borg-synd_engi"
+        },
+        {
+            "name": "walkietalkie-off"
+        },
+        {
+            "name": "walkietalkie-off-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-off-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-broadcasting"
+        },
+        {
+            "name": "walkietalkie-broadcasting-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-broadcasting-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-speaker"
+        },
+        {
+            "name": "walkietalkie-speaker-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "walkietalkie-speaker-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "syndietalkie-off"
+        },
+        {
+            "name": "syndietalkie-off-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "syndietalkie-off-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "syndietalkie-broadcasting"
         }
     ]
 }
