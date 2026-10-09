@@ -13,6 +13,7 @@
   - Hearings
   - MedicalRegulations
   - EngineeringRegulations
+  - ServiceRegulations
 
 # General Regulations Main Directory
 
@@ -118,6 +119,15 @@
   - EmergencyAccess
   - HazardZones
   - CondemnedAreas
+
+# Service Regulations Main Directory
+- type: guideEntry
+  id: ServiceRegulations
+  name: sop-service-regulations-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ServiceRegulations/ServiceRegulations.xml
+  priority: 1
+  children:
+  - JestersPrivilege
 
 ## General Regulations Entries
 - type: guideEntry
@@ -347,3 +357,9 @@
   id: CondemnedAreas
   name: sop-condemned-area-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EngineeringRegulations/CondemnedAreas.xml
+
+ ## Service Regulations Entries
+- type: guideEntry
+  id: JestersPrivilege
+  name: sop-jesters-privilege-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/ServiceRegulations/JestersPrivilege.xml

@@ -44,3 +44,5 @@ sop-build-permits-name = Building Permits
 sop-ea-name = Emergency Access
 sop-hazard-zone-name = Hazard Zones
 sop-condemned-area-name = Condemned Areas
+sop-service-regulations-name = Service Regulations
+sop-jesters-privilege-name = Jester's Privilege
