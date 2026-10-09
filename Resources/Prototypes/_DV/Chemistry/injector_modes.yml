@@ -1,0 +1,13 @@
+- type: injectorMode
+  abstract: true
+  parent: BaseAdvancedJetInjectorMode
+  id: BaseCorpsmanInjectorMode
+  downedModifier: 0
+
+- type: injectorMode
+  parent: [ BaseCorpsmanInjectorMode, BaseInjectMode ]
+  id: CorpsmanJetInjectorInjectMode
+
+- type: injectorMode
+  parent: [ BaseCorpsmanInjectorMode, BaseDynamicMode ]
+  id: CorpsmanJetInjectorDynamicMode

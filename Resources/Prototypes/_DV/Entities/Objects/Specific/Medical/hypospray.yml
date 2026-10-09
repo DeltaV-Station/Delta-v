@@ -67,3 +67,34 @@
   - type: Tag
     tags:
     - JetInjector
+
+- type: entity
+  parent: JetInjector
+  id: CorpsmanJetInjector
+  name: corpsman's combat jet injector
+  description: A compact injector with advanced ergonomics. For use on security and command personnel only. Rapidly injects into prone targets.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/corpsmanjetinjector.rsi
+    layers:
+    - state: jetinjector_base
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: jetinjector_filled1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: Item
+    sprite: _DV/Objects/Medical/corpsmanjetinjector.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+  - type: Injector
+    activeModeProtoId: CorpsmanJetInjectorDynamicMode
+    allowedModes:
+    - CorpsmanJetInjectorDynamicMode
+    - CorpsmanJetInjectorInjectMode
+  - type: InjectionRequiresTargetAccess
+  - type: AccessReader
+    access: [ [ "Security" ], [ "Command" ] ]

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._DV.Chemistry.Events; // DeltaV
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
@@ -198,6 +199,18 @@ public sealed partial class InjectorSystem : EntitySystem
         if (_useDelay.IsDelayed(injector.Owner) // Check for Delay.
             || !GetMobsDoAfterTime(injector, user, target, out var doAfterTime, out var amount)) // Get the DoAfter time.
             return false;
+
+        // DeltaV Start - Enable Injectors to deny injections.
+        var ev = new BeforeInjectEvent(user, target);
+        RaiseLocalEvent(injector, ev);
+
+        if (ev.Cancelled)
+        {
+            if (ev.OverrideMessage != null)
+                _popup.PopupPredicted(ev.OverrideMessage, user, user);
+            return true;
+        }
+        // DeltaV End.
 
         if (!_doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, doAfterTime, new InjectorDoAfterEvent(), injector.Owner, target: target, used: injector.Owner)
         {
