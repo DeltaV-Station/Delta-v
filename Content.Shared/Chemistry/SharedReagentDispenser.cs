@@ -47,14 +47,23 @@ namespace Content.Shared.Chemistry
                 case "20":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U20;
                     break;
+                case "25":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U25;
+                    break;
                 case "30":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U30;
                     break;
                 case "40":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U40;
                     break;
+                case "50":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U50;
+                    break;
                 case "60":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U60;
+                    break;
+                case "100":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U100;
                     break;
                 case "120":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U120;
@@ -105,9 +114,12 @@ namespace Content.Shared.Chemistry
         U10 = 10,
         U15 = 15,
         U20 = 20,
+        U25 = 25,
         U30 = 30,
         U40 = 40,
+        U50 = 50,
         U60 = 60,
+        U100 = 100,
         U120 = 120,
     }
     // End DeltaV - Base 12 Chemistry
