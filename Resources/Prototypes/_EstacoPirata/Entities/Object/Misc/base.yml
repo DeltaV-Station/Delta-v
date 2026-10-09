@@ -1,0 +1,90 @@
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: CardBoxBase
+  name: deck box
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: black_box
+    - state: black_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+    whitelist:
+      components:
+      - CardDeck
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckBase
+      amount: 1
+  - type: Appearance
+  - type: StaticPrice # Frontier
+    price: 200 # Frontier
+
+# Frontier: base stack for card stack component
+- type: entity
+  parent: BaseItem
+  id: CardStackBase
+  name: stack of cards
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: CardStack
+  # - type: StripMenuHidden # Floof
+  - type: ContainerContainer # Frontier
+    containers: # Frontier
+      cardstack-container: !type:Container # Frontier
+  - type: StaticPrice # Frontier
+    price: 0.01 # Frontier
+# End Frontier
+
+- type: entity
+  parent: CardStackBase
+  id: CardHandBase
+  categories: [ HideSpawnMenu ]
+  name: hand of cards
+  components:
+  - type: CardHand
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: singlecard_down_black
+  - type: UserInterface
+    interfaces:
+      enum.CardUiKey.Key:
+        type: CardHandMenuBoundUserInterface
+  # - type: ActivatableUI # Frontier
+  #   key: enum.CardUiKey.Key # Frontier
+  # FLOOF ADD START: Slide papers and such under doors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        restitution: 0.3
+        friction: 0.2
+  # FLOOF ADD END
+
+- type: entity
+  parent: CardStackBase
+  id: CardDeckBase
+  categories: [ HideSpawnMenu ]
+  name: deck of cards
+  components:
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_black_full
+  - type: Item
+    size: Normal
+  - type: CardDeck
