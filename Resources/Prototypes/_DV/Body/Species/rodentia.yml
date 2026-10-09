@@ -136,6 +136,10 @@
   - type: DrawDepthVisualizer
     key: enum.SneakingVisuals.Sneaking
     depth: SmallMobs
+  - type: CreamPied
+    sprite:
+      sprite: _DV/Effects/creampie.rsi
+      state: creampie_rodentia
 
 - type: entity
   parent: OrganBase
