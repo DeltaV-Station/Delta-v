@@ -100,6 +100,13 @@ public sealed partial class DCCVars
     public static readonly CVarDef<bool> DisableGlimmerShader =
         CVarDef.Create("accessibility.disable_glimmer_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+
+    /// <summary>
+    /// Disables the camera static shader for tiles not visible to cameras.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableStaticShader =
+        CVarDef.Create("accessibility.disable_static_shader", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// <summary>
     /// Disables all tips for a player.
     /// </summary>
