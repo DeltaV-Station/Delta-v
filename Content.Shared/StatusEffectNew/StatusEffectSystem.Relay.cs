@@ -1,6 +1,9 @@
+using Content.Shared._DV.Clothing.Events; // DeltaV - Added Hysterical Power
 using Content.Shared._DV.Psionics.Events; // DeltaV - Psionics Refactor
 using Content.Shared.Body.Events;
 using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems; // DeltaV - Added Hysterical Power
+using Content.Shared.Mobs; // DeltaV - Added Hysterical Power
 using Content.Shared.Mobs.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
@@ -41,10 +44,7 @@ public sealed partial class StatusEffectsSystem
 
         SubscribeLocalEvent<StatusEffectContainerComponent, BleedModifierEvent>(RefRelayStatusEffectEvent);
 
-        // DeltaV Start - Psionics Refactor
-        SubscribeLocalEvent<StatusEffectContainerComponent, PsionicPowerUseAttemptEvent>(RefRelayStatusEffectEvent);
-        SubscribeLocalEvent<StatusEffectContainerComponent, TargetedByPsionicPowerEvent>(RefRelayStatusEffectEvent);
-        // DeltaV End - Psionics Refactor
+        InitializeDeltaV(); // DeltaV - Added DeltaV partial file of the system.
     }
 
     private void RefRelayStatusEffectEvent<T>(EntityUid uid, StatusEffectContainerComponent component, ref T args) where T : struct

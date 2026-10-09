@@ -5,6 +5,8 @@
     children:
     - id: DispelPowerEntity
       weight: 1
+    - id: HystericalStrengthPowerEntity
+      weight: 1
     - id: PrecognitionPowerEntity
       weight: 1
     - id: PsionicRegenerationPowerEntity
@@ -13,10 +15,12 @@
       weight: 1
     - id: TelegnosisPowerEntity
       weight: 1
-    - id: MassSleepPowerEntity
-      weight: 0.3
     - id: MetapsionicPulsePowerEntity
       weight: 0.5
+    - id: FracturedFormPowerEntity
+      weight: 0.3
+    - id: MassSleepPowerEntity
+      weight: 0.3
     - id: NoosphericZapPowerEntity
       weight: 0.3
     - id: MindSwapPowerEntity
@@ -84,3 +88,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TelegnosisPower
+
+- type: entity
+  id: HystericalStrengthPowerEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HystericalStrengthPower
