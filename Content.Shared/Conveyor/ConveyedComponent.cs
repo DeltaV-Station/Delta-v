@@ -14,4 +14,12 @@ public sealed partial class ConveyedComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Conveying;
+
+    // Begin DeltaV - store CollisionWakeComponent state
+    /// <summary>
+    /// The value of CollisionWakeComponent.Enabled before the entity was put on the conveyor
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool WakeWasEnabled = true;
+    // End DeltaV - store CollisionWakeComponent state
 }

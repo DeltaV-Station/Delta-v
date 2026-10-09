@@ -70,12 +70,16 @@ public abstract class SharedConveyorController : VirtualController
     private void OnConveyedStartup(Entity<ConveyedComponent> ent, ref ComponentStartup args)
     {
         // We need waking / sleeping to work and don't want collisionwake interfering with us.
+        // Begin DeltaV - store CollisionWakeComponent state
+        if (TryComp<CollisionWakeComponent>(ent, out var wakeComponent))
+            ent.Comp.WakeWasEnabled = wakeComponent.Enabled;
+        // End DeltaV - store CollisionWakeComponent state
         _wake.SetEnabled(ent.Owner, false);
     }
 
     private void OnConveyedShutdown(Entity<ConveyedComponent> ent, ref ComponentShutdown args)
     {
-        _wake.SetEnabled(ent.Owner, true);
+        _wake.SetEnabled(ent.Owner, ent.Comp.WakeWasEnabled); // DeltaV - store CollisionWakeComponent state
     }
 
     private void OnConveyorStartup(Entity<ConveyorComponent> ent, ref ComponentStartup args)
