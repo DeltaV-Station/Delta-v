@@ -215,7 +215,21 @@
   - type: Tag
     tags:
     - DNASolutionScannable
-  - type: PuddleFootPrints # DeltaV- Begin updates from EE Blood Puddle
+  # DeltaV Start.
+  - type: PuddleFootPrints # Begin updates from EE Blood Puddle
+  # Clothing Stains
+  - type: TriggerOnStepTrigger
+    keyOut: spill
+  - type: TriggerOnTimedCollide
+    keyOut: spill
+  - type: SpillOnTrigger
+    keysIn:
+    - spill
+    targetUser: true
+    solution: puddle
+    targetSlots: FEET
+    proneTargetSlots: WITHOUT_POCKET
+  # DeltaV End - Clothing Stains.
 
 - type: entity
   name: footstep
