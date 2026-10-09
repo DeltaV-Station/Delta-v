@@ -85,6 +85,25 @@ public sealed class TraitsSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
         };
         entryDisabledBox.SetContentMarginOverride(StyleBox.Margin.All, 0);
 
+        var subCategoryHeaderBox = new StyleBoxFlat
+        {
+            BackgroundColor = bgLight,
+            BorderColor = bgLighter,
+            BorderThickness = new Thickness(1, 1, 1, 1)
+        };
+        subCategoryHeaderBox.SetContentMarginOverride(StyleBox.Margin.All, 0);
+
+        var subCategoryHeaderButtonBox = new StyleBoxFlat { BackgroundColor = Color.Transparent };
+        subCategoryHeaderButtonBox.SetContentMarginOverride(StyleBox.Margin.All, 0);
+
+        var subCategoryContentBox = new StyleBoxFlat
+        {
+            BackgroundColor = bgMedium,
+            BorderColor = bgLighter,
+            BorderThickness = new Thickness(1, 0, 1, 1)
+        };
+        subCategoryContentBox.SetContentMarginOverride(StyleBox.Margin.All, 0);
+
         var progressBarBgBox = new StyleBoxFlat
         {
             BackgroundColor = bgDark,
@@ -230,6 +249,18 @@ public sealed class TraitsSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
                 .Class("TraitsEntryDescriptionLabel")
                 .Font(sheet.BaseFont.GetFont(10))
                 .FontColor(textSecondary),
+
+            E<PanelContainer>()
+                .Class("TraitsSubCategoryHeader")
+                .Panel(subCategoryHeaderBox),
+
+            E<Button>()
+                .Class("TraitsSubCategoryHeaderButton")
+                .Prop(ContainerButton.StylePropertyStyleBox, subCategoryHeaderButtonBox),
+
+            E<PanelContainer>()
+                .Class("TraitsSubCategoryContent")
+                .Panel(subCategoryContentBox),
         };
 
         return rules.ToArray();
