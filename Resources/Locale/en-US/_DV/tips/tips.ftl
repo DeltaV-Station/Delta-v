@@ -33,3 +33,9 @@ tip-traitor-description = You are a Syndicate agent. Check your [color=red]uplin
 
 tip-veteran-title = Thank You!
 tip-veteran-description = Thank you for playing! Your dedication to the station is appreciated. Consider helping new players learn the ropes.
+
+
+tip-looc-title = LOOC Usage
+tip-looc-description = Please use LOOC to ask for or help others with questions about controls, game mechanics and technical problems.
+
+        {"[color=red][bold]Commentary of the ongoing round, off-topic conversations and toxic behaviour are forbidden and will be punished according to the rules![/bold][/color]"}
