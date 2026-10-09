@@ -1,0 +1,10 @@
+# Mechs
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMechRecipeCategory ]
+  id: EmuCentralElectronics
+  result: EmuCentralElectronics
+
+- type: latheRecipe
+  parent: EmuCentralElectronics
+  id: EmuPeripheralsElectronics
+  result: EmuPeripheralsElectronics
