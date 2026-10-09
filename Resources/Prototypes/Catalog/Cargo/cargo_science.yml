@@ -48,12 +48,14 @@
   category: cargoproduct-category-name-medical # DeltaV - Was science, now medical
   group: market
 
-- type: cargoProduct
-  id: StationAiCore
-  icon:
-    sprite: Mobs/Silicon/station_ai.rsi
-    state: frame_4
-  product: CrateStationAiCore
-  cost: 10000
-  category: cargoproduct-category-name-science
-  group: market
+# Begin DeltaV - Made it so you can not purchase the AI core
+#- type: cargoProduct
+#  id: StationAiCore
+#  icon:
+#    sprite: Mobs/Silicon/station_ai.rsi
+#    state: frame_4
+#  product: CrateStationAiCore
+#  cost: 10000
+#  category: cargoproduct-category-name-science
+#  group: market
+#  End DeltaV - Made it so you can not purchase the AI core
