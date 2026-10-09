@@ -1,0 +1,17 @@
+- type: entity
+  parent: ActionPolymorphJaunt
+  id: ActionPolymorphJauntGnome
+  name: Ethereal Jaunt
+  description: Jump into the Etherial plane for just a moment.
+  components:
+  - type: Magic
+    requiresClothes: false
+    requiresSpeech: false
+  - type: Action
+    useDelay: 22
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: jaunt
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: GnomeMorph

@@ -1,0 +1,91 @@
+- type: entity
+  name: nanite applicator
+  parent: BaseItem
+  id: NaniteApplicator
+  description: "Advanced tool that uses nanotechnology to repair structures."
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/welder_drop.ogg
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/nanite_applicator.rsi
+    layers:
+    - state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: Tool
+    qualities:
+    - Applicating
+    useSound:
+      collection: Welder
+  - type: Welder
+    fuelReagent: NaniteFuel
+    onlyDisplayFuel: true
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: NaniteFuel
+          Quantity: 50
+        maxVol: 50
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: StaticPrice
+    price: 100
+  - type: GuideHelp
+    guides:
+    - Construction
+
+- type: entity
+  name: experimental nanite applicator
+  parent: NaniteApplicator
+  id: NaniteApplicatorExperimental
+  description: "An experimental nanite applicator with a heavily upgraded nanite capacity capable of self-nanite generation."
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/nanite_applicator_experimental.rsi
+    layers:
+    - state: icon
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: NaniteFuel
+        Quantity: 1
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  name: advanced nanite applicator
+  parent: NaniteApplicatorExperimental
+  id: NaniteApplicatorSyndicate
+  description: "Advanced nanite applicator with a heavily upgraded nanite capacity capable of self-nanite generation."
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/nanite_applicator_syndicate.rsi
+    layers:
+    - state: icon
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: NaniteFuel
+          Quantity: 200
+        maxVol: 200
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: NaniteFuel
+        Quantity: 3
+  - type: StaticPrice
+    price: 400

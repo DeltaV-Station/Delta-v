@@ -77,7 +77,7 @@
 - type: vessel
   id: NTCCSanctuary
   name: NTCC Sovereign Sanctuary
-  description: A large-sized medical ship fully stocked with chemistry, cloning, cryogenics, and surgery. able to function as a drop-in medical department for any station in medical need.
+  description: A large-sized medical ship fully stocked with chemistry, cloning, and cryogenics. Able to function as a drop-in medical department for any station in medical need.
   price: 1000000
   path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_med.yml
   categories:
@@ -98,5 +98,14 @@
   description: A large-sized command and control ship with general-purpose equipment. Can't handle any major emergencies on its own.
   price: 1000000
   path: /Maps/_DV/Shuttles/Centcomm/ntcc_sovereign_fob.yml
+  categories:
+  - ERT
+
+- type: vessel
+  id: NTCCIronclad
+  name: NTCC Duke Ironclad
+  description: A Large-sized warship with 4 artillery on either side and a set of 2 artillery and 2 laser cannons on facing forward.
+  price: 1000000
+  path: /Maps/_DV/Shuttles/Centcomm/ntcc_duke_cruiser.yml
   categories:
   - ERT

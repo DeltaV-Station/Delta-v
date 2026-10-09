@@ -277,7 +277,7 @@
     stateDoorClosed: surg_door
     stateDoorOpen: surg_open
   - type: AccessReader
-    access: [["Surgery"]]
+    access: [["Medical"], ["Surgery"]] # Added medical until surgeon returns
 
 - type: entity
   id: LockerWallParamedic

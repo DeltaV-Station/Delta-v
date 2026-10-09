@@ -152,9 +152,9 @@
         tableId: AdvancedLaserTable
 
 - type: entity
+  parent: LockerBrigmedic
   id: LockerBrigmedicFilledHardsuit
   suffix: Corpsman, Filled, Hardsuit
-  parent: LockerBrigmedic
   components:
   - type: EntityTableContainerFill
     containers:
@@ -177,14 +177,10 @@
     access: [["Security"]]
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: WeaponShotgunKammererNonLethal
-          amount: 2
-        - id: BoxBeanbag
-          amount: 2
-        - id: BoxShotgunPractice
-          amount: 2
+      entity_storage: !type:NestedSelector
+        tableId: NonLethalKammerer
+        rolls: !type:ConstantNumberSelector
+          value: 2
 
 - type: entity
   parent: SecurityGunSafeBaseSecureDV
@@ -213,6 +209,7 @@
     - id: ClothingOuterArmorPlateCarrier
     - id: ClothingOuterArmorDuraVest
     - id: ClothingOuterArmorBasicSlim
+    - id: TicketPad
 
 - type: entityTable
   id: FillLockerBrigmedicDeltaV
@@ -237,3 +234,60 @@
     - id: ClothingHeadsetSecurity
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
+    - id: DVBoxEvidenceBags
+      amount: 2
+
+# Armorer Lockers - copy of old warden. New warden is in justice.yml
+- type: entity
+  parent: LockerArmorer
+  id: LockerArmorerFilledHardsuit
+  suffix: Filled, Hardsuit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerArmorer
+        - !type:NestedSelector
+          tableId: FillLockerArmorerHardsuit
+
+- type: entity
+  parent: LockerArmorer
+  id: LockerArmorerFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerArmorer
+
+- type: entityTable
+  id: FillLockerArmorerHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitCombatArmorer
+    - id: ClothingShoesBootsSecurityMagboots
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingMaskBreath
+
+- type: entityTable
+  id: FillLockerArmorer
+  table: !type:AllSelector
+    children:
+    - id: FlashlightSeclite
+    - id: WeaponDisabler
+    - id: WeaponTaser
+    - id: ClothingBeltSecurityFilled
+    - id: Flash
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingHandsGlovesCombat
+    - id: RubberStampArmorer
+    - id: DoorRemoteArmory
+    - id: HoloprojectorSecurity
+    - id: WeaponEnergyShotgun
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+    - id: ClothingOuterVestPlateCarrierAdv
+    - id: ClothingHeadsetAltSecurity

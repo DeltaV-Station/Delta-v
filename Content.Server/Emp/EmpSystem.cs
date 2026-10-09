@@ -1,5 +1,4 @@
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared.Damage; // DeltaV - EMP damage
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;

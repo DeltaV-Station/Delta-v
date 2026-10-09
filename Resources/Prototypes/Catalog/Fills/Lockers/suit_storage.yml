@@ -244,7 +244,7 @@
 - type: entity
   id: SuitStorageWarden
   parent: SuitStorageBase
-  suffix: Warden
+  suffix: Warden, Security # DeltaV - Added security.
   components:
   - type: EntityTableContainerFill
     containers:

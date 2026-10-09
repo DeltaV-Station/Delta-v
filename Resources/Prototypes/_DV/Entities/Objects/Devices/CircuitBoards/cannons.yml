@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ShuttleGunXenoborgCircuitboard
+  name: XIL-550 "X-ray" machine board
+  description: A machine printed circuit board for an XIL-550 "X-ray".
+  suffix: DO NOT MAP, Machine Board
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/module.rsi
+    state: xenoborg
+  - type: MachineBoard
+    prototype: ShuttleGunXenoborgXRay
+    stackRequirements:
+      Manipulator: 10
+      Steel: 10
+      CableHV: 5
+      Uranium: 10

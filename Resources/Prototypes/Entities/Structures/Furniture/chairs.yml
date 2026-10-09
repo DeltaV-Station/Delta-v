@@ -375,6 +375,11 @@
       visible: false
   - type: Item
     size: Huge
+    shape: #imp
+    - 0,0,3,0 
+    storedSprite: #imp
+      sprite: Structures/Furniture/folding_chair.rsi
+      state: storage
   - type: Appearance
   - type: MeleeWeapon
     damage:

@@ -9,12 +9,11 @@
   recognizable: true
   metabolisms:
     Digestion:
+      metabolites:
+        Ethanol: 0.6
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.3
 
 - type: reagent
   id: OldFashioned
@@ -32,12 +31,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
+      metabolites:
+        Ethanol: 0.4
 
 - type: reagent
   id: MnatsaCollins
@@ -55,12 +50,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.07
+      metabolites:
+        Ethanol: 0.14
   fizziness: 0.4
 
 - type: reagent
@@ -79,12 +70,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.07
+      metabolites:
+        Ethanol: 0.14
 
 - type: reagent
   id: FiveOClock
@@ -102,12 +89,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.07
+      metabolites:
+        Ethanol: 0.14
 
 - type: reagent
   id: Mliko
@@ -125,12 +108,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.02
+      metabolites:
+        Ethanol: 0.04
 
 - type: reagent
   id: Firebolt
@@ -148,9 +127,5 @@
   metamorphicChangeColor: true
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
+      metabolites:
+        Ethanol: 0.4

@@ -162,8 +162,8 @@
       Welder:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 1000
-        maxVol: 1000
+          Quantity: 200 # DeltaV - Experimental Welder Nerf
+        maxVol: 200 # DeltaV - Experimental Welder Nerf
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -174,6 +174,7 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 1
+    duration: 2 # DeltaV - Experimental Welder Nerf - Loses fuel while active
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
 

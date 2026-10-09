@@ -35,3 +35,9 @@ mining-voucher-conscription-name = Mining Conscription Kit
 mining-voucher-conscription-description =
     Contains a whole new mining starter kit for one crewmember, including
     a proto-kinetic accelerator, mineral scanner and other useful gear.
+
+mining-voucher-dagger-name = Small Arms Kit
+mining-voucher-dagger-description =
+    Contains a crusher dagger, a mining drill and a fire extinguisher.
+    You may have downsized your weaponry compared to other crusher users, but
+    at least you have enough bag space to carry a bigger fire extinguisher!

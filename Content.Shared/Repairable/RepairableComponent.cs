@@ -42,7 +42,7 @@ public sealed partial class RepairableComponent : Component
     /// Tool quality necessary to repair this device.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ProtoId<ToolQualityPrototype> QualityNeeded = "Welding";
+    public ProtoId<ToolQualityPrototype> QualityNeeded = "Applicating"; // Monolith - Nanite Applicator
 
     /// <summary>
     /// The base tool use delay (seconds). This will be modified by the tool's quality

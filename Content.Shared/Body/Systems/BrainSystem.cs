@@ -1,4 +1,5 @@
-﻿using Content.Shared.Body.Components;
+﻿using Content.Shared._DV.Traits.Assorted;
+using Content.Shared.Body.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -18,7 +19,7 @@ public sealed class BrainSystem : EntitySystem
         SubscribeLocalEvent<BrainComponent, OrganGotInsertedEvent>((uid, _, args) => HandleMind(args.Target, uid));
         SubscribeLocalEvent<BrainComponent, OrganGotRemovedEvent>((uid, _, args) => HandleMind(uid, args.Target));
         SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
-        SubscribeLocalEvent<BrainComponent, MakeBrainUnborgableEvent>(OnMakeUnborgable);
+        SubscribeLocalEvent<BrainComponent, BodyRelayedEvent<MakeBrainUnborgableEvent>>(OnMakeUnborgable); // Delta V - Expanded for Delta V MMI Trait
     }
 
     private void HandleMind(EntityUid newEntity, EntityUid oldEntity)
@@ -44,9 +45,10 @@ public sealed class BrainSystem : EntitySystem
     }
 
     // Delta V - Begin Unborgable
-    private void OnMakeUnborgable(Entity<BrainComponent> ent, ref MakeBrainUnborgableEvent args)
+    private void OnMakeUnborgable(Entity<BrainComponent> ent, ref BodyRelayedEvent<MakeBrainUnborgableEvent> args)
     {
         EnsureComp<MindContainerComponent>(ent);
+        EnsureComp<UnborgableComponent>(ent);
     }
     // Delta V - End Unborgable
 }

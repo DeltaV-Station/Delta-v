@@ -4,55 +4,59 @@
     ClothingBackpackSecurity: 3
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
-#    ClothingUniformJumpsuitSec: 3 # DeltaV - moved*
+  #  ClothingUniformJumpsuitSec: 3 # DeltaV - *Moved
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
-    ClothingHeadHatBeretSecurityGrey: 3 # DeltaV - add grey security beret to secdrobe
-    ClothingHeadHatBeretCadet: 3 # DeltaV - add cadet beret to secdrobe
-    ClothingHeadHatCapSec: 3 # DeltaV - add security cap to secdrobe
-    ClothingMaskNeckGaiter: 3 # DeltaV - add neck gaiters to secdrobe
-#    ClothingMaskGasSecurity: 3 # DeltaV - 1984 secmasks from secdrobe, you can make them in the lathe now.
-#    ClothingHeadHatSecsoft: 3 # DeltaV - removed from SecDrobe due to inconsistency with art direction
-#    ClothingHeadBandRed: 3 # DeltaV - removed for incongruency
-#   ClothingMaskNeckGaiterRed: 3 # DeltaV - removed
+  # Begin DeltaV Additions
+    ClothingHeadHatBeretSecurityGrey: 3
+    ClothingHeadHatBeretCorpsman: 3
+    ClothingHeadHatBeretCadet: 3
+    ClothingHeadHatCapSec: 3
+    ClothingMaskNeckGaiter: 3
+  # End DeltaV Additions
+  # Begin DeltaV Removal
+  #  ClothingHeadHatSecsoft: 3
+  #  ClothingHeadBandRed: 3
+  #  ClothingMaskNeckGaiterRed: 3
+  # End DeltaV Removal
     ClothingHandsGlovesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
-    ClothingUniformJumpsuitSec: 3 # DeltaV - *moved
-    ClothingUniformJumpskirtSec: 3
+    ClothingUniformJumpskirtSec: 3 # DeltaV - *Moved
     ClothingUniformJumpsuitSecGrey: 3
     ClothingUniformJumpskirtSecGrey: 3
-    ClothingUniformJumpsuitSecWhite: 3 # DeltaV - Was ClothingUniformJumpsuitSecBlue
-    ClothingUniformJumpsuitSecSummer: 3 # DeltaV - add summer security uniform
-    ClothingUniformJumpskirtSecWhite: 3 # DeltaV - new skirt sprited, added to secdrobe. Was ClothingUniformJumpskirtSecBlue
-    ClothingUniformJumpsuitSecFormal: 1 # DeltaV - add formal uniform to secdrobe
-    ClothingUniformJumpskirtSecFormal: 1 # DeltaV - add formal uniform to secdrobe
+  #  ClothingUniformJumpsuitSecBlue: 3 # DelatV - Replaced by ClothingUniformJumpsuitSecWhite
+    # Begin DeltaV Additions
+    ClothingUniformJumpsuitSecWhite: 3
+    ClothingUniformJumpskirtSecWhite: 3
+    ClothingUniformJumpsuitSecSummer: 3
+    ClothingUniformJumpsuitSecFormal: 1
+    ClothingUniformJumpskirtSecFormal: 1
+    ClothingUniformJumpsuitBrigmedic: 2
+    ClothingUniformJumpskirtBrigmedic: 2
+    ClothingUniformJumpsuitBrigmedicTurtle: 2
+    ClothingUniformJumpskirtBrigmedicTurtle: 2
+    ClothingOuterStasecSweater: 2
+    ClothingOuterCoatBomberSecurity: 2
+    ClothingLongcoatSecurity: 2
+    ClothingLongcoatBrigmedic: 2
+    ClothingOuterCoatStasec: 2
+    ClothingOuterCoatStasecCorpsman: 2
+    ClothingUniformJumpsuitPrisoner: 3
+    ClothingUniformJumpskirtPrisoner: 3
+    ClothingHeadsetPrison: 3
+    # End DeltaV Additions
     ClothingHeadsetSecurity: 3
-    ClothingHeadHatBeretCorpsman: 2 # DeltaV - added corpsman uniform to secdrobe
-    ClothingUniformJumpsuitBrigmedic: 2 # DeltaV - added corpsman uniform to secdrobe
-    ClothingUniformJumpskirtBrigmedic: 2 # DeltaV - added corpsman uniform to secdrobe
-    ClothingUniformJumpsuitBrigmedicTurtle: 2 # DeltaV - added corpsman uniform to secdrobe
-    ClothingUniformJumpskirtBrigmedicTurtle: 2 # DeltaV - added corpsman uniform to secdrobe
-    ClothingUniformJumpsuitPrisoner: 3 # DeltaV - added prison jumpsuits
-    ClothingUniformJumpskirtPrisoner: 3 # DeltaV - added prison jumpskirts
-    ClothingHeadsetPrison: 3 # DeltaV - prison headsets in secdrobe
-    ClothingOuterStasecSweater: 2 # DeltaV - add sweaters to secdrobe
-    ClothingLongcoatSecurity: 2 # DeltaV - Longcoats
-    ClothingLongcoatBrigmedic: 2 # DeltaV - Longcoats
-    ClothingOuterCoatStasec: 2 # DeltaV - replace ClothingOuterWinterSec
-    ClothingOuterCoatStasecCorpsman: 2 # DeltaV - added corpsman uniform to secdrobe
-#    ClothingOuterWinterSec: 2 # DeltaV - removed this
-    ClothingNeckCWPSec: 3 # DeltaV - add cold weather ponchos
-##    ClothingOuterArmorBasic: 2 # DeltaV - moved body armour from SecDrobe to SecTech
-##    ClothingOuterArmorBasicSlim: 2
-    ClothingNeckScarfStripedBlue: 3 # DeltaV - blue instead of red scarf. Was ClothingNeckScarfStripedRed
-    # ClothingOuterArmorBasicSlim: 2 # DeltaV - this was gone at one point no idea where it went
+  #  ClothingOuterWinterSec: 2 # DeltaV - Replaced by ClothingOuterCoatStasec
+  #  ClothingOuterArmorBasic: 2 # DeltaV - Moved to SecTech
+    ClothingNeckScarfStripedBlue: 3 # DeltaV - Was ClothingNeckScarfStripedRed
+  #  ClothingOuterArmorBasicSlim: 2 # DeltaV - Removed
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
-#   ClothingHeadHelmetJustice: 1 # DeltaV - lrp
+  #  ClothingHeadHelmetJustice: 1 # DeltaV - Removed
   contrabandInventory:
-#    ClothingMaskClownSecurity: 1 # DeltaV - removed for incongruency
-#    ClothingMaskMimeSecurity: 1 # DeltaV - removed for same reasons as above
+  #  ClothingMaskClownSecurity: 1 # DeltaV - Removed for incongruency
+  #  ClothingMaskMimeSecurity: 1 # DeltaV - Removed for incongruency
     ToyFigurineSecurity: 1
     ToyFigurineWarden: 1
     ToyFigurineHeadOfSecurity: 1

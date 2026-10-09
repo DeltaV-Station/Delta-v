@@ -23,3 +23,7 @@
       maxWritableArea: 400.0, 256.0
     - type: Paper
       content: paper-hitman-business-card
+    - type: EmbeddableProjectile
+      sound: /Audio/Weapons/star_hit.ogg
+      removalTime: 1
+      minimumSpeed: 3

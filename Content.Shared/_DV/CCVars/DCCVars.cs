@@ -223,6 +223,12 @@ public sealed partial class DCCVars
         CVarDef.Create("game.enable_preset_cooldowns", false, CVar.SERVERONLY);
 
     /// <summary>
+    ///     The amount of time a player must wait after spawning as a vent critter ghost role before spawning as another one
+    /// </summary>
+    public static readonly CVarDef<TimeSpan> VentCritterGhostRoleSpawnCooldown =
+        CVarDef.Create("ghost.vent_critter_spawn_cooldown", TimeSpan.FromMinutes(3), CVar.SERVERONLY);
+
+    /// <summary>
     /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
     /// </summary>
     public static readonly CVarDef<string> ChatHighlights =

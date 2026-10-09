@@ -22,6 +22,7 @@ public abstract partial class InteractionTest
     protected const string Wrench = "Wrench";
     protected const string Screw = "Screwdriver";
     protected const string Weld = "WelderExperimental";
+    protected const string Applicator = "NaniteApplicatorSyndicate"; // DeltaV
     protected const string Pry = "Crowbar";
     protected const string Cut = "Wirecutter";
 

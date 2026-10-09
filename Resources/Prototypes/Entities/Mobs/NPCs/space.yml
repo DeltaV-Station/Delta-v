@@ -70,6 +70,8 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   name: space bear
@@ -387,16 +389,18 @@
   name: snail
   description: Revolting unless you're french.
   components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: false
-    allowMovement: true
-    name: ghost-role-information-snail-name
-    description: ghost-role-information-snail-description
-    rules: ghost-role-information-freeagent-rules
-    mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
-  - type: GhostTakeoverAvailable
+  # Begin DeltaV Removals - players can spawn in as these at will
+  # - type: GhostRole
+  #   makeSentient: true
+  #   allowSpeech: false
+  #   allowMovement: true
+  #   name: ghost-role-information-snail-name
+  #   description: ghost-role-information-snail-description
+  #   rules: ghost-role-information-freeagent-rules
+  #   mindRoles:
+  #   - MindRoleGhostRoleFreeAgentHarmless
+  # - type: GhostTakeoverAvailable
+  # End DeltaV Removals - players can spawn in as these at will
   - type: Emoting
   - type: Sprite
     drawdepth: SmallMobs
@@ -527,6 +531,8 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   parent: MobSnail
@@ -552,10 +558,12 @@
   id: MobSnailSpeed
   suffix: Speed
   components:
-  - type: GhostRole
-    name: ghost-role-information-snailspeed-name
-    description: ghost-role-information-snailspeed-description
-    rules: ghost-role-information-freeagent-rules
+  # Begin DeltaV Removals - players can spawn in as these at will
+  # - type: GhostRole
+  #   name: ghost-role-information-snailspeed-name
+  #   description: ghost-role-information-snailspeed-description
+  #   rules: ghost-role-information-freeagent-rules
+  # End DeltaV Removals - players can spawn in as these at will
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -579,10 +587,12 @@
   id: MobSnailMoth
   name: Snoth
   components:
-  - type: GhostRole
-    name: ghost-role-information-snoth-name
-    description: ghost-role-information-snoth-description
-    rules: ghost-role-information-freeagent-rules
+  # Begin DeltaV Removals - players can spawn in as these at will
+  # - type: GhostRole
+  #   name: ghost-role-information-snoth-name
+  #   description: ghost-role-information-snoth-description
+  #   rules: ghost-role-information-freeagent-rules
+  # End DeltaV Removals - players can spawn in as these at will
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]

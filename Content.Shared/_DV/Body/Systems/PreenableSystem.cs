@@ -1,5 +1,6 @@
 using Content.Shared._DV.Body.Components;
 using Content.Shared._DV.Body.Events;
+using Content.Shared._DV.Humanoid;
 using Content.Shared.Body.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -45,6 +46,7 @@ public sealed class PreenableSystem : EntitySystem
         SubscribeLocalEvent<PreenableComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<PreenableComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<PreenableComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<PreenableComponent, AppearanceLoadedEvent>(OnProfileLoadFinished);
     }
 
     private void OnCompInit(Entity<PreenableComponent> ent, ref ComponentInit args)
@@ -185,7 +187,7 @@ public sealed class PreenableSystem : EntitySystem
 
         if (TryComp<HumanoidProfileComponent>(ent, out var appearance))
         {
-            _appearance.SetData(feather, FeatherVisuals.FeatherColor, Color.White); // TODO: Nubody Colors
+            _appearance.SetData(feather, FeatherVisuals.FeatherColor, ent.Comp.Color ?? Color.White);
         }
 
         // best be careful, no cleaning this
@@ -202,6 +204,11 @@ public sealed class PreenableSystem : EntitySystem
         _appearance.SetData(feather, FeatherVisuals.BloodColor, solution.GetColor(_prototype));
 
         return feather;
+    }
+
+    private void OnProfileLoadFinished(Entity<PreenableComponent> ent, ref AppearanceLoadedEvent args)
+    {
+        ent.Comp.Color = args.SkinColor;
     }
 
     public override void Update(float deltaTime)

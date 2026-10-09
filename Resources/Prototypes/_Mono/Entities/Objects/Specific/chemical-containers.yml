@@ -1,0 +1,13 @@
+- type: entity
+  parent: JerryCan
+  suffix: nanite fuel
+  id: JerryCanNaniteFuel
+  components:
+  - type: Label
+    currentLabel: reagent-name-nanite-fuel
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: NaniteFuel
+          Quantity: 200

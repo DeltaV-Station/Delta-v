@@ -68,6 +68,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
         var holoUid = PredictedSpawnAtPosition(ent.Comp1.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
         var xform = Transform(holoUid);
+        xform.LocalRotation = Angle.Zero;
         if (!xform.Anchored)
             _transform.AnchorEntity(holoUid, xform); // anchor to prevent any tempering with (don't know what could even interact with it)
 

@@ -1,0 +1,23 @@
+// Remaps the lighting buffer for darkvision: output = lightFloor + light * lightGain.
+// blend_mode none because this rewrites the buffer wholesale; with lightFloor 0 and
+// lightGain 1 it acts as an exact copy.
+light_mode unshaded;
+blend_mode none;
+
+uniform highp float lightFloor;
+uniform highp float lightGain;
+uniform highp float lightExp;
+
+highp vec3 lowerBound(highp vec3 col, highp float bound) {
+    return vec3(
+        max(col.r, bound),
+        max(col.g, bound),
+        max(col.b, bound)
+    );
+}
+
+void fragment() {
+    highp vec4 light = zTexture(UV);
+
+    COLOR = vec4(lowerBound(pow((light.rgb * lightGain), vec3(lightExp)), lightFloor), 1.0);
+}

@@ -1,0 +1,19 @@
+- type: entity
+  name: jaunt
+  parent: EtherealJaunt
+  id: GnomeJaunt
+  suffix: Gnome
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi # TODO: add a gnome hat to the sprite
+    color: "#60f766"
+    layers:
+    - state: animated
+      shader: unshaded
+    noRot: true
+    overrideContainerOcclusion: true
+    drawdepth: Ghosts
+    scale: 0.5, 0.5
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 6.5
+    baseWalkSpeed: 4

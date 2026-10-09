@@ -186,7 +186,7 @@ public sealed class VendingInteractionTest : InteractionTest
         Assert.That(IsUiOpen(VendingMachineUiKey.Key), Is.False, "Opened BUI of broken vending machine.");
 
         // Repair the vending machine
-        await InteractUsing(Weld);
+        await InteractUsing(Applicator); // DeltaV
 
         // Make sure the BUI can open now that the machine has been repaired
         await Activate();

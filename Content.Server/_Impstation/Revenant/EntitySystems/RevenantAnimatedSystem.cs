@@ -27,6 +27,7 @@ using Content.Shared.Mobs;
 using Robust.Shared.Timing;
 using Content.Shared.Construction.Components;
 using Content.Shared.Trigger.Components;
+using Content.Shared.Zombies; // DeltaV
 
 namespace Content.Server._Impstation.Revenant.EntitySystems;
 
@@ -196,6 +197,7 @@ public sealed partial class RevenantAnimatedSystem : EntitySystem
             animate.EndTime = _gameTiming.CurTime + duration.Value;
         else if (revenant != null)
             animate.EndTime = _gameTiming.CurTime + revenant.Value.Comp.AnimateTime;
+        EnsureComp<ZombieImmuneComponent>(target); // DeltaV - ensure immune from zombies so we don't break clients
 
         return true;
     }

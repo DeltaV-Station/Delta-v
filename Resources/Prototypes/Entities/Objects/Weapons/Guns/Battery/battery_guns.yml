@@ -441,6 +441,14 @@
     startingCharge: 4000 # DeltaV -  was 40000
   - type: BatterySelfRecharger
     autoRechargeRate: 10
+  - type: EnergyGun
+    fireModes:
+    - proto: PulseRiflePlasmaProjectile
+      fireCost: 100
+      name: Plasma
+    - proto: Pulse
+      fireCost: 100
+      name: Pulse
   # End DeltaV modifications
 
 - type: entity

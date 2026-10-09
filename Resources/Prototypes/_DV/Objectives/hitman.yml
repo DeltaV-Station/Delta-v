@@ -23,12 +23,12 @@
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 - type: entity
   parent: [BaseHitmanObjective, HitmanTeachLessonRandomPersonObjective]
@@ -39,7 +39,7 @@
     unique: true
   - type: PickRandomPerson
     filters:
-    #only comand
+    #only comand, command cannot be objective immune
     - !type:BodyMindFilter
       whitelist:
         components:
@@ -49,7 +49,6 @@
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 ## escape objective
 - type: entity

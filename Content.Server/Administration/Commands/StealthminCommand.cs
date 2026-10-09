@@ -1,4 +1,5 @@
 using Content.Server.Administration.Managers;
+using Content.Shared._DV.Administration.Components; // DeltaV - Unorbitable
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Utility;
@@ -6,7 +7,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Stealth)]
-public sealed class StealthminCommand : LocalizedCommands
+public sealed class StealthminCommand : LocalizedEntityCommands // DeltaV - Unorbitable, LocalizedCommands to LocalizedEntityCommands
 {
     [Dependency] private readonly IAdminManager _adminManager = default!;
 
@@ -26,8 +27,20 @@ public sealed class StealthminCommand : LocalizedCommands
         DebugTools.AssertNotNull(adminData);
 
         if (!adminData!.Stealth)
+        {
             _adminManager.Stealth(player);
+            // DeltaV - Unorbitable START
+            if (player.AttachedEntity is { } attachedEntity)
+                EntityManager.EnsureComponent<UnorbitableComponent>(attachedEntity);
+            // DeltaV END
+        }
         else
+        {
             _adminManager.UnStealth(player);
+            // DeltaV - Unorbitable START
+            if (player.AttachedEntity is { } attachedEntity)
+                EntityManager.RemoveComponent<UnorbitableComponent>(attachedEntity);
+            // DeltaV END
+        }
     }
 }

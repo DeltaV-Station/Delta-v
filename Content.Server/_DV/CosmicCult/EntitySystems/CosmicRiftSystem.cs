@@ -75,8 +75,7 @@ public sealed class CosmicRiftSystem : EntitySystem
                 if (TryComp<CosmicEntropyDebuffComponent>(mob, out var debuff)) debuff.Degen =
                 new(){DamageDict = new(){
                     {"Cold", 0.05 * damageMultiplier},
-                    {"Asphyxiation", 0.15 * damageMultiplier},
-                    {"Ion", 0.15 * damageMultiplier}
+                    {"Asphyxiation", 0.15 * damageMultiplier}
                 }};
             }
         }

@@ -10,9 +10,11 @@ public abstract class SharedDrunkSystem : EntitySystem
 
     [Dependency] protected readonly StatusEffectsSystem Status = default!;
 
+
     public override void Initialize()
     {
         SubscribeLocalEvent<LightweightDrunkComponent, DrunkEvent>(OnLightweightDrinking);
+        SubscribeLocalEvent<HeavyweightDrunkComponent, DrunkEvent>(OnHeavyweightDrinking); //imp
     }
 
     public void TryApplyDrunkenness(EntityUid uid, TimeSpan boozePower)
@@ -34,6 +36,12 @@ public abstract class SharedDrunkSystem : EntitySystem
     }
 
     private void OnLightweightDrinking(Entity<LightweightDrunkComponent> entity, ref DrunkEvent args)
+    {
+        args.Duration *= entity.Comp.BoozeStrengthMultiplier;
+    }
+
+    //imp addition, repeated code bad, i know, but it seems excessive to make a whole other new method that both methods use
+    private void OnHeavyweightDrinking(Entity<HeavyweightDrunkComponent> entity, ref DrunkEvent args)
     {
         args.Duration *= entity.Comp.BoozeStrengthMultiplier;
     }

@@ -66,10 +66,7 @@ public sealed class EventManagerSystem : EntitySystem
     /// </remarks>
     public EntProtoId? TryGenerateRandomEvent(EntityTableSelector limitedEventsTable, TimeSpan? eventRunTime = null)
     {
-        var availableEvents = AvailableEvents(eventRunTime: eventRunTime); // handles the player counts and individual event restrictions.
-                                                 // Putting this here only makes any sense in the context of the toolshed commands in BasicStationEventScheduler. Kill me.
-
-        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents))
+        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents, currentTime: eventRunTime))
         {
             Log.Warning("Provided event table could not build dict!");
             return null;

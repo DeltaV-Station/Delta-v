@@ -2,12 +2,30 @@
 - type: guideEntry
   id: SpaceLaw
   name: space-law-name
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw.xml
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/SpaceLaw.xml
   children:
+    - ProceduralDefense
+    - SpaceLawSentences
+    - CrimeModifiers
     - SpaceLawCrimesReferences
 
 # Child Entry
 - type: guideEntry
+  id: ProceduralDefense
+  name: space-law-procedural-defense
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/ProceduralDefense.xml
+
+- type: guideEntry
+  id: SpaceLawSentences
+  name: space-law-sentences
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/Sentences.xml
+
+- type: guideEntry
+  id: CrimeModifiers
+  name: space-law-crime-modifiers
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/CrimeModifiers.xml
+
+- type: guideEntry
   id: SpaceLawCrimesReferences
   name: space-law-criminal-reference-name
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CrimeReferences.xml
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/CrimeReferences.xml

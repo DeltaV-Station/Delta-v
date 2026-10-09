@@ -1,24 +1,48 @@
 - type: jobIcon
   parent: JobIcon
-  id: JobIconMedicalBorg
+  id: JobIconGladiator
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
-    state: MedicalBorg
-  jobName: job-name-medical-borg
+    sprite: &icon-rsi-dv /Textures/_DV/Interface/Misc/job_icons.rsi
+    state: Gladiator
+  jobName: job-name-gladiator
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPrisonGuard
+  icon:
+    sprite: *icon-rsi-dv
+    state: PrisonGuard
+  jobName: job-name-prison-guard
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMartialArtist
+  icon:
+    sprite: *icon-rsi-dv
+    state: MartialArtist
+  jobName: job-name-martialartist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconForensicMantis
+  icon:
+    sprite: *icon-rsi-dv
+    state: PsionicMantis
+  jobName: job-name-mantis
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconCourier
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
-    state: nyanoMailCarrier
+    sprite: *icon-rsi-dv
+    state: MailCarrier
   jobName: job-name-courier
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconChiefJustice
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: ChiefJustice
   jobName: job-name-chief-justice
 
@@ -26,7 +50,7 @@
   parent: JobIcon
   id: JobIconClerk
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: Clerk
   jobName: job-name-clerk
 
@@ -34,23 +58,15 @@
   parent: JobIcon
   id: JobIconProsecutor
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: Prosecutor
   jobName: job-name-prosecutor
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecurityBorg
-  icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
-    state: SecurityBorg
-  jobName: job-name-security-borg
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconCargoAssistant
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: CargoAssistant
   jobName: job-name-cargo-assistant
 
@@ -58,23 +74,29 @@
   parent: JobIcon
   id: JobIconSurgeon
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: Surgeon
+
+- type: jobIcon
+  parent: JobIconSeniorEngineer
+  id: JobIconNuclearScientist
+  icon:
+    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    state: NuclearScientist
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSecurityK9Officer
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: SecurityK9Officer
   jobName: role-name-k9-officer
 
-# CentComm
-
+# MARK: CentComm
 - type: jobIcon
   parent: JobIcon
   id: JobIconCentCommIntern
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: CentcommIntern
   jobName: job-name-centcomintern

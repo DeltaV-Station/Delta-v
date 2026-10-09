@@ -20,6 +20,7 @@
     damageValue: -15 # 8 seconds to repair from dead
     doAfterDelay: 1
     fuelCost: 0.5
+    qualityNeeded: Welding # DeltaV - for now
   - type: Pullable
   - type: Tag
     tags:

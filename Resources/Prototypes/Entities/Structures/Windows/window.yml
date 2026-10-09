@@ -45,6 +45,8 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
+    doAfterDelay: 2 # DeltaV
+    qualityNeeded: Welding
   - type: RCDDeconstructable
     cost: 6
     delay: 4
@@ -171,6 +173,8 @@
         layer:
         - GlassLayer
   - type: Repairable
+    doAfterDelay: 2 # DeltaV
+    qualityNeeded: Welding
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass

@@ -15,17 +15,13 @@
   access:
   - Medical
   - Maintenance
-  #special: # Shitmed change. DeltaV - role modifiers bad
-  #- !type:AddComponentSpecial
-  #  components:
-  #  - type: SurgerySpeedModifier
-  #    speedModifier: 1.5
 
 - type: startingGear
   id: MedicalInternGear
   equipment:
     shoes: ClothingShoesColorWhite
     #id: MedicalInternPDA # DeltaV: different PDAs in loadouts
+    neck: ClothingNeckNoviceMark # imp
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
     pocket2: BookMedicalReferenceBook

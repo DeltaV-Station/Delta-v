@@ -203,15 +203,14 @@
     containers:
       board: [ DoorElectronicsBar ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: WindoorSecureSecurityLocked
-#  id: WindoorSecureBrigLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+- type: entity
+  parent: WindoorSecureSecurityLocked
+  id: WindoorSecureBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: WindoorSecure

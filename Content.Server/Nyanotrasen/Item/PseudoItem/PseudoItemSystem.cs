@@ -55,9 +55,13 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
 
     protected override void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component, GettingPickedUpAttemptEvent args)
     {
+        // Floof - changed this a bit to actually start a do-after
         // Try to pick the entity up instead first
-        if (args.User != args.Item && _carrying.TryCarry(args.User, uid))
+        if (args.User != args.Item
+            && TryComp<CarriableComponent>(uid, out var carriable)
+            && _carrying.CanCarry(args.User, (uid, carriable)))
         {
+            _carrying.StartCarryDoAfter(args.User, (uid, carriable));
             args.Cancel();
             return;
         }

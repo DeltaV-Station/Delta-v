@@ -10,8 +10,70 @@
   equipment:
     outerClothing: ClothingOuterWinterLongMime
 
+- type: loadout
+  id: MimeFurCoat
+  equipment:
+    outerClothing: ClothingOuterFurCoatMime
+
 # Mask
 - type: loadout
   id: MimeMaskBlushing
   equipment:
     mask: ClothingMaskBlushingMime
+
+# Jumpsuit
+- type: loadout
+  id: MimeTurtleneckPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMimeTurtleneckPants
+
+- type: loadout
+  id: MimeTurtleneckSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMimeTurtleneckSkirt
+
+# Neck
+
+- type: loadout
+  id: MimeMantle
+  equipment:
+    neck: ClothingNeckMimeMantle
+
+- type: loadout
+  id: MimeCloak
+  equipment:
+    neck: ClothingNeckMimeCloak
+
+- type: loadout
+  id: MimeStole
+  equipment:
+    neck: ClothingNeckMimeStole
+
+- type: loadout
+  id: MimeMantleOffShoulder
+  equipment:
+    neck: ClothingNeckMimeMantleOffShoulder
+
+  # Head
+
+- type: loadout
+  id: MimeBeretTassledBlack
+  equipment:
+    head: ClothingHeadHatBeretMimeTassledBlack
+
+- type: loadout
+  id: MimeBeretTassledWhite
+  equipment:
+    head: ClothingHeadHatBeretMimeTassledWhite
+
+  # Shoes
+
+- type: loadout
+  id: MimeWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterMime
+
+- type: loadout
+  id: MimeFurBoots
+  equipment:
+    shoes: ClothingShoesFurBootsMime
