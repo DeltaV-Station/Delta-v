@@ -343,4 +343,28 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> RoundEndIsOOCVote =
         CVarDef.Create("deltav.round_end_is_ooc_vote", false, CVar.SERVER);
+
+    /// <summary>
+    /// How long the timer for the Conspirator leader vote lasts.
+    /// </summary>
+    public static readonly CVarDef<int> ConspiratorLeaderVoteTimer =
+        CVarDef.Create("conspirator.leader_vote_timer", 60, CVar.SERVER);
+
+    /// <summary>
+    /// How long we wait before starting the Conspirator leader vote.
+    /// </summary>
+    public static readonly CVarDef<int> ConspiratorLeaderVoteDelayTimer =
+        CVarDef.Create("conspirator.leader_vote_delay", 150, CVar.SERVER);
+
+    /// <summary>
+    /// How long the timer for the Conspirator objective vote lasts.
+    /// </summary>
+    public static readonly CVarDef<int> ConspiratorObjectiveVoteTimer =
+        CVarDef.Create("conspirator.objective_vote_timer", 120, CVar.SERVER);
+
+    /// <summary>
+    /// How long we wait before starting the Conspirator objective vote.
+    /// </summary>
+    public static readonly CVarDef<int> ConspiratorObjectiveVoteDelayTimer =
+        CVarDef.Create("conspirator.objective_vote_delay", 25, CVar.SERVER);
 }
