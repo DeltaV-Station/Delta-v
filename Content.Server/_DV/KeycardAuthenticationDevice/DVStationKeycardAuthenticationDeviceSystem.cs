@@ -24,11 +24,16 @@ public sealed class DVStationKeycardAuthenticationDeviceSystem : SharedDVStation
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly JukeboxSystem _jukebox = default!;
 
+    private const string _maydayCodeName = "zeta";
+
     protected override void Mayday(Entity<DVStationKeycardAuthenticationDeviceComponent> station)
     {
         base.Mayday(station);
 
-        _alertLevel.SetLevel(station, "zeta", true, true, true, true);
+        if (_alertLevel.GetLevel(station) == _maydayCodeName)
+            return;
+
+        _alertLevel.SetLevel(station, _maydayCodeName, true, true, true, true);
         var alertLevel = Comp<AlertLevelComponent>(station);
         var level = _prototype.Index<AlertLevelPrototype>(alertLevel.AlertLevelPrototype).Levels[alertLevel.CurrentLevel];
         _roundEnd.RequestRoundEnd(level.ShuttleTime, null, null, false, cantRecall: true);
