@@ -4,6 +4,9 @@
   name: evidence bag
   description: An evidence bag for containing evidence.
   components:
+  - type: Tag
+    tags:
+    - EvidenceBag
   - type: Sprite
     sprite: _DV/Objects/Specific/Forensics/evidencebag.rsi
     state: evidenceobj
@@ -13,6 +16,9 @@
     slots:
       contained_evidence:
         swap: false
+        blacklist:
+          tags:
+          - EvidenceBag
   - type: ContainerContainer
     containers:
       contained_evidence: !type:ContainerSlot
