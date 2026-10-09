@@ -406,6 +406,7 @@
   description: A sign indicating a biohazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: biohazard
 
 - type: entity
@@ -424,6 +425,7 @@
   description: A sign warning the viewer about pressurised canisters.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: canisters
 
 - type: entity
@@ -573,6 +575,7 @@
   description: A sign indicating an electrical hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: electrical
 
 - type: entity
@@ -878,6 +881,7 @@
   description: A sign indicating a corrosive materials hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: corrosives
 
 - type: entity
@@ -887,6 +891,7 @@
   description: A sign indicating a cryogenic materials hazard. Bring a jacket!
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: cryogenics
 
 - type: entity
@@ -896,6 +901,7 @@
   description: A sign warning against some danger.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: danger
 
 - type: entity
@@ -905,6 +911,7 @@
   description: A sign indicating an explosive materials hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: explosives
 
 - type: entity
@@ -914,6 +921,7 @@
   description: A sign indicating a flammable materials hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: flammable
 
 - type: entity
@@ -923,6 +931,7 @@
   description: A sign indicating a laser hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: laser
 
 - type: entity
@@ -932,6 +941,7 @@
   description: A sign indicating a magnetic materials hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: magnetics
 
 - type: entity
@@ -941,6 +951,7 @@
   description: A sign indicating a memetic hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: memetic
 
 - type: entity
@@ -950,6 +961,7 @@
   description: A sign indicating that the area ahead is a secure area.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: secure
 
 - type: entity
@@ -978,6 +990,7 @@
   description: A sign indicating an optical radiation hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: optical
 
 - type: entity
@@ -987,6 +1000,7 @@
   description: A sign indicating an oxidizing agent hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: oxidants
 
 - type: entity
@@ -996,6 +1010,7 @@
   description: A sign indicating an ionizing radiation hazard.
   components:
   - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
     state: radiation
 
 - type: entity

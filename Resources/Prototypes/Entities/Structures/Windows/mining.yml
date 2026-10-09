@@ -41,6 +41,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: mwindow
   - type: Appearance
   - type: DamageVisuals
@@ -73,7 +74,7 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: state
   - type: Icon
     sprite: Structures/Windows/mining_diagonal.rsi
