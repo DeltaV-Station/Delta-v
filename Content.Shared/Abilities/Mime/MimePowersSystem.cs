@@ -1,3 +1,4 @@
+using Content.Shared._DV.Paper.Components; // DeltaV - Make Mimes Mime
 using Content.Shared.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
@@ -146,6 +147,7 @@ public sealed class MimePowersSystem : EntitySystem
         mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;
         Dirty(uid, mimePowers);
         RemComp<MutedComponent>(uid);
+        RemComp<DiscouragedWriterComponent>(uid); // DeltaV - Make Mimes Mime
         if (mimePowers.PreventWriting)
             RemComp<BlockWritingComponent>(uid);
 
@@ -173,6 +175,7 @@ public sealed class MimePowersSystem : EntitySystem
         mimePowers.VowBroken = false;
         Dirty(uid, mimePowers);
         AddComp<MutedComponent>(uid);
+        AddComp<DiscouragedWriterComponent>(uid); // DeltaV - Make Mimes Mime
         if (mimePowers.PreventWriting)
         {
             EnsureComp<BlockWritingComponent>(uid, out var illiterateComponent);
