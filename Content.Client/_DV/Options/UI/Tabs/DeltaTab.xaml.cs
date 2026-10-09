@@ -19,6 +19,7 @@ public sealed partial class DeltaTab : Control
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox);
         Control.AddOptionCheckBox(DCCVars.DisableGlimmerShader, DisableGlimmerEffectCheckBox);
         Control.AddOptionCheckBox(DCCVars.ShowStunVisuals, EnableStunVisualsCheckBox);
+        Control.AddOptionCheckBox(DCCVars.UseOldChemButtonLayout, EnableOldChemButtonLayoutCheckBox);
         Control.AddOptionCheckBox(DCCVars.DisableTips, DisableTipsCheckBox);
 
         ResetTipsButton.OnPressed += _ => OnResetTipsPressed();
