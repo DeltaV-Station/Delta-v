@@ -122,12 +122,13 @@
     children:
     - !type:NestedSelector # DeltaV - Adds our modifications.
       tableId: FillLockerBrigmedicDeltaV
-    - id: WeaponTaser
     - id: ClothingEyesGlassesCorpsman
-    - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
+    - id: AdvancedJetInjector
     # Begin DeltaV removal
+    #- id: WeaponTaser - Disarming corpsman
+    #- id: WeaponDisabler
     #- id: ClothingOuterHardsuitBrigmedic  # DeltaV - Moved to hardsuit entityTable under ClothingOuterHardsuitCombatCorpsman.
     #- id: BoxSterileMask
     #- id: ClothingHeadHatBeretCorpsman
