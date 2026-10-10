@@ -101,12 +101,12 @@
 # Chief Engineer steal objective
 - type: entity
   parent: BaseTraitorStealObjective
-  id: CeClipboardStealObjective
+  id: CeHandheldEngineeringMonitorStealObjective
   components:
   - type: NotJobRequirement
     jobs: [ ChiefEngineer ]
   - type: StealCondition
-    stealGroup: BoxFolderCeClipboard
+    stealGroup: CeHandheldEngineeringMonitorStealGroup
     owner: job-name-ce
 
 - type: entity

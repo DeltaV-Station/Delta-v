@@ -38,7 +38,7 @@
   categories: [ DoNotMap ]
   parent: [ BaseHandheldComputer, BaseHandheldEngineeringMonitor ]
   id: HandheldEngineeringMonitor
-  description: Handheld computer to monitor status of Power and Atmos networks
+  description: Handheld computer to monitor status of power and atmos networks
   components:
   - type: Sprite
     sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
@@ -62,6 +62,42 @@
           2: { state: warn-lights-yellow }
           3: { state: warn-lights-red }
           4: { state: warn-lights-red }
+
+- type: entity
+  name: advanced handheld engineering monitor
+  parent: [ BaseHandheldEngineeringMonitor, BaseGrandTheftContraband ]
+  id: CeHandheldEngineeringMonitor
+  description: An upgraded handheld engineering monitor with an integrated microreactor. Now with dark mode!
+  components:
+  - type: Item
+    heldPrefix: monitor_ce
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
+    layers:
+      - state: monitor_ce
+      - map: ["monitorLayerScreen"]
+        state: power-monitor-overlay
+      - map: ["warningLevelLights"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MultipleUiKeyVisuals.CurrentIndex:
+        monitorLayerScreen:
+          0: { state: power-monitor-overlay }
+          1: { state: atmos-monitor-overlay }
+          2: { state: atmos-alerts-overlay }
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        warnLevelLights:
+          0: { state: warn-lights-green }
+          1: { state: warn-lights-green }
+          2: { state: warn-lights-yellow }
+          3: { state: warn-lights-red }
+          4: { state: warn-lights-red }
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: CeHandheldEngineeringMonitorStealGroup
 
 - type: entity
   id: HandheldEngineeringMonitorEmpty
