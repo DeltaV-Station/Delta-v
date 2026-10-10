@@ -1,0 +1,79 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "A custom item by CMuncey (Github), sprites for handheld engineering monitor made in gimp",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "power-monitor-overlay",
+            "directions": 1,
+            "delays": [
+                [
+                    0.6,
+                    0.6,
+                    0.6,
+                    0.6
+                ]
+            ]
+        },
+        {
+            "name": "atmos-monitor-overlay",
+            "directions": 1
+        },
+        {
+            "name": "atmos-alerts-overlay",
+            "directions": 1
+        },
+        {
+            "name": "warn-lights-green",
+            "directions": 1
+        },
+        {
+            "name": "warn-lights-yellow",
+            "directions": 1,
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "warn-lights-red",
+            "directions": 1,
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "monitor-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "monitor-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "monitor",
+            "directions": 1
+        },
+        {
+            "name": "monitor_ce-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "monitor_ce-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "monitor_ce",
+            "directions": 1
+        }
+    ]
+}
