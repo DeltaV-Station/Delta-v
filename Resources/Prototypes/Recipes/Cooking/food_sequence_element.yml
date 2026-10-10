@@ -1573,3 +1573,103 @@
 #  name: food-sequence-cotton-burger-content-among-pequeno
 #  sprites:
 #  - sprite: Objects/Fun/pequeno.rsi
+
+# Begin DeltaV - Add more plushies to the cotton burger
+
+- type: foodSequenceElement
+  id: ThavenPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-thaven
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/thaven.rsi 
+    state: icon
+
+- type: foodSequenceElement
+  id: FelinidPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-felinid
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/plushies.rsi 
+    state: felinid
+
+- type: foodSequenceElement
+  id: OniPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-oni
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/plushies.rsi 
+    state: oni
+
+- type: foodSequenceElement
+  id: HarpyPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-harpy
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/harpy.rsi 
+    state: icon
+
+- type: foodSequenceElement
+  id: RodentiaPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-rodentia
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/plushies.rsi 
+    state: rodentia
+
+- type: foodSequenceElement
+  id: FeroxiPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-feroxi
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/feroxi.rsi 
+    state: icon
+
+- type: foodSequenceElement
+  id: ChitinidPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-chitinid
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/plushies.rsi 
+    state: chitinid
+
+- type: foodSequenceElement
+  id: KitsunePlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-kitsune
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/plushies.rsi 
+    state: kitsune
+
+- type: foodSequenceElement
+  id: AvaliPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-avali
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/avaliplush.rsi 
+    state: icon
+
+- type: foodSequenceElement
+  id: CyborgPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-cyborg
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/cyborg.rsi 
+    state: icon
+
+- type: foodSequenceElement
+  id: OviniaPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-ovinia
+  sprites:
+  - sprite: _DV/Objects/Fun/Toys/ovinia.rsi 
+    state: icon
+
+- type: foodSequenceElement
+  id: ShadekinPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-shadekin
+  sprites:
+  - sprite: _Starlight/Objects/Fun/Plushies/shadekin_plushie.rsi
+    state: icon
+
+# End DeltaV - Add more plushies to the cotton burger

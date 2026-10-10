@@ -160,6 +160,23 @@ food-sequence-cotton-burger-content-plushie-vulp = vulp
 food-sequence-cotton-burger-content-plushie-ian = corgi
 food-sequence-cotton-burger-content-among-pequeno = sus
 
+# Begin DeltaV - add new valid plushies 
+
+food-sequence-cotton-burger-content-plushie-thaven = moody
+food-sequence-cotton-burger-content-plushie-felinid = meow
+food-sequence-cotton-burger-content-plushie-oni = big
+food-sequence-cotton-burger-content-plushie-rodentia = squeaky
+food-sequence-cotton-burger-content-plushie-feroxi = thirsty
+food-sequence-cotton-burger-content-plushie-chitinid = glowing
+food-sequence-cotton-burger-content-plushie-kitsune = tailed
+food-sequence-cotton-burger-content-plushie-avali = feathered
+food-sequence-cotton-burger-content-plushie-cyborg = law
+food-sequence-cotton-burger-content-plushie-ovinia = baa
+food-sequence-cotton-burger-content-plushie-shadekin = dark
+food-sequence-cotton-burger-content-plushie-harpy = chirp
+
+# End DeltaV - add new valid plushies 
+
 # TACO
 
 food-sequence-taco-gen = taco with {$content}
