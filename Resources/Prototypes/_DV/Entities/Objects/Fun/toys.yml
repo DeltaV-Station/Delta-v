@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/Toys/renaulttoy.rsi
-    state: base
+    state: icon
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Animals/fox_squeak.ogg
@@ -25,7 +25,7 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/Toys/siobhantoy.rsi
-    state: base
+    state: icon
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Animals/fox_squeak.ogg
@@ -114,6 +114,9 @@
     requiresSpecialDigestion: true
     useSound:
       collection: FelinidPlushieSounds
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: FelinidPlushie
 
 - type: entity
   parent: BasePlushie
@@ -124,6 +127,9 @@
   - type: Sprite
     sprite: _DV/Objects/Fun/Toys/plushies.rsi
     state: oni
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: OniPlushie
 
 - type: entity
   parent: BasePlushie
@@ -132,8 +138,8 @@
   description: A stuffed toy that resembles a harpy. It can even stand on its feet!
   components:
   - type: Sprite
-    sprite: _DV/Objects/Fun/Toys/plushies.rsi
-    state: harpy
+    sprite: _DV/Objects/Fun/Toys/harpy.rsi
+    state: icon
   - type: EmitSoundOnUse
     sound:
       collection: HarpyPlushieSounds
@@ -153,6 +159,18 @@
     requiresSpecialDigestion: true
     useSound:
       collection: HarpyPlushieSounds
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Objects/Fun/Toys/harpy.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: HarpyPlushie
+
 
 - type: entity
   parent: BasePlushie
@@ -182,6 +200,9 @@
     requiresSpecialDigestion: true
     useSound:
       collection: RodentiaPlushieSounds
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: RodentiaPlushie
 
 - type: entity
   parent: BasePlushie
@@ -191,7 +212,7 @@
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/Toys/feroxi.rsi
-    state: feroxi
+    state: icon
   - type: EmitSoundOnUse
     sound:
       collection: FeroxiPlushieSounds
@@ -211,6 +232,17 @@
     requiresSpecialDigestion: true
     useSound:
       collection: ToySqueak
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Objects/Fun/Toys/feroxi.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: FeroxiPlushie
 
 - type: entity
   parent: BasePlushie
@@ -240,6 +272,9 @@
     requiresSpecialDigestion: true
     useSound:
       collection: ToySqueak
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: ChitinidPlushie
 
 - type: entity
   parent: BasePlushie
@@ -269,6 +304,9 @@
     requiresSpecialDigestion: true
     useSound:
       collection: KitsuneSqueal
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: KitsunePlushie
 
 - type: entity
   parent: BasePlushie
@@ -306,3 +344,92 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/_RMC14/Voice/Avali/avali_2_ask.ogg
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: AvaliPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCyborg
+  name: cyborg plushie
+  description: A stuffed toy that resembles a cyborg. Can't state laws.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/cyborg.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/Silicon/borg.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: SiliconScreams
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/Silicon/borg.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: SiliconScreams
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      collection: SiliconScreams
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Objects/Fun/Toys/cyborg.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: CyborgPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieOvinia
+  name: ovinia plushie
+  description: A stuffed toy that resembles a ovinia. The wool feels real.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/ovinia.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      collection: Moo
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      collection: OviniaBaa
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Moo
+      params:
+        volume: -5
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: OviniaBaa
+  - type: MeleeWeapon
+    soundHit:
+      collection: ToySqueak
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      collection: Moo
+      params:
+        volume: -5
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Objects/Fun/Toys/ovinia.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: OviniaPlushie
