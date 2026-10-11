@@ -442,3 +442,37 @@
     Gold: 1500
     Silver: 3000
     Uranium: 1000
+
+# Backpackfed Energy Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ClothingBackpackEnergyBattery
+  result: ClothingBackpackEnergyBattery
+  materials:
+    Steel: 6000
+    Glass: 2000
+    Gold: 1500
+    Silver: 1500
+    Plasma: 3000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyBackpack
+  result: WeaponEnergyBackpack
+  materials:
+    Steel: 1500
+    Glass: 1500
+    Gold: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: ClothingBackpackAdvancedEnergyBattery
+  result: ClothingBackpackAdvancedEnergyBattery
+  materials:
+    Steel: 6000
+    Glass: 2000
+    Gold: 1500
+    Silver: 1500
+    Plasma: 3000
+    Uranium: 2000
