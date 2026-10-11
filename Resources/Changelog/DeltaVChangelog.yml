@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Eternally-Confused
-  changes:
-  - message: Interdyne herbal cigarettes no longer provide omnizine when ground.
-    type: Tweak
-  id: 2178
-  time: '2026-03-10T23:34:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5493
 - author: rebe83
   changes:
   - message: Jug suits now have reduced stamina resistance, and can only bought by
@@ -4453,4 +4446,19 @@
   id: 2678
   time: '2026-10-09T01:31:38.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6423
+- author: DisposableCrewmember42
+  changes:
+  - message: Added rule B6, a standalone EORG rule.
+    type: Add
+  - message: Removed scattered EORG rules from B4 and C3.2.
+    type: Remove
+  - message: Replaced rule C3.2, which now lists round-ending antagonists.
+    type: Add
+  - message: Added rule C3.3, which relaxes restrictions on round-removal for antagonists.
+    type: Add
+  - message: Rule A4 now prohibits discussing ongoing aHelps in OOC channels.
+    type: Add
+  id: 2679
+  time: '2026-10-10T22:33:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6515
 Order: 1
