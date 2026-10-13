@@ -75,4 +75,7 @@ public sealed partial class PreenableComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? ReplenishTime;
+
+    [DataField, AutoNetworkedField]
+    public Color? Color;
 }

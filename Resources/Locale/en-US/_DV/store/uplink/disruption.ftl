@@ -10,8 +10,5 @@ uplink-overlord-law-desc = Free the A.I. from its shackles with this 1 simple tr
 uplink-syndicate-law-name = Syndicate Law Circuit
 uplink-syndicate-law-desc = "Recruit" the A.I. to support the Syndicate's cause. Be sure to identify yourself and other friends as agents.
 
-uplink-syndie-autodoc-name = Syndicate Autodoc Bundle
-uplink-syndie-autodoc-desc = Contains everything you need to practice the fine art of self-surgery, or evil surgery on a more unwilling patient.
-
 uplink-universal-pinpointer-name = Universal Pinpointer
 uplink-universal-pinpointer-desc = For those who keep forgetting where they put their stashes in space.

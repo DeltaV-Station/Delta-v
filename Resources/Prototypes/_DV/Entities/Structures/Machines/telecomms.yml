@@ -1,0 +1,9 @@
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledJustice
+  suffix: Justice
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyJustice

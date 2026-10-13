@@ -35,3 +35,25 @@
     transmitFrequencyId: Turret
   - type: StationAiVision
     range: 0
+
+# Energy Turrets
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: WeaponEnergyTurretXenoborg
+  suffix: Xenoborg
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Turrets/xenoborg.rsi
+  - type: AccessReader
+    access: [["Xenoborg"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Xenoborg
+  - type: Machine
+    board: WeaponEnergyTurretXenoborgMachineCircuitboard
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Mothership
+    transmitFrequencyId: Mothership
+  - type: WirelessNetworkConnection
+    range: 150

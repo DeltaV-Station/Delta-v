@@ -42,3 +42,25 @@
     sprite: _DV/Clothing/Neck/mantles/salvagemantle.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/mantles/salvagemantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimeMantle
+  name: mime's mantle
+  description: A collared mantle designed for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/mantles/mimemantle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/mantles/mimemantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimeMantleOffShoulder
+  name: mime's off-shoulder mantle
+  description: An off-shoulder mantle made for mimes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/mantles/mimeoffshouldermantle.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/mantles/mimeoffshouldermantle.rsi

@@ -14,9 +14,12 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     [Dependency] private readonly IChatManager _chatManager = default!; // DeltaV
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
+#if DEBUG // DeltaV - Only used if built by Debug
     [Dependency] private readonly GameTicker _gameTicker = default!;
+#endif
     [Dependency] private readonly NextEventSystem _next = default!; // DeltaV
-
+    [Dependency] private readonly IGameTiming _timing = default!; // DeltaV
+ 
     /* DeltaV
     /// <summary>
     /// Returns the ChaosModifier which increases as round time increases to a point.
@@ -50,7 +53,8 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         if (TryComp<NextEventComponent>(uid, out var nextEventComponent)
             && _event.TryGenerateRandomEvent(component.ScheduledGameRules, TimeSpan.FromSeconds(component.TimeUntilNextEvent)) is {} firstEvent)
         {
-            _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("seconds", (int)component.TimeUntilNextEvent)));
+            var nextEventTime = GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent);
+            _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", firstEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
             _next.UpdateNextEvent(nextEventComponent, firstEvent, GameTicker.RoundDuration() + TimeSpan.FromSeconds(component.TimeUntilNextEvent));
         }
         // End DeltaV Additions: init NextEventComp
@@ -83,7 +87,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
                 if (_event.TryGenerateRandomEvent(scheduler.ScheduledGameRules, nextEventTime) is not {} generatedEvent)
                     continue;
 
-                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("seconds", (int)scheduler.TimeUntilNextEvent)));
+                _chatManager.SendAdminAlert(Loc.GetString("station-event-system-run-event-delayed", ("eventName", generatedEvent), ("time", nextEventTime.ToString(@"hh\:mm\:ss"))));
                 // Cycle the stashed event with the new generated event and time.
                 string? storedEvent = _next.UpdateNextEvent(nextEventComponent, generatedEvent, nextEventTime);
                 if (string.IsNullOrEmpty(storedEvent)) //If there was no stored event don't try to run it.
@@ -114,13 +118,28 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         // Begin DeltaV Additions
         var averageTimeUntilNextEvent = component.TimeKeyPoints[0].Y;
         var timeUntilNextEventDeviation = _random.NextFloat(-1f, 1f) * component.TimeDeviation;
-        var roundTime = (float)_gameTicker.RoundDuration().TotalMinutes;
-        var absoluteTimePoint = 0f;
 
+        var ruleActivated = TimeSpan.FromSeconds(0);
+        if (TryComp<GameRuleComponent>(uid, out var gameRule))
+        {
+            ruleActivated = gameRule.ActivatedAt;
+        }
+
+        var ruleTime = _timing.CurTime.Subtract(ruleActivated);
+
+#if DEBUG
+        _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-round-time", ("time", _gameTicker.RoundDuration())));
+        _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-ramping-time", ("time", ruleActivated)));
+        // This will be what the keypoint system looks at to determine where to start ramping
+        _chatManager.SendAdminAlert(Loc.GetString("station-event-system-debug-keypoint-time", ("time", ruleTime)));
+        _chatManager.SendAdminAlert("_______________"); // Easier to read
+#endif
+
+        var absoluteTimePoint = 0f;
         foreach (var point in component.TimeKeyPoints)
         {
             absoluteTimePoint += point.X;
-            if (roundTime >= absoluteTimePoint)
+            if (ruleTime.TotalMinutes >= absoluteTimePoint)
                 averageTimeUntilNextEvent = point.Y;
         }
 

@@ -1,7 +1,9 @@
 <BoxContainer
     xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._DV.UserInterfaces"
+    xmlns:xe="clr-namespace:Content.Client.UserInterface.XamlExtensions"
     VerticalExpand="True"
-    Orientation="Vertical">
+    Orientation="Vertical"> <!-- DeltaV - added ui and xe namespaces -->
     <Label
         Name="NoPatientDataText"
         Text="{Loc health-analyzer-window-no-patient-data-text}" />
@@ -11,7 +13,8 @@
         Margin="0 0 0 5"
         Orientation="Vertical">
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
-            <TextureRect Name="NoDataTex" Access="Public" SetSize="96 96" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/> <!-- DeltaV - Size changed to 96-->
+            <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64" />
+            <TextureRect Name="NoDataTex" Access="Public" SetSize="64 64" Visible="false" Stretch="KeepAspectCentered" TexturePath="/Textures/Interface/Misc/health_analyzer_out_of_range.png"/> 
             <BoxContainer Margin="5 0 0 0" Orientation="Vertical" VerticalAlignment="Top">
                 <RichTextLabel Name="NameLabel" SetWidth="150" />
                 <Label Name="SpeciesLabel" VerticalAlignment="Top" StyleClasses="LabelSubText" />
@@ -22,6 +25,14 @@
             <Label Margin="0 0 5 0" HorizontalExpand="True" HorizontalAlignment="Right" VerticalExpand="True"
                    VerticalAlignment="Top" Name="ScanModeLabel"
                    Text="{Loc 'health-analyzer-window-entity-unknown-text'}" />
+            <!-- BEGIN DeltaV - MedTek Reports -->
+            <BoxContainer HorizontalExpand="False"
+                Orientation="Vertical"
+                Name="PrintButtonsContainer"
+                Margin="0 0 5 0">
+				<ui:IconButton Name="PrintReportButton" Icon="{xe:Tex '/Textures/_DV/Interface/VerbIcons/print.png'}" />
+            </BoxContainer>
+            <!-- END DeltaV -->
         </BoxContainer>
 
         <PanelContainer StyleClasses="LowDivider" />
@@ -48,9 +59,12 @@
             <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
             <Label Name="TemperatureLabel" />
             <Label Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
-            <Label Name="BloodLabel" />
-            <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" />
-            <Label Name="DamageLabel" />
+            <!-- Begin DeltaV - Health Analyzer Plus -->
+            <Label Name="BloodLevelLabel" />
+            <!-- Label Name="BloodLabel" / -->
+            <!-- Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" / -->
+            <!-- Label Name="DamageLabel" / -->
+            <!-- End DeltaV - Health Analyzer Plus -->
         </GridContainer>
     </BoxContainer>
 
@@ -62,10 +76,41 @@
 
     <PanelContainer StyleClasses="LowDivider" />
 
-    <BoxContainer
-        Name="GroupsContainer"
-        Margin="0 5 0 5"
-        Orientation="Vertical">
-    </BoxContainer>
+    <!-- Begin DeltaV - Health Analyzer Plus -->
+    <!-- BoxContainer Name="GroupsContainer" Margin="0 5 0 5" Orientation="Vertical" -->
+    <!-- /BoxContainer -->
+
+    <GridContainer Margin="0 5 0 5" Columns="3" HorizontalAlignment="Center">
+        <BoxContainer Name="DamageBox" Margin="5 5 5 5" Orientation="Vertical">
+            <Label Name="TotalDamageLabel" HorizontalAlignment="Center" />
+            <PanelContainer Name="DamageGroupsDivider" StyleClasses="LowDivider" />
+            <Label
+                Name="NoDamageLabel"
+                HorizontalAlignment="Center"
+                Text="{Loc 'health-analyzer-plus-window-no-damage-text'}"
+                FontColorOverride="DeepSkyBlue"
+                Margin="0 5 0 5" />
+            <BoxContainer HorizontalAlignment="Center">
+                <BoxContainer Name="DamageGroupsContainer" Margin="0 5 0 5" Orientation="Vertical" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <BoxContainer Name="BloodstreamBox" Margin="5 5 5 5" Orientation="Vertical">
+            <Label Name="TotalReagentQuantityLabel" HorizontalAlignment="Center" />
+            <PanelContainer Name="BloodstreamReagentsDivider" StyleClasses="LowDivider" />
+            <Label
+                Name="NoReagentsLabel"
+                HorizontalAlignment="Center"
+                Text="{Loc 'health-analyzer-plus-window-no-reagents-text'}"
+                FontColorOverride="DeepSkyBlue"
+                Margin="0 5 0 5" />
+            <BoxContainer HorizontalAlignment="Center">
+                <BoxContainer Name="BloodstreamReagentListContainer" Orientation="Vertical" Margin="0 5 0 5" />
+            </BoxContainer>
+        </BoxContainer>
+    </GridContainer>
+    <!-- End DeltaV - Health Analyzer Plus -->
 
 </BoxContainer>

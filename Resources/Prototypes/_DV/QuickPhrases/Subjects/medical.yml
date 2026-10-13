@@ -24,14 +24,14 @@
   text: damage-group-burn
 
 - type: quickPhrase
-  id: DamageAirlossPhrase
+  id: DamageAsphyxiationPhrase
   parent: BaseDamageTypePhrase
-  text: damage-group-airloss
+  text: damage-type-asphyxiation
 
 - type: quickPhrase
-  id: DamageToxinPhrase
+  id: DamagePoisonPhrase
   parent: BaseDamageTypePhrase
-  text: damage-group-toxin
+  text: damage-type-poison
 
 - type: quickPhrase
   id: DamageGeneticPhrase
@@ -49,49 +49,44 @@
   text: damage-type-radiation
 
 - type: quickPhrase
-  id: ChemDylovenePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-dylovene
+  id: DamageBluntPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-blunt
 
 - type: quickPhrase
-  id: ChemArithrazinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-arithrazine
+  id: DamageSlashPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-slash
 
 - type: quickPhrase
-  id: ChemBicaridinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-bicaridine
+  id: DamagePiercePhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-piercing
 
 - type: quickPhrase
-  id: ChemDermalinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-dermaline
+  id: DamageHeatPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-heat
 
 - type: quickPhrase
-  id: ChemDexalinPhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-dexalin
+  id: DamageColdPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-cold
 
 - type: quickPhrase
-  id: ChemKelotanePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-kelotane
+  id: DamageShockPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-shock
 
 - type: quickPhrase
-  id: ChemTricordrazinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-tricordrazine
+  id: DamageRadiantPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-radiant
 
 - type: quickPhrase
-  id: ChemOmnizinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-omnizine
-
-- type: quickPhrase
-  id: ChemPyrazinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-pyrazine
+  id: DamageSoulPhrase
+  parent: BaseDamageTypePhrase
+  text: damage-type-soul
 
 - type: quickPhrase
   id: TopicalPhrase
@@ -187,3 +182,23 @@
   id: LimbsPhrase
   parent: BaseMedicinePhrase
   text: phrase-limbs
+
+- type: quickPhrase
+  id: JetInjectorPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-jet-injector
+
+- type: quickPhrase
+  id: DosePhrase
+  parent: BaseMedicinePhrase
+  text: phrase-dose
+
+- type: quickPhrase
+  id: OverdosePhrase
+  parent: BaseMedicinePhrase
+  text: phrase-overdose
+
+- type: quickPhrase
+  id: UnitsPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-units

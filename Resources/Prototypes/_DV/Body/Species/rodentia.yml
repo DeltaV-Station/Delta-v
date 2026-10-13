@@ -33,7 +33,7 @@
       required: true
       default: [ RodentiaHeadTopEarDefault ]
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
@@ -67,11 +67,9 @@
       Heart: OrganAnimalHeart
       Stomach: OrganAnimalStomach
       Liver: OrganAnimalLiver
-      Kidneys: OrganHumanKidneys
+      Kidneys: OrganAnimalKidneys
   - type: HumanoidProfile
     species: Rodentia
-  - type: ScaleVisuals
-    speciesScale: 0.8, 0.8
 
 - type: entity
   parent:

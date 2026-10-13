@@ -33,7 +33,7 @@ public sealed partial class GameTicker
     public bool ConvertRoundToSurvival()
     {
         // Ramping scheduler is already added. Do nothing.
-        if (IsGameRuleActive(RampingSchedulerProto))
+        if (IsGameRuleAdded(RampingSchedulerProto))
         {
             _chatManager.SendAdminAlert("RampingStationEventScheduler detected. No rules added.");
             return true;
@@ -44,7 +44,7 @@ public sealed partial class GameTicker
         var rampingSchedulerStart = _gameTiming.CurTime.Add(GracePeriod);
         EnsureComp<DelayedStartRuleComponent>(rampingScheduler).RuleStartTime = rampingSchedulerStart;
 
-        _chatManager.SendAdminAlert($"Major antag defeated. Converting to survival at {rampingSchedulerStart}.");
+        _chatManager.SendAdminAlert($"Major antag defeated. Converting to survival at {(RoundDuration() + GracePeriod).ToString(@"hh\:mm\:ss")}.");
 
         // End Basic Rules
         var basicRules = EntityQueryEnumerator<BasicStationEventSchedulerComponent>();

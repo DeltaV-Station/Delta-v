@@ -213,6 +213,27 @@
   parent: BaseSubjectPhrase
   text: phrase-shoes
 
+- type: quickPhrase
+  id: RemotePhrase
+  parent: BaseSubjectPhrase
+  text: phrase-remote
+
+- type: quickPhrase
+  id: GlassesPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-glasses
+
+- type: quickPhrase
+  id: MaskPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-mask
+
+- type: quickPhrase
+  id: HeadsetPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-headset
+
+
 # Materials
 
 - type: quickPhrase

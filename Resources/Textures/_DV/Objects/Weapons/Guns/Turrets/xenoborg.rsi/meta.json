@@ -1,0 +1,90 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by @Stxcking (github) for DV.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base",
+            "directions": 8
+        },
+        {
+            "name": "destroyed",
+            "directions": 8
+        },
+        {
+            "name": "base_shadow",
+            "directions": 8
+        },
+        {
+            "name": "lethal",
+            "directions": 8
+        },
+        {
+            "name": "stun",
+            "directions": 8
+        },
+        {
+            "name": "cover_opening",
+            "delays": [
+                [
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07
+                ]
+            ]
+        },
+        {
+            "name": "cover_closing",
+            "delays": [
+                [
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07,
+                    0.07
+                ]
+            ]
+        },
+        {
+            "name": "panel"
+        },
+        {
+            "name": "cover_closed"
+        },
+        {
+            "name": "cover_open"
+        },
+        {
+            "name": "cover_light_on"
+        },
+        {
+            "name": "support"
+        }
+    ]
+}

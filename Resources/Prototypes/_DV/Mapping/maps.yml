@@ -14,6 +14,13 @@
   - Centcomm
   - Stamps # no CC official locker to put the stamp in
 
+- type: mapCategories
+  id: CentcommLegacy
+  map: /Maps/_DV/Nonstations/centcommlegacy.yml
+  allowed:
+  - Centcomm
+  - Stamps # no CC official locker to put the stamp in
+
 # Stations
 
 - type: mapCategories
@@ -359,6 +366,20 @@
 - type: mapCategories
   id: Raptor
   map: /Maps/_DV/Shuttles/Centcomm/ntcc_viscount_interceptor.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
+- type: mapCategories
+  id: Argus
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_duke_base.yml
+  allowed:
+  - Centcomm
+  - Stamps # CC stamp
+
+- type: mapCategories
+  id: Ironclad
+  map: /Maps/_DV/Shuttles/Centcomm/ntcc_duke_cruiser.yml
   allowed:
   - Centcomm
   - Stamps # CC stamp

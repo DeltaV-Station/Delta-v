@@ -7,7 +7,17 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000  # 5 hrs
+    time: 20h  # DeltaV - was 18000 # 5 hrs
+  # Begin DeltaV Additions
+  - !type:OverallPlaytimeRequirement
+    time: 48h
+  - !type:RoleTimeRequirement
+    role: JobRoboticist
+    time: 2h
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 2h
+  # End DeltaV Additions
   guides: [ Xenoborgs ]
 
 - type: antag
@@ -19,5 +29,12 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000  # 5 hrs
+    time: 10h  # DeltaV - was 18000 # 5 hrs
+  # Begin DeltaV Additions
+  - !type:OverallPlaytimeRequirement
+    time: 24h
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 2h
+  # End DeltaV Additions
   guides: [ Xenoborgs ]

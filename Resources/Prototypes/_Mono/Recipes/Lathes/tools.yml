@@ -1,0 +1,22 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: NaniteApplicator
+  result: NaniteApplicator
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ExperimentalNaniteApplicator
+  result: NaniteApplicatorExperimental
+  materials:
+    Steel: 800
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: NaniteApplicatorSyndicate
+  result: NaniteApplicatorSyndicate
+  materials:
+    Steel: 800
+    Plasma: 200

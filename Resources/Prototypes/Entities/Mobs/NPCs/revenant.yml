@@ -66,7 +66,7 @@
   - type: GhostTakeoverAvailable
   - type: Revenant
     exorcismRequiresBibleUser: true # Imp - Escape hatch, change to false if revenant becomes too OP
-    grindingRequiresSalt: true # Imp - Escape hatch, change to false if revenant becomes too OP
+    grindingRequiresSalt: false # Imp - Escape hatch, change to false if revenant becomes too OP # DeltaV - turn false while grinding system is broken
     # spawnOnDeathPrototype: EctoplasmRevenant # DeltaV - different prototype that contains more ectoplasm reagent for normality crystals, commented out
     malfunctionWhitelist:
       components:

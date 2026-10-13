@@ -58,14 +58,12 @@
       Ears: OrganHumanEars
       Appendix: OrganHumanAppendix
       Lungs: OrganHumanLungs
-      Heart: OrganAnimalHeart
-      Stomach: OrganAnimalStomach
-      Liver: OrganAnimalLiver
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Oni
-  - type: ScaleVisuals
-    speciesScale: 1.2, 1.2
 
 - type: entity
   parent:

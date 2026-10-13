@@ -12,7 +12,9 @@
         - id: Screwdriver
         - id: Wirecutter
         - id: Welder
-        - id: NetworkConfigurator
+        # - id: NetworkConfigurator # DeltaV - Network Config is useless
+        - id: Multitool # DeltaV - Network Config is useless
+        - id: ClothingHeadHatWelding # DeltaV
 
 - type: entity
   id: ClothingBeltUtilityEngineering
@@ -29,6 +31,7 @@
         - id: Wirecutter
         - id: Welder
         - id: Multitool
+        - id: NaniteApplicator # DeltaV
 
 - type: entity
   id: ClothingBeltChiefEngineerFilled
@@ -46,6 +49,7 @@
         - id: HolofanProjector
         - id: GasAnalyzer
         - id: trayScanner
+        - id: NaniteApplicatorExperimental # DeltaV - Nanite Applicators
 
 - type: entityTable
   id: BeltSecurityEntityTable

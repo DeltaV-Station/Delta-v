@@ -19,18 +19,6 @@ public sealed partial class MonumentComponent : Component
     public SoundSpecifier InfusionSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/insert_entropy.ogg");
 
     /// <summary>
-    /// the list of glyphs that this monument is allowed to scribe
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public HashSet<ProtoId<GlyphPrototype>> UnlockedGlyphs = [];
-
-    /// <summary>
-    /// the glyph that will be scribed when the button is pressed
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public ProtoId<GlyphPrototype> SelectedGlyph;
-
-    /// <summary>
     /// the total amount of entropy that has been inserted into the monument
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -119,15 +107,6 @@ public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influen
 {
     public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
 }
-
-[Serializable, NetSerializable]
-public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) : BoundUserInterfaceMessage
-{
-    public ProtoId<GlyphPrototype> GlyphProtoId = glyphProtoId;
-}
-
-[Serializable, NetSerializable]
-public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public enum MonumentVisuals : byte

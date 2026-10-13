@@ -130,7 +130,6 @@
     - CableApcStack
     - SheetPlasteel
     - SheetSteel
-    belt:
     - RCDRecharging
 
 - type: startingGear
@@ -164,7 +163,6 @@
     - SheetPlasteel
     - SheetSteel
     - WeaponAdvancedLaser
-    belt:
     - RCDCombat
 
 # Security
@@ -372,6 +370,15 @@
   parent: SRTOfficerBase
   equipment:
     back: ClothingBackpackDeathSquadFilledEpsilon
+
+- type: startingGear
+  id: SRTOfficerHeavy
+  parent: SRTOfficerBase
+  equipment:
+    back:  ClothingBackpackPlasmaBattery
+  inhand:
+  - WeaponPlasmaBackpack
+
 
 - type: job
   id: SRTAgent
