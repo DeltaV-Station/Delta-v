@@ -11,7 +11,7 @@
   category: Vocal
   whitelist:
     tags: # DeltaV - let borgs, bots, and IPCs use it
-    - SiliconEmotes
+    - MKCEmotes
   chatMessages: [ boops. ] # DeltaV - period
   chatTriggers:
   - boops
@@ -20,27 +20,9 @@
   id: Whirr # uncategorized as it is generic
   whitelist:
     tags: # DeltaV - let borgs, bots, and IPCs use it
-    - SiliconEmotes
+    - MKCEmotes
   name: chat-emote-name-whirr
   chatMessages: [ whirrs. ] # DeltaV - period
   chatTriggers:
     - whirr
     - whirrs
-
-- type: emote
-  id: DialUp
-  name: chat-emote-name-dialup
-  icon: _starcup/Interface/Emotes/dial-up.png
-  whitelist:
-    requireAll: true
-    components:
-    - Vocal
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-dialup"]
-  chatTriggers:
-  - dialup
-  - dial-up
-  - dial up
-  - dials up
-  - dialups
