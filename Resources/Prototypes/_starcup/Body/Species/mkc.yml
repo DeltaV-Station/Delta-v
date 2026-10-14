@@ -150,13 +150,17 @@
     emote: Buzz-Two
   - type: Uncloneable
   # DeltaV - overwrite this with a blank one, I don't want to talk about it
-  - type: PassiveDamage 
+  - type: PassiveDamage
     allowedStates:
     - Alive
     damage:
       types:
         Heat: 0.00
   # DeltaV - overwrite this with a blank one, I don't want to talk about it
+  - type: DamageTypeTransfer # DeltaV - transfer damage types
+    transfers:
+      Poison: Caustic
+      Asphyxiation: Bloodloss
 
 - type: entity
   parent: OrganBase
