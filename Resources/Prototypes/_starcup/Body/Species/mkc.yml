@@ -100,6 +100,7 @@
       reagents:
         - ReagentId: Oil
           Quantity: 300
+    damageBleedModifiers: BloodlossHumanoidSilicon # DeltaV - no heat cautery for MKC
     bloodRefreshAmount: 0
   - type: Barotrauma
     damage:
@@ -169,7 +170,7 @@
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Species/MKC/organs.rsi
-  - type: GibbableOrgan # Delta V - Make all MKC organs physical 
+  - type: GibbableOrgan # Delta V - Make all MKC organs physical
 
 - type: entity
   id: OrganMKCVisual

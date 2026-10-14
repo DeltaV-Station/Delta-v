@@ -12,17 +12,18 @@
         - id: Oilpack
         - id: EmergencyMedipenSilicon
 
-- type: entity
-  id: StimkitFilledNT
-  suffix: Stimkit, Filled, NanoTrasen
-  parent: MedkitSilicon
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: StimpackMiniNT
-          amount: 6
+# DeltaV - no NT uplinks
+#- type: entity
+#  id: StimkitFilledNT
+#  suffix: Stimkit, Filled, NanoTrasen
+#  parent: MedkitSilicon
+#  components:
+#  - type: EntityTableContainerFill
+#    containers:
+#      storagebase: !type:AllSelector
+#        children:
+#        - id: StimpackMiniNT
+#          amount: 6
 
 - type: entity
   id: OverclockKitFilled
@@ -36,14 +37,15 @@
         - id: OverclockInjectorMini
           amount: 6
 
-- type: entity
-  id: OverclockKitFilledNT
-  suffix: Overclock Kit, Filled, NanoTrasen
-  parent: Medkit
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: OverclockInjectorMiniNT
-          amount: 6
+# DeltaV - no NT uplinks
+#- type: entity
+#  id: OverclockKitFilledNT
+#  suffix: Overclock Kit, Filled, NanoTrasen
+#  parent: Medkit
+#  components:
+#  - type: EntityTableContainerFill
+#    containers:
+#      storagebase: !type:AllSelector
+#        children:
+#        - id: OverclockInjectorMiniNT
+#          amount: 6

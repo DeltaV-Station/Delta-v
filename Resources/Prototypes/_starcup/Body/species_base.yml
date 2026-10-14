@@ -19,12 +19,12 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 20
     damage:
       types:
         Heat: -0.07
-      groups:
-        Brute: -0.07
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
   - type: Fingerprint
   - type: Blindable
   - type: Temperature
@@ -55,6 +55,8 @@
   - type: FireVisuals
     alternateState: Standing
   - type: StunVisuals
+  - type: RevealRevenantOnCollide # DeltaV - passing through people reveal revenant
+    revealTime: 1
   # end mirrored components from BaseSpeciesMobOrganic
   - type: Tag # mirrored from BaseSpeciesMob
     tags:

@@ -12,6 +12,9 @@
   # Inherited
   - type: StaticPrice
     price: 0
+  - type: Tag # DeltaV - whitelist for silicon repair medkits
+    tags:
+    - SiliconHealingTopical
 
 - type: entity
   name: repair spray

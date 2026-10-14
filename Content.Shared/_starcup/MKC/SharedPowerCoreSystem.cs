@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._DV.MKC;
 using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
@@ -11,6 +12,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Hands.EntitySystems; // DeltaV - cancel doafter on drop
 
 // ReSharper disable InconsistentNaming
 
@@ -30,6 +32,7 @@ public abstract class SharedPowerCoreSystem : EntitySystem
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // DeltaV - cancel doafter on drop
 
     private readonly SoundSpecifier? _drainSounds = new SoundCollectionSpecifier("sparks");
 
@@ -162,6 +165,10 @@ public abstract class SharedPowerCoreSystem : EntitySystem
         if (HasComp<PowerDrinkableComponent>(args.Args.Target))
             return;
 
+        // DeltaV - drinkable blacklist component
+        if (HasComp<PowerDrinkableBlacklistComponent> (args.Args.Target))
+            return;
+
         var target = args.Args.Target;
 
         InnateVerb verb = new()
@@ -186,6 +193,10 @@ public abstract class SharedPowerCoreSystem : EntitySystem
             return;
 
         if (!HasComp<BatteryComponent>(args.Target))
+            return;
+
+        // DeltaV - drinkable blacklist component
+        if (HasComp<PowerDrinkableBlacklistComponent>(args.Target))
             return;
 
         if (!TryGetPowerCore(args.User, out var powerCore))
@@ -213,6 +224,10 @@ public abstract class SharedPowerCoreSystem : EntitySystem
             return;
 
         if (!HasComp<BatteryComponent>(entity))
+            return;
+
+        // DeltaV - drinkable blacklist component
+        if (HasComp<PowerDrinkableBlacklistComponent>(entity))
             return;
 
         if (!TryGetPowerCore(args.User, out var powerCore))
@@ -260,6 +275,7 @@ public abstract class SharedPowerCoreSystem : EntitySystem
             BreakOnMove = false,
             BreakOnHandChange = false,
             BreakOnDamage = true,
+            NeedHand = _hands.IsHolding(bodyUid.Value, target), // DeltaV - stop power drink on dropping cell
         });
         return true;
     }
