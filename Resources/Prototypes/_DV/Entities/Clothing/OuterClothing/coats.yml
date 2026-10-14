@@ -408,7 +408,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: [ ClothingOuterCoatBomberSecurity, BaseSecurityContraband ] # Same as ClothingOuterWinterSec, without ClothingOuterWinterCoatToggleable
+  parent: [ ClothingOuterStorageBase, BaseSecurityContraband ]
   id: ClothingOutercoatStasecCorpo
   name: corporate officer's coat.
   description: A smart and fashionable short coat woven with durathread, for those who remember who they really protect.
@@ -417,6 +417,13 @@
     sprite: _DV/Clothing/OuterClothing/Coats/seccorpcoat.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/seccorpcoat.rsi
+  - type: Armor # same as the normal armor values for security coats
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: [ClothingOuterCoatHoSTrench, BaseSecurityCommandContraband]
