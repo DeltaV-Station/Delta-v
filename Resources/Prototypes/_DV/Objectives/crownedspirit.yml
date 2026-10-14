@@ -39,12 +39,7 @@
     title: objective-condition-crownedspirit-corruption-title
   - type: PickRandomPerson
     filters:
-    - !type:BodyMindFilter
-      whitelist:
-        components:
-        - CommandStaff
     - !type:ObjectiveImmuneFilter
-    # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
