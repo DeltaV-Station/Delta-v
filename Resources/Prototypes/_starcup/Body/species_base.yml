@@ -64,7 +64,8 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-    - SiliconEmotes # added
+    # - SiliconEmotes # added # DeltaV - removed
+    - MKCEmotes # DeltaV - for MKC emotes
   - type: Damageable
     damageContainer: HumanoidSilicon
     damageModifierSet: HumanoidSilicon
@@ -82,9 +83,9 @@
     speechSounds: Pai
   - type: Vocal
     sounds:
-      Male: HumanoidSilicon
-      Female: HumanoidSilicon
-      Unsexed: HumanoidSilicon
+      Male: UnisexMKC
+      Female: UnisexMKC
+      Unsexed: UnisexMKC
   - type: TypingIndicator
     proto: robot
   - type: DamageVisuals
