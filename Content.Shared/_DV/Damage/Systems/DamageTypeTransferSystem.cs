@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Shared._DV.Damage.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared._DV.Damage.Events;
 
 namespace Content.Shared._DV.Damage.Systems;
 
@@ -8,10 +8,10 @@ public sealed class DamageTypeTransferSystem : EntitySystem
 {
     public override void Initialize()
     {
-        SubscribeLocalEvent<DamageTypeTransferComponent, BeforeDamageChangedEvent>(BeforeDamageChanged);
+        SubscribeLocalEvent<DamageTypeTransferComponent, DamageChangingEvent>(DamageChanging);
     }
 
-    private void BeforeDamageChanged(Entity<DamageTypeTransferComponent> ent, ref BeforeDamageChangedEvent args)
+    private void DamageChanging(Entity<DamageTypeTransferComponent> ent, ref DamageChangingEvent args)
     {
         foreach (var (key, value) in args.Damage.DamageDict.ToList())
         {
