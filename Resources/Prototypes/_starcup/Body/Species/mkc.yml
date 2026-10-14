@@ -182,7 +182,7 @@
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Species/MKC/organs.rsi
-  - type: GibbableOrgan # Delta V - Make all MKC organs physical
+  - type: GibbableOrgan # DeltaV - Make all MKC organs physical
 
 - type: entity
   id: OrganMKCVisual
@@ -352,9 +352,11 @@
     # esoteric
     - BuzzochloricBees
     - Razorium
-    - Honk
-    - Happiness
-    - Laughter
+    # DeltaV - These don't really make sense
+    # - Honk 
+    # - Happiness
+    # - Laughter
+    # DeltaV - These don't really make sense
     - JuiceThatMakesYouWeh
     - JuiceThatMakesYouHew
     - Holywater
@@ -380,10 +382,12 @@
 - type: entity
   parent: [ OrganBaseBrain, OrganMKCInternal ]
   id: OrganMKCBrain
-  name: quantum brain
+  name: miniature positronic brain
+  description: A shrunken down positronic brain capable of being put directly into cyborgs, incapable of speech or out of chassis memory due to the smaller size.
   components:
   - type: BorgBrain
   - type: Sprite
+    sprite: _DV/Mobs/Species/MKC/organs.rsi
     layers:
-    - state: power_core # placeholder
+    - state: miniature_positronic_brain
 # End Delta V - Define MKC unique brain
