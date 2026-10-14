@@ -29,14 +29,30 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtWardenTurtle
 
+- type: loadout
+  id: ArmourerTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitArmourerTurtle
+
 # OuterClothing
 - type: loadout
   id: StasecWinterCoatWarden
   equipment:
     outerClothing: ClothingOuterCoatStasecWarden
 
+- type: loadout
+  id: ArmourerCoatLeather
+  equipment:
+    outerClothing: ClothingOutercoatArmourerShort
+
 # OuterClothing
 - type: loadout
   id: WardenLongcoat
   equipment:
     outerClothing: ClothingLongcoatWarden
+
+# Head
+- type: loadout
+  id: WardenGoggles
+  equipment:
+    head: ClothingHeadHatGoggles
