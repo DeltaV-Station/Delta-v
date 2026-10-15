@@ -602,15 +602,3 @@
     sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi
-
-
-- type: entity
-  parent: ClothingHeadBase # They're in here because glasses are layered under hair. They're a hat so they show up on anyone that isn't bald.
-  id: ClothingHeadHatGoggles
-  name: goggles
-  description: A set of goggles to sit on your head
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Head/Soft/goggles.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Head/Soft/goggles.rsi
