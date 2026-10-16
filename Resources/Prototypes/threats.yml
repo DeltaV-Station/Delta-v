@@ -5,6 +5,8 @@
     Dragon: 1
     Revenant: 1
     Colossus: 1 # DeltaV
+    SixHitmen: 1 # DeltaV
+
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -19,4 +21,9 @@
 - type: ninjaHackingThreat # DeltaV start
   id: Colossus
   announcement: terror-colossus
-  rule: ColossusSpawn # DeltaV end
+  rule: ColossusSpawn 
+
+- type: ninjaHackingThreat 
+  id: SixHitmen
+  announcement: terror-hitmen
+  rule: SixHitmanShuttle # DeltaV end
