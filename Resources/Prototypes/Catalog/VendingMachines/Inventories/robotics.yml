@@ -23,16 +23,16 @@
     Screwdriver: 2
     Crowbar: 2
     # begin starcup: silicon repair tools
-    RepairSpray: 3
-    ThermalPaste: 3
-    DefrostPouch: 2
-    SpliceKit: 2
+    # RepairSpray: 3 # Delta V - remove old starting topicals
+    # ThermalPaste: 3
+    # DefrostPouch: 2
+    # SpliceKit: 2
     # Gauze: 2 # little bit weird but MKCs use it too! # DeltaV - Not anymore
     Syringe: 2 # for the nanites!
     Oilpack: 3
-    ChemistryBottleOpticalFiberNanites: 2
-    # ChemistryBottleElectrolyticNanites: 2 # Delta V - remove electrolytic nanites
-    ChemistryBottleCrystalLatticeNanites: 2
+    # ChemistryBottleOpticalFiberNanites: 2 # Delta V - remove starting nanites
+    # ChemistryBottleElectrolyticNanites: 2 
+    # ChemistryBottleCrystalLatticeNanites: 2
     # end starcup
     ClothingBeltUtility: 2 # DeltaV - Added utility belt
   contrabandInventory:

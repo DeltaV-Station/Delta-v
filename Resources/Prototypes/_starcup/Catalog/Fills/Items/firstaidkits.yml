@@ -7,8 +7,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: RepairSpray
-        - id: ThermalPaste
+        # - id: RepairSpray DeltaV - remove old topicals
+        # - id: ThermalPaste
         - id: Oilpack
         - id: EmergencyMedipenSilicon
 

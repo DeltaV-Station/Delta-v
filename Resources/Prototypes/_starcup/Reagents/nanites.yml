@@ -26,7 +26,7 @@
   desc: reagent-desc-crystal-lattice-nanites
   physicalDesc: reagent-physical-desc-metallic
   flavor: plastic
-  color: "#333333"
+  color: "#339933" # DeltaV - colors....
   metabolisms:
     Bloodstream:
       effects:
@@ -45,7 +45,7 @@
   desc: reagent-desc-optical-fiber-nanites
   physicalDesc: reagent-physical-desc-metallic
   flavor: plastic
-  color: "#333333"
+  color: "#333399" # DeltaV - colors....
   metabolisms:
     Bloodstream:
       effects:
@@ -61,7 +61,7 @@
   desc: reagent-desc-rescue-nanites
   physicalDesc: reagent-physical-desc-metallic
   flavor: plastic
-  color: "#333333"
+  color: "#99AA33" # DeltaV - colors....
   metabolisms:
     Bloodstream:
       effects:
@@ -109,7 +109,7 @@
   desc: reagent-desc-reconstructor-nanites
   physicalDesc: reagent-physical-desc-metallic
   flavor: plastic
-  color: "#333333"
+  color: "#9999BB" # DeltaV - colors....
   metabolisms:
     Bloodstream:
       effects:
@@ -131,7 +131,7 @@
   physicalDesc: reagent-physical-desc-metallic
   contrabandSeverity: Syndicate # DeltaV - Traitor -> Syndicate
   flavor: plastic
-  color: "#333333"
+  color: "#BB9999" # DeltaV - colors....
   metabolisms:
     Bloodstream:
       effects:
@@ -184,7 +184,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
-          reagent: Stimulants
+          reagent: OverclockNanites
           min: 45
         - !type:MetabolizerTypeCondition
           type: [ MKC ]
