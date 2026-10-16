@@ -6,6 +6,7 @@ research-technology-matter-energy-conversion = Matter-Energy Conversion
 research-technology-atmos-eva = EVA Atmospherics Suits
 research-technology-engineering-eva = EVA PPE Suits
 research-technology-advanced-construction = Advanced Construction
+research-technology-emu-plu = Emu PLU
 
 # Experimental
 research-technology-cloning = Cloning

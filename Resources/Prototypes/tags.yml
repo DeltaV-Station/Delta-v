@@ -520,6 +520,18 @@
   id: EmitterBolt # Default value in ContainmentFieldGeneratorComponent for tagged collisions that power the generator.
 
 - type: Tag
+  id: EmuCentralControlModule # ConstructionGraph: Emu - DeltaV: Emu PLU mech
+
+- type: Tag
+  id: EmuLLeg # PartAssembly: EmuHarness. ItemMapper: EmuHarness - DeltaV: Emu PLU mech
+
+- type: Tag
+  id: EmuRLeg # PartAssembly: EmuHarness. ItemMapper: EmuHarness - DeltaV: Emu PLU mech
+
+- type: Tag
+  id: EmuPeripheralsControlModule # ConstructionGraph: Emu - DeltaV: Emu PLU mech
+
+- type: Tag
   id: EncryptionCargo # ItemMapper: TelecomServer
 
 - type: Tag

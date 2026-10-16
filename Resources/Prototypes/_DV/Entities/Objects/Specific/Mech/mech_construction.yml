@@ -1,0 +1,80 @@
+# Emu PLU
+
+- type: entity
+  id: BaseEmuPart
+  parent: BaseMechPart
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Items
+    noRot: false
+    sprite: _NF/Objects/Specific/Mech/mecha.rsi
+
+- type: entity
+  id: BaseEmuPartItem
+  parent: BaseEmuPart
+  abstract: true
+  components:
+  - type: Item
+    size: Ginormous
+
+- type: entity
+  parent: BaseEmuPart
+  id: EmuHarness
+  name: emu harness
+  description: The core of the Emu PLU.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      emu_l_leg+o:
+        whitelist:
+          tags:
+          - EmuLLeg
+      emu_r_leg+o:
+        whitelist:
+          tags:
+          - EmuRLeg
+    sprite: _NF/Objects/Specific/Mech/mecha.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: emu
+  - type: Sprite
+    state: emu_harness+o
+    noRot: true
+  - type: PartAssembly
+    parts:
+      Emu:
+      - EmuLLeg
+      - EmuRLeg
+    containerId: mech-assembly-container
+  - type: Construction
+    graph: Emu
+    node: start
+
+- type: entity
+  parent: BaseEmuPartItem
+  id: EmuLLeg
+  name: emu left leg
+  description: The left leg of the Emu PLU. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: emu_l_leg
+  - type: Tag
+    tags:
+    - EmuLLeg
+
+- type: entity
+  parent: BaseEmuPartItem
+  id: EmuRLeg
+  name: emu right leg
+  description: The right leg of the Emu PLU. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: emu_r_leg
+  - type: Tag
+    tags:
+    - EmuRLeg
