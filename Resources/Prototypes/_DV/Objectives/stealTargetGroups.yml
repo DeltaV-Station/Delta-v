@@ -118,11 +118,11 @@
     state: icon
 
 - type: stealTargetGroup
-  id: BoxFolderCeClipboard
-  name: steal-target-groups-box-folder-ce-clipboard
+  id: CeHandheldEngineeringMonitorStealGroup
+  name: steal-target-groups-ce-handheld-engineering-monitor
   sprite:
-    sprite: _DV/Objects/Misc/ce_clipboard.rsi
-    state: ce_clipboard
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
+    state: monitor_ce
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitEngineeringWhite
