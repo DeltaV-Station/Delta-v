@@ -83,7 +83,8 @@
     navMapBlip: Thermoregulator
   - type: ItemSlots
     slots:
-      beakerSlot:
+      beakerSlot: 
+        priority: 1 #prioritises ejecting the beaker from the pod when alt-clicking instead of ejecting the patient
         whitelist:
           components:
             - FitsInDispenser
