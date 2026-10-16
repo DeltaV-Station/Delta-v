@@ -1,25 +1,66 @@
+
+# DeltaV - Gigantic asteroid, typically 1 (rare) (supports largest wrecks) start
+- type: dungeonConfig
+  id: GiantBlobAsteroid
+  # Floor generation
+  layers:
+  - !type:NoiseDistanceDunGen
+    size: 50, 50
+    distanceConfig: !type:DunGenEuclideanSquaredDistance
+      blendWeight: 0.80
+    layers:
+      - tile: FloorAsteroidSand
+        threshold: 0.35
+        noise:
+          frequency: 0.025
+          noiseType: OpenSimplex2
+          fractalType: FBm
+          octaves: 2
+          lacunarity: 2
+  # Generate biome
+  - !type:BiomeDunGen
+    biomeTemplate: Asteroid
+  #DeltaV - 33% chance of generating wreck
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 1
+    table:
+      id: AsteroidWreckLargeMarker
+  - !type:OreDunGen
+    replacement: AsteroidRock
+    entity: AsteroidRockGibtonite
+    count: 14
+    minGroupSize: 0
+    maxGroupSize: 1
+#DeltaV end
+
 # Large asteroids, typically 1
 - type: dungeonConfig
   id: BlobAsteroid
   # Floor generation
   layers:
   - !type:NoiseDunGen
-    tileCap: 1000
+    tileCap: 1100
     capStd: 32
     iterations: 3
     layers:
-      - tile: FloorAsteroidSand
-        threshold: 0.30
-        noise:
-          frequency: 0.020
-          noiseType: OpenSimplex2
-          fractalType: FBm
-          octaves: 2
-          lacunarity: 2
-
+    - tile: FloorAsteroidSand
+      threshold: 0.3
+      noise:
+        frequency: 0.020
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        octaves: 2
+        lacunarity: 2
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  #DeltaV - 33% chance of generating wreck
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 1
+    table:
+      id: AsteroidWreckMediumMarker
   - !type:OreDunGen
     replacement: AsteroidRock
     entity: AsteroidRockGibtonite
@@ -49,6 +90,12 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  #DeltaV - 33% chance of generating wreck
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 1
+    table:
+      id: AsteroidWreckMediumMarker
   - !type:OreDunGen
     replacement: AsteroidRock
     entity: AsteroidRockGibtonite
@@ -78,6 +125,12 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  #DeltaV - 33% chance of generating wreck
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 1
+    table:
+      id: AsteroidWreckSmallMarker
   - !type:OreDunGen
     replacement: AsteroidRock
     entity: AsteroidRockGibtonite
@@ -106,6 +159,12 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  #DeltaV - 33% chance of generating wreck
+  - !type:EntityTableDunGen
+    minCount: 0
+    maxCount: 1
+    table:
+      id: AsteroidWreckSmallMarker
   - !type:OreDunGen
     replacement: AsteroidRock
     entity: AsteroidRockGibtonite
