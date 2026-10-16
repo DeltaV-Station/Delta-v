@@ -290,6 +290,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/security_white.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCorpoSec
+  name: security suspenders
+  description: A smart pair of suspenders over a white dress shirt. For the officer with an eye to fashion.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/corposecoff.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/corposecoff.rsi
+
 # Detective uniform
 
 - type: entity
@@ -373,6 +384,17 @@
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/armourer_alt.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitArmourerTurtle
+  name: Armourer's turtleneck
+  description: A roughed up turtleneck with only a single patch. It has a distinct smell of oil and gunpowder.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourerturtleneck.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/armourerturtleneck.rsi
+
 # HoS alt uniforms
 
 - type: entity
@@ -396,6 +418,17 @@
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
   - type: Clothing
     sprite: _DV/Clothing/Uniforms/Jumpsuit/hos_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHoSFancy
+  name: head of security's vested uniform
+  description: a tasteful and classy set of black slacks and a white dress shirt with not one, but two vests.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hosfancy.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Uniforms/Jumpsuit/hosfancy.rsi
 
 # Central Command Uniform - ported from Velta
 

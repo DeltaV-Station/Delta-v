@@ -384,3 +384,62 @@
     sprite: _DV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi
+
+## Security
+
+- type: entity
+  parent: [ClothingOuterStorageBase, BaseSecurityContraband]
+  id: ClothingOutercoatArmourerShort
+  name: armourer's leather jacket
+  description: A tight fitting and protective leather jacket, made specifically for those who work with and around weaponry.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/armourershortcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/armourershortcoat.rsi
+  - type: Armor # the values are the same as the base warden armor found on every other coat, they just all have hoods on them so can't parent off of them
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ ClothingOuterStorageBase, BaseSecurityContraband ]
+  id: ClothingOutercoatStasecCorpo
+  name: corporate officer's coat.
+  description: A smart and fashionable short coat woven with durathread, for those who remember who they really protect.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/seccorpcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/seccorpcoat.rsi
+  - type: Armor # same as the normal armor values for security coats
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+
+- type: entity
+  parent: [ClothingOuterCoatHoSTrench, BaseSecurityCommandContraband]
+  id: ClothingOutercoatHoSFancy
+  name: head of security's classic coat
+  description: A smart coat in security blue woven with durathread and plasteel for extra protection. For the HoS who wants style and practicality all in one.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/hosfancycoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/hosfancycoat.rsi
+  - type: Armor # Same as ClothingOuterWinterHoS, can't use as parent because ClothingOuterArmoredWinterCoatToggleable
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.75
