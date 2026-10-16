@@ -3,10 +3,14 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Shared._DV.AACTablet;
+using Content.Shared._DV.AACTablet.Components;
+using Content.Shared._DV.AACTablet.Events;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -15,10 +19,11 @@ namespace Content.Server._DV.AACTablet;
 
 public sealed class AACTabletSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
 
     private readonly List<string> _localisedPhrases = [];
@@ -29,6 +34,7 @@ public sealed class AACTabletSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AACTabletComponent, AACTabletSendPhraseMessage>(OnSendPhrase);
+        SubscribeLocalEvent<AACTabletComponent, ActivatableUIOpenAttemptEvent>(OnAACOpenAttempt);
 
         Subs.BuiEvents<AACTabletComponent>(AACTabletKey.Key, subs =>
         {
@@ -101,5 +107,21 @@ public sealed class AACTabletSystem : EntitySystem
 
         var curTime = _timing.CurTime;
         ent.Comp.NextPhrase = curTime + ent.Comp.Cooldown;
+    }
+
+    private void OnAACOpenAttempt(Entity<AACTabletComponent> tablet, ref ActivatableUIOpenAttemptEvent args)
+    {
+        var ev = new AACTabletOpenAttemptEvent(tablet);
+        RaiseLocalEvent(args.User, ref ev);
+
+        if (!ev.Cancelled)
+            return;
+
+        args.Cancel();
+        if (ev.FailReason == null)
+            return;
+
+        var message = Loc.GetString(ev.FailReason);
+        _popup.PopupPredicted(message, args.User, args.User, PopupType.MediumCaution);
     }
 }
