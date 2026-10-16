@@ -58,3 +58,7 @@ station-beacon-justice-armory = Justice Armory
 station-beacon-evidence-room = Evidence Room
 station-beacon-holding-cells = Holding Cells
 station-beacon-genpop = GenPop
+
+station-beacon-crematorium = Crematorium
+station-beacon-security-outpost = Security Outpost
+station-beacon-evidence = Evidence

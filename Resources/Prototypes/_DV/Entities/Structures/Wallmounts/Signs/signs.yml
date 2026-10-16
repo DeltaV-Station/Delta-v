@@ -63,7 +63,7 @@
 - type: entity
   parent: BaseSign
   id: SignPool
-  name: pool
+  name: pool sign
   description: A sign indicating where the pool is. Careful not to get a space sunburn!
   components:
   - type: Sprite
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseSign
   id: SignPark
-  name: park
+  name: park sign
   description: A sign indicating where the park is.
   components:
   - type: Sprite
@@ -83,9 +83,109 @@
 - type: entity
   parent: BaseSign
   id: SignEvidence
-  name: evidence room
+  name: evidence room sign
   description: A sign indicating where the evidence room is.
   components:
   - type: Sprite
     sprite: _DV/Structures/Wallmounts/signs.rsi
     state: evidence
+
+- type: entity
+  parent: BaseSign
+  id: SignDockBasic
+  name: dock sign
+  description: A sign indicating a docking port for shuttlecraft.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: dock
+
+- type: entity
+  parent: BaseSign
+  id: SignArrivalsDeltaV
+  name: arrivals sign
+  description: A sign indicating where the arrivals area is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: arrivals
+
+- type: entity
+  parent: BaseSign
+  id: SignAnchor
+  name: station anchor sign
+  description: A sign indicating where the station anchor is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: anchor
+
+- type: entity
+  parent: BaseSign
+  id: SignTech
+  name: tech vault sign
+  description: A sign indicating where the tech vault is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: tech
+
+- type: entity
+  parent: BaseSign
+  id: SignCryogMed
+  name: cryogenics sign
+  description: A sign indicating where the cryogenics lab is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: cryo
+
+- type: entity
+  parent: BaseSign
+  id: SignLizard
+  name: lizard sign
+  description: A sign indicating where the... Oh, no. Oh dear god. It's too late...
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: lizard
+
+- type: entity
+  parent: BaseSign
+  id: SignClown
+  name: clown sign
+  description: A sign indicating where the clown is. Beware.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: clown
+
+- type: entity
+  parent: BaseSign
+  id: SignBlank
+  name: blank sign
+  description: A sign indicating absolutely nothing.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: blank
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalReactor
+  name: reactor sign
+  description:  A direction sign, pointing out which way the nuclear reactor is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: direction_reactor
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalTurbine
+  name: turbine sign
+  description:  A direction sign, pointing out which way the reactor turbine is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: direction_turbine
