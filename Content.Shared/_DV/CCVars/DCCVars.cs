@@ -139,8 +139,8 @@ public sealed partial class DCCVars
     /// <summary>
     /// Whether you see interaction particles
     /// </summary>
-    public static readonly CVarDef<bool> ShowInteractionParticles =
-        CVarDef.Create("game.see_interaction_particles", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<bool> HideInteractionParticles =
+        CVarDef.Create("game.see_interaction_particles", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
      * Traits

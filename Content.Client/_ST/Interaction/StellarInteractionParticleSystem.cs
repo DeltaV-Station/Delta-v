@@ -39,7 +39,7 @@ public sealed class StellarInteractionParticleSystem : EntitySystem
     private void OnInteractionParticle(StellarInteractionParticleEvent ev)
     {
         // DeltaV - accessibility disable
-        if (!_cfg.GetCVar(DCCVars.ShowInteractionParticles))
+        if (_cfg.GetCVar(DCCVars.HideInteractionParticles))
             return;
 
         var performer = GetEntity(ev.Performer);
