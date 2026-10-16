@@ -1,21 +1,23 @@
-- type: reagent
-  id: ElectrolyticNanites
-  name: reagent-name-electrolytic-nanites
-  group: Nanites
-  desc: reagent-desc-electrolytic-nanites
-  physicalDesc: reagent-physical-desc-metallic
-  flavor: plastic
-  color: "#333333"
-  metabolisms:
-    Bloodstream:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [MKC]
-        damage:
-          types:
-            Caustic: -2.5
+# Delta V - remove electrolytic nanites
+# - type: reagent
+#   id: ElectrolyticNanites
+#   name: reagent-name-electrolytic-nanites
+#   group: Nanites
+#   desc: reagent-desc-electrolytic-nanites
+#   physicalDesc: reagent-physical-desc-metallic
+#   flavor: plastic
+#   color: "#333333"
+#   metabolisms:
+#     Bloodstream:
+#       effects:
+#       - !type:HealthChange
+#         conditions:
+#         - !type:MetabolizerTypeCondition
+#           type: [MKC]
+#         damage:
+#           types:
+#             Caustic: -2.5
+# Delta V - remove electrolytic nanites
 
 - type: reagent
   id: CrystalLatticeNanites

@@ -1,17 +1,19 @@
-- type: entity
-  id: ChemistryBottleElectrolyticNanites
-  suffix: electrolytic nanites
-  parent: BaseChemistryBottleFilled
-  components:
-  - type: Label
-    currentLabel: reagent-name-electrolytic-nanites
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: ElectrolyticNanites
-          Quantity: 30
+# Delta V - remove electrolytic nanites
+# - type: entity
+#   id: ChemistryBottleElectrolyticNanites
+#   suffix: electrolytic nanites
+#   parent: BaseChemistryBottleFilled
+#   components:
+#   - type: Label
+#     currentLabel: reagent-name-electrolytic-nanites
+#   - type: SolutionContainerManager
+#     solutions:
+#       drink:
+#         maxVol: 30
+#         reagents:
+#         - ReagentId: ElectrolyticNanites
+#           Quantity: 30
+# Delta V - remove electrolytic nanites
 
 - type: entity
   id: ChemistryBottleCrystalLatticeNanites
