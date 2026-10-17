@@ -227,12 +227,12 @@
   name: research-technology-optimized-microgalvanism
   icon:
     sprite: Objects/Power/power_cells.rsi
-    state: microreactor
+    state: hyper # DeltaV - change from microreactor to hyper
   discipline: Industrial
   tier: 3
   cost: 10000
   recipeUnlocks:
-  - PowerCellMicroreactor
+#  - PowerCellMicroreactor # DeltaV - remove microreactor research
   - PowerCellHyper
   technologyPrerequisites:
   - AdvancedPowercells
