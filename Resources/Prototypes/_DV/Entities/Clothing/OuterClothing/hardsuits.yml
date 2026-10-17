@@ -71,17 +71,17 @@
   - type: Armor # Slightly less armour than the standard hardsuit, but far higher mobility.
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
+        Blunt: 0.70 # 10% less than combat suit
+        Slash: 0.70 # 10% less than combat suit
+        Piercing: 0.70 # 10% less than combat suit
         Radiation: 0.80
         Caustic: 0.80
         Heat: 0.80
         Holy: 0.85
         Soul: 0.85
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+  - type: ClothingSpeedModifier # 5% faster than combat suit
+    walkModifier: 0.80
+    sprintModifier: 0.80
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
 
