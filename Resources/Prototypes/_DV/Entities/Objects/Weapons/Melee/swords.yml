@@ -107,11 +107,11 @@
   - type: ItemActionGrant
     actions:
     - ActionGravityJump
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-    - suitStorage
+#  - type: Clothing # Disable out while buggy - still gives reflect and action while being worn
+#    quickEquip: false
+#    slots:
+#    - back
+#    - suitStorage
 
 - type: entity
   name: medium-frequency blade
