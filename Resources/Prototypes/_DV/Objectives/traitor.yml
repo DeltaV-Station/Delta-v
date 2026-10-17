@@ -41,15 +41,17 @@
     owner: job-name-hos
 
 - type: entity
-  parent: BaseCMOStealObjective
-  id: MedicalFolderStealObjective
+  parent: BaseTraitorStealObjective
+  id: SecretFolderStealObjective
   components:
   - type: Objective
-    # CMO may or may not have this on them
-    difficulty: 2.25
+    # HoS will never have this on them
+    difficulty: 2
+  - type: NotJobRequirement
+    jobs: [ HeadOfSecurity ]
   - type: StealCondition
-    stealGroup: BookMedicalDocuments
-    owner: job-name-cmo
+    stealGroup: BookSecretDocuments
+    owner: job-name-hos
 
 ## warden steal objective
 - type: entity
@@ -69,8 +71,6 @@
   parent: BaseTraitorStealObjective
   id: ClerkNotaryStealObjective
   components:
-  - type: Objective
-    difficulty: 1.75 # Not a command item really
   - type: NotJobRequirement
     jobs: [ Clerk ]
   - type: StealCondition
@@ -121,18 +121,6 @@
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitEngineeringWhite
     owner: job-name-ce
-
-- type: entity
-  parent: BaseTraitorStealObjective
-  id: MantisKnifeStealObjective
-  components:
-  - type: Objective
-    difficulty: 1.75 # Pretty easy
-  - type: NotJobRequirement
-    jobs: [ ForensicMantis ]
-  - type: StealCondition
-    stealGroup: AntiPsychicKnife
-    owner: job-name-mantis
 
 # teach lesson
 - type: entity
@@ -215,7 +203,7 @@
   components:
   - type: Objective
     # its hard to steal and leaves evidence, but you can get away with it.
-    difficulty: 3
+    difficulty: 3.5
   - type: NotCommandRequirement
   - type: StealCondition
     stealGroup: PlutoniumCore
