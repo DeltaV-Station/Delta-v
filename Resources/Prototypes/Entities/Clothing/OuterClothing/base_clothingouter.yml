@@ -160,8 +160,8 @@
     transmutesTo: ClothingOuterHardsuitCosmicCult
     requiredGlyphType: CosmicGlyphWarding
   - type: Clothing #DeltaV - equip delay for hardsuits
-    equipDelay: 5
-    unequipDelay: 2.5
+    equipDelay: 2.5
+    unequipDelay: 1.25
 
 - type: entity
   abstract: true
@@ -201,8 +201,8 @@
     transmutesTo: ClothingOuterHardsuitCosmicCult
     requiredGlyphType: CosmicGlyphWarding
   - type: Clothing #DeltaV - equip delay for softsuits
-    equipDelay: 3
-    unequipDelay: 1.5
+    equipDelay: 1.5
+    unequipDelay: 0.75
 
 - type: entity
   parent: ClothingOuterBase
