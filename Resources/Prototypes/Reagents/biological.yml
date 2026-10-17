@@ -172,8 +172,7 @@
     Digestion:
       # Disgusting!
       effects:
-      - !type:Satiate
-        satiationType: Thirst
+      - !type:SatiateThirst # Delta V - i dont think we have satiationtype yet but this was satiatiiontype: thirtst so yeah whenever we upmerge ig
         factor: -0.5
     Bloodstream:
       effects:
