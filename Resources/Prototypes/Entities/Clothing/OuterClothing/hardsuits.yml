@@ -754,11 +754,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
-  - type: ReverseEngineering # Nyano
-    difficulty: 5
-    newItem: ClothingOuterHardsuitSyndieReverseEngineered
-    recipes:
-      - ClothingOuterHardsuitSyndieReverseEngineered
   - type: Tag
     tags:
     - MonkeyWearable
@@ -991,11 +986,6 @@
     - WhitelistChameleon
     - HidesHarpyWings # DeltaV: Used by harpies to help render their hardsuit sprites
   # Begin DeltaV Additions
-  - type: ReverseEngineering # DeltaV
-    difficulty: 5
-    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
-    recipes:
-    - ClothingOuterHardsuitJuggernautReverseEngineered
   - type: MappingCategories
     categories:
     - Syndicate
