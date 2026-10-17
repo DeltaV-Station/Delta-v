@@ -180,18 +180,18 @@
     - type: PrecognitionPower
     - type: Psionic
 
-- type: entity
-  parent: BasePsionCrystal
-  id: PsionCrystalScream
-  name: scream crystal
-  description: A small psionic crystal. Holding it makes you feel like screaming out all your emotion.
-  components:
-  - type: Sprite
-    color: "#f12121"
-  - type: AddComponentsImplant
-    componentsToAdd:
-    - type: PsychokineticScreamPower
-    - type: Psionic
+#- type: entity
+#  parent: BasePsionCrystal
+#  id: PsionCrystalScream
+#  name: scream crystal
+#  description: A small psionic crystal. Holding it makes you feel like screaming out all your emotion.
+#  components:
+#  - type: Sprite
+#    color: "#f12121"
+#  - type: AddComponentsImplant
+#    componentsToAdd:
+#    - type: PsychokineticScreamPower
+#    - type: Psionic
 
 - type: entity
   parent: BasePsionCrystal
