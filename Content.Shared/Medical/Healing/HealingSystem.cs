@@ -16,7 +16,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
-using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Medical.Healing;
