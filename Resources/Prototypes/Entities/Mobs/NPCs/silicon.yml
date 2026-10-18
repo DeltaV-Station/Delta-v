@@ -259,13 +259,14 @@
     sounds:
       Unsexed: Cluwne
     screamAction: null # DeltaV - i have no mouth
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 20
-    totalIntensity: 10
-    intensitySlope: 5
-    canCreateVacuum: false
+  # DeltaV - No, just no.
+  # - type: ExplodeOnTrigger
+  # - type: Explosive
+  #   explosionType: Default
+  #   maxIntensity: 20
+  #   totalIntensity: 10
+  #   intensitySlope: 5
+  #   canCreateVacuum: false
 
 - type: entity
   parent: MobSiliconBase
