@@ -353,6 +353,7 @@
         Blunt: -20
         Piercing: -20
         Slash: -20
+    bloodlossModifier: -5
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -369,6 +370,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
 
 - type: entity
   name: advanced structural nanites
@@ -390,6 +394,7 @@
         Blunt: -30
         Piercing: -30
         Slash: -30
+    bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -406,6 +411,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
 
 - type: entity
   name: restoration nanites
@@ -443,6 +451,9 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
 
 - type: entity
   name: advanced restoration nanites
@@ -480,3 +491,6 @@
     count: 10
   - type: StackPrice
     price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
