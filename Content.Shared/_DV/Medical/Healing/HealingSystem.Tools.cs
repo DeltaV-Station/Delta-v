@@ -5,6 +5,10 @@ namespace Content.Shared.Medical.Healing;
 
 public sealed partial class HealingSystem
 {
+
+    /// <summary>
+    /// Checks for ToolHealingComponent, and if it exists, check if the tool can be used
+    /// </summary>
     private bool CanUseTool(EntityUid healing, EntityUid target, EntityUid user)
     {
         // let healing go ahead if there's no tool healing
