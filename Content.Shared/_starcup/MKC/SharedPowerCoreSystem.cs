@@ -166,7 +166,7 @@ public abstract class SharedPowerCoreSystem : EntitySystem
             return;
 
         // DeltaV - drinkable blacklist component
-        if (HasComp<PowerDrinkableBlacklistComponent> (args.Args.Target))
+        if (HasComp<PowerDrinkableBlacklistComponent>(args.Args.Target))
             return;
 
         var target = args.Args.Target;

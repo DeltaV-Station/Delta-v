@@ -100,7 +100,7 @@ public abstract partial class SharedToolSystem
             {
                 var (fuel, capacity) = GetWelderFuelAndCapacity(entity.Owner, entity.Comp);
 
-                // BEGIN Monolith - Nanite Applicator
+                // BEGIN Monolith - Nanite Applicator 
                 if (entity.Comp.OnlyDisplayFuel)
                 {
                     args.PushMarkup(Loc.GetString("welder-component-on-examine-less-detailed-message",
