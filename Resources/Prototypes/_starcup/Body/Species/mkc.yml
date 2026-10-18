@@ -87,6 +87,9 @@
       PowerCore: OrganMKCCore
   - type: HumanoidProfile
     species: MKC
+  - type: Inventory # DeltaV - mkc inventory template
+    speciesId: mkc
+    templateId: mkc
 
 - type: entity
   parent:
@@ -353,7 +356,7 @@
     - BuzzochloricBees
     - Razorium
     # DeltaV - These don't really make sense
-    # - Honk 
+    # - Honk
     # - Happiness
     # - Laughter
     # DeltaV - These don't really make sense
