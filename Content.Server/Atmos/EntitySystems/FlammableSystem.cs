@@ -160,8 +160,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!isHotEvent.IsHot)
                 return;
 
-            Ignite(uid, args.Used, flammable, args.User);
-            args.Handled = true;
+            args.Handled = Ignite(uid, args.Used, flammable, args.User); // DeltaV - don't handle events on non-ignition
         }
 
         private void OnExtinguishActivateInWorld(EntityUid uid, ExtinguishOnInteractComponent component, ActivateInWorldEvent args)
@@ -325,15 +324,18 @@ namespace Content.Server.Atmos.EntitySystems
             UpdateAppearance(uid, flammable);
         }
 
-        public void Ignite(EntityUid uid, EntityUid ignitionSource, FlammableComponent? flammable = null,
+        public bool Ignite(EntityUid uid, EntityUid ignitionSource, FlammableComponent? flammable = null, // DeltaV - void -> return bool
             EntityUid? ignitionSourceUser = null)
         {
             if (!Resolve(uid, ref flammable))
-                return;
+                return false; // DeltaV - don't handle events on non-ignition
+
+            var ignited = false; // DeltaV - don't handle events on non-ignition
 
             if (flammable.AlwaysCombustible)
             {
                 flammable.FireStacks = Math.Max(flammable.FirestacksOnIgnite, flammable.FireStacks);
+                ignited = true; // DeltaV - don't handle events on non-ignition
             }
 
             if (flammable.FireStacks > 0 && !flammable.OnFire)
@@ -346,9 +348,12 @@ namespace Content.Server.Atmos.EntitySystems
 
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
+
+                ignited = true; // DeltaV - don't handle events on non-ignition
             }
 
             UpdateAppearance(uid, flammable);
+            return ignited; // DeltaV - don't handle events on non-ignition
         }
 
         private void OnDamageChanged(EntityUid uid, IgniteOnHeatDamageComponent component, DamageChangedEvent args)
