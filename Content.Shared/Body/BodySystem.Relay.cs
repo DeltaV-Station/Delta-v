@@ -3,9 +3,9 @@ using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Medical;
 using JetBrains.Annotations;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Verbs;
-using Robust.Shared.Player;
+using Content.Shared.Movement.Systems; // starcup
+using Content.Shared.Verbs; // starcup
+using Robust.Shared.Player; // starcup
 
 namespace Content.Shared.Body;
 
