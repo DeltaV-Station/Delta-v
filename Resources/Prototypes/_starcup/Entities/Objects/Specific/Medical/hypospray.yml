@@ -136,60 +136,62 @@
   - type: StaticPrice
     price: 583
 
-- type: entity
-  parent: OverclockInjector
-  id: OverclockInjectorNT
-  suffix: NanoTrasen
-  components:
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: base-needle-inhand-left
-      - state: base-colorA-inhand-left
-        color: "#04599a"
-      - state: base-colorB-inhand-left
-        color: "#2982c6"
-      right:
-      - state: base-needle-inhand-right
-      - state: base-colorA-inhand-right
-        color: "#04599a"
-      - state: base-colorB-inhand-right
-        color: "#2982c6"
-  - type: Sprite
-    sprite: _starcup/Objects/Specific/Medical/medipen.rsi
-    layers:
-    - state: overclockpen_nt
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: overclockpen_nt_empty
+# DeltaV - no NT injectors
+# - type: entity
+#   parent: OverclockInjector
+#   id: OverclockInjectorNT
+#   suffix: NanoTrasen
+#   components:
+#   - type: Item
+#     inhandVisuals:
+#       left:
+#       - state: base-needle-inhand-left
+#       - state: base-colorA-inhand-left
+#         color: "#04599a"
+#       - state: base-colorB-inhand-left
+#         color: "#2982c6"
+#       right:
+#       - state: base-needle-inhand-right
+#       - state: base-colorA-inhand-right
+#         color: "#04599a"
+#       - state: base-colorB-inhand-right
+#         color: "#2982c6"
+#   - type: Sprite
+#     sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+#     layers:
+#     - state: overclockpen_nt
+#       map: ["enum.SolutionContainerLayers.Fill"]
+#   - type: SolutionContainerVisuals
+#     maxFillLevels: 1
+#     changeColor: false
+#     emptySpriteName: overclockpen_nt_empty
 
-- type: entity
-  parent: OverclockInjectorMini
-  id: OverclockInjectorMiniNT
-  suffix: NanoTrasen
-  components:
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: base-needle-inhand-left
-      - state: base-colorA-inhand-left
-        color: "#04599a"
-      - state: base-colorB-inhand-left
-        color: "#2982c6"
-      right:
-      - state: base-needle-inhand-right
-      - state: base-colorA-inhand-right
-        color: "#04599a"
-      - state: base-colorB-inhand-right
-        color: "#2982c6"
-  - type: Sprite
-    sprite: _starcup/Objects/Specific/Medical/medipen.rsi
-    layers:
-    - state: microoverclockpen_nt
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: microoverclockpen_nt_empty
+# DeltaV - no NT injectors
+# - type: entity
+#   parent: OverclockInjectorMini
+#   id: OverclockInjectorMiniNT
+#   suffix: NanoTrasen
+#   components:
+#   - type: Item
+#     inhandVisuals:
+#       left:
+#       - state: base-needle-inhand-left
+#       - state: base-colorA-inhand-left
+#         color: "#04599a"
+#       - state: base-colorB-inhand-left
+#         color: "#2982c6"
+#       right:
+#       - state: base-needle-inhand-right
+#       - state: base-colorA-inhand-right
+#         color: "#04599a"
+#       - state: base-colorB-inhand-right
+#         color: "#2982c6"
+#   - type: Sprite
+#     sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+#     layers:
+#     - state: microoverclockpen_nt
+#       map: ["enum.SolutionContainerLayers.Fill"]
+#   - type: SolutionContainerVisuals
+#     maxFillLevels: 1
+#     changeColor: false
+#     emptySpriteName: microoverclockpen_nt_empty
