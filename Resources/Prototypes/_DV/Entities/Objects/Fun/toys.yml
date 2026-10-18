@@ -92,6 +92,16 @@
   name: MKC plushie # starcup: ipc -> mkc
   description: A massive robo-plushie. The screen might be hard plastic, but the rest of it is soft and cuddly!
   components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/Toys/ipcplush.rsi
+    layers:
+    - state: icon
+    - state: heart
+      shader: unshaded
+    - state: screenshine
+  - type: MultiHandedItem
+  - type: Item
+    size: Ginormous
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_starcup/Voice/MKC/pai_whistle.ogg
