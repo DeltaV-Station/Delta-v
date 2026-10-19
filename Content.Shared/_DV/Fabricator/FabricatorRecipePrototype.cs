@@ -1,5 +1,6 @@
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
+using Content.Shared.Materials;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Fabricator;
@@ -22,6 +23,9 @@ public sealed partial class FabricatorRecipePrototype : IPrototype
 
     [DataField]
     public Dictionary<ProtoId<EntityPrototype>, int> Solids { get; private set; } = new();
+
+    [DataField]
+    public Dictionary<ProtoId<MaterialPrototype>, int> Materials { get; private set; } = new();
 
     [DataField]
     public TimeSpan CompletionTime = TimeSpan.FromSeconds(5);

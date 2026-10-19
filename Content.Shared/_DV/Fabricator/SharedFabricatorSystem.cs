@@ -6,6 +6,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -23,6 +24,8 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
 
     private List<FabricatorRecipePrototype> Recipes = new();
 
@@ -62,9 +65,14 @@ public abstract class SharedFabricatorSystem : EntitySystem
     public void Stop(EntityUid uid, FabricatorComponent comp)
     {
         _audio.Stop(comp.SoundStream);
+
         comp.FabRunning = false;
         comp.PortionedRecipe = (null, 0);
+
+        _powerState.SetWorkingState(uid, false);
+
         UpdateUserInterfaceState((uid, comp));
+
         Dirty(uid, comp);
     }
 
@@ -213,6 +221,9 @@ public abstract class SharedFabricatorSystem : EntitySystem
         if (ent.Comp.FabRunning)
             return;
 
+        if (!_power.IsPowered(ent.Owner))
+            return;
+
         foreach (var recipe in Recipes)
         {
             var portions = CanSatisfyRecipe(ent, recipe);
@@ -223,7 +234,8 @@ public abstract class SharedFabricatorSystem : EntitySystem
             ent.Comp.SecondsRemaining = (recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier);
             ent.Comp.PortionedRecipe = (recipe, portions);
 
-            // TODO set power working state/visuals
+            // TODO set visuals
+            _powerState.SetWorkingState(ent.Owner, true);
 
             UpdateUserInterfaceState(ent);
             _audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));

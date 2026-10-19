@@ -1,3 +1,4 @@
+using Content.Server.Power.EntitySystems;
 using Content.Shared._DV.Fabricator;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -11,6 +12,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly PowerReceiverSystem _power = default!;
 
     public override void Update(float frameTime)
     {
@@ -21,6 +23,12 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
         {
             if (!fab.FabRunning)
                 continue;
+
+            if (!_power.IsPowered(uid))
+            {
+                Stop(uid, fab);
+                return;
+            }
 
             fab.SecondsRemaining -= frameTime;
 
