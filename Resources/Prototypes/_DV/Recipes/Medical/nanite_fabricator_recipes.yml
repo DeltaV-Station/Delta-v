@@ -1,0 +1,13 @@
+- type: fabricatorRecipeGroup
+  id: Nanites
+
+- type: fabricatorRecipe
+  id: RecipeTest
+  name: test recipe
+  result: MobVulpkanin
+  time: 15
+  group: Nanites
+  reagents:
+    Mayo: 10
+  solids:
+    SheetSteel: 5
