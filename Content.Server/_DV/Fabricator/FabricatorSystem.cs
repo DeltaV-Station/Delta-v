@@ -11,6 +11,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
