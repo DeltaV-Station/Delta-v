@@ -4,11 +4,13 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared._DV.Fabricator;
 
-[RegisterComponent, NetworkedComponent]
-[Access(typeof(FabricatorSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(SharedFabricatorSystem))]
 public sealed partial class FabricatorComponent : Component
 {
     [DataField]
@@ -44,13 +46,16 @@ public sealed partial class FabricatorComponent : Component
     [DataField]
     public string ContainerId = "fabricator_entity_container";
 
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public float SecondsRemaining = 0.0f;
 
+    [DataField]
     public EntityUid? SoundStream;
 
+    [ViewVariables]
     public Container Storage = default!;
 
+    [DataField, AutoNetworkedField]
     public bool FabRunning = false;
 
     [ViewVariables]
