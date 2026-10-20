@@ -13,6 +13,8 @@ namespace Content.Client._DV.Fabricator;
 [UsedImplicitly]
 public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     [ViewVariables]
     private FabricatorMenu? _menu;
 
@@ -81,11 +83,15 @@ public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : 
         }
 
         _menu.ReagentsList.Clear();
-        foreach (var solution in reagents)
+        foreach (var (solution, units) in reagents)
         {
             // Don't need to track reagents because they're never ejected
-            // TODO pretty names
-            var formatString = $"{solution.Key.Id} ({solution.Value}u)";
+
+            // get the actual proto from the id
+            if (!_prototypeManager.Resolve(solution.Id, out ReagentPrototype? prototype))
+                continue;
+
+            var formatString = $"{prototype.LocalizedName} ({units}u)";
             _menu.ReagentsList.AddItem(formatString);
         }
     }

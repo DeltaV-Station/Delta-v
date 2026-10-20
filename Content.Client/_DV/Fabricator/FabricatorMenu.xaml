@@ -28,7 +28,7 @@
                     SizeFlagsStretchRatio="3"
                     ItemSeparation="5"
                     MinSize="125 125">
-                <!-- Solid ingredients here -->
+                <!-- Solid ingredients/materials here -->
                 </ItemList>
             </PanelContainer>
 
@@ -65,14 +65,14 @@
             <Button
                 Name="StartButton"
                 Access="Public"
-                Text="{Loc 'microwave-menu-start-button'}"
+                Text="{Loc 'fabricator-menu-start-text'}"
                 StyleClasses="positive"
                 TextAlign="Center"/>
             <Button
                 Name="EjectButton"
                 Access="Public"
-                Text="{Loc 'microwave-menu-eject-all-text'}"
-                ToolTip="{Loc 'microwave-menu-eject-all-tooltip'}"
+                Text="{Loc 'fabricator-menu-eject-all-text'}"
+                ToolTip="{Loc 'fabricator-menu-eject-all-tooltip'}"
                 StyleClasses="negative"
                 TextAlign="Center"/>
         </BoxContainer>
@@ -81,8 +81,8 @@
         <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc 'microwave-menu-footer-flavor-left'}" StyleClasses="WindowFooterText" />
-                <Label Text="{Loc 'microwave-menu-footer-flavor-right'}" StyleClasses="WindowFooterText"
+                <Label Text="{Loc 'fabricator-menu-footer-flavor-left'}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'fabricator-menu-footer-flavor-right'}" StyleClasses="WindowFooterText"
                        HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
                 <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered" VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
             </BoxContainer>
