@@ -5,8 +5,9 @@
   description: Fires an explosive fireball towards the clicked location.
   components:
   - type: Magic
+    requiresClothes: true
   - type: Action
-    useDelay: 15
+    useDelay: 20
     itemIconStyle: BigAction
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
@@ -34,7 +35,7 @@
   description: Fires a fireball, but faster!
   components:
   - type: Action
-    useDelay: 10
+    useDelay: 16
 
 - type: entity
   parent: ActionFireball
@@ -43,4 +44,4 @@
   description: The fastest fireball in the west!
   components:
   - type: Action
-    useDelay: 8
+    useDelay: 12
