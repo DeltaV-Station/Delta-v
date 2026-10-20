@@ -6,6 +6,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
+using Content.Shared.Materials;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
@@ -124,6 +125,9 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
         foreach (var item in ent.Comp.Storage.ContainedEntities)
         {
+            if (HasComp<PhysicalCompositionComponent>(ent) && HasComp<MaterialComponent>(ent))
+                continue;
+
             var stack = 1;
             if (TryComp<StackComponent>(item, out var stackComp))
                 stack = stackComp.Count;
@@ -141,28 +145,68 @@ public abstract class SharedFabricatorSystem : EntitySystem
         return solids;
     }
 
-    private int CanSatisfyRecipe(Entity<FabricatorComponent> ent, FabricatorRecipePrototype proto)
+    /// <summary>
+    /// Gets material amount by id, combining duplicates in different stacks
+    /// </summary>
+    private Dictionary<ProtoId<MaterialPrototype>, int> GetMaterials(Entity<FabricatorComponent> ent)
     {
-        if (!ent.Comp.RecipeGroups.Contains(proto.Group))
+        Dictionary<ProtoId<MaterialPrototype>, int> materials = new();
+
+        foreach (var item in ent.Comp.Storage.ContainedEntities)
+        {
+            if (!TryComp<PhysicalCompositionComponent>(item, out var physicalCompositionComponent)
+                || !HasComp<MaterialComponent>(item))
+                continue;
+
+            var stack = 1;
+            if (TryComp<StackComponent>(item, out var stackComponent))
+                stack = stackComponent.Count;
+
+            foreach (var (material, count) in physicalCompositionComponent.MaterialComposition)
+            {
+                if (!materials.TryAdd(material, count * stack))
+                    materials[material] += count * stack;
+            }
+        }
+
+        return materials;
+    }
+
+    private int CanSatisfyRecipe(Entity<FabricatorComponent> ent, FabricatorRecipePrototype recipe)
+    {
+        if (!ent.Comp.RecipeGroups.Contains(recipe.Group))
             return 0;
 
         var portions = ent.Comp.MaxPerBatch;
 
         var solids = GetSolids(ent);
-        foreach (var ingredient in proto.Solids)
+        foreach (var (ingredient, count) in recipe.Solids)
         {
-            if (!solids.TryGetValue(ingredient.Key, out var solidStack))
+            if (!solids.TryGetValue(ingredient, out var solidStack))
                 return 0;
 
-            if (solidStack < ingredient.Value)
+            if (solidStack < count)
                 return 0;
 
             portions = Math.Min(portions,
-                solidStack / ingredient.Value);
+                solidStack / count);
+        }
+
+        var materials = GetMaterials(ent);
+        foreach (var (ingredient, count) in recipe.Materials)
+        {
+            if (!materials.TryGetValue(ingredient, out var materialCount))
+                return 0;
+
+            if (materialCount < count)
+                return 0;
+
+            portions = Math.Min(portions,
+                materialCount / count);
         }
 
         var reagents = GetReagents(ent);
-        foreach (var ingredient in proto.Reagents)
+        foreach (var ingredient in recipe.Reagents)
         {
             if (!reagents.TryGetValue(ingredient.Key, out var reagentUnits))
                 return 0;
