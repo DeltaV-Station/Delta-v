@@ -18,9 +18,4 @@ public sealed partial class FabricatorMenu : FancyWindow
     {
         BusyOverlay.Visible = busy;
     }
-
-    protected override void FrameUpdate(FrameEventArgs args)
-    {
-        base.FrameUpdate(args);
-    }
 }
