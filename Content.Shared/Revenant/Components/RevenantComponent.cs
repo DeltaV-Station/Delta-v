@@ -300,4 +300,12 @@ public sealed partial class RevenantComponent : Component
     public string HarvestingState = "harvesting";
     #endregion
     [DataField] public EntityUid? HauntAction; // Imp
+
+    #region Melee
+    /// <summary>
+    /// DeltaV - The amount of time a rev is revealed after making a melee attack.
+    /// </summary>
+    [DataField]
+    public TimeSpan MeleeRevealTime = TimeSpan.FromSeconds(2);
+    #endregion
 }

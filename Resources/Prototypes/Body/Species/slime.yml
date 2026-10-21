@@ -8,11 +8,14 @@
     enum.HumanoidVisualLayers.FacialHair:
       limit: 1
       required: false
-    enum.HumanoidVisualLayers.HeadSide: #Delta V - Adds marking limit to slime elf ears
+    enum.HumanoidVisualLayers.HeadSide: # DeltaV - Adds marking limit to slime elf ears
       limit: 1
       required: false
-    enum.HumanoidVisualLayers.Chest:
-      limit: 2
+    enum.HumanoidVisualLayers.Snout: # Impstation - Allows adding/removing nose
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest: # DeltaV - Upped limit from 2 to 3 for seperated torso bits
+      limit: 3
       required: false
     enum.HumanoidVisualLayers.LArm:
       limit: 1
@@ -62,7 +65,7 @@
     organs:
       Torso: OrganSlimePersonTorso
       Head: OrganSlimePersonHead
-      Eyes: OrganHumanEyes # Delta V - Allows Coloring Slime Eyes.
+      Eyes: OrganSlimePersonEyes # DeltaV - Made custom Slime eye organ
       ArmLeft: OrganSlimePersonArmLeft
       ArmRight: OrganSlimePersonArmRight
       HandRight: OrganSlimePersonHandRight
@@ -275,3 +278,15 @@
   components:
   - type: Lung
     alert: LowNitrogen
+
+- type: entity  # DeltaV - Added custom Slime eye organ
+  parent: [ OrganSlimePersonExternal, OrganBaseEyes, OrganSlimePersonInternal ]
+  id: OrganSlimePersonEyes
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: Mobs/Customization/eyes.rsi  # DeltaV - Set to no eyes to prevent eye stacking
+      state: no_eyes

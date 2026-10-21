@@ -1,4 +1,3 @@
-using Content.Shared._CD.Silicons.Borgs; // CosmicDrift - borg subtypes
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -97,10 +96,6 @@ public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem // D
         _userInterface.CloseUi((ent.Owner, null), BorgSwitchableTypeUiKey.SelectBorgType);
 
         UpdateEntityAppearance(ent);
-
-        // AL - event for subtype system, always runs at end of borg type code
-        var ev = new AfterBorgTypeSelectEvent();
-        RaiseLocalEvent(ent, ref ev);
     }
 
     protected void UpdateEntityAppearance(Entity<BorgSwitchableTypeComponent> entity)
@@ -125,25 +120,24 @@ public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem // D
         {
             footstepModifier.FootstepSoundCollection = prototype.FootstepCollection;
         }
-// Start CosmicDrift Changes - Moved to BorgSwitchableTypeSystem.cs
-//        if (prototype.SpriteBodyMovementState is { } movementState)
-//        {
-//            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
-//            spriteMovement.NoMovementLayers.Clear();
-//            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
-//            {
-//                State = prototype.SpriteBodyState,
-//            };
-//            spriteMovement.MovementLayers.Clear();
-//            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
-//            {
-//                State = movementState,
-//            };
-//        }
-//        else
-//        {
-//            RemComp<SpriteMovementComponent>(entity);
-//        }
-// End CosmicDrift Changes - Moved to BorgSwitchableTypeSystem.cs
+
+        if (prototype.SpriteBodyMovementState is { } movementState)
+        {
+            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
+            spriteMovement.NoMovementLayers.Clear();
+            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
+            {
+                State = prototype.SpriteBodyState,
+            };
+            spriteMovement.MovementLayers.Clear();
+            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
+            {
+                State = movementState,
+            };
+        }
+        else
+        {
+            RemComp<SpriteMovementComponent>(entity);
+        }
     }
 }

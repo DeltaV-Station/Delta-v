@@ -6,11 +6,11 @@
     edges:
     - to: shotgun
       steps:
-      - tag: ModularBarrel #Starlight
+      - tag: Pipe
         icon:
-          sprite: _Starlight/Objects/Misc/modular_barrel.rsi
-          state: icon
-        name: crafting-menu-name-MB
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: construction-graph-tag-pipe
       - tag: ModularReceiver
         icon:
           sprite: Objects/Misc/modular_receiver.rsi

@@ -134,10 +134,8 @@
   recognizable: true
   metabolisms:
     Digestion:
-      effects:
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
+      metabolites:
+        Theobromine: 0.1
   metamorphicSprite:
     sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-chocolate.rsi
     state: icon_empty
@@ -166,14 +164,13 @@
   recognizable: true
   metabolisms:
     Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Remove
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
   metamorphicSprite:
     sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-coffee.rsi
     state: icon_empty
@@ -252,10 +249,8 @@
   recognizable: true
   metabolisms:
     Digestion:
-      effects:
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
+      metabolites:
+        Theobromine: 0.1
   metamorphicSprite:
     sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-neapolitan.rsi
     state: icon_empty
@@ -283,10 +278,9 @@
   recognizable: true
   metabolisms:
     Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:SatiateThirst
         factor: 2
       - !type:HealthChange
@@ -312,6 +306,8 @@
   recognizable: true
   metabolisms:
     Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -325,9 +321,6 @@
         damage:
           types:
             Cold: .5
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
   metamorphicSprite:
     sprite: _DV/Objects/Consumable/Drinks/frozen_treats/icecream-tower.rsi
     state: icon_empty

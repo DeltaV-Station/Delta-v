@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.3.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/14/2026 18:22:56
-  entityCount: 356
+  time: 06/21/2026 19:19:40
+  entityCount: 349
 maps: []
 grids:
 - 1
@@ -345,6 +345,9 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: ImplicitRoof
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AirCanister
   entities:
   - uid: 271
@@ -378,32 +381,32 @@ entities:
     - type: Transform
       pos: -1.5,2.5
       parent: 1
-- proto: AirlockHatchSyndicate
+- proto: AirlockHatchSyndicateLocked
   entities:
   - uid: 5
     components:
     - type: Transform
-      pos: 3.5,0.5
+      pos: 6.5,1.5
       parent: 1
   - uid: 6
     components:
     - type: Transform
-      pos: 3.5,5.5
+      pos: 3.5,0.5
       parent: 1
   - uid: 7
     components:
     - type: Transform
-      pos: 1.5,1.5
+      pos: 7.5,0.5
       parent: 1
   - uid: 8
     components:
     - type: Transform
-      pos: 6.5,1.5
+      pos: 3.5,5.5
       parent: 1
-  - uid: 308
+  - uid: 35
     components:
     - type: Transform
-      pos: 7.5,0.5
+      pos: 1.5,1.5
       parent: 1
 - proto: APCHyperCapacity
   entities:
@@ -701,6 +704,11 @@ entities:
       parent: 1
 - proto: CableHV
   entities:
+  - uid: 38
+    components:
+    - type: Transform
+      pos: 2.5,-5.5
+      parent: 1
   - uid: 55
     components:
     - type: Transform
@@ -920,15 +928,6 @@ entities:
     - type: Transform
       pos: 9.5,3.5
       parent: 1
-- proto: ChemicalSynthesisKit
-  entities:
-  - uid: 229
-    components:
-    - type: Transform
-      parent: 275
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ChemistryHotplate
   entities:
   - uid: 259
@@ -1062,17 +1061,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 38
-          - 37
           - 36
-          - 35
           - 34
           - 33
           - 32
           - 31
-          - 30
-          - 29
-          - 39
           - 40
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -1109,13 +1102,6 @@ entities:
     - type: Transform
       pos: 5.747134,2.6992416
       parent: 1
-- proto: FlippoLighter
-  entities:
-  - uid: 274
-    components:
-    - type: Transform
-      pos: 5.2693834,2.7092228
-      parent: 1
 - proto: FloorDrain
   entities:
   - uid: 310
@@ -1125,6 +1111,18 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: FoodMeatFish
+  entities:
+  - uid: 22
+    components:
+    - type: Transform
+      pos: 3.6282759,-2.6168365
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      pos: 3.6032515,-2.4793444
+      parent: 1
 - proto: FoodTinMRE
   entities:
   - uid: 221
@@ -1598,15 +1596,15 @@ entities:
       color: '#990000FF'
 - proto: GeneratorBasic15kW
   entities:
-  - uid: 315
+  - uid: 30
     components:
     - type: MetaData
-      desc: This one seems to make slightly less power than the base model. Someone cheaped out.
+      name: 17 kW generator
     - type: Transform
       pos: 2.5,-4.5
       parent: 1
     - type: PowerSupplier
-      supplyRate: 8000
+      supplyRate: 17000
 - proto: GravityGeneratorMini
   entities:
   - uid: 294
@@ -1674,15 +1672,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-3.5
       parent: 1
-- proto: HeadVulpkanin
+- proto: InterdyneFlippoNerfed
   entities:
-  - uid: 37
+  - uid: 29
     components:
     - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      pos: 5.2410407,2.71155
+      parent: 1
 - proto: KitchenReagentGrinder
   entities:
   - uid: 240
@@ -1690,55 +1686,13 @@ entities:
     - type: Transform
       pos: 7.5,2.5
       parent: 1
-- proto: LeftFootKobold
+- proto: LockerInterdyneFilled
   entities:
   - uid: 39
     components:
     - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: LeftLegVulpkanin
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: LockerChemistryFilled
-  entities:
-  - uid: 275
-    components:
-    - type: MetaData
-      desc: A standard-issue Nanotrasen storage unit. Stolen, of course.
-    - type: Transform
       pos: 9.5,2.5
       parent: 1
-    - type: Lock
-      locked: False
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 248
-          - 229
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: MaterialDiamond1
   entities:
   - uid: 322
@@ -1746,15 +1700,6 @@ entities:
     - type: Transform
       pos: 4.6314135,-2.5759907
       parent: 1
-- proto: MicrowaveMachineCircuitboard
-  entities:
-  - uid: 248
-    components:
-    - type: Transform
-      parent: 275
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: OperatingTable
   entities:
   - uid: 297
@@ -1803,13 +1748,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: PortableGeneratorSuperPacman
-  entities:
-  - uid: 22
-    components:
-    - type: Transform
-      pos: 3.5,-1.5
-      parent: 1
 - proto: PosterContrabandInterdyne
   entities:
   - uid: 247
@@ -1940,24 +1878,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: RightArmMonkey
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RightFootKobold
-  entities:
-  - uid: 30
-    components:
-    - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: SheetPlasma10
   entities:
   - uid: 51
@@ -1965,14 +1885,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.3891757,-2.4072156
-      parent: 1
-- proto: SheetUranium
-  entities:
-  - uid: 319
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.6391757,-2.490549
       parent: 1
 - proto: ShuttleWindow
   entities:
@@ -2183,15 +2095,6 @@ entities:
     - type: Transform
       pos: 2.4860587,-2.4936779
       parent: 1
-- proto: TorsoHarpy
-  entities:
-  - uid: 35
-    components:
-    - type: Transform
-      parent: 28
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: VendingMachineChemicalsSyndicate
   entities:
   - uid: 138

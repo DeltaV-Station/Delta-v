@@ -1,0 +1,211 @@
+# Clerk
+- type: entity
+  parent: LockerClerk
+  id: LockerClerkFilled # TODO - Remove for Justice Rework
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillClerk
+
+- type: entityTable
+  id: LockerFillClerk
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterClerkVest
+    - id: BoxFolderStationWarrant
+    - id: BoxEncryptionKeyJustice
+    - id: ClerkIDCard
+    - id: RubberStampNotary
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# Prosecutor
+- type: entity
+  parent: LockerProsecutor
+  id: LockerProsecutorFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillProsector
+
+- type: entityTable
+  id: LockerFillProsector
+  table: !type:AllSelector
+    children:
+    - id: BoxEncryptionKeyJustice
+    - id: ProsecutorIDCard
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: BookSpaceLaw
+    - id: BriefcaseBrown
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# Attorney
+- type: entity
+  parent: LockerAttorney
+  id: LockerAttorneyFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillAttorney
+
+- type: entityTable
+  id: LockerFillAttorney
+  table: !type:AllSelector
+    children:
+    - id: AttorneyIDCard
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: BookSpaceLaw
+    - id: BriefcaseBrown
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# Marshal
+- type: entity
+  parent: LockerMarshal
+  id: LockerMarshalFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillMarshal
+
+- type: entityTable
+  id: LockerFillMarshal
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterClerkVest
+    - id: PaperStationWarrant
+      amount: 3
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: FlashlightSeclite
+    - id: WeaponDisabler
+    - id: WeaponTaser
+    - id: ClothingBeltSecurityFilled
+    - id: BookSpaceLaw
+    - id: ClothingOuterArmorBasicSlim
+    - id: TicketPad
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# JusticeWarden
+- type: entity
+  parent: LockerJusticeWarden
+  id: LockerJusticeWardenFilled
+  suffix: Filled, Justice Warden
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillJusticeWarden
+
+- type: entityTable
+  id: LockerFillJusticeWarden
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadsetAltJustice
+    - id: RubberStampJusticeWarden
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+    - id: DoorRemoteJustice
+    - id: BookSpaceLaw
+    - id: ClothingBeltSecurityFilled
+    - id: ClothingBackpackElectropack
+      amount: 2
+    - id: ClothingNeckShockCollar
+      amount: 2
+    - id: RemoteSignaller
+      amount: 2
+    - id: ClothingOuterStraightjacket
+    - id: TearGasGrenade
+      amount: 2
+    - id: NetworkConfigurator
+    - id: Binoculars
+    - id: BoxPDAPrisoner
+    - id: BoxEncryptionKeyPrisoner
+    - id: LunchboxJusticeFilledRandom
+      prob: 0.3
+
+# JusticeDetective
+- type: entity
+  parent: LockerJusticeDetective
+  id: LockerJusticeDetectiveFilled
+  suffix: Filled, Justice
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerDetective
+
+# Non-lethal armory
+
+- type: entity
+  parent: SecurityGunSafeNonlethalHandgunDV
+  id: JusticeGunSafeNonlethalHandgunSecureFilledDV
+  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: NonLethalMK58
+        rolls: !type:ConstantNumberSelector
+          value: 4
+
+- type: entityTable
+  id: NonLethalMK58
+  table: !type:AllSelector
+    children:
+    - id: WeaponPistolMk58Nonlethal
+    - id: MagazinePistolRubber
+      amount: 2
+
+- type: entity
+  parent: JusticeGunSafeNonLethalShotgunSecureDV
+  id: JusticeGunSafeNonLethalShotgunSecureFilledDV
+  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: NonLethalKammerer
+        rolls: !type:ConstantNumberSelector
+          value: 2
+
+- type: entityTable
+  id: NonLethalKammerer
+  table: !type:AllSelector
+    children:
+    - id: WeaponShotgunKammererNonLethal
+    - id: BoxBeanbag
+
+- type: entity
+  parent: JusticeGunSafeDisablerSecureDV
+  id: JusticeGunSafeDisablerSecureFilledDV
+  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillGunSafeDisabler

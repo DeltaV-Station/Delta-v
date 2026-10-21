@@ -1,4 +1,6 @@
-﻿using Content.Shared.Chat.Prototypes;
+﻿using Content.Shared.Chat.Prototypes; // Starlight
+using Content.Shared.Damage.Prototypes; // Starlight
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Mobs;
@@ -21,4 +23,10 @@ public sealed partial class DeathgaspComponent : Component
     /// </summary>
     [DataField]
     public bool NeedsCritical = true;
+
+    /// <summary>
+    /// Starlight - The damage that is taken when succumbing 
+    /// </summary>
+    [DataField]
+    public ProtoId<DamageTypePrototype> DamageType = "Asphyxiation";
 }

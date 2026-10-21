@@ -30,6 +30,17 @@ public sealed partial class EmergencyLightComponent : SharedEmergencyLightCompon
     [DataField("chargingEfficiency")]
     public float ChargingEfficiency = 0.85f;
 
+    // Begin DeltaV Additions
+    [DataField]
+    public float MaydayRadius = 10f;
+
+    [DataField]
+    public float MaydayFalloff = 0f;
+
+    [DataField]
+    public float MaydayEnergy = 0.7f;
+    // End DeltaV Additions
+
     public Dictionary<EmergencyLightState, string> BatteryStateText = new()
     {
         { EmergencyLightState.Full, "emergency-light-component-light-state-full" },

@@ -703,7 +703,7 @@
 - type: entity
   parent: HolopadSecurity # DeltaV
   id: HolopadSecurityWarden
-  suffix: Warden
+  suffix: Warden, Security # DeltaV - Added security.
   components:
   - type: Label
     currentLabel: holopad-security-warden

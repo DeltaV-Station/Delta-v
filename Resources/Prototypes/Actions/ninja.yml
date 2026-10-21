@@ -87,6 +87,7 @@
       params:
         volume: 5
     priority: -12
+    useDelay: 5 # DeltaV - small cooldown
   - type: TargetAction
     checkCanAccess: false
     range: 0

@@ -6,9 +6,9 @@ cwoink-system-messages-being-relayed-to-discord =
     All messages are relayed to game Curators via Discord.
 
 cwoink-system-introductory-message =
-    Please let us know of any event related queries here.
+    Please let us know of any event-related queries here. Also feel free to ask any questions related to game mechanics! We're happy to help.
 
-    Administrative concerns, such as rule violations and questions, as well as mentoring, should be directed to Admin Help.
+    Administrative concerns, such as rule violations and questions, should be directed to Admin Help.
 
     Any bugs and other related issues should be reported through Discord or Github.
 
