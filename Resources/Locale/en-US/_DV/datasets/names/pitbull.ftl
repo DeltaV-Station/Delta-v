@@ -192,3 +192,4 @@ names-pitbull-dataset-198 = Corruption
 names-pitbull-dataset-199 = Destruction
 names-pitbull-dataset-200 = Annihilation
 names-pitbull-dataset-201 = Grenade
+names-pitbull-dataset-202 = Winner
