@@ -1,10 +1,11 @@
 using Content.Shared._DV.Medical.Healing;
-using Content.Shared.Tools.Components;
+using Content.Shared.Tools.Systems;
 
 namespace Content.Shared.Medical.Healing;
 
 public sealed partial class HealingSystem
 {
+    [Dependency] private readonly SharedToolSystem _tool = default!;
 
     /// <summary>
     /// Checks for ToolHealingComponent, and if it exists, check if the tool can be used
@@ -15,18 +16,6 @@ public sealed partial class HealingSystem
         if (!TryComp<ToolHealingComponent>(healing, out var toolHealing))
             return true;
 
-        // check if the user allows using the tool
-        var ev = new ToolUserAttemptUseEvent(target);
-        RaiseLocalEvent(user, ref ev);
-        if (ev.Cancelled)
-            return false;
-
-        // check if the tool allows being used
-        var beforeAttempt = new ToolUseAttemptEvent(user, toolHealing.Fuel);
-        RaiseLocalEvent(healing, beforeAttempt);
-        if (beforeAttempt.Cancelled)
-            return false;
-
-        return true;
+        return _tool.CanStartToolUse(healing, user, target, toolHealing.Fuel, []);
     }
 }

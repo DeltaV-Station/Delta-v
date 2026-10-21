@@ -238,7 +238,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         return Resolve(uid, ref tool, false) && tool.Qualities.ContainsAll(qualities);
     }
 
-    private bool CanStartToolUse(EntityUid tool, EntityUid user, EntityUid? target, float fuel, IEnumerable<string> toolQualitiesNeeded, ToolComponent? toolComponent = null)
+    public bool CanStartToolUse(EntityUid tool, EntityUid user, EntityUid? target, float fuel, IEnumerable<string> toolQualitiesNeeded, ToolComponent? toolComponent = null) // DeltaV - private->public
     {
         if (!Resolve(tool, ref toolComponent))
             return false;

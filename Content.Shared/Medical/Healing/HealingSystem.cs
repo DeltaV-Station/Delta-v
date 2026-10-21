@@ -197,16 +197,16 @@ public sealed partial class HealingSystem : EntitySystem // DeltaV - partial
         if (TryComp<StackComponent>(healing, out var stack) && stack.Count < 1)
             return false;
 
-        // DeltaV - check if we can use tool
-        if (!CanUseTool(healing, target, user))
-            return false;
-
         //if (!HasDamage((target, targetDamage), component) && !IsPartDamaged(user, target)) // Shitmed Change
         if (!HasDamage(healing, target!))
         {
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
         }
+
+        // DeltaV - check if we can use tool
+        if (!CanUseTool(healing, target, user))
+            return false;
 
         _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
