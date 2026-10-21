@@ -156,4 +156,4 @@ names-pitbull-dataset-152 = Saiyu
 names-pitbull-dataset-153 = Frontier
 names-pitbull-dataset-154 = Supermatter
 names-pitbull-dataset-155 = Discord
-names-pitbull-dataset-156 = 
+names-pitbull-dataset-156 =
