@@ -7,28 +7,28 @@
 
 - type: stack
   id: StructuralNanites
-  name: stack-purifying-salts
-  icon: { sprite: "/Textures/_DV/Objects/Medical/purifyingsalts.rsi", state: icon }
+  name: stack-structrual-nanites
+  icon: { sprite: "/Textures/_DV/Objects/Medical/nanites.rsi", state: brute }
   spawn: StructuralNanites
   maxCount: 10
 
 - type: stack
   id: AdvancedStructuralNanites
-  name: stack-purifying-salts
-  icon: { sprite: "/Textures/_DV/Objects/Medical/purifyingsalts.rsi", state: icon }
+  name: stack-advanced-structrual-nanites
+  icon: { sprite: "/Textures/_DV/Objects/Medical/nanites.rsi", state: advancedbrute }
   spawn: AdvancedStructuralNanites
   maxCount: 10
 
 - type: stack
   id: RestorationNanites
-  name: stack-purifying-salts
-  icon: { sprite: "/Textures/_DV/Objects/Medical/purifyingsalts.rsi", state: icon }
+  name: stack-restoration-nanites
+  icon: { sprite: "/Textures/_DV/Objects/Medical/nanites.rsi", state: burn }
   spawn: RestorationNanites
   maxCount: 10
 
 - type: stack
   id: AdvancedRestorationNanites
-  name: stack-purifying-salts
-  icon: { sprite: "/Textures/_DV/Objects/Medical/purifyingsalts.rsi", state: icon }
+  name: stack-advanced-restoration-nanites
+  icon: { sprite: "/Textures/_DV/Objects/Medical/nanites.rsi", state: advancedburn }
   spawn: AdvancedRestorationNanites
   maxCount: 10
