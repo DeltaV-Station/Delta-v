@@ -4,7 +4,6 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DV.CosmicCult.Components;
 
 [RegisterComponent]
-[AutoGenerateComponentPause]
 public sealed partial class CosmicPurifiableComponent : Component
 {
     [DataField]

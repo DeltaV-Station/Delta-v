@@ -179,6 +179,20 @@
       tableId: RandomSchoolgirlTable
       prob: 0.85
 
+- type: entity
+  parent: MarkerBase
+  id: SwimRingSpawner
+  name: random swim ring spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _DEN/Structures/Furniture/pool_ring.rsi
+      state: rainbow
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSwimRingTable
+
 #Tables
 - type: entityTable
   id: RandomClothingTable

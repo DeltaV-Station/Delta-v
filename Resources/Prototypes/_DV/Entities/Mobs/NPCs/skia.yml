@@ -46,10 +46,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.75
+  - type: ShadowWalker # Phases through walls and other static objects that are bathed in darkness.
   - type: NoSlip
   - type: MovedByPressure
     enabled: false
-  - type: JetpackUser
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
@@ -65,7 +65,7 @@
     damage:
       types:
         Slash: 19
-        Pierce: 8
+        Piercing: 8
         Soul: 8
   - type: NpcFactionMember
     factions:
@@ -83,21 +83,26 @@
     darkThreshold: 0.3
     lightThreshold: 0.7
     darkDamage:
-      groups:
-        Brute: -5
-        Burn: -5
-        Toxin: -5
-        Airloss: -5
-        Genetic: -5
-        Metaphysical: -1
+      types:
+        Blunt: -2
+        Piercing: -2
+        Slash: -2
+        Heat: -2
+        Poison: -2
+        Asphyxiation: -2
+        Bloodloss: -2
+        Cellular: -2
+        Soul: -1
     lightDamage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 2
+        Piercing: 2
+        Slash: 2
     healWhenDead: true
     darkMovementSpeedMultiplier: 1.25
     lightMovementSpeedMultiplier: 1.0
   - type: LightLevelDamageMult
-    lightReceivedMultiplier: 2.0
+    lightReceivedMultiplier: 1.5
     lightDealtMultiplier: 0.5
   - type: ResurrectWhenAble
     timeToResurrect: 30.0
@@ -124,8 +129,7 @@
     speedModifier: 2.5 # needs to be fast because they'll get ganked otherwise
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: NightVision
-    drawOverlay: false
+  - type: DarkVision # Not NightVision: keeps the lighting gradient visible so they can judge what's dark enough to heal/shadow-walk in.
   - type: EmbedImmune
     immuneTo:
       components:

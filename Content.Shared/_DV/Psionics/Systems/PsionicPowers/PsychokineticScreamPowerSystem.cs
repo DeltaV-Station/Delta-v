@@ -25,7 +25,6 @@ public sealed class PsychokineticScreamPowerSystem : BasePsionicPowerSystem<Psyc
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     protected override void OnPowerUsed(Entity<PsychokineticScreamPowerComponent> psionic, ref PsychokineticScreamPowerActionEvent args)
     {

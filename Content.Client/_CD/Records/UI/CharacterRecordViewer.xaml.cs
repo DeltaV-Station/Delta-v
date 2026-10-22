@@ -47,7 +47,7 @@ public sealed partial class CharacterRecordViewer : FancyWindow
     /// <remarks>
     /// This may differ from <see cref="_selectedListingKey"/> because this contents has not been updated yet to reflect the new selection.
     /// </remarks>
-    private uint? _openRecordKey;
+    // private uint? _openRecordKey;
     public event Action<SecurityStatus, string?>? OnSetSecurityStatus;
 
     public uint? SecurityWantedStatusMaxLength;
@@ -325,8 +325,7 @@ public sealed partial class CharacterRecordViewer : FancyWindow
         RecordContainerJob.Text = record.JobTitle; /* At some point in the future we might want to display the icon */
         RecordContainerGender.Text = record.Gender.ToString();
         RecordContainerSpecies.Text = record.Species;
-        RecordContainerHeight.Text = cr.Height + " " + UnitConversion.GetImperialDisplayLength(cr.Height);
-        RecordContainerWeight.Text = cr.Weight + " " + UnitConversion.GetImperialDisplayMass(cr.Weight);
+        RecordContainerWeight.Text = $"{cr.Weight} ({UnitConversion.GetImperialDisplayMass(cr.Weight)})";
         RecordContainerContactName.SetValue(cr.EmergencyContactName);
 
         RecordContainerEmployment.Visible = false;

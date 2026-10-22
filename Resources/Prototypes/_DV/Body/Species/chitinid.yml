@@ -1,0 +1,305 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Chitinid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ ChitinidWingsDefault ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ ChitinidAntennasDefault ]
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 6
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 6
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceChitinid
+  name: chitinid appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganChitinidTorso
+      Head: OrganChitinidHead
+      ArmLeft: OrganChitinidArmLeft
+      ArmRight: OrganChitinidArmRight
+      HandRight: OrganChitinidHandRight
+      HandLeft: OrganChitinidHandLeft
+      LegLeft: OrganChitinidLegLeft
+      LegRight: OrganChitinidLegRight
+      FootLeft: OrganChitinidFootLeft
+      FootRight: OrganChitinidFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganChitinidEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganChitinidStomach
+      Liver: OrganChitinidLiver
+      Kidneys: OrganHumanKidneys
+  - type: HumanoidProfile
+    species: Chitinid
+  - type: Inventory
+    speciesId: moth #same eyes
+
+- type: entity
+  parent:
+  - AppearanceChitinid
+  - BaseSpeciesMobOrganic
+  id: MobChitinid
+  name: Urist McAnt
+  components:
+  - type: Icon
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+    state: full
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Chitinid
+  - type: Speech
+    speechVerb: Chitinid
+    allowedEmotes: ['Chitter', 'Click', 'Hiss']
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+  - type: TypingIndicator
+    proto: Chitinid
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 300
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        color: "#808A51"
+  - type: Vocal
+    sounds:
+      Male: UnisexChitinid
+      Female: UnisexChitinid
+      Unsexed: UnisexChitinid
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.42
+        density: 220
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 46
+  - type: TemperatureDamage # Ants hate the cold
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    coldDamage:
+      types:
+        Cold : 1.25 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.0 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      289: 0.6
+      275: 0.4
+      250: 0.3
+  - type: ItemCougher
+    item: Chitzite
+    action: ActionChitzite
+    coughPopup: chitzite-cough
+  - type: Chitinid
+  - type: BlockInjection
+  - type: Puller # Put those extra hands to work!
+    needsHands: false
+  - type: CosmicMarkVisuals
+    subtleState: moth
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 3
+    softness: 5
+    color: "#2CFA1F"
+    autoRot: true
+
+- type: entity
+  parent: OrganBase
+  id: OrganChitinid
+  abstract: true
+  suffix: chitinid
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: OrganChitinid
+  id: OrganChitinidInternal
+  abstract: true
+
+- type: entity
+  parent: OrganChitinid
+  id: OrganChitinidExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Chitinid
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganChitinidExternal ]
+  id: OrganChitinidHead
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganChitinidExternal ]
+  id: OrganChitinidTorso
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [ OrganChitinidTorso ]
+  id: OrganChitinidTorsoMale
+
+- type: entity
+  parent: [ OrganChitinidTorso ]
+  id: OrganChitinidTorsoFemale
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganChitinidExternal ]
+  id: OrganChitinidLegLeft
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganChitinidExternal ]
+  id: OrganChitinidHandLeft
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganChitinidExternal ]
+  id: OrganChitinidArmLeft
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganChitinidExternal ]
+  id: OrganChitinidFootLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganChitinidExternal ]
+  id: OrganChitinidLegRight
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganChitinidExternal ]
+  id: OrganChitinidHandRight
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganChitinidExternal ]
+  id: OrganChitinidArmRight
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganChitinidExternal ]
+  id: OrganChitinidFootRight
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganChitinidInternal, OrganChitinidExternal ]
+  id: OrganChitinidEyes
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi # Delta V - Eye ball
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: _DV/Mobs/Species/Chitinid/parts.rsi # Delta V - Using DV Eyes
+      state: eyes
+
+- type: entity
+  parent: [ OrganAnimalStomach, OrganChitinidInternal ]
+  id: OrganChitinidStomach
+  components:
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    # mm yummy
+    maxReagents: 3
+    metabolizerTypes: [Animal]
+
+- type: entity
+  id: OrganChitinidLiver
+  parent: [ OrganAnimalLiver, OrganChitinidInternal ]
+  components:
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Animal ]
+  - type: Item
+    size: Small

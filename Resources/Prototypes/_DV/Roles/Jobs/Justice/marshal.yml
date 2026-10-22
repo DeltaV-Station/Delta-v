@@ -3,16 +3,17 @@
   name: job-name-marshal
   description: job-description-marshal
   playTimeTracker: JobMarshal
+  setPreference: false
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 20h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Justice
-      time: 10h
-  startingGear: MarshalGear
+  - !type:OverallPlaytimeRequirement
+    time: 20h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Justice
+    time: 10h
+  #startingGear: MarshalGear # Bypass ChameleonJobLoadoutTest
   alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconClerk"

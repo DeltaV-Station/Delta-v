@@ -1,2 +1,13 @@
 reagent-name-lotophagoi-oil = lotophagoi oil
 reagent-desc-lotophagoi-oil = A divine drug sourced from the fruits of an ancient tree. It temporarily tears into the patient's mind, reshaping it to suit the Noösphere.
+
+reagent-amnestizine-name = amnestizine
+reagent-amnestizine-desc = A powerful drug advertised as a "less than lethal means of pacification!" by NanoTrasen and sold as a riot control agent. Known to cause major memory loss.
+
+amenstizine-popup-1 = What was I doing again...?
+amenstizine-popup-2 = I should... get back to what I was doing...
+amenstizine-popup-3 = My head... it hurts...
+amenstizine-popup-4 = Where am I...?
+amenstizine-popup-5 = So... So... tired...
+amenstizine-popup-6 = Make it stop...
+amenstizine-popup-7 = What is... going on?

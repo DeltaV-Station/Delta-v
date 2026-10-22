@@ -1,6 +1,8 @@
 - type: shopInventory
   id: FishingVendorInventory
   listings:
+  - id: SpaceCash1000
+    cost: 50
   - id: FishingRod
     cost: 50
   - id: FishingRodGoon
@@ -8,26 +10,58 @@
   - id: FishingRodGolden
     cost: 300
   - id: FishBasket
-    cost: 80
+    cost: 40
   - id: ClothingHeadFishCap
-    cost: 20
+    cost: 15
   - id: ClothingUniformJumpsuitHawaiBlue
-    cost: 100
+    cost: 30
   - id: ClothingUniformJumpsuitHawaiRed
-    cost: 100
-  - id: ClothingShoesBootsFishing
+    cost: 30
+  - id: ClothingUniformJumpsuitHawaiBlack
+    cost: 30
+  - id: ClothingUniformJumpsuitHawaiYellow
+    cost: 30
+  - id: ClothingUniformSwimsuitBlue
     cost: 20
-  - id: ChairFolding
+  - id: ClothingShoesBootsFishing
+    cost: 15
+  - id: ClothingShoesFlippers
+    cost: 15
+  - id: WeaponWaterPistol
     cost: 25
-  - id: SpaceCash1000
-    cost: 50
+  - id: WeaponWaterBlaster
+    cost: 40
+  - id: WeaponWaterBlasterSuper
+    cost: 65
+  - id: BeachBall
+    cost: 30
+  - id: PlushieCarp
+    cost: 10
+  - id: ChairFolding
+    cost: 10
   - id: DrinkBeerCan
-    cost: 10
+    cost: 5
   - id: DrinkBeerBottleFull
-    cost: 10
+    cost: 5
   - id: FoodTacoFish
-    cost: 30
+    cost: 15
   - id: FoodBurgerCarp
-    cost: 30
+    cost: 15
+  - id: FoodMealFishChips
+    cost: 15
   - id: FoodMealSashimi
+    cost: 10
+  - id: ClothingNeckCloakPirateCap
+    cost: 100
+  - id: ClothingHeadHatPirateTricord
+    cost: 15
+  - id: ClothingHeadHatPirate
+    cost: 15
+  - id: ClothingUniformJumpsuitPirate
+    cost: 30
+  - id: ClothingOuterCoatPirate
+    cost: 30
+  - id: PirateHandyFlag
+    cost: 10
+  - id: FoamCutlass
     cost: 20

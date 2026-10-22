@@ -1,0 +1,14 @@
+- type: entity
+  parent: [ ShellShotgun ]
+  id: ShellShotgunCaseless
+  name: caseless shell (.50 pellet)
+  description: An advanced caseless cartridge used by most modern shotguns. Leaves no trace behind while firing standard kinetic ammunition.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]

@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseHypospray
+  id: SRTEpsilonInjector
+  name: SRT pacifying agent injector
+  description: A self-refilling injector for rapid administration of riot control agents.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+        reagents:
+        - ReagentId: Amnestizine
+          Quantity: 10
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: Amnestizine
+        Quantity: 0.5
+  - type: UseDelay
+    delay: 1.5
+  - type: Injector
+    solutionName: hypospray
+    currentTransferAmount: null
+    activeModeProtoId: JetInjectorDynamicMode
+    allowedModes:
+    - JetInjectorDynamicMode
+    - JetInjectorInjectMode
+  - type: Sprite
+    sprite: _DV/Objects/Medical/srthypo.rsi
+    state: combat_hypo_srt_epsilon
+  - type: Tag
+    tags:
+    - JetInjector
+
+- type: entity
+  parent: BaseHypospray
+  id: SRTBlackInjector #if you give this to the crew i WILL find you
+  name: SRT nanite injector
+  description: A extremely expensive self-refilling injector for combat related trauma treatment.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+        reagents:
+        - ReagentId: CombatNanites
+          Quantity: 20
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: CombatNanites
+        Quantity: 0.5
+  - type: UseDelay
+    delay: 1.5
+  - type: Injector
+    solutionName: hypospray
+    currentTransferAmount: null
+    activeModeProtoId: JetInjectorDynamicMode
+    allowedModes:
+    - JetInjectorDynamicMode
+    - JetInjectorInjectMode
+  - type: Sprite
+    sprite: _DV/Objects/Medical/srthypo.rsi
+    state: combat_hypo_srt
+  - type: Tag
+    tags:
+    - JetInjector

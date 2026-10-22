@@ -21,6 +21,7 @@
     lifetime: 300
   - type: Holosign # DeltaV - Whitelist for holoprojector pickup
   # END DeltaV
+  #- type: Clickable
   #- type: Damageable # DeltaV - Moved all these commented out attributes to BaseHolosign
   # damageContainer: Inorganic
   #- type: Destructible
@@ -94,12 +95,12 @@
   - type: Clickable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 10
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: HolosignSecurity
@@ -135,7 +136,6 @@
       color: red
     # END DeltaV
     - type: Climbable
-    - type: Clickable
 
 - type: entity
   id: HolosignForcefield
@@ -175,9 +175,9 @@
     throwForce: 0
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 60
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

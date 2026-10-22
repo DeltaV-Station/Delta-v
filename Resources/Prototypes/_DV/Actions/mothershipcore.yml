@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAGhostAction
+  id: ActionXenoborgTurretControl
+  name: Xenoborgs Turret Control Console
+  description: View the Xenoborgs Turrets Control.
+  components:
+  - type: Action
+    icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: xenoborg-turret }
+    iconOn: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: xenoborg-turret }
+    keywords: [ "Mothership Core", "console", "interface" ]
+    priority: -6
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent { key: enum.DeployableTurretControllerUiKey.Key }

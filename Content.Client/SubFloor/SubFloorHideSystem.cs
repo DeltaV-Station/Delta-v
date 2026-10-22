@@ -32,6 +32,21 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         }
     }
 
+    // Begin DeltaV - node crawling
+    private Type[] _types = new Type[] { };
+
+    [ViewVariables]
+    public Type[] Types
+    {
+        get => _types;
+        set
+        {
+            _types = value;
+            UpdateAll();
+        }
+    }
+    // End DeltaV - node crawling
+
     public override void Initialize()
     {
         base.Initialize();
@@ -64,6 +79,17 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
         var revealed = !covered || ShowAll || scannerRevealed;
+
+        // Begin DeltaV - node crawling
+        foreach (var type in _types)
+        {
+            if (!HasComp(uid, type))
+                continue;
+
+            revealed = true;
+            break;
+        }
+        // End DeltaV - node crawling
 
         // set visibility & color of each layer
         foreach (var layer in args.Sprite.AllLayers)

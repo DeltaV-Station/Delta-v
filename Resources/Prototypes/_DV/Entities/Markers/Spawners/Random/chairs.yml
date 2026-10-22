@@ -23,3 +23,31 @@
       - id: ComfyChairSkyBlue
       - id: ComfyChairCyan
       - id: ComfyChairPurple
+
+- type: entity
+  parent: MarkerBase
+  id: RandomBeachLoungeSpawner
+  name: random lounge chair spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _DEN/Structures/Furniture/lounge_chair.rsi
+      state: white
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: ChairBeachLoungeBeige
+      - id: ChairBeachLoungeBlack
+      - id: ChairBeachLoungeBlue
+      - id: ChairBeachLoungeBrown
+      - id: ChairBeachLoungeGray
+      - id: ChairBeachLoungeGreen
+      - id: ChairBeachLoungeOrange
+      - id: ChairBeachLoungePink
+      - id: ChairBeachLoungePurple
+      - id: ChairBeachLoungeRed
+      - id: ChairBeachLoungeTeal
+      - id: ChairBeachLoungeWhite
+      - id: ChairBeachLoungeYellow

@@ -185,6 +185,8 @@
     - type: TegCirculator
     - type: StealTarget
       stealGroup: Teg
+    - type: CrawlableNode # DeltaV - node crawling
+      reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity

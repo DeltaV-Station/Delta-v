@@ -1,8 +1,7 @@
 - type: marking
   id: MakeupLips
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Kitsune]
+  groupWhitelist: [Human, Slime, Felinid, Oni, Harpy, Kitsune]
   coloring:
     default:
       type:
@@ -15,8 +14,7 @@
 - type: marking
   id: MakeupBlush
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy, Rodentia, Feroxi, Kitsune]
+  groupWhitelist: [Human, Reptilian, Slime, Felinid, Oni, Vulpkanin, Harpy, Rodentia, Feroxi, Kitsune]
   coloring:
     default:
       type:
@@ -29,8 +27,7 @@
 - type: marking
   id: MakeupNailPolishRight
   bodyPart: RHand
-  markingCategory: Overlay
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
+  groupWhitelist: [Human, Reptilian, Arachnid, Slime, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
   coloring:
     default:
       type:
@@ -43,8 +40,7 @@
 - type: marking
   id: MakeupNailPolishLeft
   bodyPart: LHand
-  markingCategory: Overlay
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
+  groupWhitelist: [Human, Reptilian, Arachnid, Slime, Felinid, Oni, Vulpkanin, Rodentia, Feroxi, Kitsune]
   coloring:
     default:
       type:
@@ -59,10 +55,9 @@
 - type: marking
   id: MakeupMothLips
   bodyPart: Head
-  markingCategory: Overlay   # The marking category is in Overlay instead of Head
                              # because the Head category for moths only allows 1
                              # marking and lips should be usable alongside blush
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:
@@ -75,8 +70,7 @@
 - type: marking
   id: MakeupMothBlush
   bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   coloring:
     default:
       type:

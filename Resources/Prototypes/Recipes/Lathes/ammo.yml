@@ -332,29 +332,29 @@
   id: MagazineBoxMagnum
   result: MagazineBoxMagnum
   materials:
-    Steel: 240
+    Steel: 480 # Delta V - was 240
 
 - type: latheRecipe
   parent: BaseAmmoBoxRecipe
   id: MagazineBoxMagnumIncendiary
   result: MagazineBoxMagnumIncendiary
   materials:
-    Plastic: 240
+    Plastic: 480 # Delta V- was 240
 
 - type: latheRecipe
   parent: BaseAmmoBoxRecipe
   id: MagazineBoxMagnumPractice
   result: MagazineBoxMagnumPractice
   materials:
-    Steel: 60
+    Steel: 120 # Delta V - was 60
 
 - type: latheRecipe
   parent: BaseAmmoBoxRecipe
   id: MagazineBoxMagnumUranium
   result: MagazineBoxMagnumUranium
   materials:
-    Plastic: 240
-    Uranium: 180
+    Plastic: 480 # Delta V - was 240
+    Uranium: 360 # Delta V - was 180
 
 # .50 Shell
 - type: latheRecipe

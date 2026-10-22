@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._DV.Movement; // DeltaV
+using Content.Shared._DV.NodeCrawl; // DeltaV - Node Crawling
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -50,6 +51,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly TagSystem _tags = default!;
     [Dependency] private   readonly TileMovementSystem _tileMovement = default!; // DeltaV
+    [Dependency] private   readonly NodeCrawlerMovementSystem _nodeCrawlerMovement = default!; // DeltaV - node crawling
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -261,6 +263,11 @@ public abstract partial class SharedMoverController : VirtualController
 
         // Begin DeltaV Additions - handle tile movement
         if (_tileMovement.TryTick((uid, mover, physicsComponent, xform), relaySource, tileDef, weightless, frameTime))
+            return;
+        // End DeltaV Additions
+
+        // Begin DeltaV Additions - node crawling
+        if (_nodeCrawlerMovement.TryTick((uid, mover, physicsComponent, xform)))
             return;
         // End DeltaV Additions
 

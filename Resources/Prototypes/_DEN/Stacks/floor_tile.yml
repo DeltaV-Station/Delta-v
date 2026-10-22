@@ -1,0 +1,13 @@
+- type: stack
+  id: FloorTilePool
+  name: tiles-pool # DeltaV
+  spawn: FloorTileItemPool
+  maxCount: 30
+#  itemSize: 5 # DeltaV
+
+- type: stack
+  id: FloorTilePoolDark
+  name: tiles-pool-dark # DeltaV
+  spawn: FloorTileItemPoolDark
+  maxCount: 30
+#  itemSize: 5 # DeltaV

@@ -30,3 +30,5 @@ nanolink-ntstamp-name = IA rubber stamp
 nanolink-ntstamp-desc = A rubber stamp with Internal Affairs print. Scare the station by showing that CC is always watching.
 nanolink-epistol-name = PDW-9 Energy Pistol
 nanolink-epistol-desc = Lethally or non-lethally take down your foes with this military grade energy pistol.
+nanolink-stationreportpaper-name = Station Report Paper
+nanolink-stationreportpaper-desc = A golden paper to write your investigations in. Contents of it appear in post-shift station reports.

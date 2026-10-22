@@ -73,19 +73,19 @@ public sealed class SuicideSystem : EntitySystem
         // TODO: fix this
         // This is a handled event, but the result is never used
         // It looks like TriggerOnMobstateChange is supposed to prevent you from suiciding
-        var suicideEvent = new SuicideEvent(victim);
-        RaiseLocalEvent(victim, suicideEvent);
-
-        // Since the player is already dead the log will not contain their username.
-        if (session != null)
-        {
-            _adminLogger.Add(LogType.Mind, $"{session:player} suicided.");
-        }
-        else
-        {
-            _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} suicided.");
-        }
-        return true;
+        // var suicideEvent = new SuicideEvent(victim);
+        // RaiseLocalEvent(victim, suicideEvent);
+        //
+        // // Since the player is already dead the log will not contain their username.
+        // if (session != null)
+        // {
+        //     _adminLogger.Add(LogType.Mind, $"{session:player} suicided.");
+        // }
+        // else
+        // {
+        //     _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} suicided.");
+        // }
+        // return true;
     }
 
     /// <summary>

@@ -1,0 +1,23 @@
+- type: reagent
+  id: NaniteFuel
+  name: reagent-name-nanite-fuel
+  desc: reagent-desc-nanite-fuel
+  physicalDesc: reagent-physical-desc-oily
+  slipData:
+    requiredSlipSpeed: 3.5
+  flavor: bitter
+  flavorMinimum: 0.01
+  color: "#5775f4"
+  recognizable: true
+  boilingPoint: 8000.6
+  meltingPoint: 659.7
+  friction: 0.4
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.4
+            Slash: 0.3
+            Piercing: 0.3

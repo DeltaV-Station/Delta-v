@@ -1,9 +1,12 @@
 # Main Directory
 - type: guideEntry
   id: SpaceLaw
-  name: Space Law
-  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw.xml
+  name: space-law-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/SpaceLaw.xml
   children:
+    - ProceduralDefense
+    - SpaceLawSentences
+    - CrimeModifiers
     - SpaceLawCrimesReferences
     - SLawDefinitions
     - ControlledISA
@@ -11,6 +14,21 @@
     - Hearings
 
 # Space Law Quick Reference
+- type: guideEntry
+  id: ProceduralDefense
+  name: space-law-procedural-defense
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/ProceduralDefense.xml
+
+- type: guideEntry
+  id: SpaceLawSentences
+  name: space-law-sentences
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/Sentences.xml
+
+- type: guideEntry
+  id: CrimeModifiers
+  name: space-law-crime-modifiers
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/SpaceLaw/CrimeModifiers.xml
+
 - type: guideEntry
   id: SpaceLawCrimesReferences
   name: Crimes Quick Code References

@@ -5,6 +5,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
+using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
@@ -83,10 +84,11 @@ public sealed class SpawnCharacter : LocalizedEntityCommands
             jobName = "Passenger"; // and if they fuck up, just default to passenger again
         }
 
+        var gameTicker = _entitySys.GetEntitySystem<GameTicker>();
 
         var coordinates = player.AttachedEntity != null
             ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
-            : _entitySys.GetEntitySystem<GameTicker>().GetObserverSpawnPoint();
+            : gameTicker.GetObserverSpawnPoint();
 
         if (player.AttachedEntity == null ||
             !mindSystem.TryGetMind(player.AttachedEntity.Value, out var mindId, out var mind))
@@ -94,6 +96,16 @@ public sealed class SpawnCharacter : LocalizedEntityCommands
 
         var mobUid = _entityManager.System<StationSpawningSystem>().SpawnPlayerMob(coordinates, profile: character, entity: null, job: jobName, station: null);
         mindSystem.TransferTo(mindId, mobUid);
+
+        var spawnCompleteEv = new PlayerSpawnCompleteEvent(mobUid,
+            player,
+            jobExists ? jobName : null,
+            lateJoin: false,
+            silent: true,
+            gameTicker.PlayersJoinedRoundNormally,
+            station: EntityUid.Invalid,
+            character);
+        _entityManager.EventBus.RaiseLocalEvent(mobUid, spawnCompleteEv, true);
 
         shell.WriteLine(Loc.GetString("cmd-spawncharacter-complete"));
     }

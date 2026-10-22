@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Whitelist;
 
-[Prototype("whitelistTier")]
+[Prototype]
 public sealed partial class WhitelistTierPrototype : IPrototype
 {
     [IdDataField]

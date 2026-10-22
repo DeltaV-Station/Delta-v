@@ -1,13 +1,14 @@
+using Content.IntegrationTests.Fixtures;
 using Content.Server._DV.Footprints.Components;
 
 namespace Content.IntegrationTests.Tests._DV;
 
-public sealed class FootPrintsTest
+public sealed class FootPrintsTest : GameTest
 {
     [Test]
     public async Task ValidatePrototypes()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var protos = pair.GetPrototypesWithComponent<FootPrintsComponent>();
@@ -23,7 +24,5 @@ public sealed class FootPrintsTest
                 }
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 }

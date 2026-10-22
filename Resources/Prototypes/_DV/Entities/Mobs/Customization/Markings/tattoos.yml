@@ -1,8 +1,7 @@
 - type: marking
   id: TattooHiveChestFemale
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune]
+  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune]
   sexRestriction: [Female]
   coloring:
     default:
@@ -16,8 +15,7 @@
 - type: marking
   id: TattooNightlingChestFemale
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Oni, Kitsune]
+  groupWhitelist: [Human, Slime, Felinid, Oni, Kitsune]
   sexRestriction: [Female]
   coloring:
     default:
@@ -31,8 +29,7 @@
 - type: marking
   id: TattooNanotrasenChest
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, SlimePerson]
+  groupWhitelist: [Human, Slime]
   coloring:
     default:
       type:

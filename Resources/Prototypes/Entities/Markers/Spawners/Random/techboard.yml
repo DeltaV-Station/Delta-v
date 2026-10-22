@@ -8,37 +8,42 @@
     - state: red
     - sprite: Objects/Misc/module.rsi
       state: boris
-  - type: RandomSpawner
-    prototypes:
-    - AirAlarmElectronics
-    - FireAlarmElectronics
-    - DoorElectronics
-    - FirelockElectronics
-    - IntercomElectronics
-    - APCElectronics
-    - SignalTimerElectronics
-    - APECircuitboard
-    - SMESMachineCircuitboard
-    - SubstationMachineCircuitboard
-    - TelecomServerCircuitboard
-    - PortableGeneratorPacmanMachineCircuitboard # Delta V - Add additional boards
-    - CellRechargerCircuitboard # Delta V - Add additional boards
-    - BorgChargerCircuitboard # Delta V - Add additional boards
-    - WeaponCapacitorRechargerCircuitboard # Delta V - Add additional boards
-    - StationMapCircuitboard # Delta V - Add additional boards
-    - DeepFryerMachineCircuitboard # Delta V - Add additional boards
-    chance: 0.95
-    rarePrototypes:
-    - CommsComputerCircuitboard
-    #- ShuttleConsoleCircuitboard # Delta V - Remove shuttle boards
-    - ComputerMassMediaCircuitboard
-    # - AutolatheMachineCircuitboard # DeltaV - departamental lathes
-    # - ProtolatheMachineCircuitboard # DeltaV - departamental lathes
-    - SalvageMagnetMachineCircuitboard
-    - PortableGeneratorSuperPacmanMachineCircuitboard # Delta V - Add additional boards
-    - PortableGeneratorJrPacmanMachineCircuitboard # Delta V - Add additional boards
-    - MedicalTechFabCircuitboard # Delta V - Add additional boards
-    - ResearchAndDevelopmentServerMachineCircuitboard # Delta V - Add additional boards
-    - UniformPrinterMachineCircuitboard # Delta V - Add additional boards
-    - ArtifactAnalyzerMachineCircuitboard # Delta V - Add additional boards
-    rareChance: 0.05
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - !type:GroupSelector
+        weight: 95
+        prob: 0.95
+        children:
+        - id: AirAlarmElectronics
+        - id: FireAlarmElectronics
+        - id: DoorElectronics
+        - id: FirelockElectronics
+        - id: IntercomElectronics
+        - id: APCElectronics
+        - id: SignalTimerElectronics
+        - id: APECircuitboard
+        - id: SMESMachineCircuitboard
+        - id: SubstationMachineCircuitboard
+        - id: TelecomServerCircuitboard
+        - id: PortableGeneratorPacmanMachineCircuitboard # Delta V - Add additional boards
+        - id: CellRechargerCircuitboard # Delta V - Add additional boards
+        - id: BorgChargerCircuitboard # Delta V - Add additional boards
+        - id: WeaponCapacitorRechargerCircuitboard # Delta V - Add additional boards
+        - id: StationMapCircuitboard # Delta V - Add additional boards
+        - id: DeepFryerMachineCircuitboard # Delta V - Add additional boards
+      - !type:GroupSelector
+        weight: 5
+        children:
+        - id: CommsComputerCircuitboard
+#        - id: ShuttleConsoleCircuitboard
+        - id: ComputerMassMediaCircuitboard
+#        - id: AutolatheMachineCircuitboard
+#        - id: ProtolatheMachineCircuitboard
+        - id: SalvageMagnetMachineCircuitboard
+        - id: PortableGeneratorSuperPacmanMachineCircuitboard # Delta V - Add additional boards
+        - id: PortableGeneratorJrPacmanMachineCircuitboard # Delta V - Add additional boards
+        - id: MedicalTechFabCircuitboard # Delta V - Add additional boards
+        - id: ResearchAndDevelopmentServerMachineCircuitboard # Delta V - Add additional boards
+        - id: UniformPrinterMachineCircuitboard # Delta V - Add additional boards
+        - id: ArtifactAnalyzerMachineCircuitboard # Delta V - Add additional boards

@@ -219,7 +219,7 @@
 - type: entity
   parent: TelecomServer
   id: TelecomServerFilledCargo
-  suffix: Cargo
+  suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: ContainerFill
     containers:
@@ -249,7 +249,7 @@
 - type: entity
   parent: TelecomServer
   id: TelecomServerFilledScience
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:

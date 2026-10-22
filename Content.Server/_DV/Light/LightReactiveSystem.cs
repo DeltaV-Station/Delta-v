@@ -11,7 +11,7 @@ public sealed partial class LightReactiveSystem : SharedLightReactiveSystem
     public override void Initialize()
     {
         base.Initialize();
-        _lightQuery = EntityManager.GetEntityQuery<PointLightComponent>();
+        _lightQuery = GetEntityQuery<PointLightComponent>();
     }
 
     private readonly HashSet<Entity<SharedPointLightComponent>> _validLightsInRange = [];

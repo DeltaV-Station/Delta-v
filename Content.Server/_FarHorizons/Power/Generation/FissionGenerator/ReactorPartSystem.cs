@@ -3,10 +3,14 @@ using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
 using Content.Shared._FarHorizons.Materials.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Nutrition;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -22,6 +26,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     /// <summary>
     /// Changes the overall rate of events
@@ -152,20 +157,14 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
         var properties = comp.Properties;
 
-        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable) || damageable.Damage.DamageDict == null)
+        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable))
             return;
-
-        var dict = damageable.Damage.DamageDict;
 
         var dmgKey = "Radiation";
         var dmg = (properties.NeutronRadioactivity * 20) + (properties.Radioactivity * 10) + (properties.FissileIsotopes * 5);
+        var dmgToApply = new DamageSpecifier() { DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>{{ dmgKey, dmg }} };
 
-        if (!dict.TryAdd(dmgKey, dmg))
-        {
-            var prev = dict[dmgKey];
-            dict.Remove(dmgKey);
-            dict.Add(dmgKey, prev + dmg);
-        }
+        _damageableSystem.TryChangeDamage((args.Target, damageable), dmgToApply);
     }
 
     public override void Update(float frameTime)
@@ -346,7 +345,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
             reactorPart.MeltHealth -= _random.Next(10, 50 + 1);
         if (reactorPart.MeltHealth <= 0)
             Melt(reactorPart, reactorEnt, reactorSystem);
-        
+
         return;
 
         // I would really like for these to be defined by the MaterialPrototype, like GasReactionPrototype, but it caused the client and server to fight when I tried
@@ -370,7 +369,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
                 return;
 
             var molesPerUnit = 100f; // Arbitrary value for how much gaseous plasma is in each unit of active plasma
-            
+
             var payload = new GasMixture();
             payload.SetMoles(Gas.Plasma, (float)Math.Min(part.Properties.ActivePlasma * molesPerUnit, Math.Log(((part.Temperature - temperatureThreshold) / 100) + 1)));
             payload.Temperature = part.Temperature;
@@ -380,7 +379,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
             _atmosphereSystem.Merge(reactor.AirContents, payload);
         }
     }
-    
+
     /// <summary>
     /// Melts the related ReactorPart.
     /// </summary>

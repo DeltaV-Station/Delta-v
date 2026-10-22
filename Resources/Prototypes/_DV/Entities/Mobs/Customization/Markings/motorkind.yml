@@ -1,8 +1,7 @@
 - type: marking
   id: MotorkindTeeth
   bodyPart: Chest
-  markingCategory: Head
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -15,8 +14,7 @@
 - type: marking
   id: MotorkindHeadlight
   bodyPart: Chest
-  markingCategory: Head
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -29,8 +27,7 @@
 - type: marking
   id: MotorkindTaillight
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   sprites:
   - sprite: _DV/Mobs/Customization/motorkind.rsi
     state: taillights
@@ -38,8 +35,7 @@
 - type: marking
   id: MotorkindTaillightColourable
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -52,8 +48,7 @@
 - type: marking
   id: MotorkindEyelashes
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   sprites:
   - sprite: _DV/Mobs/Customization/motorkind.rsi
     state: eyelashes
@@ -61,8 +56,7 @@
 - type: marking
   id: MotorkindWindows
   bodyPart: Head
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -75,8 +69,7 @@
 - type: marking
   id: MotorkindFrontLeftWheel
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -89,8 +82,7 @@
 - type: marking
   id: MotorkindFrontRightWheel
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -103,8 +95,7 @@
 - type: marking
   id: MotorkindBackLeftWheel
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -117,8 +108,7 @@
 - type: marking
   id: MotorkindBackRightWheel
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -134,8 +124,7 @@
 - type: marking
   id: MotorkindDigit00
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -148,8 +137,7 @@
 - type: marking
   id: MotorkindDigit10
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -162,8 +150,7 @@
 - type: marking
   id: MotorkindDigit20
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -176,8 +163,7 @@
 - type: marking
   id: MotorkindDigit30
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -190,8 +176,7 @@
 - type: marking
   id: MotorkindDigit40
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -204,8 +189,7 @@
 - type: marking
   id: MotorkindDigit50
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -218,8 +202,7 @@
 - type: marking
   id: MotorkindDigit60
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -232,8 +215,7 @@
 - type: marking
   id: MotorkindDigit70
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -246,8 +228,7 @@
 - type: marking
   id: MotorkindDigit80
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -260,8 +241,7 @@
 - type: marking
   id: MotorkindDigit90
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -274,8 +254,7 @@
 - type: marking
   id: MotorkindDigit0
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -288,8 +267,7 @@
 - type: marking
   id: MotorkindDigit1
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -302,8 +280,7 @@
 - type: marking
   id: MotorkindDigit2
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -316,8 +293,7 @@
 - type: marking
   id: MotorkindDigit3
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -330,8 +306,7 @@
 - type: marking
   id: MotorkindDigit4
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -344,8 +319,7 @@
 - type: marking
   id: MotorkindDigit5
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -358,8 +332,7 @@
 - type: marking
   id: MotorkindDigit6
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -372,8 +345,7 @@
 - type: marking
   id: MotorkindDigit7
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -386,8 +358,7 @@
 - type: marking
   id: MotorkindDigit8
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:
@@ -400,8 +371,7 @@
 - type: marking
   id: MotorkindDigit9
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Motorkind ]
+  groupWhitelist: [ Motorkind ]
   coloring:
     default:
       type:

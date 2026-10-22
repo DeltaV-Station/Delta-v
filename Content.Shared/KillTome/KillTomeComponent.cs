@@ -24,7 +24,7 @@ public sealed partial class KillTomeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
             { "Blunt", 200 }
         }

@@ -13,13 +13,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
-      - !type:AdjustReagent
-        reagent: Radium
-        amount: 0.01
+    Digestion:
+      metabolites:
+        Radium: 0.02
 
 - type: reagent
   id: PinkDrink
@@ -35,11 +31,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
 
 - type: reagent
   id: BubbleTea
@@ -56,13 +47,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
+    Digestion:
+      metabolites:
+        Sugar: 0.4
+        Nutriment: 0.2

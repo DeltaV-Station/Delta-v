@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Whistle;
 
 /// <summary>
-/// Spawn attached entity for entities in range with <see cref="HumanoidAppearanceComponent"/>.
+/// Spawn attached entity for entities in range with <see cref="HumanoidProfileComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class WhistleComponent : Component

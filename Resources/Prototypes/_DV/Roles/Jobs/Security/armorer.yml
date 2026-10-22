@@ -3,17 +3,18 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobArmorer
+  setPreference: false
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10h
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10h
   weight: 5
-  startingGear: WardenGear
+  #startingGear: ArmorerGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconWarden"
-  requireAdminNotify: true # DeltaV
+  requireAdminNotify: true
   supervisors: job-supervisors-hos
   canBeAntag: false
   whitelisted: false

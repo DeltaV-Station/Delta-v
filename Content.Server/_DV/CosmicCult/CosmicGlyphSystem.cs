@@ -1,14 +1,20 @@
+using System.Linq;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared._DV.CosmicCult;
+using Content.Shared.Actions.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.UserInterface;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult;
@@ -21,18 +27,84 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly HashSet<Entity<CosmicCultComponent>> _cultists = [];
-    private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoids = [];
+    private readonly HashSet<Entity<HumanoidProfileComponent>> _humanoids = [];
 
     public override void Initialize()
     {
         SubscribeLocalEvent<CosmicGlyphComponent, ActivateInWorldEvent>(OnUseGlyph);
         SubscribeLocalEvent<CosmicGlyphComponent, ComponentStartup>(OnGlyphCreated);
+        SubscribeLocalEvent<CosmicGlyphComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerbs);
+        SubscribeLocalEvent<CosmicCultComponent, EventCosmicDrawGlyph>(OnDrawGlyph);
+        SubscribeLocalEvent<CosmicGlyphDrawComponent, CosmicGlyphDrawSelectedMessage>(OnGlyphSelected);
         base.Initialize();
+    }
+
+    private void OnGetAlternativeVerbs(Entity<CosmicGlyphComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess || !_cosmicCult.EntityIsCultist(args.User) || ent.Comp.State == GlyphStatus.Despawning)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString("cult-glyph-verb-erase"),
+            Act = () => EraseGlyph(ent),
+        });
+    }
+
+    private void OnDrawGlyph(Entity<CosmicCultComponent> ent, ref EventCosmicDrawGlyph args)
+    {
+        if (_cultRule.AssociatedGamerule(ent) is not { } cult ||
+            !TryComp<CosmicGlyphDrawComponent>(args.Action, out var drawComp))
+            return;
+
+        args.Handled = true;
+
+        var glyphs = GetAvailableGlyphs(cult.Comp.CurrentTier);
+        if (glyphs.Count == 0)
+        {
+            drawComp.Target = null;
+            _ui.CloseUi(args.Action.Owner, CosmicGlyphDrawUiKey.Key, args.Performer);
+            return;
+        }
+
+        drawComp.Target = args.Target;
+        _ui.OpenUi(args.Action.Owner, CosmicGlyphDrawUiKey.Key, args.Performer);
+        _ui.SetUiState(args.Action.Owner, CosmicGlyphDrawUiKey.Key, new CosmicGlyphDrawBuiState(glyphs));
+    }
+
+    private void OnGlyphSelected(Entity<CosmicGlyphDrawComponent> ent, ref CosmicGlyphDrawSelectedMessage args)
+    {
+        if (ent.Comp.Target is not { } target ||  !TryComp<ActionComponent>(ent, out var action) ||  action.Container != args.Actor
+            || !TryComp<CosmicCultComponent>(args.Actor, out _) || _cultRule.AssociatedGamerule(args.Actor) is not { } cult
+            || !_prototype.TryIndex(args.GlyphProtoId, out var glyph) || glyph.Tier > cult.Comp.CurrentTier)
+        {
+            ent.Comp.Target = null;
+            _ui.CloseUi(ent.Owner, CosmicGlyphDrawUiKey.Key, args.Actor);
+            return;
+        }
+
+        var spawned = Spawn(glyph.Entity, target);
+        _cultRule.TransferCultAssociation(args.Actor, spawned);
+
+        ent.Comp.Target = null;
+        _ui.CloseUi(ent.Owner, CosmicGlyphDrawUiKey.Key, args.Actor);
+    }
+
+    private List<ProtoId<GlyphPrototype>> GetAvailableGlyphs(int currentTier)
+    {
+        return _prototype.EnumeratePrototypes<GlyphPrototype>()
+            .Where(glyph => glyph.Tier <= currentTier)
+            .OrderBy(glyph => Loc.GetString(glyph.Name))
+            .Select(glyph => new ProtoId<GlyphPrototype>(glyph.ID))
+            .ToList();
     }
 
     #region Base trigger
@@ -155,10 +227,10 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
     /// <param name="uid">The glyph.</param>
     /// <param name="range">Radius for a lookup.</param>
     /// <param name="exclude">Filter to exclude from return.</param>
-    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearGlyph(EntityUid uid, float range, Predicate<Entity<HumanoidAppearanceComponent>>? exclude = null)
+    public HashSet<Entity<HumanoidProfileComponent>> GetTargetsNearGlyph(EntityUid uid, float range, Predicate<Entity<HumanoidProfileComponent>>? exclude = null)
     {
         _humanoids.Clear();
-        _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, range, _humanoids);
+        _lookup.GetEntitiesInRange<HumanoidProfileComponent>(Transform(uid).Coordinates, range, _humanoids);
         if (exclude != null)
             _humanoids.RemoveWhere(exclude);
         _humanoids.RemoveWhere(target => HasComp<CosmicBlankComponent>(target) || HasComp<CosmicLapseComponent>(target)); // We never want these.

@@ -371,3 +371,16 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatParamedicJacket]
   id: ClothingOuterCoatParamedicJacketOpened
   name: paramedic jacket
+
+## Chemist
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterCoatLabMedical ]
+  id: ClothingOuterCoatLabPharma
+  name: pharmacist lab coat
+  description: A suit that protects against minor chemical spills. Has an orange and blue stripe on the shoulder and arm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi

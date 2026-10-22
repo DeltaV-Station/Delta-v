@@ -1,5 +1,6 @@
 // DeltaV Start - Fix EvenHealing with Limbs.
-using Content.Shared.Body.Systems;
+
+using Content.Shared.Body;
 // DeltaV End - Fix EvenHealing with Limbs.
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -18,7 +19,6 @@ namespace Content.Shared.EntityEffects.Effects.Damage;
 public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSystem<DamageableComponent, EvenHealthChange>
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!; // DeltaV
 
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<EvenHealthChange> args)
     {

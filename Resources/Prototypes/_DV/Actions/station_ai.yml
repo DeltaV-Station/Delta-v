@@ -95,7 +95,7 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:StationAiSpawnEntityActionEvent
-      entity: StationAiHolopointer
+      entityAction: StationAiHolopointer
 
 - type: entity
   id: StationAiHolopointer
@@ -138,9 +138,9 @@
       - BorgChassis
     event: !type:StationAiHealthChangeActionEvent
       damage:
-        groups:
-          Burn: -50
-          Brute: -50
+        types:
+          Heat: -50
+          Blunt: -50
 
 - type: entity
   id: ActionStationAiEmergencySealant

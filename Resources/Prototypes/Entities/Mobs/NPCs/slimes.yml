@@ -1,7 +1,7 @@
 - type: entity
   name: basic slime
   id: BaseMobAdultSlimes
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat, DVNodeCrawler ] # DeltaV - node crawling
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -11,7 +11,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
-  - type: Carriable # DeltaV 
+  - type: Carriable # DeltaV
   - type: Fixtures
     fixtures:
       fix1:
@@ -90,9 +90,6 @@
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
-  - type: Body
-    prototype: Slimes
-    requiredLegs: 1
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -113,6 +110,8 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   name: basic slime

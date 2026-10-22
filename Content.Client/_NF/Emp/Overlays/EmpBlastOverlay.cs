@@ -25,10 +25,12 @@ namespace Content.Client._NF.Emp.Overlays
         private readonly ShaderInstance _baseShader;
         private readonly Dictionary<EntityUid, (ShaderInstance shd, EmpShaderInstance instance)> _blasts = new();
 
+        private const string EmpName = "Emp";
+
         public EmpBlastOverlay()
         {
             IoCManager.InjectDependencies(this);
-            _baseShader = _prototypeManager.Index<ShaderPrototype>("Emp").Instance().Duplicate();
+            _baseShader = _prototypeManager.Index<ShaderPrototype>(EmpName).Instance().Duplicate();
         }
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)

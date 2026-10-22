@@ -81,7 +81,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             {
                 while (tier != 0)
                 {
-                    EntityManager.SpawnEntity(_random.Pick(component.RobossuierRewards), Transform(uid).Coordinates);
+                    Spawn(_random.Pick(component.RobossuierRewards), Transform(uid).Coordinates);
                     tier--;
                 }
             }
@@ -121,7 +121,7 @@ namespace Content.Server.Roboisseur.Roboisseur
             }
 
             component.Impatient = false;
-            EntityManager.QueueDeleteEntity(args.Used);
+            QueueDel(args.Used);
 
             int tier = CheckTier(component.DesiredPrototype.ID, component);
 

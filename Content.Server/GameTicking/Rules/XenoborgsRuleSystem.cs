@@ -42,6 +42,14 @@ public sealed class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleComponent>
             colorOverride: AnnouncmentColor);
 
         ent.Comp.MothershipCoreDeathAnnouncmentSent = true;
+
+        // BEGIN DeltaV - Convert to Survival
+        if (ent.Comp.XenoborgRoundEndBehavior != RoundEndBehavior.Nothing)
+        {
+            _roundEnd.DoRoundEndBehavior(ent.Comp.XenoborgRoundEndBehavior, ent.Comp.XenoborgShuttleDelay);
+            ent.Comp.XenoborgRoundEndBehavior = RoundEndBehavior.Nothing;
+        }
+        // END DeltaV
     }
 
     // TODO: Refactor the end of round text
@@ -109,7 +117,7 @@ public sealed class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleComponent>
         {
             _chatSystem.DispatchStationAnnouncement(station, Loc.GetString("xenoborg-shuttle-call"), colorOverride: Color.BlueViolet);
         }
-        _roundEnd.RequestRoundEnd(null, false, cantRecall: true);
+        _roundEnd.RequestRoundEnd(null, null, false, cantRecall: true);
         xenoborgsRuleComponent.XenoborgShuttleCalled = true;
     }
 

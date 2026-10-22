@@ -90,6 +90,9 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         _locations.Clear();
         while (locations.MoveNext(out var uid, out _, out var transform))
         {
+            if (!transform.Anchored)
+                continue;
+
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
             {
                 _locations.Add(transform.Coordinates);

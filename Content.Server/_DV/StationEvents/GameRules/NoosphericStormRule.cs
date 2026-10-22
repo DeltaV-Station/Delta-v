@@ -23,7 +23,7 @@ internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRu
 
         Dictionary<EntityUid, PotentialPsionicComponent> validList = [];
 
-        var query = EntityManager.EntityQueryEnumerator<PotentialPsionicComponent>();
+        var query = EntityQueryEnumerator<PotentialPsionicComponent>();
         while (query.MoveNext(out var potPsionic, out var potPsionicComp))
         {
             if (!_mobStateSystem.IsAlive(potPsionic)

@@ -15,7 +15,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// What will happen if all of the nuclear operatives will die. Used by LoneOpsSpawn event.
     /// </summary>
     [DataField]
-    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
+    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.BecomeSurvival; // DeltaV - Change from ShuttlCall To BecomeSurvival
 
     /// <summary>
     /// Text for shuttle call if RoundEndBehavior is ShuttleCall.

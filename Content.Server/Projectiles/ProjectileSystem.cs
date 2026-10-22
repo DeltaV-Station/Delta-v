@@ -58,7 +58,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         var damageRequired = _destructibleSystem.DestroyedAt(target);
         if (TryComp<DamageableComponent>(target, out var damageableComponent))
         {
-            damageRequired -= damageableComponent.TotalDamage;
+            damageRequired -= _damageableSystem.GetTotalDamage((target, damageableComponent));
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
         var deleted = Deleted(target);
@@ -125,12 +125,12 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         RaiseLocalEvent(projectile, ref pierceEv);
 
         // If the object won't be destroyed, it "tanks" the penetration hit.
-        if (damage.GetTotal() < damageRequired)
+        if (damage.GetTotal() < damageRequired && !pierceEv.Pierced) // DeltaV - Addition of the NT-3
         {
             return false;
         }
 
-        if (!projectile.Comp.ProjectileSpent)
+        if (!projectile.Comp.ProjectileSpent && !pierceEv.Pierced) // DeltaV - Addition of the NT-3
         {
             projectile.Comp.PenetrationAmount += damageRequired;
             // The projectile has dealt enough damage to be spent.
@@ -139,7 +139,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 return false;
             }
 
-            if (projectile.Comp.ProjectileSpent && pierceEv.Pierced) // DeltaV - Addition of the NT-3
+            if (projectile.Comp.ProjectileSpent)
             {
                 return true;
             }

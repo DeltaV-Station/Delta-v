@@ -79,7 +79,7 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: PrisonGuardPDA
+  id: PrisonGuardPDA # TODO - Remove for Justice Rework
   name: prison guard PDA
   description: Red to hide the stains of prisoner blood.
   components:
@@ -103,7 +103,6 @@
   components:
   - type: Pda
     id: ArmorerIDCard
-
 
 # Justice
 
@@ -153,7 +152,7 @@
 
 - type: entity
   parent: BaseJusticePDA
-  id: ClerkPDA
+  id: ClerkPDA # TODO - Remove for Justice Rework
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
   components:
@@ -191,6 +190,56 @@
 
 - type: entity
   parent: BaseJusticePDA
+  id: AttorneyPDA
+  name: attorney PDA
+  description: For attorneys to poach dubious clients.
+  components:
+  - type: Pda
+    id: AttorneyIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-lawyer
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    state: pda-lawyer
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    - CrimeAssistCartridge
+    - LogProbeCartridge
+  - type: Pager
+    autoLinkJobs: [Attorney]
+
+- type: entity
+  parent: BaseJusticePDA
+  id: JusticeWardenPDA
+  name: warden PDA
+  suffix: Justice Warden
+  description: Covered in cracks and dents. Has seen more than its fair share of abuse.
+  components:
+  - type: Pda
+    id: JusticeWardenIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-prisonguard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-prisonguard
+  - type: Pager
+    autoLinkJobs: [JusticeWarden]
+
+- type: entity
+  parent: BaseJusticePDA
   id: MarshalPDA
   name: marshal PDA
   description: Comes with a copy of SOP pre-installed, but it's already out of date.
@@ -207,24 +256,6 @@
     state: pda-clerk
   - type: Pager
     autoLinkJobs: [Marshal]
-
-- type: entity
-  parent: BaseJusticePDA
-  id: JusticeWardenPDA
-  name: warden PDA
-  description: Covered in cracks and dents. Has seen more than its fair share of abuse.
-  components:
-  - type: Pda
-    id: JusticeWardenIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType: !type:String
-        pda-prisonguard
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-prisonguard
 
 # Misc
 
@@ -659,6 +690,19 @@
       enum.PdaVisuals.PdaType: !type:String
         pda-mechanic
 
+- type: entity
+  parent: EngineerPDA
+  id: NuclearScientistPDA
+  name: nuclear scientist PDA
+  description: The built-in Geiger counter is still broken from the last meltdown.
+  components:
+  - type: Pda
+    id: NuclearScientistIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String
+        pda-nuclearscientist
+
 # Cargo Technician
 
 - type: entity
@@ -863,3 +907,17 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-interncentcomm
+
+# SRT
+
+- type: entity
+  parent: CentcomPDA
+  id: SRTPDA
+  name: SRT PDA
+  description: A light green PDA that smells of cold fusion.
+  components:
+  - type: Pda
+    id: CentcomIDCardSRT
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

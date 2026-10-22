@@ -1,0 +1,35 @@
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackPlasmaBattery
+  name: eviscerator backpack
+  suffix: SRT
+  description: A backmounted cold fusion reactor to supply a handheld plasma nozzle with enough energy to support a special response team. It probably costs more than most stations.
+  components:
+  - type: Tag
+    tags:
+    - HeavyPlasmaBattery
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Backpacks/plasmabackpack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: _DV/Clothing/Back/Backpacks/plasmabackpack.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        priority: 2
+        whitelist:
+          tags:
+          - LaserPlasmaBackpack
+  - type: Appearance
+  - type: BatteryAmmoProvider
+    proto: FusionWeaponPlasmaProjectile
+    fireCost: 10
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: BatterySelfRecharger
+    autoRechargeRate: 10

@@ -37,9 +37,9 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
 
         // Delta-V: Do not allow humanoids to become sentient. Intended to stop people from
         // repeatedly cloning themselves and using cognizine on their bodies.
-        // HumanoidAppearanceComponent is common to all player species, and is also used for the
+        // HumanoidProfileComponent is common to all player species, and is also used for the
         // Ripley pilot whitelist, so there's a precedent for using it for this kind of check.
-        if (HasComp<HumanoidAppearanceComponent>(entity))
+        if (HasComp<HumanoidProfileComponent>(entity))
         {
             return;
         }

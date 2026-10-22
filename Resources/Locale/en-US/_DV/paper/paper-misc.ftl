@@ -68,3 +68,33 @@ paper-viral-care-package-manual = [color=#134975]░░██░░ [head=2]Vira
       This instructions pamphlet will be used as "Exhibit A" if you sue [color=darkblue][bolditalic]Nanotrasen™[/bolditalic][/color].
 
 paper-hitman-business-card = [color=#FFFFFF]Its just business[/color]
+
+paper-misc-hydroco-notice = [head=1]HydroCo - Hydrate Tastefully[/head][bold]
+      Consumption Notice[/bold]
+      HydroCo reminds all customers that powdered products blabla
+
+      Always mix with water according to package instructions before consuming.
+
+      Thank you for choosing HydroCo!
+      Enjoy your drinks!
+
+paper-misc-hydroco-trial = [head=1]HydroCo - Hydrate Tastefully[/head][bold]
+
+      Dear Recipient,[/bold]
+      You have been selected among thousands of potential
+      beneficiaries to receive a full-size trial tin of HydroCo
+      powdered juice!
+
+      We think you will enjoy the flavor and hope to see you
+      as a returning customer.[bold]
+
+      Consumption Notice[/bold]
+      HydroCo reminds all customers that powdered products
+      are NOT meant for direct consumption. Attempting to eat
+      the powder directly is a choking hazard and may result in
+      severe discomfort.
+
+      Always mix with water according to package instructions
+      before consuming.
+
+      Enjoy your drinks!

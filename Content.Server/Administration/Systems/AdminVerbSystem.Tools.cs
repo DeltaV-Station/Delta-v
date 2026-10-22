@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Impstation.Revenant.Components;
+using Content.Server._Impstation.Revenant.EntitySystems;
 using Content.Server._DV.Access.Systems; // DeltaV - Subdermal ID Cards
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;

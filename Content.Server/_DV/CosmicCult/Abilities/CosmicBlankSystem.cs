@@ -93,7 +93,7 @@ public sealed class CosmicBlankSystem : EntitySystem
             return;
         args.Handled = true;
 
-        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
+        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind || mindContainer.Mind == null)
         {
             return;
         }

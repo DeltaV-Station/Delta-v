@@ -62,6 +62,11 @@
     - Arsenal
     - Experimental
     - CivilianServices
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
   # Begin DeltaV additions
   - type: Wires
     boardName: wires-board-name-autolathe
@@ -146,6 +151,7 @@
     # Begin DeltaV Additions
     - RingsStatic
     - ReportingStatic
+    - CutterMachineStaticDen
     # End DeltaV Additions
     - ToolsStatic
     - PartsStatic

@@ -52,7 +52,7 @@ public sealed class TraitSystem : EntitySystem
 
         // Use the species ID from the profile if for some reason we can't get the humanoid appearance
         ProtoId<SpeciesPrototype>? speciesId = args.Profile.Species;
-        if (TryComp<HumanoidAppearanceComponent>(args.Mob, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(args.Mob, out var humanoid))
             speciesId = humanoid.Species;
 
         // Track disabled traits and reasons

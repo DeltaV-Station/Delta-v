@@ -21,7 +21,7 @@ namespace Content.Shared._Goobstation.Factory;
 
 public abstract class SharedInteractorSystem : EntitySystem
 {
-    [Dependency] private readonly AutomationSystem _automation = default!;
+    // [Dependency] private readonly AutomationSystem _automation = default!; // Delta V - Never used
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;

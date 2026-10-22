@@ -2,8 +2,7 @@
 - type: marking
   id: ThavenCheekBarbels
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Thaven]
+  groupWhitelist: [Thaven]
   sprites:
   - sprite: _DV/Mobs/Customization/thaven.rsi
     state: cheek_barbels
@@ -11,8 +10,7 @@
 - type: marking
   id: ThavenEyebrowBarbels
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Thaven]
+  groupWhitelist: [Thaven]
   sprites:
   - sprite: _DV/Mobs/Customization/thaven.rsi
     state: eyebrow_barbels
@@ -20,8 +18,7 @@
 - type: marking
   id: ThavenUnderbellyFace
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Thaven]
+  groupWhitelist: [Thaven]
   sprites:
   - sprite: _DV/Mobs/Customization/thaven.rsi
     state: underbelly_face
@@ -30,8 +27,7 @@
 - type: marking
   id: ThavenUnderbellyTorso
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Thaven]
+  groupWhitelist: [Thaven]
   sprites:
   - sprite: _DV/Mobs/Customization/thaven.rsi
     state: underbelly_torso
@@ -39,8 +35,7 @@
 - type: marking
   id: ThavenCarpSpots
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Thaven]
+  groupWhitelist: [Thaven]
   sprites:
   - sprite: _DV/Mobs/Customization/thaven.rsi
     state: carp_spots

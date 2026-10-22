@@ -36,10 +36,12 @@ public sealed partial class RevenantStasisSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     [ValidatePrototypeId<StatusEffectPrototype>]
     private const string RevenantStasisId = "Stasis";
+
+    private ProtoId<TagPrototype> HolyId = "Holy"; // DV - Fix Errors
+    private ProtoId<TagPrototype> SaltId = "Salt"; // DV - Fix Errors
 
     public override void Initialize()
     {
@@ -130,7 +132,7 @@ public sealed partial class RevenantStasisSystem : EntitySystem
 
         foreach (var reagent in args.Reagents)
         {
-            if (_tags.HasAnyTag(reagent, "Salt", "Holy"))
+            if (_tags.HasAnyTag(reagent, SaltId, HolyId))
                 return;
         }
 
