@@ -1,0 +1,45 @@
+- type: entity
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  id: NaniteFabricator
+  name: nanite fabricator
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/microwave.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    offset: "0.0,0.2"
+    layers:
+    - state: mw0
+      map: ["enum.MicrowaveVisualizerLayers.Base"]
+    - state: mw_unlit
+      shader: unshaded
+      map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
+    - state: mwbloody0
+      map: ["bloody"]
+      visible: false
+    - state: mwbloody1
+      shader: unshaded
+      map: ["bloodyunshaded"]
+      visible: false
+  - type: ApcPowerReceiver
+    powerLoad: 5
+  - type: PowerState
+    idlePowerDraw: 5
+    workingPowerDraw: 1000
+  - type: ContainerContainer
+    containers:
+      fabricator_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - fabricator_entity_container
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.Key:
+        type: FabricatorBoundUserInterface # I HATE UI
+  - type: Fabricator
+    recipeGroups:
+    - Nanites
