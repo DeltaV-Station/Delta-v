@@ -97,7 +97,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
             solids.ToArray(),
             GetReagents(ent),
             ent.Comp.FabRunning,
-            TimeSpan.Zero));
+            TimeSpan.FromSeconds(ent.Comp.SecondsRemaining)));
     }
 
     /// <summary>

@@ -2,6 +2,8 @@
 
 fabricator-menu-title = Fabricator
 
+fabricator-menu-time-remaining = Time remaining: {$time} seconds
+
 fabricator-menu-start-text = Start
 fabricator-menu-eject-all-text = Eject All Contents
 fabricator-menu-eject-all-tooltip = Ejects all contents from the fabricator

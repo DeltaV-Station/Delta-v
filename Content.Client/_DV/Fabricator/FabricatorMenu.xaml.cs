@@ -8,6 +8,10 @@ namespace Content.Client._DV.Fabricator;
 [GenerateTypedNameReferences]
 public sealed partial class FabricatorMenu : FancyWindow
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    public TimeSpan TimeEnd;
+
     public FabricatorMenu()
     {
         RobustXamlLoader.Load(this);
@@ -17,5 +21,20 @@ public sealed partial class FabricatorMenu : FancyWindow
     public void ToggleBusy(bool busy)
     {
         BusyOverlay.Visible = busy;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (TimeEnd > _timing.CurTime)
+        {
+            TimeRemaining.Text = Loc.GetString("fabricator-menu-time-remaining", ("time", TimeEnd.Subtract(_timing.CurTime).Seconds));
+        }
+        else
+        {
+            // no time display if not running
+            TimeRemaining.Text = null;
+        }
     }
 }

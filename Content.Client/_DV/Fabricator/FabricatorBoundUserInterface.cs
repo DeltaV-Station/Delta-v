@@ -7,6 +7,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._DV.Fabricator;
 
@@ -14,6 +15,7 @@ namespace Content.Client._DV.Fabricator;
 public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     [ViewVariables]
     private FabricatorMenu? _menu;
@@ -44,6 +46,8 @@ public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : 
         _menu.ToggleBusy(cState.Busy);
         _menu.StartButton.Disabled = cState.Busy || cState.ContainedSolids.Length == 0;
         _menu.EjectButton.Disabled = cState.Busy || cState.ContainedSolids.Length == 0;
+
+        _menu.TimeEnd = cState.TimeLeft.Add(_timing.CurTime);
     }
 
     private void RefreshContents((NetEntity, int)[] solids, Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> reagents)
