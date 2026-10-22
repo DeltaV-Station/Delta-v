@@ -25,12 +25,6 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
             if (!fab.FabRunning)
                 continue;
 
-            if (!_power.IsPowered(uid))
-            {
-                Stop(uid, fab);
-                return;
-            }
-
             fab.SecondsRemaining -= frameTime;
 
             if (fab.SecondsRemaining > 0)
@@ -137,8 +131,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
             var itemId = itemMeta.EntityPrototype.ID;
 
             // skip if item isn't in the recipe or is already fulfilled
-            if (!recipe.Solids.ContainsKey(itemId)
-                || !removeItems.ContainsKey(itemId)
+            if (!removeItems.ContainsKey(itemId)
                 || removeItems[itemId] <= 0)
                 continue;
 

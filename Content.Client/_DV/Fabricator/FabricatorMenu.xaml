@@ -59,6 +59,13 @@
         <BoxContainer
             Orientation="Horizontal"
             HorizontalAlignment="Center"
+            Margin="5 5">
+            <Label Name="TimeRemaining" Access="Public" Align="Center" Modulate="#FFFFFF" />
+        </BoxContainer>
+
+        <BoxContainer
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
             SizeFlagsStretchRatio="3"
             Margin="5 5">
             <Control MinSize="0 15" MaxSize="75 25"/>

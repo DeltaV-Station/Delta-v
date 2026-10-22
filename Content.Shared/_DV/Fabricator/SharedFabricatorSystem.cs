@@ -7,6 +7,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Materials;
+using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
@@ -27,6 +29,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private List<FabricatorRecipePrototype> Recipes = new();
 
@@ -48,6 +51,8 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
         // TODO cancel fab process on reaction
         // SubscribeLocalEvent<ActivelyMicrowavedComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
+        SubscribeLocalEvent<FabricatorComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
+        SubscribeLocalEvent<FabricatorComponent, PowerChangedEvent>(OnPowerChanged);
 
         InitializeRecipes();
 
@@ -86,14 +91,13 @@ public abstract class SharedFabricatorSystem : EntitySystem
             if (TryComp<StackComponent>(contained, out var stackComp))
                 stackSize = stackComp.Count;
             solids.Add((GetNetEntity(contained), stackSize));
-
         }
 
-        _userInterface.SetUiState(ent.Owner, MicrowaveUiKey.Key, new FabricatorUpdateUserInterfaceState(
+        _userInterface.SetUiState(ent.Owner, FabricatorUiKey.Key, new FabricatorUpdateUserInterfaceState(
             solids.ToArray(),
             GetReagents(ent),
             ent.Comp.FabRunning,
-            TimeSpan.Zero));
+            TimeSpan.FromSeconds(ent.Comp.SecondsRemaining)));
     }
 
     /// <summary>
@@ -229,16 +233,20 @@ public abstract class SharedFabricatorSystem : EntitySystem
         if (!TryComp<ItemComponent>(args.Used, out var item))
             return;
 
-        // TODO popups?
         if (ent.Comp.FabRunning)
             return;
 
-        // TODO popups?
         if (_item.GetSizePrototype(item.Size) > _item.GetSizePrototype(ent.Comp.MaxItemSize))
+        {
+            _popup.PopupClient(Loc.GetString("fabricator-component-item-too-big-warning", ("item", args.Used)), ent, args.User);
             return;
+        }
 
-        // TODO max items in fab
-        // TODO check if we have power
+        if (ent.Comp.Storage.Count >= ent.Comp.MaxItems)
+        {
+            _popup.PopupClient(Loc.GetString("fabricator-component-full-warning", ("fab", ent.Owner)), ent, args.User);
+            return;
+        }
 
         args.Handled = true;
         _hands.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
@@ -252,6 +260,22 @@ public abstract class SharedFabricatorSystem : EntitySystem
     private void OnContentsChanged<TEvent>(Entity<FabricatorComponent> ent, ref TEvent args)
     {
        UpdateUserInterfaceState(ent);
+    }
+
+    private void OnAnchorStateChanged(Entity<FabricatorComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        if (args.Anchored)
+            return;
+
+        Stop(ent.Owner, ent.Comp);
+    }
+
+    private void OnPowerChanged(Entity<FabricatorComponent> ent, ref PowerChangedEvent args)
+    {
+        if (args.Powered)
+            return;
+
+        Stop(ent.Owner, ent.Comp);
     }
 
     private void OnComponentInit(Entity<FabricatorComponent> ent, ref ComponentInit args)
@@ -275,7 +299,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
                 continue;
 
             ent.Comp.FabRunning = true;
-            ent.Comp.SecondsRemaining = (recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier);
+            ent.Comp.SecondsRemaining = recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier;
             ent.Comp.PortionedRecipe = (recipe, portions);
 
             // TODO set visuals
