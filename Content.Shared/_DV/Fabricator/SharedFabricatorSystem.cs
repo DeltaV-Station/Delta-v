@@ -93,7 +93,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
             solids.Add((GetNetEntity(contained), stackSize));
         }
 
-        _userInterface.SetUiState(ent.Owner, MicrowaveUiKey.Key, new FabricatorUpdateUserInterfaceState(
+        _userInterface.SetUiState(ent.Owner, FabricatorUiKey.Key, new FabricatorUpdateUserInterfaceState(
             solids.ToArray(),
             GetReagents(ent),
             ent.Comp.FabRunning,

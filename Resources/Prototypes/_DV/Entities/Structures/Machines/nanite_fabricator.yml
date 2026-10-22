@@ -35,10 +35,10 @@
     containers:
     - fabricator_entity_container
   - type: ActivatableUI
-    key: enum.MicrowaveUiKey.Key
+    key: enum.FabricatorUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.MicrowaveUiKey.Key:
+      enum.FabricatorUiKey.Key:
         type: FabricatorBoundUserInterface # I HATE UI
   - type: Fabricator
     recipeGroups:
