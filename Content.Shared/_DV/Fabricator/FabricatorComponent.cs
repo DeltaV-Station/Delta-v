@@ -1,4 +1,3 @@
-using Content.Shared.FixedPoint;
 using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -21,7 +20,7 @@ public sealed partial class FabricatorComponent : Component
     public ProtoId<ItemSizePrototype> MaxItemSize = "Normal";
 
     [DataField]
-    public FixedPoint2 MaxItems = 10;
+    public int MaxItems = 10;
 
     [DataField]
     public int MaxPerBatch = 10;
