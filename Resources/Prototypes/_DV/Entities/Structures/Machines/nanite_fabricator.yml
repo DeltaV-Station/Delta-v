@@ -4,23 +4,27 @@
   name: nanite fabricator
   components:
   - type: Sprite
-    sprite: Structures/Machines/microwave.rsi
-    drawdepth: SmallObjects
+    sprite: _DV/Structures/Machines/nanite_fabricator.rsi
     snapCardinals: true
-    offset: "0.0,0.2"
     layers:
-    - state: mw0
-      map: ["enum.MicrowaveVisualizerLayers.Base"]
-    - state: mw_unlit
+    - state: idle
+      map: ["enum.FabricatorVisualLayers.Base"]
+    - state: animation
       shader: unshaded
-      map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]
-    - state: mwbloody0
-      map: ["bloody"]
+      map: ["enum.FabricatorVisualLayers.BaseUnlit"]
       visible: false
-    - state: mwbloody1
-      shader: unshaded
-      map: ["bloodyunshaded"]
+    - state: broken
       visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FabricatorVisualState.Running:
+        enum.FabricatorVisualLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }
   - type: ApcPowerReceiver
     powerLoad: 5
   - type: PowerState
@@ -42,7 +46,15 @@
     interfaces:
       enum.FabricatorUiKey.Key:
         type: FabricatorBoundUserInterface # I HATE UI
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Fabricator
     recipeGroups:
     - Nanites
-  
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires
+    layoutId: Fabicator # Someone else misspelled it

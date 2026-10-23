@@ -11,6 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
+using Content.Shared.Wires;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -30,6 +31,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private List<FabricatorRecipePrototype> Recipes = new();
 
@@ -39,7 +41,8 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
         SubscribeLocalEvent<FabricatorComponent, ComponentInit>(OnComponentInit);
 
-        SubscribeLocalEvent<FabricatorComponent, InteractUsingEvent>(OnInteractUsing, after: [typeof(AnchorableSystem)]);
+        SubscribeLocalEvent<FabricatorComponent, InteractUsingEvent>(OnInteractUsing,
+            after: [typeof(AnchorableSystem), typeof(SharedWiresSystem)]);
 
         SubscribeLocalEvent<FabricatorComponent, SolutionContainerChangedEvent>(OnContentsChanged);
         SubscribeLocalEvent<FabricatorComponent, EntInsertedIntoContainerMessage>(OnContentsChanged);
@@ -55,7 +58,6 @@ public abstract class SharedFabricatorSystem : EntitySystem
         SubscribeLocalEvent<FabricatorComponent, PowerChangedEvent>(OnPowerChanged);
 
         InitializeRecipes();
-
     }
 
     private void InitializeRecipes()
@@ -76,6 +78,9 @@ public abstract class SharedFabricatorSystem : EntitySystem
         comp.PortionedRecipe = (null, 0);
 
         _powerState.SetWorkingState(uid, false);
+
+        SetAppearance(uid, FabricatorVisualState.Idle, true);
+        SetAppearance(uid, FabricatorVisualState.Running, false);
 
         UpdateUserInterfaceState(uid, comp);
 
@@ -105,6 +110,13 @@ public abstract class SharedFabricatorSystem : EntitySystem
             GetReagents(fabricatorComponent),
             fabricatorComponent.FabRunning,
             TimeSpan.FromSeconds(fabricatorComponent.SecondsRemaining)));
+    }
+
+    private void SetAppearance(EntityUid uid, FabricatorVisualState state, bool stateVal, AppearanceComponent? appearanceComponent = null)
+    {
+        if (!Resolve(uid, ref appearanceComponent, false))
+            return;
+        _appearance.SetData(uid, state, stateVal, appearanceComponent);
     }
 
     /// <summary>
@@ -309,8 +321,10 @@ public abstract class SharedFabricatorSystem : EntitySystem
             ent.Comp.SecondsRemaining = recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier;
             ent.Comp.PortionedRecipe = (recipe, portions);
 
-            // TODO set visuals
             _powerState.SetWorkingState(ent.Owner, true);
+
+            SetAppearance(ent, FabricatorVisualState.Idle, false);
+            SetAppearance(ent, FabricatorVisualState.Running, true);
 
             UpdateUserInterfaceState(ent.Owner, ent.Comp);
             _audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));

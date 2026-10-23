@@ -9,6 +9,12 @@ public enum FabricatorVisualState
     Running,
 }
 
+public enum FabricatorVisualLayers : byte
+{
+    Base,
+    BaseUnlit,
+}
+
 [Serializable, NetSerializable]
 public enum FabricatorUiKey
 {
