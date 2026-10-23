@@ -1,13 +1,23 @@
 - type: entity
-  parent: MagazineLightRifleBox # It goes in a saw, its funny.
-  id: MagazineFoamBox
-  name: "L6 SAW magazine box (foam dart)"
-  description: Box containing a 100-round belt of linked... foam darts?
+  parent: BaseMagazineLightRifle
+  id: MagazineFoam
+  name: "L6 FoamForce (Foam Dart)"
+  description: Box containing a 100-round belt of linked Foam darts. guaranteed to make even the most seasoned of janitors cry.
   components:
+  - type: Tag
+    tags:
+    - MagazineFoamForceL6Box
   - type: BallisticAmmoProvider
-    mayTransfer: true
-    whitelist:
-      tags:
-        - BulletFoam
     proto: BulletFoam
     capacity: 100
+    whitelist:
+      tags:
+      - BulletFoam
+  - type: Item
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/foamforce_mag.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
