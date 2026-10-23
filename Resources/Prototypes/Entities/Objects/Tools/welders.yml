@@ -116,7 +116,7 @@
     - HumanoidSilicon
     damage:
       types:
-        Caustic: 0 # Gotta love it
+        Caustic: 0 # Gotta love it, jank workaround to make the logic work because specifying no damage doesn't
     bloodlossModifier: -10
     healingEndSound:
       collection: Welder
