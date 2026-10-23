@@ -22,11 +22,11 @@ public sealed class FabricatorUpdateUserInterfaceState(
     (NetEntity, int)[] solids,
     Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> reagents,
     bool busy,
-    TimeSpan timeLeft)
+    TimeSpan endTime)
     : BoundUserInterfaceState
 {
     public (NetEntity, int)[] ContainedSolids = solids;
     public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> ContainedReagents = reagents;
     public bool Busy = busy;
-    public TimeSpan TimeLeft = timeLeft;
+    public TimeSpan EndTime = endTime;
 }

@@ -5,7 +5,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
-using Content.Shared.Kitchen.Components;
 using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -16,6 +15,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Fabricator;
 
@@ -32,6 +32,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private List<FabricatorRecipePrototype> Recipes = new();
 
@@ -109,7 +110,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
             solids.ToArray(),
             GetReagents(fabricatorComponent),
             fabricatorComponent.FabRunning,
-            TimeSpan.FromSeconds(fabricatorComponent.SecondsRemaining)));
+            fabricatorComponent.EndTime));
     }
 
     private void SetAppearance(EntityUid uid, FabricatorVisualState state, bool stateVal, AppearanceComponent? appearanceComponent = null)
@@ -319,6 +320,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
             ent.Comp.FabRunning = true;
             ent.Comp.SecondsRemaining = recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier;
+            ent.Comp.EndTime = _timing.CurTime.Add(TimeSpan.FromSeconds(ent.Comp.SecondsRemaining));
             ent.Comp.PortionedRecipe = (recipe, portions);
 
             _powerState.SetWorkingState(ent.Owner, true);

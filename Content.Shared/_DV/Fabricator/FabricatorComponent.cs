@@ -47,6 +47,9 @@ public sealed partial class FabricatorComponent : Component
     [DataField, AutoNetworkedField]
     public float SecondsRemaining = 0.0f;
 
+    [DataField, AutoNetworkedField]
+    public TimeSpan EndTime;
+
     [DataField]
     public EntityUid? SoundStream;
 

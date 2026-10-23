@@ -47,7 +47,7 @@ public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : 
         _menu.StartButton.Disabled = cState.Busy || cState.ContainedSolids.Length == 0;
         _menu.EjectButton.Disabled = cState.Busy || cState.ContainedSolids.Length == 0;
 
-        _menu.TimeEnd = cState.TimeLeft.Add(_timing.CurTime);
+        _menu.TimeEnd = cState.EndTime;
     }
 
     private void RefreshContents((NetEntity, int)[] solids, Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> reagents)
