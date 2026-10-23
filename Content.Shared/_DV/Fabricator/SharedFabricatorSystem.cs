@@ -77,15 +77,18 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
         _powerState.SetWorkingState(uid, false);
 
-        UpdateUserInterfaceState((uid, comp));
+        UpdateUserInterfaceState(uid, comp);
 
         Dirty(uid, comp);
     }
 
-    private void UpdateUserInterfaceState(Entity<FabricatorComponent> ent)
+    private void UpdateUserInterfaceState(EntityUid uid, FabricatorComponent? fabricatorComponent = null)
     {
+        if (!Resolve(uid, ref fabricatorComponent, false))
+            return;
+
         List<(NetEntity, int)> solids = new();
-        foreach (var contained in ent.Comp.Storage.ContainedEntities)
+        foreach (var contained in fabricatorComponent.Storage.ContainedEntities)
         {
             var stackSize = 1;
             if (TryComp<StackComponent>(contained, out var stackComp))
@@ -93,20 +96,20 @@ public abstract class SharedFabricatorSystem : EntitySystem
             solids.Add((GetNetEntity(contained), stackSize));
         }
 
-        _userInterface.SetUiState(ent.Owner, FabricatorUiKey.Key, new FabricatorUpdateUserInterfaceState(
+        _userInterface.SetUiState(uid, FabricatorUiKey.Key, new FabricatorUpdateUserInterfaceState(
             solids.ToArray(),
-            GetReagents(ent),
-            ent.Comp.FabRunning,
-            TimeSpan.FromSeconds(ent.Comp.SecondsRemaining)));
+            GetReagents(fabricatorComponent),
+            fabricatorComponent.FabRunning,
+            TimeSpan.FromSeconds(fabricatorComponent.SecondsRemaining)));
     }
 
     /// <summary>
     /// Gets reagents by id, combining duplicates in different containers
     /// </summary>
-    private Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> GetReagents(Entity<FabricatorComponent> ent)
+    private Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> GetReagents(FabricatorComponent comp)
     {
         Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> reagents = new();
-        foreach (var item in ent.Comp.Storage.ContainedEntities)
+        foreach (var item in comp.Storage.ContainedEntities)
         {
             if (!_solutionContainer.TryGetDrainableSolution(item, out _, out var solution))
                 continue;
@@ -251,7 +254,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
         args.Handled = true;
         _hands.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
 
-        UpdateUserInterfaceState(ent);
+        UpdateUserInterfaceState(ent.Owner, ent.Comp);
         _audio.PlayPredicted(ent.Comp.AddItemSound, ent, args.User, AudioParams.Default.WithVolume(-2));
 
         Dirty(ent);
@@ -259,7 +262,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
     private void OnContentsChanged<TEvent>(Entity<FabricatorComponent> ent, ref TEvent args)
     {
-       UpdateUserInterfaceState(ent);
+       UpdateUserInterfaceState(ent.Owner, ent.Comp);
     }
 
     private void OnAnchorStateChanged(Entity<FabricatorComponent> ent, ref AnchorStateChangedEvent args)
@@ -305,7 +308,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
             // TODO set visuals
             _powerState.SetWorkingState(ent.Owner, true);
 
-            UpdateUserInterfaceState(ent);
+            UpdateUserInterfaceState(ent.Owner, ent.Comp);
             _audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
             Dirty(ent);
 
@@ -330,7 +333,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
             return;
 
         _container.Remove(GetEntity(args.Target), ent.Comp.Storage);
-        UpdateUserInterfaceState(ent);
+        UpdateUserInterfaceState(ent.Owner, ent.Comp);
         _audio.PlayPredicted(ent.Comp.RemoveItemSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
         Dirty(ent);
     }
