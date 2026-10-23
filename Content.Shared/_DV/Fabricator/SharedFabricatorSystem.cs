@@ -87,6 +87,10 @@ public abstract class SharedFabricatorSystem : EntitySystem
         if (!Resolve(uid, ref fabricatorComponent, false))
             return;
 
+        if (fabricatorComponent.LifeStage < ComponentLifeStage.Initialized
+            || fabricatorComponent.LifeStage >= ComponentLifeStage.Stopping)
+            return;
+
         List<(NetEntity, int)> solids = new();
         foreach (var contained in fabricatorComponent.Storage.ContainedEntities)
         {
