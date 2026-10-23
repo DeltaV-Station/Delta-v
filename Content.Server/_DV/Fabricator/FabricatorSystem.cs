@@ -153,6 +153,6 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
 
         // spawn our results :)
         for (var i = 0; i < portions; ++i)
-            SpawnAtPosition(recipe.Result, Transform(uid).Coordinates);
+            Spawn(recipe.Result, Transform(uid).Coordinates);
     }
 }
