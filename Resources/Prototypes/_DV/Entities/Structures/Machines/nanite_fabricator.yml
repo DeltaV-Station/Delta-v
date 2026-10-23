@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: NaniteFabricator
   name: nanite fabricator
   components:
@@ -26,6 +26,8 @@
   - type: PowerState
     idlePowerDraw: 5
     workingPowerDraw: 1000
+  - type: Machine
+    board: NaniteFabricatorMachineCircuitboard
   - type: ContainerContainer
     containers:
       fabricator_entity_container: !type:Container
@@ -43,3 +45,4 @@
   - type: Fabricator
     recipeGroups:
     - Nanites
+  
