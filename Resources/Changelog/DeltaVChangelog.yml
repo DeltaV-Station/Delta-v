@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: keekee38
-  changes:
-  - message: storage implants can no longer hold the hos' briefcase, or boots that
-      are capable of holding guns
-    type: Fix
-  - message: the energy magnum can now fit in boots that can hold guns
-    type: Tweak
-  id: 2190
-  time: '2026-03-26T13:51:27.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5299
 - author: kotobdev
   changes:
   - message: Lobby time has been increased to 7 minutes.
@@ -4462,4 +4452,12 @@
   id: 2690
   time: '2026-10-24T22:18:42.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6581
+- author: Kashieru1987
+  changes:
+  - message: Cryo pods inject once per second again, matching cryo chem metabolism
+      rates!
+    type: Fix
+  id: 2691
+  time: '2026-10-24T22:19:21.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6536
 Order: 1
