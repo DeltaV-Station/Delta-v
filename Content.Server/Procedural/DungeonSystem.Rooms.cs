@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Numerics;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
@@ -262,8 +263,13 @@ public sealed partial class DungeonSystem
                     decal.ZIndex,
                     decal.Cleanable);
 
-                DebugTools.Assert(result);
+                //DebugTools.Assert(result); //BEGIN DeltaV - throwing an exception due to an invalid decal placement with DunGen is a pain.
+                if (!result)
+                    Log.Debug("Failed decal placement"); //END DeltaV
             }
         }
+
+        if(room.DeleteAfterUse) //DeltaV - Add a means to queue room maps for cleaning if we don't want them lingering in memory.
+            _maps.QueueDeleteMap((roomMap));
     }
 }
