@@ -5,6 +5,8 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Materials;
 using Content.Shared.Stacks;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._DV.Fabricator;
@@ -13,7 +15,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Update(float frameTime)
     {
@@ -33,6 +35,8 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
             CompleteRecipe(uid, fab);
 
             Stop(uid, fab);
+
+            _audio.PlayPvs(fab.DoneSound, uid, AudioParams.Default.WithVolume(-2));
         }
     }
 

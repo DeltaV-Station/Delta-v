@@ -14,6 +14,7 @@ using Content.Shared.Wires;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -33,6 +34,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private List<FabricatorRecipePrototype> Recipes = new();
 
@@ -330,7 +332,15 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
             UpdateUserInterfaceState(ent.Owner, ent.Comp);
             _audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
+
             Dirty(ent);
+
+            if (_net.IsServer)
+            {
+                ent.Comp.SoundStream =
+                    _audio.PlayPvs(ent.Comp.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithVolume(-2))
+                        ?.Entity;
+            }
 
             return;
         }

@@ -32,7 +32,7 @@ public sealed partial class FabricatorComponent : Component
     public SoundSpecifier? DoneSound = new SoundPathSpecifier("/Audio/Machines/microwave_done_beep.ogg");
 
     [DataField]
-    public SoundSpecifier? LoopingSound = null;
+    public SoundSpecifier? LoopingSound = new SoundPathSpecifier("/Audio/Machines/microwave_loop.ogg");
 
     [DataField]
     public SoundSpecifier? AddItemSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
@@ -51,6 +51,9 @@ public sealed partial class FabricatorComponent : Component
 
     [DataField]
     public EntityUid? SoundStream;
+
+    [DataField]
+    public EntityUid? SoundStreamClient;
 
     [ViewVariables]
     public Container Storage = default!;
