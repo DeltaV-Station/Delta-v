@@ -6,6 +6,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -38,6 +39,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         SubscribeLocalEvent<DoAfterComponent, ComponentGetState>(OnDoAfterGetState);
         SubscribeLocalEvent<DoAfterComponent, ComponentHandleState>(OnDoAfterHandleState);
         SubscribeLocalEvent<GetInteractingEntitiesEvent>(OnGetInteractingEntities);
+        SubscribeLocalEvent<DoAfterComponent, MobStateChangedEvent>(OnMobStateChanged); // DeltaV - Addition for BreakOnMobState
     }
 
     private void OnUnpaused(EntityUid uid, DoAfterComponent component, ref EntityUnpausedEvent args)
