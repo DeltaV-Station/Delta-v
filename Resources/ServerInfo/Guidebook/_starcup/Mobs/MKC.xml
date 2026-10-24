@@ -14,13 +14,11 @@
   - Cannot ingest any food or drink
   - Do not need to breathe
   - Are not affected by most reagents; see the section on the Fluid Regulator for more details
-  - Cannot take Poison, Asphyxiation, or Cellular damage from any source
+  - Convert Poison and Asphyxiation into other damage types, and don't take Cellular <!-- DeltaV - Changed for damage conversion -->
   - Do not rot after death
   - Start overheating and taking Heat damage while in critical condition instead of asphyxiating
 
   They also have the following miscellaneous traits, particular to MKCs:
-  - Damage Resistances: Cold -30%
-  - Damage Weaknesses: Shock +30%
   - Greatly increased tolerance for both heat and cold, but less effective thermal regulation
   - Take exclusively Heat damage from Barotrauma instead of Blunt and Heat
   - Have a bloodstream of oil
@@ -35,16 +33,16 @@
   The internal battery of an MKC can be recharged by [color=yellow]using the verb in the right-click menu[/color] of any item or structure with an internal battery. Common examples include power cells and APCs, but you can also use things like energy weapons in a pinch.
 
   ## MKC Repair
-  Instead of the Medbay, the best place for MKCs to have their injuries treated is the [color=yellow]Robotics Lab.[/color] Basic repair supplies can also usually be found in [color=yellow]Engineering,[/color] but they lack the advanced resources and lathes of Robotics.
+  Instead of the Medbay, the best place for MKCs to have their injuries treated is the [color=yellow]Robotics Lab.[/color] Basic repairs can also be done with steel and wires, but are very slow. <!-- DeltaV - Steel and wire healing, also engi doesn't have supplies -->
 
-  These places will have unique items capable of healing MKCs. These are:
+  Robotics has unique items capable of healing MKCs. These are: <!-- DeltaV - Only robotics has proper topicals, probably -->
 
   <Table Columns="2">
   <Box>
-    <GuideEntityEmbed Entity="RepairSpray" Caption="Repair Spray"/>
+    <GuideEntityEmbed Entity="StructuralNanites" Caption="Structural Nanites"/> <!-- DeltaV - Switch to new topicals -->
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ThermalPaste" Caption="Thermal Paste"/>
+    <GuideEntityEmbed Entity="RestorationNanites" Caption="Restoration Nanites"/> <!-- DeltaV - Switch to new topicals -->
   </Box>
   <Box>
     Heals all forms of Brute damage.
@@ -53,25 +51,25 @@
     Heals Burn damage, plus minor Caustic damage.
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="SpliceKit" Caption="Splice Kit"/>
+    <GuideEntityEmbed Entity="AdvancedStructuralNanites" Caption="Advanced Structural Nanites"/> <!-- DeltaV - Switch to new topicals -->
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="DefrostPouch" Caption="Defrost Pouch"/>
+    <GuideEntityEmbed Entity="AdvancedRestorationNanites" Caption="Advanced Restoration Nanites"/> <!-- DeltaV - Switch to new topicals -->
   </Box>
   <Box>
-    Heals Shock damage.
+    More effectively heals Brute damage. <!-- DeltaV - Switch to new topicals -->
   </Box>
   <Box>
-    Heals Cold damage.
+    More effectively Heals Burn damage. <!-- DeltaV - Switch to new topicals -->
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="Gauze" Caption="Gauze"/>
+    <GuideEntityEmbed Entity="Welder" Caption="Welders"/>
   </Box>
   <Box>
     <GuideEntityEmbed Entity="Oilpack" Caption="Oil Pack"/>
   </Box>
   <Box>
-    Stops bleeding, just like with biologicals!
+    Stops bleeding.
   </Box>
   <Box>
     Restores blood and heals Bloodloss damage.
@@ -82,7 +80,7 @@
   </Box>
   MKCs in critical condition [color=red]cannot be revived by standard defibrillators,[/color] and must instead be resuscitated by these specialized units.
   <Box>
-    <GuideEntityEmbed Entity="ChemistryBottleElectrolyticNanites" Caption="Nanites"/>
+    <GuideEntityEmbed Entity="ChemistryBottleCrystalLatticeNanites" Caption="Nanites"/> <!-- DeltaV - Electrolytic Nanites were removed -->
   </Box>
   Nanites are a unique category of reagent that [color=yellow]only affects MKCs.[/color] They can be administered to treat unusual forms of damage like radiation and blindness.
 
