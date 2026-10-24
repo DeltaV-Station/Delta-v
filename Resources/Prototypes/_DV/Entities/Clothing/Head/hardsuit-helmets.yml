@@ -29,10 +29,64 @@
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+      head-vox:
+      - state: on-equipped-HELMET-vox
+        shader: unshaded
+      head-vulpkanin:
+      - state: on-equipped-HELMET-vulpkanin
+        shader: unshaded
+      head-harpy:
+      - state: on-equipped-HELMET-harpy
+        shader: unshaded
+      head-feroxi:
+      - state: on-equipped-HELMET-feroxi
+        shader: unshaded
   - type: Clothing
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      - state: strip-human
+        map: ["officerhelm1"]
+      head-vulpkanin:
+      - state: off-equipped-HELMET-vulpkanin
+      - state: strip-vulpkanin
+        map: ["officerhelm1"]
+      head-harpy:
+      - state: off-equipped-HELMET-harpy
+      - state: strip-harpy
+        map: ["officerhelm1"]
+      head-feroxi:
+      - state: off-equipped-HELMET-feroxi
+      - state: strip-feroxi
+        map: ["officerhelm1"]
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      - state: strip-vox
+        map: ["officerhelm1"]
   - type: PointLight
     color: "#edecf7"
+  - type: JobColor
+    manualChange: false
+    jobMap:
+      JobIconDetective:
+        officerhelm1: "#7d4759"
+      JobIconSecurityCadet:
+        officerhelm1: "#aaaaaa"
+      JobIconSecurityOfficer:
+        officerhelm1: "#3049d5"
+      JobIconSeniorOfficer:
+        officerhelm1: "#1a273b"
+      JobIconPrisonGuard:
+        officerhelm1: "#ff6b35"
+      JobIconUnknown:
+        officerhelm1: "#aaaaaa"
+
 # Medical Combat Hardsuits
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -298,6 +352,8 @@
   name: engineering void suit helmet
   description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments. It's a lot lighter and flimsier than it looks...
   components:
+  - type: JobColor
+    manualChange: false
   - type: PressureProtection # Using EVA pressure and temperature protections instead of hardsuits.
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
