@@ -76,6 +76,11 @@
     jumpsuit: ClothingUniformJumpskirtSecWhite
 
 - type: loadout
+  id: SecurityJumpsuitSuspenders
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCorpoSec
+
+- type: loadout
   id: SeniorSecOfficerJumpsuit
   effects:
   - !type:GroupLoadoutEffect
@@ -154,6 +159,11 @@
   id: BomberSecurity
   equipment:
     outerClothing: ClothingOuterCoatBomberSecurity
+
+- type: loadout
+  id: CorpoSecurityCoat
+  equipment:
+    outerClothing: ClothingOutercoatStasecCorpo
 
 # Gloves
 
