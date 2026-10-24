@@ -5,7 +5,7 @@ namespace Content.Shared._Impstation.Clothing;
 /// <summary>
 /// Adds examine text to the entity that wears item, for making things obvious.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 [Access(typeof(WearerGetsExamineTextSystem))]
 public sealed partial class WearerGetsExamineTextComponent : Component
 {
@@ -37,24 +37,11 @@ public sealed partial class WearerGetsExamineTextComponent : Component
     public LocId ExamineOnWearer = "obvious-desc-default";
 
     /// <summary>
-    /// Reference to the entity wearing this clothing.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? Wearer;
-    /// <summary>
     /// The string that is attached to this item's ExamineOnWearer.
     /// Typically doesn't need to be redefined.
     /// </summary>
     [DataField]
     public LocId PrefixExamineOnWearer = "obvious-prefix-wearing";
-
-    /// <summary>
-    /// If true, an entity with this item in any slot (i.e. in pockets) will gain the examine text,
-    /// instead of when just equipped as clothing.
-    /// Should be used sparingly only when truly appropriate; this is effectively a half-measure for lack of a special pin slot.
-    /// </summary>
-    [DataField]
-    public bool PocketEvident;
 
     /// <summary>
     /// If true, the entity's description will inform examiners what others will see on the wearer (before they equip it).
