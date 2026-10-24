@@ -11,7 +11,7 @@
     equippedPrefix: alt
 
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: ClothingHeadsetAltLoudspeaker
   id: ClothingHeadsetAltCargo
   name: logistics officer's over-ear headset # DeltaV - Logistics Department replacing Cargo
   components:
@@ -43,7 +43,7 @@
     sprite: Clothing/Ears/Headsets/centcom.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
   id: ClothingHeadsetAltCommand
   name: command over-ear headset
   components:
@@ -57,7 +57,7 @@
     sprite: Clothing/Ears/Headsets/command.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
   id: ClothingHeadsetAltEngineering
   name: chief engineer's over-ear headset
   components:
@@ -73,7 +73,7 @@
     sprite: Clothing/Ears/Headsets/engineering.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
   id: ClothingHeadsetAltMedical
   name: chief medical officer's over-ear headset
   components:
@@ -91,7 +91,7 @@
     stealGroup: ClothingHeadsetAltMedical
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
   id: ClothingHeadsetAltSecurity
   name: head of security's over-ear headset
   components:
@@ -107,7 +107,7 @@
     sprite: _DV/Clothing/Ears/Headsets/security.rsi  # DeltaV - Security uses  blue headsets
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAltLoudspeaker, BaseCommandContraband] # goob
   id: ClothingHeadsetAltScience
   name: mystagogue's over-ear headset # DeltaV - Epistemics Department replacing Science
   components:
