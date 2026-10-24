@@ -10,3 +10,6 @@
   - type: Sprite
     sprite: _Starlight/Objects/Fun/Plushies/shadekin_plushie.rsi
     state: icon
+  - type: FoodSequenceElement # DeltaV - let shadekin plushies be put in cotton burgers
+    entries:
+      CottonBurger: ShadekinPlushie 
