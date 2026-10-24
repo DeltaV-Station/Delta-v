@@ -11,7 +11,11 @@
   cost: 5000
   recipeUnlocks:
   - ProximitySensor
+  # Begin DeltaV - Diagnostic hud and MKC stuff
   - ClothingEyesHudDiagnostic # DeltaV
+  - JumperUnit
+  - NaniteFabricatorMachineCircuitboard
+  # End DeltaV - Diagnostic hud and MKC stuff
 
 - type: technology
   id: BasicAnomalousResearch
