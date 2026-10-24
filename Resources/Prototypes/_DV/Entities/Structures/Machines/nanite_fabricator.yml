@@ -1,6 +1,7 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: NaniteFabricator
+  description: A fabricator capable of packaging nanites to be used.
   name: nanite fabricator
   components:
   - type: Sprite
