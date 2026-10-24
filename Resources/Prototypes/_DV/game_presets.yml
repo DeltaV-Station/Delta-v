@@ -1,0 +1,16 @@
+- type: gamePreset
+  id: Uprising
+  alias:
+  - uprising
+  name: preset-Uprising.title
+  description: preset-Uprising.description
+  showInVote: false
+  cooldown: 1
+  rules:
+  - UprisingRule
+  - SubGamemodesRule
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - BasicStationEventScheduler
+  - GlimmerEventScheduler
