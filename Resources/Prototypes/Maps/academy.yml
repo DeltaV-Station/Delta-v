@@ -1,9 +1,25 @@
+# Academy Summary
+# _______________________
+# Academy is a Learning and Epistemics(Science) focused station with these notable things to keep...
+# Fraternity/Sorority house for dorms; lecture hall; public observation of some department activities.
+# Epistemics is featured in the center of station around a park and given ample space at the expense of other depts.
+#   Robotics has public observation rooms for building and their own surgery. Hospital beds are for IPCs.
+#   Artifact is split east/west to ensure an explosion on one side does not stop research.
+#   Anomaly has a dedicated room for "treating" afflicted crew.
+#   Mantis has access to an "Epistemics Brig" (shared access with Security/Law)
+# Engineering has a PA offering both Tesla and Singularity.
+#   Atmos is deliberately split inside/outside; the small inside incentivises them to do things outside.
+# Virology is split and sealed from the rest of the station with security checkpoints to control movement.
+#   Movement through checkpoints is given command access.
+#   Virology has a dedicated disposal and atmos network with intention to restrict outbreaks.
+# Cargo has a cute cafe across its reception. Crew can get a drink or cake while they watch the shuttle come and go.
+#
+
 - type: gameMap
   id: Academy
   mapName: 'Academy'
   mapPath: /Maps/academy.yml
-  minPlayers: 50
-  maxPlayers: 100
+  minPlayers: 60
   stations:
     Academy:
       stationProto: StandardNanotrasenStation
@@ -17,16 +33,16 @@
         emergencyShuttlePath: /Maps/_DV/Shuttles/Evac/ntes_academy.yml
       - type: StationJobs
         availableJobs:
-          #civilian
+          # CIVILIAN
           Passenger: [ -1, -1 ]
-          #command
+          # COMMAND
           Captain: [ 1, 1 ]
-          #engineering
+          # ENGINEERING
           AtmosphericTechnician: [ 1, 2 ]
           ChiefEngineer: [ 1, 1 ]
           StationEngineer: [ 3, 4 ]
           TechnicalAssistant: [ 2, 3 ]
-          #epistemics
+          # EPISTEMICS
           Chaplain: [ 1, 2 ]
           ForensicMantis: [ 1, 1 ]
           Librarian: [ 1, 1 ]
@@ -34,28 +50,31 @@
           ResearchDirector: [ 1, 1 ]
           Roboticist: [ 1, 2 ]
           Scientist: [ 3, 5 ]
-          #justice
+          # JUSTICE
           ChiefJustice: [ 1, 1 ]
-          Clerk: [ 1, 1 ]
-          Lawyer: [ 2, 2 ]
+          #Clerk: [ 1, 1 ] #Clerk decommissioned.
+          Detective: [ 1, 2 ] #moved here from Sec.
+          JusticeWarden: [ 1 , 1 ]
+          Lawyer: [ 1, 2 ]
+          Marshal: [ 2, 3 ]
+          Prisoner: [ 2, 2 ]
           Prosecutor: [ 1, 1 ]
-          #medical
+          # MEDICAL
           Chemist: [ 2, 2 ]
           ChiefMedicalOfficer: [ 1, 1 ]
           MedicalDoctor: [ 3, 4 ]
           MedicalIntern: [ 1, 2 ]
           Paramedic: [ 1, 2 ]
           Psychologist: [ 1, 1 ]
-          #security
+          # SECURITY
+          Armorer: [ 1 , 1 ]
           Brigmedic: [ 1, 1 ]
-          Detective: [ 1, 1 ]
           HeadOfSecurity: [ 1, 1 ]
-          Prisoner: [ 2, 2 ]
           PrisonGuard: [ 1, 1 ]
           SecurityOfficer: [ 4, 6 ]
           SecurityCadet: [ 2, 2 ]
-          Warden: [ 1, 1 ]
-          #service
+          #Warden: [ 1, 1 ] #warden went to security.
+          # SERVICE
           Bartender: [ 1, 2 ]
           Botanist: [ 2, 2 ]
           Boxer: [ 1, 2 ]
@@ -67,10 +86,10 @@
           Musician: [ 1, 3 ]
           Reporter: [ 1, 2 ]
           ServiceWorker: [ 1, 3 ]
-          #silicon
+          # SILICON
           Borg: [ 2, 3 ]
           StationAi: [ 1, 1 ]
-          #supply
+          # CARGO
           CargoAssistant: [ 1, 2 ]
           CargoTechnician: [ 2, 3 ]
           Courier: [ 2, 2 ]

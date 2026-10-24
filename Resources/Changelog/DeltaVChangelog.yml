@@ -1,71 +1,4 @@
 ﻿Entries:
-- author: DisposableCrewmember42
-  changes:
-  - message: Glimmer events now happen during conspiracy shifts.
-    type: Fix
-  id: 2176
-  time: '2026-03-10T03:44:29.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5499
-- author: Solaris7518
-  changes:
-  - message: Nanotrasen has updated some of the protective equipment used by their
-      security teams!
-    type: Add
-  id: 2177
-  time: '2026-03-10T03:45:05.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5426
-- author: Eternally-Confused
-  changes:
-  - message: Interdyne herbal cigarettes no longer provide omnizine when ground.
-    type: Tweak
-  id: 2178
-  time: '2026-03-10T23:34:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5493
-- author: rebe83
-  changes:
-  - message: Jug suits now have reduced stamina resistance, and can only bought by
-      commanders and lone ops once.
-    type: Tweak
-  id: 2179
-  time: '2026-03-11T00:14:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5462
-- author: Coryler
-  changes:
-  - message: Reinforced Uranium Windows potentially dropping two shards
-    type: Fix
-  id: 2180
-  time: '2026-03-12T04:03:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5470
-- author: Stxcking
-  changes:
-  - message: 'New gun safe sprites: Salvage + Plain.'
-    type: Tweak
-  id: 2181
-  time: '2026-03-12T11:23:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5512
-- author: Woljif
-  changes:
-  - message: Rodentia no longer take extra pierce and slash damage & guidebook updated
-      for this.
-    type: Tweak
-  id: 2182
-  time: '2026-03-21T02:17:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5520
-- author: SirRequiem
-  changes:
-  - message: 'Terra: Fixed Logi shuttle dock from being underpressurized when turning
-      on the conveyors'
-    type: Fix
-  id: 2183
-  time: '2026-03-21T16:28:45.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5534
-- author: Toby222
-  changes:
-  - message: IPCs are no longer crashing when checking their battery status
-    type: Fix
-  id: 2184
-  time: '2026-03-21T19:37:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5535
 - author: Field Command
   changes:
   - message: The arrival shuttle has returned for normal operational drift. Both the
@@ -4453,4 +4386,82 @@
   id: 2676
   time: '2026-10-01T02:47:26.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6530
+- author: BriBrooo
+  changes:
+  - message: Evidence bags are now unable to fit into each other
+    type: Fix
+  id: 2677
+  time: '2026-10-03T13:44:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6484
+- author: BriBrooo
+  changes:
+  - message: "Sh\u014Dk\u014D: Station Engineers finally linked the fire alarms around\
+      \ the station."
+    type: Fix
+  id: 2678
+  time: '2026-10-09T01:31:38.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6423
+- author: DisposableCrewmember42
+  changes:
+  - message: Added rule B6, a standalone EORG rule.
+    type: Add
+  - message: Removed scattered EORG rules from B4 and C3.2.
+    type: Remove
+  - message: Replaced rule C3.2, which now lists round-ending antagonists.
+    type: Add
+  - message: Added rule C3.3, which relaxes restrictions on round-removal for antagonists.
+    type: Add
+  - message: Rule A4 now prohibits discussing ongoing aHelps in OOC channels.
+    type: Add
+  id: 2679
+  time: '2026-10-10T22:33:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6515
+- author: Radezolid
+  changes:
+  - message: Ashtrays are now printable at service techfabs.
+    type: Add
+  id: 2680
+  time: '2026-10-13T16:32:59.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6605
+- author: Field Command
+  changes:
+  - message: Added some doors and shelf for mapping to use.
+    type: Tweak
+  id: 2681
+  time: '2026-10-16T11:25:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6625
+- author: rebe83
+  changes:
+  - message: Dual blades will no longer reflect bullets when not held.
+    type: Tweak
+  id: 2682
+  time: '2026-10-21T18:57:02.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6635
+- author: rebe83
+  changes:
+  - message: The syndicate balloon costs 20tc once more.
+    type: Tweak
+  id: 2683
+  time: '2026-10-21T21:30:31.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6633
+- author: rebe83
+  changes:
+  - message: Corpsman hardsuits have 5% less armor. Age gets to all of us eventually.
+    type: Tweak
+  id: 2684
+  time: '2026-10-22T18:09:08.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6636
+- author: Proxysseia
+  changes:
+  - message: reduced Onis bonus blunt damage in melee.
+    type: Tweak
+  - message: reduced Onis Stamina Treshhold
+    type: Tweak
+  - message: removed Onis bonus asphyx damage
+    type: Remove
+  - message: the Guidebook now mentions that Oni are accurate with shotguns.
+    type: Tweak
+  id: 2685
+  time: '2026-10-24T07:28:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6649
 Order: 1
