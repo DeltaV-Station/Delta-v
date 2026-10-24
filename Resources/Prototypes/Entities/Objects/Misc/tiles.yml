@@ -1497,9 +1497,12 @@
   parent: FloorTileItemBase
   id: FloorTileItemGrass
   components:
+## Start of DeltaV Changes
   - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
     state: grass
   - type: Item
+    sprite: _DV/Objects/Tiles/tile.rsi
     heldPrefix: grass
   - type: FloorTile
     outputs:
@@ -1507,22 +1510,27 @@
       - FloorGrass
   - type: Stack
     stackType: FloorTileGrass
+## End of DeltaV Changes
 
 - type: entity
   name: jungle grass tile
   parent: FloorTileItemBase
   id: FloorTileItemGrassJungle
   components:
+## Start of DeltaV Changes
   - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
     state: grassjungle
   - type: Item
-    heldPrefix: grassjungle
+    sprite: _DV/Objects/Tiles/tile.rsi
+    heldPrefix: grass
   - type: FloorTile
     outputs:
       - Plating
       - FloorGrassJungle
   - type: Stack
     stackType: FloorTileGrassJungle
+## End of DeltaV Changes
 
 - type: entity
   name: snow tile
@@ -1632,9 +1640,12 @@
   name: astro-grass
   description: Fake grass that covers up wires and even comes with realistic NanoTrimmings!
   components:
+## Start of DeltaV Changes
   - type: Sprite
-    state: astrograss
+    sprite: _DV/Objects/Tiles/tile.rsi
+    state: grass
   - type: Item
+    sprite: _DV/Objects/Tiles/tile.rsi
     heldPrefix: grass
   - type: FloorTile
     outputs:
@@ -1642,6 +1653,7 @@
     - FloorAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
+## End of DeltaV Changes
 
 - type: entity
   id: FloorTileItemMowedAstroGrass
@@ -1649,16 +1661,20 @@
   name: mowed astro-grass
   description: Fake grass that covers up wires and even comes with realistic NanoTrimmings!
   components:
+## Start of DeltaV Changes
   - type: Sprite
-    state: grass
+    sprite: _DV/Objects/Tiles/tile.rsi
+    state: grassmowed
   - type: Item
+    sprite: _DV/Objects/Tiles/tile.rsi
     heldPrefix: grass
   - type: FloorTile
     outputs:
     - Plating
     - FloorMowedAstroGrass
   - type: Stack
-    stackType: FloorTileAstroGrass
+    stackType: FloorTileMowedAstroGrass
+## End of DeltaV Changes
 
 - type: entity
   id: FloorTileItemJungleAstroGrass
@@ -1666,16 +1682,20 @@
   name: jungle astro-grass
   description: Fake grass that covers up wires and even comes with realistic NanoTrimmings!
   components:
+## Start of DeltaV Changes
   - type: Sprite
+    sprite: _DV/Objects/Tiles/tile.rsi
     state: grassjungle
   - type: Item
-    heldPrefix: grass
+    sprite: _DV/Objects/Tiles/tile.rsi
+    heldPrefix: jungle
   - type: FloorTile
     outputs:
     - Plating
     - FloorJungleAstroGrass
   - type: Stack
-    stackType: FloorTileAstroGrass
+    stackType: FloorTileJungleAstroGrass
+## End of DeltaV Changes
 
 - type: entity
   parent: FloorTileItemBase

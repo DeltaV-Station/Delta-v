@@ -225,6 +225,14 @@
   - type: Label
     currentLabel: holopad-epistemics-lobby
 
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsCrematorium
+  suffix: Crematorium
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-crematorium
+
 #Security
 - type: entity
   parent: Holopad
@@ -246,13 +254,11 @@
 
 - type: entity
   parent: Holopad
-  id: HolopadSecurityArmorer
-  suffix: Armorer
+  id: HolopadSecurityOutpost
+  suffix: Security Outpost
   components:
   - type: Label
-    currentLabel: holopad-security-armorer
-  - type: PageSender
-    autoLinkJobs: [Armorer]
+    currentLabel: holopad-security-outpost
 
 #Station Specific - Security
 - type: entity
