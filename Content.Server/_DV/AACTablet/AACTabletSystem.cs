@@ -122,6 +122,6 @@ public sealed class AACTabletSystem : EntitySystem
             return;
 
         var message = Loc.GetString(ev.FailReason);
-        _popup.PopupPredicted(message, args.User, args.User, PopupType.MediumCaution);
+        _popup.PopupEntity(message, args.User, args.User, PopupType.MediumCaution);
     }
 }

@@ -30,9 +30,8 @@ public sealed class DiscouragedWriterSystem : EntitySystem
 
     private void OnAACTabletOpenAttempt(Entity<DiscouragedWriterComponent> writer, ref AACTabletOpenAttemptEvent args)
     {
-        args.Cancelled |= !CanWrite(writer, out var failReason);
-        if (failReason != null)
-            args.FailReason = failReason;
+        args.Cancelled = true;
+        args.FailReason = writer.Comp.AACPopupLocId;
     }
 
     private bool CanWrite(Entity<DiscouragedWriterComponent> writer, [NotNullWhen(false)] out LocId? failReason)

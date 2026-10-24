@@ -77,4 +77,10 @@ public sealed partial class DiscouragedWriterComponent : Component
         "comp-discouraged-mime-popup-4",
         "comp-discouraged-mime-popup-5",
     };
+
+    /// <summary>
+    /// The LocId for trying to open up the AAC tablet.
+    /// </summary>
+    [DataField]
+    public LocId AACPopupLocId = "comp-discouraged-mime-popup-aac";
 }
