@@ -26,10 +26,8 @@
     #  prob: 0.05
     - id: Devil # Goob
       prob: 0.05 # DeltaV - Was 0.02
-    # Begin DeltaV additions - Disable Xenoborgs
-    #- id: Xenoborgs
-    #  prob: 0.05
-    # End DeltaV additions - Disable Xenoborgs
+    - id: Xenoborgs
+      prob: 0.05
     #begin DeltaV additions - add hitman
     - id: Hitman
       prob: 0.2 #as requested
@@ -45,10 +43,8 @@
       prob: 0.5
     - id: Devil # Goob
       prob: 0.05 # DeltaV - Was 0.02
-    # Begin DeltaV additions - Disable Xenoborgs
-    #- id: Xenoborgs
-    #  prob: 0.05
-    # End DeltaV additions - Disable Xenoborgs
+    - id: Xenoborgs
+      prob: 0.05
     #begin DeltaV additions - add hitman
     - id: Hitman
       prob: 0.2 #as requested
