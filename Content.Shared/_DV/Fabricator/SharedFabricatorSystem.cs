@@ -85,6 +85,9 @@ public abstract class SharedFabricatorSystem : EntitySystem
         SetAppearance(uid, FabricatorVisualState.Idle, true);
         SetAppearance(uid, FabricatorVisualState.Running, false);
 
+        comp.EndTime = _timing.CurTime;
+        comp.SecondsRemaining = 0;
+
         UpdateUserInterfaceState(uid, comp);
 
         Dirty(uid, comp);
