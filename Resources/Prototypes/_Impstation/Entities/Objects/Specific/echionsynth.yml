@@ -46,8 +46,8 @@
       tank:
         reagents:
         - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150
+          Quantity: 300 # Delta-v - increased capacity from 150 to 300. 
+        maxVol: 300
   - type: DrainableSolution
     solution: tank
   - type: ItemToggle
@@ -85,7 +85,7 @@
       generated:
           reagents:
           - ReagentId: Echion
-            Quantity: 2.5
+            Quantity: 5 #Delta-v - Upped to 5 from 2.5
     - type: PointLight
       radius: 1.5
       energy: 1.5
