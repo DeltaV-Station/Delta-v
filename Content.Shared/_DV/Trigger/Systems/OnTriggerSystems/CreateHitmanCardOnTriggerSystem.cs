@@ -1,8 +1,8 @@
 using Content.Shared._DV.Trigger.Components.Effects;
-using Content.Shared.Trigger;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Trigger;
 
-namespace Content.Shared._DV.Trigger.Systems;
+namespace Content.Shared._DV.Trigger.Systems.OnTriggerSystems;
 
 public sealed class CreateHitmanCardOnTriggerSystem : EntitySystem
 {

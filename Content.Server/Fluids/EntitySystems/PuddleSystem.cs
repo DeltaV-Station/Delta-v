@@ -14,6 +14,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
+using Content.Shared._Funkystation.Fluids; // Funky - Stainable Clothing.
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -255,8 +256,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         if (!_random.Prob(0.5f))
             return;
 
-        if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution,
-                out var solution))
+        if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution, out var solution)) // Funky
             return;
 
         Popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),
@@ -265,6 +265,13 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         // Take 15% of the puddle solution
         var splitSol = _solutionContainerSystem.SplitSolution(entity.Comp.Solution.Value, solution.Volume * 0.15f);
         Reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
+        // Funky Start - Stain clothing on slip.
+        if (splitSol.Volume > 0)
+        {
+            var stainEv = new SpilledOnEvent(entity.Owner, splitSol.Clone());
+            RaiseLocalEvent(args.Slipped, stainEv);
+        }
+        // Funky End - Stain clothing on slip.
     }
 
     /// <summary>
@@ -437,6 +444,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
             targets.Add(owner);
             Reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
+
+            if (splitSolution.Volume > 0) // Funky - Stainable Clothing.
+                RaiseLocalEvent(owner, new SpilledOnEvent(entity, splitSolution.Clone()));
+
             Popups.PopupEntity(Loc.GetString("spill-land-spilled-on-other",
                     ("spillable", entity),
                     ("target", Identity.Entity(owner, EntityManager))),
