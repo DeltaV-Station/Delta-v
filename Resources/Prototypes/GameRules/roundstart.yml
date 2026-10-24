@@ -245,13 +245,13 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
-    startingBalance: 30 # DeltaV - more TC for traitors
+    startingBalance: 20
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 9 # DeltaV - More objectives
+    maxDifficulty: 5
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
   - type: DynamicRuleCost
