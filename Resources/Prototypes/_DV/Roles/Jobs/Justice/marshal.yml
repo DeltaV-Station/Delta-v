@@ -18,21 +18,38 @@
   canBeAntag: false
   icon: "JobIconClerk"
   supervisors: job-supervisors-warden
+  setPreference: true
   whitelisted: true
   access:
   - Justice
   - Marshal
   - Maintenance
+
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-#- type: startingGear # Bypass ChameleonJobLoadoutTest
-#  id: MarshalGear
-#  equipment:
-#    id: PrisonGuardPDA
-#    ears: ClothingHeadsetJustice
-#    belt: ClothingBeltSecurity
-#  storage:
-#    back:
-#    - Flash
+    # TODO: custom PDA and clothing
+- type: startingGear
+  id: MarshalGear
+  equipment:
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetJustice
+    belt: ClothingBeltSecurity
+  storage:
+    back:
+    - Flash
+
+# DeltaV
+- type: chameleonOutfit
+  id: MarshalChameleonOutfit
+  job: Marshal
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetJustice
+    head: ClothingHeadPrisonGuard
+    jumpsuit: ClothingUniformJumpsuitPrisonGuard
+    mask: ClothingMaskGasSecurity
+    gloves: ClothingHandsGlovesColorBlack
