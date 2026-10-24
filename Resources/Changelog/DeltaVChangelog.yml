@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: Cepelinas1
-  changes:
-  - message: Thanks to the defunding efforts of Internal Affair Agents (it was mostly
-      the Justice department), NanoTrasen allocated a bigger budget to them! They
-      start with their little own uplink now.
-    type: Add
-  - message: Fixed some grammar issues in Internal Affairs guidebook. I love english.
-    type: Fix
-  id: 2187
-  time: '2026-03-24T16:45:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5505
 - author: rebe83
   changes:
   - message: Omni now has a 20u OD and purges other chemicals from the bloodstream.
@@ -4462,4 +4451,16 @@
   id: 2687
   time: '2026-10-24T22:10:19.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6631
+- author: Skunkybutt
+  changes:
+  - message: Added psionic insulation to gnome hats
+    type: Add
+  - message: Added gnome hats to the psionic insulation section in the guidebook
+    type: Add
+  - message: Fixed the Cryptobiolin parser error in the guidebook by replacing the
+      pill with the bottle
+    type: Fix
+  id: 2688
+  time: '2026-10-24T22:13:20.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6593
 Order: 1
