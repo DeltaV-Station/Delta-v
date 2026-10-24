@@ -7,6 +7,7 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Psionics.Systems;
 
@@ -16,6 +17,7 @@ namespace Content.Shared._DV.Psionics.Systems;
 public abstract partial class SharedPsionicSystem : EntitySystem
 {
     [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly GlimmerSystem Glimmer = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
