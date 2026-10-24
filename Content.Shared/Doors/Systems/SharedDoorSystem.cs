@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Buckle.Components; // DeltaV - Containers activate doors
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
@@ -12,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Prying.Components;
 using Content.Shared.Prying.Systems;
+using Content.Shared.Storage.Components; // DeltaV - Containers activate doors
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
@@ -617,6 +619,26 @@ public abstract partial class SharedDoorSystem : EntitySystem
             return;
 
         var otherUid = args.OtherEntity;
+
+        // Begin DeltaV - Containers activate doors
+        if (TryComp<StrapComponent>(otherUid, out var strapComp)) // Rollerbeds, chairs, etc
+        {
+            // Break on the first success since we don't need to open the door more than once
+            foreach (EntityUid ent in strapComp.BuckledEntities)
+                if (Tags.HasTag(ent, DoorBumpTag))
+                    if (TryOpen(uid, door, ent, quiet: door.State == DoorState.Denying, predicted: true))
+                        break;
+        }
+
+        if (TryComp<EntityStorageComponent>(otherUid, out var storeComp)) // Bodybags, lockers, etc
+        {
+            // Break on the first success since we don't need to open the door more than once
+            foreach (EntityUid ent in storeComp.Contents.ContainedEntities)
+                if(Tags.HasTag(ent, DoorBumpTag))
+                    if (TryOpen(uid, door, ent, quiet: door.State == DoorState.Denying, predicted: true))
+                        break;
+        }
+        // End DeltaV - Containers activate doors
 
         if (Tags.HasTag(otherUid, DoorBumpTag))
             TryOpen(uid, door, otherUid, quiet: door.State == DoorState.Denying, predicted: true);
