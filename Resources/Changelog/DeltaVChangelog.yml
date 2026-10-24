@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Toby222
-  changes:
-  - message: IPCs are no longer crashing when checking their battery status
-    type: Fix
-  id: 2184
-  time: '2026-03-21T19:37:36.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5535
 - author: Field Command
   changes:
   - message: The arrival shuttle has returned for normal operational drift. Both the
@@ -4458,4 +4451,17 @@
   id: 2684
   time: '2026-10-22T18:09:08.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6636
+- author: Proxysseia
+  changes:
+  - message: reduced Onis bonus blunt damage in melee.
+    type: Tweak
+  - message: reduced Onis Stamina Treshhold
+    type: Tweak
+  - message: removed Onis bonus asphyx damage
+    type: Remove
+  - message: the Guidebook now mentions that Oni are accurate with shotguns.
+    type: Tweak
+  id: 2685
+  time: '2026-10-24T07:28:06.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6649
 Order: 1
