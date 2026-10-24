@@ -79,10 +79,10 @@
         damage: 400
       behaviors:
       - !type:GibBehavior { }
-    - trigger: # DeltaV- Damage threshold was 1500 before ashing was removed, tweaked to 2000 to account for current state of the game (john tider, please, do not run into the plasma fire)
+    - trigger: 
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 2000
+        damage: 2000 # DeltaV - Damage threshold was 1500 before ashing was removed, tweaked to 2000 to account for current state of the game (john tider, please, do not run into the plasma fire)
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
