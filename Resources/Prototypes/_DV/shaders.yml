@@ -35,3 +35,9 @@
   id: Masked
   kind: source
   path: "/Textures/_DV/Shaders/mask.swsl"
+
+# cameras
+- type: shader
+  id: DisabledCameraStatic
+  kind: source
+  path: "/Textures/_DV/Shaders/disabled_camera_static.swsl"
