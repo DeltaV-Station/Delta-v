@@ -10,7 +10,6 @@
     - state: idle
       map: ["enum.FabricatorVisualLayers.Base"]
     - state: animation
-      shader: unshaded
       map: ["enum.FabricatorVisualLayers.BaseUnlit"]
       visible: false
     - state: broken
