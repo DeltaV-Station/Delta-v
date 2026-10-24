@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: DisposableCrewmember42
-  changes:
-  - message: Footprints are now decals, this should address associated performance
-      issues. As a result, they can no longer be mopped like puddles.
-    type: Fix
-  - message: Mops can now be used to scrub off decals by left-clicking tiles.
-    type: Add
-  id: 2189
-  time: '2026-03-26T13:44:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5226
 - author: keekee38
   changes:
   - message: storage implants can no longer hold the hos' briefcase, or boots that
@@ -4464,4 +4454,12 @@
   id: 2689
   time: '2026-10-24T22:13:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6592
+- author: kotobdev
+  changes:
+  - message: The content warning should now properly go away after being dismissed.
+      If it was already dismissed, you'll probably have to dismiss it again.
+    type: Fix
+  id: 2690
+  time: '2026-10-24T22:18:42.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6581
 Order: 1
