@@ -27,6 +27,7 @@
   physicalDesc: reagent-physical-desc-metallic
   flavor: plastic
   color: "#339933" # DeltaV - colors....
+  worksOnTheDead: true # DeltaV - helps MKCs not get round removed by radiation damage
   metabolisms:
     Bloodstream:
       effects:
