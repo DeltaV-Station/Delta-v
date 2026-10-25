@@ -129,11 +129,12 @@ public sealed partial class GuideFabricatorEmbed : PanelContainer, IDocumentTag,
             var proto = _prototype.Index(ingredient);
 
             var msg = new FormattedMessage();
-            msg.AddMarkupOrThrow(Loc.GetString("guidebook-fabricator-reagent-name",
+            msg.AddMarkupOrThrow(Loc.GetString("guidebook-fabricator-reagent-label",
                 ("name", proto.LocalizedName), ("color", proto.SubstanceColor), ("count", count)));
 
             var label = new GuidebookRichPrototypeLink();
             label.SetMessage(msg);
+            label.LinkedPrototype = proto;
 
             ReagentsList.AddChild(label);
         }
