@@ -262,8 +262,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
-    totalIntensity: 5
+    maxIntensity: 10 # DeltaV - weaken the explosion
+    totalIntensity: 5 # DeltaV - weaken the explosion
     intensitySlope: 5
     canCreateVacuum: false
 
