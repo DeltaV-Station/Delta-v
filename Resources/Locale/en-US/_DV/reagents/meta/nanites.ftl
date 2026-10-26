@@ -21,3 +21,5 @@ reagent-desc-restoration-nanites = Nanites capable of repairing burn damage. Nee
 
 reagent-name-advanced-restoration-nanites = advanced restoration nanites
 reagent-desc-advanced-restoration-nanites = Nanites capable of quickly repairing burn damage using gold and more advanced nanites. Needs to be properly contained before use.
+
+reagent-desc-crystal-lattice-nanites = Nanomachines capable of repairing the molecular damage caused to silicons by exposure to radiation. Works on dead MKCs.

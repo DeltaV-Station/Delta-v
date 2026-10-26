@@ -2,7 +2,8 @@ reagent-name-electrolytic-nanites = electrolytic nanites
 reagent-desc-electrolytic-nanites = Nanomachines programmed to identify points of corrosive damage in silicons and perform rapid repairs via electrolysis.
 
 reagent-name-crystal-lattice-nanites = crystal lattice nanites
-reagent-desc-crystal-lattice-nanites = Nanomachines capable of repairing the molecular damage caused to silicons by exposure to radiation.
+# reagent-desc-crystal-lattice-nanites = Nanomachines capable of repairing the molecular damage caused to silicons by exposure to radiation.
+# DeltaV - Moved to _DV to include changes
 
 reagent-name-optical-fiber-nanites = optical fiber nanites
 reagent-desc-optical-fiber-nanites = Able to repair damage to the visual receptors of silicons without requiring replacement of the glass itself.
