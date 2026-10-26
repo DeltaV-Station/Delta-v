@@ -10,6 +10,7 @@ public sealed partial class DamageTypeTransferComponent : Component
 {
     /// <summary>
     /// Transfers all damage of type `key` to instead be of type `value`
+    /// The transfer takes place *after* armor reduces damage from the original type
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<DamageTypePrototype>, ProtoId<DamageTypePrototype>> Transfers = new();

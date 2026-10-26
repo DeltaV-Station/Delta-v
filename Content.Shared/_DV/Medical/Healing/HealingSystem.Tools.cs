@@ -6,7 +6,6 @@ namespace Content.Shared.Medical.Healing;
 public sealed partial class HealingSystem
 {
     [Dependency] private readonly SharedToolSystem _tool = default!;
-
     /// <summary>
     /// Checks for ToolHealingComponent, and if it exists, check if the tool can be used
     /// </summary>
