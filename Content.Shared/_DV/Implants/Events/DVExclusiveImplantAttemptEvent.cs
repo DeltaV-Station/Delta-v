@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._DV.Implants.Events;
+namespace Content.Shared._DV.Implants.Events;
 
 /// <summary>
 /// Used to determine whether an exclusive implant is conflicting with other, already inserted implants.

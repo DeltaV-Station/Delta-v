@@ -1,4 +1,4 @@
-﻿using Content.Shared._DV.Psionics.Components;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Implants;
 
 namespace Content.Shared._DV.Psionics.Systems;
