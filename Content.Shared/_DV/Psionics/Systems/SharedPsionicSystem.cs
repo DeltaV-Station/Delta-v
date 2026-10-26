@@ -35,6 +35,7 @@ public abstract partial class SharedPsionicSystem : EntitySystem
 
         InitializeDetection();
         InitializeStatusEffects();
+        InitializeImplants();
         InitializeInvisibility();
         InitializeItems();
     }
