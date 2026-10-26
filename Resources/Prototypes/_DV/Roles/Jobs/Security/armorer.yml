@@ -1,0 +1,38 @@
+- type: job
+  id: Armorer
+  name: job-name-warden
+  description: job-description-warden
+  playTimeTracker: JobArmorer
+  setPreference: false
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10h
+  weight: 5
+  #startingGear: ArmorerGear # Bypass ChameleonJobLoadoutTest
+  icon: "JobIconWarden"
+  requireAdminNotify: true
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  whitelisted: false
+  access:
+  - Security
+  - Armory
+  - Maintenance
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+#- type: startingGear
+#  id: ArmorerGear
+#  equipment:
+#    id: ArmorerPDA
+#    ears: ClothingHeadsetSecurity
+#  storage:
+#    back:
+#    - Flash

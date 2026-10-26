@@ -26,6 +26,7 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Clothing.Components;
+using Content.Shared._Starlight.Flash.Components; // Delta V - For Flash Duration
 
 namespace Content.Shared.Flash;
 
@@ -173,7 +174,7 @@ public abstract class SharedFlashSystem : EntitySystem
         // Goobstation end
 
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-        if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection
+        if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration * multiplier, true) && !ignoreProtection) //DeltaV: allow flashing to ignore flash protection. Added Flashduration Multiplier
             return;
 
         if (stunDuration != null)

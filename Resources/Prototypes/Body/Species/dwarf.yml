@@ -34,8 +34,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Dwarf
-  - type: ScaleVisuals
-    scale: 1, 0.8
+  #- type: ScaleVisuals # DeltaV - Scale defined at species level
+  #  scale: 1, 0.8
 
 - type: entity
   parent:

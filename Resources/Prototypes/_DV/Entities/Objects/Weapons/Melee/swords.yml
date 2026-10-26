@@ -65,6 +65,11 @@
     revealTime: 10
   - type: CollisionWake
     enabled: false
+  - type: PointLight
+    radius: 3
+    energy: 4
+    softness: 5
+    color: "#f6adff"
 
 - type: entity
   parent: BaseSword
@@ -86,6 +91,8 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect
     reflectProb: .25
+    slotFlags:
+    - NONE # needed so it doesn't reflect when worn
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:

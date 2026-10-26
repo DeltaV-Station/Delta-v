@@ -34,7 +34,6 @@
     - !type:NestedSelector # DeltaV
       tableId: BasicAntagEventsTableDeltaV
     - id: DragonSpawn
-    - id: ColossusSpawn # DeltaV
     #- id: ClosetSkeleton # DeltaV - replaced with MenaceSkeleton
     #- id: KingRatMigration # DeltaV - disabled
     - id: RevenantSpawn
@@ -286,6 +285,7 @@
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
       - type: SpaceNinja
+      - type: TargetObjectiveImmune # DeltaV - How would they know the ninja is there?
       - type: NpcFactionMember
         factions:
         - Syndicate

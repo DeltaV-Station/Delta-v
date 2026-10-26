@@ -1,3 +1,5 @@
+using Content.Shared._DV.Body.Components; // DeltaV
+using Content.Shared._DV.Body.Systems; // DeltaV
 using Content.Shared._ST.Interaction; // Stellar - interaction particles
 using Content.Shared._Floof.OfferItem; // Floof
 using Content.Shared.ActionBlocker;
@@ -10,6 +12,7 @@ using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid; // DeltaV
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -55,6 +58,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
+    [Dependency] private readonly SmallCharacterSystem _smallCharacter = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -295,6 +299,14 @@ public sealed class PullingSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        // BEGIN DeltaV - Slow if smaller puller
+        if (TryComp<SmallCharacterComponent>(uid, out var smol))
+        {
+            var sizePenalty = _smallCharacter.ApplyPullSpeedPenalty((uid, smol), component.Pulling);
+            args.ModifySpeed(sizePenalty, sizePenalty);
+        }
+        // END DeltaV
+
         if (TryComp<HeldSpeedModifierComponent>(component.Pulling, out var heldMoveSpeed) && component.Pulling.HasValue)
         {
             var (walkMod, sprintMod) =

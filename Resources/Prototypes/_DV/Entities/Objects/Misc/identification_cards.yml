@@ -85,6 +85,24 @@
   - type: PresetIdCard
     job: RoleK9Officer
 
+- type: entity
+  parent: IDCardStandard
+  id: ArmorerIDCard
+  name: armorer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-security-top
+    - state: stripe_bottom
+      color: *color-security-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Warden
+  - type: PresetIdCard
+    job: Armorer
+
 # MARK: Cargo / Logistics
 
 - type: entity
@@ -186,7 +204,7 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ClerkIDCard
+  id: ClerkIDCard # TODO - Remove for Justice Rework
   name: clerk ID card
   components:
   - type: Sprite
@@ -219,6 +237,61 @@
       state: Prosecutor
   - type: PresetIdCard
     job: Prosecutor
+
+- type: entity
+  parent: IDCardStandard
+  id: AttorneyIDCard
+  name: attorney ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Lawyer
+  - type: PresetIdCard
+    job: Attorney
+
+- type: entity
+  parent: IDCardStandard
+  id: JusticeWardenIDCard
+  name: warden ID card
+  suffix: Justice Warden
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: PrisonGuard
+  - type: PresetIdCard
+    job: JusticeWarden
+
+- type: entity
+  parent: IDCardStandard
+  id: MarshalIDCard
+  name: marshal ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-justice-top
+    - state: stripe_bottom
+      color: *color-justice-bottom
+    - sprite: *icon-rsi-dv
+      offset: *icon-offset
+      state: Clerk
+  - type: PresetIdCard
+    job: Marshal
 
 # MARK: Service
 
