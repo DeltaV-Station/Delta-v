@@ -1,4 +1,4 @@
-﻿using Content.Shared.Cuffs;
+using Content.Shared.Cuffs;
 using Content.Shared.Popups;
 
 namespace Content.Shared.Abilities.Mime;
