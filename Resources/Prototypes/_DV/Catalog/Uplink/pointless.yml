@@ -51,3 +51,199 @@
       whitelist:
         tags:
         - NukeOpsUplink
+
+- type: listing
+  id: UplinkCosmeticBundle1
+  name: uplink-cosmetic-bundle-1-name
+  description: uplink-cosmetic-bundle-1-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 1}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic1
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle2
+  name: uplink-cosmetic-bundle-2-name
+  description: uplink-cosmetic-bundle-2-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 2}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic2
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle3
+  name: uplink-cosmetic-bundle-3-name
+  description: uplink-cosmetic-bundle-3-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 3}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic3
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle4
+  name: uplink-cosmetic-bundle-4-name
+  description: uplink-cosmetic-bundle-4-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 4}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic4
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle5
+  name: uplink-cosmetic-bundle-5-name
+  description: uplink-cosmetic-bundle-5-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 5}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic5
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle6
+  name: uplink-cosmetic-bundle-6-name
+  description: uplink-cosmetic-bundle-6-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 6}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic6
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle7
+  name: uplink-cosmetic-bundle-7-name
+  description: uplink-cosmetic-bundle-7-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 7}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic7
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle8
+  name: uplink-cosmetic-bundle-8-name
+  description: uplink-cosmetic-bundle-8-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 8}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic8
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle9
+  name: uplink-cosmetic-bundle-9-name
+  description: uplink-cosmetic-bundle-9-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 9}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic9
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle10
+  name: uplink-cosmetic-bundle-10-name
+  description: uplink-cosmetic-bundle-10-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 10}
+  productEntity: ClothingBackpackSatchelSyndieCosmetic10
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle11
+  name: uplink-cosmetic-bundle-11-name
+  description: uplink-cosmetic-bundle-11-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 11}
+  productEntity: CybersunBriefcaseSyndieCosmetic11
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
+  
+- type: listing
+  id: UplinkCosmeticBundle12
+  name: uplink-cosmetic-bundle-12-name
+  description: uplink-cosmetic-bundle-12-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 12}
+  productEntity: ClothingBackpackSyndieCosmetic12
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkPointless
+  
+- type: listing
+  id: UplinkCosmeticBundle13
+  name: uplink-cosmetic-bundle-13-name
+  description: uplink-cosmetic-bundle-13-desc
+  icon: { sprite: _DV/Misc/uplink_cosmetics.rsi, state: 13}
+  productEntity: ClothingBackpackSyndieCosmetic13
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
