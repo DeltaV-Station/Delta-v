@@ -1,3 +1,4 @@
+using Content.Client.Message;
 using Content.Shared._DV.Fabricator;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -5,8 +6,10 @@ using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client._DV.Fabricator;
 
@@ -85,7 +88,7 @@ public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : 
             _solids.Add(_menu.SolidsList.IndexOf(item), solidEnt);
         }
 
-        _menu.ReagentsList.Clear();
+        _menu.ReagentsList.RemoveAllChildren();
         foreach (var (reagent, units) in reagents)
         {
             // Don't need to track reagents because they're never ejected
@@ -94,8 +97,14 @@ public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : 
             if (!_prototypeManager.Resolve(reagent.Id, out ReagentPrototype? prototype))
                 continue;
 
-            var formatString = $"{prototype.LocalizedName} ({units}u)";
-            _menu.ReagentsList.AddItem(formatString);
+            var formatString = new FormattedMessage();
+            formatString.AddMarkupOrThrow(Loc.GetString("guidebook-fabricator-reagent-label",
+                ("color", prototype.SubstanceColor), ("name", prototype.LocalizedName), ("count", units)));
+
+            var label = new RichTextLabel();
+            label.SetMessage(formatString);
+
+            _menu.ReagentsList.AddChild(label);
         }
     }
 }
