@@ -42,17 +42,24 @@
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                 </PanelContainer.PanelOverride>
-                <ItemList
-                    Name="ReagentsList"
-                    Access="Public"
-                    Margin="5 5"
-                    StyleClasses="transparentBackgroundItemList"
-                    SelectMode="None"
-                    SizeFlagsStretchRatio="3"
-                    ItemSeparation="5"
-                    MinSize="125 125">
-                    <!-- Reagents here -->
-                </ItemList>
+
+                <PanelContainer Margin="5 5">
+                    <PanelContainer.PanelOverride>
+                        <!-- Used a color picker to get this, I don't know whre it comes from -->
+                        <gfx:StyleBoxFlat BackgroundColor="#2A2C49" />
+                    </PanelContainer.PanelOverride>
+                    <GridContainer
+                        Name="ReagentsList"
+                        Access="Public"
+                        Margin="5 5"
+                        Columns="1"
+                        VerticalAlignment="Top"
+                        SizeFlagsStretchRatio="3"
+                        MinSize="125 125">
+                        <!-- Reagents here -->
+                    </GridContainer>
+                </PanelContainer>
+
             </PanelContainer>
         </BoxContainer>
 
