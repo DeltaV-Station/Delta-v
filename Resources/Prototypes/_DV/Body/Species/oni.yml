@@ -58,14 +58,12 @@
       Ears: OrganHumanEars
       Appendix: OrganHumanAppendix
       Lungs: OrganHumanLungs
-      Heart: OrganAnimalHeart
-      Stomach: OrganAnimalStomach
-      Liver: OrganAnimalLiver
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Oni
-  - type: ScaleVisuals
-    speciesScale: 1.2, 1.2
 
 - type: entity
   parent:
@@ -102,16 +100,15 @@
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.35
+        Blunt: 1.30
         Slash: 1.2
         Piercing: 1.2
-        Asphyxiation: 1.35
   - type: ClothingSlowResistance
     modifier: 0.25 # Slowdowns incurred by worn clothing are 25% less effective.
   - type: Damageable
     damageModifierSet: Oni
   - type: Stamina
-    baseCritThreshold: 115
+    baseCritThreshold: 110
 
 - type: entity
   parent: OrganBase

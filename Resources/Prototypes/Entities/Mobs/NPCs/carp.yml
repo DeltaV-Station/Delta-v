@@ -43,7 +43,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        50: Dead # DeltaV, was 40
+        40: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5

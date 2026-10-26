@@ -7,6 +7,9 @@ ert-amber-gun-desc-aegun = One advanced energy gun, for both lethal and non-leth
 ert-amber-gun-name-mixlaser = Mixed Laser bundle
 ert-amber-gun-desc-mixlaser = A disabler SMG together with a Laser Carbine, bundled with a portable recharger.
 
+ert-amber-gun-name-kammerer = Kammerer
+ert-amber-gun-desc-kammerer = Do not be afraid Captain.
+
 ert-medkit-name = First aid kit
 ert-medkit-desc = A simple first aid kit, dont get shoot too hard.
 
@@ -75,6 +78,9 @@ ert-Immolatorkit-desc = The original firestarter bundled together with a portabl
 
 ert-IK60kit-name = IK-60 bundle
 ert-IK60kit-desc = IK-60-M bundled together with 4 Laser magazines. Watch your ammo consumption.
+
+ert-jackdawkit-name = Jackdaw bundle
+ert-jackdawkit-desc = A caseless rifle, paired with 20 round magazines. Property of Internal Affairs.
 
 ert-GammaC4-name = C4 box
 ert-GammaC4-desc = 4 timed charges of plastic breaching explosives.

@@ -1,1 +1,2 @@
-comp-label-format = {$baseName} ({$label})
+# Coyote: reverse order of label and baseName
+comp-label-format = {$label} ({$baseName})

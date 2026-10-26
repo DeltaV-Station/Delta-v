@@ -402,15 +402,15 @@
     containers:
       board: [ DoorElectronicsDetective ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: AirlockSecurity
-#  id: AirlockBrigLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: AirlockSecurity
@@ -818,15 +818,14 @@
     containers:
       board: [ DoorElectronicsDetective ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: AirlockSecurityGlass
-#  id: AirlockBrigGlassLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockBrigGlassLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: AirlockSecurityGlass

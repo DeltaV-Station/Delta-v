@@ -292,7 +292,7 @@
 
 - type: entity
   parent: DefaultStationBeaconJustice
-  id: DefaultStationBeaconClerk
+  id: DefaultStationBeaconClerk # TODO - Remove for Justice Rework
   suffix: Clerk
   components:
   - type: NavMapBeacon
@@ -305,3 +305,59 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-attorney
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconArmorer
+  suffix: Armorer
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-armorer
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconJusticeWarden
+  suffix: Justice Warden
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-warden
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconMarshal
+  suffix: Marshal
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-marshal
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconJusticeArmory
+  suffix: Justice Armory
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-justice-armory
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconEvidenceRoom
+  suffix: Evidence Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-evidence-room
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconHoldingCells
+  suffix: Holding Cells
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-holding-cells
+
+- type: entity
+  parent: DefaultStationBeaconJustice
+  id: DefaultStationBeaconGenPop
+  suffix: GenPop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-genpop

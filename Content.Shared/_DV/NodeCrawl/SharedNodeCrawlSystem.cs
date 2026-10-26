@@ -70,8 +70,11 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
     private void StartEntryDoAfter(Entity<NodeCrawlerComponent> ent, EntityUid target)
     {
-        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.EnterDelay, new NodeCrawlEnterDoAfterEvent(), ent.Owner, target);
-
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.EnterDelay, new NodeCrawlEnterDoAfterEvent(), ent.Owner, target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+        };
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
@@ -187,14 +190,14 @@ public abstract class SharedNodeCrawlSystem : EntitySystem
 
     private void OnMovementShutdown(Entity<NodeCrawlerMovementComponent> ent, ref ComponentShutdown args)
     {
-        if (ent.Comp.Node is { } node)
+        if (ent.Comp.Node is { } node && node.IsValid())
         {
             var nodeComp = Comp<CrawlableNodeComponent>(node);
             nodeComp.Crawlers.Remove(ent);
             Dirty(node, nodeComp);
         }
 
-        if (ent.Comp.HeldCrawler is { } crawler && !TerminatingOrDeleted(crawler) && TryComp<NodeCrawlerComponent>(crawler, out var nodeCrawler))
+        if (ent.Comp.HeldCrawler is { } crawler && crawler.IsValid() && !TerminatingOrDeleted(crawler) && TryComp<NodeCrawlerComponent>(crawler, out var nodeCrawler))
         {
             ExitNodeCrawl((crawler, nodeCrawler));
         }

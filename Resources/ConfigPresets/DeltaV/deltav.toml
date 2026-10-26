@@ -104,10 +104,11 @@ easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
 storage_limit = 3
 
 [nf14.respawn]
-time = 600
+time = 1200
 
 [chat]
 max_announcement_length = 512
+rate_limit_announce_admins_delay = -1
 
 [audio]
 attenuation = 4 # inversedistanceclamped 1 << 2, see audioparams.cs
