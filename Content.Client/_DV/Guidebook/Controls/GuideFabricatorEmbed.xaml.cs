@@ -98,7 +98,7 @@ public sealed partial class GuideFabricatorEmbed : PanelContainer, IDocumentTag,
             {
                 IngredientsList.AddChild(new GuideEntityEmbed(stack.ID, false, false));
                 name = stack.Name;
-                stackCount /= 100; // TODO?
+                stackCount /= 100; // TODO change this value per item proto?
             }
 
             AddSolid(proto, name, stackCount);
