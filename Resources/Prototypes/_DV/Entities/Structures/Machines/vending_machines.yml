@@ -157,8 +157,8 @@
     access: [["SyndicateAgent"]]
 
 - type: entity
-  parent: VendingMachine
-  id: VendingMachineCorps
+  parent: VendingMachine #original code do not steal
+  id: VendingMachineBrig
   name: Brig-Aid
   description: A vending machine containing basic medical supplies for use by security personnel.
   components:
@@ -169,12 +169,13 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
+    ejectDelay: 0.6
   - type: DatasetVocalizer
     dataset: BrigAidAds
   - type: SpeakOnUIClosed
     pack: BrigAidGoodbyes
   - type: Sprite
-    sprite: _DV/Structures/Machines/VendingMachines/sec.rsi 
+    sprite: _DV/Structures/Machines/VendingMachines/brigaid.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
