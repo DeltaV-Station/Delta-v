@@ -57,11 +57,6 @@
   - type: PickRandomPerson
     filters:
     - !type:ObjectiveImmuneFilter
-    # Can't have multiple objectives to kill the same person.
-    - !type:TargetObjectiveMindFilter
-      blacklist:
-        components:
-        - KillPersonCondition
 
 # slander someone
 - type: entity
@@ -79,11 +74,9 @@
     title: objective-condition-slander-person-title
   - type: PickRandomPerson
     filters:
-    # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
-        - KillPersonCondition
         - TargetObjectiveImmune # DeltaV
 
 # Dossier
@@ -106,7 +99,6 @@
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
-        - KillPersonCondition
         - TargetObjectiveImmune # DeltaV
 
 # fire someone
@@ -126,11 +118,6 @@
   - type: PickRandomPerson
     filters:
     - !type:ObjectiveImmuneFilter
-    # Can't have multiple objectives to kill the same person.
-    - !type:TargetObjectiveMindFilter
-      blacklist:
-        components:
-        - KillPersonCondition
 
 # auditing
 - type: entity

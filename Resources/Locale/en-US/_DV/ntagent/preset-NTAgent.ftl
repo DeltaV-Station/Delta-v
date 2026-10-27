@@ -18,5 +18,4 @@ objective-condition-fired-person-title = Get {$targetName}, {CAPITALIZE($job)} f
 objective-condition-dossier-person-title = Make a dossier on {$targetName}, {CAPITALIZE($job)}
 objective-condition-slander-person-title = Make {$targetName}, {CAPITALIZE($job)} look incompetent.
 
-
 roles-antag-NT-agent-objective = Do dirty work for NanoTrasen.

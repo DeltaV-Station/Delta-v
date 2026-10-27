@@ -37,7 +37,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultConspiratorRule = "Conspirators"; // Harmony
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultHitmanRule = "HitmanRule"; //deltaV
-    private static readonly EntProtoId DefaultNTAgentRule = "NTAgentRule";
+    private static readonly EntProtoId DefaultNTAgentRule = "NTAgentRule"; //deltaV
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
