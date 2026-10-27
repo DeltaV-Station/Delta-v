@@ -79,9 +79,24 @@
         damage:
           types:
             Heat: -2
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          # DeltaV - no Groups in DamageSpecifier
+          # groups:
+          #   Brute: -0.5
+          #   Burn: -0.5
+      # Begin DeltaV - move damage group heal to EvenHealthChange
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentCondition
+          reagent: RescueNanites
+          max: 20
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+      # End DeltaV - move damage group heal to EvenHealthChange
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
