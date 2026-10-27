@@ -7,18 +7,18 @@
   result: StructuralNanites
   completionTime: 10
   group: Nanites
-  reagents: 
+  reagents:
     StructuralNanites: 50
   materials:
     Steel: 500
 
 - type: fabricatorRecipe
   id: RecipeAdvancedStructuralNanites
-  name: advanced structural nanites recipe 
+  name: advanced structural nanites recipe
   result: AdvancedStructuralNanites
   completionTime: 10
   group: Nanites
-  reagents: 
+  reagents:
     AdvancedStructuralNanites: 50
   solids:
     StructuralNanites: 10
@@ -29,7 +29,7 @@
   result: RestorationNanites
   completionTime: 10
   group: Nanites
-  reagents: 
+  reagents:
     RestorationNanites: 50
   materials:
     Steel: 500
@@ -40,7 +40,7 @@
   result: AdvancedRestorationNanites
   completionTime: 10
   group: Nanites
-  reagents: 
+  reagents:
     AdvancedRestorationNanites: 50
   solids:
     RestorationNanites: 10
@@ -51,7 +51,7 @@
   result: Oilpack
   completionTime: 10
   group: Nanites
-  reagents: 
+  reagents:
     WeldingFuel: 50
   materials:
     Plastic: 500
