@@ -44,3 +44,5 @@ guide-entry-frequently-used-chemicals = Frequently Used Chemicals
 guide-entry-deepfried-recipes = Deep-Fried
 
 guide-entry-frozentreat-recipes = Frozen Treats
+
+guide-entry-nanite-fabricator = Nanite Fabricator
