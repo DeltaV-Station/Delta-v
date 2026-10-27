@@ -9,7 +9,7 @@ public sealed partial class HealingSystem
     [Dependency] private readonly SharedToolSystem _tool = default!;
 
     // UseTool forbids literals
-    private readonly List<string> _emptyToolQualities = [];
+    private readonly List<string> EmptyToolQualities = [];
 
     /// <summary>
     /// Tries to use the healing item as a tool, using a tool doafter.
@@ -32,7 +32,7 @@ public sealed partial class HealingSystem
             return false;
 
         toolUseSuccess = _tool.UseTool(healing, user, target, doAfterDelay,
-            _emptyToolQualities, new HealingDoAfterEvent(), out _, toolHealing.Fuel, breakOnDamage:false);
+            EmptyToolQualities, new HealingDoAfterEvent(), out _, toolHealing.Fuel, breakOnDamage:false);
         return true;
     }
 }

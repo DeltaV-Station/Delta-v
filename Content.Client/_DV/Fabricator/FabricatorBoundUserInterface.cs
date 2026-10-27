@@ -1,4 +1,3 @@
-using Content.Client.Message;
 using Content.Shared._DV.Fabricator;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -17,7 +16,6 @@ namespace Content.Client._DV.Fabricator;
 public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     [ViewVariables]
     private FabricatorMenu? _menu;

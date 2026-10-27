@@ -1,4 +1,3 @@
-using Content.Server.Power.EntitySystems;
 using Content.Shared._DV.Fabricator;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -40,14 +39,13 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
         }
     }
 
-    // TODO refactor this away from being one gigantic fuckoff function
     private void CompleteRecipe(EntityUid uid, FabricatorComponent comp)
     {
         var (recipe, portions) = comp.PortionedRecipe;
         if (recipe is null)
             return;
 
-        // store items we need to remove, and multiply them by portion sizes
+        // copy items we need to remove, and multiply them by portion sizes
         var removeItems = new Dictionary<ProtoId<EntityPrototype>, int>(recipe.Solids);
         var removeReagents = new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>(recipe.Reagents);
         var removeMaterials = new Dictionary<ProtoId<MaterialPrototype>, int>(recipe.Materials);
