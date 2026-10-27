@@ -94,7 +94,7 @@
 - type: entity
   parent:
   - AppearanceMKC
-  - BaseSpeciesMobSilicon
+  - BaseSpeciesMobOrganic # DeltaV - reparent from BaseSpeciesMobSilicon
   id: MobMKC
   name: Urist McPositronic
   components:
@@ -164,6 +164,48 @@
     transfers:
       Poison: Caustic
       Asphyxiation: Bloodloss
+  # DeltaV - get rid of unwanted MKC components:
+  # Internals, Respirator, AffectedByCPR, CanDoCPR, Hunger, Thirst, Perishable, Butcherable
+  - type: MKCComponentRemoval
+  # Begin DeltaV - move components from BaseSpeciesMobSilicon
+  - type: Damageable
+    damageContainer: HumanoidSilicon
+    damageModifierSet: HumanoidSilicon
+  - type: ZombieImmune
+  - type: Deathgasp
+    prototype: SiliconDeathgasp
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection: MetalBulletImpact
+    soundTypes:
+      Heat:
+        collection: MetalLaserImpact
+  - type: Speech
+    speechSounds: Pai
+  - type: Vocal
+    sounds:
+      Male: UnisexMKC
+      Female: UnisexMKC
+      Unsexed: UnisexMKC
+  - type: TypingIndicator
+    proto: robot
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: LightningTarget
+    priority: 1
+    lightningExplode: false
+  - type: MobThresholds
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+  # End DeltaV - move components from BaseSpeciesMobSilicon
 
 - type: entity
   parent: OrganBase
