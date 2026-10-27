@@ -100,16 +100,15 @@
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.35
+        Blunt: 1.30
         Slash: 1.2
         Piercing: 1.2
-        Asphyxiation: 1.35
   - type: ClothingSlowResistance
     modifier: 0.25 # Slowdowns incurred by worn clothing are 25% less effective.
   - type: Damageable
     damageModifierSet: Oni
   - type: Stamina
-    baseCritThreshold: 115
+    baseCritThreshold: 110
 
 - type: entity
   parent: OrganBase
