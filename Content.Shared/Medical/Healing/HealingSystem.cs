@@ -51,10 +51,6 @@ public sealed partial class HealingSystem : EntitySystem // DeltaV - partial
         if (!TryComp(args.Used, out HealingComponent? healing))
             return;
 
-        // DeltaV - re-check if we can use tool
-        if (!CanUseTool(args.Used.Value, target, args.User))
-            return;
-
         if (healing.DamageContainers is not null &&
             target.Comp.DamageContainerID is not null &&
             !healing.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
@@ -204,10 +200,6 @@ public sealed partial class HealingSystem : EntitySystem // DeltaV - partial
             return false;
         }
 
-        // DeltaV - check if we can use tool
-        if (!CanUseTool(healing, target, user))
-            return false;
-
         _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
         var isNotSelf = user != target.Owner;
@@ -221,6 +213,10 @@ public sealed partial class HealingSystem : EntitySystem // DeltaV - partial
         var delay = isNotSelf
             ? healing.Comp.Delay
             : healing.Comp.Delay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
+
+        // DeltaV - try tool doafter if healing item is a tool
+        if (TryUseAsTool(healing, target, user, delay, out var useSuccess))
+            return useSuccess;
 
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: healing)

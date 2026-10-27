@@ -45,7 +45,7 @@
   - type: UserInterface
     interfaces:
       enum.FabricatorUiKey.Key:
-        type: FabricatorBoundUserInterface # I HATE UI
+        type: FabricatorBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Fabricator

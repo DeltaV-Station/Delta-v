@@ -1,5 +1,3 @@
-# reuses locale from the microwave
-
 fabricator-menu-title = Fabricator
 
 fabricator-menu-time-remaining = Time remaining: {$time} seconds
