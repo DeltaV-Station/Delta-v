@@ -216,11 +216,13 @@
     count: 10
   - type: StackPrice
     price: 10
-  # DeltaV - add this to SiliconHealingTopicals
-  - type: Tag
+  - type: Tag # DeltaV - add this to SiliconHealingTopicals
     tags:
     - SiliconHealingTopical
-
+  - type: GuideHelp # DeltaV - add reference to the guidebook entry
+    guides:
+    - NaniteFabricator
+    - Robotics
 
 - type: entity
   parent: Oilpack
