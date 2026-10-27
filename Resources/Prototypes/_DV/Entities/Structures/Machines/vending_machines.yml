@@ -155,3 +155,41 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineCorps
+  name: Brig-Aid
+  description: A vending machine containing basic medical supplies for use by security personnel.
+  components:
+  - type: VendingMachine
+    pack: BrigAidInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+  - type: DatasetVocalizer
+    dataset: BrigAidAds
+  - type: SpeakOnUIClosed
+    pack: BrigAidGoodbyes
+  - type: Sprite
+    sprite: _DV/Structures/Machines/VendingMachines/sec.rsi 
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Security"]]
+  - type: PointLight
+    radius: 1
+    energy: 2.0
+    color: "#78645c"
+  - type: GuideHelp
+    guides:
+    - Security
+    - Medical
