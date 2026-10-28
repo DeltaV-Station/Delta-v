@@ -37,6 +37,8 @@ construction-graph-tag-ancientbook = Damaged Ancient Book
 
 # Weapons
 construction-graph-tag-silversword = silver sword
+construction-graph-tag-unstable-reactor-core = Unstable Reactor Core
+construction-graph-tag-unstable-reactor-housing = Unstable Reactor Housing
 
 # Other
 construction-graph-tag-jug = jug

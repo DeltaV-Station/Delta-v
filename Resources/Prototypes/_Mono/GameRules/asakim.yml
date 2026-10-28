@@ -17,7 +17,7 @@
     #startAnnouncement: station-event-asakim-shuttle-detected # DeltaV - no
     #  startAudio:
     #    path: /Audio/Misc/notice1.ogg
-    weight: 3
+    weight: 0.85 # DeltaV - was 2, got moved to more active scheduler, now 0.85
     minimumPlayers: 25 # DeltaV
     maxOccurrences: 1 # DeltaV - was 4
     duration: null # DeltaV

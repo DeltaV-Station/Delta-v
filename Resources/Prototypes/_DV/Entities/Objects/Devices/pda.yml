@@ -31,7 +31,7 @@
   parent: BaseSecurityPDA
   id: CorpsmanPDA
   name: corpsman PDA
-  description: Red and Sterile. Has a built-in health analyzer.
+  description: Blue and Sterile. Has a built-in health analyzer.
   components:
   - type: CartridgeLoader
     preinstalled:
@@ -81,7 +81,7 @@
   parent: BaseSecurityPDA
   id: PrisonGuardPDA # TODO - Remove for Justice Rework
   name: prison guard PDA
-  description: Red to hide the stains of prisoner blood.
+  description: Blue to show the stains of prisoner blood.
   components:
   - type: Pda
     id: PrisonGuardIDCard
