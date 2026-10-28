@@ -26,21 +26,20 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
         Radiation: 0.75
         Caustic: 0.75
         Heat: 0.80
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatK9
   - type: AllowSuitStorage
-  - type: Insulated
   - type: Tag
     tags:
       - K9Armor
