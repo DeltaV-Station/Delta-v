@@ -30,3 +30,25 @@
     Telecrystal: 4
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkAntiMaterielHiPen
+  name: uplink-antimaterial-hipen-name
+  description: uplink-antimaterial-hipen-desc
+  icon: { sprite: _DV/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel_hipen.rsi, state: base }
+  productEntity: MagazineBoxAntiMaterielHiPen
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkAntiMaterielToxin
+  name: uplink-antimaterial-toxin-name
+  description: uplink-antimaterial-toxin-desc
+  icon: { sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/large_toxic_casing.rsi, state: base }
+  productEntity: CartridgeAntiMaterielToxin
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
