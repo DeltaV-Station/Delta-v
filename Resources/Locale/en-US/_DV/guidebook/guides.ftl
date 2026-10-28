@@ -11,6 +11,7 @@ guide-entry-deltav-rule-3 = B3. Powergaming Guidelines
 guide-entry-deltav-rule-4 = B4. Do not behave like an antagonist as a non-antagonist
 guide-entry-deltav-rule-5 = B5. Leaving Guidelines
 guide-entry-deltav-rule-6 = B6. End-of-round griefing (EORG)
+guide-entry-deltav-rule-7 = B7. Leave room for doubt
 guide-entry-deltav-rule-c1 = C1. Command, Security and Justice Guidelines
 guide-entry-deltav-rule-c2 = C2. Prisoner Guidelines
 guide-entry-deltav-rule-c3 = C3. Follow Antagonist Guidelines
