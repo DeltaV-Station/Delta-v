@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: snowywinters
-  changes:
-  - message: AI can now see turrets and control panels without cameras
-    type: Add
-  - message: Turrets can now target the colossus
-    type: Fix
-  id: 2204
-  time: '2026-03-30T11:25:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5496
 - author: kotobdev
   changes:
   - message: You can no longer saw off the forged shotgun.
@@ -4463,4 +4454,12 @@
   id: 2704
   time: '2026-10-27T06:41:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6666
+- author: rebe83
+  changes:
+  - message: security breaching charges are now less explosive, and only 4 come in
+      the sectech.
+    type: Tweak
+  id: 2705
+  time: '2026-10-29T07:37:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6638
 Order: 1
