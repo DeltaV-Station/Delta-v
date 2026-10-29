@@ -1,27 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: You can now write much longer announcements with the communications console!
-    type: Tweak
-  id: 2203
-  time: '2026-03-30T07:50:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5574
-- author: snowywinters
-  changes:
-  - message: AI can now see turrets and control panels without cameras
-    type: Add
-  - message: Turrets can now target the colossus
-    type: Fix
-  id: 2204
-  time: '2026-03-30T11:25:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5496
-- author: kotobdev
-  changes:
-  - message: You can no longer saw off the forged shotgun.
-    type: Remove
-  id: 2205
-  time: '2026-03-31T03:57:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5504
 - author: Stxcking
   changes:
   - message: Removed Conspiracy from the game mode rotation (for now).
@@ -4457,4 +4434,32 @@
   id: 2703
   time: '2026-10-26T15:52:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6586
+- author: JustTNE
+  changes:
+  - message: Added Rule B7 - Leave room for doubt!
+    type: Add
+  - message: Clarified role of DAGD traitors in rule C3.2
+    type: Tweak
+  - message: Round stalling is now explicitly prohibited by rule B3
+    type: Tweak
+  - message: Xenoborgs are considered round-ending once more
+    type: Fix
+  id: 2704
+  time: '2026-10-27T06:41:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6666
+- author: rebe83
+  changes:
+  - message: security breaching charges are now less explosive, and only 4 come in
+      the sectech.
+    type: Tweak
+  id: 2705
+  time: '2026-10-29T07:37:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6638
+- author: nlaky
+  changes:
+  - message: Lanyards now show their text under a separate examine tab
+    type: Tweak
+  id: 2706
+  time: '2026-10-29T21:24:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6580
 Order: 1
