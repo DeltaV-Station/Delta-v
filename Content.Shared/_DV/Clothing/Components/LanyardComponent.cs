@@ -1,6 +1,5 @@
 using Content.Shared._DV.Clothing.Systems;
 using Robust.Shared.GameStates;
-using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Shared._DV.Clothing.Components;
 
@@ -12,12 +11,6 @@ namespace Content.Shared._DV.Clothing.Components;
 [Access(typeof(LanyardSystem))]
 public sealed partial class LanyardComponent : Component
 {
-    /// <summary>
-    /// The slot which stores the lanyard label
-    /// </summary>
-    [DataField]
-    public ItemSlot? LabelSlot;
-
     /// <summary>
     /// The container name which holds the lanyard label
     /// </summary>

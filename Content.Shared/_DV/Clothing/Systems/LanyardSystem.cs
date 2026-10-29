@@ -20,62 +20,56 @@ public sealed class LanyardSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LanyardComponent, ComponentInit>(OnComponentInit);
-
         SubscribeLocalEvent<LanyardComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<LanyardComponent, InventoryRelayedEvent<ExaminedEvent>>(OnExaminedInInventory);
+        SubscribeLocalEvent<LanyardComponent, InventoryRelayedEvent<ExaminedEvent>>(OnWearerExamined);
         SubscribeLocalEvent<LanyardComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(OnGetExamineVerbs);
     }
 
     /// <summary>
-    /// Called when the item is examined, not the wearer
+    /// Called when the item is examined, not the wearer.
     /// </summary>
-    private void OnExamined(Entity<LanyardComponent> ent, ref ExaminedEvent args)
+    private void OnExamined(Entity<LanyardComponent> lanyard, ref ExaminedEvent args)
     {
         using (args.PushGroup(nameof(LanyardComponent)))
         {
             // Get the paper in the lanyard
-            TryGetLanyardPaper(ent.Comp, out var paper);
+            TryGetLanyardPaper(lanyard, out var paper);
 
             // Add basic descriptions (is it empty, is it blank, etc)
-            args.PushMarkup(GetLanyardStatusExamineText(ref args, paper, "item", ent));
+            var text = GetLanyardStatusExamineText(paper, lanyard, "item", args.IsInDetailsRange);
+            args.PushMarkup(text);
 
-            if (paper is null || string.IsNullOrWhiteSpace(paper.Content))
+            if (!args.IsInDetailsRange || paper is null || string.IsNullOrWhiteSpace(paper.Content))
                 return;
 
             // push lanyard contents
             args.PushMarkup(Loc.GetString("comp-lanyard-examine-text"));
-            args.PushMarkup(paper.Content.TrimEnd());
-
-            // push paper stamps if they exist
-            if (GetPaperStampString(paper, out var stampString))
-                args.PushMarkup(stampString);
+            var message = CreateLanyardFullExamineText(paper);
+            args.PushMessage(message);
         }
     }
 
     /// <summary>
-    /// Called when lanyard wearer is examined
+    /// Called when lanyard wearer is examined.
     /// </summary>
-    private void OnExaminedInInventory(Entity<LanyardComponent> ent, ref InventoryRelayedEvent<ExaminedEvent> args)
+    private void OnWearerExamined(Entity<LanyardComponent> lanyard, ref InventoryRelayedEvent<ExaminedEvent> args)
     {
         using (args.Args.PushGroup(nameof(LanyardComponent)))
         {
             // Get the paper in the lanyard
-            TryGetLanyardPaper(ent.Comp, out var paper);
+            TryGetLanyardPaper(lanyard, out var paper);
 
             // Add basic descriptions (is it empty, is it blank, etc)
             // Also informs the reader that this person is wearing a lanyard
-            args.Args.PushMarkup(GetLanyardStatusExamineText(ref args.Args, paper, "wearing", args.Args.Examined));
-
-            if (paper is null)
-                return;
+            var text = GetLanyardStatusExamineText(paper, args.Args.Examined, "wearing", args.Args.IsInDetailsRange);
+            args.Args.PushMarkup(text);
         }
     }
 
-    private void OnGetExamineVerbs(EntityUid uid, LanyardComponent comp, ref InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>> args)
+    private void OnGetExamineVerbs(Entity<LanyardComponent> lanyard, ref InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>> args)
     {
         // Return if there's no paper or if the paper is empty
-        if (!TryGetLanyardPaper(comp, out var paper)
+        if (!TryGetLanyardPaper(lanyard, out var paper)
             || string.IsNullOrWhiteSpace(paper.Content))
             return;
 
@@ -87,7 +81,7 @@ public sealed class LanyardSystem : EntitySystem
             Act = () =>
             {
                 var examineText = CreateLanyardFullExamineText(paper);
-                _examineSystem.SendExamineTooltip(user, uid, examineText, false, false);
+                _examineSystem.SendExamineTooltip(user, lanyard, examineText, false, false);
             },
             Text = Loc.GetString("comp-lanyard-verb-read"),
             Category = VerbCategory.Examine,
@@ -105,8 +99,7 @@ public sealed class LanyardSystem : EntitySystem
         var ret = new FormattedMessage();
 
         // add paper contents
-        var text = paper.Content;
-        ret.AddMarkupPermissive(text.TrimEnd());
+        ret.AddMarkupPermissive(paper.Content.TrimEnd());
 
         // add stamps if we have them
         if (GetPaperStampString(paper, out var stampString))
@@ -122,40 +115,32 @@ public sealed class LanyardSystem : EntitySystem
     /// Adds lanyard text status to examined event
     /// Tells examiner if lanyard is empty, blank, etc
     /// </summary>
-    private string GetLanyardStatusExamineText(ref ExaminedEvent args, PaperComponent? paper, string examineState, EntityUid examined)
+    private string GetLanyardStatusExamineText(PaperComponent? paper, EntityUid examined, string examineState, bool inDetailsRange)
     {
+        var identity = Identity.Entity(examined, EntityManager);
+
+        // Lanyard is empty
         if (paper is null)
-        {
-            // Lanyard is empty
-            return Loc.GetString($"comp-lanyard-{examineState}-examine-empty",
-                ("examined", Identity.Entity(examined, EntityManager)));
-        }
+            return Loc.GetString($"comp-lanyard-{examineState}-examine-empty", ("examined", identity));
 
-        if (!args.IsInDetailsRange)
-        {
-            // Lanyard is too far away to read
-            return Loc.GetString($"comp-lanyard-{examineState}-examine-too-far",
-                ("examined", Identity.Entity(examined, EntityManager)));
-        }
+        // Lanyard is too far away to read
+        if (!inDetailsRange)
+            return Loc.GetString($"comp-lanyard-{examineState}-examine-too-far", ("examined", identity));
 
+        // Lanyard paper is blank
         if (string.IsNullOrWhiteSpace(paper.Content))
-        {
-            // Lanyard paper is blank
-            return Loc.GetString($"comp-lanyard-{examineState}-examine-blank",
-                ("examined", Identity.Entity(examined, EntityManager)));
-        }
+            return Loc.GetString($"comp-lanyard-{examineState}-examine-blank", ("examined", identity));
 
         // Lanyard has text content
-        return Loc.GetString($"comp-lanyard-{examineState}-examine-written",
-            ("examined", Identity.Entity(examined, EntityManager)));
+        return Loc.GetString($"comp-lanyard-{examineState}-examine-written", ("examined", identity));
     }
 
     /// <summary>
-    /// Tries to get the paper inside the lanyard
+    /// Tries to get the paper inside the lanyard.
     /// </summary>
-    private bool TryGetLanyardPaper(LanyardComponent lanyardComponent, [NotNullWhen(true)] out PaperComponent? paperComponent)
+    private bool TryGetLanyardPaper(Entity<LanyardComponent> lanyard, [NotNullWhen(true)] out PaperComponent? paperComponent)
     {
-        if (lanyardComponent.LabelSlot?.Item is not { Valid: true } item
+        if (_itemSlots.GetItemOrNull(lanyard, lanyard.Comp.SlotName) is not { Valid: true } item
             || !TryComp<PaperComponent>(item, out var paper))
         {
             paperComponent = null;
@@ -184,11 +169,5 @@ public sealed class LanyardSystem : EntitySystem
             "comp-lanyard-examine-detail-stamped-by",
             ("stamps", commaSeparated));
         return true;
-    }
-
-    private void OnComponentInit(Entity<LanyardComponent> ent, ref ComponentInit args)
-    {
-        _itemSlots.TryGetSlot(ent, ent.Comp.SlotName, out var slot);
-        ent.Comp.LabelSlot = slot;
     }
 }
