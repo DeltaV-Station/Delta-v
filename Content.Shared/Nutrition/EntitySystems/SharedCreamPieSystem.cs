@@ -1,3 +1,4 @@
+using Content.Shared.Hands;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -64,7 +65,7 @@ namespace Content.Shared.Nutrition.EntitySystems
 
             CreamedEntity(uid, creamPied, args);
 
-            _stunSystem.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(creamPie.ParalyzeTime));
+            _stunSystem.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(creamPie.ParalyzeTime), drop: false); // DeltaV - Stop pies from making you drop weapons
         }
 
         protected virtual void CreamedEntity(EntityUid uid, CreamPiedComponent creamPied, ThrowHitByEvent args) {}
