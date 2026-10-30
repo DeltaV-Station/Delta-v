@@ -156,8 +156,8 @@
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
-- type: entity 
-  parent: VendingMachineMedicalBase 
+- type: entity
+  parent: VendingMachineMedicalBase
   id: VendingMachineBrig
   name: Brig-Aid
   description: A vending machine containing basic medical supplies for use by security personnel. Compatible with standard NanoMed restocks.
