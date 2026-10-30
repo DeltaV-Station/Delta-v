@@ -196,6 +196,24 @@
     containers:
       board: [ DoorElectronicsMarshal ]
 
+- type: entity
+  parent: AirlockJustice
+  id: AirlockMarshalSecurityLocked
+  suffix: Marshal/Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshalSecurity ]
+
+- type: entity
+  parent: AirlockJusticeGlass
+  id: AirlockMarshalSecurityGlassLocked
+  suffix: Marshal/Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshalSecurity ]
+
 # Maintenance
 - type: entity
   parent: AirlockMaintCommandLocked
