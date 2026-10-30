@@ -529,7 +529,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Low,
                     $"{ToPrettyString(user):actor} melee attacked (light) using {ToPrettyString(meleeUid):tool} and missed");
             }
-            var missEvent = new MeleeHitEvent(new HashSet<EntityUid>(), user, meleeUid, damage, null);
+            var missEvent = new MeleeHitEvent(new HashSet<EntityUid>(), user, meleeUid, damage, null); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
             RaiseLocalEvent(meleeUid, missEvent);
             _meleeSound.PlaySwingSound(user, meleeUid, component);
             return;
@@ -538,15 +538,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Sawmill.Debug($"Melee damage is {damage.Total} out of {component.Damage.Total}");
 
         // Raise event before doing damage so we can cancel damage if the event is handled
-        var hitEvent = new MeleeHitEvent(new HashSet<EntityUid> { target.Value }, user, meleeUid, damage, null);
+        var hitEvent = new MeleeHitEvent(new HashSet<EntityUid> { target.Value }, user, meleeUid, damage, null); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         RaiseLocalEvent(meleeUid, hitEvent);
 
         if (hitEvent.Handled)
             return;
 
-        var targets = new HashSet<EntityUid>(1)
+        var targets = new HashSet<EntityUid>(1) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         {
-            target.Value,
+            target.Value, // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         };
 
         var weapon = GetEntity(ev.Weapon);
@@ -602,7 +602,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
     }
 
-    protected abstract void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user,  TransformComponent targetXform);
+    protected abstract void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user,  TransformComponent targetXform); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
     private bool DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
@@ -621,7 +621,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var damage = GetDamage(meleeUid, user, component);
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
-        var entities = GetEntitySet(ev.Entities);
+        var entities = GetEntitySet(ev.Entities); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
         if (entities.Count == 0)
         {
@@ -637,7 +637,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Low,
                     $"{ToPrettyString(user):actor} melee attacked (heavy) using {ToPrettyString(meleeUid):tool} and missed");
             }
-            var missEvent = new MeleeHitEvent(new HashSet<EntityUid>(), user, meleeUid, damage, direction);
+            var missEvent = new MeleeHitEvent(new HashSet<EntityUid>(), user, meleeUid, damage, direction); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
             RaiseLocalEvent(meleeUid, missEvent);
 
             // immediate audio feedback
@@ -649,10 +649,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Naughty input
         if (entities.Count > MaxTargets)
         {
-            entities = entities.Take(MaxTargets).ToHashSet();
+            entities = entities.Take(MaxTargets).ToHashSet(); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         }
 
         // Validate client
+        // DeltaV Start - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         entities.RemoveWhere(entity => TerminatingOrDeleted(entity) ||
                                        !ArcRaySuccessful(entity,
                                            userPos,
@@ -664,6 +665,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                                            session));
 
         var targets = new HashSet<EntityUid>();
+        // DeltaV End - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         var damageQuery = GetEntityQuery<DamageableComponent>();
 
         foreach (var entity in entities)
@@ -699,7 +701,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         var appliedDamage = new DamageSpecifier();
-        var filteredTargets = new HashSet<EntityUid>();
+        var filteredTargets = new HashSet<EntityUid>(); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
         foreach (var entity in targets)
         {
@@ -709,7 +711,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // In that case, just continue.
             if (!Blocker.CanAttack(user, entity, (weapon, component)))
             {
-                filteredTargets.Add(entity);
+                filteredTargets.Add(entity); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
                 continue;
             }
 
@@ -749,7 +751,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 }
             }
 
-            if (TerminatingOrDeleted(entity))
+            if (TerminatingOrDeleted(entity)) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
                 filteredTargets.Add(entity);
         }
 
@@ -763,7 +765,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {
-            DoDamageEffect(targets, user, Transform(targets.First()));
+            DoDamageEffect(targets, user, Transform(targets.First())); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
             DoScreenshake(meleeUid, damage, user, targets); // Starlight | ES Screenshake
         }
 
