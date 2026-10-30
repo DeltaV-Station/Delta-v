@@ -1,4 +1,3 @@
-using Content.Shared.Hands;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
