@@ -703,8 +703,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var appliedDamage = new DamageSpecifier();
         var filteredTargets = new HashSet<EntityUid>(); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
-        foreach (var entity in targets)
+        foreach (var entity in targets) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         {
+            // var entity = targets[i];  // DeltaV - Hotfix Melee Exploit. REMOVE ENTIRE LINE WHEN #46299 IS MERGED
             // We raise an attack attempt here as well,
             // primarily because this was an untargeted wideswing: if a subscriber to that event cared about
             // the potential target (such as for pacifism), they need to be made aware of the target here.
@@ -755,7 +756,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 filteredTargets.Add(entity);
         }
 
-        targets.ExceptWith(filteredTargets);
+        targets.ExceptWith(filteredTargets); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
         if (entities.Count != 0)
         {
