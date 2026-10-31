@@ -36,3 +36,38 @@
       - HeavyPlasmaBattery
   - type: UseDelay
     delay: 1.0
+
+- type: entity
+  id: WeaponEnergyBackpack
+  parent: WeaponPlasmaBackpack
+  name: energy nozzle
+  suffix: Backfed
+  description: A energy gun, connected to an external battery via a high voltage cable.
+  components:
+  - type: Tag
+    tags:
+    - LaserEnergyBackpack
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/BackFed/energygunnozzle.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Weapons/Guns/BackFed/energygunnozzle.rsi
+    size: Normal
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -28
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    cameraRecoilScalar: 0
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+  - type: SlotBasedConnectedContainer
+    targetSlot: BACK
+    containerWhitelist:
+      tags:
+      - HeavyEnergyBattery
