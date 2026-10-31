@@ -20,3 +20,5 @@ ghost-role-information-hitman-description = A contract killer, hired to kill a s
 ghost-role-information-hitman-rules = You are a [color=red][bold]Solo Antagonist[/bold][/color].
                                     You may kill your target, you do not need to ensure they stay dead.
                                     You should avoid attacking those other than your target, except to protect yourself or to ensure your target dies.
+
+terror-hitmen = Attention crew, it appears that someone on your station has insulted some kind of profession criminal organization.
