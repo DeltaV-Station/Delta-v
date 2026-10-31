@@ -17,6 +17,7 @@ public sealed partial class PsionicSystem : SharedPsionicSystem
         SubscribeLocalEvent<PotentialPsionicComponent, PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
 
         InitializeItems();
+        InitializeMindSwap();
     }
 
     private void OnPlayerSpawnComplete(Entity<PotentialPsionicComponent> potPsionic, ref PlayerSpawnCompleteEvent args)
