@@ -143,7 +143,8 @@ namespace Content.Shared.Throwing
             var hitByEv = new ThrowHitByEvent(thrown, target, component);
             var doHitEv = new ThrowDoHitEvent(thrown, target, component);
             RaiseLocalEvent(target, ref hitByEv, true);
-            RaiseLocalEvent(thrown, ref doHitEv, true);
+            if (!hitByEv.Handled) // Delta-V - if the throw doesn't land, it shouldn't trigger hit results.
+                RaiseLocalEvent(thrown, ref doHitEv, true);
         }
 
         public override void Update(float frameTime)

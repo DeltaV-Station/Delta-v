@@ -36,15 +36,10 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
 
     private void OnDoHit(EntityUid uid, DamageOtherOnHitComponent component, ThrowDoHitEvent args)
     {
-        if (TerminatingOrDeleted(args.Target))
+        if (TerminatingOrDeleted(args.Target) || args.Handled)
             return;
 
-        var ev = new ThrowDamageAttemptedEvent(){ Thrown = uid }; // Delta-V
-        RaiseLocalEvent(args.Target, ref ev);
-        if (ev.Cancelled)
-            return;
-
-        var dmg = _damageable.ChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Component.Thrower);
+        var dmg = _damageable.ChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Comp.Thrower);
 
         // Log damage only for mobs. Useful for when people throw spears at each other, but also avoids log-spam when explosions send glass shards flying.
         if (HasComp<MobStateComponent>(args.Target))

@@ -1,5 +1,4 @@
 using Content.Shared._DV.Psionics.Events;
-using Content.Shared._DV.Throwing; // DeltaV - Psionics Refactor
 using Content.Shared.Body.Events;
 using Content.Shared.Damage.Events;
 using Content.Shared.Mobs.Events;
@@ -49,8 +48,7 @@ public sealed partial class StatusEffectsSystem
         // DeltaV End - Psionics Refactor
 
         // Delta-V Start - Telekinesis Power
-        SubscribeLocalEvent<StatusEffectContainerComponent, ThrowHitByEvent>(RefRelayStatusEffectEvent);
-        SubscribeLocalEvent<StatusEffectContainerComponent, ThrowDamageAttemptedEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, ThrowHitByEvent>(RelayStatusEffectEvent);
         // Delta-V End - Telekinesis Power
     }
 

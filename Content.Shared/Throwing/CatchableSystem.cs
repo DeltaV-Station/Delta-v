@@ -1,13 +1,10 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared._DV.Throwing;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
-using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Speech;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
@@ -37,7 +34,6 @@ public sealed partial class CatchableSystem : EntitySystem
 
         SubscribeLocalEvent<CatchableComponent, ThrowDoHitEvent>(OnDoHit);
         SubscribeLocalEvent<CatcherStatusEffectComponent, StatusEffectRelayedEvent<ThrowHitByEvent>>(OnGotHit);
-        SubscribeLocalEvent<CatcherStatusEffectComponent, StatusEffectRelayedEvent<ThrowDamageAttemptedEvent>>(OnThrowDamageAttempt);
 
         _handsQuery = GetEntityQuery<HandsComponent>();
         _combatModeQuery = GetEntityQuery<CombatModeComponent>();
@@ -49,6 +45,7 @@ public sealed partial class CatchableSystem : EntitySystem
         {
             TryCatch(args.Target, ent, ent.Comp.CatchChance, hand);
             _audio.PlayPvs(ent.Comp.CatchSuccessSound, ent.Owner);
+            args.Handled = true;
         }
 
     }
@@ -56,7 +53,10 @@ public sealed partial class CatchableSystem : EntitySystem
     private void OnGotHit(Entity<CatcherStatusEffectComponent> ent, ref StatusEffectRelayedEvent<ThrowHitByEvent> args)
     {
         if (CheckCatching(args.Args.Target, args.Args.Thrown, out var hand))
+        {
             TryCatch(args.Args.Target, args.Args.Thrown, ent.Comp.CatchRate, hand);
+            args.Args.Handled = true;
+        }
     }
 
     private void TryCatch(EntityUid catcher, EntityUid caught, float chance, HandsComponent? hands)
@@ -137,11 +137,5 @@ public sealed partial class CatchableSystem : EntitySystem
 
         hand = handsComp;
         return true;
-    }
-
-    private void OnThrowDamageAttempt(Entity<CatcherStatusEffectComponent> ent,
-        ref StatusEffectRelayedEvent<ThrowDamageAttemptedEvent> args)
-    {
-        args.Args.Cancel();
     }
 }
