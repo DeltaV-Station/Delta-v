@@ -9,5 +9,6 @@ public sealed partial class NPCPerceptionSystem : EntitySystem
     {
         base.Update(frameTime);
         UpdateRecentlyInjected(frameTime);
+        UpdateIsInjectionTarget(frameTime); // DeltaV
     }
 }
