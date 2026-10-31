@@ -33,6 +33,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         base.Initialize();
 
         SubscribeLocalEvent<T, MapInitEvent>(OnPowerInit);
+        SubscribeLocalEvent<T, ComponentRemove>(OnRemove);
 
         SubscribeLocalEvent<T, T1>(OnPowerActionUsed);
         SubscribeLocalEvent<T, DispelledEvent>(OnDispelled);
@@ -55,6 +56,12 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         var psionicComp = EnsureComp<PsionicComponent>(power);
         psionicComp.PsionicPowersActionEntities.Add(power.Comp.ActionEntity);
         Dirty(power);
+    }
+
+    private void OnRemove(Entity<T> psionic, ref ComponentRemove args)
+    {
+        Action.RemoveAction(psionic.Comp.ActionEntity);
+
     }
 
     /// <summary>
@@ -123,7 +130,6 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         {
             args.Success = true;
             TryStopDoAfter(psionic, psionic.Owner); // Mindbreaking already has a popup, so no popup for breaking doAfters.
-            Action.RemoveAction(psionic.Comp.ActionEntity);
             RemComp<T>(psionic);
             return;
         }
