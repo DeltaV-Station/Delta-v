@@ -1,0 +1,193 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelSyndieCosmetic1
+  suffix: Syndicate Cosmetic, Casual
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterCoatBomberCybersun
+      - id: ClothingUniformCybersunCasual
+      - id: ClothingShoesColorBlack
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelSyndieCosmetic2
+  suffix: Syndicate Cosmetic, Anonymous
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatSyndie
+      - id: ClothingEyesGlassesCheapSunglasses
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingMaskNeckGaiter
+      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingUniformJumpsuitOperative
+      - id: ClothingShoesBootsSurplus
+
+- type: entity
+  parent: ClothingBackpackSatchelEngineering
+  id: ClothingBackpackSatchelSyndieCosmetic3
+  suffix: Syndicate Cosmetic, Engineer
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatHardhatRed
+      - id: ClothingEyesGlassesThermal
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingHandsGlovesFingerlessInsulated
+      - id: ClothingOuterVestHazard
+      - id: ClothingUniformCybersunHazard
+      - id: ClothingShoesBootsWork
+
+- type: entity
+  parent: ClothingBackpackSatchelScience
+  id: ClothingBackpackSatchelSyndieCosmetic4
+  suffix: Syndicate Cosmetic, Research
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatSurgcapCybersun
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingOuterCoatLabCybersun
+      - id: ClothingUniformCybersunRND
+      - id: ClothingShoesEnclosedChem
+
+- type: entity
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelSyndieCosmetic5
+  suffix: Syndicate Cosmetic, Surgeon
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatSurgcapCybersun
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingMaskSterile
+      - id: ClothingHandsGlovesNitrile
+      - id: UniformScrubsColorCybersun
+      - id: ClothingShoesEnclosedChem
+
+- type: entity
+  parent: ClothingBackpackSatchelChemistry
+  id: ClothingBackpackSatchelSyndieCosmetic6
+  suffix: Syndicate Cosmetic, Chemist
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesGlassesChemist
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingMaskInterdyneChemistry
+      - id: ClothingHandsGlovesChemist
+      - id: ClothingOuterInterdyneChemistrySuit
+      - id: ClothingUniformInterdyneChemist
+      - id: ClothingShoesEnclosedChem
+      - id: InterdyneFlippoNerfed
+
+- type: entity
+  parent: ClothingBackpackSatchelScience
+  id: ClothingBackpackSatchelSyndieCosmetic7
+  suffix: Syndicate Cosmetic, Roboticist
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesGlassesThermal
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingUniformJumpskirtRoboNeuroticist
+      - id: ClothingUniformJumpsuitRoboNeuroticist
+      - id: ClothingHandsGlovesRobohands
+      - id: ClothingMaskGasSecurity
+      - id: ClothingShoesBootsWinterSyndicate
+
+- type: entity
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelSyndieCosmetic8
+  suffix: Syndicate Cosmetic, Paramedic
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatRedsoft
+      - id: ClothingMaskBreathMedical
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingUniformJumpsuitParamedicSyndie
+      - id: ClothingShoesBootsSurplus
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelSyndieCosmetic9
+  suffix: Syndicate Cosmetic, Cybersun Enthusiast
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesGlassesCheapSunglasses
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingMaskGasSecurity
+      - id: ClothingHandsGlovesFingerless
+      - id: ClothingOuterCoatCybersunWindbreaker
+      - id: ClothingUniformJumpsuitRecruitSyndie
+      - id: ClothingShoesBootsSurplus
+      - id: CybersunFlippo
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelSyndieCosmetic10
+  suffix: Syndicate Cosmetic, Syndicate Enthusiast
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatSyndie
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingOuterCoatBomberSyndicate
+      - id: ClothingUniformJumpskirtTacticool
+      - id: ClothingUniformJumpsuitTacticool
+      - id: ClothingShoesColorBlack
+      - id: SyndieHandyFlag
+
+- type: entity
+  parent: CybersunBriefcase
+  id: CybersunBriefcaseSyndieCosmetic11
+  suffix: Syndicate Cosmetic, Lawyer
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatOutlawHat
+      - id: ClothingEyesGlassesCheapSunglasses
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingHandsGlovesHop
+      - id: ClothingOuterCybersunOvercoat
+      - id: ClothingUniformCybersunAttorney
+      - id: ClothingShoesBootsLaceup
+
+- type: entity
+  parent: ClothingBackpackSyndicate
+  id: ClothingBackpackSyndieCosmetic12
+  suffix: Syndicate Cosmetic, Command
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatSyndieMAA
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingHeadsetAltSyndicateCommon
+      - id: ClothingMaskGasSyndicate
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingNeckTieRed
+      - id: ClothingOuterCoatSyndieCap
+      - id: ClothingUniformJumpskirtSyndieFormalDress
+      - id: ClothingUniformJumpsuitSyndieFormal
+      - id: ClothingShoesBootsCombat
+      - id: SyndiListeningPostPDA
+      - id: SyndicateFlippo
+
+- type: entity
+  parent: ClothingBackpackMerc
+  id: ClothingBackpackSyndieCosmetic13
+  suffix: Syndicate Cosmetic, Mercenary
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetMerc
+      - id: ClothingEyesGlassesMercenary
+      - id: ClothingMaskGasMerc
+      - id: ClothingHandsMercGlovesCombat
+      - id: ClothingUniformJumpsuitMercenary
+      - id: ClothingShoesBootsCombat
+      - id: ClothingHeadHatBeretMerc
