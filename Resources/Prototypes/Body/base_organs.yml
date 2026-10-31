@@ -21,7 +21,15 @@
   parent: BaseItem
   components:
   - type: Organ
-
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 7
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 7
 - type: entity
   parent: OrganBase
   id: OrganBaseTorso
