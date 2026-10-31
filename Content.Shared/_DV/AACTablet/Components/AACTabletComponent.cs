@@ -1,8 +1,9 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._DV.AACTablet;
+namespace Content.Shared._DV.AACTablet.Components;
 
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class AACTabletComponent : Component
 {
     // Minimum time between each phrase, to prevent spam

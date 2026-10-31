@@ -102,10 +102,10 @@ public sealed partial class InjectorSystem : EntitySystem
 
     private void OnAttack(Entity<InjectorComponent> injector, ref MeleeHitEvent args)
     {
-        if (args.HitEntities is [])
+        if (args.HitEntities.Count == 0) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
             return;
 
-        TryMobsDoAfter(injector, args.User, args.HitEntities[0]);
+        TryMobsDoAfter(injector, args.User, args.HitEntities.First()); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     }
 
     /// <summary>

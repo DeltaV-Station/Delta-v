@@ -34,13 +34,13 @@ public sealed partial class NodeCrawlerComponent : Component
     /// How long it takes to enter a node.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan EnterDelay = TimeSpan.FromSeconds(0.5f);
+    public TimeSpan EnterDelay = TimeSpan.FromSeconds(3.0f);
 
     /// <summary>
     /// How long it takes to enter the node if entity is zombified.
     /// </summary>
     [DataField]
-    public TimeSpan ZombieEnterDelay = TimeSpan.FromSeconds(2.0f);
+    public TimeSpan ZombieEnterDelay = TimeSpan.FromSeconds(5.0f);
 }
 
 [Serializable, NetSerializable]
