@@ -411,6 +411,35 @@
     fiberColor: fibers-black
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
+  - type: MobThresholds 
+    thresholds:
+      0: Alive
+      175: Critical #Delta-V - All syndicate borgs are up armored
+      525: Dead 
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150 #Delta-V Increased to match new health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 525 #Also increased to match new health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -603,3 +632,8 @@
     bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
   - type: EmpResistance # DeltaV
     durationMultiplier: 0.1 # Only disabled for 10%. Default EMP stun time is 60% so still a 6 second disable. Battery has 40% resistance already.
+    # Begin DeltaV additions
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Xenoborg # Xenoborgs get 30% armor resitence for now
+    # End DeltaV additions
