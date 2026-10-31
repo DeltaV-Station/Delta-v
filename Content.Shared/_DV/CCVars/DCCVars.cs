@@ -137,6 +137,11 @@ public sealed partial class DCCVars
         CVarDef.Create("game.see_stun_visuals", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Revert to the old button layout for chemistry machines
+    /// </summary>
+    public static readonly CVarDef<bool> UseOldChemButtonLayout =
+        CVarDef.Create("game.old_chemistry_button_layout", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// Whether you see interaction particles
     /// </summary>
     public static readonly CVarDef<bool> HideInteractionParticles =

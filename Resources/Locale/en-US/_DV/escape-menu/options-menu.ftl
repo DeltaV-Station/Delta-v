@@ -4,6 +4,7 @@ ui-options-general-forknotice = Note: These settings are fork-specific and might
 ui-options-no-filters = Disable species vision filters
 ui-options-disable-glimmer-effect = Disable high glimmer shader effect
 ui-options-enable-stun-visuals = Enable the 'Seeing Stars' effect on stunned entities
+ui-options-old-chem-button-layout = Use classic button layout for ChemMaster and chemical dispenser
 ui-options-disable-interaction-particles = Disable interaction particles
 
 ## DeltaV NanoChat keybinds
