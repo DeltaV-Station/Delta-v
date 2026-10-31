@@ -1,0 +1,224 @@
+# Delta V - remove electrolytic nanites
+# - type: reagent
+#   id: ElectrolyticNanites
+#   name: reagent-name-electrolytic-nanites
+#   group: Nanites
+#   desc: reagent-desc-electrolytic-nanites
+#   physicalDesc: reagent-physical-desc-metallic
+#   flavor: plastic
+#   color: "#333333"
+#   metabolisms:
+#     Bloodstream:
+#       effects:
+#       - !type:HealthChange
+#         conditions:
+#         - !type:MetabolizerTypeCondition
+#           type: [MKC]
+#         damage:
+#           types:
+#             Caustic: -2.5
+# Delta V - remove electrolytic nanites
+
+- type: reagent
+  id: CrystalLatticeNanites
+  name: reagent-name-crystal-lattice-nanites
+  group: Nanites
+  desc: reagent-desc-crystal-lattice-nanites
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: plastic
+  color: "#339933" # DeltaV - colors....
+  worksOnTheDead: true # DeltaV - helps MKCs not get round removed by radiation damage
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        damage:
+          types:
+            Radiation: -2
+
+- type: reagent
+  id: OpticalFiberNanites
+  name: reagent-name-optical-fiber-nanites
+  group: Nanites
+  desc: reagent-desc-optical-fiber-nanites
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: plastic
+  color: "#333399" # DeltaV - colors....
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:EyeDamage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+
+- type: reagent
+  id: RescueNanites
+  name: reagent-name-rescue-nanites
+  group: Nanites
+  desc: reagent-desc-rescue-nanites
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: plastic
+  color: "#99aa33" # DeltaV - colors....
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+          # they gotta be in crit first
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentCondition
+          reagent: RescueNanites
+          max: 20
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        damage:
+          types:
+            Heat: -2
+          # DeltaV - no Groups in DamageSpecifier
+          # groups:
+          #   Brute: -0.5
+          #   Burn: -0.5
+      # Begin DeltaV - move damage group heal to EvenHealthChange
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentCondition
+          reagent: RescueNanites
+          max: 20
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+      # End DeltaV - move damage group heal to EvenHealthChange
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: RescueNanites
+          min: 20
+        damage:
+          types:
+            Slash: 1
+            Blunt: 1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 0.75
+        type: Remove
+      - !type:ModifyKnockdown
+        time: 0.75
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+
+- type: reagent
+  id: ReconstructorNanites
+  name: reagent-name-reconstructor-nanites
+  group: Nanites
+  desc: reagent-desc-reconstructor-nanites
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: plastic
+  color: "#9999bb" # DeltaV - colors....
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        damage:
+          Burn: -2
+          Toxin: -2
+          Airloss: -2
+          Brute: -2
+
+- type: reagent
+  id: OverclockNanites
+  name: reagent-name-overclock-nanites
+  group: Nanites
+  desc: reagent-desc-overclock-nanites
+  physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Syndicate # DeltaV - Traitor -> Syndicate
+  flavor: plastic
+  color: "#bb9999" # DeltaV - colors....
+  metabolisms:
+    Bloodstream:
+      effects:
+      # Main effects
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        effectProto: StatusEffectStimulantsStamina
+        time: 3
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        effectProto: StatusEffectStunned
+        time: 3.5
+        type: Remove
+      - !type:ModifyKnockdown
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        time: 3.5
+        type: Remove
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: OverclockNanites
+          min: 45
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        damage:
+          types:
+            Shock: 3
+      # Main effects
+      - !type:ModifyBleed
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        amount: -1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 70
+        - !type:MetabolizerTypeCondition
+          type: [ MKC ]
+        damage:
+          Burn: -0.5
+          Brute: -0.5

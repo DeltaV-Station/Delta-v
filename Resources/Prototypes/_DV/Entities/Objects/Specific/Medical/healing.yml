@@ -309,6 +309,7 @@
     damageContainers:
     - Biological
     - BiologicalMetaphysical
+    - HumanoidSilicon # DeltaV - let MKCs use salts
     damage:
       types:
         Holy: -10
@@ -331,3 +332,183 @@
   - type: Tag
     tags:
     - PurifyingSalts
+
+- type: entity
+  name: structural nanites
+  description: A canister of structural nanites for repairing brute force damage
+  parent: BaseHealingItem
+  id: StructuralNanites
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/nanites.rsi
+    state: brute
+  - type: Item
+    sprite: _DV/Objects/Medical/nanites.rsi
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Blunt: -20
+        Piercing: -20
+        Slash: -20
+    bloodlossModifier: -5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    delay: 10
+  - type: Stack
+    stackType: StructuralNanites
+    count: 10
+  - type: StackPrice
+    price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
+  - type: GuideHelp
+    guides:
+    - NaniteFabricator
+    - Robotics
+
+- type: entity
+  name: advanced structural nanites
+  description: A canister of advanced structural nanites for repairing brute force damage
+  parent: BaseHealingItem
+  id: AdvancedStructuralNanites
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/nanites.rsi
+    state: advancedbrute
+  - type: Item
+    sprite: _DV/Objects/Medical/nanites.rsi
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Blunt: -30
+        Piercing: -30
+        Slash: -30
+    bloodlossModifier: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    delay: 10
+  - type: Stack
+    stackType: AdvancedStructuralNanites
+    count: 10
+  - type: StackPrice
+    price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
+  - type: GuideHelp
+    guides:
+    - NaniteFabricator
+    - Robotics
+
+- type: entity
+  name: restoration nanites
+  description: A canister of restoration nanites for repairing brute force damage
+  parent: BaseHealingItem
+  id: RestorationNanites
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/nanites.rsi
+    state: burn
+  - type: Item
+    sprite: _DV/Objects/Medical/nanites.rsi
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Heat: -20
+        Cold: -20
+        Shock: -20
+        Caustic: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    delay: 10
+  - type: Stack
+    stackType: RestorationNanites
+    count: 10
+  - type: StackPrice
+    price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
+  - type: GuideHelp
+    guides:
+    - NaniteFabricator
+    - Robotics
+
+- type: entity
+  name: advanced restoration nanites
+  description: A canister of advanced restoration nanites for repairing brute force damage
+  parent: BaseHealingItem
+  id: AdvancedRestorationNanites
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Medical/nanites.rsi
+    state: advancedburn
+  - type: Item
+    sprite: _DV/Objects/Medical/nanites.rsi
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Heat: -30
+        Cold: -30
+        Shock: -30
+        Caustic: -20
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    delay: 10
+  - type: Stack
+    stackType: AdvancedRestorationNanites
+    count: 10
+  - type: StackPrice
+    price: 5
+  - type: Tag
+    tags:
+    - SiliconHealingTopical
+  - type: GuideHelp
+    guides:
+    - NaniteFabricator
+    - Robotics

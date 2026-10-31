@@ -1,0 +1,106 @@
+<Document>
+  # MKCs
+  <GuideEntityEmbed Entity="MobMKC" Caption="MKC"/>
+  An MKC (short for Markov Knowledge Chassis) is a type of sapient robot, originally designed as disposable and easily repairable laborers by a now-defunct corporate power.
+
+  They are considered [color=yellow]independent individuals[/color], meaning [color=red]they are not typically guided by any laws of robotics[/color]. MKCs cannot be hacked by emags and are not affected by ion storms because they do not have to follow any predefined directives in their system.
+
+  ## Species Traits
+  <Box>
+    <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
+  </Box>
+  MKCs are silicon-based beings, having a positronic brain similar to cyborgs and a mechanical chassis. This means that they:
+  - [color=red]Cannot be healed by normal means at the Medbay;[/color] see the section on MKC Repair for more details
+  - Cannot ingest any food or drink
+  - Do not need to breathe
+  - Are not affected by most reagents; see the section on the Fluid Regulator for more details
+  - Convert Poison into Caustic and Asphyxiation into Bloodloss, and don't take Cellular <!-- DeltaV - Changed for damage conversion -->
+  - Do not rot after death
+  - Start overheating and taking Heat damage while in critical condition instead of asphyxiating
+
+  They also have the following miscellaneous traits, particular to MKCs:
+  - Greatly increased tolerance for both heat and cold, but less effective thermal regulation
+  - Take exclusively Heat damage from Barotrauma instead of Blunt and Heat
+  - Have a bloodstream of oil
+  - Are stunned and disoriented by EMP effects
+
+  ## Power Core
+  <Box>
+    <GuideEntityEmbed Entity="OrganMKCCore" Caption="Power Core"/>
+  </Box>
+  Instead of sustaining themselves on food or drink, MKCs have an internal power core that they must keep charged. If this battery gets too low, the MKC's movements will become more sluggish until they can recharge.
+
+  The internal battery of an MKC can be recharged by [color=yellow]using the verb in the right-click menu[/color] of any item or structure with an internal battery. Common examples include power cells and APCs, but you can also use things like energy weapons in a pinch.
+
+  ## MKC Repair
+  Instead of the Medbay, the best place for MKCs to have their injuries treated is the [color=yellow]Robotics Lab.[/color] Basic repairs can also be done with steel and wires, but are very slow. <!-- DeltaV - Steel and wire healing, also engi doesn't have supplies -->
+
+  Also important to note is that welding fuel can be used as a way to get blood, at the cost of caustic damage. The syndicate nanite applicator can also be used to heal MKCs <!-- DeltaV - Added healing related stuff -->
+
+  Robotics has unique items capable of healing MKCs. These are: <!-- DeltaV - Only robotics has proper topicals, probably -->
+
+  <Table Columns="2">
+  <Box>
+    <GuideEntityEmbed Entity="StructuralNanites" Caption="Structural Nanites"/> <!-- DeltaV - Switch to new topicals -->
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="RestorationNanites" Caption="Restoration Nanites"/> <!-- DeltaV - Switch to new topicals -->
+  </Box>
+  <Box>
+    Heals all forms of Brute damage.
+  </Box>
+  <Box>
+    Heals Burn damage, plus minor Caustic damage.
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AdvancedStructuralNanites" Caption="Advanced Structural Nanites"/> <!-- DeltaV - Switch to new topicals -->
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AdvancedRestorationNanites" Caption="Advanced Restoration Nanites"/> <!-- DeltaV - Switch to new topicals -->
+  </Box>
+  <Box>
+    More effectively heals Brute damage. <!-- DeltaV - Switch to new topicals -->
+  </Box>
+  <Box>
+    More effectively Heals Burn damage. <!-- DeltaV - Switch to new topicals -->
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Welder" Caption="Welders"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Pack"/>
+  </Box>
+  <Box>
+    Stops bleeding.
+  </Box>
+  <Box>
+    Restores blood and heals Bloodloss damage.
+  </Box>
+  </Table>
+  <Box>
+    <GuideEntityEmbed Entity="JumperUnit" Caption="Jumper Unit"/>
+  </Box>
+  MKCs in critical condition [color=red]cannot be revived by standard defibrillators,[/color] and must instead be resuscitated by these specialized units.
+  <Box>
+    <GuideEntityEmbed Entity="ChemistryBottleCrystalLatticeNanites" Caption="Nanites"/> <!-- DeltaV - Electrolytic Nanites were removed -->
+  </Box>
+  Nanites are a unique category of reagent that [color=yellow]only affects MKCs.[/color] They can be administered to treat unusual forms of damage like radiation and blindness.
+
+  ## Metabolisms and the Fluid Regulator
+  <Box>
+    <GuideEntityEmbed Entity="OrganMKCFluidRegulator" Caption="Fluid Regulator"/>
+  </Box>
+  Most reagents cannot affect MKCs and are not processed by their bodies. Generally, the only reagents that can be processed by MKCs are those with [color=yellow]caustic, radioactive, thermodynamic, electromagnetic, or esoteric properties,[/color] as well as [color=yellow]nanites[/color] as described above.
+
+  If any other reagent enters an MKC's body, a special organ called the fluid regulator will activate. This begins a very painful and uncomfortable process that eventually results in the violent expulsion of excess fluid from an MKC's body, leaving them in a puddle on the ground.
+
+  Doing this will also deal Piercing damage and have other nasty effects on the MKC proportionate to the amount of fluid released!
+
+  ## Naming Traditions
+  MKCs have a serial designation consisting of two parts: A short alphanumeric portion, typically a word or shortened version thereof, and a three-digit numerical portion.
+
+  Examples:
+  - CROW-550
+  - HNTR-241
+  - EYE-073
+</Document>

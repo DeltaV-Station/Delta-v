@@ -1,0 +1,29 @@
+- type: entity
+  id: JumperUnit
+  parent: [ Defibrillator, PowerCellSlotMediumItem ]
+  name: jumper unit
+  description: Helps kickstart a disabled MKC's power core and reactivate their cooling units.
+  components:
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Robotics/jumper_unit.rsi
+    layers:
+    - state: icon
+    - state: screen
+      map: [ "enum.ToggleableVisuals.Layer" ]
+      visible: false
+      shader: unshaded
+  - type: Defibrillator
+    zapHeal:
+      types:
+        Heat: -10
+    damageContainer: HumanoidSilicon
+
+- type: entity
+  id: JumperUnitEmpty
+  parent: JumperUnit
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

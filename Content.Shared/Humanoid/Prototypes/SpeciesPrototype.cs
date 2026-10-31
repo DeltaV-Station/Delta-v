@@ -158,6 +158,7 @@ public enum SpeciesNaming : byte
 {
     First,
     FirstLast,
+    FirstDashLast, // starcup - MKC naming
     FirstDashFirst,
     //Start of Nyano - Summary: for Oni naming
     LastNoFirst,

@@ -625,7 +625,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// <summary>
     /// Adds to a hashset every living humanoid player's minds, except for a single one which is exluded.
     /// </summary>
-    public void AddAliveHumans(HashSet<Entity<MindComponent>> allHumans, EntityUid? exclude = null, bool excludeSilicon = false) // Goobstation - Add excludeSilicon
+    public void AddAliveHumans(HashSet<Entity<MindComponent>> allHumans, EntityUid? exclude = null)
     {
         // HumanoidProfileComponent is used to prevent mice, pAIs, etc from being chosen
         var query = EntityQueryEnumerator<HumanoidProfileComponent, MobStateComponent>();

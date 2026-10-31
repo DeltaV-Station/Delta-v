@@ -8,6 +8,12 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 12h # DeltaV - was 1h
+# begin starcup: mkc
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - MKC
+# end starcup
 
 - type: antag
   id: Zombie
@@ -15,4 +21,11 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-zombie-objective
+# begin starcup: mkc
+  requirements:
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - MKC
+# end starcup
   guides: [ Zombies ]

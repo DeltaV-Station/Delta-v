@@ -40,6 +40,7 @@
           Full: {visible: true, state: o2}
           Neither: {visible: true, state: o1}
           Empty: {visible: false}
+  - type: PowerDrinkable # starcup - MKC drainable
 
 - type: entity
   name: potato battery
@@ -240,6 +241,7 @@
     startingCharge: 720
   - type: BatterySelfRecharger
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
+  - type: PowerDrinkableBlacklist # DeltaV - disallow MKC from drinking microreactors
 
 - type: entity
   parent: PowerCellMicroreactor
@@ -279,6 +281,7 @@
       difficulty: 4
       recipes:
       - PowerCellMicroreactor
+    - type: PowerDrinkableBlacklist # DeltaV - disallow MKC from drinking microreactors
 
 # Power cage (big heavy power cell for big devices)
 

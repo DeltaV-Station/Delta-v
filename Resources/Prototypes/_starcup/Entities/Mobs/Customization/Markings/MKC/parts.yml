@@ -1,0 +1,301 @@
+# Default Parts
+
+- type: marking
+  id: MobMKCHeadDefault
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: head
+
+- type: marking
+  id: MobMKCTorsoDefault
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: torso
+
+- type: marking
+  id: MobMKCTorsoSlimDefault
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: torso_slim
+
+- type: marking
+  id: MobMKCLLegDefault
+  bodyPart: LLeg
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: l_leg
+
+- type: marking
+  id: MobMKCLArmDefault
+  bodyPart: LArm
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: l_arm
+
+- type: marking
+  id: MobMKCLHandDefault
+  bodyPart: LHand
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: l_hand
+
+- type: marking
+  id: MobMKCLFootDefault
+  bodyPart: LFoot
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: l_foot
+
+- type: marking
+  id: MobMKCRLegDefault
+  bodyPart: RLeg
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: r_leg
+
+- type: marking
+  id: MobMKCRArmDefault
+  bodyPart: RArm
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: r_arm
+
+- type: marking
+  id: MobMKCRHandDefault
+  bodyPart: RHand
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: r_hand
+
+- type: marking
+  id: MobMKCRFootDefault
+  bodyPart: RFoot
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Species/MKC/parts.rsi
+    state: r_foot
+
+# Head
+
+- type: marking
+  id: CyberLimbsMarkingBishopMonitor
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: bishop_monitor-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: bishop_monitor-2
+
+- type: marking
+  id: CyberLimbsMarkingBishopHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: bishop_head-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: bishop_head-2
+
+- type: marking
+  id: CyberLimbsMarkingBishopHeadAlt
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: bishop_head_alt
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosMonitor
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: hesphiastos_monitor-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: hesphiastos_monitor-2
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: hesphiastos_head-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: hesphiastos_head-2
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: hesphiastos_head-3
+
+- type: marking
+  id: CyberLimbsMarkingMorpheusMonitor
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: morpheus_monitor
+
+- type: marking
+  id: CyberLimbsMarkingMorpheusHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: morpheus_head
+
+- type: marking
+  id: CyberLimbsMarkingShellguardMonitor
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: shellguard_monitor-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: shellguard_monitor-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: shellguard_head-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: shellguard_head-2
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiMonitor
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: wardtakahashi_monitor-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: wardtakahashi_monitor-2
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: wardtakahashi_head
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiHeadAlt
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: wardtakahashi_head_alt
+
+- type: marking
+  id: CyberLimbsMarkingXionMonitor
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: xion_monitor-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: xion_monitor-2
+
+- type: marking
+  id: CyberLimbsMarkingXionHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: xion_head-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: xion_head-2
+
+- type: marking
+  id: CyberLimbsMarkingZenghuHead
+  bodyPart: Head # DeltaV - HeadBase->Head
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: zenghu_head-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_heads.rsi
+    state: zenghu_head-2
+
+# Torso
+
+- type: marking
+  id: CyberLimbsMarkingBishopChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: bishop_torso-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: bishop_torso-2
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: hesphiastos_torso-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: hesphiastos_torso-2
+
+- type: marking
+  id: CyberLimbsMarkingMorpheusChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: morpheus_torso
+
+- type: marking
+  id: CyberLimbsMarkingShellguardChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: shellguard_torso-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: shellguard_torso-2
+
+- type: marking
+  id: CyberLimbsMarkingWardtakahashiChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: wardtakahashi_torso
+
+- type: marking
+  id: CyberLimbsMarkingXionChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: xion_torso-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: xion_torso-2
+
+- type: marking
+  id: CyberLimbsMarkingZenghuChest
+  bodyPart: Chest
+  groupWhitelist: [MKC]
+  sprites:
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: zenghu_torso-1
+  - sprite: _starcup/Mobs/Customization/MKC/mkc_torsos.rsi
+    state: zenghu_torso-2

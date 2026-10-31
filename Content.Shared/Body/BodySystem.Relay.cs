@@ -3,6 +3,9 @@ using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Medical;
 using JetBrains.Annotations;
+using Content.Shared.Movement.Systems; // starcup
+using Content.Shared.Verbs; // starcup
+using Robust.Shared.Player; // starcup
 
 namespace Content.Shared.Body;
 
@@ -18,6 +21,16 @@ public sealed partial class BodySystem
         SubscribeLocalEvent<BodyComponent, ApplyOrganMarkingsEvent>(RefRelayBodyEvent);
         SubscribeLocalEvent<BodyComponent, OrganCopyAppearanceEvent>(RefRelayBodyEvent);
         SubscribeLocalEvent<BodyComponent, HumanoidLayerVisibilityChangedEvent>(RefRelayBodyEvent);
+
+        // begin starcup
+        SubscribeLocalEvent<BodyComponent, GetVerbsEvent<InnateVerb>>(RelayBodyEvent);
+        SubscribeLocalEvent<BodyComponent, GetVerbsEvent<AlternativeVerb>>(RelayBodyEvent);
+        SubscribeLocalEvent<BodyComponent, LocalPlayerAttachedEvent>(RelayBodyEvent);
+        SubscribeLocalEvent<BodyComponent, LocalPlayerDetachedEvent>(RelayBodyEvent);
+        SubscribeLocalEvent<BodyComponent, RefreshMovementSpeedModifiersEvent>(RelayBodyEvent);
+
+        SubscribeLocalEvent<BodyComponent, MetabolismWhitelistEvent>(RefRelayBodyEvent);
+        // end starcup
     }
 
     private void RefRelayBodyEvent<T>(EntityUid uid, BodyComponent component, ref T args) where T : struct

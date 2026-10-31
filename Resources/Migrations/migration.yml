@@ -723,14 +723,6 @@ HandheldHealthAnalyzerEmpty: HandheldHealthAnalyzer
 #2026-01-09
 BorgModuleAdvancedChemical: BorgModuleAdvancedTopical
 
-# 2026-05-19
-# IPC Removal
-OrganIPCEars: null
-OrganIPCSpacePump: null
-OrganIPCTongue: null
-PlushieIPC: null
-LeftLegIPC: null
-
 # ShitMed Removal
 BoneGel: null
 OperatingTableCircuitboard: null
@@ -805,3 +797,26 @@ CrateVendingMachineRestockGetmoreChocolateCorpFilled: VendingMachineRestockGetmo
 CrateVendingMachineRestockChangFilled: VendingMachineRestockChang
 CrateVendingMachineRestockDiscountDansFilled: VendingMachineRestockDiscountDans
 CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
+
+# 2026-09-13
+# IPC->MKC body parts
+HeadIPC: OrganMKCHead
+LeftArmIPC: OrganMKCArmLeft
+LeftHandIPC: OrganMKCHandLeft
+LeftLegIPC: OrganMKCLegLeft
+LeftFootIPC: OrganMKCFootLeft
+RightArmIPC: OrganMKCArmRight
+RightHandIPC: OrganMKCHandRight
+RightLegIPC: OrganMKCLegRight
+RightFootIPC: OrganMKCFootRight
+TorsoIPC: OrganMKCTorso
+OrganIPCHead: OrganMKCHead
+OrganIPCArmLeft: OrganMKCArmLeft
+OrganIPCHandLeft: OrganMKCHandLeft
+OrganIPCLegLeft: OrganMKCLegLeft
+OrganIPCFootLeft: OrganMKCFootLeft
+OrganIPCArmRight: OrganMKCArmRight
+OrganIPCHandRight: OrganMKCHandRight
+OrganIPCLegRight: OrganMKCLegRight
+OrganIPCFootRight: OrganMKCFootRight
+OrganIPCTorso: OrganMKCTorso

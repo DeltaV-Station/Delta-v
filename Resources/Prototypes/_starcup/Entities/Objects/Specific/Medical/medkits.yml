@@ -1,0 +1,20 @@
+- type: entity
+  name: silicon repair kit
+  description: Equipped with the tools necessary to repair damaged silicons.
+  parent: Medkit
+  id: MedkitSilicon
+  components:
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Robotics/silicon_medkit.rsi
+    state: siliconkit
+  - type: Item
+    sprite: _starcup/Objects/Specific/Robotics/silicon_medkit.rsi
+    heldPrefix: siliconkit
+  # Begin DeltaV - whitelist for silicon repair medkits
+  - type: Storage 
+    whitelist:
+      tags:
+        - SiliconHealingTopical
+      components:
+        - Injector
+  # End DeltaV - whitelist for silicon repair medkits

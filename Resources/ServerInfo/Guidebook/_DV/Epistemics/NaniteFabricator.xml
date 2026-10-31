@@ -1,0 +1,26 @@
+<Document>
+# Nanite Fabricator
+
+The [color=yellow]Nanite Fabricator[/color] is the machine you will be using to actually apply those nanites you've been making.
+
+<GuideEntityEmbed Entity="NaniteFabricator" Caption="Nanite Fabricator"/>
+
+If you're not sure on how to make nanites, make sure to check the chemical section of the guidebook to see the recipes for them. The three base nanites, Structural, Charged, and Stabilizing can all be found in the [color=yellow]Robotech[/color].
+
+<GuideEntityEmbed Entity="VendingMachineRobotics" Caption="Robotech"/>
+
+The Nanite Fabricator is capable of combining solid materials, like steel, with nanites to make the actual topicals you'll be using. The recipes for these can be found in the guidebook.
+
+<Table Columns="3">
+<Box>
+    <GuideEntityEmbed Entity="StructuralNanites" Caption="Structural Nanites"/>
+</Box>
+<Box>
+    <GuideEntityEmbed Entity="RestorationNanites" Caption="Restoration Nanites"/>
+</Box>
+<Box>
+    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Pack"/>
+</Box>
+</Table>
+
+</Document>

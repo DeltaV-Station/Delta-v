@@ -167,10 +167,23 @@
     Bloodstream:
       metabolismRate : 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
+      # DeltaV begin - Make MKCs weak to acids
       - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition # DeltaV - Make MKCs weak to acids
+          type: [ MKC ]
+          inverted: true
         damage:
           types:
             Caustic: 11.0
+      - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition # DeltaV - Make MKCs weak to acids
+          type: [ MKC ]
+        damage:
+          types:
+            Caustic: 22
+      # DeltaV end - Make MKCs weak to acid
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -193,12 +206,27 @@
       effects:
       - !type:SatiateThirst
         factor: -1.5
+      # DeltaV begin - Make MKCs weak to acids
       - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition 
+          type: [ MKC ]
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Heat: 2.5
             Caustic: 1
+      - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition 
+          type: [ MKC ]
+        ignoreResistances: true
+        damage:
+          types:
+            Heat: 5
+            Caustic: 2
+        # DeltaV end - Make MKCs weak to acids
 
 - type: reagent
   id: FluorosulfuricAcid
@@ -227,10 +255,23 @@
     Bloodstream:
       metabolismRate: 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
+      # DeltaV begin - Make MKCs weak to acids
       - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition 
+          type: [ MKC ]
+          inverted: true
         damage:
           types:
             Caustic: 8
+      - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition 
+          type: [ MKC ]
+        damage:
+          types:
+            Caustic: 16
+      # DeltaV end - Make MKCs weak to acids
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -276,10 +317,23 @@
     Bloodstream:
       metabolismRate: 3.00 # Okay damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
+      # DeltaV begin - Make MKCs weak to acids
       - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition 
+          type: [ MKC ]
+          inverted: true
         damage:
           types:
             Caustic: 5
+      - !type:HealthChange
+        conditions: 
+        - !type:MetabolizerTypeCondition 
+          type: [ MKC ]
+        damage:
+          types:
+            Caustic: 10
+      # DeltaV end - Make MKCs weak to acids
       - !type:PopupMessage
         type: Local
         visualType: Large

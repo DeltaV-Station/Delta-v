@@ -1,0 +1,439 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: MKC
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 2
+      onlyGroupWhitelisted: false
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      onlyGroupWhitelisted: false
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 1
+      required: true
+      default: [ MobMKCHeadDefault ]
+    enum.HumanoidVisualLayers.Snout: # DeltaV - move monitor markings to snout
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: true
+      default: [ MobMKCTorsoDefault ]
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: true
+      default: [ MobMKCLArmDefault ]
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: true
+      default: [ MobMKCRArmDefault ]
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: true
+      default: [ MobMKCLHandDefault ]
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: true
+      default: [ MobMKCRHandDefault ]
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: true
+      default: [ MobMKCLLegDefault ]
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: true
+      default: [ MobMKCRLegDefault ]
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: true
+      default: [ MobMKCLFootDefault ]
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: true
+      default: [ MobMKCRFootDefault ]
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceMKC
+  name: MKC appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganMKCTorso
+      Head: OrganMKCHead
+      ArmLeft: OrganMKCArmLeft
+      ArmRight: OrganMKCArmRight
+      HandRight: OrganMKCHandRight
+      HandLeft: OrganMKCHandLeft
+      LegLeft: OrganMKCLegLeft
+      LegRight: OrganMKCLegRight
+      FootLeft: OrganMKCFootLeft
+      FootRight: OrganMKCFootRight
+      Brain: OrganMKCBrain # Delta V - Switch to unique brain
+      Eyes: OrganMKCEyes
+      Tongue: OrganMKCVocalSynth
+      Ears: OrganMKCSonicReceptors
+      Heart: OrganMKCPump
+      FluidRegulator: OrganMKCFluidRegulator
+      PowerCore: OrganMKCCore
+  - type: HumanoidProfile
+    species: MKC
+  - type: Inventory # DeltaV - mkc inventory template
+    speciesId: mkc
+    templateId: mkc
+
+- type: entity
+  parent:
+  - AppearanceMKC
+  - BaseSpeciesMobOrganic # DeltaV - reparent from BaseSpeciesMobSilicon
+  id: MobMKC
+  name: Urist McPositronic
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+        - ReagentId: Oil
+          Quantity: 300
+    damageBleedModifiers: BloodlossHumanoidSilicon # DeltaV - no heat cautery for MKC
+    bloodRefreshAmount: 0
+  - type: Barotrauma
+    damage:
+      types:
+        Heat: 0.6 # from 0.1, blunt damage removed
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage # mirrored from parent, changes noted
+    heatDamageThreshold: 365 # from 325
+    coldDamageThreshold: 200 # from 260
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: TemperatureSpeed # mirrored from parent, changes noted
+    thresholds:
+      235: 0.9 # from 293
+      220: 0.8 # from 280
+      200: 0.7 # from 260
+  - type: ThermalRegulator # mirrored from parent, changes noted
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 250 # from 500
+    sweatHeatRegulation: 1000 # from 2000
+    shiveringHeatRegulation: 1000 # from 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 10 # from 2
+  - type: TriggerOnEmp
+  - type: StunOnTrigger
+    stunAmount: 10
+  - type: KnockdownOnTrigger
+    knockdownAmount: 10
+    autoStand: false
+  # TODO(starcup): put this back in when EntityEffectOnTrigger doesn't cause an exception during SpawnAndDirtyAllEntities
+  #- type: EntityEffectOnTrigger
+  #  effects:
+  #    - !type:ModifyStatusEffect
+  #      effectProto: StatusEffectMuted
+  #      time: 10
+  - type: CriticalDamage
+    damage:
+      types:
+        Heat: 1
+    emote: Buzz-Two
+  - type: Uncloneable
+  # DeltaV - overwrite this with a blank one, I don't want to talk about it
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: 0.00
+  # DeltaV - overwrite this with a blank one, I don't want to talk about it
+  - type: DamageTypeTransfer # DeltaV - transfer damage types
+    transfers:
+      Poison: Caustic
+      Asphyxiation: Bloodloss
+  # DeltaV - get rid of unwanted MKC components:
+  # Internals, Respirator, AffectedByCPR, CanDoCPR, Hunger, Thirst, Perishable, Butcherable
+  - type: MKCComponentRemoval
+  # Begin DeltaV - move components from BaseSpeciesMobSilicon
+  - type: Damageable
+    damageContainer: HumanoidSilicon
+    damageModifierSet: HumanoidSilicon
+  - type: ZombieImmune
+  - type: Deathgasp
+    prototype: SiliconDeathgasp
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection: MetalBulletImpact
+    soundTypes:
+      Heat:
+        collection: MetalLaserImpact
+  - type: Speech
+    speechSounds: Pai
+  - type: Vocal
+    sounds:
+      Male: UnisexMKC
+      Female: UnisexMKC
+      Unsexed: UnisexMKC
+  - type: TypingIndicator
+    proto: robot
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: LightningTarget
+    priority: 1
+    lightningExplode: false
+  - type: MobThresholds
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+  # End DeltaV - move components from BaseSpeciesMobSilicon
+
+- type: entity
+  parent: OrganBase
+  id: OrganMKC
+  abstract: true
+  suffix: MKC
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Oil
+          Quantity: 10
+
+- type: entity
+  parent: OrganMKC
+  id: OrganMKCInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _starcup/Mobs/Species/MKC/organs.rsi
+  - type: GibbableOrgan # DeltaV - Make all MKC organs physical
+
+- type: entity
+  id: OrganMKCVisual
+  abstract: true
+  components:
+  - type: VisualOrganMarkings
+    markingData:
+      group: MKC
+
+- type: entity
+  parent: [ OrganMKC, OrganMKCVisual ]
+  id: OrganMKCExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _starcup/Mobs/Species/MKC/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: null
+      state: null
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseTorso ]
+  id: OrganMKCTorso
+  name: torso
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseHead ]
+  id: OrganMKCHead
+  name: head
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseArmLeft ]
+  id: OrganMKCArmLeft
+  name: left arm
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseArmRight ]
+  id: OrganMKCArmRight
+  name: right arm
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseHandLeft ]
+  id: OrganMKCHandLeft
+  name: left hand
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseHandRight ]
+  id: OrganMKCHandRight
+  name: right hand
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseLegLeft ]
+  id: OrganMKCLegLeft
+  name: left leg
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseLegRight ]
+  id: OrganMKCLegRight
+  name: right leg
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseFootLeft ]
+  id: OrganMKCFootLeft
+  name: left foot
+
+- type: entity
+  parent: [ OrganMKCExternal, OrganBaseFootRight ]
+  id: OrganMKCFootRight
+  name: right foot
+
+- type: entity
+  parent: [ OrganMKCVisual, OrganBaseEyes, OrganMKCInternal ]
+  id: OrganMKCEyes
+  name: visual receptors
+  description: Despite their similarity to eyeballs, these sensory devices are usually kept inside an MKC's chassis for safekeeping.
+  components:
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: Mobs/Customization/eyes.rsi
+      state: no_eyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganMKCInternal ]
+  id: OrganMKCVocalSynth
+  name: vocal synthesizer
+  description: A vocal synthesizer, capable of producing speech using complex audio software.
+  components:
+  - type: Sprite
+    layers:
+    - state: vocal_synth
+
+- type: entity
+  parent: [ OrganBaseEars, OrganMKCInternal ]
+  id: OrganMKCSonicReceptors
+  name: sonic receptors
+  description: A paired set of devices that allow silicons to hear as a biological being might.
+  components:
+  - type: Sprite
+    layers:
+    - state: sonic_receptors
+
+- type: entity
+  id: OrganMKCCore
+  parent: OrganMKCInternal
+  name: power core
+  description: Stores and provides electricity to power an MKC's chassis.
+  components:
+  - type: Organ
+    category: PowerCore
+  - type: Sprite
+    layers:
+    - state: power_core
+  - type: Battery
+    maxCharge: 1920
+    startingCharge: 1920
+  - type: PowerCore
+
+- type: entity
+  id: OrganMKCPump
+  parent: OrganMKCInternal
+  name: micro pump
+  description: Small, but powerful hydraulics allow this little miracle of robotics to distribute lubricant across an MKC's chassis.
+  components:
+  - type: Sprite
+    layers:
+    - state: micro_pump
+  - type: Organ
+    category: Heart
+  - type: Metabolizer
+    maxReagents: 4
+    metabolizerTypes: [MKC]
+    stages: [Bloodstream]
+  - type: MetabolizerWhitelist
+    reagentWhitelist:
+    # nanites
+    # - ElectrolyticNanites  Delta V - remove electrolytic nanites
+    - CrystalLatticeNanites
+    - OpticalFiberNanites
+    - RescueNanites
+    - ReconstructorNanites
+    - OverclockNanites
+    # caustic
+    - PolytrinicAcid
+    - FerrochromicAcid
+    - FluorosulfuricAcid
+    - SulfuricAcid
+    - Artifexium
+    - Fluorine
+    - Sulfur
+    - Bleach
+    # radioactive
+    - Uranium
+    - Radium
+    - Tritium
+    # thermodynamic
+    - Thermite
+    - Napalm
+    - Phlogiston
+    - ChlorineTrifluoride
+    - Fresium
+    - WeldingFuel # DeltaV - alternate way to restore blood
+    # electromagnetic
+    - Tazinide
+    - Licoxide
+    - Fersilicite
+    # esoteric
+    - BuzzochloricBees
+    - Razorium
+    # DeltaV - These don't really make sense
+    # - Honk
+    # - Happiness
+    # - Laughter
+    # DeltaV - These don't really make sense
+    - JuiceThatMakesYouWeh
+    - JuiceThatMakesYouHew
+    - Holywater
+
+- type: entity
+  id: OrganMKCFluidRegulator
+  parent: OrganMKCInternal
+  name: fluid regulator
+  description: Collects built-up fluids from across an MKC's body, then violently expels them.
+  components:
+  - type: Organ
+    category: FluidRegulator
+  - type: Sprite
+    layers:
+    - state: fluid_regulator
+  - type: FluidEjector
+    ejectionDamage:
+      types:
+        Piercing: 1
+    ejectionDamageMultiplier: 0.8  # per unit of expelled reagent
+
+# Begin Delta V - Define MKC unique brain
+- type: entity
+  parent: [ OrganBaseBrain, OrganMKCInternal ]
+  id: OrganMKCBrain
+  name: miniature positronic brain
+  description: A shrunken down positronic brain capable of being put directly into cyborgs, incapable of speech or out of chassis memory due to the smaller size.
+  components:
+  - type: BorgBrain
+  - type: Sprite
+    sprite: _DV/Mobs/Species/MKC/organs.rsi
+    layers:
+    - state: miniature_positronic_brain
+# End Delta V - Define MKC unique brain

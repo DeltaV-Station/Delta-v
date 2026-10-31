@@ -1,8 +1,10 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes; // starcup
 using Content.Shared.DoAfter;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes; // starcup
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical;
@@ -86,6 +88,12 @@ public sealed partial class DefibrillatorComponent : Component
 
     [DataField]
     public SoundSpecifier? ReadySound = new SoundPathSpecifier("/Audio/Items/Defib/defib_ready.ogg");
+
+    /// <summary>
+    /// starcup: The damage container this defibrillator is compatible with.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<DamageContainerPrototype> DamageContainer;
 }
 
 /// <summary>
