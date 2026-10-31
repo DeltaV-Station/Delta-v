@@ -48,3 +48,11 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+      # Delta-v addittion - Allows canisters to be refilled via synthesizer
+  - type: SolutionRefuel 
+    fuelSolutionName: tank
+    fuelReagent: Echion
+  - type: Tag
+    tags:
+     - EchionGun
+     #End Delta-v addittion
