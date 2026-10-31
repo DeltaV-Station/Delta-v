@@ -4,6 +4,11 @@
   name: syndicate neuroling
   description: An artificial brain, full of false-life and nefarious intent
   components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Robotics/neuroling.rsi
+    layers:
+    - state: neuroling
+      map: ["base"]
   - type: ToggleableGhostRole
     roleName: synd-positronic-brain-role-name
     roleDescription: synd-positronic-brain-role-description
@@ -15,3 +20,10 @@
     channels:
     - Binary
     - Syndicate
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        base:
+          Off: { state: neuroling }
+          Searching: { state: neuroling-searching }
+          On: { state: neuroling-occupied }
