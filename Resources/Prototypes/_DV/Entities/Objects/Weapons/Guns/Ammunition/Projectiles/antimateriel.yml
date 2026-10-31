@@ -16,3 +16,71 @@
       - Wall
       - Window
     healthThreshold: 200 # Normal walls have a threshold of 200.
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielHiPen
+  name: bullet (.60 plastitanium incendiary)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25 #Less damage and no AP
+        Heat: 5
+        Structural: 30
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 40
+  - type: PiercingProjectile
+    pierceCounterWhitelist:
+      tags:
+      - Wall
+      - Window
+      - LightFixture
+    maxPierceNumberThreshold: 4
+    healthThreshold: 600 # Normal walls have a threshold of 200. Reinforced are 600.
+  - type: IgniteOnCollide
+    fireStacks: 0.8
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielToxin
+  name: bullet (.60 anti-material pestiline)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Structural: 70
+    ignoreResistances: true
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 60
+  - type: PiercingProjectile
+    pierceCounterWhitelist:
+      tags:
+      - Wall
+      - Window
+      - LightFixture
+    maxPierceNumberThreshold: 3
+    healthThreshold: 200
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 6
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 6
+    blockSlots: NONE
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo

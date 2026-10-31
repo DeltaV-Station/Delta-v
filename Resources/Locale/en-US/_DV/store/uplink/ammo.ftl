@@ -9,3 +9,9 @@ uplink-caseless-pistol-tranq-desc = A magazine with 10 rounds of tranquilizer am
 
 uplink-caseless-pistol-poison-name = pistol magazine (.25 caseless toxin)
 uplink-caseless-pistol-poison-desc = A magazine with 10 rounds of poisonous ammunition loaded with Lexorin. Takes four shots and a short time to kill. For use with the Cobra.
+
+uplink-antimaterial-hipen-name = ammunition box (.60 plastitanium incendiary)
+uplink-antimaterial-hipen-desc = A box of 10 specialized rounds for use with the Hristov. Sacrifices damage and armor penetration for the ability to go through reinforced walls.
+
+uplink-antimaterial-toxin-name = cartridge (.60 anti-material pestiline)
+uplink-antimaterial-toxin-desc = A singular anti-material cartridge with 6 units of pestiline within the tip. The poison will very slowly cause cellular damage in the target, however can be easily flushed out. Assuming they live long enough to manage that.

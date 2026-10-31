@@ -19,3 +19,57 @@
   - type: SpentAmmoVisuals
   - type: StaticPrice
     price: 20
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeAntiMaterielHiPen
+  name: cartridge (.60 plastitanium incendiary)
+  description: A high-power cartridge used by high-precision rifles. This one penetrates further but loses out on damage and AP.
+  components:
+  - type: Tag
+    tags:
+    - CartridgeAntiMateriel
+    - CartridgeLMGAntiMateriel
+  - type: CartridgeAmmo
+    proto: BulletAntiMaterielHiPen
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeAntiMaterielToxin
+  name: cartridge (.60 anti-material pestiline)
+  description: A high-power cartridge used by high-precision rifles. This one has a slow acting deadly poison in the tip.
+  components:
+  - type: Tag
+    tags:
+    - CartridgeAntiMateriel
+    - CartridgeLMGAntiMateriel
+  - type: CartridgeAmmo
+    proto: BulletAntiMaterielToxin
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/large_toxic_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+  - type: Engraveable
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Pestiline
+          Quantity: 6
+  - type: SolutionTransfer
+    maxTransferAmount: 6

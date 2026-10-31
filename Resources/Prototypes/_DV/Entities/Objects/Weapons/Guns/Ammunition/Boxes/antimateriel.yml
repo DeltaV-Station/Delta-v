@@ -31,3 +31,34 @@
       - CartridgeLMGAntiMateriel
     proto: CartridgeLMGAntiMateriel
     capacity: 30
+
+- type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBoxAntiMaterielHiPen
+  name: ammunition box (.60 plastitanium incendiary)
+  description: A cardboard box of .60 plastitanium incendiary rounds.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMaterielHiPen
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel_hipen.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBoxAntiMaterielToxin #You should not be able to buy a box of this. You should NEVER be allowed to buy a box of this.
+  name: ammunition box (.60 anti-material pestiline)
+  description: A cardboard box of .60 anti-material pestiline rounds. Jesus christ.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMaterielToxin
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
