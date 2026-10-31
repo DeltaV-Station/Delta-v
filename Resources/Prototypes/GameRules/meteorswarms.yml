@@ -102,19 +102,20 @@
 
 # Game Rules
 
-- type: entity
-  parent: BaseGameRule
-  id: MeteorSwarm
-  abstract: true
-  components:
-  - type: GameRule
-  - type: StationEvent
-    reoccurrenceDelay: 1
-    earliestStart: 12
-    minimumPlayers: 25
-  - type: PrecognitionResult # DeltaV - Precogniton
-    message: psionic-power-precognition-meteor-swarm-result-message
-  - type: MeteorSwarm
+# DeltaV - We replaced the upstream event.
+#- type: entity
+#  parent: BaseGameRule
+#  id: MeteorSwarm
+#  abstract: true
+#  components:
+#  - type: GameRule
+#  - type: StationEvent
+#    reoccurrenceDelay: 1
+#    earliestStart: 12
+#    minimumPlayers: 25
+#  - type: PrecognitionResult # DeltaV - Precogniton
+#    message: psionic-power-precognition-meteor-swarm-result-message
+#  - type: MeteorSwarm
 
 - type: entity
   parent: MeteorSwarm
