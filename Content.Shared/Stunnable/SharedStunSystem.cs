@@ -147,13 +147,16 @@ public abstract partial class SharedStunSystem : EntitySystem
         return true;
     }
 
-    private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration, bool visualized)
+    private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration, bool visualized, bool drop = true) // DeltaV - sets drop using an argument
     {
         var ev = new StunnedEvent(); // todo: rename event or change how it is raised - this event is raised each time duration of stun was externally changed
         RaiseLocalEvent(uid, ref ev);
 
-        var evDropHands = new DropHandItemsEvent();
-        RaiseLocalEvent(uid, ref evDropHands);
+        if (drop) // DeltaV - only drops hand items if drop is true
+        {
+            var evDropHands = new DropHandItemsEvent();
+            RaiseLocalEvent(uid, ref evDropHands);
+        }
 
         if (visualized)
             TrySeeingStars(uid);
@@ -311,14 +314,14 @@ public abstract partial class SharedStunSystem : EntitySystem
         return true;
     }
 
-    public bool TryUpdateParalyzeDuration(EntityUid uid, TimeSpan? duration, bool visualized = false)
+    public bool TryUpdateParalyzeDuration(EntityUid uid, TimeSpan? duration, bool visualized = false, bool drop = true) // DeltaV - let drop be set by argument
     {
         if (!_status.TryUpdateStatusEffectDuration(uid, StunId, duration))
             return false;
 
         // We can't exit knockdown when we're stunned, so this prevents knockdown lasting longer than the stun.
-        Knockdown(uid, null, false, true, true);
-        OnStunnedSuccessfully(uid, duration, visualized);
+        Knockdown(uid, null, false, true, drop); // DeltaV - sets drop using an argument
+        OnStunnedSuccessfully(uid, duration, visualized, drop); // DeltaV - sets drop using an argument
 
         return true;
     }
