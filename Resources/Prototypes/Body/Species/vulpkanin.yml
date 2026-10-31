@@ -26,7 +26,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      default: [ VulpTail ] // DeltaV - We have our own Vulp markings
+      default: [ VulpTail ] # DeltaV - We have our own Vulp markings
     enum.HumanoidVisualLayers.LArm:
       limit: 2
       required: false
@@ -138,6 +138,7 @@
 #          32:
 #            sprite: Mobs/Species/Vulpkanin/displacement.rsi
 #            state: belt
+# DeltaV End - No displacements for Vulpkanines
 
 - type: entity
   parent:
@@ -258,7 +259,7 @@
   id: OrganVulpkaninTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganVulpkaninExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ] # DeltaV - Different Sex Head
   id: OrganVulpkaninHead
   components:
   - type: VisualOrganMarkings
