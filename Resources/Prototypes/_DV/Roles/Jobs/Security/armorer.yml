@@ -23,16 +23,33 @@
   - Armory
   - Maintenance
   - External
+  - Detective
   - Cryogenics
+
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-#- type: startingGear
-#  id: ArmorerGear
+- type: startingGear
+  id: ArmorerGear
+  equipment:
+    id: ArmorerPDA
+    ears: ClothingHeadsetSecurity
+  storage:
+    back:
+    - Flash
+
+# TODO
+#- type: chameleonOutfit
+#  id: WardenChameleonOutfit
+#  job: Warden
+#  hasMindShield: true
 #  equipment:
-#    id: ArmorerPDA
-#    ears: ClothingHeadsetSecurity
-#  storage:
-#    back:
-#    - Flash
+#    head: ClothingHeadHatWarden
+#    mask: ClothingMaskGasSecurity
+#    outerClothing: ClothingOuterCoatWarden
+#    jumpsuit: ClothingUniformJumpsuitWarden
+#    neck: Dinkystar
+#    belt: ClothingBeltSecurity
+#    gloves: ClothingHandsGlovesCombat
+#    shoes: ClothingShoesBootsJack
