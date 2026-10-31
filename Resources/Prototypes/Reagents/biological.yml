@@ -161,6 +161,30 @@
         probability: 0.25
 
 - type: reagent
+  id: Romerodone
+  name: reagent-name-romerodone
+  group: Biological
+  desc: reagent-desc-romerodone
+  physicalDesc: reagent-physical-desc-necrotic
+  flavor: metallic
+  color: "#e62600"
+  metabolisms:
+    Digestion:
+      # Disgusting!
+      effects:
+      - !type:SatiateThirst # Delta V - i dont think we have satiationtype yet but this was satiatiiontype: thirtst so yeah whenever we upmerge ig
+        factor: -0.5
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+      - !type:Vomit
+        probability: 0.5
+
+
+- type: reagent
   id: Ichor
   name: reagent-name-ichor
   group: Biological
