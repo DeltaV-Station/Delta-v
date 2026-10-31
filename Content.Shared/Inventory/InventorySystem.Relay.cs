@@ -1,5 +1,6 @@
 using Content.Shared._DV.Overlays; // DeltaV
 using Content.Shared._DV.Psionics.Events; // DeltaV
+using Content.Shared._Funkystation.Fluids; // Funky - Stainable Clothing
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
@@ -119,6 +120,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<InnateVerb>>(OnGetInnateVerbs);
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs); // DeltaV - lanyard examine tab
 
+        SubscribeLocalEvent<InventoryComponent, SpilledOnEvent>(RelayInventoryEvent); // Funky - Stainable Clothing.
     }
 
     protected void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
