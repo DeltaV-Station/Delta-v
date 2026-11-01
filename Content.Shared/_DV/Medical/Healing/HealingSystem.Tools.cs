@@ -9,7 +9,8 @@ public sealed partial class HealingSystem
     [Dependency] private readonly SharedToolSystem _tool = default!;
 
     // UseTool forbids literals
-    private readonly List<string> EmptyToolQualities = [];
+    // ReSharper disable once CollectionNeverUpdated.Local
+    private readonly List<string> _emptyToolQualities = [];
 
     /// <summary>
     /// Tries to use the healing item as a tool, using a tool doafter.
@@ -32,7 +33,7 @@ public sealed partial class HealingSystem
             return false;
 
         toolUseSuccess = _tool.UseTool(healing, user, target, doAfterDelay,
-            EmptyToolQualities, new HealingDoAfterEvent(), out _, toolHealing.Fuel, breakOnDamage:false);
+            _emptyToolQualities, new HealingDoAfterEvent(), out _, toolHealing.Fuel, breakOnDamage:false);
         return true;
     }
 }

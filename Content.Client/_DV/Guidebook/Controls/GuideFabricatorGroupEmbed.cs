@@ -8,6 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._DV.Guidebook.Controls;
 
+[UsedImplicitly]
 public sealed partial class GuideFabricatorGroupEmbed : BoxContainer, IDocumentTag
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;

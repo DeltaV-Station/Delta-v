@@ -7,7 +7,6 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client._DV.Fabricator;
@@ -21,7 +20,7 @@ public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : 
     private FabricatorMenu? _menu;
 
     [ViewVariables]
-    private Dictionary<int, EntityUid> _solids = new();
+    private readonly Dictionary<int, EntityUid> _solids = new();
 
     protected override void Open()
     {
