@@ -1,4 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Forensics;
@@ -155,6 +156,10 @@ namespace Content.Server.Nutrition.EntitySystems
                 {
                     continue;
                 }
+
+                // DeltaV - only add reagents if user can breathe
+                if (!HasComp<RespiratorComponent>(containerManager.Owner))
+                    continue;
 
                 _reactiveSystem.DoEntityReaction(containerManager.Owner, inhaledSolution, ReactionMethod.Ingestion);
                 _bloodstreamSystem.TryAddToBloodstream((containerManager.Owner, bloodstream), inhaledSolution);
