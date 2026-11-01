@@ -1,6 +1,5 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._DV.Throwing;
 using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.Camera;
 using Content.Shared.Damage;
@@ -25,7 +24,6 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
     [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly CatchableSystem _catchable = default!; //Delta-V
 
     public override void Initialize()
     {
@@ -36,10 +34,10 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
 
     private void OnDoHit(EntityUid uid, DamageOtherOnHitComponent component, ThrowDoHitEvent args)
     {
-        if (TerminatingOrDeleted(args.Target) || args.Handled)
+        if (TerminatingOrDeleted(args.Target) || args.Handled) // Delta-V
             return;
 
-        var dmg = _damageable.ChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Comp.Thrower);
+        var dmg = _damageable.ChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Component.Thrower);
 
         // Log damage only for mobs. Useful for when people throw spears at each other, but also avoids log-spam when explosions send glass shards flying.
         if (HasComp<MobStateComponent>(args.Target))
@@ -62,6 +60,4 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
             // ES END
         }
     }
-
-
 }

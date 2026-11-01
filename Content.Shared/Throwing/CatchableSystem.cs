@@ -1,16 +1,16 @@
-using Content.Shared._DV.Throwing;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
-using Content.Shared.StatusEffectNew;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared._DV.Throwing; // Delta-V - Telekinesis
+using Content.Shared.StatusEffectNew; // Delta-V - Telekinesis
 
 namespace Content.Shared.Throwing;
 
@@ -20,7 +20,7 @@ public sealed partial class CatchableSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!; // Delta-V - Telekinesis
     [Dependency] private readonly ThrownItemSystem _thrown = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -33,7 +33,7 @@ public sealed partial class CatchableSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CatchableComponent, ThrowDoHitEvent>(OnDoHit);
-        SubscribeLocalEvent<CatcherStatusEffectComponent, StatusEffectRelayedEvent<ThrowHitByEvent>>(OnGotHit);
+        SubscribeLocalEvent<CatcherStatusEffectComponent, StatusEffectRelayedEvent<ThrowHitByEvent>>(OnGotHit); // Delta-V - Telekinesis
 
         _handsQuery = GetEntityQuery<HandsComponent>();
         _combatModeQuery = GetEntityQuery<CombatModeComponent>();
@@ -41,29 +41,29 @@ public sealed partial class CatchableSystem : EntitySystem
 
     private void OnDoHit(Entity<CatchableComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (CheckCatching(args.Target, ent, out var hand))
+        if (CheckCatching(args.Target, ent, ent.Comp.CatchChance))
         {
-            TryCatch(args.Target, ent, ent.Comp.CatchChance, hand);
+            TryCatch(args.Target, ent); // Delta-V - Telekinesis
             _audio.PlayPvs(ent.Comp.CatchSuccessSound, ent.Owner);
             args.Handled = true;
         }
 
     }
 
-    private void OnGotHit(Entity<CatcherStatusEffectComponent> ent, ref StatusEffectRelayedEvent<ThrowHitByEvent> args)
+    private void OnGotHit(Entity<CatcherStatusEffectComponent> ent, ref StatusEffectRelayedEvent<ThrowHitByEvent> args)  // Delta-V - Telekinesis
     {
-        if (CheckCatching(args.Args.Target, args.Args.Thrown, out var hand))
+        if (CheckCatching(args.Args.Target, args.Args.Thrown, ent.Comp.CatchRate) && (ent.Comp.Catchable.Contains(args.Args.Thrown) || ent.Comp.Catchable.Count == 0))
         {
-            TryCatch(args.Args.Target, args.Args.Thrown, ent.Comp.CatchRate, hand);
+            TryCatch(args.Args.Target, args.Args.Thrown);
             args.Args.Handled = true;
         }
     }
 
-    private void TryCatch(EntityUid catcher, EntityUid caught, float chance, HandsComponent? hands)
+    private void TryCatch(EntityUid catcher, EntityUid caught) // Delta-V - Telekinesis - Isolated this into a function
     {
         // Try to catch!
-        if (!_hands.TryPickupAnyHand(catcher, caught, handsComp: hands, animate: false) || hands == null)
-            return; // The hands are full!
+        if (!_handsQuery.TryComp(catcher, out var handComp) || !_hands.TryPickupAnyHand(catcher, caught, handsComp: handComp, animate: false))
+            return; // The hands are full! (Or don't exist.)
 
         // Success!
 
@@ -87,55 +87,27 @@ public sealed partial class CatchableSystem : EntitySystem
         _popup.PopupEntity(othersMessage, catcher, Filter.PvsExcept(catcher), true);
     }
 
-    public bool CheckCatching(EntityUid catcher, EntityUid caught, out HandsComponent? hand)
+    private bool CheckCatching(EntityUid catcher, EntityUid caught, float catchChance)
     {
         if (!_handsQuery.TryGetComponent(catcher, out var handsComp) || !_hands.CanPickupAnyHand(catcher, caught, handsComp: handsComp))
-        {
-            hand = null;
             return false; // don't do anything for walls etc
-        }
-
-        hand = handsComp;
 
         float chance;
         // TODO see about being able to cancel the embeddable event instead of this
+        // Make it so that I can import the chances and such instead of having this here. Now that I've made it only used here it works.
         // being a catcher takes priority since most things aren't catchable by default.
         // I should probably just make it take the higher catch rate, though... hm.
-        if (_status.TryEffectsWithComp<CatcherStatusEffectComponent>(catcher, out var statuses))
-        {
-            chance = 0;
-            foreach (var status in statuses)
-            {
-                chance = chance > status.Comp1.CatchRate ? chance : status.Comp1.CatchRate;
-                if (!status.Comp1.Catchable.Contains(caught))
-                    return false;
-            }
-        }
-        else if (TryComp<CatchableComponent>(caught, out var catchable))
-        {
-            chance = catchable.CatchChance;
-            // Is the catcher in combat mode if required?
-            if (catchable.RequireCombatMode && (!_combatModeQuery.TryComp(catcher, out var combatModeComp) ||
-                                                !combatModeComp.IsInCombatMode))
-                return false;
-            // Is the catcher able to catch this item?
-            if (!_whitelist.IsWhitelistPassOrNull(catchable.CatcherWhitelist, catcher))
-                return false;
-        }
-        else
-            return false;
 
         // needs the comps
-        var attemptEv = new CatchAttemptEvent(caught, chance);
+        var attemptEv = new CatchAttemptEvent(caught, catchChance);
         RaiseLocalEvent(catcher, ref attemptEv);
 
         if (attemptEv.Cancelled)
             return false;
 
-        if (!SharedRandomExtensions.PredictedProb(_timing, chance, GetNetEntity(caught)))
+        if (!SharedRandomExtensions.PredictedProb(_timing, catchChance, GetNetEntity(caught)))
             return false;
 
-        hand = handsComp;
         return true;
     }
 }

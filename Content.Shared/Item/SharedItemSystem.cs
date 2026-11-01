@@ -1,19 +1,21 @@
-using Content.Shared._DV.Psionics.Events;
-using Content.Shared._DV.Throwing;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.StatusEffectNew;
 using Content.Shared.Storage;
-using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Shared.Collections;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+// Begin Delta-V
+using Content.Shared._DV.Psionics.Events;
+using Content.Shared._DV.Throwing;
+using Content.Shared.Throwing;
+using Content.Shared.StatusEffectNew;
+// End Delta-V
 
 namespace Content.Shared.Item;
 
@@ -299,7 +301,7 @@ public abstract class SharedItemSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
-        // // Barely does anything to standing things, but can move objects quite a distance. Small items get brought into hand.
+        // Small items get brought into hand.
         _throwing.TryThrow(args.Target, Transform(args.User).Coordinates);
         _status.TryAddStatusEffectDuration(args.User, "StatusEffectCatcher", TimeSpan.FromSeconds(2.5));
         if (_status.TryEffectsWithComp<CatcherStatusEffectComponent>(args.User, out var statuses))

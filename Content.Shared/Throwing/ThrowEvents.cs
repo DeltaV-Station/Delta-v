@@ -22,7 +22,7 @@ public sealed class ThrowHitByEvent(EntityUid thrown, EntityUid target, ThrownIt
 
     public EntityUid Target = target;
 
-    public ThrownItemComponent Comp = component;
+    public ThrownItemComponent Component = component;
 }
 
 /// <summary>
@@ -35,5 +35,5 @@ public sealed class ThrowDoHitEvent(EntityUid thrown, EntityUid target, ThrownIt
 
     public EntityUid Target = target;
 
-    public ThrownItemComponent Comp = component;
+    public ThrownItemComponent Component = component;
 }

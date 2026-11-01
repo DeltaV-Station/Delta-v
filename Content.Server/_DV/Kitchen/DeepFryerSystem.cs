@@ -95,7 +95,7 @@ public sealed class DeepFryerSystem : SharedDeepFryerSystem
 
     private void OnThrowHitBy(Entity<DeepFryerComponent> ent, ref ThrowHitByEvent args)
     {
-        if (args.Comp.Thrower is not { } thrower || !CanInsertItem(ent, args.Thrown, out _))
+        if (args.Component.Thrower is not { } thrower || !CanInsertItem(ent, args.Thrown, out _))
             return;
 
         if (!HasComp<ProfessionalChefComponent>(thrower) && _random.Prob(ent.Comp.MissChance))

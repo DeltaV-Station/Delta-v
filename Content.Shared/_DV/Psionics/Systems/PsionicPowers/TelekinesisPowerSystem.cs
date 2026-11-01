@@ -11,7 +11,7 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-    //TODO: make psionic rollable (should be done)
+    // TODO:
     // add proper cooldown
     // consider more interactions
 

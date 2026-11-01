@@ -26,7 +26,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly CatchableSystem _catchable = default!; // Delta-V
 
     public override void Initialize()
     {
