@@ -221,10 +221,8 @@
   description: Pull an item towards you with an invisible force.
   components:
   - type: Action
-    icon:
-      sprite: _DV/Interface/Actions/actions_psionics.rsi
-      state: dispel
-    useDelay: 1
+    icon: { sprite: _DV/Effects/arcs.rsi, state: skiaswipe }
+    useDelay: 30
     checkCanInteract: false
   - type: TargetAction
     range: 0

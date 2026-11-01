@@ -20,7 +20,6 @@ public sealed partial class CatchableSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!; // Delta-V - Telekinesis
     [Dependency] private readonly ThrownItemSystem _thrown = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
@@ -41,29 +40,46 @@ public sealed partial class CatchableSystem : EntitySystem
 
     private void OnDoHit(Entity<CatchableComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (CheckCatching(args.Target, ent, ent.Comp.CatchChance))
-        {
-            TryCatch(args.Target, ent); // Delta-V - Telekinesis
-            _audio.PlayPvs(ent.Comp.CatchSuccessSound, ent.Owner);
-            args.Handled = true;
-        }
+        // Is the catcher in combat mode if required?
+        if (ent.Comp.RequireCombatMode && (!_combatModeQuery.TryComp(args.Target, out var combatModeComp) || !combatModeComp.IsInCombatMode))
+            return;
+        // Is the catcher able to catch this item?
+        if (!_whitelist.IsWhitelistPassOrNull(ent.Comp.CatcherWhitelist, args.Target))
+            return;
 
+        if (!TryCatch(args.Target, ent, ent.Comp.CatchChance)) // Delta-V - Telekinesis
+            return;
+
+        _audio.PlayPvs(ent.Comp.CatchSuccessSound, ent.Owner);
+        args.Handled = true;
     }
 
     private void OnGotHit(Entity<CatcherStatusEffectComponent> ent, ref StatusEffectRelayedEvent<ThrowHitByEvent> args)  // Delta-V - Telekinesis
     {
-        if (CheckCatching(args.Args.Target, args.Args.Thrown, ent.Comp.CatchRate) && (ent.Comp.Catchable.Contains(args.Args.Thrown) || ent.Comp.Catchable.Count == 0))
-        {
-            TryCatch(args.Args.Target, args.Args.Thrown);
+        if (!ent.Comp.Catchable.Contains(args.Args.Thrown))
+            return;
+
+        if (TryCatch(args.Args.Target, args.Args.Thrown, ent.Comp.CatchRate))
             args.Args.Handled = true;
-        }
     }
 
-    private void TryCatch(EntityUid catcher, EntityUid caught) // Delta-V - Telekinesis - Isolated this into a function
+    private bool TryCatch(EntityUid catcher, EntityUid caught, float catchChance) // Delta-V - Telekinesis - Isolated this into a function
     {
+        if (!_handsQuery.TryGetComponent(catcher, out var handsComp))
+            return false; // don't do anything for walls etc
+
+        var attemptEv = new CatchAttemptEvent(caught, catchChance);
+        RaiseLocalEvent(catcher, ref attemptEv);
+
+        if (attemptEv.Cancelled)
+            return false;
+
+        if (!SharedRandomExtensions.PredictedProb(_timing, catchChance, GetNetEntity(caught)))
+            return false;
+
         // Try to catch!
-        if (!_handsQuery.TryComp(catcher, out var handComp) || !_hands.TryPickupAnyHand(catcher, caught, handsComp: handComp, animate: false))
-            return; // The hands are full! (Or don't exist.)
+        if (!_hands.TryPickupAnyHand(catcher, caught, handsComp: handsComp, animate: false))
+            return false; // The hands are full!
 
         // Success!
 
@@ -75,16 +91,13 @@ public sealed partial class CatchableSystem : EntitySystem
         // Collisions don't work properly with PopupPredicted or PlayPredicted.
         // So we make this server only.
         if (_net.IsClient)
-            return;
+            return true;
 
-        var selfMessage = Loc.GetString("catchable-component-success-self",
-            ("item", caught),
-            ("catcher", Identity.Entity(catcher, EntityManager)));
-        var othersMessage = Loc.GetString("catchable-component-success-others",
-            ("item", caught),
-            ("catcher", Identity.Entity(catcher, EntityManager)));
+        var selfMessage = Loc.GetString("catchable-component-success-self", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
+        var othersMessage = Loc.GetString("catchable-component-success-others", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
         _popup.PopupEntity(selfMessage, catcher, catcher);
         _popup.PopupEntity(othersMessage, catcher, Filter.PvsExcept(catcher), true);
+        return true;
     }
 
     private bool CheckCatching(EntityUid catcher, EntityUid caught, float catchChance)
@@ -97,6 +110,29 @@ public sealed partial class CatchableSystem : EntitySystem
         // Make it so that I can import the chances and such instead of having this here. Now that I've made it only used here it works.
         // being a catcher takes priority since most things aren't catchable by default.
         // I should probably just make it take the higher catch rate, though... hm.
+        // if (_status.TryEffectsWithComp<CatcherStatusEffectComponent>(catcher, out var statuses))
+        // {
+        //     chance = 0;
+        //     foreach (var status in statuses)
+        //     {
+        //         chance = chance > status.Comp1.CatchRate ? chance : status.Comp1.CatchRate;
+        //         if (!status.Comp1.Catchable.Contains(caught))
+        //             return false;
+        //     }
+        // }
+        // else if (TryComp<CatchableComponent>(caught, out var catchable))
+        // {
+        //     chance = catchable.CatchChance;
+        //     // Is the catcher in combat mode if required?
+        //     if (catchable.RequireCombatMode && (!_combatModeQuery.TryComp(catcher, out var combatModeComp) ||
+        //                                         !combatModeComp.IsInCombatMode))
+        //         return false;
+        //     // Is the catcher able to catch this item?
+        //     if (!_whitelist.IsWhitelistPassOrNull(catchable.CatcherWhitelist, catcher))
+        //         return false;
+        // }
+        // else
+        //     return false;
 
         // needs the comps
         var attemptEv = new CatchAttemptEvent(caught, catchChance);

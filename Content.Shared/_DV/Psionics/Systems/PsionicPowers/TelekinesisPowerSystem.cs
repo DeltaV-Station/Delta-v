@@ -10,12 +10,9 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-
-    // TODO:
-    // add proper cooldown
-    // consider more interactions
-
-    // Magic number, sadly. Don't have much rationale beyond 'it feels right to me.'
+    
+    // We love magic numbers!!!!!
+    // This is provided to make the pull strength noticeable.
     private const float Impulse = 125f;
 
     protected override void OnPowerUsed(Entity<TelekinesisPowerComponent> psionic, ref TelekinesisPowerActionEvent args)
@@ -27,7 +24,7 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
         if (ev.Cancelled)
             return;
 
-        // Any special interactions cancel the event, so really this is just a fall-back.
+        // Any special interactions cancel the event, so really this is just a fall-back where you pull the target towards you.
 
         if (!HasComp<PhysicsComponent>(args.Target))
             return;

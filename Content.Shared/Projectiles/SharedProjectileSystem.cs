@@ -79,7 +79,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)
     {
-        if (!embeddable.Comp.EmbedOnThrow || args.Handled)
+        if (!embeddable.Comp.EmbedOnThrow || args.Handled) // Delta-V
             return;
 
         EmbedAttach(embeddable, args.Target, null, embeddable.Comp);
