@@ -85,7 +85,11 @@ public sealed class FluidEjectorSystem : EntitySystem
         var bloodReferenceReagents = bloodReagentEvent.Reagents.Select(reagentId => reagentId.Prototype);
         var whitelistedReagents = metabolismWhitelistEvent.Reagents.Select(protoId => protoId.Id);
         if (!bodyReagents.Any(id => !bloodReferenceReagents.Contains(id) && !whitelistedReagents.Contains(id)))
+        {
+            ent.Comp.NextPopupTime = TimeSpan.Zero; // DeltaV - cancel ejection if nothing to eject
+            ent.Comp.NextUpdate = TimeSpan.Zero; // DeltaV - cancel ejection if nothing to eject
             return;
+        }
 
         if (ent.Comp.NextUpdate != TimeSpan.Zero)
             return;
@@ -131,7 +135,8 @@ public sealed class FluidEjectorSystem : EntitySystem
         if (_puddle.TrySpillAt(uid, ejectedSolution, out var puddle))
             _forensics.TransferDna(puddle, uid, false);
 
-        var slowdownTime = TimeSpan.FromSeconds(Math.Clamp((ejectedAmount * 0.2f).Value, 0, 600)); // clamped at 10 minutes to prevert forever-slows
+        // DeltaV - (ejectedAmount * 0.2f).Value -> (ejectedAmount * 0.5f).Int()
+        var slowdownTime = TimeSpan.FromSeconds(Math.Clamp((ejectedAmount * 0.5f).Int(), 0, 600)); // clamped at 10 minutes to prevert forever-slows
         _movementMod.TryUpdateMovementSpeedModDuration(uid,
             MovementModStatusSystem.VomitingSlowdown,
             slowdownTime,
