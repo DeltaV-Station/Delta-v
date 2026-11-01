@@ -21,6 +21,7 @@
   parent: BaseItem
   components:
   - type: Organ
+  # Begin DeltaV - grindable organs
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
