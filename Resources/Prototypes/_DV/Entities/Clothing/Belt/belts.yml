@@ -50,12 +50,27 @@
     sprite: _DV/Clothing/Belt/corpsman.rsi
   - type: ItemSlots # add medkit slot
     slots:
+      holster:
+        name: clothing-belt-sidearm
+        priority: 3
+        whitelist:
+          tags:
+          - Sidearm
+        insertOnInteract: false
       medkit:
+        priority: 2
         name: clothing-belt-medkit
         whitelist:
           tags:
           - Medkit
         insertOnInteract: false # or you can't easily stow medkits in your rig.
+      radio:
+        priority: 1
+        name: clothing-belt-radio
+        whitelist:
+          tags:
+          - Radio
+        insertOnInteract: false
   - type: Storage
     grid:
     - 0,0,2,1
