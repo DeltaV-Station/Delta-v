@@ -91,58 +91,12 @@ public sealed partial class CatchableSystem : EntitySystem
         // Collisions don't work properly with PopupPredicted or PlayPredicted.
         // So we make this server only.
         if (_net.IsClient)
-            return true;
-
-        var selfMessage = Loc.GetString("catchable-component-success-self", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
-        var othersMessage = Loc.GetString("catchable-component-success-others", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
-        _popup.PopupEntity(selfMessage, catcher, catcher);
-        _popup.PopupEntity(othersMessage, catcher, Filter.PvsExcept(catcher), true);
-        return true;
-    }
-
-    private bool CheckCatching(EntityUid catcher, EntityUid caught, float catchChance)
-    {
-        if (!_handsQuery.TryGetComponent(catcher, out var handsComp) || !_hands.CanPickupAnyHand(catcher, caught, handsComp: handsComp))
-            return false; // don't do anything for walls etc
-
-        float chance;
-        // TODO see about being able to cancel the embeddable event instead of this
-        // Make it so that I can import the chances and such instead of having this here. Now that I've made it only used here it works.
-        // being a catcher takes priority since most things aren't catchable by default.
-        // I should probably just make it take the higher catch rate, though... hm.
-        // if (_status.TryEffectsWithComp<CatcherStatusEffectComponent>(catcher, out var statuses))
-        // {
-        //     chance = 0;
-        //     foreach (var status in statuses)
-        //     {
-        //         chance = chance > status.Comp1.CatchRate ? chance : status.Comp1.CatchRate;
-        //         if (!status.Comp1.Catchable.Contains(caught))
-        //             return false;
-        //     }
-        // }
-        // else if (TryComp<CatchableComponent>(caught, out var catchable))
-        // {
-        //     chance = catchable.CatchChance;
-        //     // Is the catcher in combat mode if required?
-        //     if (catchable.RequireCombatMode && (!_combatModeQuery.TryComp(catcher, out var combatModeComp) ||
-        //                                         !combatModeComp.IsInCombatMode))
-        //         return false;
-        //     // Is the catcher able to catch this item?
-        //     if (!_whitelist.IsWhitelistPassOrNull(catchable.CatcherWhitelist, catcher))
-        //         return false;
-        // }
-        // else
-        //     return false;
-
-        // needs the comps
-        var attemptEv = new CatchAttemptEvent(caught, catchChance);
-        RaiseLocalEvent(catcher, ref attemptEv);
-
-        if (attemptEv.Cancelled)
-            return false;
-
-        if (!SharedRandomExtensions.PredictedProb(_timing, catchChance, GetNetEntity(caught)))
-            return false;
+        {
+            var selfMessage = Loc.GetString("catchable-component-success-self", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
+            var othersMessage = Loc.GetString("catchable-component-success-others", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
+            _popup.PopupEntity(selfMessage, catcher, catcher);
+            _popup.PopupEntity(othersMessage, catcher, Filter.PvsExcept(catcher), true);
+        }
 
         return true;
     }
