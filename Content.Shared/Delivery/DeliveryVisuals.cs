@@ -5,6 +5,7 @@ namespace Content.Shared.Delivery;
 [Serializable, NetSerializable]
 public enum DeliveryVisuals : byte
 {
+    Icon, // DeltaV - Fix client not building
     IsLocked,
     IsTrash,
     IsBroken,
