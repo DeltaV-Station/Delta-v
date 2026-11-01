@@ -11,6 +11,7 @@ using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Wires;
+using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -36,7 +37,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-    private List<FabricatorRecipePrototype> Recipes = new();
+    private readonly List<FabricatorRecipePrototype> _fabricatorRecipes = new();
 
     public override void Initialize()
     {
@@ -47,9 +48,9 @@ public abstract class SharedFabricatorSystem : EntitySystem
         SubscribeLocalEvent<FabricatorComponent, InteractUsingEvent>(OnInteractUsing,
             after: [typeof(AnchorableSystem), typeof(SharedWiresSystem)]);
 
-        SubscribeLocalEvent<FabricatorComponent, SolutionContainerChangedEvent>(OnContentsChanged);
-        SubscribeLocalEvent<FabricatorComponent, EntInsertedIntoContainerMessage>(OnContentsChanged);
-        SubscribeLocalEvent<FabricatorComponent, EntRemovedFromContainerMessage>(OnContentsChanged);
+        SubscribeLocalEvent<FabricatorComponent, SolutionContainerChangedEvent>((ent, ref _) => UpdateUserInterfaceState(ent.Owner, ent.Comp));
+        SubscribeLocalEvent<FabricatorComponent, EntInsertedIntoContainerMessage>((ent, ref _) => UpdateUserInterfaceState(ent.Owner, ent.Comp));
+        SubscribeLocalEvent<FabricatorComponent, EntRemovedFromContainerMessage>((ent, ref _) => UpdateUserInterfaceState(ent.Owner, ent.Comp));
 
         SubscribeLocalEvent<FabricatorComponent, FabricatorStartMessage>(OnStartMessage);
         SubscribeLocalEvent<FabricatorComponent, FabricatorEjectMessage>(OnEjectMessage);
@@ -67,12 +68,13 @@ public abstract class SharedFabricatorSystem : EntitySystem
     {
         foreach (var recipe in _prototypeManager.EnumeratePrototypes<FabricatorRecipePrototype>())
         {
-            Recipes.Add(recipe);
+            _fabricatorRecipes.Add(recipe);
         }
 
-        Recipes.Sort(new FabricatorRecipePrototype.FabricatorRecipeComparer());
+        _fabricatorRecipes.Sort(new FabricatorRecipePrototype.FabricatorRecipeComparer());
     }
 
+    [PublicAPI]
     public void Stop(EntityUid uid, FabricatorComponent comp)
     {
         _audio.Stop(comp.SoundStream);
@@ -282,11 +284,6 @@ public abstract class SharedFabricatorSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnContentsChanged<TEvent>(Entity<FabricatorComponent> ent, ref TEvent args)
-    {
-       UpdateUserInterfaceState(ent.Owner, ent.Comp);
-    }
-
     private void OnAnchorStateChanged(Entity<FabricatorComponent> ent, ref AnchorStateChangedEvent args)
     {
         if (args.Anchored)
@@ -317,7 +314,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
         if (!_power.IsPowered(ent.Owner))
             return;
 
-        foreach (var recipe in Recipes)
+        foreach (var recipe in _fabricatorRecipes)
         {
             var portions = CanSatisfyRecipe(ent, recipe);
             if (portions <= 0)
