@@ -48,6 +48,10 @@
           children:
           - id: PlushieNuke
             weight: 0.1
+          - id: BookGorlexGirlfriends
+            weight: 0.1
+          - id: BookCentcommChads
+            weight: 0.1
 
 - type: entity
   parent: DresserLargeCommand
@@ -381,3 +385,5 @@
       prob: 0.5
     - id: TowelColorCentcom
       prob: 0.3
+    - id: BookCentcommChads
+      prob: 0.1
