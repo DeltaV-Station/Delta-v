@@ -1,5 +1,5 @@
 - type: entity
-  parent: [SolutionMopLarge, BaseItem]
+  parent: BaseItem
   name: mop
   id: MopItem
   description: A mop that can't be stopped, viscera cleanup detail awaits.
@@ -40,6 +40,10 @@
     sprite: Objects/Specific/Janitorial/mop.rsi
   - type: Absorbent
     useAbsorberSolution: true
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100
   - type: UseDelay
     delay: 1
   - type: PhysicalComposition
@@ -55,22 +59,6 @@
   - type: DnaSubstanceTrace
   - type: DecalScrubber # DeltaV
     cleaningSolutionName: absorbed
-
-# There's a surprising amount of non-mop mops so we need to define these.
-- type: entity
-  parent: [SolutionMop, SolutionToolSmall]
-  id: SolutionMopSmall
-  categories: [ HideSpawnMenu ]
-
-- type: entity
-  parent: [SolutionMop, SolutionToolNormal]
-  id: SolutionMopNormal
-  categories: [ HideSpawnMenu ]
-
-- type: entity
-  parent: [SolutionMop, SolutionToolLarge]
-  id: SolutionMopLarge
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: MopItem
@@ -305,9 +293,9 @@
     SpawnMobMoproach: 2
 
 - type: entity
-  parent: [SolutionMopSmall, BaseItem]
-  id: RagItem
+  parent: BaseItem
   name: damp rag
+  id: RagItem
   description: For cleaning up messes, you suppose.
   components:
     - type: Sprite
@@ -341,6 +329,10 @@
     - type: Construction
       graph: Rag
       node: rag
+    - type: SolutionContainerManager
+      solutions:
+        absorbed:
+          maxVol: 30
     - type: UseDelay
       delay: 1.5
     - type: Tag

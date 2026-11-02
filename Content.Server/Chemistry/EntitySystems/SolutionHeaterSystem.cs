@@ -81,10 +81,13 @@ public sealed class SolutionHeaterSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveSolutionHeaterComponent, SolutionHeaterComponent, ItemPlacerComponent>();
         while (query.MoveNext(out _, out _, out var heater, out var placer))
         {
-            var energy = heater.HeatPerSecond * frameTime;
             foreach (var heatingEntity in placer.PlacedEntities)
             {
-                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(heatingEntity))
+                if (!TryComp<SolutionContainerManagerComponent>(heatingEntity, out var container))
+                    continue;
+
+                var energy = heater.HeatPerSecond * frameTime;
+                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
                 {
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }

@@ -1,11 +1,11 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Database;
-using Content.Shared.Examine; // DeltaV
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
+using Content.Shared.Examine;
 using Content.Shared.Kitchen; // DeltaV - Improve animal cube interactions (31668 - Upstream)
 using Robust.Shared.Timing;
 
@@ -25,21 +25,21 @@ public sealed class RehydratableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RehydratableComponent, SolutionChangedEvent>(OnSolutionChange);
+        SubscribeLocalEvent<RehydratableComponent, SolutionContainerChangedEvent>(OnSolutionChange);
         // Begin DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
         SubscribeLocalEvent<RehydratableComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RehydratableComponent, BeingMicrowavedEvent>(OnMicrowaved);
         // End DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
     }
 
-    private void OnSolutionChange(Entity<RehydratableComponent> ent, ref SolutionChangedEvent args)
+    private void OnSolutionChange(Entity<RehydratableComponent> ent, ref SolutionContainerChangedEvent args)
     {
         // The changes are already networked as part of the same game state.
         if (_timing.ApplyingState)
             return;
 
-        var quantity = _solutions.GetTotalPrototypeQuantity(ent.Owner, ent.Comp.CatalystPrototype);
-        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner)} was hydrated, now contains a solution of: {SharedSolutionContainerSystem.ToPrettyString(args.Solution.Comp.Solution)}.");
+        var quantity = _solutions.GetTotalPrototypeQuantity(ent, ent.Comp.CatalystPrototype);
+        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner)} was hydrated, now contains a solution of: {SharedSolutionContainerSystem.ToPrettyString(args.Solution)}.");
         if (quantity != FixedPoint2.Zero && quantity >= ent.Comp.CatalystMinimum)
         {
             Expand(ent);

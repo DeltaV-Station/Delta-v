@@ -205,7 +205,7 @@ public sealed class SmokeSystem : EntitySystem
 
     private void OnReactionAttempt(Entity<SmokeComponent> entity, ref SolutionRelayEvent<ReactionAttemptEvent> args)
     {
-        if (args.Solution.Comp.Id == SmokeComponent.SolutionName)
+        if (args.Name == SmokeComponent.SolutionName)
             OnReactionAttempt(entity, ref args.Event);
     }
 

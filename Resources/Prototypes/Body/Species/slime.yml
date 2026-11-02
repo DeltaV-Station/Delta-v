@@ -141,7 +141,7 @@
     bloodReferenceSolution: # TODO Color slime blood based on their slime color or smth
       reagents:
       - ReagentId: Slime
-        Quantity: 600
+        Quantity: 300
   - type: Barotrauma
     damage:
       types:
@@ -262,9 +262,10 @@
   id: OrganSlimePersonCore
   name: sentient slime core
   components:
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionStomach
+      stomach:
+        maxVol: 50.0
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6

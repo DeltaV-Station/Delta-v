@@ -1,9 +1,36 @@
 - type: entity
+  abstract: true
+  parent: BaseItem
+  id: MaterialBase
+  description: A raw material.
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/materials.rsi
+  - type: Item
+    sprite: Objects/Materials/materials.rsi
+    size: Normal
+  - type: Tag
+    tags:
+      - RawMaterial
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
   parent: MaterialBase
   id: MaterialCardboard
   name: cardboard
   suffix: Full
   components:
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Cardboard: 100
@@ -19,11 +46,15 @@
     layers:
     - state: cardboard_3
       map: ["base"]
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Cellulose
-        Quantity: 10
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: cardboard
+  - type: SolutionContainerManager
+    solutions:
+      cardboard:
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 6
   - type: Item
     heldPrefix: cardboard
   - type: FloorTile
@@ -55,7 +86,7 @@
     count: 1
 
 - type: entity
-  parent: [MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialCloth
   name: cloth
   suffix: Full
@@ -89,6 +120,11 @@
   - type: PhysicalComposition
     materialComposition:
       Cloth: 100
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 3
   - type: Sprite
     state: cloth_3
     layers:
@@ -97,15 +133,16 @@
   - type: Appearance
   - type: Edible
     requiresSpecialDigestion: true
-    solution: composite
   - type: FlavorProfile
     flavors:
     - fiber
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
   - type: Tag
     tags:
       - ClothMade
@@ -140,7 +177,7 @@
     count: 1
 
 - type: entity
-  parent: [MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialDurathread
   name: durathread
   suffix: Full
@@ -152,6 +189,7 @@
     - durathread
     - durathread_2
     - durathread_3
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Durathread: 100
@@ -160,22 +198,19 @@
     layers:
     - state: durathread_3
       map: ["base"]
+  - type: Appearance
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
   - type: Edible
     requiresSpecialDigestion: true
-    solution: composite
-  - type: Solution
-    solution:
-      maxVol: 20
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 10
-      - ReagentId: Oil
-        Quantity: 5
-      - ReagentId: Phosphorus
-        Quantity: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
   - type: Tag
     tags:
       - ClothMade
@@ -200,6 +235,7 @@
   name: wood
   suffix: Full
   components:
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Wood: 100
@@ -215,6 +251,7 @@
     layers:
     - state: wood
       map: ["base"]
+  - type: Appearance
   - type: Item
     heldPrefix: wood
   - type: Tag
@@ -223,11 +260,14 @@
     - RawMaterial
     - TiderAnvilParts #SL
     - ConstructionMaterial
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Cellulose
-        Quantity: 10
+  - type: Extractable
+    grindableSolutionName: wood
+  - type: SolutionContainerManager
+    solutions:
+      wood:
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 10
 
 - type: entity
   parent: MaterialWoodPlank
@@ -251,6 +291,7 @@
   name: biomass
   suffix: Full
   components:
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Biomass: 1
@@ -263,7 +304,7 @@
     color: "#8A9A5B"
   - type: GuideHelp
     guides:
-    - Cloning # Should remove this, we don't have cloning and don't want cloning
+    - Cloning
 
 - type: entity
   parent: MaterialBiomass
@@ -339,14 +380,18 @@
     layers:
     - state: diamond
       map: ["base"]
+  - type: Appearance
   - type: Item
     heldPrefix: diamond
-  - type: Solution
-    solution:
-      maxVol: 30
-      reagents:
-      - ReagentId: Carbon
-        Quantity: 30
+  - type: Extractable
+    grindableSolutionName: diamond
+  - type: SolutionContainerManager
+    solutions:
+      diamond:
+        reagents:
+        - ReagentId: Carbon
+          Quantity: 20
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
@@ -364,7 +409,7 @@
     count: 1
 
 - type: entity
-  parent: [SolutionCompositeSmallStackable, MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialCotton
   name: cotton
   suffix: Full
@@ -384,25 +429,33 @@
   - type: Appearance
   - type: Edible
     requiresSpecialDigestion: true
-    solution: composite
   - type: FlavorProfile
     flavors:
     - fiber
-  - type: Solution
-    solution:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
       reagents:
       - ReagentId: Fiber
-        Quantity: 2.5
+        Quantity: 3
   - type: Tag
     tags:
       - ClothMade
       - RawMaterial
       - Boll
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Cotton: 100
   - type: Item
     heldPrefix: cotton
+
 
 - type: entity
   parent: MaterialCotton
@@ -415,7 +468,7 @@
     count: 1
 
 - type: entity
-  parent: [SolutionCompositeSmallStackable, MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialPyrotton
   name: pyrotton
   suffix: Full
@@ -432,16 +485,25 @@
     layers:
     - state: pyrotton_3
       map: ["base"]
+  - type: Appearance
   - type: Edible
     requiresSpecialDigestion: true
-    solution: composite
-  - type: Solution
-    solution:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: Phlogiston
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
       reagents:
       - ReagentId: Fiber
-        Quantity: 2.5
+        Quantity: 3
       - ReagentId: Phlogiston
-        Quantity: 2.5
+        Quantity: 3
   - type: Tag
     tags:
       - ClothMade
@@ -460,11 +522,12 @@
     count: 1
 
 - type: entity
-  parent: [MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialBananium
   name: bananium
   suffix: Full
   components:
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Bananium: 150
@@ -486,19 +549,20 @@
     flavors:
       - banana
   - type: Edible
-    solution: composite
     trash:
     - TrashBananiumPeel
   - type: BadFood
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 4
-      - ReagentId: Vitamin
-        Quantity: 2
-      - ReagentId: Honk
-        Quantity: 4
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 11
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Honk
+          Quantity: 5
   - type: Extractable
     juiceSolution:
       reagents:
@@ -506,6 +570,7 @@
         Quantity: 5
       - ReagentId: Honk
         Quantity: 5
+  - type: Appearance
   - type: Item
     heldPrefix: bananium
 
@@ -520,7 +585,7 @@
     count: 1
 
 - type: entity
-  parent: [SolutionCompositeNormalStackable, MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialWebSilk
   name: silk
   description: A webby material.
@@ -537,17 +602,23 @@
     stackType: WebSilk
   - type: Edible
     requiresSpecialDigestion: true
-    solution: composite
   - type: FlavorProfile
     flavors:
       - cobwebs
     ignoreReagents:
       - Fiber
-  - type: Solution
-    solution:
+  - type: Extractable
+    juiceSolution:
       reagents:
       - ReagentId: Fiber
-        Quantity: 10
+        Quantity: 3
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 3
   - type: Tag
     tags:
       - ClothMade
@@ -654,7 +725,7 @@
     count: 1
 
 - type: entity
-  parent: [MaterialBase, FoodBase]
+  parent: MaterialBase
   id: MaterialBones
   name: bones
   suffix: Full
@@ -671,16 +742,16 @@
     layers:
     - state: cotton_3
       map: ["base"]
+  - type: Appearance
   - type: Edible
-    solution: composite
   - type: BadFood
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Vitamin
-        Quantity: 3
-      - ReagentId: Carbon
-        Quantity: 7
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 3
   - type: Item
     heldPrefix: bones
 

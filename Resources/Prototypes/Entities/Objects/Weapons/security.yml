@@ -77,9 +77,10 @@
   - type: StaticPrice
     price: 80
   - type: Riggable
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionRiggable
+      battery:
+        maxVol: 5
   - type: InjectableSolution
     solution: battery
   - type: DrawableSolution

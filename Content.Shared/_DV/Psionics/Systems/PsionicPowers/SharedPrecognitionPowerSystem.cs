@@ -33,8 +33,6 @@ public abstract class SharedPrecognitionPowerSystem : BasePsionicPowerSystem<Pre
             return;
 
         // A custom shader for seeing visions would be nice but this will do for now.
-        // TODO: Port over the TemporaryBlindness effect to the new StatusEffectSystem.
-        // When Upstream ports it over, replace this with it.
         StatusEffects.TryUpdateStatusEffectDuration(psionic, "StatusEffectBlindness", psionic.Comp.UseDelay);
         Movement.TryUpdateMovementSpeedModDuration(args.Performer, PrecognitionSlowdown, psionic.Comp.UseDelay, 0.5f);
 
