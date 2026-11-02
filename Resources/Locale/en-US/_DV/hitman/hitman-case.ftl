@@ -20,7 +20,7 @@ hitman-ninja-kit-name = Ninja kit
 hitman-ninja-kit-description =
     A kit for those who want to fight up close.
     Provides a medium frequency blade, throwing knives and a scram implant.
-    Plus no-slip shoes, smoke bombs and 2 hyperzine injectors.
+    Plus no-slip shoes, smoke bombs and 2 hyperzine injector.
 
 hitman-poisoner-kit-name = Poisoner kit
 hitman-poisoner-kit-description =

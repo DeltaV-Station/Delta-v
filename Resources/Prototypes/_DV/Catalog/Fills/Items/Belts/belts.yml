@@ -143,3 +143,20 @@
         - id: PunctAutoInjector
         - id: PyraAutoInjector
         - id: AntiPoisonMedipen
+
+- type: entity
+  id: ClothingBeltUtilityHitman
+  parent: ClothingBeltUtility
+  suffix: Hitman
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PowerDrill
+        - id: JawsOfLife
+        - id: WelderIndustrialAdvanced
+        - id: Multitool
+        - id: DeadMansSignaler
+        - id: RCD
+        
