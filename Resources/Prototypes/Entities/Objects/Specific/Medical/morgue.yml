@@ -47,8 +47,8 @@
     isCollidableWhenOpen: true
     whitelist: # Use a tag whitelist rather than filtering for PerishableComponent to avoid chefs using body bags for food preservation
       tags:
-        - VimPilot # Pets
-        - CanPilot # People
+      - VimPilot # Pets
+      - CanPilot # People
     closeSound:
       path: /Audio/Misc/zip.ogg
     openSound:
@@ -138,17 +138,17 @@
   description: Much less deadly in this form.
   components:
   - type: Sprite
-      sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+    sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
     state: ectoplasm
   - type: Tag
     tags:
-      - Trash
-      - Ectoplasm
+    - Trash
+    - Ectoplasm
   - type: Solution
     solution:
       reagents:
       - ReagentId: Fresium
-      Quantity: 15
+        Quantity: 15
       - ReagentId: Ectoplasm # DeltaV - for normality crystals
         Quantity: 5
   - type: GuideHelp

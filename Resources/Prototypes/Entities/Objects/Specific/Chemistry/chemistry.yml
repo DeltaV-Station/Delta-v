@@ -324,14 +324,14 @@
   - type: Sprite
     sprite: _DV/Objects/Specific/Chemistry/beaker_bluespace.rsi # DeltaV - Resprited some medical items
     layers:
-      - state: beakerbluespace
+    - state: beakerbluespace
   - type: SolutionContainerVisuals
     maxFillLevels: 0
   - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
     - BluespaceBeaker
-    -
+
 - type: entity
   name: dropper
   parent: [SolutionInjector, SolutionToolTiny, BaseItem]
