@@ -141,7 +141,7 @@ figurines-security-9 = Greytide this, motherfricker.
 figurines-security-10 = Do not resist.
 
 figurines-warden-1 = Execute him for breaking in!
-figurines-warden-2 = Perma thos friend for insulting me!
+figurines-warden-2 = Perma this friend for insulting me!
 figurines-warden-3 = We totally treat everyone fairly and do NOT mistreat our prisoners.
 figurines-warden-4 = Brig is my home. My home is brig. My brig is home. Stop, what?
 figurines-warden-5 = Soap is now contraband.
