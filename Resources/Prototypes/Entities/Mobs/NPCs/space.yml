@@ -401,7 +401,7 @@
     - type: SalvageMobRestrictions
 
 - type: entity
-  parent: [SimpleSpaceMobBase, BaseMobAnimal, SolutionVermin DVNodeCrawler] # DeltaV - node crawling
+  parent: [SimpleSpaceMobBase, BaseMobAnimal, SolutionVermin, DVNodeCrawler] # DeltaV - node crawling
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
