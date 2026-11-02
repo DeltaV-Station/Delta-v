@@ -13,7 +13,7 @@ hitman-bounty-hunter-kit-description =
 hitman-assassin-kit-name = Assassin kit
 hitman-assassin-kit-description =
     A kit for those who want to blend in.
-    Provides a Cobra with a mag of tranq rounds, plus a set of 
+    Provides a Cobra with a mag of tranq rounds, plus a set of
     chameleon clothing, agent ID, fake mindshield, and an identity mask implant.
 
 hitman-ninja-kit-name = Ninja kit
@@ -42,4 +42,4 @@ hitman-tracker-kit-description =
     a spy monitor, a camera bug, an AI detector disguised as a multitool,
     a security hud disguised as sunglasses, and crew records as station map,
     finaly, a radio jammer and universal pinpointer.
-    
+
