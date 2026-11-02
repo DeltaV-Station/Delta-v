@@ -10,7 +10,7 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    
+
     // We love magic numbers!!!!!
     // This is provided to make the pull strength noticeable.
     private const float Impulse = 125f;
