@@ -145,7 +145,23 @@
 
 ##hitman
 - type: weightedRandom
-  id: HitmanObjectiveGroup
+  id: HitmanKillObjectiveGroup
+  weights:
+    HitmanObjectiveGroupNormal: 1
+    HitmanObjectiveGroupHead: 0.25 # so you get heads more often
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupNormal
+  weights:
+    HitmanTeachLessonRandomPersonObjective: 1
+
+- type: weightedRandom
+  id: HitmanObjectiveGroupHead
+  weights:
+    HitmanTeachLessonRandomHeadObjective: 1
+
+- type: weightedRandom
+  id: HitmanModiferObjectiveGroup
   weights:
     HitmanObjectiveGroupNice: 1
     HitmanObjectiveGroupDramatic: 1

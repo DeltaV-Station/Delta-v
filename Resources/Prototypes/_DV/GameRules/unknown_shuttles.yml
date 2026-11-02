@@ -143,7 +143,7 @@
       mindRoles:
       - MindRoleArmsdealer
 
-# Hitman (for the admeme spawn)
+# Hitman 
 - type: entity
   parent: BaseUnknownShuttleRule
   id: HitmanShuttle
@@ -157,17 +157,17 @@
     message: psionic-power-precognition-hitman-spawn-result-message
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/Professional.yml
-  - type: AntagSpawner
-    prototype: MobHuman
+  - type: AntagLoadProfileRule
   - type: AntagObjectives
     objectives:
     - HitmanSurviveObjective
-    - HitmanTeachLessonRandomPersonObjective
   - type: AntagRandomObjectives
     sets:
-    - groups: HitmanObjectiveGroup
-      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
-    maxDifficulty: 300
+    - groups: HitmanKillObjectiveGroup
+      maxPicks: 1
+    - groups: HitmanModiferObjectiveGroup
+      maxPicks: 2 
+    maxDifficulty: 5
   - type: AntagSelection
     agentName: hitman-round-end-agent-name
     definitions:
@@ -184,7 +184,5 @@
         - NamesFakeHumanFirst
         - NamesFakeHumanLast
         nameFormat: name-format-standard
-      - type: RandomHumanoidAppearance
-        randomizeName: false
       mindRoles:
       - MindRoleHitman
