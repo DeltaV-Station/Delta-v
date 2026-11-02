@@ -137,11 +137,11 @@ figurines-security-5 = Harmbaton? It sure as hell harms!
 figurines-security-6 = Space law? Never heard of it.
 figurines-security-7 = Random search! Hand it over.
 figurines-security-8 = I love donuts.
-figurines-security-9 = Greytide this, motherfucker.
+figurines-security-9 = Greytide this, motherfricker.
 figurines-security-10 = Do not resist.
 
 figurines-warden-1 = Execute him for breaking in!
-figurines-warden-2 = Perma the fucker for insulting me!
+figurines-warden-2 = Perma thos friend for insulting me!
 figurines-warden-3 = We totally treat everyone fairly and do NOT mistreat our prisoners.
 figurines-warden-4 = Brig is my home. My home is brig. My brig is home. Stop, what?
 figurines-warden-5 = Soap is now contraband.
@@ -201,7 +201,7 @@ figurines-clown-6 = Do I annoy you?
 figurines-clown-7 = Can I have AA? Please?
 figurines-clown-8 = I'm a clown, but you're the whole circus!
 
-figurines-greytider-1 = Man, this party stinks. I fucking hate these people.
+figurines-greytider-1 = Man, this party stinks. I flipping hate these people.
 figurines-greytider-2 = Uh-oh, who's lost their stunbaton?
 figurines-greytider-3 = Robust.
 figurines-greytider-4 = I'm not me without a toolbox.

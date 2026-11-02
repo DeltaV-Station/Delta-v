@@ -2,19 +2,19 @@ chatsan-word-1 = omg
 chatsan-replacement-1 = oh my god
 
 chatsan-word-2 = omfg
-chatsan-replacement-2 = oh my fucking god
+chatsan-replacement-2 = oh my fricking god
 
 chatsan-word-3 = ong
 chatsan-replacement-3 = on god
 
 chatsan-word-4 = wtf
-chatsan-replacement-4 = what the fuck
+chatsan-replacement-4 = what the flip
 
 chatsan-word-5 = wth
 chatsan-replacement-5 = what the heck
 
 chatsan-word-6 = tf
-chatsan-replacement-6 = the fuck
+chatsan-replacement-6 = the frick
 
 chatsan-word-7 = afaik
 chatsan-replacement-7 = as far as i know
@@ -38,7 +38,7 @@ chatsan-word-14 = ur
 chatsan-replacement-14 = your
 
 chatsan-word-15 = ffs
-chatsan-replacement-15 = for fuck's sake
+chatsan-replacement-15 = for frick's sake
 
 chatsan-word-16 = iirc
 chatsan-replacement-16 = if i remember correctly
@@ -82,7 +82,7 @@ chatsan-word-30 = afk
 chatsan-replacement-30 = ssd
 
 chatsan-word-31 = stfu
-chatsan-replacement-31 = shut the fuck up
+chatsan-replacement-31 = shut the frick up
 
 chatsan-word-32 = gtg
 chatsan-replacement-32 = got to go
@@ -97,13 +97,13 @@ chatsan-word-35 = hmu
 chatsan-replacement-35 = hit me up
 
 chatsan-word-36 = gtfo
-chatsan-replacement-36 = get the fuck out
+chatsan-replacement-36 = get the flip out
 
 chatsan-word-37 = wdym
 chatsan-replacement-37 = what do you mean
 
 chatsan-word-38 = mf
-chatsan-replacement-38 = motherfucker
+chatsan-replacement-38 = motherfricker
 
 chatsan-word-39 = etc
 chatsan-word-40 = etc.
