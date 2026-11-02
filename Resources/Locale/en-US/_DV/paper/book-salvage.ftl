@@ -51,19 +51,6 @@ book-text-vulpkanin = Vulpkanin for Dummies, an Exhaustive Guide
 
        Don't Underestimate Them: Vulpkanin may look cute and cuddly, but they can be fierce fighters when provoked. Treat them with respect and avoid unnecessary conflict.
 
-book-text-gorlexgirlfriend = It's the 197th version of the infamous Gorlex Girlfriends magazine. This issue includes several pictures and interviews of multiple agents working in the syndicate alongside actors who work on the Syndicate TV show "Nukies". The best part by far was about Operative November who is the star of this edition, with her picture being on the cover.
-
-    Most of the magazine is either Syndicate propaganda or advertisements for Syndicate-branded items like soda or merch from the show. At least there are some coupons on the back for them.
-
-    On the last page is an ad for the Gorlex Girlfriends dating app... and the Gorlex Girlfriends Hotline.
-
-book-text-centcomm-chad = The 56th edition of the newly released CentComm Chads series. This edition includes several pictures of CentComm Officials and Station Command "on the grind", whether that is in the gym or in the office being productive. The best collection is from the cover model Commander Chad, who enjoys a beach vacation while listening to the CC podcast.
-
-    A good part of the magazine is about the CentComm Chads podcast, where they discuss the dangers of Unions in terms of career verticality, as well as "good grindsets" such as never taking PTO, or working better for less pay to improve yourself. A few pages advertise merch for either NT or CC apparel.
-
-    The last page sports the SpaceNet address for the CentComm podcast, as well as the number for NanoTrasen's Recruitment Hotline with a corny line beneath:
-    "Be commanded by your CentComm Chad with minimal pay today!"
-
 book-text-ancientbookcommon-1 = the text seems to shift and move, rendering it completely unreadable... but you feel as though these stories will become legible in time, and feel determined to keep uncovering the past.
 
 book-text-ancientbookuncommon-1 = In this part we move onto the more dangerous kinds of psionic abilities.
