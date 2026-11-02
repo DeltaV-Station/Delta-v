@@ -10,6 +10,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Salvage;
+using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
@@ -20,8 +21,8 @@ namespace Content.Server._DV.StationEvents.GameRules;
 
 public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComponent>
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
 
     public override void Initialize()
@@ -38,7 +39,7 @@ public sealed class DebrisSpawnerRule : StationEventSystem<DebrisSpawnerRuleComp
         foreach (var gridId in args.Grids)
         {
             var grid = Comp<MapGridComponent>(gridId);
-            var aabb = Transform(gridId).WorldMatrix.TransformBox(grid.LocalAABB);
+            var aabb = _transform.GetWorldMatrix(gridId).TransformBox(grid.LocalAABB);
             boxes.Add(aabb);
         }
 
