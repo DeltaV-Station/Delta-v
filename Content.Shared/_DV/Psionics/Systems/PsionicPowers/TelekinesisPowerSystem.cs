@@ -1,6 +1,7 @@
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Events.PowerActionEvents;
+using Content.Shared.Examine;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -11,6 +12,7 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     // We love magic numbers!!!!!
     // This is provided to make the pull strength noticeable.
@@ -18,6 +20,13 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 
     protected override void OnPowerUsed(Entity<TelekinesisPowerComponent> psionic, ref TelekinesisPowerActionEvent args)
     {
+        if (!_examine.InRangeUnOccluded(psionic.Owner, args.Target, psionic.Comp.Range))
+        {
+            // Handled is false so that it doesn't go on cooldown when used on an invalid target.
+            args.Handled = false;
+            return;
+        }
+
         var ev = new TelekinesisUsedEvent(args.Target, psionic.Owner);
         RaiseLocalEvent(args.Target, ref ev);
         if (ev.Cancelled)

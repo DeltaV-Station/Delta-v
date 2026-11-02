@@ -13,4 +13,7 @@ public sealed partial class TelekinesisPowerComponent : BasePsionicPowerComponen
     public override int MinGlimmerChanged { get; set; } = 5;
 
     public override int MaxGlimmerChanged { get; set; } = 15;
+
+    // Larger than it should ever need to be, just here for the occluded check.
+    public float Range = 25f;
 }

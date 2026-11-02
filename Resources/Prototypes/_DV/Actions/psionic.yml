@@ -226,7 +226,7 @@
     checkCanInteract: false
   - type: TargetAction
     range: 0
-    accessMask: Opaque
+    checkCanAccess: false
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:TelekinesisPowerActionEvent
