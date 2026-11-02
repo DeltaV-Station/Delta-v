@@ -104,7 +104,7 @@
 #   snap: Center
 
 - type: entity
-  parent: [SolutionFood, SolutionTiny, BaseItem]
+  parent: BaseItem
   id: Ash
   name: ash
   description: This used to be something, but now it's not.
@@ -118,11 +118,13 @@
     tags:
     - Burnt
     - Trash
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Ash
-        Quantity: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Ash
+          Quantity: 10
   - type: SolutionSpiker
     sourceSolution: food
     ignoreEmpty: true
@@ -144,13 +146,17 @@
     tags:
     - Trash
     - Ectoplasm
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Fresium
-        Quantity: 15
-      - ReagentId: Ectoplasm # DeltaV - for normality crystals
-        Quantity: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+          - ReagentId: Ash
+            Quantity: 5
+          - ReagentId: Necrosol
+            Quantity: 5
+          - ReagentId: Ectoplasm  # DeltaV - for normality crystals
+            Quantity: 5          # DeltaV
   - type: GuideHelp
     guides:
     - MinorAntagonists

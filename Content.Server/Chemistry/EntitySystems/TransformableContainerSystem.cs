@@ -18,7 +18,7 @@ public sealed class TransformableContainerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<TransformableContainerComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<TransformableContainerComponent, SolutionChangedEvent>(OnSolutionChange);
+        SubscribeLocalEvent<TransformableContainerComponent, SolutionContainerChangedEvent>(OnSolutionChange);
         SubscribeLocalEvent<TransformableContainerComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
     }
 
@@ -31,7 +31,7 @@ public sealed class TransformableContainerSystem : EntitySystem
         }
     }
 
-    private void OnSolutionChange(Entity<TransformableContainerComponent> entity, ref SolutionChangedEvent args)
+    private void OnSolutionChange(Entity<TransformableContainerComponent> entity, ref SolutionContainerChangedEvent args)
     {
         if (!_solutionsSystem.TryGetFitsInDispenser(entity.Owner, out _, out var solution))
             return;

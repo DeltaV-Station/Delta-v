@@ -89,20 +89,16 @@
     modifiers:
       SpaceLube: 0.25
       SpaceGlue: 5
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionLatheLube
+      lube:
+        maxVol: 250
   - type: Spillable
     solution: lube
   - type: RefillableSolution
     solution: lube
   - type: ExaminableSolution
     solution: lube
-
-- type: entity
-  parent: [SolutionLube, SolutionLarge]
-  id: SolutionLatheLube # Its own prototype since some lathes might interface with solutions in other ways
-  categories: [ HideSpawnMenu ]
 
 - type: entity
   abstract: true

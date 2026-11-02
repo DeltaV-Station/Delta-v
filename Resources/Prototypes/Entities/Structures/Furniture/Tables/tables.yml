@@ -233,11 +233,8 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
-            min: 0
-            max: 1
-          SheetPlasteel1:
-            min: 0
-            max: 1
+            min: 2
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth

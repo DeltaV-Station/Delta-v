@@ -1,5 +1,5 @@
 - type: entity
-  parent: [SolutionFood, BaseItem]
+  parent: BaseItem
   id: BasePaper
   abstract: true
   components:
@@ -51,12 +51,13 @@
     flavors:
     - paper
   - type: BadFood
-  - type: Solution
-    solution:
-      maxVol: 2.5 # I consider paper to be like material sheets, so we divide their capacity by 12
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 1.25
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
   - type: Item
     size: Tiny
   - type: PhysicalComposition

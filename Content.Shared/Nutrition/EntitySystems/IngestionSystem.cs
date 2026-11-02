@@ -23,7 +23,6 @@ using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Nutrition.EntitySystems;
@@ -67,7 +66,7 @@ public sealed partial class IngestionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EdibleComponent, MapInitEvent>(OnEdibleInit);
+        SubscribeLocalEvent<EdibleComponent, ComponentInit>(OnEdibleInit);
 
         // Interactions
         SubscribeLocalEvent<EdibleComponent, UseInHandEvent>(OnUseEdibleInHand, after: [typeof(OpenableSystem), typeof(InventorySystem), typeof(ActivatableUISystem)]);
@@ -84,7 +83,7 @@ public sealed partial class IngestionSystem : EntitySystem
 
         // Verbs
         SubscribeLocalEvent<EdibleComponent, GetVerbsEvent<AlternativeVerb>>(AddEdibleVerbs);
-        SubscribeLocalEvent<EdibleComponent, SolutionChangedEvent>(OnSolutionContainerChanged);
+        SubscribeLocalEvent<EdibleComponent, SolutionContainerChangedEvent>(OnSolutionContainerChanged);
 
         // Misc
         SubscribeLocalEvent<EdibleComponent, AttemptShakeEvent>(OnAttemptShake);
@@ -136,7 +135,7 @@ public sealed partial class IngestionSystem : EntitySystem
         return ingestionEv.Handled;
     }
 
-    private void OnEdibleInit(Entity<EdibleComponent> entity, ref MapInitEvent args)
+    private void OnEdibleInit(Entity<EdibleComponent> entity, ref ComponentInit args)
     {
         // Beakers, Soap and other items have drainable, and we should be able to eat that solution.
         // This ensures that tests fail when you configured the yaml from and EdibleComponent uses the wrong solution,
@@ -162,7 +161,7 @@ public sealed partial class IngestionSystem : EntitySystem
         _appearance.SetData(entity, FoodVisuals.Visual, drainAvailable.Float(), entity.Comp2);
     }
 
-    private void OnSolutionContainerChanged(Entity<EdibleComponent> entity, ref SolutionChangedEvent args)
+    private void OnSolutionContainerChanged(Entity<EdibleComponent> entity, ref SolutionContainerChangedEvent args)
     {
         // The changes are already networked as part of the same game state.
         if (_timing.ApplyingState)
@@ -382,7 +381,7 @@ public sealed partial class IngestionSystem : EntitySystem
         var afterEv = new IngestedEvent(args.User, entity, split, forceFed, beforeEv.Transfer >= beforeEv.Max);
         RaiseLocalEvent(food, ref afterEv);
 
-        _stomach.TryTransferSolution((stomachToUse.Value, stomachToUse.Value.Comp), split);
+        _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
 
         if (!afterEv.Destroy)
         {

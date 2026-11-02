@@ -12,13 +12,11 @@
       sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi # imp
       state: kinetic # imp
   - type: EffectVisuals
-  # IMP Start.
   - type: PointLight
     enabled: true
-    color: "#ffa223"
-    radius: 1.4
-    energy: 5.0
-    # IMP End.
+    color: "#ffa223" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Tag
     tags:
       - HideContextMenu
@@ -29,13 +27,11 @@
   id: MuzzleFlashEffectOmnilaser
   categories: [ HideSpawnMenu ]
   components:
-  # IMP Start.
   - type: PointLight
     enabled: true
-    color: "#0ab8c4"
-    radius: 1.4
-    energy: 5.0
-  # IMP End.
+    color: "#0ab8c4" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
@@ -50,13 +46,11 @@
   id: MuzzleFlashEffectHeavyLaser
   categories: [ HideSpawnMenu ]
   components:
-  # IMP Start.
   - type: PointLight
     enabled: true
-    color: "#d63b28"
-    radius: 1.4
-    energy: 5.0
-  # IMP End.
+    color: "#d63b28" # imp
+    radius: 1.4 # imp
+    energy: 5.0 # imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
@@ -326,7 +320,7 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser # imp
   - type: StaminaDamageOnCollide
-    damage: 33
+    damage: 30
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -635,8 +629,8 @@
         - MobState
     damage:
       types:
-        Blunt: 18
-        Slash: 4
+        Blunt: 20
+        Slash: 5
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -645,21 +639,6 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
-
-  # Deals less damage, glaive has better HP recovery
-- type: entity
-  id: BulletChargeGlaive
-  name: leech bolt
-  parent: BulletCharge
-  components:
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-        - MobState
-    damage:
-      types:
-        Blunt: 1
-        Slash: 5
 
 - type: entity
   parent: BaseBullet
@@ -701,7 +680,6 @@
   - type: Reflective
     reflective:
     - Energy
-
 
 - type: entity
   parent: AnomalousParticleDelta
@@ -1039,7 +1017,6 @@
       muzzleFlash: null
 
 - type: entity
-  parent: [SolutionVapor, SolutionSmall]
   id: BulletWaterShot
   name: water
   categories: [ HideSpawnMenu ]
@@ -1062,6 +1039,10 @@
       map: ["enum.VaporVisualLayers.Base"]
   - type: Ammo
     muzzleFlash: null
+  - type: SolutionContainerManager
+    solutions:
+      vapor:
+        maxVol: 50
   - type: Fixtures
     fixtures:
       projectile:
@@ -1383,7 +1364,7 @@
     spread: 9
 
 - type: entity
-  name: magnum bolt #Delta V - does not function like a laser bolt
+  name: magnum bolt #Delta V - does not fuction like a laser bolt
   id: BulletLaserMagnum
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1443,7 +1424,7 @@
         - Opaque
 
 - type: entity
-  parent: [SolutionAmmo, BaseBullet]
+  parent: BaseBullet
   id: EnergyCrossbowBolt
   categories: [ HideSpawnMenu ]
   name: energy bolt
@@ -1472,14 +1453,15 @@
     drop: false
   - type: StaminaDamageOnCollide #additional stam damage to make repeated pushups less of a viable counter
     damage: 45
-  - type: Solution
-    solution:
-      maxVol: 1.5
-      reagents:
-      - ReagentId: Toxin
-        Quantity: 1.5
+  - type: SolutionContainerManager
+    solutions:
+      bolt:
+        maxVol: 1.5
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1.5
   - type: SolutionInjectOnProjectileHit
     transferAmount: 1.5
-    solution: ammo
+    solution: bolt
   - type: TimedDespawn # DeltaV - limit range to match taser
     lifetime: 0.170

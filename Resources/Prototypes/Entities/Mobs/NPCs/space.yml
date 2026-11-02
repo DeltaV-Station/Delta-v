@@ -34,7 +34,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      100: Dead
   - type: Stamina
     baseCritThreshold: 150
   - type: MovementAlwaysTouching
@@ -173,10 +173,6 @@
     spawned:
     - id: FoodMeat
       amount: 1
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      60: Dead
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -203,7 +199,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      45: Dead
+      90: Dead
   - type: Stamina
     baseCritThreshold: 150
   - type: DamageStateVisuals
@@ -245,9 +241,12 @@
       types:
         Piercing: 6
         Poison: 4
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionVenomSpiderSpace
+      melee:
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 80
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 4
@@ -274,17 +273,6 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
-
-- type: entity
-  parent: [SolutionWeapon, SolutionTiny]
-  id: SolutionVenomSpiderSpace
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: ChloralHydrate
-        Quantity: 30
 
 - type: entity
   id: MobSpiderSpaceSalvage
@@ -314,7 +302,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        45: Dead
+        100: Dead
     - type: Stamina
       baseCritThreshold: 150
     - type: DamageStateVisuals
@@ -359,9 +347,12 @@
         types:
           Piercing: 6
           Poison: 4
-    - type: SolutionManager
+    - type: SolutionContainerManager
       solutions:
-      - SolutionVenomCobraSpace
+        melee:
+          reagents:
+          - ReagentId: NorepinephricAcid
+            Quantity: 90
     - type: MeleeChemicalInjector
       solution: melee
       transferAmount: 6
@@ -383,17 +374,6 @@
       movementVisibilityRate: 0.25
 
 - type: entity
-  parent: [SolutionWeapon, SolutionTiny]
-  id: SolutionVenomCobraSpace
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: NorepinephricAcid
-        Quantity: 30
-
-- type: entity
   id: MobCobraSpaceSalvage
   parent: MobCobraSpace
   suffix: "Salvage Ruleset"
@@ -401,7 +381,7 @@
     - type: SalvageMobRestrictions
 
 - type: entity
-  parent: [SimpleSpaceMobBase, BaseMobAnimal, SolutionVermin, DVNodeCrawler] # DeltaV - node crawling
+  parent: [SimpleSpaceMobBase, BaseMobAnimal, DVNodeCrawler] # DeltaV - node crawling
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
@@ -480,15 +460,6 @@
       Dead:
         Base: dead
   - type: Edible
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: UncookedAnimalProteins
-        Quantity: 8
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Water
-        Quantity: 4 #It makes saline if you add salt!
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -508,6 +479,16 @@
     baseDecayRate: 0.1
   - type: Extractable
     grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSnail
+      amount: 1
   - type: Tag
     tags:
     - Trash

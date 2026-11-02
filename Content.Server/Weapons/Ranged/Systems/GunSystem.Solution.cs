@@ -18,7 +18,7 @@ public sealed partial class GunSystem
         base.InitializeSolution();
 
         SubscribeLocalEvent<SolutionAmmoProviderComponent, MapInitEvent>(OnSolutionMapInit);
-        SubscribeLocalEvent<SolutionAmmoProviderComponent, SolutionChangedEvent>(OnSolutionChanged);
+        SubscribeLocalEvent<SolutionAmmoProviderComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
     }
 
     private void OnSolutionMapInit(Entity<SolutionAmmoProviderComponent> entity, ref MapInitEvent args)
@@ -26,10 +26,10 @@ public sealed partial class GunSystem
         UpdateSolutionShots(entity);
     }
 
-    private void OnSolutionChanged(Entity<SolutionAmmoProviderComponent> entity, ref SolutionChangedEvent args)
+    private void OnSolutionChanged(Entity<SolutionAmmoProviderComponent> entity, ref SolutionContainerChangedEvent args)
     {
-        if (args.Solution.Comp.Id == entity.Comp.SolutionId)
-            UpdateSolutionShots(entity, args.Solution.Comp.Solution);
+        if (args.Solution.Name == entity.Comp.SolutionId)
+            UpdateSolutionShots(entity, args.Solution);
     }
 
     protected override void UpdateSolutionShots(Entity<SolutionAmmoProviderComponent> ent, Solution? solution = null)
