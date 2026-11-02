@@ -13,6 +13,8 @@ using Robust.Shared.Utility;
 // Begin Delta-V
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Throwing;
+using Content.Shared.Hands.Components;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Throwing;
 using Content.Shared.StatusEffectNew;
 // End Delta-V
@@ -299,8 +301,9 @@ public abstract class SharedItemSystem : EntitySystem
 
     private void OnTelekinesisUsed(Entity<ItemComponent> ent, ref TelekinesisUsedEvent args) // Delta-V
     {
-        if (args.Cancelled)
+        if (args.Cancelled || !TryComp<HandsComponent>(args.User, out var hands) || !_handsSystem.CanPickupAnyHand(args.User, ent.Owner, handsComp: hands, item: ent.Comp))
             return;
+
         // Small items get brought into hand.
         _throwing.TryThrow(args.Target, Transform(args.User).Coordinates);
         _status.TryAddStatusEffectDuration(args.User, "StatusEffectCatcher", TimeSpan.FromSeconds(2.5));

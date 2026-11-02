@@ -1,6 +1,7 @@
 using Content.Shared._DV.Psionics.Components.PsionicPowers;
 using Content.Shared._DV.Psionics.Events;
 using Content.Shared._DV.Psionics.Events.PowerActionEvents;
+using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -10,15 +11,13 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    
+
     // We love magic numbers!!!!!
     // This is provided to make the pull strength noticeable.
     private const float Impulse = 125f;
 
     protected override void OnPowerUsed(Entity<TelekinesisPowerComponent> psionic, ref TelekinesisPowerActionEvent args)
     {
-        Log.Debug(args.Target.ToString());
-
         var ev = new TelekinesisUsedEvent(args.Target, psionic.Owner);
         RaiseLocalEvent(args.Target, ref ev);
         if (ev.Cancelled)
@@ -26,7 +25,8 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 
         // Any special interactions cancel the event, so really this is just a fall-back where you pull the target towards you.
 
-        if (!HasComp<PhysicsComponent>(args.Target))
+        // The ability effectively works as a 'pull,' and the pullable check prevents edge cases with thief/fulton beacons.
+        if (!HasComp<PhysicsComponent>(args.Target) || !HasComp<PullableComponent>(args.Target))
             return;
 
         var targetCoords = (_xform.GetWorldPosition(args.Performer) - _xform.GetWorldPosition(args.Target));
