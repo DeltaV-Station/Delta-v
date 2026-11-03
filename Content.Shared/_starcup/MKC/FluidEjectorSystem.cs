@@ -86,8 +86,8 @@ public sealed class FluidEjectorSystem : EntitySystem
         var whitelistedReagents = metabolismWhitelistEvent.Reagents.Select(protoId => protoId.Id);
         if (!bodyReagents.Any(id => !bloodReferenceReagents.Contains(id) && !whitelistedReagents.Contains(id)))
         {
-            ent.Comp.NextPopupTime = TimeSpan.Zero; // DeltaV - cancel ejection if nothing to eject
-            ent.Comp.NextUpdate = TimeSpan.Zero; // DeltaV - cancel ejection if nothing to eject
+            ent.Comp.NextPopupTime = TimeSpan.Zero;
+            ent.Comp.NextUpdate = TimeSpan.Zero;
             return;
         }
 
