@@ -241,7 +241,7 @@
   parent: BaseSecurityPDA
   id: SecurityCadetPDA
   name: security cadet PDA
-  description: Why isn't it red?
+  description: A lighter blue, for a lighter burden. # DeltaV - Was  "Why isn't it red?"
   components:
   - type: Pda
     id: SecurityCadetIDCard
@@ -991,7 +991,7 @@
   parent: BaseSecurityPDA
   id: SecurityPDA
   name: security PDA
-  description: Red to hide the stains of passenger blood.
+  description: Blue to show the stains of passenger blood. # DeltaV - Was "Red to hide the stains of passenger blood."
   components:
   - type: Pda
     id: SecurityIDCard
