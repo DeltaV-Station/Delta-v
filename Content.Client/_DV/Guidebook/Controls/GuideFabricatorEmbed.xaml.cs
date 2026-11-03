@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Client.Guidebook.Controls;
 using Content.Client.Guidebook.Richtext;
+using Content.Client.Materials;
 using Content.Client.Message;
 using Content.Client.UserInterface.ControlExtensions;
 using Content.Shared._DV.Fabricator;
@@ -17,7 +18,10 @@ namespace Content.Client._DV.Guidebook.Controls;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideFabricatorEmbed : PanelContainer, IDocumentTag, ISearchableControl, IPrototypeRepresentationControl
 {
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    private readonly MaterialStorageSystem _materialStorage;
 
     public IPrototype? RepresentedPrototype { get; private set; }
 
@@ -26,6 +30,8 @@ public sealed partial class GuideFabricatorEmbed : PanelContainer, IDocumentTag,
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         MouseFilter = MouseFilterMode.Stop;
+
+        _materialStorage = _entityManager.System<MaterialStorageSystem>();
     }
 
     public GuideFabricatorEmbed(string recipe) : this()
@@ -99,7 +105,7 @@ public sealed partial class GuideFabricatorEmbed : PanelContainer, IDocumentTag,
             {
                 IngredientsList.AddChild(new GuideEntityEmbed(stack.ID, false, false));
                 name = stack.Name;
-                stackCount /= 100; // TODO change this value per item proto?
+                stackCount /= _materialStorage.GetSheetVolume(proto);
             }
 
             AddSolid(proto, name, stackCount);
