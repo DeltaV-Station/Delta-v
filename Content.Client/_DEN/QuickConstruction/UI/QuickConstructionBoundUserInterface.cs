@@ -4,25 +4,33 @@ using Content.Client.UserInterface.Controls;
 using Content.Shared._DEN.QuickConstruction.Components;
 using Content.Shared._DEN.QuickConstruction.Prototypes;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Client.Placement;
 using Robust.Client.UserInterface;
+using Robust.Client.Player;
 using Robust.Shared.Collections;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._DEN.QuickConstruction.UI;
+
 [UsedImplicitly]
 public sealed partial class QuickConstructionBoundUserInterface : BoundUserInterface
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IPlacementManager _placementMan = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private EntityManager _entManager = default!;
+
+    private readonly EntityWhitelistSystem _whitelistSystem;
 
     private SimpleRadialMenu? _menu;
 
     public QuickConstructionBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
+        _whitelistSystem = _entManager.System<EntityWhitelistSystem>();
     }
 
     protected override void Open()
@@ -34,6 +42,11 @@ public sealed partial class QuickConstructionBoundUserInterface : BoundUserInter
             return;
 
         var models = ConvertToButtons(prototype.ConstructionEntries, prototype.CategoryEntries);
+
+        if (!models.Any())
+        {
+            return;
+        }
 
         _menu = this.CreateWindow<SimpleRadialMenu>();
         _menu.Track(Owner);
@@ -57,11 +70,19 @@ public sealed partial class QuickConstructionBoundUserInterface : BoundUserInter
                 || !_prototypeManager.TryIndex(recipePrototypeId, out var recipePrototype))
                 continue;
 
+            // check for entity whitelist
+            if (_playerManager.LocalSession == null
+                    || _playerManager.LocalEntity == null
+                    || _whitelistSystem.IsWhitelistFail(prototype.EntityWhitelist, _playerManager.LocalEntity.Value))
+            {
+                continue;
+            }
+
             var topLevelActionOption = new RadialMenuActionOption<ConstructionPrototype>(HandlePlacement, prototype)
-                {
-                    IconSpecifier = RadialMenuIconSpecifier.With(recipePrototype),
-                    ToolTip = recipePrototype.Name,
-                };
+            {
+                IconSpecifier = RadialMenuIconSpecifier.With(recipePrototype),
+                ToolTip = prototype.Name,
+            };
             constructionButtons.Add(topLevelActionOption);
         }
 
@@ -74,11 +95,15 @@ public sealed partial class QuickConstructionBoundUserInterface : BoundUserInter
             if (categoryButtons.TryGetValue(prototype, out var list))
                 continue;
 
-            list = ConvertToButtons(prototype.ConstructionEntries,prototype.CategoryEntries).ToList();
-            categoryButtons.Add(prototype, list);
+
+            list = ConvertToButtons(prototype.ConstructionEntries, prototype.CategoryEntries).ToList();
+            if (list.Count > 0)
+            {
+                categoryButtons.Add(prototype, list);
+            }
         }
 
-        var models = new RadialMenuOptionBase[constructionButtons.Count + categoryEntries.Count];
+        var models = new RadialMenuOptionBase[constructionButtons.Count + categoryButtons.Count];
         var modelIndex = 0;
 
         foreach (var (prototype, buttonList) in categoryButtons)
@@ -111,11 +136,11 @@ public sealed partial class QuickConstructionBoundUserInterface : BoundUserInter
         }
 
         _placementMan.BeginPlacing(new PlacementInformation
-            {
-                IsTile = false,
-                PlacementOption = proto.PlacementMode,
-            },
-            new ConstructionPlacementHijack(proto));
+        {
+            IsTile = false,
+            PlacementOption = proto.PlacementMode,
+        },
+        new ConstructionPlacementHijack(proto));
 
         _menu?.Close();
     }

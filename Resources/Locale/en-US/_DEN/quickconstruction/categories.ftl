@@ -1,3 +1,11 @@
 quickconstruction-category-pipe = pipes
 quickconstruction-category-tile = tiles
 quickconstruction-category-railing = railings
+quickconstruction-category-wood-floors = wood floors
+quickconstruction-category-wood-fences = wood fences
+quickconstruction-category-wood-fences-high = high wooden fences
+quickconstruction-category-wood-fences-small = small wooden fences
+quickconstruction-category-cardboard-boxes = cardboard boxes
+quickconstruction-category-cardboard-gear = cardboard gear
+quickconstruction-category-web-clothing = web clothing
+quickconstruction-category-web-furniture = web furniture
