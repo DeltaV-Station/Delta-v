@@ -160,6 +160,9 @@ namespace Content.Server.Atmos.EntitySystems
             if (!isHotEvent.IsHot)
                 return;
 
+            // DeltaV - don't handle events on non-ignition
+            // Ignite(uid, args.Used, flammable, args.User);
+            // args.Handled = true;
             args.Handled = Ignite(uid, args.Used, flammable, args.User); // DeltaV - don't handle events on non-ignition
         }
 
