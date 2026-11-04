@@ -157,7 +157,8 @@
     message: psionic-power-precognition-hitman-spawn-result-message
   - type: LoadMapRule
     gridPath: /Maps/_DV/Shuttles/Event/Professional.yml
-  - type: AntagLoadProfileRule
+  - type: AntagSpawner
+    prototype: MobHuman
   - type: AntagObjectives
     objectives:
     - HitmanSurviveObjective
