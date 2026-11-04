@@ -50,12 +50,13 @@
     sprite: _DV/Clothing/Belt/corpsman.rsi
   - type: ItemSlots # add medkit slot
     slots:
-      holster:
-        name: clothing-belt-sidearm
-        priority: 3
+      Medical_Injector:
+        name: Injector # for some reason this name is getting adopted for ingame display. Unlike the other slot which seem to use the whitelist tag. So make it something nice
+        priority: 3 # Higher number gives higher priority for ejecting from belt 
         whitelist:
           tags:
-          - Sidearm
+          - JetInjector
+          - Syringe
         insertOnInteract: false
       medkit:
         priority: 2
