@@ -37,6 +37,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: pwindow
   - type: Construction
     graph: Window
@@ -130,7 +131,7 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # DeltaV - Make diagonal windows iconsmooth with walls and windows
     base: state
   - type: Icon
     sprite: Structures/Windows/plasma_diagonal.rsi

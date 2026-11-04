@@ -74,3 +74,51 @@
       configPath: "/Prototypes/Parallaxes/parallax_config.toml"
     slowness: 0.875
   layersLQUseHQ: false
+
+- type: parallax
+  id: CrucibleStation
+  layers:
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/lava.png"
+    slowness: 0.998
+    scale: "0.5, 0.5"
+    scrolling: "0.025, -0.0025"
+
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/bottomclouds.png"
+    slowness: 0.95
+    scale: "1.25, 1.25"
+    scrolling: "-0.01, 0.0225"
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/topclouds.png"
+    slowness: 0.925
+    scale: "1.5, 1.5"
+    scrolling: "-0.025, 0.0225"
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/embersbright.png"
+    slowness: 0.92
+    scale: "0.8, 0.8"
+    scrolling: "-0.05, 0.05"
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/embers.png"
+    slowness: 0.9
+    scale: "1.25, 1.25"
+    scrolling: "0.1, 0.1"
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/embersdark.png"
+    slowness: 0.85
+    scale: "1, 1"
+    scrolling: "0.2, 0.1"
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_DV/Parallaxes/Crucible/embersgrey.png"
+    slowness: 0.92
+    scale: "0.9, 0.9"
+    scrolling: "0.025, 0.15"
+  layersLQUseHQ: true

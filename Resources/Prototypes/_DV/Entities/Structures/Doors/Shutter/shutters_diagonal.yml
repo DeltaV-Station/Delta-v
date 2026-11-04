@@ -1,0 +1,182 @@
+- type: entity
+  id: ShuttersNormalDiagonal
+  description: It opens kind of weird, but you don't feel like questioning it.
+  parent: BaseShutter
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Shutters/shutters_diagonal.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Occluder
+  - type: Construction
+    graph: ShuttersDiagonal
+    node: ShuttersDiagonal
+    containers:
+    - board
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+
+- type: entity
+  id: ShuttersNormalDiagonalOpen
+  parent: [ShuttersNormalDiagonal, ShuttersNormalOpen]
+  suffix: Diagonal, Open
+  components:
+  - type: Door
+    state: Open
+  - type: Physics
+    canCollide: false
+  - type: Occluder
+    enabled: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+- type: entity
+  id: ShuttersRadiationDiagonal
+  parent: [ShuttersNormalDiagonal , ShuttersRadiation]
+  name: radiation shutters
+  description: It opens kind of weird, but you don't feel like questioning it.
+  suffix: Diagonal
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Shutters/shutters_radiation_diagonal.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Occluder
+  - type: Construction
+    graph: ShuttersDiagonal
+    node: ShuttersRadiationDiagonal
+    containers:
+    - board
+  - type: RadiationBlocker
+    resistance: 4
+
+- type: entity
+  id: ShuttersRadiationDiagonalOpen
+  parent: ShuttersRadiationDiagonal
+  suffix: Diagonal, Open
+  components:
+  - type: Door
+    state: Open
+  - type: Occluder
+    enabled: false
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+- type: entity
+  id: ShuttersWindowDiagonal
+  parent: [BaseDeltaPressureGlass, BaseShutter]
+  name: window shutters
+  description: The Best (TM) place to see your friends explode!
+  suffix: Diagonal
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Shutters/shutters_window_diagonal.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: Construction
+    graph: ShuttersDiagonal
+    node: ShuttersWindowDiagonal
+    containers:
+    - board
+  - type: RadiationBlocker
+    resistance: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+
+- type: entity
+  id: ShuttersWindowOpenDiagonal
+  parent: ShuttersWindowDiagonal
+  suffix: Diagonal, Open
+  components:
+  - type: Door
+    state: Open
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+# Frame for construction
+- type: entity
+  id: ShuttersFrameDiagonal
+  parent: BaseStructureDynamic
+  name: diagonal shutter frame
+  description: A frame for constructing a shutter.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Doors/Shutters/shutters_diagonal.rsi
+    state: frame
+  - type: Construction
+    graph: ShuttersDiagonal
+    node: frame1
+    containers:
+    - board
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - Impassable
+        - HighImpassable
+        layer:
+        - HighImpassable
+  - type: Transform
+    noRot: false

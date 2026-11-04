@@ -16,6 +16,9 @@
       - ForceNoFixRotations
   - type: Occluder
     boundingBox: "-0.5,-0.5,0.5,-0.3"
+  - type: Construction
+    graph: WindowDirectional
+    node: tintedWindowDirectional
 
 - type: entity
   id: WindowTintedReinforcedDirectional
@@ -35,6 +38,9 @@
       - ForceNoFixRotations
   - type: Occluder
     boundingBox: "-0.5,-0.5,0.5,-0.3"
+  - type: Construction
+    graph: WindowDirectional
+    node: reinforcedTintedWindowDirectional
 
 - type: entity
   id: ReinforcedTintedWindow

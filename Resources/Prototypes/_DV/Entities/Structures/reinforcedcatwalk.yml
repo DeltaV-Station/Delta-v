@@ -1,0 +1,58 @@
+# god please work
+- type: entity
+  id: CatwalkReinforced
+  name: reinforced catwalk
+  description: A tough, reinforced variant of the catwalk everyone knows and loves.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _DV/Structures/Catwalks/reinforcedcatwalk.rsi
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _DV/Structures/Catwalks/reinforcedcatwalk.rsi
+    state: catwalk_preview
+  - type: Transform
+    anchored: true
+  - type: IconSmooth
+    key: catwalk_reinforced
+    base: catwalk_
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Tag
+    tags:
+      - Catwalk
+  - type: Construction
+    graph: CatwalkReinforced
+    node: CatwalkReinforced
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 700
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # recipe needs 4 rods, drop half of that
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 4
+    fx: EffectRCDDeconstruct2
