@@ -2,7 +2,7 @@
   parent: Truncheon
   id: AdvancedTruncheon
   name: Advanced Truncheon
-  description: A longer, rigid, steel-studded baton, meant to harm more!
+  description: A longer, rigid, steel-studded baton. Just barely counts as lethal.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Melee/advanced_truncheon.rsi
@@ -27,3 +27,4 @@
     slots:
     - back
     - suitStorage
+    - belt

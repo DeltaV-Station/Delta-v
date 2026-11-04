@@ -2,7 +2,7 @@
   name: stun prod
   parent: [BaseItem, BaseMinorContraband]
   id: Stunprod
-  description: A stun prod for illegal incapacitation.
+  description: A stun prod, probably for illegal incapacitation. # Delta V new description
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunprod.rsi
@@ -25,9 +25,9 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Shock: 5
+        Shock: 8 # Delta V was 5
   - type: Stunbaton
-    energyPerUse: 120
+    energyPerUse: 60 #Delta V was 120
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
