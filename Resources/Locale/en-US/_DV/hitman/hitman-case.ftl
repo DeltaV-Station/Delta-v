@@ -42,4 +42,3 @@ hitman-tracker-kit-description =
     a spy monitor, a camera bug, an AI detector disguised as a multitool,
     a security hud disguised as sunglasses, and crew records as station map,
     finaly, a radio jammer and universal pinpointer.
-
