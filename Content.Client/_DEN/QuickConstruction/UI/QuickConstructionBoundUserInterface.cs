@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._DEN.QuickConstruction.UI;
 [UsedImplicitly]
-public sealed class QuickConstructionBoundUserInterface : BoundUserInterface
+public sealed partial class QuickConstructionBoundUserInterface : BoundUserInterface
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IPlacementManager _placementMan = default!;
@@ -115,7 +115,7 @@ public sealed class QuickConstructionBoundUserInterface : BoundUserInterface
                 IsTile = false,
                 PlacementOption = proto.PlacementMode,
             },
-            new ConstructionPlacementHijack(constructionSystem, proto));
+            new ConstructionPlacementHijack(proto));
 
         _menu?.Close();
     }
