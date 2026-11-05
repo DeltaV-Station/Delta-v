@@ -114,10 +114,10 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: GunRequiresWield
   - type: Gun
-    minAngle: 10 # DeltaV - add needing bipod - was changed to 20, reduced to 10
-    maxAngle: 15 # DeltaV - add needing bipod - was changed to 30, reduced to 15.
-    angleIncrease: 5 # Delta-v - was 10 now 5
-    fireRate: 0.3 #Delta-v - was .4 now .3
+    minAngle: 20 # DeltaV - add needing bipod
+    maxAngle: 30 # DeltaV - add needing bipod
+    angleIncrease: 10
+    fireRate: 0.4
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -143,10 +143,10 @@
     minAngle: 0
     maxAngle: 0
   - type: GunBipod
-    minAngle: -10
-    maxAngle: -15
+    minAngle: -20
+    maxAngle: -30
     angleDecay: 0
-    fireRateIncrease: .3
+    fireRateIncrease: .2
     setupDelay: 1.4 # Default time is 2 seconds
   - type: ClothingSpeedModifier # Big sniper makes you move slower
     sprintModifier: 0.9

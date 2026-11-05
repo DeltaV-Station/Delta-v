@@ -45,8 +45,8 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeAntiMaterielToxin
-  name: cartridge (.60 anti-material pestiline)
-  description: A high-power cartridge used by high-precision rifles. This one has a slow acting deadly poison in the tip.
+  name: cartridge (.60 anti-material poison tip)
+  description: A high-power cartridge used by high-precision rifles. This one has a deadly poison in the tip.
   components:
   - type: Tag
     tags:
@@ -69,7 +69,7 @@
     solutions:
       ammo:
         reagents:
-        - ReagentId: Pestiline
-          Quantity: 6
+        - ReagentId: Bungotoxin
+          Quantity: 15
   - type: SolutionTransfer
-    maxTransferAmount: 6
+    maxTransferAmount: 15

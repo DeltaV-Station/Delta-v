@@ -49,7 +49,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletAntiMaterielToxin
-  name: bullet (.60 anti-material pestiline)
+  name: bullet (.60 anti-material poison tip)
   components:
   - type: Projectile
     damage:
@@ -73,13 +73,13 @@
   - type: SolutionContainerManager
     solutions:
       ammo:
-        maxVol: 6
+        maxVol: 15
   - type: RefillableSolution
     solution: ammo
   - type: DrainableSolution
     solution: ammo
   - type: SolutionInjectOnProjectileHit
-    transferAmount: 6
+    transferAmount: 15
     blockSlots: NONE
     solution: ammo
   - type: InjectableSolution
