@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._starcup.Metabolism;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
@@ -18,27 +19,28 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._starcup.MKC;
 
-public sealed class FluidEjectorSystem : EntitySystem
+public sealed partial class FluidEjectorSystem : EntitySystem
 {
     public static readonly EntProtoId Drunk = "StatusEffectDrunk";
 
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
-    [Dependency] private readonly SharedForensicsSystem _forensics = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private MovementModStatusSystem _movementMod = default!;
+    [Dependency] private SharedForensicsSystem _forensics = default!;
+    [Dependency] private SharedPuddleSystem _puddle = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private MetabolizerWhitelistSystem _metabolizerWhitelist = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BodyComponent, SolutionContainerChangedEvent>(_body.RelayEvent);
-        SubscribeLocalEvent<FluidEjectorComponent, BodyRelayedEvent<SolutionContainerChangedEvent>>(OnSolutionChanged);
+        SubscribeLocalEvent<BodyComponent, SolutionChangedEvent>(_body.RelayEvent);
+        SubscribeLocalEvent<FluidEjectorComponent, BodyRelayedEvent<SolutionChangedEvent>>(OnSolutionChanged);
     }
 
     public override void Update(float deltaTime)
@@ -49,7 +51,7 @@ public sealed class FluidEjectorSystem : EntitySystem
             if (fluidEjector.NextUpdate == TimeSpan.Zero)
                 continue;
 
-            if (organ.Body is not {} body)
+            if (organ.Body is not { } body)
                 continue;
 
             if (_gameTiming.CurTime >= fluidEjector.NextPopupTime)
@@ -67,23 +69,23 @@ public sealed class FluidEjectorSystem : EntitySystem
         }
     }
 
-    private void OnSolutionChanged(Entity<FluidEjectorComponent> ent, ref BodyRelayedEvent<SolutionContainerChangedEvent> args)
+    private void OnSolutionChanged(Entity<FluidEjectorComponent> ent, ref BodyRelayedEvent<SolutionChangedEvent> args)
     {
         if (_mobState.IsDead(args.Body.Owner))
             return;
 
-        if (args.Args.SolutionId != ent.Comp.Solution)
+        if (args.Args.Solution.Comp.Solution.Name != ent.Comp.Solution) // DeltaV - Solution.Comp.Id -> Solution.Comp.Solution.Name
             return;
 
         var bloodReagentEvent = new MetabolismExclusionEvent();
         RaiseLocalEvent(args.Body.Owner, ref bloodReagentEvent);
 
-        var metabolismWhitelistEvent = new MetabolismWhitelistEvent();
-        RaiseLocalEvent(args.Body.Owner, ref metabolismWhitelistEvent);
+        if (!_metabolizerWhitelist.GetMetabolizableReagents(args.Body, out var metabolizableReagents))
+            metabolizableReagents = [];
 
-        var bodyReagents = args.Args.Solution.Contents.Select(r => r.Reagent.Prototype);
+        var bodyReagents = args.Args.Solution.Comp.Solution.Contents.Select(r => r.Reagent.Prototype);
         var bloodReferenceReagents = bloodReagentEvent.Reagents.Select(reagentId => reagentId.Prototype);
-        var whitelistedReagents = metabolismWhitelistEvent.Reagents.Select(protoId => protoId.Id);
+        var whitelistedReagents = metabolizableReagents.Select(protoId => protoId.Id);
         if (!bodyReagents.Any(id => !bloodReferenceReagents.Contains(id) && !whitelistedReagents.Contains(id)))
         {
             ent.Comp.NextPopupTime = TimeSpan.Zero;
