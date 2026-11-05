@@ -61,7 +61,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
 
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
     {
-        TryInjectTargets(injectorEntity, [target], source);
+        TryInjectTargets(injectorEntity, new HashSet<EntityUid>() { target }, source); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     /// </list>
     /// </remarks>
     /// <returns>true if at least one target was successfully injected, otherwise false</returns>
-    private bool TryInjectTargets(Entity<BaseSolutionInjectOnEventComponent> injector, IReadOnlyList<EntityUid> targets, EntityUid? source = null)
+    private bool TryInjectTargets(Entity<BaseSolutionInjectOnEventComponent> injector, IReadOnlySet<EntityUid> targets, EntityUid? source = null) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     {
         // Make sure we have at least one target
         if (targets.Count == 0)
