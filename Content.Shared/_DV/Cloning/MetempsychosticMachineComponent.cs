@@ -15,4 +15,3 @@ public sealed partial class MetempsychoticMachineComponent : Component
     public static readonly ProtoId<WeightedRandomPrototype> MetempsychoticHumanoidPool = "MetempsychoticHumanoidPool";
     public static readonly ProtoId<WeightedRandomPrototype> MetempsychoticNonHumanoidPool = "MetempsychoticNonHumanoidPool";
 }
-
