@@ -1,0 +1,24 @@
+# Cory's slight biased species weights
+- type: weightedRandom
+  id: MetempsychoticHumanoidPool # Species prototypes
+  weights:
+    Human: 1
+    Felinid: 1
+    Vulpkanin: 1
+    Harpy: 1
+    Oni: 0.5
+    Diona: 0.5
+    Reptilian: 0.5
+    SlimePerson: 0.5
+    Arachnid: 0.5
+    Shadekin: 0.25
+    Allulalo: 0.25
+
+- type: weightedRandom
+  id: MetempsychoticNonHumanoidPool # Other Entities
+  weights:
+    MobMonkey: 1
+    MobScurret: 1
+    MobKobold: 1
+    MobXenoQueen: 0.01
+    MobCrab: 0.01
