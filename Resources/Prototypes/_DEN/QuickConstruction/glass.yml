@@ -17,12 +17,14 @@
   constructionEntries:
   - UraniumWindow
   - UraniumWindowDiagonal
+  - UraniumWindowDirectional # Delta V
 
 - type: quickConstructionCategory
   id: ReinforcedUraniumGlass
   constructionEntries:
   - ReinforcedUraniumWindow
   - ReinforcedUraniumWindowDiagonal
+  - UraniumReinforcedWindowDirectional # Delta V
 
 - type: quickConstructionCategory
   id: PlasmaGlass
