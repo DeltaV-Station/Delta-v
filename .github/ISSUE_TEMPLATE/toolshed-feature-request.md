@@ -2,8 +2,8 @@
 name: Toolshed feature request
 about: Suggest a feature for Toolshed (for game admins/developers)
 title: "[TOOLSHED REQUEST]"
-labels: Toolshed
-assignees: moonheart08
+labels: ''
+assignees: ''
 
 ---
 
