@@ -1,0 +1,26 @@
+- type: entity
+  parent: BoxCardboard
+  id: BoxSurvivalMKC
+  name: survival box
+  description: It's a box with basic silicon repair supplies inside.
+  suffix: MKC
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PowerCellSmall
+        - id: Flare
+        - id: EmergencyMedipenSilicon
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: circuit

@@ -6,6 +6,13 @@
     species:
     - Feroxi
 
+- type: loadoutEffectGroup
+  id: Robotic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - MKC
+
 # Basic
 - type: loadout
   id: EmergencyWaterVapor
@@ -15,6 +22,15 @@
   storage:
     back:
     - BoxSurvivalWaterVapor
+
+- type: loadout
+  id: EmergencyRobotic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Robotic
+  storage:
+    back:
+    - BoxSurvivalMKC
 
 # Clown
 - type: loadout

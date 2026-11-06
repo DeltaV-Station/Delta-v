@@ -190,3 +190,26 @@
     Radiation: 0.5
     Caustic: 0.5
     Cold: 0.8 # DeltaV - Cold res
+
+# Bloodloss modifiers for MKCs
+# Removes the heat cautery effect
+# Coefficients (except heat) copied from BloodlossHuman modifier set
+# Make sure to add any new damage type here.
+- type: damageModifierSet
+  id: BloodlossHumanoidSilicon
+  coefficients:
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Blunt: 0.08
+    Caustic: 0.0
+    Cellular: 0.0
+    Cold: 0.0
+    Heat: 0.0 # -0.5 -> 0 : heat damage does not cauterize wounds
+    Holy: 0
+    Piercing: 0.2
+    Poison: 0.0
+    Radiation: 0.0
+    Soul: 0.0
+    Shock: 0.0
+    Slash: 0.25
+    Structural: 0.0

@@ -1,0 +1,197 @@
+- type: entity
+  parent: ChemicalMedipen
+  id: EmergencyMedipenSilicon
+  name: rescue nanite injector
+  description: A single-dose, non-refillable medipen containing rescue nanites, used to stabilize MKCs in critical condition until they can receive full repairs. Don't inject too many at once!
+  components:
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen_silicon
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_silicon_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: RescueNanites
+          Quantity: 15
+
+- type: entity
+  parent: [ChemicalMedipen, BaseSyndicateContraband] # DeltaV - traitor -> syndicate contraband
+  id: CombatMedipenSilicon
+  name: silicon combat medipen
+  description: A single-dose medipen containing special nanites to rapidly repair most forms of damage.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#5bcaca"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#5bcaca"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: morphen_silicon
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: morphen_silicon_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: ReconstructorNanites
+          Quantity: 30
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  parent: [ BaseSyndicateContraband, ChemicalMedipen ] # DeltaV - traitor -> syndicate contraband
+  id: OverclockInjector
+  name: overclock injector
+  description: An injector containing a large number of power-boosting nanites. Effects last for about 60 seconds.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#9a040e"
+      - state: base-colorB-inhand-left
+        color: "#c62933"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#9a040e"
+      - state: base-colorB-inhand-right
+        color: "#c62933"
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: overclockpen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: OverclockNanites
+          Quantity: 30
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: overclockpen_empty
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  parent: [ BaseSyndicateContraband, ChemicalMedipen ] # DeltaV - traitor -> syndicate contraband
+  id: OverclockInjectorMini
+  name: overclock microinjector
+  description: An injector containing a small number of power-boosting nanites. Effects last for about 30 seconds.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#9a040e"
+      - state: base-colorB-inhand-left
+        color: "#c62933"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#9a040e"
+      - state: base-colorB-inhand-right
+        color: "#c62933"
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: microoverclockpen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: OverclockNanites
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: microoverclockpen_empty
+  - type: StaticPrice
+    price: 583
+
+# DeltaV - no NT injectors
+# - type: entity
+#   parent: OverclockInjector
+#   id: OverclockInjectorNT
+#   suffix: NanoTrasen
+#   components:
+#   - type: Item
+#     inhandVisuals:
+#       left:
+#       - state: base-needle-inhand-left
+#       - state: base-colorA-inhand-left
+#         color: "#04599a"
+#       - state: base-colorB-inhand-left
+#         color: "#2982c6"
+#       right:
+#       - state: base-needle-inhand-right
+#       - state: base-colorA-inhand-right
+#         color: "#04599a"
+#       - state: base-colorB-inhand-right
+#         color: "#2982c6"
+#   - type: Sprite
+#     sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+#     layers:
+#     - state: overclockpen_nt
+#       map: ["enum.SolutionContainerLayers.Fill"]
+#   - type: SolutionContainerVisuals
+#     maxFillLevels: 1
+#     changeColor: false
+#     emptySpriteName: overclockpen_nt_empty
+
+# DeltaV - no NT injectors
+# - type: entity
+#   parent: OverclockInjectorMini
+#   id: OverclockInjectorMiniNT
+#   suffix: NanoTrasen
+#   components:
+#   - type: Item
+#     inhandVisuals:
+#       left:
+#       - state: base-needle-inhand-left
+#       - state: base-colorA-inhand-left
+#         color: "#04599a"
+#       - state: base-colorB-inhand-left
+#         color: "#2982c6"
+#       right:
+#       - state: base-needle-inhand-right
+#       - state: base-colorA-inhand-right
+#         color: "#04599a"
+#       - state: base-colorB-inhand-right
+#         color: "#2982c6"
+#   - type: Sprite
+#     sprite: _starcup/Objects/Specific/Medical/medipen.rsi
+#     layers:
+#     - state: microoverclockpen_nt
+#       map: ["enum.SolutionContainerLayers.Fill"]
+#   - type: SolutionContainerVisuals
+#     maxFillLevels: 1
+#     changeColor: false
+#     emptySpriteName: microoverclockpen_nt_empty
