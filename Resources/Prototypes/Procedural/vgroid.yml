@@ -32,63 +32,63 @@
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockIron
-      count: 50
-      minGroupSize: 10
-      maxGroupSize: 15
+      count: 35 #DeltaV - Was 50
+      minGroupSize: 6  #DeltaV - Was 10
+      maxGroupSize: 11  #DeltaV - Was 15
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockCoal
-      count: 50
-      minGroupSize: 8
-      maxGroupSize: 12
+      count: 30 #DeltaV - Was 50
+      minGroupSize: 6 #DeltaV - Was 8
+      maxGroupSize: 10 #DeltaV - Was 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockQuartz
-      count: 50
-      minGroupSize: 10
-      maxGroupSize: 15
+      count: 35 #DeltaV - Was 50
+      minGroupSize: 6 #DeltaV - Was 10
+      maxGroupSize: 11 #DeltaV - Was 15
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockSalt
-      count: 25
-      minGroupSize: 8
-      maxGroupSize: 12
+      count: 25 #DeltaV - Was 50
+      minGroupSize: 6 #DeltaV - Was 8
+      maxGroupSize: 8 #DeltaV - Was 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockGold
-      count: 40
-      minGroupSize: 8
-      maxGroupSize: 12
+      count: 32 #DeltaV - Was 40
+      minGroupSize: 5 #DeltaV - Was 8
+      maxGroupSize: 9 #DeltaV - Was 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockSilver
-      count: 40
-      minGroupSize: 8
-      maxGroupSize: 12
+      count: 32 #DeltaV - Was 40
+      minGroupSize: 5 #DeltaV - Was 8
+      maxGroupSize: 9 #DeltaV - Was 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockPlasma
-      count: 35
+      count: 27 #DeltaV - Was 35
       minGroupSize: 4
       maxGroupSize: 8
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockUranium
-      count: 35
+      count: 27 #DeltaV - Was 35
       minGroupSize: 4
       maxGroupSize: 8
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockArtifactFragment
-      count: 25
+      count: 15 #DeltaV - Was 25
       minGroupSize: 1
       maxGroupSize: 3
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockDiamond
-      count: 15
-      minGroupSize: 1
-      maxGroupSize: 2
+      count: 16
+      minGroupSize: 2 #DeltaV - Was 1
+      maxGroupSize: 3 #DeltaV - Was 2
     - !type:OreDunGen # DeltaV
       replacement: IronRock
       entity: IronRockBluespace
