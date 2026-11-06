@@ -136,7 +136,7 @@
     count: 1
 
 - type: entity
-  parent: SheetOtherBase
+  parent: [SheetOtherBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetPlastic
   name: plastic
   suffix: Full
@@ -177,6 +177,8 @@
         - ReagentId: Phosphorus
           Quantity: 5
         canReact: false
+  - type: QuickConstructable # DEN quick construction
+    category: Plastic
 
 - type: entity
   parent: SheetPlastic

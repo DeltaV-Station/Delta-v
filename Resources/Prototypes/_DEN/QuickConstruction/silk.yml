@@ -1,0 +1,30 @@
+- type: quickConstructionCategory
+  id: Silk
+  constructionEntries:
+  - TileWeb
+  - SilkWovenCloth
+  - WallWeb
+  - WebShield
+  categoryEntries:
+  - WebClothing
+  - WebFurniture
+
+- type: quickConstructionCategory
+  id: WebClothing
+  name: quickconstruction-category-web-clothing
+  icon: { sprite: Clothing/Uniforms/Jumpsuit/web.rsi, state: icon} # Delta V - Sprite Location
+  constructionEntries:
+  - ClothingUniformJumpsuitWeb
+  - ClothingUniformJumpskirtWeb
+  - ClothingOuterWinterWeb
+  - ClothingShoesBootsWinterWeb
+
+- type: quickConstructionCategory
+  id: WebFurniture
+  name: quickconstruction-category-web-furniture
+  icon: { sprite: Structures/Furniture/Tables/web.rsi, state: full}
+  constructionEntries:
+  - TableWeb
+  - CrateWeb
+  - ChairWeb
+  - WebBed
