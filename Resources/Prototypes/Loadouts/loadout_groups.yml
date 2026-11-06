@@ -274,8 +274,8 @@
   - GreyJumpsuit
   - GreyJumpskirt
   # Begin DeltaV additions
-  - WhiteJumpsuit
-  - WhiteJumpskirt
+  - WhiteJumpsuitPassenger
+  - WhiteJumpskirtPassenger
   - BlackJumpsuit
   - BlackJumpskirt
   - BlueJumpsuit
@@ -292,10 +292,10 @@
   - OrangeJumpskirt
   - PinkJumpsuit
   - PinkJumpskirt
-  - RedJumpsuit
-  - RedJumpskirt
-  - YellowJumpsuit
-  - YellowJumpskirt
+  - RedJumpsuitPassenger
+  - RedJumpskirtPassenger
+  - YellowJumpsuitPassenger
+  - YellowJumpskirtPassenger
   - PurpleJumpsuit
   - PurpleJumpskirt
   - LightBrownJumpsuit
@@ -304,8 +304,6 @@
   - BrownJumpskirt
   - MaroonJumpsuit
   - MaroonJumpskirt
-  - MioSkirt
-  - NaotaHoodie
   - CasualBlueSkirt
   - CasualBlueSuit
   - CasualRedSkirt
@@ -327,7 +325,17 @@
   - GreenTurtleneckDress
   - BlueTurtleneckDress
   - YellowTurtleneckDress
+  - MNKOfficeSkirt
+  - MNKBlackOveralls
+  - MNKGymBra
+  - MNKExposedShoulders
+  - MNKBlackTracksuit
+  - MNKBlackDress
   - OldYellowDress
+  - MioSkirt
+  - NaotaHoodie
+  - WhiteShirtPurpleSkirt
+  - BlackTurtleneck
   # End DeltaV additions
   - AncientJumpsuit
   - RainbowJumpsuit
@@ -340,12 +348,12 @@
   loadouts:
   - PassengerFace
   # Begin DeltaV additions
+  - SkullBandanaMask
   - BlackBandanaMask
   - GoldBandanaMask
   - GreenBandanaMask
   - GreyBandanaMask
   - RedBandanaMask
-  - SkullBandanaMask
   - BrownBandanaMask
   # End DeltaV additions
 
@@ -356,7 +364,11 @@
   loadouts:
   - PassengerGloves
   # Begin DeltaV additions
-  - PurpleGloves
+  - FingerlessGloves
+  - MercenaryFingerlessGloves
+  - WhiteGlovesPassenger
+  - BlackGloves
+  - PurpleGlovesPassenger
   - RedGloves
   - BlueGloves
   - TealGloves
@@ -364,10 +376,8 @@
   - LightBrownGloves
   - GreyGloves
   - GreenGloves
-  - OrangeGloves
-  - WhiteGloves
-  - BlackGloves
-  - FingerlessGloves
+  - OrangeGlovesPassenger
+
   # End DeltaV additions
 
 - type: loadoutGroup
@@ -390,13 +400,9 @@
   name: loadout-group-passenger-outerclothing
   minLimit: 0
   loadouts:
-  - PassengerWintercoat
+  #- PassengerWintercoat
   # Begin DeltaV additions
-  - LongcoatBlack
-  - LongcoatBrown
-  - LongcoatNanoTrasen
-  - BomberJacket
-  - BomberCheckered
+  - WintercoatPassenger
   - BlackWinterCoat
   - PurpleWinterCoat
   - RedWinterCoat
@@ -408,11 +414,16 @@
   - OrangeWinterCoat
   - WhiteWinterCoat
   - YellowWinterCoat
-  - BlackHoodie
-  - GrayHoodie
   - FlannelRed
   - FlannelBlue
   - FlannelGreen
+  - LongcoatBlack
+  - LongcoatBrown
+  - LongcoatNanoTrasen
+  - BomberCheckered
+  - BomberJacket
+  - BlackHoodie
+  - GrayHoodie
   # End DeltaV additions
 
 - type: loadoutGroup
@@ -422,14 +433,16 @@
   - BlackShoes
   - WinterBoots
   # Begin DeltaV additions
-  - WhiteShoes
-  - BlueShoes
-  - BrownShoes
+  - WhiteShoesPassenger
+  - RedShoes
+  - BlueShoesPassenger
+  - BrownShoesPassenger
   - GreenShoes
   - OrangeShoes
-  - RedShoes
   - YellowShoes
   - PurpleShoes
+  - LaceupShoes
+  - LeatherShoes
   - HighHeels
   - BrownCowboyBoots
   - BlackCowboyBoots
