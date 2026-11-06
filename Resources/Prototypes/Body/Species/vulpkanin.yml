@@ -17,7 +17,7 @@
       required: true
       default: [ VulpEar ]
     enum.HumanoidVisualLayers.Snout:
-      limit: 1
+      limit: 3 # DeltaV - changed from 1 - snout decoration markings not on SnoutCover
       required: false # DV - No requirement
       default: [ VulpSnout ]
     enum.HumanoidVisualLayers.SnoutCover:
