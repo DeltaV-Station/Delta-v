@@ -8,7 +8,7 @@
   cooldown: 1 # DeltaV
   rules:
     - MeteorSwarmScheduler
-    - RampingStationEventScheduler
+    - RampingStationEventSchedulerRoll # Delta V - Rolls between a high, medium or low intensity ramping scheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - GlimmerEventScheduler # DeltaV
