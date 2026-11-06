@@ -63,3 +63,13 @@
   materials: # Tiny bit more expensive than a network configurator
     Steel: 400
     Plastic: 300
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: HandheldEngineeringMonitorRecipe
+  result: HandheldEngineeringMonitorEmpty
+  materials:
+    Steel: 800
+    Glass: 250
+    Plastic: 200
+    Gold: 100
