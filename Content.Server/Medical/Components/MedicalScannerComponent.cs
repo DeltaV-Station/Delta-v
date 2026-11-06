@@ -15,5 +15,8 @@ namespace Content.Server.Medical.Components
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float CloningFailChanceMultiplier = 1f;
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float MetemKarmaBonus = 0.25f; // Delta V - Metem Psychotic Machine
     }
 }
