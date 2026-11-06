@@ -35,6 +35,7 @@ public abstract partial class SharedPsionicSystem : EntitySystem
 
         InitializeDetection();
         InitializeStatusEffects();
+        InitializeImplants();
         InitializeInvisibility();
         InitializeItems();
     }
@@ -75,7 +76,6 @@ public abstract partial class SharedPsionicSystem : EntitySystem
         }
 
         RemComp<PsionicComponent>(psionic);
-        GrantPsionicRoll(psionic.Owner);
 
         Popup.PopupClient(Loc.GetString("psionic-mindbroken"), psionic, PopupType.Medium);
     }
