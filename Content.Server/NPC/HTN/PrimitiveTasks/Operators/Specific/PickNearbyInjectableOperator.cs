@@ -10,7 +10,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Bots;
 using Content.Shared.Emag.Components;
 using Content.Shared.FixedPoint;
-using Content.Shared._starcup.Metabolism; // DeltaV
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
@@ -20,7 +19,6 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
     private MedibotSystem _medibot = default!;
     private PathfindingSystem _pathfinding = default!;
     private DamageableSystem _damageable = default!;
-    private MetabolizerWhitelistSystem _metabolizerWhitelist = default!; // DeltaV - check metabolism whitelist before inject
 
     private EntityQuery<DamageableComponent> _damageQuery = default!;
     private EntityQuery<InjectableSolutionComponent> _injectQuery = default!;
@@ -48,7 +46,6 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
         _medibot = sysManager.GetEntitySystem<MedibotSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _damageable = sysManager.GetEntitySystem<DamageableSystem>();
-        _metabolizerWhitelist = sysManager.GetEntitySystem<MetabolizerWhitelistSystem>(); // DeltaV - check metabolism whitelist before inject
 
         _damageQuery = _entManager.GetEntityQuery<DamageableComponent>();
         _injectQuery = _entManager.GetEntityQuery<InjectableSolutionComponent>();
@@ -86,8 +83,7 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
                 // Only go towards a target if the bot can actually help them or if the medibot is emagged
                 // note: this and the actual injecting don't check for specific damage types so for example,
                 // radiation damage will trigger injection but the tricordrazine won't heal it.
-                if (!_emaggedQuery.HasComponent(entity) && (_damageable.GetTotalDamage((entity, damage)) == FixedPoint2.Zero // DeltaV - parenthesis before damage check
-                    || !_metabolizerWhitelist.BodyCanMetabolizeReagent(entity, treatment.Reagent))) // DeltaV - check metabolism whitelist before inject
+                if (!_emaggedQuery.HasComponent(entity) && _damageable.GetTotalDamage((entity, damage)) == FixedPoint2.Zero)
                     continue;
 
                 //Needed to make sure it doesn't sometimes stop right outside it's interaction range
