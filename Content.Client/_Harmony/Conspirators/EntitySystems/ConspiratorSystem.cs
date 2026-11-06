@@ -18,19 +18,36 @@ public sealed class ConspiratorSystem : SharedConspiratorSystem
         base.Initialize();
 
         SubscribeLocalEvent<ConspiratorComponent, GetStatusIconsEvent>(OnConspiratorGetIcons);
+        SubscribeLocalEvent<ConspiratorLeaderComponent, GetStatusIconsEvent>(OnConspiratorLeaderGetIcons);
     }
 
     private void OnConspiratorGetIcons(Entity<ConspiratorComponent> entity, ref GetStatusIconsEvent args)
     {
         if (_playerManager.LocalSession?.AttachedEntity is { } playerEntity)
         {
-            if (!HasComp<ShowAntagIconsComponent>(playerEntity) &&
+            if ((!HasComp<ShowAntagIconsComponent>(playerEntity) &&
                 !HasComp<ConspiratorComponent>(playerEntity) &&
-                !HasComp<GhostComponent>(playerEntity)) // DeltaV - add GhostComponent
+                !HasComp<GhostComponent>(playerEntity) )) // DeltaV - add GhostComponent and conspirators v2
                 return;
         }
 
         if (_prototypeManager.TryIndex(entity.Comp.ConspiratorIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
+
+    //DV conspirators v2 addtions start
+    private void OnConspiratorLeaderGetIcons(Entity<ConspiratorLeaderComponent> entity, ref GetStatusIconsEvent args)
+    {
+        if (_playerManager.LocalSession?.AttachedEntity is { } playerEntity)
+        {
+            if (!HasComp<ShowAntagIconsComponent>(playerEntity) &&
+                !HasComp<ConspiratorComponent>(playerEntity) &&
+                !HasComp<GhostComponent>(playerEntity)) 
+                return;
+        }
+
+        if (_prototypeManager.TryIndex(entity.Comp.ConspiratorIcon, out var iconPrototype))
+            args.StatusIcons.Add(iconPrototype);
+    }
+    //DV conspirators v2 addtions end
 }
