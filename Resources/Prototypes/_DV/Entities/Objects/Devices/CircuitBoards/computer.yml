@@ -8,6 +8,8 @@
     state: cpu_supply
   - type: ComputerBoard
     prototype: ComputerShipyard
+  - type: ComputerTabletopBoard
+    prototype: ComputerTabletopShipyard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -19,6 +21,8 @@
     state: cpu_supply
   - type: ComputerBoard
     prototype: ComputerShuttleMining
+  - type: ComputerTabletopBoard
+    prototype: ComputerTabletopShuttleMining
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -33,3 +37,5 @@
     prototype: ComputerCargoOrdersJustice
   - type: StaticPrice
     price: 750
+  - type: ComputerTabletopBoard
+    prototype: ComputerTabletopCargoOrdersJustice
