@@ -115,9 +115,8 @@
         insertOnInteract: false # or you can't easily stow medkits in your rig.
   - type: Storage
     maxItemSize: Normal
-    grid: # DeltaV - Make the grid smaller
-    - 0,0,2,1
-    - 4,0,7,1
+    grid:
+    - 0,0,6,2
   - type: ItemMapper # DeltaV - add stowed medkit sprite
     mapLayers:
       medkit:
