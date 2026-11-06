@@ -325,7 +325,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Heat: 8 # Delta V was 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1178,7 +1178,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0
+        Heat: 4.5 # Delta V was 0
     soundHit:
       collection: WeakHit
     forceSound: true
