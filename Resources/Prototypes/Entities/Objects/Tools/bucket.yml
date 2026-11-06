@@ -20,8 +20,8 @@
       drink:
         maxVol: 250
   - type: SolutionTransfer
-    transferAmount: 100
-    maxTransferAmount: 100
+    transferAmount: 120 # DeltaV - Base 12 Chemistry
+    maxTransferAmount: 240 # DeltaV - Base 12 Chemistry
     minTransferAmount: 10
   - type: SpillWhenWorn
     solution: drink

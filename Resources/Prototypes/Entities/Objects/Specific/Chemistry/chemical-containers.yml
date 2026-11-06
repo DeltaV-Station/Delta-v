@@ -17,7 +17,9 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 200
+        maxVol: 240 # DeltaV - Base 12 Chemistry
+  - type: SolutionTransfer # DeltaV - Base 12 Chemistry
+    maxTransferAmount: 240 # DeltaV - Base 12 Chemistry
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 5
@@ -44,9 +46,9 @@
       drink:
         reagents:
         - ReagentId: Puncturase
-          Quantity: 160
+          Quantity: 192 # DeltaV - Base 12 Chemistry
         - ReagentId: TranexamicAcid
-          Quantity: 40
+          Quantity: 48 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -60,9 +62,9 @@
       drink:
         reagents:
         - ReagentId: Pyrazine
-          Quantity: 50
+          Quantity: 60 # DeltaV - Base 12 Chemistry
         - ReagentId: Dermaline
-          Quantity: 150
+          Quantity: 180 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -77,9 +79,9 @@
       drink:
         reagents:
         - ReagentId: DexalinPlus
-          Quantity: 100
+          Quantity: 120 # DeltaV - Base 12 Chemistry
         - ReagentId: Saline
-          Quantity: 100
+          Quantity: 120 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -93,7 +95,7 @@
       drink:
         reagents:
         - ReagentId: Tricordrazine
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -107,7 +109,7 @@
       drink:
         reagents:
         - ReagentId: Blood
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -121,7 +123,7 @@
       drink:
         reagents:
         - ReagentId: Water
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -136,7 +138,7 @@
       drink:
         reagents:
         - ReagentId: Carbon
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -151,7 +153,7 @@
       drink:
         reagents:
         - ReagentId: Iodine
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -166,7 +168,7 @@
       drink:
         reagents:
         - ReagentId: Fluorine
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -181,7 +183,7 @@
       drink:
         reagents:
         - ReagentId: Chlorine
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -196,7 +198,7 @@
       drink:
         reagents:
         - ReagentId: Aluminium
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -211,7 +213,7 @@
       drink:
         reagents:
         - ReagentId: Phosphorus
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -226,7 +228,7 @@
       drink:
         reagents:
         - ReagentId: Sulfur
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -241,7 +243,7 @@
       drink:
         reagents:
         - ReagentId: Silicon
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -256,7 +258,7 @@
       drink:
         reagents:
         - ReagentId: Hydrogen
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -271,7 +273,7 @@
       drink:
         reagents:
         - ReagentId: Lithium
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -286,7 +288,7 @@
       drink:
         reagents:
         - ReagentId: Sodium
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -301,7 +303,7 @@
       drink:
         reagents:
         - ReagentId: Potassium
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -316,7 +318,7 @@
       drink:
         reagents:
         - ReagentId: Radium
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -331,7 +333,7 @@
       drink:
         reagents:
         - ReagentId: Iron
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -346,7 +348,7 @@
       drink:
         reagents:
         - ReagentId: Copper
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -361,7 +363,7 @@
       drink:
         reagents:
         - ReagentId: Gold
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -376,7 +378,7 @@
       drink:
         reagents:
         - ReagentId: Mercury
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -391,7 +393,7 @@
       drink:
         reagents:
         - ReagentId: Silver
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -406,7 +408,7 @@
       drink:
         reagents:
         - ReagentId: Ethanol
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -421,7 +423,7 @@
       drink:
         reagents:
         - ReagentId: Sugar
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -436,7 +438,7 @@
       drink:
         reagents:
         - ReagentId: Nitrogen
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -451,7 +453,7 @@
       drink:
         reagents:
         - ReagentId: Oxygen
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -466,7 +468,7 @@
       drink:
         reagents:
         - ReagentId: PlantBGone
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -481,7 +483,7 @@
       drink:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -496,7 +498,7 @@
       drink:
         reagents:
         - ReagentId: Bicaridine
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -511,7 +513,7 @@
       drink:
         reagents:
         - ReagentId: Puncturase
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -526,7 +528,7 @@
       drink:
         reagents:
         - ReagentId: Dermaline
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -541,7 +543,7 @@
       drink:
         reagents:
         - ReagentId: Dylovene
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -556,7 +558,7 @@
       drink:
         reagents:
         - ReagentId: TranexamicAcid
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -571,7 +573,7 @@
       drink:
         reagents:
         - ReagentId: Hyronalin
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -586,7 +588,7 @@
       drink:
         reagents:
         - ReagentId: Saline
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
 
 - type: entity
   parent: Jug
@@ -601,4 +603,4 @@
       drink:
         reagents:
         - ReagentId: DexalinPlus
-          Quantity: 200
+          Quantity: 240 # DeltaV - Base 12 Chemistry
