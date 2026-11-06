@@ -99,3 +99,21 @@
   components:
   - type: Implanter
     implant: MicroBombImplantSyndicateDAGD
+
+- type: entity
+  id: EmptyImplanterSyndi
+  parent: BaseImplantOnlyImplanterSyndi
+  name: empty syndicate implanter
+
+- type: entity
+  id: PsionicEruptionKitDADG
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  name: psionic eruption kit
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: PsionCrystalEruption
+      amount: 1
+    - id: EmptyImplanterSyndi
+      amount: 1
