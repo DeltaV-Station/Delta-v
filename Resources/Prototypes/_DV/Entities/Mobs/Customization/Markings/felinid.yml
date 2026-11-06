@@ -99,3 +99,11 @@
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_limbs.rsi
     state: furred_r_hand
+
+- type: marking
+  id: TajaranHead
+  bodyPart: Head
+  groupWhitelist: [Felinid]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Felinid/heads.rsi
+    state: tajaran_head
