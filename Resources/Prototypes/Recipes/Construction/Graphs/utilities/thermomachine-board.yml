@@ -30,3 +30,19 @@
       steps:
       - tool: Screwing
         doAfter: 2
+  # Begin DeltaV additions - kitchen freezer and sauna heater
+  - node: kitchenfreezer
+    entity: KitchenFreezerMachineCircuitBoard
+    edges:
+    - to: saunaheater
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: saunaheater
+    entity: SaunaHeaterMachineCircuitBoard
+    edges:
+    - to: kitchenfreezer
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  # End DeltaV additions
