@@ -4,6 +4,7 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
+using Content.Shared.StatusEffectNew; // DeltaV - Added Hysterical Power
 
 namespace Content.Shared.Damage.Systems;
 
@@ -27,6 +28,8 @@ public sealed class SlowOnDamageSystem : EntitySystem
         SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup);
         SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentShutdown>(OnIgnoreShutdown);
         SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ModifySlowOnDamageSpeedEvent>(OnIgnoreModifySpeed);
+
+        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, StatusEffectRelayedEvent<ModifySlowOnDamageSpeedEvent>>(OnStatusRelayIgnoreModifySpeed); // DeltaV - Add Hysterical Strength
     }
 
     private void OnRefreshMovespeed(EntityUid uid, SlowOnDamageComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -106,6 +109,14 @@ public sealed class SlowOnDamageSystem : EntitySystem
     {
         args.Speed = 1f;
     }
+    // Start DeltaV - Adding HystericalStrength Psionic Power.
+    private void OnStatusRelayIgnoreModifySpeed(Entity<IgnoreSlowOnDamageComponent> ent, ref StatusEffectRelayedEvent<ModifySlowOnDamageSpeedEvent> args)
+    {
+        var ev = args.Args;
+        ev.Speed = 1f;
+        args.Args = ev;
+    }
+    // End DeltaV - Adding HystericalStrength Psionic Power.
 }
 
 [ByRefEvent]

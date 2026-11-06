@@ -23,7 +23,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedActionsSystem Action = default!;
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] protected readonly GlimmerSystem Glimmer = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedPsionicSystem Psionic = default!;
 
@@ -182,7 +182,7 @@ public abstract class BasePsionicPowerSystem<T, T1> : EntitySystem where T : Bas
         var ev = new PsionicPowerUsedEvent(performer, psionicSource, power);
         RaiseLocalEvent(psionicSource, ev);
 
-        _glimmer.Glimmer += Random.Next(psionicSource.Comp.MinGlimmerChanged, psionicSource.Comp.MaxGlimmerChanged);
+        Glimmer.Glimmer += Random.Next(psionicSource.Comp.MinGlimmerChanged, psionicSource.Comp.MaxGlimmerChanged);
     }
 
     /// <summary>

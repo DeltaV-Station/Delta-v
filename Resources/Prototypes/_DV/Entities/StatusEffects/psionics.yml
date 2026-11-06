@@ -42,3 +42,20 @@
   components:
   - type: RegenerativeSleepingStatusEffect
     quantity: 0.5
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: HystericalStrengthStatusEffect
+  name: affected by hysterical strength
+  components:
+  - type: HystericalStrengthStatusEffect
+    damage:
+      types:
+        Asphyxiation: 2.5
+        Bloodloss: 1.5
+  - type: ChangeDensityStatusEffect
+    amount: 500
+    fixtureId: HystericalStrengthStatusEffectFixture
+  - type: ClothingSlowResistance
+    modifier: 0.75
+  - type: IgnoreSlowOnDamage

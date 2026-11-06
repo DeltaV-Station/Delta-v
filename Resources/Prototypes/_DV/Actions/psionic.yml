@@ -213,3 +213,21 @@
     useDelay: 60
   - type: InstantAction
     event: !type:PsychokineticScreamPowerActionEvent
+
+- type: entity
+  parent: BasePsionicAction
+  id: ActionHystericalStrength
+  name: Toggle Hysterical Strength
+  description: Turn your muscles on overdrive to be slowed down less by clothing and pulling things. It'll hurt.
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_psionics_small.rsi
+      state: hysterical_strength_off
+    iconOn:
+      sprite: _DV/Interface/Actions/actions_psionics_small.rsi
+      state: hysterical_strength_on
+    useDelay: 5
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:HystericalStrengthPowerActionEvent
