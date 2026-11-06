@@ -41,11 +41,31 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-#- type: startingGear # Bypass ChameleonJobLoadoutTest
-#  id: JusticeWardenGear
+- type: startingGear
+  id: JusticeWardenGear
+  equipment:
+    id: JusticeWardenPDA
+    ears: ClothingHeadsetJustice
+  storage:
+    back:
+    - Flash
+
+# TODO
+#- type: chameleonOutfit
+#  id: WardenChameleonOutfit
+#  job: Warden
+#  hasMindShield: true
 #  equipment:
 #    id: JusticeWardenPDA
 #    ears: ClothingHeadsetJustice
 #  storage:
 #    back:
 #    - Flash
+#    head: ClothingHeadHatWarden
+#    mask: ClothingMaskGasSecurity
+#    outerClothing: ClothingOuterCoatWarden
+#    jumpsuit: ClothingUniformJumpsuitWarden
+#    neck: Dinkystar
+#    belt: ClothingBeltSecurity
+#    gloves: ClothingHandsGlovesCombat
+#    shoes: ClothingShoesBootsJack

@@ -9,10 +9,11 @@
     time: 5h
   startingGear: DetectiveGear
   icon: "JobIconDetective"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-cj # DeltaV - moved to justice
   canBeAntag: false
   access:
-  - Security
+  #- Security # DeltaV - moved to justice
+  - Justice # DeltaV - moved to justice
   #- Brig # DeltaV - Removed brig access
   - Maintenance
   - Detective
@@ -28,7 +29,7 @@
     #eyes: ClothingEyesGlassesSecurity # DeltaV - loadouts
     id: DetectivePDA
     gloves: ClothingHandsGlovesForensic # DeltaV - roundstart detective forensic gloves
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetJustice # DeltaV - moved to justice
     belt: ClothingBeltHolster # DeltaV - loadouts
   storage:
     back:
