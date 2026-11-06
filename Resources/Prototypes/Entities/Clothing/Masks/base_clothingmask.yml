@@ -11,6 +11,17 @@
     slots: [mask]
   - type: StaticPrice
     price: 25
+  # Funky Start - Stainable Clothing.
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      mask:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: maskblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: maskbloodicon
+  # Funky End - Stainable Clothing.
 
 - type: entity
   abstract: true
@@ -53,6 +64,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain: # Funky - Stainable Clothing
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
