@@ -65,6 +65,7 @@ using System.Linq;
 using Content.Shared.Body;
 using Content.Shared.StatusIcon;
 using Content.Shared.SSDIndicator;
+using Robust.Shared.Utility;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -181,7 +182,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.MonumentPlaced && component.CurrentTier < 3 && _timing.CurTime > component.NextProgressCheck)
         {
             // We're going to assume one monument.
-            var monument = EntityQuery<MonumentComponent>().First();
+            if (!EntityQuery<MonumentComponent>().TryFirstOrDefault(out var monument))
+                return;
             if (component.LastProgress == monument.CurrentProgress)
                 component.ConsecutiveProgressFails++;
             else
