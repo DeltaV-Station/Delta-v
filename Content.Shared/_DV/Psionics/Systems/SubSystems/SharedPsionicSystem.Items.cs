@@ -1,23 +1,20 @@
 using System.Linq;
 using Content.Shared._DV.Psionics.Components;
 using Content.Shared._DV.Psionics.Events;
-using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Psionics.Systems;
 
 public abstract partial class SharedPsionicSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedMindSwapPowerSystem _mindSwapPowerSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private void InitializeItems()
@@ -35,7 +32,7 @@ public abstract partial class SharedPsionicSystem
 
     private void OnInsulativeGearEquipped(Entity<PsionicallyInsulativeComponent> gear, ref GotEquippedEvent args)
     {
-        if (_timing.ApplyingState)
+        if (Timing.ApplyingState)
             return;
 
         if (!gear.Comp.AllowsPsionicUsage)
@@ -52,7 +49,7 @@ public abstract partial class SharedPsionicSystem
 
     private void OnInsulativeGearUnequipped(Entity<PsionicallyInsulativeComponent> gear, ref GotUnequippedEvent args)
     {
-        if (_timing.ApplyingState)
+        if (Timing.ApplyingState)
             return;
 
         if (!gear.Comp.AllowsPsionicUsage && CanUsePsionicAbility(args.Equipee))
@@ -86,6 +83,9 @@ public abstract partial class SharedPsionicSystem
     {
         foreach (var target in args.HitEntities)
         {
+            var ev = new AntiPsionicWeaponHitEvent();
+            RaiseLocalEvent(target, ref ev);
+
             if (HasComp<PsionicComponent>(target))
             {
                 Audio.PlayPredicted(weapon.Comp.HitSound, target, args.User);
@@ -94,22 +94,12 @@ public abstract partial class SharedPsionicSystem
                 if (Random.Prob(weapon.Comp.DisableChance))
                     _statusEffects.TryUpdateStatusEffectDuration(target, PsionicsDisabledProtoId, TimeSpan.FromSeconds(10));
             }
-
-            if (TryComp<Components.PsionicPowers.MindSwappedReturnPowerComponent>(target, out var swapped))
+            else if (HasComp<MobStateComponent>(target) && weapon.Comp.Punish && Random.Prob(weapon.Comp.PunishChance))
             {
-                _mindSwapPowerSystem.SwapMinds(target, swapped.OriginalEntity, false);
-                return;
+                _stuttering.DoStutter(args.User, TimeSpan.FromMinutes(5), false);
+                _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(5), false, drop: false);
+                _jittering.DoJitter(args.User, TimeSpan.FromSeconds(5), false);
             }
-
-            if (!weapon.Comp.Punish
-                || !HasComp<PotentialPsionicComponent>(target)
-                || HasComp<PsionicComponent>(target)
-                || !Random.Prob(weapon.Comp.PunishChance))
-                continue;
-
-            _stuttering.DoStutter(args.User, TimeSpan.FromMinutes(5), false);
-            _stun.TryKnockdown(args.User, TimeSpan.FromSeconds(5), false, drop: false);
-            _jittering.DoJitter(args.User, TimeSpan.FromSeconds(5), false);
         }
     }
 
