@@ -188,22 +188,22 @@
         damage: 400
       behaviors:
       - !type:GibBehavior { }
-    #- trigger: # DeltaV - Sadly no KFV :(
-    #    !type:DamageTypeTrigger
-    #    damageType: Heat
-    #    damage: 1500
-    #  behaviors:
-    #  - !type:SpawnEntitiesBehavior
-    #    spawnInContainer: true
-    #    spawn:
-    #      FoodMeatChickenFriedVox:
-    #        min: 3
-    #        max: 5
-    #  - !type:BurnBodyBehavior
-    #    popupMessage: bodyburn-vox-text-others
-    #  - !type:PlaySoundBehavior
-    #    sound:
-    #      collection: MeatLaserImpact
+    - trigger: 
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 2000 # DeltaV - Ashing threshold increased to 2000 from 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          FoodMeatChickenFriedVox:
+            min: 3
+            max: 5
+      - !type:BurnBodyBehavior
+        popupMessage: bodyburn-vox-text-others
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
     - trigger:
         !type:DamageTypeTrigger
         damageType: Radiation
