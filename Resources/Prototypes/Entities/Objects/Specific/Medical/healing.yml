@@ -721,6 +721,20 @@
         id: PillTricordrazine
         amount: 5
 
+-  type: entity
+   name: pill canister
+   parent: PillCanister
+   id: PillCanisterAmbuzol
+   suffix: Ambuzol 15u, 2
+   components:
+   - type: Label
+     currentLabel: pill-label-ambuzol-15u # Delta V - was localizedLabel - i assume will be changed w/ an upmerge, caused a testfail
+   - type: EntityTableContainerFill
+     containers:
+       storagebase:
+         id: PillAmbuzol
+         amount: 2
+
 - type: entity
   name: pill
   suffix: Bicaridine 10u
@@ -807,13 +821,11 @@
   parent: Pill
   id: PillAmbuzol
   components:
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 20
-          reagents:
-            - ReagentId: Ambuzol
-              Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ambuzol
+        Quantity: 15
 
 - type: entity
   name: ambuzol plus pill
