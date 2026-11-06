@@ -299,7 +299,10 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
     proto: ColdLaser
-    fireCost: 66.6
+    fireCost: 50
+  - type: Battery
+    maxCharge: 750
+    startingCharge: 750
 
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
@@ -423,13 +426,19 @@
     sprite: _DV/Objects/Weapons/Guns/Battery/immolator.rsi
   - type: Gun
     fireRate: 1.5
+  - type: BatteryAmmoProvider
+    proto: BulletEnergyGunMediumImmolator
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletEnergyGunMediumImmolator
+      fireCost: 50
+    - proto: BulletEnergyGunLightImmolatorWeakSpread
+      fireCost: 100
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: BatteryAmmoProvider
-    proto: BulletEnergyGunMediumImmolator
-    fireCost: 100
   - type: Battery
     maxCharge: 800
     startingCharge: 800
