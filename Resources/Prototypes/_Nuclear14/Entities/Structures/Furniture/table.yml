@@ -218,8 +218,9 @@
   description: Pieces of wood that make up the frame of an unfinished object.
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood # DeltaV
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -288,8 +289,9 @@
   description: Pieces of metal that make up the frame of an unfinished object.
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
