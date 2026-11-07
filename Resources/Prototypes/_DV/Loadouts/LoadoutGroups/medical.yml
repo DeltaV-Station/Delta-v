@@ -1,0 +1,158 @@
+﻿# Medical
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - PrescriptionMedHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
+  id: MedicalGloves
+  name: loadout-group-medical-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+
+## Psychologist
+- type: loadoutGroup
+  id: PsychologistHead
+  name: loadout-group-psychologist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - BlueMedicalBeret
+  - MimeFrenchBeret
+  - PsychologistGreyFlatcap
+  - PsychologistBrownFlatcap
+
+- type: loadoutGroup
+  id: PsychologistOuterClothing
+  name: loadout-group-psychologist-outerclothing
+  minLimit: 0
+  loadouts:
+  - MedicalDoctorWintercoat
+  - PsychologistWinterCoat
+  - WinterCoatPlaid
+  - PsychologistCoatBomber
+  - BomberMedical
+  - PsychologistSweater
+
+- type: loadoutGroup
+  id: PsychologistBelt
+  name: loadout-group-psychologist-belt
+  loadouts:
+  - PaperworkBelt
+
+- type: loadoutGroup
+  id: PsychologistShoes
+  name: loadout-group-psychologist-shoes
+  loadouts:
+  - LeatherShoes
+  - LaceupShoes
+  - MedicalWinterBoots
+  - WinterBoots
+
+## Medical Doctor
+- type: loadoutGroup
+  id: MedicalDoctorNeck
+  name: loadout-group-medical-doctor-neck
+  minLimit: 0
+  loadouts:
+  - Stethoscope
+  - ScarfBlue
+  - ScarfLightBlue
+
+## Chemist
+
+- type: loadoutGroup
+  id: ChemistHead
+  name: loadout-group-chemist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - BlueMedicalBeret
+  - SeniorChemistBeret
+
+- type: loadoutGroup
+  id: ChemistNeck
+  name: loadout-group-chemist-neck
+  minLimit: 0
+  loadouts:
+  - ChemistTie
+  - ScarfOrange
+  - ScarfBlue
+  - ScarfLightBlue
+
+- type: loadoutGroup
+  id: ChemistGloves
+  name: loadout-group-chemist-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+  - ChemistGloves
+
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - WhiteShoes
+  - LeatherShoes
+  - LaceupShoes
+  - ChemistWinterBoots
+  - ChemistShoes
+
+## Surgeon
+- type: loadoutGroup
+  id: SurgeonHead
+  name: loadout-group-surgeon-head
+  minLimit: 0
+  loadouts:
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - BlackSurgeryCap
+  - CyanSurgeryCap
+  - PinkSurgeryCap
+  - WhiteSurgeryCap
+  - RainbowSurgeryCap
+
+- type: loadoutGroup
+  id: SurgeonScrubs
+  name: loadout-group-surgeon-scrubs
+  loadouts:
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+  - MedicalBlackScrubs
+  - MedicalCyanScrubs
+  - MedicalPinkScrubs
+  - MedicalWhiteScrubs
+  - MedicalRainbowScrubs
+
+- type: loadoutGroup
+  id: SurgeonMask
+  name: loadout-group-surgeon-mask
+  loadouts:
+  - SterileMask
+
+- type: loadoutGroup
+  id: SurgeonGloves
+  name: loadout-group-surgeon-gloves
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: SurgeonPDA
+  name: loadout-group-surgeon-id
+  loadouts:
+  - SurgeonPDA
+
