@@ -58,8 +58,9 @@
     glimmerToLightRadiusFactor: 1.3
   - type: PowerSwitch
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: ShockAbsorber
+  - type: Injurable
+    damageContainer: Inorganic
   - type: CargoSellBlacklist
   - type: GuideHelp
     guides:

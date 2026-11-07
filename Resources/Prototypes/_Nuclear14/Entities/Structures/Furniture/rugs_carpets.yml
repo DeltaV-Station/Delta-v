@@ -10,6 +10,7 @@
     canCollide: false
   - type: Fixtures
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -152,8 +153,8 @@
 - type: entity
   id: N14RugShag # Delta V
   parent: N14RugBlue
-  name: blue shag rug # DeltaV 
-  description: A blue shag rug. Looks cheap. # DeltaV 
+  name: blue shag rug # DeltaV
+  description: A blue shag rug. Looks cheap. # DeltaV
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
@@ -166,7 +167,7 @@
   id: N14RugBrown
   parent: N14RugBlue
   name: brown rug
-  description: A fancy looking brown rug. 
+  description: A fancy looking brown rug.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
@@ -262,4 +263,3 @@
             SheetPlastic:
               min: 4
               max: 4 # End DeltaV Additions
- 
