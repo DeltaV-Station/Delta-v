@@ -122,7 +122,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _DV/Structures/Windows/plasma_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Tag
     tags:
@@ -133,7 +133,7 @@
     key: windows
     base: state
   - type: Icon
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _DV/Structures/Windows/plasma_diagonal.rsi #Delta V - Resprite windows
     state: state0
   - type: Fixtures
     fixtures:
