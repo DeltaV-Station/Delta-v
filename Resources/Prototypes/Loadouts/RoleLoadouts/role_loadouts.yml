@@ -11,7 +11,7 @@
   - CaptainShoes # DeltaV
   - Survival
   - Trinkets
-  - CaptainJobTrinkets
+  #- CaptainJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -28,7 +28,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - HoPJobTrinkets
+  #- HoPJobTrinkets
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -60,7 +60,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - PassengerJobTrinkets
+  #- PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -82,15 +82,15 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - GroupTankHarness
   - ServiceWorkerHead # DeltaV
   - Scarfs # DeltaV
   - ServiceWorkerJumpsuit # DeltaV, was BartenderJumpsuit
-  - GroupTankHarness
   - CommonBackpack
   - Glasses
   - Survival
   - Trinkets
-  - ServiceWorkerJobTrinkets
+  #- ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -107,7 +107,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ChefJobTrinkets
+  #- ChefJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -120,7 +120,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - LibrarianJobTrinkets
+  #- LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -133,7 +133,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - LawyerJobTrinkets
+  #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -151,7 +151,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ChaplainJobTrinkets
+  #- ChaplainJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -183,7 +183,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - BotanistJobTrinkets
+  #- BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -200,8 +200,8 @@
   - ClownPDADelta # DeltaV
   - ClownShoes
   - Glasses
-  - Trinkets
   - SurvivalClown
+  - Trinkets
   - ClownJobTrinkets
 
 - type: roleLoadout
@@ -220,7 +220,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
-  - MimeJobTrinkets
+  #- MimeJobTrinkets
 
 - type: roleLoadout
   id: JobMusician
@@ -228,13 +228,12 @@
   groups:
   - GroupTankHarness
   - MusicianJumpsuit
-  - MusicianNeck
   - CommonBackpack
   - MusicianOuterClothing
   - Glasses
   - Survival
   - Trinkets
-  - MusicianJobTrinkets
+  #- MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -252,7 +251,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - QuartermasterJobTrinkets
+  #- QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -264,20 +263,20 @@
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
-  - CargoPDADelta # DeltaV
   - CargoTechnicianShoes
+  - CargoPDADelta # DeltaV - Was CargoTechnicianID
   - Glasses
   - Survival
   - Trinkets
-  - CargoTechnicianJobTrinkets
+  #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - GroupTankHarness
   - SalvageSpecialistNeck # DeltaV
   - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
-  - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvagePDADelta # DeltaV
@@ -285,7 +284,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - SalvageSpecialistJobTrinkets
+  #- SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -302,7 +301,7 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
-  - ChiefEngineerJobTrinkets
+  #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -315,7 +314,7 @@
   - StationEngineerShoes # DeltaV
   - SurvivalExtended
   - Trinkets
-  - TechnicalAssistantJobTrinkets
+  #- TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -331,15 +330,15 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
-  - StationEngineerJobTrinkets
+  #- StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - GroupTankHarness
   - AtmosphericTechnicianHead # DeltaV
   - AtmosphericTechnicianNeck # DeltaV
-  - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -347,7 +346,7 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
-  - AtmosphericTechnicianJobTrinkets
+  #- AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 # Science
@@ -365,7 +364,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ResearchDirectorJobTrinkets
+  #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -383,7 +382,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ScientistJobTrinkets
+  #- ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -395,7 +394,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ResearchAssistantJobTrinkets
+  #- ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 # Security
@@ -403,13 +402,13 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - HeadofSecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was HeadofSecurityOuterClothing
-  - HeadofSecurityShoes # DeltaV - winter boots
-  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - HeadofSecurityOuterClothingDeltaV # DeltaV - Was HeadofSecurityOuterClothing
+  - HeadofSecurityShoes # DeltaV - Was SecurityShoes
   - SurvivalSecurity
   - Trinkets
   - HeadofSecurityJobTrinkets
@@ -422,14 +421,14 @@
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SecurityNeck # DeltaV
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
-  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
+  - WardenOuterClothingDeltaV # DeltaV - Was WardenOuterClothing
   - SecurityGloves # DeltaV - Security can start with gloves
   - SecurityShoes
-  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
   - WardenJobTrinkets
@@ -442,6 +441,7 @@
   id: JobSecurityOfficer
   groups:
   - SecurityHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SecurityNeck # DeltaV
   - SecurityJumpsuit
   - SecurityBackpack
@@ -450,7 +450,6 @@
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
-  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - SurvivalSecurity
   - Trinkets
   - SecurityJobTrinkets
@@ -463,12 +462,12 @@
   id: JobDetective
   groups:
   - DetectiveHead
-  - SecurityNeck # DeltaV - replace DetectiveNeck for incongruence
-  - DetectiveJumpsuitDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveJumpsuit
-  - SecurityBackpack
-  - DetectiveOuterClothingDeltaV # DeltaV - Replaced with DeltaV version, was DetectiveOuterClothing
-  - SecurityShoes
   - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - SecurityNeck # DeltaV - Replace DetectiveNeck for incongruence
+  - DetectiveJumpsuitDeltaV # DeltaV - Was DetectiveJumpsuit
+  - SecurityBackpack
+  - DetectiveOuterClothingDeltaV # DeltaV - Was DetectiveOuterClothing
+  - SecurityShoes
   - SurvivalSecurity
   - Trinkets
   - DetectiveJobTrinkets
@@ -480,102 +479,15 @@
   id: JobSecurityCadet
   groups:
   - SecurityCadetHead # DeltaV
+  - Glasses # DeltaV
   - SecurityNeck # DeltaV
   - SecurityGloves # DeltaV - Security can start with gloves
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
-  - Glasses # DeltaV
   - Trinkets
-  - SecurityCadetJobTrinkets
+  #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
-
-# Medical
-- type: roleLoadout
-  id: JobChiefMedicalOfficer
-  groups:
-  - GroupTankHarness
-  - ChiefMedicalOfficerHead
-  - MedicalMask
-  - ChiefMedicalOfficerJumpsuit
-  - MedicalGloves
-  - MedicalBackpack
-  - ChiefMedicalOfficerOuterClothing
-  - ChiefMedicalOfficerNeck
-  - ChiefMedicalOfficerShoes
-  - MedicalEyewear
-  - SurvivalMedical
-  - Trinkets
-  - ChiefMedicalOfficerJobTrinkets
-  - GroupSpeciesBreathToolMedical
-
-- type: roleLoadout
-  id: JobMedicalDoctor
-  groups:
-  - GroupTankHarness
-  - MedicalDoctorHead
-  - MedicalDoctorNeck # DeltaV
-  - MedicalMask
-  - MedicalDoctorJumpsuit
-  - MedicalGloves
-  - MedicalBackpack
-  - MedicalDoctorOuterClothing
-  - MedicalShoes
-  - MedicalDoctorPDA
-  - MedicalEyewear
-  - SurvivalMedical
-  - Trinkets
-  - MedicalDoctorJobTrinkets
-  - GroupSpeciesBreathToolMedical
-
-- type: roleLoadout
-  id: JobMedicalIntern
-  groups:
-  - GroupTankHarness
-  - MedicalInternJumpsuit
-  - MedicalBackpack
-  - MedicalInternPDADelta # DeltaV
-  - MedicalEyewear
-  - SurvivalMedical
-  - Trinkets
-  - MedicalInternJobTrinkets
-  - GroupSpeciesBreathToolMedical
-
-- type: roleLoadout
-  id: JobChemist
-  groups:
-  - GroupTankHarness
-  - ChemistHead # DeltaV
-  - MedicalMask
-  - ChemistNeck # DeltaV
-  - ChemistJumpsuit
-  - ChemistGloves # DeltaV, replaces MedicalGloves
-  - ChemistBackpack
-  - ChemistryPDA # DeltaV
-  - ChemistOuterClothing
-  - ChemistShoes # DeltaV, replaces MedicalShoes
-  - SurvivalMedical
-  - Trinkets
-  - ChemistJobTrinkets
-  - GroupSpeciesBreathToolMedical
-
-- type: roleLoadout
-  id: JobParamedic
-  groups:
-  - GroupTankHarness
-  - ParamedicHead
-  - MedicalMask
-  - MedicalDoctorNeck # DeltaV
-  - ParamedicJumpsuit
-  - MedicalGloves
-  - MedicalBackpack
-  - ParamedicOuterClothing
-  - ParamedicShoes
-  - MedicalEyewear
-  - SurvivalMedical
-  - Trinkets
-  - ParamedicJobTrinkets
-  - GroupSpeciesBreathToolMedical
 
 # Wildcards
 - type: roleLoadout
@@ -589,7 +501,7 @@
   - Glasses
   - Survival
   - Trinkets
-  - ReporterJobTrinkets
+  #- ReporterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -599,7 +511,6 @@
   - PsychologistJumpsuit
   - MedicalBackpack
   # Begin DeltaV additions
-  - SurvivalMedical # Replaces Survival
   - PsychologistPDADelta
   - PsychologistHead
   - Scarfs
@@ -608,8 +519,9 @@
   - PsychologistBelt
   # End DeltaV additions
   - Glasses
+  - SurvivalMedical # DeltaV - Was Survival
   - Trinkets
-  - PsychologistJobTrinkets
+  #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

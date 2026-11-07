@@ -1599,25 +1599,29 @@
   - type: Icon
     state: pda-seniorofficer
 
-# DeltaV - No senior courier job
-#- type: entity
-#  parent: BasePDA
-#  id: SeniorCourierPDA
-#  name: senior courier PDA
-#  description: Smells like postage stamps and shuttle fuel.
-#  components:
-#  - type: Pda
-#    id: CargoIDCard
-#  - type: Appearance
-#    appearanceDataInit:
-#     enum.PdaVisuals.PdaType:
-#       !type:String
-#       pda-seniorcourier
-#  - type: PdaBorderColor
-#    borderColor: "#e39751"
-#    accentVColor: "#DFDFDF"
-#  - type: Icon
-#    state: pda-seniorcourier
+- type: entity
+  parent: BasePDA
+  id: SeniorCourierPDA
+  name: senior courier PDA
+  description: Smells like postage stamps and shuttle fuel.
+  components:
+  - type: Pda
+    id: CargoIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-seniorcourier
+  - type: PdaBorderColor
+    borderColor: "#e39751"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-seniorcourier
+    # DeltaV Start - as long as this isn't deltaV'd, it gets it's sprites from upstream.
+    sprite: Objects/Devices/pda.rsi
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    # DeltaV End.
 
 - type: entity
   parent: [ BaseHighlyIllegalContraband, BasePDA ]
@@ -1681,6 +1685,14 @@
         type: HealthAnalyzerBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ChameleonPDA
+  id: ChameleonAgentPDA
+  suffix: Chameleon, Agent ID
+  components:
+  - type: Pda
+    id: AgentIDCard
 
 - type: entity
   parent: BasePDA # DeltaV
