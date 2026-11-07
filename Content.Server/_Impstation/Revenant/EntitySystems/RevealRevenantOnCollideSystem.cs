@@ -11,7 +11,6 @@ namespace Content.Server.Revenant.EntitySystems;
 public sealed partial class RevealRevenantOnCollideSystem : SharedRevealRevenantOnCollideSystem
 {
     [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly CollisionWakeSystem _collisionWake = default!;
 
     private const string FixtureId = "revenantReveal";
 
@@ -46,8 +45,7 @@ public sealed partial class RevealRevenantOnCollideSystem : SharedRevealRevenant
         );
 
         // Disable collision wake so that it can trigger collisions even when sitting still
-        var collisionWake = EnsureComp<CollisionWakeComponent>(uid);
-        _collisionWake.SetEnabled(uid, false, collisionWake);
+        RemCompDeferred<CollisionWakeComponent>(uid); // DeltaV - don't break player hitboxes
     }
 
     private void OnShutdown(EntityUid uid, RevealRevenantOnCollideComponent comp, ComponentShutdown args)
