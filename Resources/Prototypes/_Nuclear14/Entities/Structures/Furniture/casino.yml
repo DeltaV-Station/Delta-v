@@ -10,9 +10,9 @@
     netsync: false
     state: roulette
   - type: Damageable
-    damageContainer: Inorganic
-  - type: Injurable
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

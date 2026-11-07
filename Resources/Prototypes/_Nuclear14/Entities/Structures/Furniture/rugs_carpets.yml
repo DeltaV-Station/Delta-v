@@ -136,6 +136,7 @@
     graph: N14RugRecipes
     node: blueRug
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -176,6 +177,7 @@
     graph: N14RugRecipes
     node: brownRug
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
