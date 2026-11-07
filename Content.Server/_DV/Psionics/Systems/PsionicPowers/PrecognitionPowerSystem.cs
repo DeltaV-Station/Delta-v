@@ -60,7 +60,7 @@ public sealed class PrecognitionPowerSystem : SharedPrecognitionPowerSystem
             // TODO: Port over the TemporaryBlindness effect to the new StatusEffectSystem.
             // When Upstream ports it over, replace this with it.
             psionic.Comp.SoundStream = Audio.Stop(psionic.Comp.SoundStream);
-            StatusEffects.TryRemoveStatusEffect(args.User, "TemporaryBlindness");
+            StatusEffects.TryRemoveStatusEffect(args.User, "StatusEffectBlindness");
             Movement.TryUpdateMovementSpeedModDuration(args.User, PrecognitionSlowdown, TimeSpan.Zero, 0.5f);
 
             Popup.PopupEntity(

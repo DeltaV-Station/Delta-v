@@ -10,8 +10,9 @@
   - type: InteractionOutline
   - type: Dumpable #DeltaV
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

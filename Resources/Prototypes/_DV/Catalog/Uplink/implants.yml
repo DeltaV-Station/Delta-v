@@ -65,7 +65,7 @@
   cost:
     Telecrystal: 0 # Free for DAGD players
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:XORBuyCondition # You can only buy one of these
@@ -88,7 +88,7 @@
   cost:
     Telecrystal: 0 # Free for DAGD players
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:XORBuyCondition # You can only buy one of these
@@ -111,7 +111,7 @@
   cost:
     Telecrystal: 2 # Available for DAGD players but costs a bit
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:XORBuyCondition # You can only buy one of these

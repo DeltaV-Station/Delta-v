@@ -276,6 +276,7 @@
   - type: InstantAction
     event: !type:VendingMachineSelfDispenseEvent
 
+# DeltaV Start - Artifacts can be sentient, I think. THIS SHOULDN'T BE HERE
 - type: entity
   parent: BaseAction
   id: ActionArtifactActivate
@@ -289,6 +290,7 @@
     useDelay: 60
   - type: InstantAction
     event: !type:ArtifactSelfActivateEvent
+# DeltaV End.
 
 - type: entity
   parent: BaseToggleAction
@@ -429,6 +431,17 @@
     useDelay: 1
     itemIconStyle: BigAction
 
+# DeltaV - We do not have tail wagging action.
+#- type: entity
+#  parent: ActionToggleWagging
+#  id: ActionToggleWaggingVulpkanin
+#  components:
+#  - type: Action
+#    icon: { sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi, state: tail-wag-icon }
+#    iconOn: { sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi, state: tail-wag-icon }
+#    itemIconStyle: NoItem
+#    useDelay: 1 # Prevents Emote Spam
+
 - type: entity
   parent: BaseAction
   id: ActionGravityJump
@@ -437,6 +450,31 @@
   components:
   - type: Action
     useDelay: 8
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: ActionGravityJump
+  id: ActionJumpBoost
+  name: Jump boost
+  components:
+  - type: Action
+    useDelay: 16
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: xenoborg-jump-module
+
+- type: entity
+  parent: BaseAction
+  id: ActionVulpkaninGravityJump
+  name: Leap
+  description: Use your agile legs to leap a short distance. Be careful not to bump into anything!
+  components:
+  - type: Action
+    useDelay: 12
     icon:
       sprite: Interface/Actions/jump.rsi
       state: icon

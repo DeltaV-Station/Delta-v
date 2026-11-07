@@ -12,6 +12,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Robust.Shared.Random;
 
 namespace Content.Server._DV.Salvage.Systems;
 
@@ -70,7 +71,7 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
             grid,
             origin,
             room,
-            new Random(),
+            new RobustRandom(),
             null,
             clearExisting: true); // already checked for mobs and structures here
 

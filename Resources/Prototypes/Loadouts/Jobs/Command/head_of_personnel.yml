@@ -1,7 +1,7 @@
 # For mantles
 #- type: loadoutEffectGroup # DeltaV - No time requirement
 #  id: MasterHoP
-#  effects: 
+#  effects:
 #  - !type:JobRequirementLoadoutEffect
 #    requirement:
 #      !type:RoleTimeRequirement
@@ -34,11 +34,6 @@
   id: HoPHead
   equipment:
     head: ClothingHeadHatHopcap
-
-- type: loadout
-  id: HoPBeret
-  equipment:
-    head: ClothingHeadHatBeretHop
 
 # Neck
 - type: loadout

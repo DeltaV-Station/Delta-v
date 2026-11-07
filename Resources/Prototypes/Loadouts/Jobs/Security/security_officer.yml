@@ -51,6 +51,11 @@
     jumpsuit: ClothingUniformJumpskirtSecGrey
 
 - type: loadout
+  id: TrooperUniform
+  equipment:
+    jumpsuit: ClothingUniformSecurityTrooper
+
+- type: loadout
   id: SeniorOfficerJumpsuit
   effects:
   - !type:GroupLoadoutEffect

@@ -3,10 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Atmos.Piping.Unary.Components;
-using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server._Goobstation.Atmos.EntitySystems;
@@ -29,11 +27,11 @@ public sealed class GasCanisterSignalSystem : EntitySystem
         {
             "Open" => true,
             "Close" => false,
-            "Toggle" => !ent.Comp.ReleaseValve,
+            "Toggle" => !ent.Comp.ReleaseValveOpen,
             _ => false // fuck you c# cant just return
         };
 
-        if (ent.Comp.ReleaseValve == valve)
+        if (ent.Comp.ReleaseValveOpen == valve)
             return;
 
         var ev = new GasCanisterChangeReleaseValveMessage(valve);
