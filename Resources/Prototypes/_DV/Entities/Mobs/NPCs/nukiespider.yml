@@ -92,5 +92,6 @@
     - NuclearOperative
     - SyndicateAgent
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: NukieSpider
+  - type: Injurable
+    damageContainer: Biological

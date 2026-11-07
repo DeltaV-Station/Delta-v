@@ -49,8 +49,9 @@
   - type: Icon
     sprite: Nyanotrasen/Structures/Walls/drywall.rsi
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

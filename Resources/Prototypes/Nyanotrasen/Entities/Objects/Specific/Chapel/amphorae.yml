@@ -38,6 +38,7 @@
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
