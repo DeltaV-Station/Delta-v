@@ -35,8 +35,9 @@
         layer:
         - MobLayer
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: KitsuneFox
+  - type: Injurable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

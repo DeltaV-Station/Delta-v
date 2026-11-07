@@ -90,8 +90,9 @@
     sprite: _DV/Structures/Walls/mountain_rock.rsi
     state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: MountainRock
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -132,8 +133,9 @@
           params:
             volume: -6
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Rock
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: OreVein
     oreChance: 0.20
     oreRarityPrototypeId: RandomOreDistributionHigh

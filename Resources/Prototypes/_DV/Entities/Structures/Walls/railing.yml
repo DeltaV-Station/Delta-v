@@ -81,8 +81,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingCornerDeltaV
@@ -125,8 +126,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingCornerSmallDeltaV
@@ -169,8 +171,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingRoundDeltaV
@@ -215,8 +218,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingDeltaVGrey
@@ -261,8 +265,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingCornerDeltaVGrey
@@ -307,8 +312,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingCornerSmallDeltaVGrey
@@ -353,8 +359,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingRoundDeltaVGrey
@@ -399,8 +406,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingDeltaVWood
@@ -445,8 +453,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingCornerDeltaVWood
@@ -491,8 +500,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingCornerSmallDeltaVWood
@@ -537,8 +547,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Construction
     graph: RailingDeltaVRecipes
     node: railingRoundDeltaVWood

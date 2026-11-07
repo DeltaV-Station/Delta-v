@@ -28,8 +28,9 @@
     graph: DefibrillatorCabinet
     node: done
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   # Begin DeltaV additions
   - type: Charger
     slotId: ItemCabinet

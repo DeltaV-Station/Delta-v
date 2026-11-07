@@ -79,8 +79,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Anchorable
   - type: Rotatable
   - type: Physics
@@ -124,8 +125,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
 
 ##################### THRUSTER
 - type: entity
@@ -187,8 +189,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
 
 ##################### LAMP
 - type: entity
@@ -222,8 +225,9 @@
     softness: 1
     offset: "0, -0.5"
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RCDDeconstructable
     deconstructable: false
   - type: Destructible
@@ -332,8 +336,9 @@
     sound:
       path: /Audio/_DV/CosmicCult/spire_draining.ogg
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     deconstructable: false
   - type: Destructible
@@ -402,8 +407,9 @@
     sound:
       path: /Audio/_DV/CosmicCult/spire_draining.ogg
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     deconstructable: false
   - type: Destructible
@@ -456,8 +462,9 @@
     sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
   - type: Destructible
