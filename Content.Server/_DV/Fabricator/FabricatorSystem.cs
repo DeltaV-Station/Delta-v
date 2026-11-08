@@ -46,19 +46,9 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
             return;
 
         // copy items we need to remove, and multiply them by portion sizes
-        var removeItems = new Dictionary<ProtoId<EntityPrototype>, int>(recipe.Solids);
-        var removeReagents = new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>(recipe.Reagents);
-        var removeMaterials = new Dictionary<ProtoId<MaterialPrototype>, int>(recipe.Materials);
-
-        if (portions > 1)
-        {
-            foreach (var key in removeItems.Keys)
-                removeItems[key] *= portions;
-            foreach (var key in removeReagents.Keys)
-                removeReagents[key] *= portions;
-            foreach (var key in removeMaterials.Keys)
-                removeMaterials[key] *= portions;
-        }
+        var removeItems = recipe.Solids.ToDictionary(kvp => kvp.Key, kvp => kvp.Value * portions);
+        var removeReagents = recipe.Reagents.ToDictionary(kvp => kvp.Key, kvp => kvp.Value * portions);
+        var removeMaterials = recipe.Materials.ToDictionary(kvp => kvp.Key, kvp => kvp.Value * portions);
 
         // subtract ingredients
         foreach (var item in comp.Storage.ContainedEntities)
