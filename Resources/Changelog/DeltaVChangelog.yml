@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: Stxcking
-  changes:
-  - message: Removed Conspiracy from the game mode rotation (for now).
-    type: Remove
-  id: 2206
-  time: '2026-04-01T20:35:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5594
-- author: rebe83
-  changes:
-  - message: Combat medipens no longer OD on omni and have more tranex.
-    type: Tweak
-  id: 2207
-  time: '2026-04-02T12:04:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5584
-- author: TehFlaminTaco
-  changes:
-  - message: The infestation of cars has been appropriately resolved.
-    type: Fix
-  id: 2208
-  time: '2026-04-02T23:02:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5608
 - author: rebe83
   changes:
   - message: NT Armory has researched a better breaching hammer. It pries faster and
@@ -4462,4 +4441,35 @@
   id: 2706
   time: '2026-10-29T21:24:29.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6580
+- author: SirWarock
+  changes:
+  - message: Removed the melee exploit that allowed people to instakill others.
+    type: Remove
+  id: 2707
+  time: '2026-10-30T22:44:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6684
+- author: Proxysseia
+  changes:
+  - message: K9 Hardsuit heat res to 20% (from 25%)
+    type: Tweak
+  - message: K9 Hardsuit slowdown to 25% (from 15%)
+    type: Tweak
+  - message: K9 Hardsuit is no longer insulated
+    type: Remove
+  - message: K9 Riot Armor slowdown to 15%
+    type: Tweak
+  - message: K9 Durathread Blunt and Slash res to 20% (from 40%)
+    type: Tweak
+  - message: K9 Durathread Pierce res to 20% (from 10%)
+    type: Tweak
+  id: 2708
+  time: '2026-11-04T18:13:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6677
+- author: nlaky
+  changes:
+  - message: Conveyor belts no longer remove your hitbox
+    type: Fix
+  id: 2709
+  time: '2026-11-08T08:18:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6715
 Order: 1
