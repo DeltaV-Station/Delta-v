@@ -61,21 +61,21 @@
   - !type:AffectsGlimmer
     amount: -3
 
-- type: reaction
-  id: CreateTelegCrystal
-  impact: Low
-  quantized: true
-  minTemp: 386
-  reactants:
-    PureOil:
-      amount: 25
-    Oculine:
-      amount: 25
-  effects:
-  - !type:SpawnEntity
-    entity: PsionCrystalTeleg
-  - !type:AffectsGlimmer
-    amount: -3
+  #- type: reaction
+  #  id: CreateTelegCrystal
+  #  impact: Low
+  #  quantized: true
+  #  minTemp: 386
+  #  reactants:
+  #    PureOil:
+  #      amount: 25
+  #    Oculine:
+  #      amount: 25
+  #  effects:
+  #  - !type:SpawnEntity
+  #    entity: PsionCrystalTeleg
+  #  - !type:AffectsGlimmer
+  #    amount: -3
 
 - type: reaction
   id: CreatePrecogCrystal
