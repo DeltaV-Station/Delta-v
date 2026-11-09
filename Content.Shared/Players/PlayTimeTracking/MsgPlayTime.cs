@@ -16,6 +16,7 @@ public sealed class MsgPlayTime : NetMessage
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         var count = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(count * (NetMessageExt.MinSizeOfString + NetMessageExt.SizeOfTimeSpan)); // Delta V - Early merge #46693 security patch
         Trackers.EnsureCapacity(count);
 
         for (var i = 0; i < count; i++)
