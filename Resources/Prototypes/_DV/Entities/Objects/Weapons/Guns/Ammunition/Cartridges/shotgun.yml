@@ -12,3 +12,48 @@
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
+
+- type: entity
+  parent: ShellShotgun
+  id: ShellShotgunLowPower
+  name: low power shell (1. pellet)
+  description: A cheaply made shotgun round. Still packs a punch due to the absurd size.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+
+- type: entity
+  parent: ShellShotgun
+  id: ShellShotgunHighPower
+  name: high power shell (1. pellet)
+  description: A high power cartridge. Extremely lethal considering the size.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+
+- type: entity
+  parent: ShellShotgun
+  id: ShellShotgunReallyHighPower
+  name: super duper ultra high power shell (1. pellet)
+  description: A monster of a shotgun round. Overpacked with fuel, absurdly large, a harm to whoever it is pointed at and the person using it.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]

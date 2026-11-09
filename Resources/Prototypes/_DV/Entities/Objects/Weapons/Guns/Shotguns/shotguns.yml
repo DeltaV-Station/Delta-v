@@ -125,7 +125,7 @@
     - suitStorage
 
 - type: entity
-  parent: WeaponShotgunKammerer
+  parent: [BaseItem, BaseGunWieldable]
   id: WeaponShotgunElephant
   name: elephant gun
   description: A gun made with a unique flavor of hatred and malice. Questionable quality. Prone to inconsistent performace.
@@ -152,5 +152,24 @@
     size: Huge
     shape:
     - 0,0,7,0
+  - type: Gun
+    cameraRecoilScalar: 500.0 # only a REAL scallywag can handle this
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: ChanceGun
+  - type: AmmoCounter
+  - type: BallisticAmmoProvider
+    capacity: 1
+    whitelist:
+      tags:
+      - ShellShotgun
+    cycleable: false
+    proto: ShellShotgun
+  - type: ContainerContainer
+    containers: 
+      gun_chamber: !type:ContainerSlot
   
