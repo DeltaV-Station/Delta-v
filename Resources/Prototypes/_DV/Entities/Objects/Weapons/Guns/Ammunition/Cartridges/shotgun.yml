@@ -14,46 +14,58 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
 
 - type: entity
-  parent: ShellShotgun
+  parent: BaseShellShotgun
   id: ShellShotgunLowPower
-  name: low power shell (1. pellet)
+  name: low power shell
   description: A cheaply made shotgun round. Still packs a punch due to the absurd size.
   components:
   - type: CartridgeAmmo
-    proto: PelletShotgunSpread
-    deleteOnSpawn: true
+    proto: PelletShotgunLowPower
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/elephant_gun_shells.rsi
     layers:
-    - state: base
+    - state: low-power
       map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "low-power"
+  - type: Tag
+    tags:
+    - ElephantShotgun
 
 - type: entity
-  parent: ShellShotgun
-  id: ShellShotgunHighPower
-  name: high power shell (1. pellet)
+  parent: BaseShellShotgun
+  id: ShellShotgunMediumPower
+  name: high power shell
   description: A high power cartridge. Extremely lethal considering the size.
   components:
   - type: CartridgeAmmo
-    proto: PelletShotgunSpread
-    deleteOnSpawn: true
+    proto: PelletShotgunMediumPower
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/elephant_gun_shells.rsi
     layers:
-    - state: base
+    - state: medium-power
       map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "medium-power"
+  - type: Tag
+    tags:
+    - ElephantShotgun
 
 - type: entity
-  parent: ShellShotgun
-  id: ShellShotgunReallyHighPower
-  name: super duper ultra high power shell (1. pellet)
+  parent: BaseShellShotgun
+  id: ShellShotgunHighPower
+  name: super duper ultra high power shell
   description: A monster of a shotgun round. Overpacked with fuel, absurdly large, a harm to whoever it is pointed at and the person using it.
   components:
   - type: CartridgeAmmo
-    proto: PelletShotgunSpread
-    deleteOnSpawn: true
+    proto: PelletShotgunHighPower
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/caseless_shotgun_shell.rsi
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/elephant_gun_shells.rsi
     layers:
-    - state: base
+    - state: high-power
       map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "high-power"
+  - type: Tag
+    tags:
+    - ElephantShotgun

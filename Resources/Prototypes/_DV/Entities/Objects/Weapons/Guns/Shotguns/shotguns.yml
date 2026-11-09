@@ -166,10 +166,11 @@
     capacity: 1
     whitelist:
       tags:
-      - ShellShotgun
+      - ElephantShotgun
     cycleable: false
-    proto: ShellShotgun
   - type: ContainerContainer
     containers: 
       gun_chamber: !type:ContainerSlot
+  - type: GunBreaking
+  - type: GunDelay
   
