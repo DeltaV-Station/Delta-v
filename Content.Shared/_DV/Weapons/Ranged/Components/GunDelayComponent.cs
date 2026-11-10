@@ -8,14 +8,11 @@ namespace Content.Shared._DV.Weapons.Ranged.Components;
 public sealed partial class GunDelayComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float Delay = 1;
+    public float? Delay;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan FireTime = TimeSpan.Zero;
-
-    [DataField]
-    public bool Random = false;
 
     [DataField, AutoNetworkedField]
     public float MinimumDelay = 1;

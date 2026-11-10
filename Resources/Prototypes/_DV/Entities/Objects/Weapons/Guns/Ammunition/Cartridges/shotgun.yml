@@ -31,6 +31,8 @@
   - type: Tag
     tags:
     - ElephantShotgun
+  - type: AmmoDelay
+    delay: 0.0
 
 - type: entity
   parent: BaseShellShotgun
@@ -50,6 +52,9 @@
   - type: Tag
     tags:
     - ElephantShotgun
+  - type: AmmoDelay
+    minimumDelay: 3.0
+    maximumDelay: 5.0
 
 - type: entity
   parent: BaseShellShotgun
@@ -69,3 +74,10 @@
   - type: Tag
     tags:
     - ElephantShotgun
+  - type: AmmoKnockback
+    knockbackStrength: 2000.0
+    knockdown: true
+    knockdownTime: 3.0
+  - type: AmmoDelay
+    minimumDelay: 5.0
+    maximumDelay: 7.0
