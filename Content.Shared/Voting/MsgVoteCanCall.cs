@@ -31,6 +31,7 @@ namespace Content.Shared.Voting
             WhenCanCallVote = TimeSpan.FromTicks(buffer.ReadInt64());
 
             var lenVotes = buffer.ReadByte();
+            buffer.AssertAtLeastSize(lenVotes * (sizeof(byte) + sizeof(long))); // Delta V - Early merge #46693 security patch
             VotesUnavailable = new (StandardVoteType type, TimeSpan whenAvailable)[lenVotes];
             for (var i = 0; i < lenVotes; i++)
             {

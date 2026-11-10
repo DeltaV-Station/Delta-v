@@ -347,7 +347,7 @@
     icon: { sprite: _DV/Interface/Actions/actions_borg.rsi, state: syndicate-chimp-module }
 
 - type: entity
-  parent: [ BaseBorgModuleSyndie, ClothingEyesHudSyndicate]
+  parent: [ BaseBorgModuleSyndie ]
   id: BorgModuleSyndicateRadio # locked behind Syndie exofab
   name: syndicate radio cyborg module
   description: "A module that comes with a syndicate handheld radio and pinpointer to the shuttle"
