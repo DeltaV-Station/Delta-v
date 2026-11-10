@@ -116,7 +116,6 @@
     AsakimObjectiveGroupTheft: 1
     AsakimObjectiveGroupInfiltrate: 1
     AsakimObjectiveGroupInterrogate: 1
-    AsakimObjectiveGroupUpgrade: 1
     AsakimObjectiveGroupAlly: 1
 
 - type: weightedRandom
@@ -138,11 +137,6 @@
   id: AsakimObjectiveGroupInterrogate
   weights:
     AsakimInterrogateObjective: 1
-
-- type: weightedRandom
-  id: AsakimObjectiveGroupUpgrade
-  weights:
-    AsakimUpgradeObjective: 1
 
 - type: weightedRandom
   id: AsakimObjectiveGroupAlly

@@ -87,6 +87,19 @@
   - type: StealTarget
     stealGroup: EpistemicsTechFabCircuitboard
 
+- type: entity
+  parent: BaseTechFabCircuitboardDV
+  id: JusticeTechFabCircuitboard
+  name: justice techfab machine board
+  description: A machine printed circuit board for a justice techfab.
+  components:
+  - type: Sprite
+    state: security # TODO: Actually sprite a proper board color for Justice
+  - type: MachineBoard
+    prototype: JusticeTechFab
+  - type: StealTarget
+    stealGroup: JusticeTechFabCircuitboard
+
 # Kitchen Freezer
 - type: entity
   id: KitchenFreezerMachineCircuitBoard

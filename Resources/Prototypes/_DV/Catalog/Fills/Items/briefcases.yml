@@ -70,3 +70,22 @@
         - id: WeaponLeverActionSKL93AP
         - id: MagazineBoxMagnum
         - id: ClothingHeadHatCowboyBlack
+
+- type: entity
+  parent: BriefcaseSyndie
+  id: BriefcaseSyndieAnacondaBundleFilled
+  suffix: Syndicate, Anaconda Bundle
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunAnaconda
+        - id: MagazineLightRifleBox
+        - id: MagazineLightRifleBox

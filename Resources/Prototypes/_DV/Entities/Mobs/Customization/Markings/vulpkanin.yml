@@ -400,10 +400,30 @@
   - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: vulp_wag
   - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-    state: vulp_wag-tip #fade
+    state: vulp_wag-fade #fade
 
 - type: marking
   id: VulpTailTipAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag-tip
+
+- type: marking
+  id: VulpTailAltAnimated
+  bodyPart: Tail
+  groupWhitelist: []
+  sprites:
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag
+  - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    state: vulp_wag-fade #fade
+
+- type: marking
+  id: VulpTailAltTipAnimated
   bodyPart: Tail
   groupWhitelist: []
   sprites:
