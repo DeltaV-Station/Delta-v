@@ -161,16 +161,25 @@
     soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: ChanceGun
-  - type: AmmoCounter
-  - type: BallisticAmmoProvider
-    capacity: 1
-    whitelist:
-      tags:
-      - ElephantShotgun
-    cycleable: false
+    ammoList:
+    - ShellShotgunLowPower
+    - ShellShotgunMediumPower
+    - ShellShotgunHighPower
   - type: ContainerContainer
     containers: 
       gun_chamber: !type:ContainerSlot
   - type: GunBreaking
   - type: GunDelay
-  
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+          name: Chamber
+          startingItem: null
+          priority: 1
+          disableEject: true
+          whitelist:
+            tags:
+              - ElephantShotgun
+  - type: ChamberMagazineAmmoProvider
+    canRack: false
+    boltClosed: null

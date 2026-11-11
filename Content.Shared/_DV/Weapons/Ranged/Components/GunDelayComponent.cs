@@ -37,4 +37,7 @@ public sealed partial class GunDelayComponent : Component
 
     [DataField]
     public EntityUid? PlayingSound;
+
+    [DataField]
+    public SoundSpecifier TestSound = new SoundPathSpecifier("/Audio/_DV/Animals/capybara.ogg");
 }

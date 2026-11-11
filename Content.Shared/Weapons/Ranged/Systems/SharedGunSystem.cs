@@ -300,9 +300,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (prevention.Cancelled)
             return false;
 
-        if (GetChamberEntity(gun) is { } round) // DeltaV - Raise shot attempted event for the ammo, used by ammo delay
-            RaiseLocalEvent(round, ref prevention);
-
         // Need to do this to play the clicking sound for empty automatic weapons
         // but not play anything for burst fire.
         if (gun.Comp.NextFire > curTime)

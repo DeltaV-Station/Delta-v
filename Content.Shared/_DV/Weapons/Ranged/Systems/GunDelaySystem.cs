@@ -22,12 +22,11 @@ public sealed class GunDelaySystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted, after: [typeof(GunBreakingSystem), typeof(AmmoDelaySystem)]);
+        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted, after: [typeof(GunBreakingSystem)]);
         SubscribeLocalEvent<GunDelayComponent, DroppedEvent>(OnDropped);
         SubscribeLocalEvent<GunDelayComponent, GunShotEvent>(OnShot);
         SubscribeLocalEvent<GunDelayComponent, GotEquippedHandEvent>(OnPickup);
@@ -52,12 +51,15 @@ public sealed class GunDelaySystem : EntitySystem
 
         if (!ent.Comp.Firing)
         {
+            AmmoDelay(ent, ref args);
             if (ent.Comp.Delay is { } delay)
                 ent.Comp.FireTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
             else
                 ent.Comp.FireTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(ent.Comp.MinimumDelay, ent.Comp.MaximumDelay));
 
-            _audio.PlayPredicted(ent.Comp.StartSound, ent, args.User);
+            if (ent.Comp.Delay != 0)
+                _audio.PlayPredicted(ent.Comp.StartSound, ent, args.User);
+
             if (_net.IsServer)
                 ent.Comp.PlayingSound = _audio.PlayPvs(ent.Comp.LoopSound, ent, AudioParams.Default.WithLoop(true))?.Entity;
             ent.Comp.Firing = true;
@@ -121,5 +123,22 @@ public sealed class GunDelaySystem : EntitySystem
         ent.Comp.Lit = false;
         ent.Comp.Firing = false;
         Dirty(ent);
+    }
+    private void AmmoDelay(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if (_gunSystem.GetChamberEntity(ent) is not { } ammo)
+            return;
+
+        if (!TryComp(ammo, out AmmoDelayComponent? ammoDelay))
+            return;
+
+        if (ammoDelay.Delay is { })
+        {
+            ent.Comp.Delay = ammoDelay.Delay;
+            return;
+        }
+        ent.Comp.MinimumDelay = ammoDelay.MinimumDelay;
+        ent.Comp.MaximumDelay = ammoDelay.MaximumDelay;
+        Dirty(args.Used.Owner, ent.Comp);
     }
 }

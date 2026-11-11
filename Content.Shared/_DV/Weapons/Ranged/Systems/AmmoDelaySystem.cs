@@ -1,29 +1,36 @@
+/*
 using Content.Shared._DV.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
 
 
 namespace Content.Shared._DV.Weapons.Ranged.Systems;
 
 public sealed class AmmoDelaySystem : EntitySystem
 {
+    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AmmoDelayComponent, ShotAttemptedEvent>(OnShotAttempted);
+        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted); // Should probably get called directly on the ammo but whatever
     }
-    private void OnShotAttempted(Entity<AmmoDelayComponent> ent, ref ShotAttemptedEvent args)
+    private void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (!TryComp(args.Used.Owner, out GunDelayComponent? gun))
+        if (_gunSystem.GetChamberEntity(ent) is not { } ammo)
+            return;
+
+        if (!TryComp(ammo, out AmmoDelayComponent? delay))
             return;
 
         if (ent.Comp.Delay is { })
         {
-            gun.Delay = ent.Comp.Delay;
+            ent.Comp.Delay = delay.Delay;
             return;
         }
-        gun.MinimumDelay = ent.Comp.MinimumDelay;
-        gun.MaximumDelay = ent.Comp.MaximumDelay;
-        Dirty(args.Used.Owner, gun);
+        ent.Comp.MinimumDelay = delay.MinimumDelay;
+        ent.Comp.MaximumDelay = delay.MaximumDelay;
+        Dirty(args.Used.Owner, ent.Comp);
     }
 }
+*/
