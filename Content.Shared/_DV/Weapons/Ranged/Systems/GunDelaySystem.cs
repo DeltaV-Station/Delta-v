@@ -108,8 +108,7 @@ public sealed class GunDelaySystem : EntitySystem
             }
 
             comp.Lit = true;
-            if (_net.IsServer)
-                _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
+            _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
             Dirty(uid, comp);
         }
     }
