@@ -18,6 +18,7 @@ public sealed class MsgUpdateConstructionFavorites : NetMessage
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         var length = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(length * NetMessageExt.MinSizeOfString); // Delta V - Early merge #46693 security patch
         Favorites.Clear();
         for (var i = 0; i < length; i++)
         {
