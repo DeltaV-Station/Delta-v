@@ -7,6 +7,7 @@ namespace Content.Shared._DV.Weapons.Ranged.Systems;
 public sealed class AmmoKnockbackSystem : EntitySystem
 {
     [Dependency] private SharedStunSystem _stunSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,6 +26,7 @@ public sealed class AmmoKnockbackSystem : EntitySystem
         }
         args.ImpulseStrength = ent.Comp.KnockbackStrength;
     }
+
     private void OnImpulseApplied(Entity<AmmoKnockbackComponent> ent, ref ImpulseAppliedEvent args)
     {
         if (ent.Comp.Knockdown)
