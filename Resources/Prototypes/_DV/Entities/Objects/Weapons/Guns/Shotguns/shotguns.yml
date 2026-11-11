@@ -131,12 +131,10 @@
   description: A gun made with a unique flavor of hatred and malice. Questionable quality. Prone to inconsistent performace.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Shotguns/Antelope.rsi
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/elephant_gun.rsi
     layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
   - type: MeleeWeapon
     wideAnimationRotation: 270
     attackRate: 1 
@@ -183,3 +181,4 @@
   - type: ChamberMagazineAmmoProvider
     canRack: false
     boltClosed: null
+  - type: GunRequiresWield
