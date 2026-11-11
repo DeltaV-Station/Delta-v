@@ -45,7 +45,7 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FabricatorComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<FabricatorComponent, ComponentStartup>(OnComponentStartup);
 
         SubscribeLocalEvent<FabricatorComponent, InteractUsingEvent>(OnInteractUsing,
             after: [typeof(AnchorableSystem), typeof(SharedWiresSystem)]);
@@ -366,7 +366,7 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
         Stop(ent.Owner, ent.Comp);
     }
 
-    private void OnComponentInit(Entity<FabricatorComponent> ent, ref ComponentInit args)
+    private void OnComponentStartup(Entity<FabricatorComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Storage = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
         Dirty(ent);
