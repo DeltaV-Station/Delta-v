@@ -26,11 +26,31 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+      stain: # Funky - Clothing stains.
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+  # Funky Start - Clothing stains.
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: Effects/Stains/jumpsuit.rsi
+        state: inhand-right
+      right:
+      - sprite: Effects/Stains/jumpsuit.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: uniformbloodicon
+  # Funky End - Clothing stains.
 
 - type: entity
   abstract: true
@@ -45,6 +65,23 @@
     - Skirt # Delta-V : Harpies can wear this
     - ClothMade # Delta-V : Moths can eat this
     - WhitelistChameleon # Delta-V : You can set Chameleon clothes to this.
+  # Funky Start - Clothing stains.
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: Effects/Stains/jumpskirt.rsi
+        state: inhand-right
+      right:
+      - sprite: Effects/Stains/jumppskirt.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: uniformbloodicon
+  # Funky End - Clothing stains.
 
 
 - type: entity
@@ -74,3 +111,20 @@
     - Skirt # Delta-V : Harpies can wear this
     - ClothMade # Delta-V : Moths can eat this
     - WhitelistChameleon # Delta-V : You can set Chameleon clothes to this.
+  # Funky Start - Clothing stains.
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: Effects/Stains/jumpskirt.rsi
+        state: inhand-right
+      right:
+      - sprite: Effects/Stains/jumpskirt.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: uniformbloodicon
+  # Funky End - Clothing stains.

@@ -3,7 +3,7 @@ using Content.Shared._DV.Trigger.Components.Effects;
 using Content.Shared.Trigger;
 using Robust.Shared.Player;
 
-namespace Content.Shared._DV.Trigger.Systems;
+namespace Content.Shared._DV.Trigger.Systems.OnTriggerSystems;
 
 public sealed class ShowTipOnTriggerSystem : EntitySystem
 {
