@@ -69,11 +69,7 @@ public sealed class GunDelaySystem : EntitySystem
         }
 
         if (!ent.Comp.Lit)
-        {
             args.Cancel();
-            return;
-        }
-
     }
 
     private void CheckShot()

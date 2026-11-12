@@ -452,7 +452,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (shooterEv.Push && !shooterEv.CannotBePushed) // DeltaV - Bipods stop you from being moved by recoil.
         {
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics), shooterEv.ImpulseStrength); // DeltaV - set impulse strength by argument
-            var impulseEv = new ImpulseAppliedEvent(user); //
+            // Begin DeltaV - raise event on applying impulse
+            var impulseEv = new ImpulseAppliedEvent(user);
             foreach ((var uncheckedEnt, _) in ev.Ammo)
             {
                 if (uncheckedEnt is not { } ent)
@@ -460,6 +461,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
                 RaiseLocalEvent(ent, ref impulseEv);
             }
+            // End DeltaV - raise event on applying impulse
         }
         return true;
     }

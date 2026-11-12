@@ -7,6 +7,7 @@ namespace Content.Shared._DV.Weapons.Ranged.Systems;
 public sealed class GunBreakingSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -14,6 +15,7 @@ public sealed class GunBreakingSystem : EntitySystem
         SubscribeLocalEvent<GunBreakingComponent, GunShotEvent>(OnShot);
         SubscribeLocalEvent<GunBreakingComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
+
     private void OnShot(Entity<GunBreakingComponent> ent, ref GunShotEvent args)
     {
         ent.Comp.Broken = true;
@@ -23,9 +25,6 @@ public sealed class GunBreakingSystem : EntitySystem
     private void OnShotAttempted(Entity<GunBreakingComponent> ent, ref ShotAttemptedEvent args)
     {
         if (ent.Comp.Broken)
-        {
             args.Cancel();
-            return;
-        }
     }
 }
