@@ -44,6 +44,17 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Begin DeltaV - allow MKC to repair with cables
+  - type: Healing
+    damageContainers:
+       - HumanoidSilicon 
+    damage:
+      types:
+        Heat: -2.5
+        Cold: -2.5
+        Shock: -2.5
+        Caustic: -2.5
+  # End DeltaV - allow MKC to repair with cables
 
 - type: entity
   id: CableHVStack

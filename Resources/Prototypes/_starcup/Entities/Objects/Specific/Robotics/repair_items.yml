@@ -1,0 +1,233 @@
+- type: entity
+  parent: BaseItem
+  id: BaseSiliconHealingItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _starcup/Objects/Specific/Robotics/silicon_repair.rsi
+  - type: Item
+    size: Small
+    sprite: _starcup/Objects/Specific/Robotics/silicon_repair.rsi
+    heldPrefix: repairspray
+  # Inherited
+  - type: StaticPrice
+    price: 0
+  - type: Tag # DeltaV - whitelist for silicon repair medkits
+    tags:
+    - SiliconHealingTopical
+
+# BEGIN DeltaV - Remove old topicals
+#
+# - type: entity
+#   name: repair spray
+#   description: Small sprayers filled with rapid foaming agents, for repairing dents and scuffs on an MKC's chassis.
+#   parent: BaseSiliconHealingItem
+#   id: RepairSpray
+#   suffix: Full
+#   components:
+#   - type: Sprite
+#     state: repairspray
+#   - type: Item
+#     heldPrefix: repairspray
+#   - type: Healing
+#     damageContainers:
+#     - HumanoidSilicon
+#     damage:
+#       types:
+#         Blunt: -5
+#         Piercing: -5
+#         Slash: -5
+#     healingBeginSound:
+#       path: "/Audio/Machines/lightswitch.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#     healingEndSound:
+#       path: "/Audio/Effects/spray3.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#   - type: Stack
+#     stackType: RepairSpray
+#     count: 10
+
+# - type: entity
+#   id: RepairSpray1
+#   parent: RepairSpray
+#   suffix: Single
+#   components:
+#   - type: Stack
+#     stackType: RepairSpray
+#     count: 1
+
+# - type: entity
+#   name: thermal paste
+#   description: Gel used to treat heat-damaged electronics in MKCs.
+#   parent: BaseSiliconHealingItem
+#   id: ThermalPaste
+#   suffix: Full
+#   components:
+#   - type: Sprite
+#     state: thermalpaste
+#   - type: Item
+#     heldPrefix: thermalpaste
+#   - type: Healing
+#     damageContainers:
+#     - HumanoidSilicon
+#     damage:
+#       types:
+#         Heat: -5
+#         Caustic: -1.5
+#     healingBeginSound:
+#       path: "/Audio/Items/Medical/ointment_begin.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#     healingEndSound:
+#       path: "/Audio/Items/Medical/ointment_end.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#   - type: Stack
+#     stackType: ThermalPaste
+#     count: 10
+
+# - type: entity
+#   id: ThermalPaste1
+#   parent: ThermalPaste
+#   suffix: Single
+#   components:
+#   - type: Stack
+#     stackType: ThermalPaste
+#     count: 1
+
+# - type: entity
+#   name: defrost pouch
+#   description: Defrosting agents to treat MKCs whose internals have frozen solid.
+#   parent: BaseSiliconHealingItem
+#   id: DefrostPouch
+#   suffix: Full
+#   components:
+#   - type: Sprite
+#     state: defrostpouch
+#   - type: Item
+#     heldPrefix: defrostpouch
+#   - type: Healing
+#     damageContainers:
+#     - HumanoidSilicon
+#     damage:
+#       types:
+#         Cold: -10
+#     healingBeginSound:
+#       path: "/Audio/Items/Medical/ointment_begin.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#     healingEndSound:
+#       path: "/Audio/Items/Medical/ointment_end.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#   - type: Stack
+#     stackType: RepairSpray
+#     count: 10
+
+# - type: entity
+#   id: DefrostPouch1
+#   parent: DefrostPouch
+#   suffix: Single
+#   components:
+#   - type: Stack
+#     stackType: DefrostPouch
+#     count: 1
+
+# - type: entity
+#   name: splice kit
+#   description: Self-soldering bundles of wire for replacing damage caused to MKCs by electrical overload.
+#   parent: BaseSiliconHealingItem
+#   id: SpliceKit
+#   suffix: Full
+#   components:
+#   - type: Sprite
+#     state: splicekit
+#   - type: Item
+#     heldPrefix: splicekit
+#   - type: Healing
+#     damageContainers:
+#     - HumanoidSilicon
+#     damage:
+#       types:
+#         Shock: -10
+#     healingBeginSound:
+#       path: "/Audio/Items/screwdriver2.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#     healingEndSound:
+#       path: "/Audio/Items/wirecutter.ogg"
+#       params:
+#         volume: 1.0
+#         variation: 0.125
+#   - type: Stack
+#     stackType: RepairSpray
+#     count: 10
+
+# - type: entity
+#   id: SpliceKit1
+#   parent: SpliceKit
+#   suffix: Single
+#   components:
+#   - type: Stack
+#     stackType: SpliceKit
+#     count: 1
+# 
+# END DeltaV - Remove old topicals
+
+- type: entity
+  parent: BaseSiliconHealingItem
+  id: Oilpack
+  name: oil pack
+  suffix: Full
+  description: Contains a synthetic oil-based lubricant used by MKC chasses, which will start suffering internal damages without it.
+  components:
+  - type: Sprite
+    state: oilpack
+  - type: Item
+    heldPrefix: oilpack
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Bloodloss: -0.5
+    modifyBloodLevel: 15
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Stack
+    stackType: Oilpack
+    count: 10
+  - type: StackPrice
+    price: 10
+  - type: Tag # DeltaV - add this to SiliconHealingTopicals
+    tags:
+    - SiliconHealingTopical
+  - type: GuideHelp # DeltaV - add reference to the guidebook entry
+    guides:
+    - NaniteFabricator
+    - Robotics
+
+- type: entity
+  parent: Oilpack
+  id: Oilpack1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

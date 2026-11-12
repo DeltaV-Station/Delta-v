@@ -3,6 +3,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
+using Content.Shared._DV.Damage.Events; // DeltaV
 
 namespace Content.Shared.Damage.Systems;
 
@@ -155,6 +156,10 @@ public sealed partial class DamageableSystem
         if (!ignoreGlobalModifiers)
             damage = ApplyUniversalAllModifiers(damage);
 
+        // Begin DeltaV - raise event after resistances/modifiers
+        var changingEvent = new DamageChangingEvent(damage, origin);
+        RaiseLocalEvent(ent, changingEvent);
+        // End DeltaV - raise event after resistances/modifiers
 
         damageDone.DamageDict.EnsureCapacity(damage.DamageDict.Count);
 

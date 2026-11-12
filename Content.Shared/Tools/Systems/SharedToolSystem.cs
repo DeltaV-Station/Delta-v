@@ -152,6 +152,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// the event that this tool-use cancelled an existing DoAfter</param>
     /// <param name="fuel">Amount of fuel that should be taken from the tool.</param>
     /// <param name="toolComponent">The tool component.</param>
+    /// <param name="breakOnDamage">DeltaV: If tool use is canceled on taking damage</param>
     /// <returns>Returns true if any interaction takes place.</returns>
     public bool UseTool(
         EntityUid tool,
@@ -162,7 +163,8 @@ public abstract partial class SharedToolSystem : EntitySystem
         DoAfterEvent doAfterEv,
         out DoAfterId? id,
         float fuel = 0,
-        ToolComponent? toolComponent = null)
+        ToolComponent? toolComponent = null,
+        bool breakOnDamage = true) // DeltaV - tool healing, allow tool use to continue on damage
     {
         id = null;
         if (!Resolve(tool, ref toolComponent, false))
@@ -174,7 +176,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay / toolComponent.SpeedModifier, toolEvent, tool, target: target, used: tool)
         {
-            BreakOnDamage = true,
+            BreakOnDamage = breakOnDamage, // DeltaV - tool healing
             BreakOnMove = true,
             BreakOnWeightlessMove = false,
             NeedHand = tool != user,

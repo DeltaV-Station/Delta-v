@@ -1,0 +1,41 @@
+# Topical medicines
+
+
+# BEGIN DeltaV - Remove old topicals
+#
+# - type: stack
+#   parent: BaseSmallStack
+#   id: RepairSpray
+#   name: stack-repair-spray
+#   icon: { sprite: "/Textures/_starcup/Objects/Specific/Robotics/silicon_repair.rsi", state: repairspray }
+#   spawn: RepairSpray
+
+# - type: stack
+#   parent: BaseSmallStack
+#   id: ThermalPaste
+#   name: stack-thermal-paste
+#   icon: { sprite: "/Textures/_starcup/Objects/Specific/Robotics/silicon_repair.rsi", state: thermalpaste }
+#   spawn: ThermalPaste
+
+# - type: stack
+#   parent: BaseSmallStack
+#   id: DefrostPouch
+#   name: stack-defrost-pouch
+#   icon: { sprite: "/Textures/_starcup/Objects/Specific/Robotics/silicon_repair.rsi", state: defrostpouch}
+#   spawn: DefrostPouch
+
+# - type: stack
+#   parent: BaseSmallStack
+#   id: SpliceKit
+#   name: stack-splice-kit
+#   icon: { sprite: "/Textures/_starcup/Objects/Specific/Robotics/silicon_repair.rsi", state: splicekit }
+#   spawn: SpliceKit
+#
+# END DeltaV - Remove old topicals
+
+- type: stack
+  id: Oilpack
+  name: stack-oil-pack
+  icon: { sprite: "/Textures/_starcup/Objects/Specific/Robotics/silicon_repair.rsi", state: oilpack }
+  spawn: Oilpack
+  maxCount: 10

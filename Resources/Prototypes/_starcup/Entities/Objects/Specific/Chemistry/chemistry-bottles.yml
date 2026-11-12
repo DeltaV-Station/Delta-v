@@ -1,0 +1,76 @@
+# Delta V - remove electrolytic nanites
+# - type: entity
+#   id: ChemistryBottleElectrolyticNanites
+#   suffix: electrolytic nanites
+#   parent: BaseChemistryBottleFilled
+#   components:
+#   - type: Label
+#     currentLabel: reagent-name-electrolytic-nanites
+#   - type: SolutionContainerManager
+#     solutions:
+#       drink:
+#         maxVol: 30
+#         reagents:
+#         - ReagentId: ElectrolyticNanites
+#           Quantity: 30
+# Delta V - remove electrolytic nanites
+
+- type: entity
+  id: ChemistryBottleCrystalLatticeNanites
+  suffix: crystal lattice nanites
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-crystal-lattice-nanites
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CrystalLatticeNanites
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleOpticalFiberNanites
+  suffix: optical fiber nanites
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-optical-fiber-nanites
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OpticalFiberNanites
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleReconstructorNanites
+  suffix: reconstructor nanites
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-reconstructor-nanites
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ReconstructorNanites
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleOverclockNanites
+  suffix: overclock nanites
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-overclock-nanites
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OverclockNanites
+          Quantity: 30

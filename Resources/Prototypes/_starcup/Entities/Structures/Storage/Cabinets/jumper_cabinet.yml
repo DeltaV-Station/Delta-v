@@ -1,0 +1,39 @@
+- type: entity
+  parent: DefibrillatorCabinet
+  id: JumperUnitCabinet
+  name: jumper unit cabinet
+  description: A small wall mounted cabinet designed to hold a jumper unit.
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Wallmounts/jumper_unit_cabinet.rsi
+    noRot: false
+    layers:
+    - state: frame
+    - state: fill
+      map: [ "enum.ItemCabinetVisuals.Layer" ]
+      visible: true
+    - state: closed
+      map: [ "enum.OpenableVisuals.Layer" ]
+
+- type: entity
+  parent: JumperUnitCabinet
+  id: JumperUnitCabinetOpen
+  suffix: Open
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: JumperUnitCabinet
+  id: JumperUnitCabinetFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - JumperUnit
+
+- type: entity
+  parent: [JumperUnitCabinetFilled, JumperUnitCabinetOpen]
+  id: JumperUnitCabinetFilledOpen
+  suffix: Filled, Open

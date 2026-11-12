@@ -1,4 +1,5 @@
 using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Reagent; // starcup
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -100,6 +101,14 @@ public sealed partial class MetabolizerComponent : Component
     /// </summary>
     [DataField]
     public List<ProtoId<MetabolismStagePrototype>> Stages = new();
+
+    /// <summary>
+    ///     starcup: Whitelist of reagents that this metabolizer will exclusively process.
+    ///     If this field is specified, all non-whitelisted reagents in the metabolizer's stage
+    ///     will remain unprocessed.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<ReagentPrototype>>? ReagentWhitelist;
 }
 
 [DataDefinition]

@@ -68,7 +68,7 @@
   name: advanced nanite applicator
   parent: NaniteApplicatorExperimental
   id: NaniteApplicatorSyndicate
-  description: "Advanced nanite applicator with a heavily upgraded nanite capacity capable of self-nanite generation."
+  description: "Advanced nanite applicator with a heavily upgraded nanite capacity capable of self-nanite generation. Capable of quickly repairing MKCs" # DeltaV - update description for MKCs
   components:
   - type: Sprite
     sprite: _Mono/Objects/Tools/nanite_applicator_syndicate.rsi
@@ -89,3 +89,26 @@
         Quantity: 3
   - type: StaticPrice
     price: 400
+  # Begin DeltaV - MKC healing with applicator
+  - type: ToolHealing
+    fuel: 20
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types: 
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
+        Heat: -15
+        Cold: -15
+        Shock: -15
+        Caustic: -10
+    bloodlossModifier: -3
+    healingEndSound:
+      collection: Welder
+      params:
+        volume: 1.0
+        variation: 0.125
+    deleteOnUse: false
+  # End DeltaV - MKC healing with applicator

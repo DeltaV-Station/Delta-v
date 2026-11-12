@@ -62,4 +62,12 @@ public sealed partial class HealingComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? HealingEndSound = null;
+
+    // Begin DeltaV - allow meds to be used without deletion
+    /// <summary>
+    /// Whether the healing item is deleted on use
+    /// </summary>
+    [DataField]
+    public bool DeleteOnUse = true;
+    // End DeltaV - allow meds to be used without deletion
 }
