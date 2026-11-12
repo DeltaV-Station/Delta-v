@@ -1,5 +1,4 @@
 using Content.Server.DoAfter;
-using Content.Server.EUI;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Jittering;
 using Content.Server.Lightning;
@@ -9,9 +8,12 @@ using Content.Shared._DV.Psionics.Events.PowerDoAfterEvents;
 using Content.Shared._DV.Psionics.Systems.PsionicPowers;
 using Content.Shared.Body;
 using Content.Shared.DoAfter;
+using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Gibbing;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Stunnable;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -26,13 +28,13 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly GlimmerSystem _glimmer = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
 
     private static readonly EntProtoId? Sparks = "EffectSparks";
 
@@ -50,7 +52,6 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         if (!_player.TryGetSessionByEntity(power, out var session))
             return;
 
-        _eui.OpenEui(new EruptionWarningEui(), session);
         power.Comp.NextAnnoy = Timing.CurTime + TimeSpan.FromSeconds(60); // Minute grace period
     }
 
@@ -66,11 +67,19 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         var sparkFrom = detonateTime / 2;
 
         // Start the DoAfter.
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, detonateTime, new PsionicEruptionDoAfterEvent(), args.Performer);
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, detonateTime, new PsionicEruptionDoAfterEvent(), args.Performer)
+        {
+            RequireCanInteract = false,
+            BreakOnMobState = [MobState.Critical, MobState.Dead],
+        };
+
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
             return;
 
         psionic.Comp.SaveDoAfterId(doAfterId.Value); // Save the DoAfterID to reference it later.
+
+        _stunSystem.TryAddStunDuration(args.Performer, detonateTime);
+        _stunSystem.SetKnockdownTime(args.Performer, detonateTime);
 
         var message = Loc.GetString("psionic-eruption-begin", ("user", args.Performer));
         Popup.PopupEntity(message, args.Performer, PopupType.LargeCaution);
@@ -179,16 +188,8 @@ public sealed class PsionicEruptionSystem : BasePsionicPowerSystem<PsionicErupti
         var pos = _transform.GetMapCoordinates(args.User);
         _gibbing.Gib(args.User, user: args.User);
 
-        int boom = _glimmer.GetGlimmerTier(_glimmer.Glimmer) switch
-        {
-            GlimmerTier.Minimal => 2,
-            GlimmerTier.Low => 3,
-            GlimmerTier.Moderate => 4,
-            GlimmerTier.High => 8,
-            GlimmerTier.Dangerous => 12,
-            GlimmerTier.Critical => 32,
-            _ => 0
-        };
-        _explosion.QueueExplosion(pos, ExplosionSystem.DefaultExplosionPrototypeId, boom, 1, 5, psionic, maxTileBreak: 0);
+        int boom = psionic.Comp.ExplosionPower[_glimmer.GetGlimmerTier(_glimmer.Glimmer)];
+
+        _explosion.QueueExplosion(pos, SharedExplosionSystem.DefaultExplosionPrototypeId, boom, 2, 100, psionic, maxTileBreak: 1);
     }
 }
