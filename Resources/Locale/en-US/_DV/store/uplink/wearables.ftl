@@ -24,3 +24,6 @@ uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever y
 
 uplink-chameleon-armor-name = Chameleon Armored Vest
 uplink-chameleon-armor-desc = A chameleon vest that offers moderate protection against most forms of security brutality. Be aware the protection is detectable by thorough examination.
+
+uplink-chest-rig-merc-name = Mercenary Chest Rig
+uplink-chest-rig-merc-desc = Like a normal chest rig, but olive.
