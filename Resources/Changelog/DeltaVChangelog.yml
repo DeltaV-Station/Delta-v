@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: rebe83
   changes:
-  - message: NT Armory has researched a better breaching hammer. It pries faster and
-      bonks harder! Permas beware.
-    type: Tweak
-  id: 2209
-  time: '2026-04-03T08:21:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5586
-- author: rebe83
-  changes:
   - message: Shotgun slugs now do much more damage to structures.
     type: Tweak
   id: 2210
@@ -4472,4 +4464,11 @@
   id: 2709
   time: '2026-11-08T08:18:48.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6715
+- author: CMuncey
+  changes:
+  - message: The borg transponder wire now correctly removes just that borg from monitor.
+    type: Fix
+  id: 2710
+  time: '2026-11-12T15:47:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6665
 Order: 1
