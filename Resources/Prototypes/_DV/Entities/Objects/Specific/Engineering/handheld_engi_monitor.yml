@@ -1,0 +1,110 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem ]
+  id: BaseHandheldEngineeringMonitor
+  components:
+  - type: Item
+    heldPrefix: monitor
+  - type: ItemToggle
+    onUse: false
+  - type: MultipleUiKey
+    index: 0
+    modes:
+      - uiKey: enum.PowerMonitoringConsoleUiKey.Key
+        name: handheld-engineering-monitor-power-monitor-mode-name
+      - uiKey: enum.AtmosMonitoringConsoleUiKey.Key
+        name: handheld-engineering-monitor-atmos-monitor-mode-name
+      - uiKey: enum.AtmosAlertsComputerUiKey.Key
+        name: handheld-engineering-monitor-atmos-alerts-mode-name
+  - type: ActivatableUI
+    key: enum.PowerMonitoringConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PowerMonitoringConsoleUiKey.Key:
+        type: PowerMonitoringConsoleBoundUserInterface
+      enum.AtmosMonitoringConsoleUiKey.Key:
+        type: AtmosMonitoringConsoleBoundUserInterface
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+  - type: PowerMonitoringConsole
+  - type: PowerMonitoringCableNetworks
+  - type: AtmosAlertsComputer
+  - type: AtmosMonitoringConsole
+    navMapTileColor: "#1a1a1a"
+    navMapWallColor: "#404040"
+
+- type: entity
+  name: handheld engineering monitor
+  categories: [ DoNotMap ]
+  parent: [ BaseHandheldComputer, BaseHandheldEngineeringMonitor ]
+  id: HandheldEngineeringMonitor
+  description: Handheld computer to monitor status of power and atmos networks
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
+    layers:
+      - state: monitor
+      - map: ["monitorLayerScreen"]
+        state: power-monitor-overlay
+      - map: ["warningLevelLights"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MultipleUiKeyVisuals.CurrentIndex:
+        monitorLayerScreen:
+          0: { state: power-monitor-overlay }
+          1: { state: atmos-monitor-overlay }
+          2: { state: atmos-alerts-overlay }
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        warnLevelLights:
+          0: { state: warn-lights-green }
+          1: { state: warn-lights-green }
+          2: { state: warn-lights-yellow }
+          3: { state: warn-lights-red }
+          4: { state: warn-lights-red }
+
+- type: entity
+  name: advanced handheld engineering monitor
+  parent: [ BaseHandheldEngineeringMonitor, BaseGrandTheftContraband ]
+  id: CeHandheldEngineeringMonitor
+  description: An upgraded handheld engineering monitor with an integrated microreactor. Now with dark mode!
+  components:
+  - type: Item
+    heldPrefix: monitor_ce
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Engineering/handheld_engineering_monitor.rsi
+    layers:
+      - state: monitor_ce
+      - map: ["monitorLayerScreen"]
+        state: power-monitor-overlay
+      - map: ["warningLevelLights"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MultipleUiKeyVisuals.CurrentIndex:
+        monitorLayerScreen:
+          0: { state: power-monitor-overlay }
+          1: { state: atmos-monitor-overlay }
+          2: { state: atmos-alerts-overlay }
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        warnLevelLights:
+          0: { state: warn-lights-green }
+          1: { state: warn-lights-green }
+          2: { state: warn-lights-yellow }
+          3: { state: warn-lights-red }
+          4: { state: warn-lights-red }
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: CeHandheldEngineeringMonitorStealGroup
+
+- type: entity
+  id: HandheldEngineeringMonitorEmpty
+  parent: HandheldEngineeringMonitor
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
