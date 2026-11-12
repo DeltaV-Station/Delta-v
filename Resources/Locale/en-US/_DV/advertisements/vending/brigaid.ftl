@@ -9,5 +9,3 @@ thankyou-brigaid-1 = Steal all the chemicals from medical... I know you want to.
 thankyou-brigaid-2 = Remember, YOU didn't swear to do no harm!
 thankyou-brigaid-3 = Patch 'em up good!
 thankyou-brigaid-4 = Go earn your stories!
-
-#should i add a line about kitsunes here? hmm...
