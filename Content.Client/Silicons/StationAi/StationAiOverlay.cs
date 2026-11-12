@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Graphics;
+using Content.Shared._DV.CCVars; // DeltaV - Added for accessibility settings.
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -8,12 +9,14 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Configuration; // DeltaV - Added for accessibility settings.
 
 namespace Content.Client.Silicons.StationAi;
 
 public sealed class StationAiOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
+    private static readonly ProtoId<ShaderPrototype> DisabledCameraStaticShader = "DisabledCameraStatic"; //DeltaV - Added for accessibility settings.
     private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
     private static readonly ProtoId<ShaderPrototype> StencilDrawShader = "StencilDraw";
 
@@ -22,6 +25,7 @@ public sealed class StationAiOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // DeltaV - Added for accessibility settings.
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -97,7 +101,12 @@ public sealed class StationAiOverlay : Overlay
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
-                var shader = _proto.Index(CameraStaticShader).Instance();
+                // BEGIN DeltaV - Choose which shader to use depending on accessibility settings.
+                var shader = _proto.Index( 
+                    _cfg.GetCVar(DCCVars.DisableStaticShader)
+                    ? DisabledCameraStaticShader
+                    : CameraStaticShader).Instance();
+                // END DeltaV
                 worldHandle.UseShader(shader);
                 worldHandle.DrawRect(worldBounds, Color.White);
             },
