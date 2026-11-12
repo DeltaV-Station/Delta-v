@@ -1,0 +1,19 @@
+- type: entity
+  id: ConspiratorsPackage
+  name: conspirators package
+  description: A unopened package with everything you've prepared.
+  parent: ToolboxThief
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Misc/conspirators_package.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack
+    maxSelectedSets: 1
+    toolName: conspirator-package-window-title
+    toolDesc: conspirator-package-window-description
+    possibleSets:
+    - ConspiratorGenericKit
+    - ConspiratorPremiumKit
+    - ConspiratorWeaponsKit
+    - ConspiratorElectronicsKit
+    - ConspiratorMaintenanceKit
