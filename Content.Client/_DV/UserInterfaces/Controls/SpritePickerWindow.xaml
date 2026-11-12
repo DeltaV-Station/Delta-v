@@ -1,0 +1,42 @@
+<controls:FancyWindow
+    Title="{Loc 'sprite-selector-ui-window-title'}"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
+
+    <BoxContainer MinWidth="300" MinHeight="200" Orientation="Vertical">
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#1B1B1B" />
+            </PanelContainer.PanelOverride>
+
+            <TextureRect
+                Name="PreviewTexture"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Stretch="KeepAspectCentered"
+                MinWidth="128"
+                MinHeight="128"
+                Margin="0 8 0 0"/>
+
+        </PanelContainer>
+
+        <TabContainer Name="TextureTypes">
+            <BoxContainer Name="RSISelection" Orientation="Vertical">
+                <LineEdit Name="RSIPath" />
+                <OptionButton Name="RSIStates" />
+            </BoxContainer>
+
+            <BoxContainer Name="TextureSelection" Orientation="Vertical">
+                <LineEdit Name="TexturePath" />
+            </BoxContainer>
+        </TabContainer>
+
+        <Label Name="ErrorText" Visible="False" Align="Center" FontColorOverride="Red"/>
+
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Button Name="OkButton" Text="{Loc 'sprite-selector-ui-ok'}"/>
+            <Button Name="CancelButton" Text="{Loc 'sprite-selector-ui-cancel'}" ModulateSelfOverride="Red" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

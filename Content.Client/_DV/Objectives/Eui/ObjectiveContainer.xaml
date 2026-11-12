@@ -1,0 +1,60 @@
+<BoxContainer
+    xmlns="https://spacestation14.io"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    HorizontalExpand="True"
+    Orientation="Vertical"
+    >
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+        <PanelContainer Margin="5" >
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"/>
+            </PanelContainer.PanelOverride>
+
+            <BoxContainer Orientation="Vertical" SeparationOverride="5">
+                <BoxContainer Orientation="Horizontal" >
+                    <Label Text="Issuer:" Margin="5"/>
+                    <LineEdit
+                        Name="ObjectiveIssuer"
+                        HorizontalExpand="True"
+                        Margin="5"
+                    />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Title:" Margin="5"/>
+                    <LineEdit
+                        Name="ObjectiveTitle"
+                        HorizontalExpand="True"
+                        Margin="5"
+                    />
+                </BoxContainer>
+                <customControls:HSeparator/>
+                <Label Text="Description:" Margin="5"/>
+                <TextEdit
+                    Name="ObjectiveDescription"
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    MinWidth="500"
+                    MinHeight="60"
+                    Margin="5"
+                />
+            </BoxContainer>
+        </PanelContainer>
+
+        <BoxContainer Orientation="Vertical" Align="Center">
+            <BoxContainer Align="Center">
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"/>
+                    </PanelContainer.PanelOverride>
+
+                        <TextureButton Name="IconSelectButton" SetWidth="128" SetHeight="128" />
+                </PanelContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" Align="Center" >
+                <Button Name="ViewButton" Text="{Loc objective-editor-admin-ui-view}" StyleClasses="OpenRight" />
+                <Button Name="ResetButton" Text="{Loc objective-editor-admin-ui-reset}" StyleClasses="OpenLeft"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>
