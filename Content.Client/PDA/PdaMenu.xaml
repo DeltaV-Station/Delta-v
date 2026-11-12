@@ -40,6 +40,11 @@
             <ContainerButton Name="StationAlertLevelButton">
                 <RichTextLabel Name="StationAlertLevelLabel" Access="Public"/>
             </ContainerButton>
+            <!-- Begin DeltaV - PDA Evac Status -->
+            <ContainerButton Name="StationEvacStatusButton">
+                <RichTextLabel Name="StationEvacStatusLabel" Access="Public"/>
+            </ContainerButton>
+            <!-- End DeltaV - PDA Evac Status -->
             <ContainerButton Name="StationTimeButton">
                 <RichTextLabel Name="StationTimeLabel" Access="Public"/>
             </ContainerButton>

@@ -367,6 +367,7 @@ public sealed partial class EmergencyShuttleSystem
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle launch authorized");
         _consoleAccumulator = _authorizeTime;
         EarlyLaunchAuthorized = true;
+        EvacShuttleDepartureTime = TimeSpan.FromSeconds(_consoleAccumulator) + _timing.CurTime; // DeltaV - PDA Evac Status
         RaiseLocalEvent(new EmergencyShuttleAuthorizedEvent());
         AnnounceLaunch();
         UpdateAllEmergencyConsoles();

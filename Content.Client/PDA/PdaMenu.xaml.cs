@@ -33,7 +33,6 @@ namespace Content.Client.PDA
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
         private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
-        
 
         private int _currentView;
 
@@ -137,6 +136,11 @@ namespace Content.Client.PDA
                 LinkedDeviceList.Visible = true;
                 ToProgramView(Loc.GetString("comp-pda-ui-linked-devices-title"));
             };
+
+            StationEvacStatusButton.OnPressed += _ =>
+            {
+                _clipboard.SetText(_evacStatus);
+            };
             // End DeltaV additions
 
             
@@ -209,6 +213,12 @@ namespace Content.Client.PDA
                     ("date", _currentDate)
                 ));
             // End DeltaV additions
+
+            // Begin DeltaV - PDA Evac Status
+            _evacArrivalTime = state.PdaOwnerInfo.EvacArrivalTime;
+            _evacDepartureTime = state.PdaOwnerInfo.EvacDepartureTime;
+            UpdateEvacStatus();
+            // End DeltaV - PDA Evac Status
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 
@@ -368,6 +378,8 @@ namespace Content.Client.PDA
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+
+            UpdateEvacStatus(); // DeltaV - PDA Evac Satus
         }
     }
 }
