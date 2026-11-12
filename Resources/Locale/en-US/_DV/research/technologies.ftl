@@ -11,6 +11,7 @@ research-technology-advanced-construction = Advanced Construction
 research-technology-cloning = Cloning
 research-technology-artifact-display = Artifact Display Technology
 research-technology-directed-radiation = Directed Radiation
+research-technology-metempsychosis = Metempsychosis
 
 # Civilian
 research-technology-civilian-mechs = Civilian Mechs

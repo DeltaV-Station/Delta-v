@@ -7,6 +7,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._DV.Cloning;
 using Content.Shared._DV.Psionics.Components; // DeltaV
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
@@ -203,7 +204,9 @@ public sealed class CloningPodSystem : EntitySystem
         }
         // end of genetic damage checks
 
-        if (!_cloning.TryCloning(bodyToClone, _transformSystem.GetMapCoordinates(bodyToClone), SettingsId, out var mob)) // spawn a new body
+        TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metempsychoticMachine); // Delta V - Metem Psychotic Device
+
+        if (!_cloning.TryCloning(bodyToClone, _transformSystem.GetMapCoordinates(bodyToClone), SettingsId, out var mob, metempsychoticMachine /* Delta V - Metem Pychotic Device */)) // spawn a new body
         {
             if (clonePod.ConnectedConsole != null)
                 _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-uncloneable-trait-error"), InGameICChatType.Speak, false);
