@@ -26,3 +26,5 @@ marking-FurredLeftHand-furred_l_hand = Furred Left Hand
 marking-FurredLeftHand = Furred Left Hand
 marking-FurredRightHand-furred_r_hand = Furred Right Hand
 marking-FurredRightHand = Furred Right Hand
+
+marking-TajaranHead = Tajaran Head
