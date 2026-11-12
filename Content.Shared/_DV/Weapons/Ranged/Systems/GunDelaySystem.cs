@@ -11,6 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Content.Shared.Hands;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DV.Weapons.Ranged.Systems;
 
@@ -96,7 +97,7 @@ public sealed class GunDelaySystem : EntitySystem
             var dir = gun.DefaultDirection;
             _audio.Stop(comp.PlayingSound);
 
-            if (user == uid)
+            if (gun.Holder is not { })
             {
                 if (_net.IsClient)
                     continue;

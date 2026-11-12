@@ -10,6 +10,9 @@ public sealed partial class GunDelayComponent : Component
     [DataField, AutoNetworkedField]
     public float? Delay;
 
+    /// <summary>
+    /// When the gun will fire, this is set as a point in time
+    /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan FireTime = TimeSpan.Zero;
@@ -20,9 +23,15 @@ public sealed partial class GunDelayComponent : Component
     [DataField, AutoNetworkedField]
     public float MaximumDelay = 1;
 
+    /// <summary>
+    /// Should the gun be allowed to fire? This is only set to true when the system calls AttemptShoot so it doesn't block it
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool Lit = false;
 
+    /// <summary>
+    /// Has the gun been "fired" meaning that extra attempts should be blocked to not change the fire time?
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool Firing = false;
 
@@ -37,7 +46,4 @@ public sealed partial class GunDelayComponent : Component
 
     [DataField]
     public EntityUid? PlayingSound;
-
-    [DataField]
-    public SoundSpecifier TestSound = new SoundPathSpecifier("/Audio/_DV/Animals/capybara.ogg");
 }
