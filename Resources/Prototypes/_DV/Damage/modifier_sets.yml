@@ -190,3 +190,11 @@
     Radiation: 0.5
     Caustic: 0.5
     Cold: 0.8 # DeltaV - Cold res
+
+- type: damageModifierSet # Xenoborgs get 30% armor and are less squishy
+  id: Xenoborg
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Heat: 0.7
