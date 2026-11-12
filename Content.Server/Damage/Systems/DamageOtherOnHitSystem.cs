@@ -34,7 +34,7 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
 
     private void OnDoHit(EntityUid uid, DamageOtherOnHitComponent component, ThrowDoHitEvent args)
     {
-        if (TerminatingOrDeleted(args.Target))
+        if (TerminatingOrDeleted(args.Target) || args.Handled) // Delta-V
             return;
 
         var dmg = _damageable.ChangeDamage(args.Target, component.Damage * _damageable.UniversalThrownDamageModifier, component.IgnoreResistances, origin: args.Component.Thrower);
