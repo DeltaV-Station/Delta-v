@@ -28,3 +28,16 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskGoggles
+  name: goggles
+  description: A set of goggles to sit on your head.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Soft/goggles.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Soft/goggles.rsi
+  - type: Item
+    size: Tiny

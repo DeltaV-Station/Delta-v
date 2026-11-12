@@ -29,11 +29,21 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSParadeMale
 
+- type: loadout
+  id: HeadofSecurityFancyUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSFancy
+
 # Head
 - type: loadout
   id: HeadofSecurityCavalier
   equipment:
     head: ClothingHeadHatHeadOfSecurityCavalier
+
+- type: loadout
+  id: HeadofSecurityHelmetEVA
+  equipment:
+    head: ClothingHeadHelmetEVAHoS
 
 # OuterClothing
 - type: loadout
@@ -50,6 +60,11 @@
   id: HeadofSecurityLongcoat
   equipment:
     outerClothing: ClothingLongcoatHoS
+
+- type: loadout
+  id: HeadofSecurityFancyCoat
+  equipment:
+    outerClothing: ClothingOutercoatHoSFancy
 
 # Shoes
 - type: loadout

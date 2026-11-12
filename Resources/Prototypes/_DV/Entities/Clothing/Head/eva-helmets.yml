@@ -18,3 +18,25 @@
     tags:
     - HelmetEVA
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetEVAHoS
+  name: head of security's EVA helmet
+  description: a plasteel helmet that can also serve as an alternative to a hardsuit helmet. Theoretically has a linked AR HUD, but due to budget cuts it just causes a single blue LED to light button-up.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Helmets/hosexperimentalhelmet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Helmets/hosexperimentalhelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon
