@@ -1,4 +1,4 @@
-﻿menupinpointer-target-window-title = Pinpointer Menu
+menupinpointer-target-window-title = Pinpointer Menu
 
 menupinpointer-target-window-select-title = Input exact name
 
