@@ -343,9 +343,9 @@
           Piercing: 0.85
           Heat: 0.8
         flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
           Heat: 1
     - type: Construction
       graph: MakeshiftShield
@@ -354,13 +354,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 40
+            damage: 60
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 20 #Very weak shield
+            damage: 30 #Very weak shield
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
