@@ -53,7 +53,7 @@ public sealed class GunDelaySystem : EntitySystem
 
         if (!ent.Comp.Firing)
         {
-            AmmoDelay(ent, ref args);
+            _gunSystem.AmmoDelay(ent, ref args);
             if (ent.Comp.Delay is { } delay)
                 ent.Comp.FireTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
             else
@@ -129,22 +129,5 @@ public sealed class GunDelaySystem : EntitySystem
         ent.Comp.Lit = false;
         ent.Comp.Firing = false;
         Dirty(ent);
-    }
-    private void AmmoDelay(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
-    {
-        if (_gunSystem.GetChamberEntity(ent) is not { } ammo)
-            return;
-
-        if (!TryComp(ammo, out AmmoDelayComponent? ammoDelay))
-            return;
-
-        if (ammoDelay.Delay is { })
-        {
-            ent.Comp.Delay = ammoDelay.Delay;
-            return;
-        }
-        ent.Comp.MinimumDelay = ammoDelay.MinimumDelay;
-        ent.Comp.MaximumDelay = ammoDelay.MaximumDelay;
-        Dirty(args.Used.Owner, ent.Comp);
     }
 }

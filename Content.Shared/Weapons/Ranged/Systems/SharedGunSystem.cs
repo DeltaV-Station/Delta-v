@@ -124,6 +124,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         InitializeHolders(); // DeltaV
         InitializeBipods(); // DeltaV
+        InitializeAmmoDelay(); // DeltaV
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
