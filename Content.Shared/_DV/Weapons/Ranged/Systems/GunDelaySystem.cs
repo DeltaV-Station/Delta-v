@@ -11,7 +11,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Content.Shared.Hands;
-using Robust.Shared.GameStates;
+using Robust.Shared.Player;
 
 namespace Content.Shared._DV.Weapons.Ranged.Systems;
 
@@ -22,6 +22,7 @@ public sealed class GunDelaySystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ActorSystem _player = default!;
 
     public override void Initialize()
     {
@@ -89,7 +90,6 @@ public sealed class GunDelaySystem : EntitySystem
 
             if (comp.User is not { } user)
                 continue;
-
             var dir = gun.DefaultDirection;
             _audio.Stop(comp.PlayingSound);
 
@@ -105,7 +105,16 @@ public sealed class GunDelaySystem : EntitySystem
             }
 
             comp.Lit = true;
-            _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
+            if (_net.IsClient)
+            {
+                _player.TryGetSession(gun.Holder, out var session);
+                if (session is not { })
+                    continue;
+                if (session.AttachedEntity == gun.Holder)
+                    _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
+            }
+            else
+                _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
             Dirty(uid, comp);
         }
     }
