@@ -85,8 +85,9 @@
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: full
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Chitinid
+  - type: Injurable
+    damageContainer: Biological
   - type: Speech
     speechVerb: Chitinid
     allowedEmotes: ['Chitter', 'Click', 'Hiss']

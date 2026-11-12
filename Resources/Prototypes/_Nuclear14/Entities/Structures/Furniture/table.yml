@@ -6,8 +6,9 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood # DeltaV
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -51,9 +52,10 @@
   description: A cold piece of metal standing on four metal legs.
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
-  - type: Destructible 
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -82,7 +84,7 @@
   - type: Sprite
     sprite: _DV/Structures/Furniture/N14Tables/tables.rsi # Begin DeltaV Additions
     state: table_metal_round
-    snapCardinals: true 
+    snapCardinals: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -94,7 +96,7 @@
         - TableMask
         layer:
         - TableLayer
-  - type: Construction 
+  - type: Construction
     graph: N14TableRecipes
     node: N14MetalRound # End DeltaV Additions
 
@@ -180,7 +182,7 @@
         - TableMask
         layer:
         - TableLayer
-  - type: Construction 
+  - type: Construction
     graph: N14TableRecipes
     node: N14WoodLow # End Delta V Changes
 
@@ -208,7 +210,7 @@
   - type: Construction
     graph: N14TableRecipes
     node: N14WoodStand # End DeltaV Changes
-  
+
 - type: entity
   parent: BaseStructure
   id: N14WoodTableFrame
@@ -216,8 +218,9 @@
   description: Pieces of wood that make up the frame of an unfinished object.
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood # DeltaV
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -251,7 +254,7 @@
     snapCardinals: true # DeltaV
   - type: Construction
     graph: N14TableRecipes
-    node: N14WoodFrame 
+    node: N14WoodFrame
   - type: Clickable # End DeltaV Additions
 
 #64x64 tables
@@ -286,8 +289,9 @@
   description: Pieces of metal that make up the frame of an unfinished object.
   components:
   - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
     damageContainer: Inorganic
-    damageModifierSet: Metallic 
   - type: Destructible
     thresholds:
     - trigger:
@@ -299,7 +303,7 @@
           collection: WoodDestroy
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialWoodPlank1: 
+          MaterialWoodPlank1:
             min: 1
             max: 2
       - !type:DoActsBehavior
@@ -339,7 +343,7 @@
   suffix: alt
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/N14Tables/desks.rsi 
+    sprite: _DV/Structures/Furniture/N14Tables/desks.rsi
     state: desk_metal_alt # End DeltaV Additions
 
 - type: entity
@@ -352,7 +356,7 @@
 
 - type: entity
   parent: N14FreeTableBase
-  id: N14TableDeskWood2 
+  id: N14TableDeskWood2
   suffix: alt # DeltaV
   description: A desk for working at. # DeltaV
   components:
@@ -372,7 +376,7 @@
         - TableLayer
 
 - type: entity
-  parent: N14TableDeskWood2 
+  parent: N14TableDeskWood2
   id: N14TableDeskWood # DeltaV
   name: office desk
   components:
@@ -589,7 +593,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_cross
-    snapCardinals: true # DeltaV 
+    snapCardinals: true # DeltaV
   - type: Construction # DeltaV
     graph: N14TableRecipes # DeltaV
     node: N14WoodCraftCounterCross # DeltaV

@@ -25,8 +25,9 @@
     sprite: _DV/Structures/stairs.rsi # Delta V - Resprite stairs
     state: stairs_steel
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

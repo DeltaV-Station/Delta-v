@@ -18,8 +18,9 @@
     sprite: _DV/Objects/Storage/barrel.rsi
     state: base
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -104,8 +105,9 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: StaticPrice
     price: 50
   - type: Construction

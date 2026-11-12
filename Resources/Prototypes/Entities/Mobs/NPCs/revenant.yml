@@ -26,8 +26,9 @@
     showInHands: false
     disableExplosionRecursion: true
   - type: Damageable
-    damageContainer: ManifestedSpirit
     damageModifierSet: Spirit # DeltaV: Keep revenant extreme weakness to heat and bible
+  - type: Injurable
+    damageContainer: ManifestedSpirit
   - type: MeleeWeapon # Begin DeltaV additions
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg

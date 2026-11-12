@@ -20,8 +20,9 @@
       100: Critical
       200: Dead
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
     damageModifierSet: KitsuneFox
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: Inventory
     speciesId: fox
     templateId: pet

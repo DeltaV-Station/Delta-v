@@ -35,6 +35,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Damage.Systems;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Radiation.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -70,6 +71,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedRadiationSystem _radiation = default!;
 
     private sealed class LogData
     {
@@ -412,7 +414,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 
         // Linear scaling up to maximum, logarithmic beyond that
-        comp.Intensity = (float)Math.Max(reactor.RadiationLevel <= reactor.MaximumRadiation ? reactor.RadiationLevel : reactor.MaximumRadiation + Math.Log(reactor.RadiationLevel - reactor.MaximumRadiation + 1), reactor.Melted ? reactor.MeltdownRadiation : 0);
+        var intensity = (float)Math.Max(reactor.RadiationLevel <= reactor.MaximumRadiation ? reactor.RadiationLevel : reactor.MaximumRadiation + Math.Log(reactor.RadiationLevel - reactor.MaximumRadiation + 1), reactor.Melted ? reactor.MeltdownRadiation : 0);
+        _radiation.SetIntensity((ent.Owner, comp), intensity);
         reactor.RadiationLevel /= Math.Max(reactor.RadiationStability, 1);
     }
 

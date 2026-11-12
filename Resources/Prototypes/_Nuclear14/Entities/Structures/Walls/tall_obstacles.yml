@@ -9,8 +9,9 @@
     drawdepth: Mobs
   - type: SpriteFade
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RangedDamageSound
     soundGroups:
       Brute:

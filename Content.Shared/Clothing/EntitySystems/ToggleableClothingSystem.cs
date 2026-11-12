@@ -140,12 +140,12 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
             || toggleCom.Container == null)
             return;
 
-        var parent = Transform(uid).ParentUid; // DeltaV - Allow hats under toggleable helms 
+        var parent = Transform(uid).ParentUid; // DeltaV - Allow hats under toggleable helms
         if (!_inventorySystem.TryUnequip(Transform(uid).ParentUid, toggleCom.Slot, force: true))
             return;
 
         _containerSystem.Insert(uid, toggleCom.Container);
-        TryEquipUnderClothing(parent, component); // DeltaV - Allow hats under toggleable helms 
+        TryEquipUnderClothing(parent, component); // DeltaV - Allow hats under toggleable helms
         args.Handled = true;
     }
 
@@ -164,10 +164,10 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // DeltaV - 
         // This should maybe double check that the entity currently in the slot is actually the attached clothing, but
         // if its not, then something else has gone wrong already...
         if (component.Container != null && component.Container.ContainedEntity == null && component.ClothingUid != null)
-            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true, triggerHandContact: true); // DeltaV - Allow hats under toggleable helms
+            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.EquipTarget, component.Slot, force: true, triggerHandContact: true); // DeltaV - Allow hats under toggleable helms
 
         // DeltaV - If the toggleable helm was uneqipped, try to equip whats in the under clothing container
-        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.Equipee, component))
+        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.EquipTarget, component))
             TryDropUnderClothing(component);
     }
 

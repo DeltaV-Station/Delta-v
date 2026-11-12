@@ -1,0 +1,607 @@
+# Command
+- type: roleLoadout
+  id: JobCaptain
+  groups:
+  - CaptainHead
+  - CaptainNeck
+  - CaptainJumpsuit
+  - CaptainBackpack
+  - CaptainOuterClothing
+  - CaptainGloves # DeltaV
+  - CaptainShoes # DeltaV
+  - Survival
+  - Trinkets
+  #- CaptainJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobHeadOfPersonnel
+  groups:
+  - GroupTankHarness
+  - HoPHead
+  - HoPNeck
+  - HoPJumpsuit
+  - HoPBackpack
+  - HoPOuterClothing
+  - HoPGloves # DeltaV
+  - HoPShoes # DeltaV
+  - Glasses
+  - Survival
+  - Trinkets
+  #- HoPJobTrinkets
+  - GroupSpeciesBreathTool
+
+# Silicons
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobStationAi
+  nameDataset: NamesAIDeltaV # DeltaV
+  canCustomizeName: true
+
+# Civilian
+- type: roleLoadout
+  id: JobPassenger
+  groups:
+  - Scarfs # DeltaV
+  - GroupTankHarness
+  - AssistantHead # DeltaV
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerPDADelta # DeltaV
+  - PassengerShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  #- PassengerJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBartender
+  groups:
+  - GroupTankHarness
+  - BartenderHead
+  - BartenderNeck # DeltaV
+  - BartenderJumpsuit
+  - CommonBackpack
+  - BartenderOuterClothing
+  - BartenderPDADelta # DeltaV
+  - BartenderGlasses # DeltaV - replaces Glasses
+  - Survival
+  - Trinkets
+  - BartenderJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobServiceWorker
+  groups:
+  - GroupTankHarness
+  - ServiceWorkerHead # DeltaV
+  - Scarfs # DeltaV
+  - ServiceWorkerJumpsuit # DeltaV, was BartenderJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ServiceWorkerJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobChef
+  groups:
+  - GroupTankHarness
+  - ChefHead
+  - ChefMask
+  - ChefJumpsuit
+  - CommonBackpack
+  - ChefOuterClothing
+  - ChefPDADelta # DeltaV
+  - ChefShoes # DeltaV - Adding group for chef shoes
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ChefJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobLibrarian
+  groups:
+  - LibrarianNeck # DeltaV
+  - GroupTankHarness
+  - LibrarianJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LibrarianJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobLawyer
+  groups:
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobChaplain
+  canCustomizeName: true
+  groups:
+  - GroupTankHarness
+  - ChaplainHead
+  - ChaplainMask
+  - ChaplainNeck
+  - ChaplainJumpsuit
+  - CommonBackpack
+  - ChaplainOuterClothing
+  - ChaplainBible
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ChaplainJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobJanitor
+  groups:
+  - GroupTankHarness
+  - JanitorHead
+  - JanitorNeck # DeltaV
+  - JanitorJumpsuit
+  - JanitorGloves
+  - JanitorPDADelta # DeltaV
+  - CommonBackpack
+  - JanitorOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  - JanitorJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBotanist
+  groups:
+  - GroupTankHarness
+  - BotanistHead
+  - BotanistNeck # DeltaV
+  - BotanistJumpsuit
+  - BotanistBackpack
+  - BotanistOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  #- BotanistJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobClown
+  canCustomizeName: true
+  groups:
+  - GroupTankHarness
+  - ClownHead
+  - ClownMask # DeltaV
+  - Scarfs # DeltaV
+  - ClownJumpsuit
+  - ClownBackpack
+  - ClownOuterClothing
+  - ClownPDADelta # DeltaV
+  - ClownShoes
+  - Glasses
+  - SurvivalClown
+  - Trinkets
+  - ClownJobTrinkets
+
+- type: roleLoadout
+  id: JobMime
+  canCustomizeName: true
+  groups:
+  - GroupTankHarness
+  - MimeHead
+  - MimeMask
+  - MimeNeck # DeltaV
+  - MimeJumpsuit
+  - MimeBackpack
+  - MimeOuterClothing
+  - MimeBelt
+  - MimeShoes # DeltaV
+  - Glasses
+  - SurvivalMime
+  - Trinkets
+  #- MimeJobTrinkets
+
+- type: roleLoadout
+  id: JobMusician
+  canCustomizeName: true
+  groups:
+  - GroupTankHarness
+  - MusicianJumpsuit
+  - CommonBackpack
+  - MusicianOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  #- MusicianJobTrinkets
+  - Instruments
+  - GroupSpeciesBreathTool
+
+# Cargo
+- type: roleLoadout
+  id: JobQuartermaster
+  groups:
+  - GroupTankHarness
+  - QuartermasterHead
+  - QuartermasterNeck
+  - QuartermasterJumpsuit
+  - CargoTechnicianBackpack
+  - QuartermasterOuterClothing
+  - QuartermasterShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  #- QuartermasterJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCargoTechnician
+  groups:
+  - GroupTankHarness
+  - CargoTechnicianHead
+  - CargoTechnicianNeck # DeltaV
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianBackpack
+  - CargoTechnicianOuterClothing
+  - CargoTechnicianShoes
+  - CargoPDADelta # DeltaV - Was CargoTechnicianID
+  - Glasses
+  - Survival
+  - Trinkets
+  #- CargoTechnicianJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSalvageSpecialist
+  groups:
+  - GroupTankHarness
+  - SalvageSpecialistNeck # DeltaV
+  - SalvageSpecialistJumpsuit # DeltaV - more jumpskirts
+  - SalvageSpecialistBackpack
+  - SalvageSpecialistOuterClothing
+  - SalvagePDADelta # DeltaV
+  - SalvageSpecialistShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  #- SalvageSpecialistJobTrinkets
+  - GroupSpeciesBreathTool
+
+# Engineering
+- type: roleLoadout
+  id: JobChiefEngineer
+  groups:
+  - GroupTankHarness
+  - ChiefEngineerHead
+  - ChiefEngineerJumpsuit
+  - StationEngineerBackpack
+  - ChiefEngineerNeck
+  - ChiefEngineerOuterClothing
+  - ChiefEngineerGloves # DeltaV
+  - ChiefEngineerShoes
+  - SurvivalExtended
+  - Trinkets
+  #- ChiefEngineerJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobTechnicalAssistant
+  groups:
+  - GroupTankHarness
+  - StationEngineerNeck # DeltaV
+  - TechnicalAssistantJumpsuit
+  - StationEngineerBackpack
+  - StationEngineerShoes # DeltaV
+  - SurvivalExtended
+  - Trinkets
+  #- TechnicalAssistantJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobStationEngineer
+  groups:
+  - GroupTankHarness
+  - StationEngineerHead
+  - StationEngineerNeck # DeltaV
+  - StationEngineerJumpsuit
+  - StationEngineerBackpack
+  - StationEngineerOuterClothing
+  - StationEngineerShoes
+  - StationEngineerID
+  - SurvivalExtended
+  - Trinkets
+  #- StationEngineerJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobAtmosphericTechnician
+  groups:
+  - GroupTankHarness
+  - AtmosphericTechnicianHead # DeltaV
+  - AtmosphericTechnicianNeck # DeltaV
+  - AtmosphericTechnicianJumpsuit
+  - AtmosphericTechnicianBackpack
+  - AtmosphericTechnicianOuterClothing
+  - AtmosPDADelta # DeltaV
+  - AtmosphericTechnicianShoes
+  - SurvivalExtended
+  - Trinkets
+  #- AtmosphericTechnicianJobTrinkets
+  - GroupSpeciesBreathTool
+
+# Science
+- type: roleLoadout
+  id: JobResearchDirector
+  groups:
+  - GroupTankHarness
+  - ResearchDirectorHead
+  - ResearchDirectorNeck
+  - ResearchDirectorJumpsuit
+  - ScientistBackpack
+  - ResearchDirectorOuterClothing
+  - ScientistGloves
+  - ResearchDirectorShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ResearchDirectorJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobScientist
+  groups:
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ScientistPDA
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ScientistJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobResearchAssistant
+  groups:
+  - GroupTankHarness
+  - ResearchAssistantJumpsuit
+  - ScientistBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ResearchAssistantJobTrinkets
+  - GroupSpeciesBreathTool
+
+# Security
+- type: roleLoadout
+  id: JobHeadOfSecurity
+  groups:
+  - HeadofSecurityHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - HeadofSecurityNeck
+  - HeadofSecurityJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - HeadofSecurityOuterClothingDeltaV # DeltaV - Was HeadofSecurityOuterClothing
+  - HeadofSecurityShoes # DeltaV - Was SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - HeadofSecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
+  - SecurityUtility # DeltaV - loadouts
+
+- type: roleLoadout
+  id: JobWarden
+  groups:
+  - WardenHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - SecurityNeck # DeltaV
+  - WardenJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - WardenOuterClothingDeltaV # DeltaV - Was WardenOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - WardenJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
+  - SecurityUtility # DeltaV - loadouts
+
+- type: roleLoadout
+  id: JobSecurityOfficer
+  groups:
+  - SecurityHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - SecurityNeck # DeltaV
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was SecurityOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
+  - SecurityShoes
+  - SecurityPDA
+  - SecurityBelt
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityFirearm # DeltaV - loadouts
+  - SecurityFirearmAmmo # DeltaV - loadouts
+  - SecurityUtility # DeltaV - loadouts
+
+- type: roleLoadout
+  id: JobDetective
+  groups:
+  - DetectiveHead
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - SecurityNeck # DeltaV - Replace DetectiveNeck for incongruence
+  - DetectiveJumpsuitDeltaV # DeltaV - Was DetectiveJumpsuit
+  - SecurityBackpack
+  - DetectiveOuterClothingDeltaV # DeltaV - Was DetectiveOuterClothing
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - DetectiveJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityRevolverFirearm # DeltaV - loadouts
+  - SecurityRevolverAmmo # DeltaV - loadouts
+
+- type: roleLoadout
+  id: JobSecurityCadet
+  groups:
+  - SecurityCadetHead # DeltaV
+  - Glasses # DeltaV
+  - SecurityNeck # DeltaV
+  - SecurityGloves # DeltaV - Security can start with gloves
+  - SecurityCadetJumpsuit
+  - SecurityBackpack
+  - SurvivalSecurity
+  - Trinkets
+  #- SecurityCadetJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+
+# Wildcards
+- type: roleLoadout
+  id: JobReporter
+  groups:
+  - GroupTankHarness
+  - ReporterJumpsuit
+  - ReporterHead
+  - ReporterOuterClothing
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ReporterJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobPsychologist
+  groups:
+  - GroupTankHarness
+  - PsychologistJumpsuit
+  - MedicalBackpack
+  # Begin DeltaV additions
+  - PsychologistPDADelta
+  - PsychologistHead
+  - Scarfs
+  - PsychologistOuterClothing
+  - PsychologistShoes
+  - PsychologistBelt
+  # End DeltaV additions
+  - Glasses
+  - SurvivalMedical # DeltaV - Was Survival
+  - Trinkets
+  #- PsychologistJobTrinkets
+  - GroupSpeciesBreathTool
+
+# These loadouts are used for non-crew spawns, like off-station antags and event mobs
+# They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
+
+# gives vox a harness and breathing mask
+# nitrogen tank not included
+- type: roleLoadout
+  id: RoleSurvivalVoxSupport
+  groups:
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
+
+- type: roleLoadout
+  id: RoleSurvivalStandard
+  groups:
+  - Survival
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalClown
+  groups:
+  - SurvivalClown
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalExtended
+  groups:
+  - SurvivalExtended
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalMedical
+  groups:
+  - SurvivalMedical
+  - GroupSpeciesBreathToolMedical
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalSecurity
+  groups:
+  - SurvivalSecurity
+  - GroupSpeciesBreathToolSecurity
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalSyndicate
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalMilitaryDouble
+  groups:
+  - SurvivalMilitaryDouble
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
+
+- type: roleLoadout
+  id: RoleSurvivalEVA
+  groups:
+  - GroupEVATank
+  - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalSpaceNinja
+  groups:
+  - GroupEVATank

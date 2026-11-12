@@ -280,8 +280,9 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _DV/Structures/Wallmounts/Reinforced_camera.rsi

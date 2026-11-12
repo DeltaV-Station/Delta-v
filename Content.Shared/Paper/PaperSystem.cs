@@ -5,17 +5,21 @@ using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Paper;
 
 public sealed class PaperSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -24,8 +28,11 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
+    [Dependency] private readonly EntityQuery<PaperComponent> _paperQuery = default!;
+
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+
 
     public override void Initialize()
     {
@@ -37,6 +44,8 @@ public sealed class PaperSystem : EntitySystem
         SubscribeLocalEvent<PaperComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<PaperComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<PaperComponent, PaperInputTextMessage>(OnInputTextMessage);
+
+        SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
 
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
     }
@@ -177,7 +186,6 @@ public sealed class PaperSystem : EntitySystem
     {
         var ev = new PaperWriteAttemptEvent(entity.Owner);
         RaiseLocalEvent(args.Actor, ref ev);
-
         if (ev.Cancelled)
             return;
 
@@ -202,12 +210,31 @@ public sealed class PaperSystem : EntitySystem
 
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
-
-        var writeAfterEv = new PaperAfterWriteEvent(args.Actor);
-        RaiseLocalEvent(entity.Owner, ref writeAfterEv);
     }
 
-    // private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args) // DV - removed
+    private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args)
+    {
+        if (!_paperQuery.TryComp(ent, out var paperComp))
+        {
+            Log.Warning($"{ToPrettyString(ent)} has a {nameof(RandomPaperContentComponent)} but no {nameof(PaperComponent)}!");
+            RemCompDeferred(ent, ent.Comp);
+            return;
+        }
+        var dataset = _protoMan.Index(ent.Comp.Dataset);
+        // Intentionally not using the Pick overload that directly takes a LocalizedDataset,
+        // because we want to get multiple attributes from the same pick.
+        var pick = _random.Pick(dataset.Values);
+
+        // Name
+        _metaSystem.SetEntityName(ent, Loc.GetString(pick));
+        // Description
+        _metaSystem.SetEntityDescription(ent, Loc.GetString($"{pick}.desc"));
+        // Content
+        SetContent((ent, paperComp), Loc.GetString($"{pick}.content"));
+
+        // Our work here is done
+        RemCompDeferred(ent, ent.Comp);
+    }
 
     private void OnPaperWrite(Entity<ActivateOnPaperOpenedComponent> entity, ref PaperWriteEvent args)
     {
@@ -291,14 +318,6 @@ public record struct PaperWriteEvent(EntityUid User, EntityUid Paper);
 /// <summary>
 /// Cancellable event for attempting to write on a piece of paper.
 /// </summary>
-/// <param name="Paper">The paper that the writing will take place on.</param>
+/// <param name="paper">The paper that the writing will take place on.</param>
 [ByRefEvent]
 public record struct PaperWriteAttemptEvent(EntityUid Paper, string? FailReason = null, bool Cancelled = false);
-
-/// <summary>
-/// Event raised on paper after it was written on by someone.
-/// </summary>
-/// <param name="Actor">Entity that wrote something on the paper.</param>
-[ByRefEvent]
-public readonly record struct PaperAfterWriteEvent(EntityUid Actor);
-
