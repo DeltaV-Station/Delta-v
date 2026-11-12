@@ -33,11 +33,13 @@
   id: GreyJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
+  groupBy: colorjumpsuits #Delta-V change
 
 - type: loadout
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
+  groupBy: colorjumpskirts #Delta-V change
 
 # Rainbow
 - type: loadout
@@ -110,12 +112,12 @@
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
-
 # Shoes
 - type: loadout
   id: BlackShoes
   equipment:
     shoes: ClothingShoesColorBlack
+  groupBy: colorshoes #Delta-V change
 
 - type: loadout
   id: WinterBoots
