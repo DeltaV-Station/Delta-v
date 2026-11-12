@@ -1,0 +1,13 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               Title="{Loc 'menupinpointer-target-window-title'}"
+               MinSize="50 30">
+    <BoxContainer Orientation="Vertical" Margin="5">
+        <Label Text="{Loc 'menupinpointer-target-window-select-title'}" />
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <LineEdit Name="TargetWriteZone" HorizontalExpand="True" />
+        </BoxContainer>
+        <Button Name="TargetSetButton" Text="{Loc 'menupinpointer-target-window-target-set'}" />
+        <Button Name="ToggleButton" Text="{Loc 'menupinpointer-toggle-button'}" ToggleMode="True" Margin="5"/>
+    </BoxContainer>
+</controls:FancyWindow>

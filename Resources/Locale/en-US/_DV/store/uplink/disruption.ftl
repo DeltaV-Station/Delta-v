@@ -12,3 +12,6 @@ uplink-syndicate-law-desc = "Recruit" the A.I. to support the Syndicate's cause.
 
 uplink-universal-pinpointer-name = Universal Pinpointer
 uplink-universal-pinpointer-desc = For those who keep forgetting where they put their stashes in space.
+
+uplink-MenuPinpointer-name = Scanner Pinpointer
+uplink-MenuPinpointer-desc = A special pinpointer which can select a target via inputting their exact name into it.

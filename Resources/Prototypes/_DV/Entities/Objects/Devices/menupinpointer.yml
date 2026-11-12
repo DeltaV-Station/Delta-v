@@ -1,0 +1,39 @@
+- type: entity
+  name: scanner pinpointer
+  description: A Modified handheld tracking device that locks onto the crewmember whos exact name is put into it. Keep upright to retain accuracy.
+  id: MenuPinpointer
+  parent: [ PinpointerBase, BaseSyndicateContraband ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-syndicate
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#202020"
+      - state: inhand-left-stripe
+        color: "#6c0014"
+      - state: inhand-left-top
+      right:
+      - state: inhand-right-base
+        color: "#202020"
+      - state: inhand-right-stripe
+        color: "#6c0014"
+      - state: inhand-right-top
+  - type: Icon
+    state: pinpointer-syndicate
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+  - type: ActivatableUI
+    key: enum.MenuPinpointerUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MenuPinpointerUIKey.Key:
+        type: MenuPinpointerBoundUserInterface

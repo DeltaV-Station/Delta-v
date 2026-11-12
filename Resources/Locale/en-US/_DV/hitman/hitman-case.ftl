@@ -41,4 +41,4 @@ hitman-tracker-kit-description =
     Provides a station master encryption key and binary encryption key,
     a spy monitor, a camera bug, an AI detector disguised as a multitool,
     and a security hud disguised as sunglasses.
-    Plus a modified station map that can access crew records and universal pinpointer.
+    Plus a modified station map that can access crew records and scanner pinpointer.
