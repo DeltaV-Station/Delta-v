@@ -38,6 +38,22 @@
   - UplinkDisruption
 
 - type: listing
+  id: UplinkMenuPinpointer
+  name: uplink-MenuPinpointer-name
+  description: uplink-MenuPinpointer-desc
+  productEntity: MenuPinpointer
+  icon:
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer-syndicate
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkSyndicateCircuitBoard
   name: uplink-syndicate-law-name
   description: uplink-syndicate-law-desc
