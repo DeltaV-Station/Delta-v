@@ -1,17 +1,12 @@
 roboneuroticist-set-commander-name = Drone Commander
 roboneuroticist-set-commander-description =
     You have always led borgs with your own voice, and speak their language.
-    Comes with an additional Weapons Module, a common key, and a Voice Mask
+    Comes with 2 additional Weapons Module, a station key, and a Voice Mask.
 
-roboneuroticist-set-saboteur-name = Remote Saboteur
-roboneuroticist-set-saboteur-description =
-    Making engineers miserable is your life's mission.
-    Comes with an additional two RCD Modules, and a Powersink.
-
-roboneuroticist-set-mechanic-name = Field Mechanic
-roboneuroticist-set-mechanic-description =
-    Leading from the front is your calling, repairing your borgs is your goal.
-    Comes with an Syndicate Thermal Hardsuit, and a set of Advanced Tools
+roboneuroticist-set-breacher-name = Demolition Expert
+roboneuroticist-set-breacher-description =
+    Accessing places you weren't supposed to be in was always your specialty.
+    Comes with 2 C-4, a doorjack, and a set of advanced tools.
 
 roboneuroticist-set-infiltrator-name = Obfuscation Specialist
 roboneuroticist-set-infiltrator-description =
@@ -31,9 +26,9 @@ roboneuroticist-set-clown-description =
 roboneuroticist-set-pirate-name = Synthetic Scallywags
 roboneuroticist-set-pirate-description =
     You are a pirate, and you will take what you want.
-    Comes with a Cannon Module, 2 Buccaneer Modules, A Pirate Capn's Hardsuit, and a pile of pirate hats.
+    Comes with 2 Cannon Module, 2 Buccaneer Modules, A Pirate Capn's Hardsuit, and a pile of pirate hats.
 
 roboneurotocist-set-malpractice-name = Medical Malpractictioner
 roboneurotocist-set-malpractice-description =
     Mad science is your game, and you love to play it.
-    Comes with Assorted surgical implements, a Syndicate Medical Cyborg, Interdyne Defib, a borg sleep hypo, and some fancy surgical gloves.
+    Comes with an Interdyne Defib and 2 borg sleep hypos.

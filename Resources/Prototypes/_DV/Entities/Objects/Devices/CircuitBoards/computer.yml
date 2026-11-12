@@ -33,3 +33,25 @@
     prototype: ComputerCargoOrdersJustice
   - type: StaticPrice
     price: 750
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SRNRoboticsConsoleCircuitboard
+  name: syndicate robotics control console board
+  description: A computer printed circuit board for a syndicate robotics control console.
+  components:
+  - type: Sprite
+    state: cpu_syndicate
+  - type: ComputerBoard
+    prototype: SRNComputerRoboticsControl
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SRNBorgCameraMonitorCircuitboard
+  name: syndicate borg camera monitor board
+  description: A computer printed circuit board for a syndicate borg camera monitor computer.
+  components:
+  - type: Sprite
+    state: cpu_syndicate
+  - type: ComputerBoard
+    prototype: SRNBorgCameraMonitor
