@@ -48,18 +48,18 @@ public sealed class GunDelaySystem : EntitySystem
 
     private void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled) // Has this already been cancled? 
             return;
 
-        if (!ent.Comp.Firing)
+        if (!ent.Comp.Firing) // Have we not fired, setting fire time yet?
         {
-            _gunSystem.AmmoDelay(ent, ref args);
-            if (ent.Comp.Delay is { } delay)
+            _gunSystem.AmmoDelay(ent, ref args); // Checks if the ammo wants to set delay
+            if (ent.Comp.Delay is { } delay) // Checks if we should use random delay or flat delay
                 ent.Comp.FireTime = _timing.CurTime + TimeSpan.FromSeconds(delay);
             else
                 ent.Comp.FireTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(ent.Comp.MinimumDelay, ent.Comp.MaximumDelay));
 
-            if (ent.Comp.Delay != 0)
+            if (ent.Comp.Delay != 0) // Don't need to play the start sound for the delay if there isn't one
                 _audio.PlayPredicted(ent.Comp.StartSound, ent, args.User);
 
             if (_net.IsServer)
@@ -69,7 +69,7 @@ public sealed class GunDelaySystem : EntitySystem
             Dirty(ent);
         }
 
-        if (!ent.Comp.Lit)
+        if (!ent.Comp.Lit) // Is the gun actually supposed to fire?
             args.Cancel();
     }
 
@@ -93,18 +93,23 @@ public sealed class GunDelaySystem : EntitySystem
             var dir = gun.DefaultDirection;
             _audio.Stop(comp.PlayingSound);
 
-            if (gun.Holder is not { })
+            if (gun.Holder is not { }) // Is the gun not being held?
             {
-                if (_net.IsClient)
-                    continue;
-                dir = new Vector2(-dir.Y, dir.X);
-                comp.Lit = true;
-                _gunSystem.AttemptShoot(uid, (uid, gun), new EntityCoordinates(uid, dir));
+                comp.Lit = true; // Lit should be set to true *only* when the gun is actively firing as to not block shot
+                if (_net.IsServer) // Client should not be running AttemptShoot*
+                {
+                    dir = new Vector2(-dir.Y, dir.X);
+                    _gunSystem.AttemptShoot(uid, (uid, gun), new EntityCoordinates(uid, dir));
+                }
                 Dirty(uid, comp);
                 continue;
             }
 
-            comp.Lit = true;
+            comp.Lit = true; // Lit should be set to true *only* when the gun is actively firing as to not block shot
+
+            // Hey, remember that asterisk up there? Well here's where that comes into play,
+            // AttemptShoot shouldn't be run by the client *unless* the "Client" is the one shooting
+            // Basically if you're the one who is holding the gun that is firing you actually SHOULD run AttemptShoot so this is just stuff for that
             if (_net.IsClient)
             {
                 _player.TryGetSession(gun.Holder, out var session);
@@ -113,7 +118,7 @@ public sealed class GunDelaySystem : EntitySystem
                 if (session.AttachedEntity == gun.Holder)
                     _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
             }
-            else
+            else // Server doesn't need to check all of that 
                 _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
             Dirty(uid, comp);
         }
@@ -124,7 +129,7 @@ public sealed class GunDelaySystem : EntitySystem
 
         CheckShot();
     }
-    private void OnShot(Entity<GunDelayComponent> ent, ref GunShotEvent args)
+    private void OnShot(Entity<GunDelayComponent> ent, ref GunShotEvent args) // Handles the resetting after the shot is fired
     {
         ent.Comp.Lit = false;
         ent.Comp.Firing = false;
