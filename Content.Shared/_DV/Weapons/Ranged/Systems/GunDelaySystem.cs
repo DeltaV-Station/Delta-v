@@ -48,7 +48,7 @@ public sealed class GunDelaySystem : EntitySystem
 
     private void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (args.Cancelled) // Has this already been cancled? 
+        if (args.Cancelled) // Has this already been cancled?
             return;
 
         if (!ent.Comp.Firing) // Have we not fired, setting fire time yet?
@@ -118,7 +118,7 @@ public sealed class GunDelaySystem : EntitySystem
                 if (session.AttachedEntity == gun.Holder)
                     _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
             }
-            else // Server doesn't need to check all of that 
+            else // Server doesn't need to check all of that
                 _gunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
             Dirty(uid, comp);
         }
