@@ -6,8 +6,6 @@ namespace Content.Shared._DV.Weapons.Ranged.Systems;
 
 public sealed class GunBreakingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-
     public override void Initialize()
     {
         base.Initialize();
