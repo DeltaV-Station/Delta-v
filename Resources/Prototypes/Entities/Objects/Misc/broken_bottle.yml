@@ -5,6 +5,17 @@
   description: In Space Glasgow this is called a conversation starter.
   components:
   - type: Sharp
+  # DeltaV addition
+  - type: Tool
+    qualities:
+    - Slicing
+    speedModifier: 0.6
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Utensil
+    types:
+      - Knife
+  # DeltaV end
   - type: Execution
     doAfterDuration: 4.0
   - type: MeleeWeapon

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._DV.Administration.EntitySystems; // DeltaV - Unorbitable
 using Content.Shared.Administration.Managers;
 using Content.Shared.Database;
 using Content.Shared.Follower.Components;
@@ -33,6 +34,7 @@ public sealed class FollowerSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly ISharedAdminManager _adminManager = default!;
+    [Dependency] private readonly UnorbitableSystem _unorbitable = default!; // DeltaV - Unorbitable
 
     private static readonly ProtoId<TagPrototype> ForceableFollowTag = "ForceableFollow";
     private static readonly ProtoId<TagPrototype> PreventGhostnadoWarpTag = "NotGhostnadoWarpable";
@@ -97,6 +99,11 @@ public sealed class FollowerSystem : EntitySystem
     {
         if (ev.User == ev.Target || IsClientSide(ev.Target))
             return;
+
+        // DeltaV - Unorbitable START
+        if (!_unorbitable.CanFollow(ev.User, ev.Target))
+            return;
+        // DeltaV END
 
         if (HasComp<GhostComponent>(ev.User))
         {
@@ -186,6 +193,11 @@ public sealed class FollowerSystem : EntitySystem
     {
         if (follower == entity || TerminatingOrDeleted(entity))
             return;
+
+        // DeltaV - Unorbitable START
+        if (!_unorbitable.CanFollow(follower, entity))
+            return;
+        // DeltaV END
 
         // No recursion for you
         var targetXform = Transform(entity);

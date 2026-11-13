@@ -54,8 +54,8 @@ public partial class ThavenMood
     }
 }
 
-[Prototype("thavenMood")]
-[Serializable, NetSerializable]
+[Prototype]
+// [Serializable, NetSerializable] // Delta V - Id should be sent directly instead of these
 public sealed partial class ThavenMoodPrototype : IPrototype
 {
     /// <inheritdoc/>

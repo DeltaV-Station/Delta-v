@@ -305,7 +305,7 @@
   parent: [ BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponBeamCannon
   name: beam cannon
-  description: "For when a single shot just isn't enough"
+  description: "For when a single shot just isn't enough."
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/beam_cannon.rsi
@@ -339,7 +339,7 @@
   parent: BaseWeaponBattery
   id: WeaponBeamDevastator
   name: beam devastator
-  description: A powerful energy weapon that fires multiple rapid laser beams per second
+  description: A powerful energy weapon that fires multiple rapid laser beams per second.
   components:
   - type: Item
     size: Ginormous
@@ -409,7 +409,7 @@
   parent: [ BaseWeaponBattery, BaseGunWieldable ]
   id: WeaponImmolator
   name: immolator cannon
-  description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot
+  description: A modified laser gun, shooting highly concetrated beams with higher intensity that ignites the target, for the cost of draining more power per shot.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/immolator.rsi
@@ -474,7 +474,7 @@
 - type: entity
   parent: WeaponDisabler
   id: WeaponDisablerSelfCharge
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one recharges.
   suffix: AutoRecharge
   components:
   - type: BatterySelfRecharger
@@ -533,7 +533,7 @@
   parent: BaseWeaponBattery
   id: WeaponBorgBuccaneersRevolver
   name: buccaneer's revolver
-  description: A basic sidearm used by synthetic raiders, with low capacity but higher power
+  description: A basic sidearm used by synthetic raiders, with low capacity but higher power.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
@@ -684,3 +684,125 @@
   - type: BatteryAmmoProvider
     proto: SVLaserRed
     fireCost: 50
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: Magazine
+        startingItem: PowerCellMedium
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - PowerCell
+          - PowerCellSmall
+
+- type: entity
+  parent: [ BaseWeaponBattery, BaseSecurityContraband ]
+  id: WeaponUnstableCoreRefractor
+  name: Unstable core refractor
+  description: A weaponized nuclear control rod. Capable of transforming the energy output of an unstable reactor core into radioactive beams.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/unstable_core_refractor.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/unstable_core_refractor.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/beamcannon.ogg
+    selectedMode: FullAuto
+    fireRate: 20
+    availableModes: FullAuto
+    minAngle: 1
+    maxAngle: 45
+    angleIncrease: -1.5
+    angleDecay: -5
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1100
+  - type: BatteryAmmoProvider
+    proto: FocussedCoreExhaust
+    fireCost: 200
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Construction
+    graph: UnstableCoreRefractor
+    node: UnstableRefractor
+  - type: Tag
+    tags:
+    - UnstableCoreRefractor
+
+- type: entity
+  name: EPU-001 Integrity
+  parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
+  id: WeaponPulseGunIntegrity
+  description: Hefty and unforgiving are both words you might describe this unit of a sidearm with. It's heavier than most laser pistols, but features better ergonomics than usual. It's a heavily modified Pulse-pattern pistol, using a technology kept confidential at the highest level. The sturdy metal frame is engraved in a few places, along the front cover it reads 'EPU-001', and the grip has a shiny NT logo made of pure brushed terran gold. The only thing you can tell, is that it's almost certainly a weapon for person of high status. Are you supposed to have this..?
+  suffix: Admeme
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/pulsegun_integrity.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: -2,-5
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/pulsegun_integrity.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 2.5
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: BatteryAmmoProvider
+    proto: CompactPulse
+    fireCost: 250
+  - type: EnergyGun
+    fireModes:
+    - proto: CompactPulse
+      fireCost: 250
+      name: lethal
+    - proto: BulletDisabler
+      fireCost: 150
+      name: paralyze
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 150
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
+    - ConcealCarry

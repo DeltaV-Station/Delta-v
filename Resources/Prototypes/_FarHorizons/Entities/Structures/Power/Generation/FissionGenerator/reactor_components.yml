@@ -1,6 +1,7 @@
 - type: entity
   id: BaseReactorPart
   parent: BaseItem
+  abstract: true
   categories: [ HideSpawnMenu ]
   components:
   - type: ReactorPart
@@ -13,6 +14,10 @@
   - type: Tag
     tags:
     - ReactorPart
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
   - type: GuideHelp
     guides:
     - NuclearReactor
@@ -25,6 +30,7 @@
   categories: [ HideSpawnMenu ]
   name: fuel rod
   description: A fuel rod for a nuclear reactor.
+  abstract: true
   components:
   - type: ReactorPart
     rodType: 1

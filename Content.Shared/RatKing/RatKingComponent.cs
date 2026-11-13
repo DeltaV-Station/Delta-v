@@ -18,11 +18,13 @@ public sealed partial class RatKingComponent : Component
     [DataField("actionRaiseArmyEntity")]
     public EntityUid? ActionRaiseArmyEntity;
 
+    // Delta-V - switched to a base cost modified by the amount of living servants
     /// <summary>
     ///     The amount of hunger one use of Raise Army consumes
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("hungerPerArmyUse", required: true)]
-    public float HungerPerArmyUse = 25f;
+    public float HungerPerArmyUse = 10f;
+    // end DeltaV
 
     /// <summary>
     ///     The entity prototype of the mob that Raise Army summons
@@ -99,6 +101,12 @@ public sealed partial class RatKingComponent : Component
         { RatKingOrderType.CheeseEm, "RatKingCommandCheeseEm" },
         { RatKingOrderType.Loose, "RatKingCommandLoose" }
     };
+
+    /// <summary>
+    /// DeltaV - Servants within this radius will join the Rat King when vent crawling
+    /// </summary>
+    [DataField]
+    public float VentCrawlRecruitRadius = 4f;
 }
 
 [Serializable, NetSerializable]

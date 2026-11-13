@@ -17,13 +17,15 @@ public sealed class FaxUiState : BoundUserInterfaceState
     public bool IsPaperInserted { get; }
     public bool CanSend { get; }
     public bool CanCopy { get; }
+    public bool CanSendCooldown; // DeltaV - AI fax
 
     public FaxUiState(string deviceName,
         Dictionary<string, string> peers,
         bool canSend,
         bool canCopy,
         bool isPaperInserted,
-        string? destAddress)
+        string? destAddress,
+        bool canSendCooldown) // DeltaV - AI fax
     {
         DeviceName = deviceName;
         AvailablePeers = peers;
@@ -31,6 +33,7 @@ public sealed class FaxUiState : BoundUserInterfaceState
         CanSend = canSend;
         CanCopy = canCopy;
         DestinationAddress = destAddress;
+        CanSendCooldown = canSendCooldown; // DeltaV - AI fax
     }
 }
 
@@ -74,7 +77,6 @@ public sealed class FaxRefreshMessage : BoundUserInterfaceMessage
 public sealed class FaxDestinationMessage : BoundUserInterfaceMessage
 {
     public string Address { get; }
-
     public FaxDestinationMessage(string address)
     {
         Address = address;

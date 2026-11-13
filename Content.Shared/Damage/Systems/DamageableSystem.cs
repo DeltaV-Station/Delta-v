@@ -38,6 +38,8 @@ public sealed partial class DamageableSystem : EntitySystem
     public float UniversalTopicalsHealModifier { get; private set; } = 1f;
     public float UniversalMobDamageModifier { get; private set; } = 1f;
 
+    private Dictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _supportedTypesByContainer = new();
+
     /// <summary>
     ///     If the damage in a DamageableComponent was changed this function should be called.
     /// </summary>
@@ -71,32 +73,6 @@ public sealed partial class DamageableSystem : EntitySystem
         RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damageDelta, interruptsDoAfters, origin));
     }
 
-    private void DamageableGetState(Entity<DamageableComponent> ent, ref ComponentGetState args)
-    {
-        if (_netMan.IsServer)
-        {
-            args.State = new DamageableComponentState(
-                ent.Comp.Damage.DamageDict,
-                ent.Comp.DamageContainerID,
-                ent.Comp.DamageModifierSetId,
-                ent.Comp.HealthBarThreshold
-            );
-            // TODO BODY SYSTEM pass damage onto body system
-            // BOBBY WHEN? 😭
-            // BOBBY SOON 🫡
-
-            return;
-        }
-
-        // avoid mispredicting damage on newly spawned entities.
-        args.State = new DamageableComponentState(
-            ent.Comp.Damage.DamageDict.ShallowClone(),
-            ent.Comp.DamageContainerID,
-            ent.Comp.DamageModifierSetId,
-            ent.Comp.HealthBarThreshold
-        );
-    }
-
     /// <summary>
     /// Goes through an entity damage's and saves them inside a dictionary if the value is higher than 0
     /// The dictionary is structured with a string for the name of the damage type, and a FixedPoint2 for the numeric damage value
@@ -118,4 +94,11 @@ public sealed partial class DamageableSystem : EntitySystem
         }
         return damageTypes;
     }
+
+    // Delta V - Begin Workaround to Change the Camdage Container
+    public void ChangeDamageContainer(Entity<DamageableComponent> ent, ProtoId<DamageContainerPrototype> damageContainer)
+    {
+        ent.Comp.DamageContainerID = damageContainer;
+    }
+    // Delta V - End
 }

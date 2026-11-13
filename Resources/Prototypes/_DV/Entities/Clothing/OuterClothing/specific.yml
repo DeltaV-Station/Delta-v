@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingOuterChameleon
+  id: ClothingOuterChameleonArmor
+  name: vest
+  description: A thick vest with a rubbery, water-resistant shell.
+  suffix: Chameleon
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.65
+        Heat: 0.8
+        Caustic: 0.9
+    showArmorOnExamine: true
+  - type: StaminaResistance
+    damageCoefficient: 0.8

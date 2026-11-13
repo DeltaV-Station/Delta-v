@@ -35,7 +35,6 @@
       whitelist:
         components:
         - CommandStaff
-    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
@@ -66,14 +65,6 @@
   id: AsakimInterrogateObjective
   name: ">INTERROGATE"
   description: WARNING - Time-gap of [ERROR] years detected. Records may be outdated. Consult local population.
-  components:
-  - type: Objective
-
-- type: entity
-  parent: [BaseAsakimObjective, BaseSurviveObjective]
-  id: AsakimUpgradeObjective
-  name: ">UPGRADE"
-  description: Preliminary sector scans detect possible high-value cybernetics. Upgrade your body.
   components:
   - type: Objective
 

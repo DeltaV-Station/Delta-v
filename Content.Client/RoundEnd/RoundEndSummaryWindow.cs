@@ -5,6 +5,7 @@ using Content.Client.UserInterface.RichText; // DeltaV - Limit what tags can be 
 using Content.Shared.GameTicking;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Content.Shared._Goobstation.StationReport; // Goob
 using Robust.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
@@ -35,6 +36,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
+            roundEndTabs.AddChild(MakeStationReportTab()); //goob
 
             ContentsContainer.AddChild(roundEndTabs);
 
@@ -181,6 +183,38 @@ namespace Content.Client.RoundEnd
 
             return playerManifestTab;
         }
+        private BoxContainer MakeStationReportTab() //Goob edit start
+        {
+            //gets the stationreport varibible and sets the station report tab text to it if the map doesn't have a tablet will say No station report submitted
+            var stationReportSystem = _entityManager.System<StationReportSystem>();
+            string stationReportText = stationReportSystem.StationReportText ?? Loc.GetString("no-station-report-summited");
+            var stationReportTab = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical,
+                Name = Loc.GetString("round-end-summary-window-station-report-tab-title")
+            };
+            var StationReportContainerScrollbox = new ScrollContainer
+            {
+                VerticalExpand = true,
+                Margin = new Thickness(10),
+                HScrollEnabled = false,
+            };
+            var StationReportContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+            var StationReportLabel = new RichTextLabel();
+            var StationReportmessage = new FormattedMessage();
+            StationReportmessage.AddMarkupOrThrow(stationReportText);
+            StationReportLabel.SetMessage(StationReportmessage);
+            StationReportContainer.AddChild(StationReportLabel);
+
+
+            StationReportContainerScrollbox.AddChild(StationReportContainer);
+            stationReportTab.AddChild(StationReportContainerScrollbox);
+            return stationReportTab;
+        }
+        //Goob edit end
     }
 
 }

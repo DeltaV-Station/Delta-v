@@ -185,3 +185,24 @@ crafting-menu-name-EXOXY = extended-capacity emergency oxygen tank
 crafting-menu-name-CGREN = green crayon
 
 crafting-menu-name-CYELO = yellow crayon
+
+crafting-menu-name-IRS = improvised .30/.45 speed loader
+crafting-menu-text-IRS = Little more than a spring-loaded tube that can hold bullets.
+
+crafting-menu-name-ASSFP = assorted forge parts
+crafting-menu-text-ASSFP = A small pile of components for making a forge for an anvil, contains an igniter and valves.
+
+crafting-menu-name-SINF = insulated fabric
+crafting-menu-text-SINF = A bolt of smooth insulated fabric, not much use in it's current form.
+
+crafting-menu-name-FLINS = fingerless insulated gloves
+crafting-menu-text-FLINS = Insulated gloves resistant to shocks, or at least they used to.
+
+crafting-menu-name-TINS = insulated gloves
+crafting-menu-text-TINS = These gloves will protect the wearer from electric shocks.
+
+construction-graph-tag-cheapinsulfabric = cheap insulated fabric
+
+construction-graph-tag-plasteelfilament = plasteel filament
+
+construction-graph-tag-insulthread = insulated thread

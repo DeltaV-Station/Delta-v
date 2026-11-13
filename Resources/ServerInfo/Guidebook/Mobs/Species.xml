@@ -4,32 +4,31 @@
   Nanotrasen employs a variety of sapient species.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
+  <GuideEntityEmbed Entity="AppearanceArachnid" Caption="Arachnid"/>
+  <GuideEntityEmbed Entity="AppearanceDiona" Caption="Diona"/>
+  <GuideEntityEmbed Entity="AppearanceHuman" Caption="Human"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
-  <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/>
-  <GuideEntityEmbed Entity="MobAvali" Caption="Avali"/>
+  <GuideEntityEmbed Entity="AppearanceMoth" Caption="Moth Person"/>
+  <GuideEntityEmbed Entity="AppearanceReptilian" Caption="Reptilian"/>
+  <GuideEntityEmbed Entity="AppearanceSlimePerson" Caption="Slime Person"/>
+  <GuideEntityEmbed Entity="AppearanceVox" Caption="Vox"/>
   </Box>
 
   # Delta-V specific species
   <Box>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
-  <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
-  <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
-  </Box>
-  <Box>
-  <GuideEntityEmbed Entity="MobChitinid" Caption="Chitinid"/>
-  <GuideEntityEmbed Entity="MobFeroxi" Caption="Feroxi"/>
-  <GuideEntityEmbed Entity="MobKitsune" Caption="Kitsune"/>
-  <GuideEntityEmbed Entity="MobOvinia" Caption="Ovinia"/>
+    <GuideEntityEmbed Entity="AppearanceVulpkanin" Caption="Vulpkanin"/>
+    <GuideEntityEmbed Entity="AppearanceFelinid" Caption="Felinid"/>
+    <GuideEntityEmbed Entity="AppearanceHarpy" Caption="Harpy"/>
+    <GuideEntityEmbed Entity="AppearanceOni" Caption="Oni"/>
+    <GuideEntityEmbed Entity="AppearanceRodentia" Caption="Rodentia"/>
+    </Box>
+    <Box>
+    <GuideEntityEmbed Entity="AppearanceChitinid" Caption="Chitinid"/>
+    <GuideEntityEmbed Entity="AppearanceFeroxi" Caption="Feroxi"/>
+    <GuideEntityEmbed Entity="AppearanceKitsune" Caption="Kitsune"/>
+    <GuideEntityEmbed Entity="AppearanceOvinia" Caption="Ovinia"/>
+    <GuideEntityEmbed Entity="AppearanceAllulalo" Caption="Allulalo"/>
+    <GuideEntityEmbed Entity="AppearanceShadekin" Caption="Shadekin"/>
   </Box>
 </Document>

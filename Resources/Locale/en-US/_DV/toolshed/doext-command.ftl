@@ -1,0 +1,2 @@
+command-description-doext-client = Sends a console command back to the calling user's own client to run locally, once per piped value, substituting $ID/$PID/$WX/$WY/$LX/$LY/$SELF as well as any toolshed variable by name.
+command-description-doext-server = Runs a console command on the server as the calling session, once per piped value, substituting $ID/$PID/$WX/$WY/$LX/$LY/$SELF as well as any toolshed variable by name.

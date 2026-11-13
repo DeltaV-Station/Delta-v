@@ -95,7 +95,7 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:StationAiSpawnEntityActionEvent
-      entity: StationAiHolopointer
+      entityAction: StationAiHolopointer
 
 - type: entity
   id: StationAiHolopointer
@@ -138,9 +138,9 @@
       - BorgChassis
     event: !type:StationAiHealthChangeActionEvent
       damage:
-        groups:
-          Burn: -50
-          Brute: -50
+        types:
+          Heat: -50
+          Blunt: -50
 
 - type: entity
   id: ActionStationAiEmergencySealant
@@ -160,3 +160,17 @@
       duration: 10
       spreadAmount: 8
       smokePrototype: AluminiumMetalFoam
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionStationAiOpenFax
+  name: Fax machine interface
+  description: View a fax machine interface.
+  components:
+  - type: Action
+    icon:
+      sprite: _DV/Interface/Actions/actions_ai.rsi
+      state: fax
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent
+      key: enum.FaxUiKey.Key

@@ -188,12 +188,20 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
         }
 
+        // Begin DeltaV - the grid check excludes the item being resized because it's already in the storage which defeats the purpose so yoink it out to remove that
+        storage.StoredItems.Remove(itemEnt.Owner);
         UpdateOccupied((container.Owner, storage));
 
-        if (!ItemFitsInGridLocation((itemEnt.Owner, itemEnt.Comp), (container.Owner, storage), loc))
+        if (ItemFitsInGridLocation((itemEnt.Owner, itemEnt.Comp), (container.Owner, storage), loc))
+        {
+            storage.StoredItems.Add(itemEnt.Owner, loc);
+            UpdateOccupied((container.Owner, storage));
+        }
+        else
         {
             ContainerSystem.Remove(itemEnt.Owner, container, force: true);
         }
+        // End DeltaV - the grid check excludes the item being resized because it's already in the storage which defeats the purpose so yoink it out to remove that
     }
 
     private void OnNestedStorageCvar(bool obj)

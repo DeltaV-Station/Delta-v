@@ -97,6 +97,16 @@
   - type: FaxMachine
     name: "Civilian"
 
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineService
+  suffix: Service
+  components:
+  - type: PageSender
+    autoLinkJobs: [Bartender, Botanist, Botanist, Boxer, Chef, Clown, HeadOfPersonnel, Janitor, MartialArtist, Mime, Musician, Reporter, ServiceWorker, Zookeeper]
+  - type: FaxMachine
+    name: "Service"
+
 # Job-specific fax machines
 
 - type: entity
@@ -221,13 +231,33 @@
 
 - type: entity
   parent: FaxMachineBase
-  id: FaxMachineClerk
+  id: FaxMachineClerk # TODO - Remove for Justice Rework
   suffix: Clerk
   components:
   - type: PageSender
     autoLinkJobs: [Clerk]
   - type: FaxMachine
     name: "Clerk"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineJusticeWarden
+  suffix: Justice Warden
+  components:
+  - type: PageSender
+    autoLinkJobs: [JusticeWarden]
+  - type: FaxMachine
+    name: "Warden"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMarshal
+  suffix: Marshal
+  components:
+  - type: PageSender
+    autoLinkJobs: [Marshal]
+  - type: FaxMachine
+    name: "Marshal"
 
 - type: entity
   parent: FaxMachineBase
@@ -351,6 +381,16 @@
 
 - type: entity
   parent: FaxMachineBase
+  id: FaxMachinePrisonGuard
+  suffix: Prison Guard
+  components:
+  - type: PageSender
+    autoLinkJobs: [PrisonGuard]
+  - type: FaxMachine
+    name: "Prison Guard"
+
+- type: entity
+  parent: FaxMachineBase
   id: FaxMachineProsecutor
   suffix: Prosecutor
   components:
@@ -358,6 +398,16 @@
     autoLinkJobs: [Prosecutor]
   - type: FaxMachine
     name: "Prosecutor"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineAttorney
+  suffix: Attorney
+  components:
+  - type: PageSender
+    autoLinkJobs: [Attorney]
+  - type: FaxMachine
+    name: "Attorney"
 
 - type: entity
   parent: FaxMachineBase
@@ -392,7 +442,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineResearchDirector
-  suffix: Research Director
+  suffix: Mystagogue
   components:
   - type: PageSender
     autoLinkJobs: [ResearchDirector]
@@ -442,12 +492,22 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineWarden
-  suffix: Warden
+  suffix: Warden, Security
   components:
   - type: PageSender
     autoLinkJobs: [Warden]
   - type: FaxMachine
     name: "Warden"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineArmorer
+  suffix: Armorer
+  components:
+  - type: PageSender
+    autoLinkJobs: [ Armorer ]
+  - type: FaxMachine
+    name: "Armorer"
 
 - type: entity
   parent: FaxMachineBase
@@ -468,3 +528,23 @@
     autoLinkJobs: [ForensicMantis]
   - type: FaxMachine
     name: "Psionic Mantis"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachinePerma
+  suffix: Perma
+  components:
+  - type: PageSender
+    autoLinkJobs: [Prisoner]
+  - type: FaxMachine
+    name: "Permanent Brig"
+
+#hitman
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineHitman
+  suffix: Hitman
+  components:
+  - type: FaxMachine
+    name: "Unknown?"
+    responsePings: false

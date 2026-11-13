@@ -177,7 +177,7 @@
         Piercing: 0.75
         Heat: 0.75
         Holy: 0.60
-        Shadow: 0.60
+        Soul: 0.60
   - type: AllowSuitStorage
   - type: TemperatureProtection
     coolingCoefficient: 0.1
@@ -371,3 +371,16 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatParamedicJacket]
   id: ClothingOuterCoatParamedicJacketOpened
   name: paramedic jacket
+
+## Chemist
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterCoatLabMedical ]
+  id: ClothingOuterCoatLabPharma
+  name: pharmacist lab coat
+  description: A suit that protects against minor chemical spills. Has an orange and blue stripe on the shoulder and arm.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/labcoat_pharmacist.rsi

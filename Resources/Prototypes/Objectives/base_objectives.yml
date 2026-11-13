@@ -87,7 +87,7 @@
 # requires that the player steal an item specified in the final prototype
 - type: entity
   abstract: true
-  parent: BaseLivingObjective
+  parent: BaseObjective # DeltaV - was BaseLivingObjective, but we're gonna allow DAGD to steal
   id: BaseStealObjective
   components:
   - type: StealCondition

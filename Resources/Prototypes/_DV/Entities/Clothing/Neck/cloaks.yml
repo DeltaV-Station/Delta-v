@@ -143,3 +143,14 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMimeCloak
+  name: mime's cloak
+  description: A striped cloak for mimes.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/mimecloak.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/mimecloak.rsi

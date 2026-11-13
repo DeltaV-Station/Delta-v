@@ -62,7 +62,7 @@
     - 0,0,19,5
   - type: ReagentDispenser
     beakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      # whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message # DeltaV - removed so cartons fall through silently to storage
       whitelist:
         components:
         - FitsInDispenser

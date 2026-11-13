@@ -23,5 +23,12 @@ public sealed partial class PowerCellSlotComponent : Component
     [DataField, AutoNetworkedField]
     public bool FitsInCharger = true;
 
+    // Begin DeltaV
+    /// <summary>
+    /// DeltaV - power cell slots
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Active = true;
+    // End DeltaV
 }
 

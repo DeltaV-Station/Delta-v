@@ -120,10 +120,23 @@ public abstract partial class SharedBatterySystem : EntitySystem
         var rechargerQuery = EntityQueryEnumerator<BatterySelfRechargerComponent, BatteryComponent>();
         while (rechargerQuery.MoveNext(out var uid, out var recharger, out var battery))
         {
+
+            // BEGIN DeltaV - Battery Drain
+            // Currently, NextAutoRecharge is only set when there's an explicit power draw from 
+            // the battery, and it doesn't count a negative charge rate as battery charge being used
+            // so, this is to patch that in the case that the drain exceeds the recharge. 
+            if (recharger.AutoRechargePauseTime > TimeSpan.Zero && battery.ChargeRate < 0)
+            {
+                TrySetChargeCooldown((uid, recharger));
+                continue;
+            }
+            // END DeltaV
+
             if (recharger.NextAutoRecharge == null || curTime < recharger.NextAutoRecharge)
                 continue;
 
             recharger.NextAutoRecharge = null; // Don't refresh every tick.
+
             Dirty(uid, recharger);
             RefreshChargeRate((uid, battery)); // Cooldown is over, apply the new recharge rate.
         }

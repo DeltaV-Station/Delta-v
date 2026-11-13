@@ -32,7 +32,7 @@ public sealed partial class RevenantComponent : Component
     public string SpawnOnDeathPrototype = "EctoplasmRevenant"; // DeltaV
 
     [DataField("stasisTime"), ViewVariables(VVAccess.ReadWrite)] // Begin Imp Changes
-    public TimeSpan StasisTime = TimeSpan.FromSeconds(60);
+    public TimeSpan StasisTime = TimeSpan.FromSeconds(100); // DeltaV - change from 60 to 100s
 
     /// <summary>
     /// If true, only bible users can exorcise this revenant
@@ -50,7 +50,7 @@ public sealed partial class RevenantComponent : Component
     /// grinder will explode.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool GrindingRequiresSalt = true;  // End Imp Changes
+    public bool GrindingRequiresSalt = false;  // End Imp Changes - DeltaV - true to false
 
     /// <summary>
     /// The entity's current max amount of essence. Can be increased
@@ -300,4 +300,12 @@ public sealed partial class RevenantComponent : Component
     public string HarvestingState = "harvesting";
     #endregion
     [DataField] public EntityUid? HauntAction; // Imp
+
+    #region Melee
+    /// <summary>
+    /// DeltaV - The amount of time a rev is revealed after making a melee attack.
+    /// </summary>
+    [DataField]
+    public TimeSpan MeleeRevealTime = TimeSpan.FromSeconds(2);
+    #endregion
 }

@@ -1,4 +1,5 @@
 using Content.Server._DV.StationEvents.Components;
+using Content.Server._Impstation.Revenant.EntitySystems;
 using Content.Server.Revenant.EntitySystems;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;

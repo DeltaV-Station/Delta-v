@@ -19,8 +19,14 @@ public sealed partial class SlavedBorgComponent : Component
     public ProtoId<SiliconLawPrototype> Law;
 
     /// <summary>
-    /// Prevents adding the same law twice.
+    /// Prevents adding the same law 0 mutliple times during law updates.
     /// </summary>
     [DataField]
-    public bool Added;
+    public bool HasBeenAdded;
+
+    /// <summary>
+    /// Whether the law 0 should be added to the lawset.
+    /// </summary>
+    [DataField]
+    public bool ShouldBeAdded = true;
 }

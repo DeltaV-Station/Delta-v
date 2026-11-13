@@ -393,6 +393,37 @@
         amount: 1
         doAfter: 2
 
+  #justice
+  - node: camera_justice
+    entity: ReinforcedSurveillanceCameraJustice
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: wired
+      conditions:
+      - !type:WirePanel { }
+      - !type:AllWiresCut { }
+      steps:
+      - tool: Prying
+        doAfter: 3
+
+    - to: medSecurityUnfinished
+      conditions:
+      - !type:WirePanel { }
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2
+
+    - to: highSecurityUnfinished
+      conditions:
+      - !type:WirePanel { }
+      steps:
+      - material: Plasteel
+        amount: 1
+        doAfter: 2
+
   #medscurity
   - node: medSecurityUnfinished
     actions:
@@ -524,6 +555,19 @@
         amount: 1
       conditions:
       - !type:WirePanel {}
+      - !type:HasTag
+        tag: ReinforcedCameraAI
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+    - to: camera_justice
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+        amount: 1
+      conditions:
+      - !type:WirePanel { }
       - !type:HasTag
         tag: ReinforcedCameraAI
       steps:

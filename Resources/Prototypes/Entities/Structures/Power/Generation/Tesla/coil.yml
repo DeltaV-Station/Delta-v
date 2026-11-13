@@ -84,6 +84,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
+    qualityNeeded: Welding # DeltaV
   - type: DamageVisuals
     thresholds: [8, 16, 25]
     damageDivisor: 3.333
@@ -177,6 +178,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
+    qualityNeeded: Welding # DeltaV
   - type: Damageable
     damageContainer: StructuralInorganic
   - type: DamageVisuals

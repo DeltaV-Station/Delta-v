@@ -15,6 +15,10 @@
       startingGear: HitmanGear
       mindRoles:
       - MindRoleHitman
+      components:
+      - type: AutoImplant
+        implants:
+        - HitmanCardImplant
       briefing:
         text: hitman-role-greeting-human
         color: yellow

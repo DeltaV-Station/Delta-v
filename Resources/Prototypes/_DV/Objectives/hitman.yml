@@ -23,12 +23,12 @@
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
     filters:
+    - !type:ObjectiveImmuneFilter
     # Can't have multiple objectives to kill the same person.
     - !type:TargetObjectiveMindFilter
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 - type: entity
   parent: [BaseHitmanObjective, HitmanTeachLessonRandomPersonObjective]
@@ -39,7 +39,7 @@
     unique: true
   - type: PickRandomPerson
     filters:
-    #only comand
+    #only comand, command cannot be objective immune
     - !type:BodyMindFilter
       whitelist:
         components:
@@ -49,12 +49,11 @@
       blacklist:
         components:
         - KillPersonCondition
-        - TargetObjectiveImmune
 
 ## escape objective
 - type: entity
   parent: [BaseHitmanObjective, BaseLivingObjective]
-  id: EscapeShuttleObjectiveHitman
+  id: HitmanEscapeShuttleObjective
   name: Escape to centcomm alive and unrestrained.
   description: You prepared a escape route at CentComm. Avoid being arrested.
   components:
@@ -65,6 +64,21 @@
     difficulty: 1.25
     unique: true
   - type: EscapeShuttleCondition
+
+##live objective, for ghost variant
+## escape objective
+- type: entity
+  parent: [BaseHitmanObjective, BaseSurviveObjective]
+  id: HitmanSurviveObjective
+  name: Survive and prepare an exit.
+  description: Your client will give you full payment later, at a different location. Try not to be dead by then.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+    difficulty: 1.25
+    unique: true
 
 ## modifer objectives
 - type: entity

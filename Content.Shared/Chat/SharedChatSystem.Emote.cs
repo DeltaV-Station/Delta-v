@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Collections.Immutable;
+using Content.Shared._DV.Chat; // DeltaV - chat
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -98,7 +99,7 @@ public abstract partial class SharedChatSystem
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
-            SendEntityEmote(source, action, range, nameOverride, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
+            SendEntityEmote(source, action, range, nameOverride, null, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker); // DeltaV
         }
 
         return didEmote;
@@ -207,6 +208,48 @@ public abstract partial class SharedChatSystem
 
         return true;
     }
+
+    // DeltaV
+    /// <summary>
+    /// Checks which type of emote the message contains and returns the type while outputting the string without the prefixes.
+    /// </summary>
+    public static EmoteType? ProcessEmoteMessage(EntityUid source, string input, out string output)
+    {
+        output = input.Trim();
+        EmoteType? type = null;
+
+        if (input.Length == 0)
+            return type;
+
+        if (!(input.StartsWith(AudibleEmotePrefix) || input.StartsWith(PossessiveEmotePrefix)))
+        {
+            type = EmoteType.Normal;
+            return type;
+        }
+
+        var emoteType = input[0];
+        output = input[1..].TrimStart();
+
+        if (emoteType == AudibleEmotePrefix)
+        {
+            emoteType = input[1]; // Check for if we want AudiblePossessiveEmote
+            type = EmoteType.Audible;
+        }
+
+        if (emoteType == PossessiveEmotePrefix)
+        {
+            if (type == EmoteType.Audible)
+            {
+                type = EmoteType.AudiblePossessive;
+                output = input[2..].TrimStart();
+            }
+            else
+                type = EmoteType.Possessive;
+        }
+
+        return type;
+    }
+    // DeltaV - End
 
     /// <summary>
     /// Creates and raises <see cref="BeforeEmoteEvent"/> and then <see cref="EmoteEvent"/> to let other systems do things like play audio.

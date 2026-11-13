@@ -6,7 +6,7 @@ namespace Content.Server._DV.Abilities.Borgs;
 /// <summary>
 /// Describes the color and flavor profile of lollipops and gumballs. Yummy!
 /// </summary>
-[Prototype("candyFlavor")]
+[Prototype]
 public sealed partial class CandyFlavorPrototype : IPrototype
 {
     /// <inheritdoc/>

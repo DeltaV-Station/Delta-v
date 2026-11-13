@@ -1,4 +1,5 @@
 using Content.Shared._DV.MedicalRecords; // DeltaV - Medical Records
+using Content.Shared.Chemistry.Components; // DeltaV - Health Analyzer Plus
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.MedicalScanner;
@@ -29,11 +30,12 @@ public struct HealthAnalyzerUiState
     public bool? ScanMode;
     public bool? Bleeding;
     public bool? Unrevivable;
+    public readonly Solution? BloodSolution; // DeltaV - Health Analyzer Plus
     public MedicalRecord? MedicalRecord; // DeltaV - Medical Records
 
     public HealthAnalyzerUiState() {}
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, MedicalRecord? medicalRecord = null) // DeltaV - Medical Records
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, Solution? bloodSolution, MedicalRecord? medicalRecord = null) // DeltaV - Health Analyzer Plus, Medical Records
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -41,6 +43,7 @@ public struct HealthAnalyzerUiState
         ScanMode = scanMode;
         Bleeding = bleeding;
         Unrevivable = unrevivable;
+        BloodSolution = bloodSolution; // DeltaV - Health Analyzer Plus
         MedicalRecord = medicalRecord; // DeltaV - Medical Records
     }
 }

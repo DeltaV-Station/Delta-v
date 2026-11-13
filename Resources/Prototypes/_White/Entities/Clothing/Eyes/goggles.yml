@@ -50,23 +50,23 @@
 
 # Thermal Vision Goggles
 
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlassesThermal
-  name: thermal vision goggles
-  description: Now you can see everyone!
-  components:
-  - type: Sprite
-    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
-  - type: Clothing
-    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
-  - type: ThermalVision
-    flashDurationMultiplier: 2
-    pulseTime: 2
-    isEquipment: true
-    toggleAction: PulseThermalVision
-  - type: IdentityBlocker
-    coverage: EYES
+#- type: entity
+#  parent: ClothingEyesBase
+#  id: ClothingEyesGlassesThermal
+#  name: thermal vision goggles
+#  description: Now you can see everyone!
+#  components:
+#  - type: Sprite
+#    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+#  - type: Clothing
+#    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+#  - type: ThermalVision
+#    flashDurationMultiplier: 2
+#    pulseTime: 2
+#    isEquipment: true
+#    toggleAction: PulseThermalVision
+#  - type: IdentityBlocker
+#    coverage: EYES
 
 - type: entity
   parent: [ClothingEyesBase, BaseSyndicateContraband]

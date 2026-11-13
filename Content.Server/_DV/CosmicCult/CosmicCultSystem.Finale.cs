@@ -29,7 +29,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnInteract(Entity<CosmicFinaleComponent> ent, ref InteractHandEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(args.User))
+        if (!HasComp<HumanoidProfileComponent>(args.User))
             return; // humanoids only!
         if (!EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && ent.Comp.FinaleActive)
         {
@@ -82,11 +82,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(1));
         _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
-        _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-        _chatSystem.DispatchStationAnnouncement(uid,
-        Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-        null, false, null,
-        Color.FromHex("#cae8e8"));
+        _sound.DispatchGlobalEventMusic(comp.SelectedSong, StationEventMusicType.CosmicCult);
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
+            null, false, null, Color.FromHex("#cae8e8"));
 
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
         if (stationUid != null)
@@ -128,8 +126,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (stationUid != null)
             _alert.SetLevel(stationUid.Value, "green", true, true, true);
 
-        _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.CancelEventSound));
-        _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
+        _sound.PlayGlobal(_audio.ResolveSound(comp.CancelEventSound));
+        _sound.StopGlobalEventMusic(StationEventMusicType.CosmicCult);
         uid.Comp.CurrentState = FinaleState.ReadyFinale;
 
         if (TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))

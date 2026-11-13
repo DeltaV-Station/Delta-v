@@ -1,0 +1,42 @@
+- type: job
+  id: Attorney
+  name: job-name-attorney
+  description: job-description-attorney
+  setPreference: false
+  playTimeTracker: JobAttorney
+  canBeAntag: false
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 6h
+  #startingGear: AttorneyGear # Bypass ChameleonJobLoadoutTest
+  icon: "JobIconLawyer"
+  supervisors: job-supervisors-cj
+  access:
+  - Justice
+  - Attorney
+  - Lawyer # TODO: Remove after Justice Rework
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: Condemned
+      soulOwnedNotDevil: true
+
+#- type: startingGear # Bypass ChameleonJobLoadoutTest
+#  id: AttorneyGear
+#  equipment:
+#    shoes: ClothingShoesBootsLaceup
+#    id: LawyerPDA
+#    ears: ClothingHeadsetJustice
+#  inhand:
+#  - BriefcaseBrownFilled
+#  storage:
+#    back:
+#    - RubberStampAttorney
+#    - BookSpaceLaw
+#    - ForensicScanner

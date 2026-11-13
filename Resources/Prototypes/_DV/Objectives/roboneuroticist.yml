@@ -50,7 +50,10 @@
       whitelist:
         components:
         - CommandStaff
-    - !type:ObjectiveImmuneFilter
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - Unborgable # It would not make sense to condemn someone to metal who cannot be borged
   - type: KillPersonCondition
     requireDead: true
 

@@ -8,7 +8,7 @@
   color: "#69304D"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EvenHealthChange
         conditions:
@@ -27,7 +27,7 @@
   color: "#FFC683"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:EvenHealthChange # DeltaV - Cryochems heal evenly.
         conditions:

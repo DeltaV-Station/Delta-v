@@ -18,10 +18,12 @@ public sealed class RMCXenoScreechShockWaveOverlay : Overlay, IEntityEventSubscr
 
     private readonly ShaderInstance _shader;
 
+    private const string RMCXenoScreechShockWaveName = "RMCXenoScreechShockWave";
+
     public RMCXenoScreechShockWaveOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _shader = _prototypeManager.Index<ShaderPrototype>("RMCXenoScreechShockWave").Instance().Duplicate();
+        _shader = _prototypeManager.Index<ShaderPrototype>(RMCXenoScreechShockWaveName).Instance().Duplicate();
     }
 
     private Vector2 _position;

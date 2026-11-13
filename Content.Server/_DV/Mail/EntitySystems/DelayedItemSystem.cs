@@ -34,7 +34,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// </summary>
         private void OnHandEquipped(EntityUid uid, DelayedItemComponent component, EquippedHandEvent args)
         {
-            EntityManager.DeleteEntity(uid);
+            Del(uid);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         /// </summary>
         private void OnDropAttempt(EntityUid uid, DelayedItemComponent component, DropAttemptEvent args)
         {
-            EntityManager.DeleteEntity(uid);
+            Del(uid);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         private void OnDamageChanged(EntityUid uid, DelayedItemComponent component, DamageChangedEvent args)
         {
             Spawn(component.Item, Transform(uid).Coordinates);
-            EntityManager.DeleteEntity(uid);
+            Del(uid);
         }
     }
 }

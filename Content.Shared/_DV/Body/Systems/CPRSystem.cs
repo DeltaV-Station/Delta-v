@@ -1,5 +1,6 @@
 using Content.Shared._DV.Body.Components;
 using Content.Shared._DV.Body.Events;
+using Content.Shared.Buckle;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -13,6 +14,7 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
 
     public override void Initialize()
     {
@@ -85,7 +87,7 @@ public sealed class CPRSystem : EntitySystem
         {
             Act = () => StartCPR(user, target, cprComp.TimeLength),
             Text = Loc.GetString("cpr-verb-start"),
-            Priority = 2,
+            Priority = _buckle.IsBuckled(target) ? 3 : 1, // Higher priority if they are buckled. Otherwise, this conflicts with trying to carry.
             Disabled = alreadyAffected,
             Message = alreadyAffected ? Loc.GetString("cpr-verb-disabled-description") : Loc.GetString("cpr-verb-description"),
         };

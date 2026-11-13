@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/01/2026 11:28:11
+  time: 06/21/2026 19:31:16
   entityCount: 477
 maps: []
 grids:
@@ -260,10 +260,9 @@ entities:
           0,1:
             0: 61006
           -1,1:
-            0: 61663
-            1: 32
+            0: 61695
           0,2:
-            2: 16
+            1: 16
             0: 14
           0,-1:
             0: 59630
@@ -272,11 +271,11 @@ entities:
           1,1:
             0: 8705
           1,2:
-            2: 18
+            1: 18
           1,-1:
             0: 4369
           0,-3:
-            2: 16
+            1: 16
             0: 60928
           -1,-3:
             0: 61440
@@ -287,12 +286,12 @@ entities:
           -1,-1:
             0: 62719
           1,-3:
-            2: 528
+            1: 528
             0: 4096
           1,-2:
             0: 272
           -2,-3:
-            2: 32768
+            1: 32768
           -2,-2:
             0: 2176
           -2,-1:
@@ -300,18 +299,13 @@ entities:
           -2,0:
             0: 128
           -2,1:
-            2: 32768
+            1: 32768
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
             Oxygen: 21.824879
             Nitrogen: 82.10312
-        - volume: 2500
-          temperature: 293.14948
-          moles:
-            Oxygen: 18.472576
-            Nitrogen: 69.49208
         - volume: 2500
           immutable: True
           moles: {}
@@ -626,33 +620,27 @@ entities:
       parent: 1
 - proto: BoxFolderBlack
   entities:
-  - uid: 20
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5827808,6.7259626
-      parent: 1
   - uid: 414
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.425952,-0.44522548
       parent: 1
-- proto: BoxFolderBlue
+- proto: BoxFolderClipboard
+  entities:
+  - uid: 344
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.4526873,6.394073
+      parent: 1
+- proto: BoxFolderGreenEmpty
   entities:
   - uid: 417
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 1.3844824,6.523277
-      parent: 1
-- proto: BoxFolderClipboard
-  entities:
-  - uid: 413
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.941577,-0.47647548
+      pos: 1.6401873,6.628292
       parent: 1
 - proto: BoxFolderRed
   entities:
@@ -661,6 +649,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.488452,-0.5546005
+      parent: 1
+- proto: BoxFolderRedThreePapers
+  entities:
+  - uid: 20
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.3901873,6.74076
       parent: 1
 - proto: BoxInflatable
   entities:
@@ -1195,18 +1191,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,7.5
       parent: 1
-- proto: CheapLighter
-  entities:
-  - uid: 455
-    components:
-    - type: Transform
-      pos: -1.370245,5.4256163
-      parent: 1
-  - uid: 456
-    components:
-    - type: Transform
-      pos: -1.276495,5.6599913
-      parent: 1
 - proto: CigPackSyndicate
   entities:
   - uid: 454
@@ -1427,6 +1411,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: FaxMachineSyndie
+  entities:
+  - uid: 456
+    components:
+    - type: Transform
+      pos: 2.5,0.5
+      parent: 1
 - proto: filingCabinetRandom
   entities:
   - uid: 187
@@ -2280,10 +2271,11 @@ entities:
       parent: 1
 - proto: HandLabeler
   entities:
-  - uid: 344
+  - uid: 413
     components:
     - type: Transform
-      pos: 2.4538898,0.6484313
+      rot: 1.5707963267948966 rad
+      pos: 1.9401953,-0.4985627
       parent: 1
 - proto: HighSecDoorSyndicateAgentLocked
   entities:
@@ -2875,6 +2867,13 @@ entities:
       name: 'Substation: Strongbox'
     - type: Transform
       pos: -0.5,-2.5
+      parent: 1
+- proto: SyndicateFlippo
+  entities:
+  - uid: 455
+    components:
+    - type: Transform
+      pos: -1.2343397,5.5460243
       parent: 1
 - proto: SyndicatePersonalAI
   entities:

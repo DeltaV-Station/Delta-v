@@ -29,6 +29,7 @@ jobs:
       run: |
         cd RobustToolbox
         git fetch --depth=1
+        rm Robust.Shared.Tests/Networking/NetEncryptionDoSTest.cs # DeltaV - work around bug in the backport
 
     - name: Install dependencies
       run: dotnet restore

@@ -35,17 +35,17 @@ public sealed partial class PuddleSystem
         if (!entity.Comp.SpillWhenThrown || Openable.IsClosed(entity.Owner))
             return;
 
+        // DeltaV - Beer Goggles Safe Throw
+        if ( args.User is { } user && _safeSolutionThrower.GetSafeThrow(user))
+        {
+            _physics.SetAngularVelocity(entity, 0);
+            Transform(entity).LocalRotation = Angle.Zero;
+            return;
+        }
+        // END DeltaV
+
         if (TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, out _, out var solution) && args.User != null)
         {
-            // DeltaV - Beer Goggles Safe Throw
-            if (_safeSolutionThrower.GetSafeThrow(args.User.Value))
-            {
-                _physics.SetAngularVelocity(entity, 0);
-                Transform(entity).LocalRotation = Angle.Zero;
-                return;
-            }
-            // END DeltaV
-
             AdminLogger.Add(LogType.Landed,
                 $"{ToPrettyString(entity.Owner):entity} spilled a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} on landing");
         }

@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Shipyard.Prototypes;
 
-[Prototype("vessel")]
+[Prototype]
 public sealed partial class VesselPrototype : IPrototype
 {
     [ViewVariables, IdDataField]

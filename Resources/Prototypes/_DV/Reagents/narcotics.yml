@@ -7,7 +7,7 @@
   color: "#FFBF00"
   physicalDesc: reagent-physical-desc-overpowering
   metabolisms:
-    Narcotic:
+    Bloodstream:
       metabolismRate: 0.2
       effects:
       - !type:ModifyStatusEffect
@@ -26,3 +26,51 @@
         - !type:ReagentCondition
           reagent: LotophagoiOil
           min: 20
+
+- type: reagent
+  id: Amnestizine
+  name: reagent-amnestizine-name
+  group: Narcotics
+  desc: reagent-amnestizine-desc
+  physicalDesc: reagent-physical-desc-milky
+  color: "#A695AD"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.025
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 2
+      - !type:PopupMessage
+        visualType: MediumCaution
+        type: Local
+        messages:
+        - amenstizine-popup-1
+        - amenstizine-popup-2
+        - amenstizine-popup-3
+        - amenstizine-popup-4
+        - amenstizine-popup-5
+        - amenstizine-popup-6
+        - amenstizine-popup-7
+        conditions:
+        probability: 0.10
+      - !type:GenericStatusEffect
+        key: Pacified
+        component: Pacified
+        type: Add
+        time: 1.1
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.4
+        sprintSpeedModifier: 0.4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 1.5
+        type: Update
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 10
+        conditions:
+        probability: 0.01

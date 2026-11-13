@@ -1,14 +1,15 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
+using Content.Server._DV.StationEvents.Components;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server.StationEvents.Events
-{
+namespace Content.Server._DV.StationEvents.Events;
+
 public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleComponent>
 {
     [Dependency] private readonly ApcSystem _apcSystem = default!;
@@ -25,7 +26,7 @@ public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleCompon
             return;
         component.AffectedStation = chosenStation.Value;
 
-        // Plays the power off sound to the station.
+        // Plays the power off sound for those who are on the station.
         _sound.PlayGlobalOnStation(component.AffectedStation, _audio.ResolveSound(component.PowerOffSound));
 
         var query = AllEntityQuery<ApcComponent, TransformComponent>();
@@ -69,5 +70,4 @@ public sealed class EpsilonEventRule : StationEventSystem<EpsilonEventRuleCompon
 
         _alertLevelSystem.SetLevel(component.AffectedStation, "epsilon", true, true, true);
     }
-}
 }

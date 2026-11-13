@@ -425,23 +425,9 @@
   - type: Paper
     stampState: paper_stamp-generic
     stampedBy:
-    - stampedColor: '#8F99D6FF'
+    - stampedColor: "#8F99D6FF"
       stampedName: HydroCo
-    content: |2
-
-      [head=1]HydroCo - Hydrate Tastefully[/head]
-
-      [bold]Consumption Notice[/bold]
-      HydroCo reminds all customers that powdered products
-      are NOT meant for direct consumption. Attempting to eat
-      the powder directly is a choking hazard and may result
-      in severe discomfort.
-
-      Always mix with water according to package instructions
-      before consuming.
-
-      Thank you for choosing HydroCo!
-      Enjoy your drinks!
+    content: paper-hydroco-notice
 
 - type: entity
   parent: Paper
@@ -452,30 +438,9 @@
   - type: Paper
     stampState: paper_stamp-generic
     stampedBy:
-    - stampedColor: '#8F99D6FF'
+    - stampedColor: "#8F99D6FF"
       stampedName: HydroCo
-    content: |2
-
-      [head=1]HydroCo - Hydrate Tastefully[/head]
-
-      [bold]Dear Recipient,[/bold]
-      you have been selected among thousands of potential
-      beneficiaries to receive a full-size trial tin of HydroCo
-      powdered juice!
-
-      We think you will enjoy the flavor and hope to see you
-      as a returning customer.
-
-      [bold]Consumption Notice[/bold]
-      HydroCo reminds all customers that powdered products
-      are NOT meant for direct consumption. Attempting to eat
-      the powder directly is a choking hazard and may result in
-      severe discomfort.
-
-      Always mix with water according to package instructions
-      before consuming.
-
-      Enjoy your drinks!
+    content: paper-misc-hydroco-trial
 
 - type: entity
   parent: Paper
@@ -616,3 +581,73 @@
       [bold]Results:[/bold] Negative
       [bold]Notes:[/bold] I feel like I am close. All previous tests have indicated the components are correct. However, it seems we have been missing a step.
       [bold]Synopsis:[/bold] Further testing and analysis needed.
+
+- type: entity
+  name: pharmacy prescription
+  parent: Paper
+  id: PaperPrescription
+  description: 'A piece of paper to justify the reagents you carry on your person. Issued by the pharmacist.'
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#ead9cc"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#ead9cc"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_DV/Interface/Paper/paper_heading_prescription.svg.200dpi.png"
+    headerMargin: 0.0, 0.0, 10.0, 16.0
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    backgroundModulate: "#ead9cc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 32.0, 16.0, 32.0, 0.0
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+
+- type: entity
+  name: prescription folder
+  parent: BoxBase
+  id: PrescriptionFolder
+  description: 'A folder to hold your prescriptions.'
+  components:
+  - type: Item
+    size: Small
+    shape: null
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-white
+    - state: folder-base
+  - type: ItemMapper
+    mapLayers:
+      folder-overlay-paper:
+        whitelist:
+          tags:
+          - Document
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,2
+    whitelist:
+      tags:
+      - Document
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Folder
+  - type: StorageFill
+    contents:
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription
+    - id: PaperPrescription

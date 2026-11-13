@@ -1,0 +1,174 @@
+# HeadSide - Ears
+- type: marking
+  id: SlimeLongEars
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_standard
+
+- type: marking
+  id: SlimeEarsWide
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_wide
+
+- type: marking
+  id: SlimeEarsSmall
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_small
+
+- type: marking
+  id: SlimeEarsUpwards
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_upwards
+
+- type: marking
+  id: SlimeEarsTall
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_tall
+
+- type: marking
+  id: SlimeEarsThin
+  bodyPart: HeadSide
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/ears.rsi
+    state: slime_ears_thin
+
+# Eyes
+- type: marking
+  id: SlimeEyesDroopyRight
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: droopyR
+
+- type: marking
+  id: SlimeEyesFourEyes
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: foureyes
+
+- type: marking
+  id: SlimeEyesLEyeLower
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: lefteye_lower
+
+- type: marking
+  id: SlimeEyesREyeLower
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/eyes.rsi
+    state: righteye_lower
+
+# Eyes - Makeup
+- type: marking
+  id: MakeupFoureyesEyeshadow
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: foureyes_eyeshadow
+
+- type: marking
+  id: MakeupDroopyLEyeshadowUpper
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyL_eyeshadow_upper
+
+- type: marking
+  id: MakeupDroopyLEyeshadowLower
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyL_eyeshadow_lower
+
+- type: marking
+  id: MakeupDroopyREyeshadowUpper
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyR_eyeshadow_upper
+
+- type: marking
+  id: MakeupDroopyREyeshadowLower
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/makeup.rsi
+    state: droopyR_eyeshadow_lower
+
+# Chest
+- type: marking
+  id: TorsoBitsF
+  bodyPart: Chest
+  groupWhitelist: [Slime]
+  sexRestriction: [Female]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/chest.rsi
+    state: torsobits_f
+
+- type: marking
+  id: TorsoBitsM
+  bodyPart: Chest
+  groupWhitelist: [Slime]
+  sexRestriction: [Male]
+  forcedColoring: true
+  sprites:
+  - sprite: _DV/Mobs/Customization/Slime/chest.rsi
+    state: torsobits_m

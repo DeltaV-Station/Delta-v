@@ -73,27 +73,87 @@ If you are adding a lot of C# code, then take advantage of partial classes. Put 
 
 Otherwise, **add comments on or around any changed lines.**
 
-A comment on a new imported namespace:
+### Single-Line Changes
+Format should look like this.
 ```cs
-using Content.Server.Psionics.Glimmer; // DeltaV
+/* Importing Namespaces - Include optional comment if its not obvious what its being used for. */
+using Content.Server._DV.Psionics.Glimmer; // DeltaV 
+using Content.Shared.Damage.Systems; // DeltaV - Addition of HandHeldArmor
+
+/* Changing an upstream line - Same line as the change */
+if (!TryComp<EyeComponent>(ent, out var eye) || _disabled) // DeltaV - check if disabled
+
+/* Adding - Either same line or above the line. */
+  EnsureComp<PotentialPsionicComponent>(entity); // Deltav - Psionics
+
+/* "Deleting" - Don't actually delete, just comment out and say why. This only applies to upstream code. */
+// args.StatusIcons.Add(_prototype.Index(component.Icon)); // DeltaV - commented out. status icon now added above
 ```
 
-A pair of comments enclosing a block of added code:
+> * Its pretty obvious in the example above that importing `Content.Server._DV.Psionics.Glimmer` means we'll be interacting with glimmer so putting `// DeltaV - Add Glimmer` is needlessly redundant.
+> * It's not as obvious what the `Content.Shared.Damage.Systems` namespace is used for, since its so broad, so adding a comment what feature is using it helps.
+> * Actual code changes should almost always include the comment after ``// DeltaV`.
+
+### Multi-Line Changes
+Depending on how much you are editing, putting a comment on EACH line may be excessive, so if you have a larger block of code you are changing, denote it like so:
 ```cs
-private EntityUid Slice(...)
+// BEGIN DeltaV - Remove innate radio and radios from pockets
+for (var i = 1; i <= 4; i++) // Arachnids have 4 pockets
 {
-    ...
-
-    _transform.SetLocalRotation(sliceUid, 0);
-
-    // DeltaV - start of deep frier stuff
-    var slicedEv = new FoodSlicedEvent(user, uid, sliceUid);
-    RaiseLocalEvent(uid, ref slicedEv);
-    // DeltaV - end of deep frier stuff
-
-    ...
+    if (_inventory.TryGetSlotEntity(target, $"pocket{i}", out var headset) && HasComp<HeadsetComponent>(headset))
+        _inventory.TryUnequip(target, $"pocket{i}", true, true);
 }
+
+RemComp<ActiveRadioComponent>(target); // If the zombie has an innate radio, get rid of it.
+// END DeltaV
 ```
+
+> * Denoting these with a BEGIN and END clearly shows they are block of code without having to read the entire comment. This makes it easier to tell when you're dealing with single-line comments versus a block with merging in conflicts.
+>   * Case and order of the first two words is less of a concern. `// DeltaV Begin` or `// Begin DeltaV` will work fine too. 
+> * Try to make your blocks as small as possible, but use your discretion.
+> * If you deleting multiple lines, use line comments (``//``) if its a few lines but if its a larger block (like commenting out an entire function), it is preferable to use block comments (`/* */`). 
+
+#### Soft Exceptions to the Multi-Line "Rules"
+Some multi-line changes can use a single-line comment in certain scenarios. But if you are UNSURE, just use `// BEGIN DeltaV` and `// END DeltaV` comments like the previous section does and it'll be fine.
+
+I'll give some examples.
+```cs
+/* This change comments out 3 lines but only needs a single line comment because commenting out the if statement implies that its logic will be commented out too. */
+// if (obj.WasModified<TraitPrototype>()) // DeltaV - Refreshed in TraitsTab
+// {
+//     _profileEditor.RefreshTraits();
+// }
+
+/* Same principle here. This adds two lines but the if statement implies the next line so commenting both lines isn't really needed. */
+if (_flight.IsFlying(entity.Owner)) // DeltaV - Harpy Flight
+    return true;
+```
+### New Methods or Component Variables
+Sometimes, you'll need to implement a whole new method or component variable and instead of wrapping it in `// BEGIN DeltaV` and `// END DeltaV`, you can just denote that it's a DeltaV function in the summary block before the function. This denotes the WHOLE function as a DeltaV addition.
+
+```cs
+/* New Method Example */
+/// <summary>
+/// DeltaV - Handle revealing ninja if cloaked when attacked by a hitscan attack.
+/// </summary>
+private void OnNinjaAttacked(Entity<SpaceNinjaComponent> ent, ref DamageChangedEvent args)
+{
+  ...
+}
+
+/* New Component Variable Example */
+/// <summary>
+/// DeltaV - If disabled the action will not disable when no charges remain. Use if you want to handle no charges differently.
+/// </summary>
+[DataField]
+public bool DisableWhenEmpty = true;
+```
+
+In short:
+* Use `// BEGIN DeltaV` and `// END Delta` to denote a *block* of changes.
+  * Keep blocks as small as possible.
+* Use `// DeltaV` on or before the line if its not a block of changes.
+* Use exceptions when they make sense.
 
 ### Changing Upstream Localization Fluent .ftl files
 
@@ -104,10 +164,10 @@ Example:
 Commented out old string in `Resources\Locale\en-US\xenoarchaeology\artifact-analyzer.ftl`
 ```
 # DeltaV - moved to _DV file
-#analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
-#    [true] {$info}
-#    *[false] Unlock nodes to gain info
-#}[/color][/font]
+# analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
+#     [true] {$info}
+#     *[false] Unlock nodes to gain info
+# }[/color][/font]
 ```
 
 The new version of the string in `Resources\Locale\en-US\_DV\xenoarchaeology\artifact-analyzer.ftl`

@@ -15,9 +15,10 @@
     sprite: _Starlight/Clothing/Head/Helmets/makeshift.rsi
   - type: Clothing
     sprite: _Starlight/Clothing/Head/Helmets/makeshift.rsi
-  - type: Construction
-    graph: ClothingHeadHelmetMakeshiftGraph
-    node: helmet
+  # DeltaV - Make unobtainable
+  #- type: Construction
+  #  graph: ClothingHeadHelmetMakeshiftGraph
+  #  node: helmet
 
 - type: entity
   parent: ClothingHeadHelmetBase

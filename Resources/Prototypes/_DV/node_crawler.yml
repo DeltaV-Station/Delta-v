@@ -1,0 +1,10 @@
+- type: entity
+  abstract: true
+  id: DVNodeCrawler
+  components:
+  - type: NodeCrawler
+    revealedComponents:
+    - Content.Shared.Atmos.Components.PipeAppearanceComponent
+    exitNodes:
+      components:
+      - NodeCrawlVentAccess

@@ -84,18 +84,32 @@ public abstract partial class SharedToolSystem
     {
         using (args.PushGroup(nameof(WelderComponent)))
         {
-            if (ItemToggle.IsActivated(entity.Owner))
+            // BEGIN Monolith - Nanite Applicators
+            if (!entity.Comp.OnlyDisplayFuel)
             {
-                args.PushMarkup(Loc.GetString("welder-component-on-examine-welder-lit-message"));
+                var lit = Loc.GetString("welder-component-on-examine-welder-not-lit-message");
+
+                if (ItemToggle.IsActivated(entity.Owner))
+                    lit = Loc.GetString("welder-component-on-examine-welder-lit-message");
+
+                args.PushMarkup(lit);
             }
-            else
-            {
-                args.PushMarkup(Loc.GetString("welder-component-on-examine-welder-not-lit-message"));
-            }
+            // END Monolith
 
             if (args.IsInDetailsRange)
             {
                 var (fuel, capacity) = GetWelderFuelAndCapacity(entity.Owner, entity.Comp);
+
+                // BEGIN Monolith - Nanite Applicator 
+                if (entity.Comp.OnlyDisplayFuel)
+                {
+                    args.PushMarkup(Loc.GetString("welder-component-on-examine-less-detailed-message",
+                        ("colorName", fuel < capacity / FixedPoint2.New(4f) ? "darkorange" : "orange"),
+                        ("fuelLeft", fuel),
+                        ("fuelCapacity", capacity)));
+                    return;
+                }
+                // END Monolith
 
                 args.PushMarkup(Loc.GetString("welder-component-on-examine-detailed-message",
                     ("colorName", fuel < capacity / FixedPoint2.New(4f) ? "darkorange" : "orange"),
@@ -120,6 +134,19 @@ public abstract partial class SharedToolSystem
             && _whitelist.IsWhitelistPass(tank.FuelWhitelist, entity.Owner) //imp
             && SolutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.FuelSolutionName, out var solutionComp, out var welderSolution))
         {
+            // BEGIN Monolith - Nanite Applicators
+            foreach (var reagent in targetSolution.Contents)
+            {
+                if (reagent.Reagent.Prototype != entity.Comp.FuelReagent.Id)
+                {
+                    _popup.PopupClient(
+                        Loc.GetString("welder-component-incompatible-fuel", ("owner", args.Target)), entity, args.User);
+
+                    return;
+                }
+            }
+            // END Monolith
+
             var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
             if (trans > 0)
             {

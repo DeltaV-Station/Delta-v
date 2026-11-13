@@ -13,7 +13,7 @@ public sealed partial class RevenantStasisComponent : Component
     public Entity<RevenantComponent> Revenant;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan StasisDuration = TimeSpan.FromSeconds(60);
+    public TimeSpan StasisDuration = TimeSpan.FromSeconds(100); // DeltaV - change from 60 to 100s
 
     public RevenantStasisComponent(TimeSpan stasisDuration, Entity<RevenantComponent> revenant)
     {

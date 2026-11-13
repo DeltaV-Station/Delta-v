@@ -103,3 +103,23 @@
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary
+
+- type: entity
+  parent: WeaponShotgunBulldog
+  id: WeaponShotgunAntelope
+  name: Antelope
+  description: An automatic, magazine fed shotgun produced by a NanoTrasen subsidary. Not as refined as the Waffle Co. counterpart, but it gets the job done.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/Antelope.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/Antelope.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage

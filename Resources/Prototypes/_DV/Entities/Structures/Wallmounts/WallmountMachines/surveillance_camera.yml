@@ -10,3 +10,16 @@
     transmitFrequencyId: SurveillanceCamera
   - type: SurveillanceCamera
     networkSet: true
+
+- type: entity
+  parent: SurveillanceCameraBase
+  id: SurveillanceCameraJustice
+  name: camera
+  suffix: Justice
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraJustice
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true

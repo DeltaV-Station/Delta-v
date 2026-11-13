@@ -56,8 +56,8 @@ public partial class NavMapControl : MapGridControl
 
     // Constants
     protected float UpdateTime = 1.0f;
-    protected float MaxSelectableDistance = 10f;
-    protected float MinDragDistance = 5f;
+    public float MaxSelectableDistance = 10f; // DeltaV - accessible to CrewMonitoringShuttleControl
+    public float MinDragDistance = 5f; // DeltaV - accessible to CrewMonitoringShuttleControl
     protected static float MinDisplayedRange = 8f;
     protected static float MaxDisplayedRange = 128f;
     protected static float DefaultDisplayedRange = 48f;
@@ -192,6 +192,13 @@ public partial class NavMapControl : MapGridControl
 
         _recenter.Disabled = false;
     }
+
+    // Begin DeltaV - we need access to that from outside
+    public void TrackEntity(NetEntity? entity)
+    {
+        TrackedEntitySelectedAction?.Invoke(entity);
+    }
+    // End DeltaV - we need access to that from outside
 
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {

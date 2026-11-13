@@ -183,7 +183,6 @@
         canReact: true
   - type: ReagentDispenser
     beakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
       whitelist:
         components:
         - FitsInDispenser
@@ -247,7 +246,6 @@
         maxVol: 5000
   - type: ReagentDispenser
     beakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
       whitelist:
         components:
         - FitsInDispenser

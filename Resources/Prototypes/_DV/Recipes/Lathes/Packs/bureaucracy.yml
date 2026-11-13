@@ -1,0 +1,36 @@
+- type: latheRecipePack
+  id: PaperStatic
+  recipes:
+  - BoxReamWhite
+  - BoxReamClassic
+  - BoxReamBright
+  - PaperStickyNoteStackFilled
+  - PaperStickyNoteStackFilledBlue
+  - PaperStickyNoteStackFilledGreen
+  - PaperStickyNoteStackFilledPink
+
+- type: latheRecipePack
+  id: PensStatic
+  recipes:
+  - Pen
+  - LuxuryPen
+
+- type: latheRecipePack
+  id: FoldersStatic
+  recipes:
+  - BoxFolderBaseEmpty
+  - BoxFolderGreyEmpty
+  - BoxFolderBlackEmpty
+  - BoxFolderBlueEmpty
+  - BoxFolderGreenEmpty
+  - BoxFolderRedEmpty
+  - BoxFolderYellowEmpty
+  - BoxFolderClipboardEmpty
+  - BoxFolderPlasticClipboardEmpty
+  # Not a BoxFolderWhiteEmpty due to it being used for prescription and having a little blue cross.
+
+- type: latheRecipePack
+  id: StampsStatic
+  recipes:
+  - RubberStampApproved
+  - RubberStampDenied

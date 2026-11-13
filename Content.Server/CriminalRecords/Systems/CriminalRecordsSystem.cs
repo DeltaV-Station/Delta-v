@@ -25,8 +25,8 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
+    // [Dependency] private readonly StationSystem _station = default!; // DV - Never used
+    // [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!; // DV - Never used
 
     public override void Initialize()
     {

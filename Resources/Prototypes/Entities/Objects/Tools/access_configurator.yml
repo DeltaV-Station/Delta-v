@@ -22,7 +22,7 @@
       - Armory
       - Atmospherics
       - Bar
-      #- Brig # DeltaV - Removed Brig Access
+      - Brig
       - Detective
       - Captain
       - Cargo
@@ -51,15 +51,18 @@
       - GenpopEnter
       - GenpopLeave
       # Begin DeltaV Additions
+      - Attorney
       - Boxer
       - ChiefJustice
       - Clerk
       - Clown
       - Corpsman
       - Justice
+      - JusticeWarden
       - Library
       - Mail
       - Mantis
+      - Marshal
       - Mime
       - Musician
       - Paramedic
@@ -114,6 +117,7 @@
   - type: AccessOverrider
     accessLevels:
     # Begin DeltaV Additions
+    - Attorney
     - Boxer
     - ChiefJustice
     - Clerk
@@ -122,9 +126,11 @@
     - DV-SpareSafe
     - ERT
     - Justice
+    - JusticeWarden
     - Library
     - Mail
     - Mantis
+    - Marshal
     - Mime
     - Musician
     - Paramedic
@@ -143,7 +149,7 @@
     - Bar
     - BasicSilicon
     - Borg
-    #- Brig # DeltaV
+    - Brig
     - Detective
     - Captain
     - Cargo

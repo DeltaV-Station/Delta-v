@@ -1,3 +1,4 @@
+using Content.Shared.ActionBlocker;
 using Content.Shared._DV.Movement.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
@@ -7,11 +8,18 @@ namespace Content.Shared.Movement.Systems;
 public abstract partial class SharedJetpackSystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     private void OnJetpackToggle(Entity<JetpackComponent> jetpack, ref ToggleJetpackEvent args)
     {
         if (args.Handled)
             return;
+
+        if (!_actionBlocker.CanComplexInteract(args.Performer))
+        {
+            _popup.PopupClient(Loc.GetString("jetpack-too-complex"), jetpack, args.Performer);
+            return;
+        }
 
         jetpack.Comp.AutomaticMode = !jetpack.Comp.AutomaticMode;
         jetpack.Comp.AutomaticUser = args.Performer;

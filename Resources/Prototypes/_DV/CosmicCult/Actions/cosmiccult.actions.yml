@@ -14,7 +14,7 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     blacklist:
       components:
       - CosmicCult
@@ -38,12 +38,34 @@
     canTargetSelf: true
     whitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     blacklist:
       components:
       - CosmicCult
       - BibleUser
     event: !type:EventCosmicBlank {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionCosmicDrawGlyph
+  name: Draw Glyph
+  description: Scribe a glyph into realspace.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: astral
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:EventCosmicDrawGlyph {}
+  - type: CosmicGlyphDraw
+  - type: UserInterface
+    interfaces:
+      enum.CosmicGlyphDrawUiKey.Key:
+        type: CosmicGlyphDrawBoundUserInterface
 
 - type: entity
   parent: BaseAction
@@ -118,7 +140,7 @@
     canTargetSelf: true
     whitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
     blacklist:
       components:
       - BibleUser

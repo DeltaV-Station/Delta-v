@@ -6,14 +6,11 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Light.Components;
-using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
@@ -100,7 +97,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
         Dirty(ent, ent.Comp);
         if (_cosmicCult.EntityIsCultist(target))
         {
-            _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(_random.Next(21) + 40), true); //40-60 seconds, 4-6 cold damage per siphon
+            _statusEffects.TryAddStatusEffectDuration(target, "EntropicDegen", out _, TimeSpan.FromSeconds(_random.Next(21) + 40)); //40-60 seconds, 4-6 cold damage per siphon
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), ent, ent);
         }
         else

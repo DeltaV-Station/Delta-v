@@ -1,7 +1,7 @@
 - type: entity
-  name: notary stamp
   parent: RubberStampBase
   id: RubberStampNotary
+  name: notary stamp
   suffix: DO NOT MAP
   description: An old-fashioned seal for marking important documents, made of polished bronze.
   components:
@@ -16,9 +16,9 @@
     stealGroup: RubberStampNotary
 
 - type: entity
-  name: chief justice stamp
   parent: RubberStampBase
   id: RubberStampChiefJustice
+  name: chief justice stamp
   suffix: DO NOT MAP
   components:
   - type: Stamp
@@ -30,9 +30,9 @@
     state: stamp-cj
 
 - type: entity
-  name: prosecutor's rubber stamp
   parent: RubberStampBase
   id: RubberStampProsec
+  name: prosecutor's rubber stamp
   suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
   components:
@@ -43,6 +43,53 @@
   - type: Sprite
     sprite: _DV/Objects/Misc/stamps.rsi
     state: stamp-prosec
+
+- type: entity
+  parent: RubberStampBase
+  id: RubberStampAttorney
+  name: attorney's rubber stamp
+  categories: [ DoNotMap ]
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. A more legal way to annoy Security.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-attorney
+    stampedColor: "#233D57"
+    stampState: "paper_stamp-lawyer"
+  - type: Sprite
+    state: stamp-lawyer
+
+- type: entity
+  parent: [ RubberStampBase, BaseSecurityContraband ]
+  id: RubberStampJusticeWarden
+  name: warden's rubber stamp
+  categories: [ DoNotMap ]
+  suffix: DO NOT MAP, Justice
+  description: With a simple press of ink to paper, a life is sealed behind bars. Maybe not forever.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-warden
+    stampedColor: "#0000af"
+    stampState: "paper_stamp-warden"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-warden
+
+- type: entity
+  parent: [ RubberStampBase, BaseSecurityContraband ]
+  id: RubberStampArmorer
+  name: armorer's rubber stamp
+  categories: [ DoNotMap ]
+  suffix: DO NOT MAP
+  description: A rubber stamp for stamping important documents. Or weapons licenses for passengers.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-armorer
+    stampedColor: "#5b0000"
+    stampState: "paper_stamp-armorer"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-warden
 
 - type: entity
   parent: RubberStampBase
@@ -67,9 +114,9 @@
     color: orange
 
 - type: entity
-  name: IA rubber stamp
-  parent: RubberStampBase
   id: RubberStampNTAgent
+  parent: RubberStampBase
+  name: IA rubber stamp
   suffix: DO NOT MAP
   description: A rubber stamp for stamping important documents. For internal related affairs.
   components:
@@ -79,3 +126,17 @@
     stampState: "paper_stamp-cap"
   - type: Sprite
     state: stamp-cap
+
+- type: entity
+  parent: RubberStampBase
+  id: RubberStampChemist
+  name: chemist's rubber stamp
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-chemist
+    stampedColor: "#ff7900"
+    stampState: "paper_stamp-chemist"
+  - type: Sprite
+    sprite: _DV/Objects/Misc/stamps.rsi
+    state: stamp-chemist

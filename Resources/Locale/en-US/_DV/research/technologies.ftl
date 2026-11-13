@@ -5,6 +5,7 @@ research-technology-aerial-extraction = Aerial Extraction
 research-technology-matter-energy-conversion = Matter-Energy Conversion
 research-technology-atmos-eva = EVA Atmospherics Suits
 research-technology-engineering-eva = EVA PPE Suits
+research-technology-advanced-construction = Advanced Construction
 
 # Experimental
 research-technology-cloning = Cloning
@@ -20,6 +21,7 @@ research-technology-service-borg-module = Advanced Service Borg Modules
 # Biochemical
 research-technology-basic-augmentation = Basic Augmentation
 research-technology-implanted-tools = Implanted Tools
+research-technology-medical-tracking = Remote Medical Tracking
 
 # Arsenal
 research-technology-exotic-ammunition = Exotic Ammunition

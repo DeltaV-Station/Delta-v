@@ -65,9 +65,9 @@
     - !type:RoleTimeRequirement
       role: JobChemist
       time: 6h
-    - !type:RoleTimeRequirement
-      role: JobSurgeon
-      time: 3h
+    #- !type:RoleTimeRequirement
+    #  role: JobSurgeon
+    #  time: 3h
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
       time: 12h

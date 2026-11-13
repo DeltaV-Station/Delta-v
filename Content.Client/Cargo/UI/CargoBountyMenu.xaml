@@ -1,8 +1,9 @@
-﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+﻿<!--DeltaV - SetSize was 550, now 750 to accomodate bounty claim UI -->
+<controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       Title="{Loc 'bounty-console-menu-title'}"
-                      SetSize="550 420"
+                      SetSize="750 420"
                       MinSize="400 350">
     <BoxContainer Orientation="Vertical"
                   VerticalExpand="True"

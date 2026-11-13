@@ -1,0 +1,51 @@
+- type: job
+  id: JusticeWarden
+  name: job-name-warden
+  description: job-description-justice-warden
+  playTimeTracker: JobJusticeWarden
+  setPreference: false
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobProsecutor
+    time: 8h
+  - !type:RoleTimeRequirement
+    role: JobMarshal
+    time: 4h
+  - !type:DepartmentTimeRequirement
+    department: Justice
+    time: 12h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 10h
+  weight: 5
+  #startingGear: JusticeWardenGear # Bypass ChameleonJobLoadoutTest
+  icon: "JobIconPrisonGuard"
+  requireAdminNotify: true
+  supervisors: job-supervisors-cj
+  canBeAntag: false
+  whitelisted: true
+  access:
+  - Justice
+  - Clerk # TODO: Remove when Clerk is kill
+  - Prosecutor
+  - Detective
+  - Cryogenics
+  - Corpsman # Warden requires access to the treatment of their prisoners.
+  - Marshal
+  - JusticeWarden
+  - Detective
+  - GenpopEnter
+  - GenpopLeave
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+#- type: startingGear # Bypass ChameleonJobLoadoutTest
+#  id: JusticeWardenGear
+#  equipment:
+#    id: JusticeWardenPDA
+#    ears: ClothingHeadsetJustice
+#  storage:
+#    back:
+#    - Flash

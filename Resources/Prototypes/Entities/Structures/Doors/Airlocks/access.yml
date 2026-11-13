@@ -360,7 +360,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockResearchDirectorLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -402,15 +402,15 @@
     containers:
       board: [ DoorElectronicsDetective ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: AirlockSecurity
-#  id: AirlockBrigLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: AirlockSecurity
@@ -776,7 +776,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockResearchDirectorGlassLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -818,15 +818,14 @@
     containers:
       board: [ DoorElectronicsDetective ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: AirlockSecurityGlass
-#  id: AirlockBrigGlassLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockBrigGlassLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: AirlockSecurityGlass
@@ -951,9 +950,8 @@
     sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi # DeltaV - Changed to our sprites
 
 - type: entity
-  parent: AirlockMaintRnDLocked # DeltaV - Chapel is in Epistemics
+  parent: AirlockChapelLocked # DeltaV - Chapel is in Epistemics
   id: AirlockMaintChapelLocked
-  suffix: Chapel, Locked
   components:
   - type: Sprite
     sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi # DeltaV - Changed to our sprites

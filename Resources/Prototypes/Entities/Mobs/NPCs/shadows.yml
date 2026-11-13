@@ -39,7 +39,7 @@
       
 - type: entity
   name: shadow cat
-  parent: [ BaseShadowMob, MobCombat ] # DeltaV - Add MobCombat as a parent
+  parent: [ BaseShadowMob ]
   id: MobCatShadow
   description: A lovely piece of darkness. Hope he doesn't bring you a curse.
   components:
@@ -74,15 +74,10 @@
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcBite
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    damage:
-      types:
-        Piercing: 5
+  - type: JumpAbility # Give cats a pounce :3
+    jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
+    jumpDistance: 3
+    action: ActionCatJump
   - type: Speech
     speechSounds: Cat
     speechVerb: SmallMob

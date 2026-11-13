@@ -18,9 +18,11 @@ public sealed partial class PreenableComponent : Component
     public EntProtoId FeatherPrototype;
 
     [DataField]
-    public HashSet<ProtoId<DamageGroupPrototype>>? ValidDamageGroups = new()
+    public HashSet<ProtoId<DamageTypePrototype>>? ValidDamageTypes = new()
     {
-        "Brute",
+        "Blunt",
+        "Piercing",
+        "Slash"
     };
 
     [DataField]
@@ -73,4 +75,7 @@ public sealed partial class PreenableComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? ReplenishTime;
+
+    [DataField, AutoNetworkedField]
+    public Color? Color;
 }

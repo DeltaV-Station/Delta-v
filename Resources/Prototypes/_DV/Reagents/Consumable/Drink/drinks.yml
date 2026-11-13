@@ -9,14 +9,12 @@
     sprite: Objects/Consumable/Drinks/lean.rsi
     state: icon
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-    Poison:
-      effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -31,8 +29,6 @@
           reagent: Lean
           min: 35
         probability: 0.1
-    Medicine:
-      effects:
       - !type:Vomit
         conditions:
           - !type:ReagentCondition
@@ -44,7 +40,7 @@
 - type: reagent
   id: HealthViolation
   name: reagent-name-healthviolation
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-healthviolation
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: healthcodeviolation
@@ -56,13 +52,10 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Ethanol: 0.6
       effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.3
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
@@ -82,7 +75,7 @@
 - type: reagent
   id: Gunmetal #Credit to DinkusMcsplinkus for inspiring this drink. This could've also been called "Creamy Ignition"
   name: reagent-name-gunmetal
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-gunmetal
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: gunmetal
@@ -94,14 +87,10 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.20
-    Poison:
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -111,7 +100,7 @@
 - type: reagent
   id: LemonDrop
   name: reagent-name-lemondrop
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-lemondrop
   physicalDesc: reagent-physical-desc-lemony-fresh
   flavor: lemondrop
@@ -122,18 +111,14 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
+    Digestion:
+      metabolites:
+        Ethanol: 0.3
 
 - type: reagent
   id: GreenGrass
   name: reagent-name-greengrass
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-greengrass
   physicalDesc: reagent-physical-desc-tangy
   flavor: greengrass
@@ -144,18 +129,14 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
+    Digestion:
+      metabolites:
+        Ethanol: 0.1
 
 - type: reagent
   id: ArsonistsBrew
   name: reagent-name-arsonistsbrew
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-arsonistsbrew
   physicalDesc: reagent-physical-desc-volatile
   flavor: arsonistsbrew
@@ -167,14 +148,10 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.30
-    Poison:
+    Digestion:
+      metabolites:
+        Ethanol: 0.6
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -205,7 +182,7 @@
 - type: reagent
   id: Mothamphetamine
   name: reagent-name-mothamphetamine
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-mothamphetamine
   physicalDesc: reagent-physical-desc-fuzzy
   flavor: mothamphetamine #Delta-V Flavor additions
@@ -217,14 +194,10 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.25
-    Poison:
+    Digestion:
+      metabolites:
+        Ethanol: 0.5
+    Bloodstream:
       effects:
       - !type:Jitter
 
@@ -260,7 +233,7 @@
   metamorphicChangeColor: false
   fizziness: 0.2
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -275,7 +248,7 @@
   color: "#664300"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2

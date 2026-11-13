@@ -13,8 +13,6 @@
       weight: 1
     - id: TelegnosisPowerEntity
       weight: 1
-    - id: FracturedFormPowerEntity
-      weight: 0.3
     - id: MassSleepPowerEntity
       weight: 0.3
     - id: MetapsionicPulsePowerEntity
@@ -44,12 +42,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: PsionicEruptionPower
-
-- type: entity
-  id: FracturedFormPowerEntity
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: FracturedFormPower
 
 - type: entity
   id: PsychokineticScreamPowerEntity

@@ -19,6 +19,7 @@ using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Network;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Goobstation.Devil.CheatDeath;
 
@@ -30,6 +31,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -108,7 +110,8 @@ public sealed partial class CheatDeathSystem : EntitySystem
         // If the holy damage exceeds the crit state, do not allow revives.
         if (!TryComp<DamageableComponent>(ent, out var damageable)
             || !_thresholdSystem.TryGetIncapThreshold(ent, out var incapThreshold)
-            || damageable.Damage.DamageDict["Holy"] >= incapThreshold)
+            || (_damageableSystem.GetPositiveDamage((ent, damageable)).DamageDict.ContainsKey("Holy") // Delta V - Check for Holy Key being there
+            && _damageableSystem.GetPositiveDamage((ent, damageable)).DamageDict["Holy"] >= incapThreshold)) // Delta V - Check if Holy Damage is above threshhold
         {
             var failPopup = Loc.GetString("action-cheat-death-holy-damage");
             _popupSystem.PopupEntity(failPopup, ent, ent, PopupType.LargeCaution);

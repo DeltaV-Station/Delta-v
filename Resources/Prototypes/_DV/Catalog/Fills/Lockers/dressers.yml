@@ -10,9 +10,9 @@
     - 0,0,8,12  # What kind of dresser is smaller than a duffle bag. Let's fix this.
 
 - type: entity
+  parent: DresserLargeCommand
   id: DresserCaptainFilledDV
   suffix: Filled, Captain
-  parent: DresserLargeCommand
   components:
   - type: EntityTableContainerFill
     containers:
@@ -54,8 +54,8 @@
             weight: 0.1
 
 - type: entity
-  id: DresserChiefEngineerFilledDV
   parent: DresserLargeCommand
+  id: DresserChiefEngineerFilledDV
   suffix: Filled, Chief Engineer
   components:
   - type: EntityTableContainerFill
@@ -83,8 +83,8 @@
         - id: ClothingShoesBootsWinterChiefEngineer
 
 - type: entity
-  id: DresserChiefMedicalOfficerFilledDV
   parent: DresserLargeCommand
+  id: DresserChiefMedicalOfficerFilledDV
   suffix: Filled, Chief Medical Officer
   components:
   - type: EntityTableContainerFill
@@ -124,8 +124,8 @@
         - id: ClothingShoesColorWhite
 
 - type: entity
-  id: DresserHeadOfPersonnelFilledDV
   parent: DresserLargeCommand
+  id: DresserHeadOfPersonnelFilledDV
   suffix: Filled, Head Of Personnel
   components:
   - type: EntityTableContainerFill
@@ -164,8 +164,8 @@
         - id: CigarGoldCase
 
 - type: entity
-  id: DresserHeadOfSecurityFilledDV
   parent: DresserLargeCommand
+  id: DresserHeadOfSecurityFilledDV
   suffix: Filled, Head Of Security
   components:
   - type: EntityTableContainerFill
@@ -204,8 +204,8 @@
         - id: CigarGoldCase
 
 - type: entity
-  id: DresserQuarterMasterFilledDV
   parent: DresserLargeCommand
+  id: DresserQuarterMasterFilledDV
   suffix: Filled, Logistics Officer
   components:
   - type: EntityTableContainerFill
@@ -232,8 +232,8 @@
         - id: ClothingShoesBootsWinterLogisticsOfficer
 
 - type: entity
-  id: DresserResearchDirectorFilledDV
   parent: DresserLargeCommand
+  id: DresserResearchDirectorFilledDV
   suffix: Filled, Mystagogue
   components:
   - type: EntityTableContainerFill
@@ -263,8 +263,8 @@
         - id: ClothingShoesBootsWinterMystagogue
 
 - type: entity
-  id: DresserChiefJusticeFilled
   parent: DresserLargeCommand
+  id: DresserChiefJusticeFilled
   suffix: Filled, Chief Justice
   components:
   - type: EntityTableContainerFill
@@ -288,9 +288,9 @@
         - id: BookSpaceLaw
 
 - type: entity
-  id: DresserWardenFilledDV
   parent: DresserLargeCommand
-  suffix: Filled, Warden
+  id: DresserWardenFilledDV
+  suffix: Filled, Armorer
   components:
   - type: EntityTableContainerFill
     containers:
@@ -320,11 +320,31 @@
         - id: Binoculars
         - id: NetworkConfigurator
 
+- type: entity
+  parent: DresserLargeCommand
+  id: DresserJusticeWardenFilledDV
+  suffix: Filled, Justice Warden
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        # Jumpsuits
+        # Hats
+        # Eyes
+        - id: ClothingEyesGlassesSunglasses
+        # Outerwear
+        # Shoes
+        - id: ClothingShoesBootsWinterSec
+        - id: ClothingShoesBootsJack
+        # Extras
+        - id: BookSpaceLaw
+
 #CentComm
 - type: entity
+  parent: DresserLargeCommand
   id: DresserCentCommFilledDV
   suffix: Filled, CentComm
-  parent: DresserLargeCommand
   components:
   - type: StorageFill
     contents:

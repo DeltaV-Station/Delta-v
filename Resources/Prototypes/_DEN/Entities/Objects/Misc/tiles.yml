@@ -1,0 +1,30 @@
+- type: entity
+  parent: FloorTileItemSteel
+  id: FloorTileItemPool
+  name: pool tile
+  components:
+  - type: Sprite
+    sprite: _DEN/Objects/Tiles/pool.rsi
+    state: pool
+  - type: Item
+    sprite: _DEN/Objects/Tiles/pool.rsi
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorTilePool
+  - type: Stack
+    stackType: FloorTilePool
+
+- type: entity
+  parent: FloorTileItemPool
+  id: FloorTileItemPoolDark
+  name: dark pool tile
+  components:
+  - type: Sprite
+    state: pool-dark
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorTilePoolDark
+  - type: Stack
+    stackType: FloorTilePoolDark

@@ -1,0 +1,49 @@
+# Eyes
+- type: marking
+  id: SlimeEyesDefault
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Slime/eyes.rsi
+    state: default
+
+- type: marking
+  id: SlimeEyesCyclops
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Slime/eyes.rsi
+    state: cyclops
+
+- type: marking
+  id: SlimeEyesDroopyLeft
+  bodyPart: Eyes
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Slime/eyes.rsi
+    state: droopyL
+
+# Snout
+- type: marking
+  id: SlimeNose
+  bodyPart: Snout
+  groupWhitelist: [Slime]
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Slime/snout.rsi
+    state: nose

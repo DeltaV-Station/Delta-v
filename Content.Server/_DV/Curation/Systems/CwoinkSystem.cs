@@ -256,7 +256,7 @@ public sealed partial class CwoinkSystem : SharedCwoinkSystem
             }
 
             // Check if the user has been banned
-            var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
+            var ban = await _dbManager.GetBanAsync(null, e.Session.UserId, null, null);
             if (ban != null)
             {
                 _activeConversations.Remove(e.Session.UserId);

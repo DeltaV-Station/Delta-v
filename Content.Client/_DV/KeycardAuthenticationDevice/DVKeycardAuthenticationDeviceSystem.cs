@@ -1,0 +1,5 @@
+using Content.Shared._DV.KeycardAuthenticationDevice;
+
+namespace Content.Client._DV.KeycardAuthenticationDevice;
+
+public sealed class DVStationKeycardAuthenticationDeviceSystem : SharedDVStationKeycardAuthenticationDeviceSystem;

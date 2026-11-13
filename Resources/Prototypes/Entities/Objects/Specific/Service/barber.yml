@@ -12,10 +12,11 @@
       state: storage
       sprite: Objects/Tools/scissors.rsi
   - type: MagicMirror
-    addSlotTime: 20
-    removeSlotTime: 20
-    selectSlotTime: 20
-    changeSlotTime: 20
+    organs:
+    - Head
+    layers:
+    - Hair
+    - FacialHair
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true

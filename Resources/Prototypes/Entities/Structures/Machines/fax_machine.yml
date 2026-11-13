@@ -76,7 +76,7 @@
     - !type:AutomatedPorts
       sinks:
       - FaxCopy
-  - type: DeviceNetworkRequiresPower
+  # - type: DeviceNetworkRequiresPower # DeltaV - we want faxes to refresh on map init
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: NTNet # DeltaV

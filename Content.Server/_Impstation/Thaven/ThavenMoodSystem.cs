@@ -34,24 +34,12 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
     private readonly List<ThavenMood> _sharedMoods = new();
 
-
-    [ValidatePrototypeId<DatasetPrototype>]
     private const string SharedDataset = "ThavenMoodsShared";
-
-    [ValidatePrototypeId<DatasetPrototype>]
     private const string YesAndDataset = "ThavenMoodsYesAnd";
-
-    [ValidatePrototypeId<DatasetPrototype>]
     private const string NoAndDataset = "ThavenMoodsNoAnd";
-
-    [ValidatePrototypeId<DatasetPrototype>]
     private const string WildcardDataset = "ThavenMoodsWildcard";
-
-    [ValidatePrototypeId<EntityPrototype>]
     private const string ActionViewMoods = "ActionViewMoods";
-
-    [ValidatePrototypeId<WeightedRandomPrototype>]
-    private const string RandomThavenMoodDataset = "RandomThavenMoodDataset";
+    private static readonly ProtoId<WeightedRandomPrototype> RandomThavenMoodDataset = "RandomThavenMoodDataset";
 
     public override void Initialize()
     {
@@ -92,7 +80,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             return false;
 
         _sharedMoods.Add(mood);
-        var enumerator = EntityManager.EntityQueryEnumerator<ThavenMoodsComponent>();
+        var enumerator = EntityQueryEnumerator<ThavenMoodsComponent>();
         while (enumerator.MoveNext(out var ent, out var comp))
         {
             if (!comp.FollowsSharedMoods)

@@ -11,6 +11,10 @@
     sprite: Clothing/Neck/Misc/pins.rsi
   - type: Clothing
     sprite: Clothing/Neck/Misc/pins.rsi
+  - type: WearerGetsExamineText # imp
+    thing: obvious-thing-pin
+    examineText: obvious-desc-default
+    pocketEvident: true
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -46,6 +50,8 @@
     equippedPrefix: lgbt
   - type: ChameleonClothing
     default: ClothingNeckLGBTPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -59,6 +65,8 @@
     equippedPrefix: ally
   - type: ChameleonClothing
     default: ClothingNeckAllyPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-straightally
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -72,6 +80,8 @@
     equippedPrefix: aro
   - type: ChameleonClothing
     default: ClothingNeckAromanticPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-aro
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -85,6 +95,8 @@
     equippedPrefix: aroace
   - type: ChameleonClothing
     default: ClothingNeckAroacePin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-aroace
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -98,6 +110,8 @@
     equippedPrefix: asex
   - type: ChameleonClothing
     default: ClothingNeckAsexualPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-ace
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -111,6 +125,8 @@
     equippedPrefix: bi
   - type: ChameleonClothing
     default: ClothingNeckBisexualPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-bi
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -124,6 +140,8 @@
     equippedPrefix: gay
   - type: ChameleonClothing
     default: ClothingNeckGayPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-gay
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -137,6 +155,8 @@
     equippedPrefix: inter
   - type: ChameleonClothing
     default: ClothingNeckIntersexPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-intersex
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -150,6 +170,8 @@
     equippedPrefix: les
   - type: ChameleonClothing
     default: ClothingNeckLesbianPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-lesbian
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -163,6 +185,8 @@
     equippedPrefix: non
   - type: ChameleonClothing
     default: ClothingNeckNonBinaryPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-nonbinary
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -176,6 +200,8 @@
     equippedPrefix: pan
   - type: ChameleonClothing
     default: ClothingNeckPansexualPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-pan
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -202,6 +228,8 @@
     equippedPrefix: omni
   - type: ChameleonClothing
     default: ClothingNeckOmnisexualPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-omni
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -215,6 +243,8 @@
     equippedPrefix: gender
   - type: ChameleonClothing
     default: ClothingNeckGenderqueerPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-gq
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -241,6 +271,8 @@
     equippedPrefix: trans
   - type: ChameleonClothing
     default: ClothingNeckTransPin
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-trans
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -252,6 +284,8 @@
     state: autism
   - type: Clothing
     equippedPrefix: autism
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-aut
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -263,6 +297,8 @@
     state: goldautism
   - type: Clothing
     equippedPrefix: goldautism
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-pride-aut
 
 - type: entity
   parent: BaseItem

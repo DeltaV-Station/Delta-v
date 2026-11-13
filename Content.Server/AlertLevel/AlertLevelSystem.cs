@@ -6,6 +6,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Player; // DeltaV
 
 namespace Content.Server.AlertLevel;
 
@@ -15,7 +16,6 @@ public sealed class AlertLevelSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     // Until stations are a prototype, this is how it's going to have to be.
     public const string DefaultAlertLevelSet = "stationAlerts";
@@ -191,7 +191,8 @@ public sealed class AlertLevelSystem : EntitySystem
         {
             if (detail.Sound != null)
             {
-                var filter = _stationSystem.GetInOwningStation(station);
+                //var filter = _stationSystem.GetInOwningStation(station); // DeltaV - Global Annoucements
+                var filter = Filter.Empty().AddAllPlayers(); // DeltaV - Global Annoucements
                 _audio.PlayGlobal(detail.Sound, filter, true, detail.Sound.Params);
             }
             else
@@ -202,7 +203,7 @@ public sealed class AlertLevelSystem : EntitySystem
 
         if (announce)
         {
-            _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
+            _chatSystem.DispatchGlobalAnnouncement(announcementFull, playSound: playDefault, // DeltaV - Global Annoucements
                 colorOverride: detail.Color, sender: stationName);
         }
 

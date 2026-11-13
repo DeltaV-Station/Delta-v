@@ -3,7 +3,6 @@ using Content.Shared.Chat;
 using Content.Shared.Weather;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -13,7 +12,6 @@ public sealed class WeatherSchedulerSystem : EntitySystem
 {
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
@@ -32,19 +30,20 @@ public sealed class WeatherSchedulerSystem : EntitySystem
                 comp.Stage = 0;
 
             var stage = comp.Stages[comp.Stage++];
-            var duration = stage.Duration.Next(_random);
-            comp.NextUpdate = now + TimeSpan.FromSeconds(duration);
+            var duration = TimeSpan.FromSeconds(stage.Duration.Next(_random));
+            comp.NextUpdate = now + duration;
+            comp.NextDamageUpdate = now;
 
             var mapId = Comp<MapComponent>(map).MapId;
             if (stage.Weather is {} weather)
             {
-                var ending = comp.NextUpdate;
+                var ending = duration;
                 // crossfade weather so as one ends the next starts
                 if (HasWeather(comp, comp.Stage - 1))
-                    ending += WeatherComponent.ShutdownTime;
+                    ending += SharedWeatherSystem.ShutdownTime;
                 if (HasWeather(comp, comp.Stage + 1))
-                    ending += WeatherComponent.StartupTime;
-                _weather.SetWeather(mapId, _proto.Index(weather), ending);
+                    ending += SharedWeatherSystem.StartupTime;
+                _weather.TrySetWeather(mapId, weather, out _, ending);
             }
 
             if (stage.Message is {} message)

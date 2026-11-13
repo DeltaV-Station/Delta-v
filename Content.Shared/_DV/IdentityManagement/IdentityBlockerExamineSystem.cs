@@ -1,9 +1,9 @@
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement.Components;
 
-namespace Content.Shared.IdentityManagement;
+namespace Content.Shared._DV.IdentityManagement;
 
-public class IdentityBlockerExamineSystem : EntitySystem
+public sealed class IdentityBlockerExamineSystem : EntitySystem
 {
     public override void Initialize()
     {
