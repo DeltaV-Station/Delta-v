@@ -137,7 +137,7 @@
       map: [ "enum.GunVisualLayers.Base" ]
   - type: MeleeWeapon
     wideAnimationRotation: 270
-    attackRate: 1 
+    attackRate: 1
     angle: 100
     range: 2.0
     damage:
@@ -164,7 +164,7 @@
     - ShellShotgunMediumPower
     - ShellShotgunHighPower
   - type: ContainerContainer
-    containers: 
+    containers:
       gun_chamber: !type:ContainerSlot
   - type: GunBreaking
   - type: GunDelay
@@ -182,4 +182,4 @@
   - type: ChamberMagazineAmmoProvider
     canRack: false
     boltClosed: null
-  
+

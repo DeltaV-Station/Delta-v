@@ -11,5 +11,3 @@ public sealed partial class ChanceGunComponent : Component
     [DataField]
     public List<ProtoId<EntityPrototype>> AmmoList = default!;
 }
-
-
