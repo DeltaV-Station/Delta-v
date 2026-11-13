@@ -1,15 +1,4 @@
 - type: entity
-  parent: ClothingUniformBase
-  id: UniformJabroni
-  name: jabroni outfit
-  description: For artists, performance artists.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Costume/jabroni.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Costume/jabroni.rsi
-
-- type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingCostumeArcDress
   name: white shirt and purple skirt
