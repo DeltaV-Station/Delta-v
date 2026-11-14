@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseGunAttachmentSuppressor
+  id: GunAttachmentSuppressor
+  name: suppressor
+  description: Turns a bang into a pop.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: musician
+  - type: ESGunSoundAttachment
+    sound:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        maxDistance: 4

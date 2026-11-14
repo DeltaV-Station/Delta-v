@@ -30,7 +30,7 @@ public sealed partial class WieldableComponent : Component
     ///     Whether using the item inhand while wielding causes the item to unwield.
     ///     Unwielding can conflict with other inhand actions.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // DeltaV - networked for attachments
     public bool UnwieldOnUse = true;
 
     /// <summary>

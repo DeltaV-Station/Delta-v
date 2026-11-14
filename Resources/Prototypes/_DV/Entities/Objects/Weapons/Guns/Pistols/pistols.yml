@@ -27,6 +27,9 @@
       - map: ["gripAttachment"]
       - map: ["opticAttachment"]
       - map: ["stockAttachment"]
+        offset: -0.25, 0
+      - map: ["barrelAttachment"]
+        offset: 0.25, 0
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
   - type: Gun
@@ -72,6 +75,13 @@
         whitelist:
           tags:
           - AttachmentStock
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentSuppressor
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -79,6 +89,7 @@
       attachment_grip: !type:ContainerSlot
       attachment_optic: !type:ContainerSlot
       attachment_stock: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
   - type: ESAttachableGun
     slots:
     - name: es-gun-attachments-slot-name-grip
@@ -96,6 +107,11 @@
       whitelist:
         tags:
         - AttachmentStock
+    - name: gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - AttachmentSuppressor
   - type: ActivatableUI
     key: enum.ESAttachableGunUiKey.Key
     verbOnly: true
@@ -139,6 +155,12 @@
         whitelist:
           tags:
           - AttachmentBasicStock
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressor
+        whitelist:
+          tags:
+          - AttachmentSuppressor
 
 - type: entity
   name: psi-breaker

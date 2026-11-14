@@ -223,7 +223,7 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
         var target = args.Gun.Owner;
-        EntityManager.AddComponents(target, component.Components);
+        EntityManager.AddComponents(target, component.Components, removeExisting: false); // DeltaV - removeExisting: false, fixes more bugs then it causes (I hope)
     }
 
     private void OnCompAttachmentUnequip(EntityUid uid, ESGunComponentAttachmentComponent component, EntGotRemovedFromContainerMessage args)
