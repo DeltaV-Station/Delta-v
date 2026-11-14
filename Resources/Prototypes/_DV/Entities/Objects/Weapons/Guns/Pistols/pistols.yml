@@ -123,11 +123,11 @@
   - type: ESItemMapper
     mappings:
       gripAttachment:
-      #- containerId: attachment_grip
-      #  state: grip
-      #  whitelist:
-      #    tags:
-      #    - MonoGripVFG
+      - containerId: attachment_grip
+        state: laser
+        whitelist:
+          tags:
+          - AttachmentLaser
       - containerId: attachment_grip
         state: bipod
         whitelist:

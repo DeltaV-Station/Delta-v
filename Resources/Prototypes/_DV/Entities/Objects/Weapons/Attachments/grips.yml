@@ -18,3 +18,30 @@
     tags:
     - AttachmentGrip
     - AttachmentBipod
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripLaser
+  name: grip mounted laser
+  description: Turn that crime scene into a rave with this red grip laser! Only starts laser-ing once wielded. Make sure you have a stock!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: scientist
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.2
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 0.25
+    maxSpreadModifier: 1.0
+  - type: ESGunComponentAttachment
+    component:
+    - type: LaserPointer
+      targetedColor: "#FF0040"
+      defaultColor: "#FF0040"
+  - type: Tag
+    tags:
+    - AttachmentGrip
+    - AttachmentLaser
