@@ -20,5 +20,6 @@
       tags:
       - Wall
       - Window
-    maxPierceNumberThreshold: 3 # this seems to not work
+      - LightFixture #DeltaV - I can have dreams. Seems to work infrequently.
+    maxPierceNumberThreshold: 3 # this seems to not work - (it does) 
     healthThreshold: 200 # Normal walls have a threshold of 200.
