@@ -1,0 +1,46 @@
+- type: quickConstructionCategory
+  id: Wood
+  constructionEntries:
+  - Barricade
+  - WoodDoor
+  categoryEntries:
+  - WoodFloors
+  - WoodFences
+
+- type: quickConstructionCategory
+  id: WoodFloors
+  name: quickconstruction-category-wood-floors
+  icon: { sprite: Objects/Tiles/tile.rsi, state: wood}
+  constructionEntries:
+  - TileWood
+  - TileWoodLarge
+
+- type: quickConstructionCategory
+  id: WoodFences
+  name: quickconstruction-category-wood-fences
+  icon: { sprite: Structures/Walls/wooden_fence.rsi, state: door_closed}
+  categoryEntries:
+  - WoodFencesSmall
+  - WoodFencesHigh
+
+- type: quickConstructionCategory
+  id: WoodFencesHigh
+  name: quickconstruction-category-wood-fences-high
+  icon: { sprite: Structures/Walls/wooden_fence.rsi, state: door_closed}
+  constructionEntries:
+  - FenceWood
+  - FenceWoodEnd
+  - FenceWoodCorner
+  - FenceWoodTJunction
+  - FenceWoodGate
+
+- type: quickConstructionCategory
+  id: WoodFencesSmall
+  name: quickconstruction-category-wood-fences-small
+  icon: { sprite: Structures/Walls/wooden_fence.rsi, state: door_closed_small}
+  constructionEntries:
+  - FenceWoodSmall
+  - FenceWoodEndSmall
+  - FenceWoodCornerSmall
+  - FenceWoodTJunctionSmall
+  - FenceWoodGateSmall

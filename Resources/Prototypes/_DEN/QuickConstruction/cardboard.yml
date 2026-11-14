@@ -1,0 +1,26 @@
+- type: quickConstructionCategory
+  id: Cardboard
+  constructionEntries:
+  - CardDoor
+  - Cardwall
+  categoryEntries:
+  - CardboardBoxes
+  - CardboardGear
+
+- type: quickConstructionCategory
+  id: CardboardBoxes
+  name: quickconstruction-category-cardboard-boxes
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box}
+  constructionEntries:
+  - BoxCardboard
+  - BoxCardboardSmall
+  - BigBox
+
+- type: quickConstructionCategory
+  id: CardboardGear
+  name: quickconstruction-category-cardboard-gear
+  icon: {sprite: Objects/Fun/card_sword.rsi, state: icon}
+  constructionEntries:
+  - cardArmour
+  - CardSword
+  - cardHelmet

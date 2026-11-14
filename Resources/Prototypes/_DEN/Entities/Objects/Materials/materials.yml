@@ -1,0 +1,13 @@
+- type: entity
+  id: BaseQuickConstructionMaterial
+  abstract: true
+  components:
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    requireActiveHand: false
+    key: enum.QuickConstructionUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.QuickConstructionUiKey.Key:
+        type: QuickConstructionBoundUserInterface
