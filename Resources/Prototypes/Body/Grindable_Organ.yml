@@ -1,0 +1,108 @@
+﻿- type: entity
+  id: OrganGrindable
+  name: OrganGrindable
+  abstract: true
+  components:
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 15
+        reagents:
+          - ReagentId: UncookedAnimalProteins
+            Quantity: 15
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableBrain
+  name: GrindableBrain
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableEyes
+  name: OrganGrindableEyes
+  abstract: true
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableTongue
+  name: GrindableTongue
+  abstract: true
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableAppendix
+  name: GrindableAppendix
+  abstract: true
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableEars
+  name: GrindableEars
+  abstract: true
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableLungs
+  name: OrganGrindableLungs
+  abstract: true
+  components:
+  - type: Lung
+  - type: Metabolizer
+    stages: [ Respiration ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+      Lung:
+        maxVol: 100.0
+        canReact: false
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableHeart
+  name: GrindableHeart
+  abstract: true
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableStomach
+  name: GrindableStomach
+  abstract: true
+  components:
+  - type: Stomach
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+      stomach:
+        maxVol: 50
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableLiver
+  name: GrindableLiver
+  abstract: true
+
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableKidneys
+  name: GrindableKidneys
+  abstract: true
+

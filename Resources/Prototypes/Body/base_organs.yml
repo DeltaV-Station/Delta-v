@@ -21,16 +21,7 @@
   parent: BaseItem
   components:
   - type: Organ
-  # Begin DeltaV - grindable organs
-  - type: Extractable
-    grindableSolutionName: organ
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        maxVol: 7
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 7
+
 - type: entity
   parent: OrganBase
   id: OrganBaseTorso
@@ -244,7 +235,7 @@
       - RFoot
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableBrain]
   id: OrganBaseBrain
   name: brain
   abstract: true
@@ -270,7 +261,7 @@
       Taco: Brain
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableEyes]
   id: OrganBaseEyes
   name: eyes
   abstract: true
@@ -293,7 +284,7 @@
       - Eyes
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableTongue]
   id: OrganBaseTongue
   name: tongue
   abstract: true
@@ -306,7 +297,7 @@
     - state: tongue
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableAppendix]
   id: OrganBaseAppendix
   name: appendix
   abstract: true
@@ -319,7 +310,7 @@
     - state: appendix
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableEars]
   id: OrganBaseEars
   name: ears
   abstract: true
@@ -332,7 +323,7 @@
     - state: ears
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableLungs]
   id: OrganBaseLungs
   name: lungs
   abstract: true
@@ -356,7 +347,7 @@
     heldPrefix: lungs
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableHeart]
   id: OrganBaseHeart
   name: heart
   abstract: true
@@ -372,7 +363,7 @@
     stages: [ Bloodstream ]
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableStomach]
   id: OrganBaseStomach
   name: stomach
   abstract: true
@@ -395,7 +386,7 @@
     heldPrefix: stomach
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableLiver]
   id: OrganBaseLiver
   name: liver
   abstract: true
@@ -413,7 +404,7 @@
     stages: [ Metabolites ]
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableKidneys]
   id: OrganBaseKidneys
   name: kidneys
   abstract: true
