@@ -19,6 +19,7 @@ namespace Content.Shared.Preferences
         {
             Slot = buffer.ReadInt32();
             var length = buffer.ReadVariableInt32();
+            buffer.AssertAtLeastSize(length); // Delta V - Early merge #46693 security patch
             using var stream = new MemoryStream(length);
             buffer.ReadAlignedMemory(stream, length);
             Profile = serializer.Deserialize<HumanoidCharacterProfile>(stream);
