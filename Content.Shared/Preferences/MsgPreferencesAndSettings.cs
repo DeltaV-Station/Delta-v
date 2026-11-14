@@ -18,6 +18,7 @@ namespace Content.Shared.Preferences
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
         {
             var length = buffer.ReadVariableInt32();
+            buffer.AssertAtLeastSize(length); // Delta V - Early merge #46693 security patch
 
             using (var stream = new MemoryStream())
             {
@@ -26,6 +27,7 @@ namespace Content.Shared.Preferences
             }
 
             length = buffer.ReadVariableInt32();
+            buffer.AssertAtLeastSize(length); // Delta V - Early merge #46693 security patch
             using (var stream = new MemoryStream())
             {
                 buffer.ReadAlignedMemory(stream, length);

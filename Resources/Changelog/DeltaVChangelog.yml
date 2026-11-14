@@ -1,40 +1,4 @@
 ﻿Entries:
-- author: TehFlaminTaco
-  changes:
-  - message: The infestation of cars has been appropriately resolved.
-    type: Fix
-  id: 2208
-  time: '2026-04-02T23:02:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5608
-- author: rebe83
-  changes:
-  - message: NT Armory has researched a better breaching hammer. It pries faster and
-      bonks harder! Permas beware.
-    type: Tweak
-  id: 2209
-  time: '2026-04-03T08:21:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5586
-- author: rebe83
-  changes:
-  - message: Shotgun slugs now do much more damage to structures.
-    type: Tweak
-  id: 2210
-  time: '2026-04-03T08:22:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5590
-- author: Woljif
-  changes:
-  - message: Vulcan firerate increased from 3.5 to 4.0
-    type: Tweak
-  id: 2211
-  time: '2026-04-03T08:28:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5583
-- author: keekee38
-  changes:
-  - message: ported RMC's pose feature!
-    type: Add
-  id: 2212
-  time: '2026-04-04T13:29:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5558
 - author: FieldCommand, Stxcking
   changes:
   - message: The captain and HoS now have a very dapper hat and cloak in the loadout.
@@ -4472,4 +4436,39 @@
   id: 2708
   time: '2026-11-04T18:13:56.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6677
+- author: nlaky
+  changes:
+  - message: Conveyor belts no longer remove your hitbox
+    type: Fix
+  id: 2709
+  time: '2026-11-08T08:18:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6715
+- author: CMuncey
+  changes:
+  - message: The borg transponder wire now correctly removes just that borg from monitor.
+    type: Fix
+  id: 2710
+  time: '2026-11-12T15:47:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6665
+- author: Proxysseia
+  changes:
+  - message: The vape's description has been changed. Slightly.
+    type: Tweak
+  id: 2711
+  time: '2026-11-12T16:02:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6687
+- author: Creb206
+  changes:
+  - message: Added hatred and malice to the smart fridges.
+    type: Add
+  id: 2712
+  time: '2026-11-12T16:03:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6695
+- author: Proxysseia
+  changes:
+  - message: K9 Units can no longer wear sec glasses or corpsman glasses
+    type: Remove
+  id: 2713
+  time: '2026-11-12T16:23:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6678
 Order: 1
