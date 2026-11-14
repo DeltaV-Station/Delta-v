@@ -12,3 +12,72 @@
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
+
+- type: entity
+  parent: BaseShellShotgun
+  id: ShellShotgunLowPower
+  name: low power shell
+  description: A cheaply made shotgun round. Still packs a punch due to the absurd size.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunLowPower
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/elephant_gun_shells.rsi
+    layers:
+    - state: low-power
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "low-power"
+  - type: Tag
+    tags:
+    - ElephantShotgun
+  - type: AmmoDelay
+    delay: 1.0
+
+- type: entity
+  parent: BaseShellShotgun
+  id: ShellShotgunMediumPower
+  name: high power shell
+  description: A high power cartridge. Extremely lethal considering the size.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunMediumPower
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/elephant_gun_shells.rsi
+    layers:
+    - state: medium-power
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "medium-power"
+  - type: Tag
+    tags:
+    - ElephantShotgun
+  - type: AmmoDelay
+    minimumDelay: 3.0
+    maximumDelay: 5.0
+
+- type: entity
+  parent: BaseShellShotgun
+  id: ShellShotgunHighPower
+  name: super duper ultra high power shell
+  description: A monster of a shotgun round. Overpacked with fuel, absurdly large, a harm to whoever it is pointed at and the person using it.
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunHighPower
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Casings/elephant_gun_shells.rsi
+    layers:
+    - state: high-power
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "high-power"
+  - type: Tag
+    tags:
+    - ElephantShotgun
+  - type: AmmoKnockback
+    knockbackStrength: 2000.0
+    knockdown: true
+    knockdownTime: 5.0
+  - type: AmmoDelay
+    minimumDelay: 5.0
+    maximumDelay: 7.0

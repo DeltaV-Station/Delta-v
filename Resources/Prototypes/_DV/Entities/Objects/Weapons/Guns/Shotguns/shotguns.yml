@@ -123,3 +123,62 @@
     slots:
     - Back
     - suitStorage
+
+- type: entity
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponShotgunElephant
+  name: elephant gun
+  description: A gun made with a unique flavor of hatred and malice. Questionable quality. Prone to inconsistent performace.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shotguns/elephant_gun.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: 270
+    attackRate: 1
+    angle: 100
+    range: 2.0
+    damage:
+      types:
+        Blunt: 10
+  - type: MeleeRequiresWield
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,7,0
+  - type: Gun
+    cameraRecoilScalar: 25.0 # only a REAL scallywag can handle this
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: ChanceGun
+    ammoList:
+    - ShellShotgunLowPower
+    - ShellShotgunMediumPower
+    - ShellShotgunHighPower
+  - type: ContainerContainer
+    containers:
+      gun_chamber: !type:ContainerSlot
+  - type: GunBreaking
+  - type: GunDelay
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+          name: Chamber
+          startingItem: null
+          priority: 1
+          disableEject: true
+          insertOnInteract: false
+          whitelist:
+            tags:
+              - ElephantShotgun
+  - type: ChamberMagazineAmmoProvider
+    canRack: false
+    boltClosed: null

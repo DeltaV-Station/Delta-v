@@ -133,3 +133,17 @@
       whitelist:
         tags:
           - NukeOpsUplink #I sure do hope this also spawns in surplus crates!
+
+- type: listing
+  id: UplinkElephantGun
+  name: uplink-elephant-gun-name
+  description: uplink-elephant-gun-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Shotguns/elephant_gun.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  productEntity: WeaponShotgunElephant
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeaponry
