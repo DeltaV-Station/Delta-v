@@ -40,7 +40,7 @@ public sealed partial class FluidEjectorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BodyComponent, SolutionChangedEvent>(_body.RelayEvent);
-        SubscribeLocalEvent<FluidEjectorComponent, BodyRelayedEvent<SolutionChangedEvent>>(OnSolutionChanged);
+        SubscribeLocalEvent<FluidEjectorComponent, BodyRelayedEvent<SolutionContainerChangedEvent>>(OnSolutionChanged); // DeltaV - no solution refactor yet
     }
 
     public override void Update(float deltaTime)
@@ -69,12 +69,12 @@ public sealed partial class FluidEjectorSystem : EntitySystem
         }
     }
 
-    private void OnSolutionChanged(Entity<FluidEjectorComponent> ent, ref BodyRelayedEvent<SolutionChangedEvent> args)
+    private void OnSolutionChanged(Entity<FluidEjectorComponent> ent, ref BodyRelayedEvent<SolutionContainerChangedEvent> args) // DeltaV - no solution refactor yet
     {
         if (_mobState.IsDead(args.Body.Owner))
             return;
 
-        if (args.Args.Solution.Comp.Solution.Name != ent.Comp.Solution) // DeltaV - Solution.Comp.Id -> Solution.Comp.Solution.Name
+        if (args.Args.SolutionId != ent.Comp.Solution) // DeltaV - no solution refactor yet
             return;
 
         var bloodReagentEvent = new MetabolismExclusionEvent();
@@ -83,7 +83,7 @@ public sealed partial class FluidEjectorSystem : EntitySystem
         if (!_metabolizerWhitelist.GetMetabolizableReagents(args.Body, out var metabolizableReagents))
             metabolizableReagents = [];
 
-        var bodyReagents = args.Args.Solution.Comp.Solution.Contents.Select(r => r.Reagent.Prototype);
+        var bodyReagents = args.Args.Solution.Contents.Select(r => r.Reagent.Prototype); // DeltaV - no solution refactor yet
         var bloodReferenceReagents = bloodReagentEvent.Reagents.Select(reagentId => reagentId.Prototype);
         var whitelistedReagents = metabolizableReagents.Select(protoId => protoId.Id);
         if (!bodyReagents.Any(id => !bloodReferenceReagents.Contains(id) && !whitelistedReagents.Contains(id)))
