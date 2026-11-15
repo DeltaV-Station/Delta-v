@@ -10,7 +10,6 @@ namespace Content.Client._DV.Weapons.Ranged.Systems;
 public sealed class GunDelaySystem : SharedGunDelaySystem
 {
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly ActorSystem _actor = default!;
     protected override void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
         if (args.Cancelled) // Has this already been cancled?
