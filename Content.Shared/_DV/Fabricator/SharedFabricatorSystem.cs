@@ -21,16 +21,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Fabricator;
 
-public abstract class SharedFabricatorSystem : EntitySystem
+public abstract partial class SharedFabricatorSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
 
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
@@ -78,7 +78,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [PublicAPI]
     public void Stop(EntityUid uid, FabricatorComponent comp)
     {
-        _audio.Stop(comp.SoundStream);
+        Audio.Stop(comp.SoundStream);
 
         comp.FabRunning = false;
         comp.PortionedRecipe = (null, 0);
@@ -135,7 +135,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
         Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> reagents = new();
         foreach (var item in comp.Storage.ContainedEntities)
         {
-            if (!_solutionContainer.TryGetDrainableSolution(item, out _, out var solution))
+            if (!SolutionContainer.TryGetDrainableSolution(item, out _, out var solution))
                 continue;
 
             foreach (var reagent in solution.Contents)
@@ -279,7 +279,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
         _hands.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
 
         UpdateUserInterfaceState(ent.Owner, ent.Comp);
-        _audio.PlayPredicted(ent.Comp.AddItemSound, ent, args.User, AudioParams.Default.WithVolume(-2));
+        Audio.PlayPredicted(ent.Comp.AddItemSound, ent, args.User, AudioParams.Default.WithVolume(-2));
 
         Dirty(ent);
     }
@@ -330,14 +330,14 @@ public abstract class SharedFabricatorSystem : EntitySystem
             SetAppearance(ent, FabricatorVisualState.Running, true);
 
             UpdateUserInterfaceState(ent.Owner, ent.Comp);
-            _audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
+            Audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
 
             Dirty(ent);
 
             if (_net.IsServer)
             {
                 ent.Comp.SoundStream =
-                    _audio.PlayPvs(ent.Comp.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithVolume(-2))
+                    Audio.PlayPvs(ent.Comp.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithVolume(-2))
                         ?.Entity;
             }
 
@@ -352,7 +352,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
         _container.EmptyContainer(ent.Comp.Storage);
         UpdateUserInterfaceState(ent);
-        _audio.PlayPredicted(ent.Comp.RemoveItemSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
+        Audio.PlayPredicted(ent.Comp.RemoveItemSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
         Dirty(ent);
     }
 
@@ -363,7 +363,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
 
         _container.Remove(GetEntity(args.Target), ent.Comp.Storage);
         UpdateUserInterfaceState(ent.Owner, ent.Comp);
-        _audio.PlayPredicted(ent.Comp.RemoveItemSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
+        Audio.PlayPredicted(ent.Comp.RemoveItemSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
         Dirty(ent);
     }
 }

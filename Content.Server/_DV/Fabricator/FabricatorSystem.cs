@@ -1,21 +1,15 @@
 using System.Linq;
 using Content.Shared._DV.Fabricator;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Materials;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Fabricator;
 
-public sealed class FabricatorSystem : SharedFabricatorSystem
+public sealed partial class FabricatorSystem : SharedFabricatorSystem
 {
-
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Update(float frameTime)
     {
@@ -34,7 +28,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
 
             Stop(uid, fab);
 
-            _audio.PlayPvs(fab.DoneSound, uid, AudioParams.Default.WithVolume(-2));
+            Audio.PlayPvs(fab.DoneSound, uid, AudioParams.Default.WithVolume(-2));
         }
     }
 
@@ -53,7 +47,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
         foreach (var item in comp.Storage.ContainedEntities)
         {
             // check reagents first in case we delete the container
-            if (_solutionContainer.TryGetDrainableSolution(item, out var solnEnt, out _))
+            if (SolutionContainer.TryGetDrainableSolution(item, out var solnEnt, out _))
             {
                 // find the reagents we want and remove them
                 foreach (var (reagent, _) in recipe.Reagents)
@@ -63,7 +57,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
                         continue;
 
                     var removed =
-                        _solutionContainer.RemoveReagent(solnEnt.Value, new ReagentId(reagent.Id, null), reagentQuantity);
+                        SolutionContainer.RemoveReagent(solnEnt.Value, new ReagentId(reagent.Id, null), reagentQuantity);
                     removeReagents[reagent] -= removed;
                 }
             }

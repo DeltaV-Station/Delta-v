@@ -12,7 +12,7 @@ using Robust.Shared.Utility;
 namespace Content.Client._DV.Fabricator;
 
 [UsedImplicitly]
-public sealed class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+public sealed partial class FabricatorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
