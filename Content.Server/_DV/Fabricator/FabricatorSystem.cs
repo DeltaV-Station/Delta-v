@@ -6,11 +6,13 @@ using Content.Shared.Materials;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._DV.Fabricator;
 
 public sealed class FabricatorSystem : SharedFabricatorSystem
 {
+
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -25,9 +27,7 @@ public sealed class FabricatorSystem : SharedFabricatorSystem
             if (!fab.FabRunning)
                 continue;
 
-            fab.SecondsRemaining -= frameTime;
-
-            if (fab.SecondsRemaining > 0)
+            if (Timing.CurTime < fab.EndTime)
                 continue;
 
             CompleteRecipe(uid, fab);

@@ -12,6 +12,8 @@ public sealed partial class FabricatorMenu : FancyWindow
 
     public TimeSpan TimeEnd;
 
+    private bool _busy = false;
+
     public FabricatorMenu()
     {
         RobustXamlLoader.Load(this);
@@ -21,20 +23,16 @@ public sealed partial class FabricatorMenu : FancyWindow
     public void ToggleBusy(bool busy)
     {
         BusyOverlay.Visible = busy;
+        _busy = busy;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
 
-        if (TimeEnd > _timing.CurTime)
-        {
-            TimeRemaining.Text = Loc.GetString("fabricator-menu-time-remaining", ("time", TimeEnd.Subtract(_timing.CurTime).Seconds));
-        }
-        else
-        {
-            // no time display if not running
-            TimeRemaining.Text = null;
-        }
+        // Keep text at 0 seconds while waiting for server to stop the fab
+        TimeRemaining.Text = _busy
+            ? Loc.GetString("fabricator-menu-time-remaining", ("time", Math.Max(TimeEnd.Subtract(_timing.CurTime).Seconds, 0)))
+            : null;
     }
 }

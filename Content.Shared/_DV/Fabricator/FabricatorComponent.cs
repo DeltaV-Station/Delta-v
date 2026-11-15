@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Fabricator;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 [Access(typeof(SharedFabricatorSystem))]
 public sealed partial class FabricatorComponent : Component
 {
@@ -43,10 +43,7 @@ public sealed partial class FabricatorComponent : Component
     [DataField]
     public string ContainerId = "fabricator_entity_container";
 
-    [DataField, AutoNetworkedField]
-    public float SecondsRemaining = 0.0f;
-
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan EndTime;
 
     [DataField]

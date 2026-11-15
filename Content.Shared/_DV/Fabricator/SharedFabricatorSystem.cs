@@ -23,6 +23,8 @@ namespace Content.Shared._DV.Fabricator;
 
 public abstract class SharedFabricatorSystem : EntitySystem
 {
+    [Dependency] protected readonly IGameTiming Timing = default!;
+
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
@@ -34,7 +36,6 @@ public abstract class SharedFabricatorSystem : EntitySystem
     [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     private readonly List<FabricatorRecipePrototype> _fabricatorRecipes = new();
@@ -87,8 +88,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
         SetAppearance(uid, FabricatorVisualState.Idle, true);
         SetAppearance(uid, FabricatorVisualState.Running, false);
 
-        comp.EndTime = _timing.CurTime;
-        comp.SecondsRemaining = 0;
+        comp.EndTime = Timing.CurTime;
 
         UpdateUserInterfaceState(uid, comp);
 
@@ -321,8 +321,7 @@ public abstract class SharedFabricatorSystem : EntitySystem
                 continue;
 
             ent.Comp.FabRunning = true;
-            ent.Comp.SecondsRemaining = recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier;
-            ent.Comp.EndTime = _timing.CurTime.Add(TimeSpan.FromSeconds(ent.Comp.SecondsRemaining));
+            ent.Comp.EndTime = Timing.CurTime.Add(TimeSpan.FromSeconds(recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier));
             ent.Comp.PortionedRecipe = (recipe, portions);
 
             _powerState.SetWorkingState(ent.Owner, true);
