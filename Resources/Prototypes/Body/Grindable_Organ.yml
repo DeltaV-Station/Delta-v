@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿#Begin Delta-V Additions
+- type: entity
   id: OrganGrindable
   name: OrganGrindable
   abstract: true
@@ -10,8 +11,8 @@
       organ:
         maxVol: 15
         reagents:
-          - ReagentId: UncookedAnimalProteins
-            Quantity: 15
+          - ReagentId: Proteins
+            Quantity: 10
 
 - type: entity
   parent: OrganGrindable
@@ -22,22 +23,45 @@
   - type: SolutionContainerManager
     solutions:
       organ:
-        maxVol: 15
+        maxVol: 20
         reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 15
-
+          - ReagentId: Proteins
+            Quantity: 15
+          - ReagentId: GreyMatter
+            Quantity: 5
 - type: entity
   parent: OrganGrindable
   id: OrganGrindableEyes
   name: OrganGrindableEyes
   abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+         maxvol: 7
+         reagents:
+           - ReagentId: Water
+             Quantity: 3
+           - ReagentId: Blood
+             Quantity: 2
+           - ReagentId: Protein
+             Quantity: 2
 
 - type: entity
   parent: OrganGrindable
   id: OrganGrindableTongue
   name: GrindableTongue
   abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+        organ:
+          maxvol: 10
+          reagents:
+            - ReagentId: Blood
+              Quantity: 2
+            - ReagentId: Protein
+              Quantity: 8
 
 - type: entity
   parent: OrganGrindable
@@ -62,11 +86,7 @@
     stages: [ Respiration ]
   - type: SolutionContainerManager
     solutions:
-      organ:
-        maxVol: 15
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 15
+
       Lung:
         maxVol: 100.0
         canReact: false
@@ -76,6 +96,16 @@
   id: OrganGrindableHeart
   name: GrindableHeart
   abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxvol: 20
+        reagents:
+          - ReagentId: Blood
+            Quantity: 8
+          - ReagentId: Protein
+            Quantity: 12
 
 - type: entity
   parent: OrganGrindable
@@ -87,10 +117,10 @@
   - type: SolutionContainerManager
     solutions:
       organ:
-        maxVol: 15
+        maxVol: 25
         reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 15
+        - ReagentId: Proteins
+          Quantity: 25
       stomach:
         maxVol: 50
 
@@ -105,4 +135,6 @@
   id: OrganGrindableKidneys
   name: GrindableKidneys
   abstract: true
+
+
 
