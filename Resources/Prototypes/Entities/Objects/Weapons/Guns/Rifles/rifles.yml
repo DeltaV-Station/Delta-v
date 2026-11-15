@@ -67,6 +67,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    fireRate: 5.5 # Delta V - was 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
@@ -239,7 +240,7 @@
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 30
     maxAngle: 43
-    shotsPerBurst: 3 
+    shotsPerBurst: 3
     selectedMode: Burst
     availableModes:
     - Burst
