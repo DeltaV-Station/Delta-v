@@ -67,8 +67,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
 
             // AttemptShoot shouldn't be run by the client *unless* the client's character is the one shooting
             // Basically if you're the one who is holding the gun that is firing you actually SHOULD run AttemptShoot so this is just stuff for that
-            _actor.TryGetSession(gun.Holder, out var session);
-            if (session is not { } && session == _player.LocalSession)
+            if (gun.Holder == _player.LocalEntity)
                 GunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
         }
     }
