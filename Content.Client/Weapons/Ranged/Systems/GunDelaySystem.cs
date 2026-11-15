@@ -63,16 +63,13 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             }
 
             comp.Lit = true; // Lit should be set to true *only* when the gun is actively firing as to not block shot
-
+            Dirty(uid, comp);
 
             // AttemptShoot shouldn't be run by the client *unless* the client's character is the one shooting
             // Basically if you're the one who is holding the gun that is firing you actually SHOULD run AttemptShoot so this is just stuff for that
             _actor.TryGetSession(gun.Holder, out var session);
-            if (session is not { })
-                continue;
-            if (session == _player.LocalSession)
+            if (session is not { } && session == _player.LocalSession)
                 GunSystem.AttemptShoot(user, (uid, gun), new EntityCoordinates(uid, dir), gun.Target);
-            Dirty(uid, comp);
         }
     }
 }
