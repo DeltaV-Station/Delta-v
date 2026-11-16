@@ -8,6 +8,7 @@ public abstract partial class SharedGunSystem
     public void InitializeAmmoDelay()
     {
     }
+
     public void AmmoDelay(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
         if (GetChamberEntity(ent) is not { } ammo)
@@ -16,7 +17,7 @@ public abstract partial class SharedGunSystem
         if (!TryComp(ammo, out AmmoDelayComponent? ammoDelay))
             return;
 
-        if (ammoDelay.Delay is { })
+        if (ammoDelay.Delay is not null)
         {
             ent.Comp.Delay = ammoDelay.Delay;
             return;

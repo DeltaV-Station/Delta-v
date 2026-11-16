@@ -10,6 +10,7 @@ namespace Content.Client._DV.Weapons.Ranged.Systems;
 public sealed class GunDelaySystem : SharedGunDelaySystem
 {
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+
     protected override void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
         if (args.Cancelled)
@@ -28,6 +29,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
         if (!ent.Comp.Firing) // Because of the fact that the gun firing will trigger this function, we need to block it unless it is firing
             args.Cancel();
     }
+
     protected override void CheckShot()
     {
         var curTime = Timing.CurTime;
@@ -56,7 +58,11 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             }
 
             comp.Firing = true; // Firing should be set to true *only* when the gun is actively firing as to not block shot
+
             Dirty(uid, comp);
+
+            if (gun.Holder is not { })
+                continue;
 
             // AttemptShoot shouldn't be run by the client *unless* the client's character is the one shooting
             // Basically if you're the one who is holding the gun that is firing you actually SHOULD run AttemptShoot so this is just stuff for that

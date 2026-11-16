@@ -36,6 +36,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
         if (!ent.Comp.Firing) // Is the gun actually supposed to fire?
             args.Cancel();
     }
+
     protected override void CheckShot()
     {
         var curTime = Timing.CurTime;

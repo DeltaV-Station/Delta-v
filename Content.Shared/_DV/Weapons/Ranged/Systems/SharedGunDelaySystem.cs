@@ -41,13 +41,18 @@ public abstract class SharedGunDelaySystem : EntitySystem
     protected abstract void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args);
 
     protected abstract void CheckShot();
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         CheckShot();
     }
-    private void OnShot(Entity<GunDelayComponent> ent, ref GunShotEvent args) // Handles the resetting after the shot is fired
+
+    /// <summary>
+    /// Handles the resetting after the shot is fired
+    /// </summary>
+    private void OnShot(Entity<GunDelayComponent> ent, ref GunShotEvent args)
     {
         ent.Comp.Lit = false;
         ent.Comp.Firing = false;

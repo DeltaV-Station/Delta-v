@@ -440,8 +440,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;
 
-        var shooterEv = new ShooterImpulseEvent(gun);
+        var shooterEv = new ShooterImpulseEvent(gun); // DeltaV - pass gun as event argument
         RaiseLocalEvent(user, ref shooterEv);
+        // Begin DeltaV - raise impulse event on ammo
         foreach ((var uncheckedEnt, _) in ev.Ammo)
         {
             if (uncheckedEnt is not { } ent)
@@ -449,6 +450,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
             RaiseLocalEvent(ent, ref shooterEv);
         }
+        // End DeltaV - raise impulse event on ammo
 
         if (shooterEv.Push && !shooterEv.CannotBePushed) // DeltaV - Bipods stop you from being moved by recoil.
         {
