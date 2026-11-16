@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -76,8 +77,63 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
     }
 
     [PublicAPI]
-    public void Stop(EntityUid uid, FabricatorComponent comp)
+    public bool Start(EntityUid uid, FabricatorComponent? comp = null, EntityUid? user = null)
     {
+        if (!Resolve(uid, ref comp))
+            return false;
+
+        var ent = new Entity<FabricatorComponent>(uid, comp);
+        return Start(ent);
+    }
+
+    [PublicAPI]
+    public bool Start(Entity<FabricatorComponent> ent, EntityUid? user = null)
+    {
+        if (ent.Comp.FabRunning)
+            return false;
+
+        if (!_power.IsPowered(ent.Owner))
+            return false;
+
+        foreach (var recipe in _fabricatorRecipes)
+        {
+            var portions = CanSatisfyRecipe(ent, recipe);
+            if (portions <= 0)
+                continue;
+
+            ent.Comp.FabRunning = true;
+            ent.Comp.EndTime = Timing.CurTime.Add(TimeSpan.FromSeconds(recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier));
+            ent.Comp.PortionedRecipe = (recipe, portions);
+
+            _powerState.SetWorkingState(ent.Owner, true);
+
+            SetAppearance(ent, FabricatorVisualState.Idle, false);
+            SetAppearance(ent, FabricatorVisualState.Running, true);
+
+            UpdateUserInterfaceState(ent.Owner, ent.Comp);
+            Audio.PlayPredicted(ent.Comp.StartSound, ent, user, AudioParams.Default.WithVolume(-2));
+
+            Dirty(ent);
+
+            if (_net.IsServer)
+            {
+                ent.Comp.SoundStream =
+                    Audio.PlayPvs(ent.Comp.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithVolume(-2))
+                        ?.Entity;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    [PublicAPI]
+    public void Stop(EntityUid uid, FabricatorComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
         Audio.Stop(comp.SoundStream);
 
         comp.FabRunning = false;
@@ -308,41 +364,7 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
 
     private void OnStartMessage(Entity<FabricatorComponent> ent, ref FabricatorStartMessage args)
     {
-        if (ent.Comp.FabRunning)
-            return;
-
-        if (!_power.IsPowered(ent.Owner))
-            return;
-
-        foreach (var recipe in _fabricatorRecipes)
-        {
-            var portions = CanSatisfyRecipe(ent, recipe);
-            if (portions <= 0)
-                continue;
-
-            ent.Comp.FabRunning = true;
-            ent.Comp.EndTime = Timing.CurTime.Add(TimeSpan.FromSeconds(recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier));
-            ent.Comp.PortionedRecipe = (recipe, portions);
-
-            _powerState.SetWorkingState(ent.Owner, true);
-
-            SetAppearance(ent, FabricatorVisualState.Idle, false);
-            SetAppearance(ent, FabricatorVisualState.Running, true);
-
-            UpdateUserInterfaceState(ent.Owner, ent.Comp);
-            Audio.PlayPredicted(ent.Comp.StartSound, ent, args.Actor, AudioParams.Default.WithVolume(-2));
-
-            Dirty(ent);
-
-            if (_net.IsServer)
-            {
-                ent.Comp.SoundStream =
-                    Audio.PlayPvs(ent.Comp.LoopingSound, ent, AudioParams.Default.WithLoop(true).WithVolume(-2))
-                        ?.Entity;
-            }
-
-            return;
-        }
+        Start(ent, args.Actor);
     }
 
     private void OnEjectMessage(Entity<FabricatorComponent> ent, ref FabricatorEjectMessage args)
