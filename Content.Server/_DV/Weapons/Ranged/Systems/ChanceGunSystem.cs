@@ -1,4 +1,4 @@
-using Content.Shared._DV.Weapons.Ranged.Components;
+using Content.Server._DV.Weapons.Ranged.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.Weapons.Ranged.Systems;
