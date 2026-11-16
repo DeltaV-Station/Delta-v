@@ -58,8 +58,7 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
         SubscribeLocalEvent<FabricatorComponent, FabricatorEjectMessage>(OnEjectMessage);
         SubscribeLocalEvent<FabricatorComponent, FabricatorEjectIndexedMessage>(OnEjectIndexedMessage);
 
-        // TODO cancel fab process on reaction
-        // SubscribeLocalEvent<ActivelyMicrowavedComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
+        SubscribeLocalEvent<FabricatorIngredientComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnIngredientReactionAttempt);
         SubscribeLocalEvent<FabricatorComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
         SubscribeLocalEvent<FabricatorComponent, PowerChangedEvent>(OnPowerChanged);
 
@@ -105,6 +104,12 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
             ent.Comp.EndTime = Timing.CurTime.Add(TimeSpan.FromSeconds(recipe.CompletionTime.Seconds * portions * ent.Comp.TimeMultiplier));
             ent.Comp.PortionedRecipe = (recipe, portions);
 
+            foreach (var ingredient in ent.Comp.Storage.ContainedEntities)
+            {
+                var ingredientComponent = EnsureComp<FabricatorIngredientComponent>(ingredient);
+                ingredientComponent.Fab = ent;
+            }
+
             _powerState.SetWorkingState(ent.Owner, true);
 
             SetAppearance(ent, FabricatorVisualState.Idle, false);
@@ -138,6 +143,11 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
 
         comp.FabRunning = false;
         comp.PortionedRecipe = (null, 0);
+
+        foreach (var ingredient in comp.Storage.ContainedEntities)
+        {
+            RemCompDeferred<FabricatorIngredientComponent>(ingredient);
+        }
 
         _powerState.SetWorkingState(uid, false);
 
@@ -360,6 +370,17 @@ public abstract partial class SharedFabricatorSystem : EntitySystem
     {
         ent.Comp.Storage = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
         Dirty(ent);
+    }
+
+    private void OnIngredientReactionAttempt(Entity<FabricatorIngredientComponent> ent, ref SolutionRelayEvent<ReactionAttemptEvent> args)
+    {
+        if (args.Event.Cancelled)
+            return;
+
+        if (ent.Comp.Fab is not { } fab)
+            return;
+
+        Stop(fab);
     }
 
     private void OnStartMessage(Entity<FabricatorComponent> ent, ref FabricatorStartMessage args)
