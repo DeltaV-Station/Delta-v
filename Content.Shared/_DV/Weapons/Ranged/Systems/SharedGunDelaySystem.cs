@@ -20,9 +20,10 @@ public abstract class SharedGunDelaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted);
+        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted, after: [typeof(SingleUseGunSystem)]);
         SubscribeLocalEvent<GunDelayComponent, DroppedEvent>(OnDropped);
-        SubscribeLocalEvent<GunDelayComponent, GunShotEvent>(OnShot);
+        SubscribeLocalEvent<GunDelayComponent, GunShotEvent>((ent, ref _) => OnShot(ent));
+        SubscribeLocalEvent<GunDelayComponent, OnEmptyGunShotEvent>((ent, ref _) => OnShot(ent));
         SubscribeLocalEvent<GunDelayComponent, GotEquippedHandEvent>(OnPickup);
     }
 
@@ -50,9 +51,9 @@ public abstract class SharedGunDelaySystem : EntitySystem
     }
 
     /// <summary>
-    /// Handles the resetting after the shot is fired
+    /// Handles the resetting after the gun shoots, empty or not
     /// </summary>
-    private void OnShot(Entity<GunDelayComponent> ent, ref GunShotEvent args)
+    private void OnShot(Entity<GunDelayComponent> ent)
     {
         ent.Comp.Lit = false;
         ent.Comp.Firing = false;
