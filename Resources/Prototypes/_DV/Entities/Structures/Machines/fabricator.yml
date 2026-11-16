@@ -1,23 +1,9 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  id: NaniteFabricator
-  description: A fabricator capable of packaging nanites to be used.
-  name: nanite fabricator
+  abstract: true
+  id: BaseFabricator
+  name: fabricator
   components:
-  - type: Sprite
-    sprite: _DV/Structures/Machines/nanite_fabricator.rsi
-    snapCardinals: true
-    layers:
-    - state: idle
-      map: ["enum.FabricatorVisualLayers.Base"]
-    - state: animation
-      map: ["enum.FabricatorVisualLayers.BaseUnlit"]
-      visible: false
-    - state: broken
-      visible: false
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-      visible: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -30,8 +16,6 @@
   - type: PowerState
     idlePowerDraw: 5
     workingPowerDraw: 1000
-  - type: Machine
-    board: NaniteFabricatorMachineCircuitboard
   - type: ContainerContainer
     containers:
       fabricator_entity_container: !type:Container
@@ -49,8 +33,6 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Fabricator
-    recipeGroups:
-    - Nanites
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -71,6 +53,32 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseFabricator
+  id: NaniteFabricator
+  description: A fabricator capable of packaging nanites to be used.
+  name: nanite fabricator
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/nanite_fabricator.rsi
+    snapCardinals: true
+    layers:
+    - state: idle
+      map: ["enum.FabricatorVisualLayers.Base"]
+    - state: animation
+      map: ["enum.FabricatorVisualLayers.BaseUnlit"]
+      visible: false
+    - state: broken
+      visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: Machine
+    board: NaniteFabricatorMachineCircuitboard
+  - type: Fabricator
+    recipeGroups:
+    - Nanites
   - type: GuideHelp
     guides:
     - NaniteFabricator
