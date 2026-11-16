@@ -8,7 +8,7 @@
   - type: GenericVisualizer
     visuals:
       enum.FabricatorVisualState.Running:
-        enum.FabricatorVisualLayers.BaseUnlit:
+        enum.FabricatorVisualLayers.Running:
           True: { visible: true }
           False: { visible: false }
   - type: ApcPowerReceiver
@@ -67,7 +67,7 @@
     - state: idle
       map: ["enum.FabricatorVisualLayers.Base"]
     - state: animation
-      map: ["enum.FabricatorVisualLayers.BaseUnlit"]
+      map: ["enum.FabricatorVisualLayers.Running"]
       visible: false
     - state: broken
       visible: false

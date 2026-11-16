@@ -12,7 +12,7 @@ public enum FabricatorVisualState
 public enum FabricatorVisualLayers : byte
 {
     Base,
-    BaseUnlit,
+    Running,
 }
 
 [Serializable, NetSerializable]
