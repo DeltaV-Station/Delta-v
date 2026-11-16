@@ -12,7 +12,6 @@ public sealed partial class QuickConstructionUserInterfaceSystem : EntitySystem
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
