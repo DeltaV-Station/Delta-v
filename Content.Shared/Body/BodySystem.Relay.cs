@@ -1,5 +1,4 @@
 using Content.Shared.Body.Events;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Medical;
@@ -29,7 +28,6 @@ public sealed partial class BodySystem
         SubscribeLocalEvent<BodyComponent, LocalPlayerAttachedEvent>(RelayBodyEvent);
         SubscribeLocalEvent<BodyComponent, LocalPlayerDetachedEvent>(RelayBodyEvent);
         SubscribeLocalEvent<BodyComponent, RefreshMovementSpeedModifiersEvent>(RelayBodyEvent);
-        SubscribeLocalEvent<BodyComponent, SolutionContainerChangedEvent>(RefRelayBodyEvent); // DeltaV - no solution refactor yet
         // end starcup
     }
 

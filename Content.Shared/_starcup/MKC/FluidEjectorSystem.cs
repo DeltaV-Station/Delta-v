@@ -39,7 +39,7 @@ public sealed partial class FluidEjectorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BodyComponent, SolutionChangedEvent>(_body.RelayEvent);
+        SubscribeLocalEvent<BodyComponent, SolutionContainerChangedEvent>(_body.RelayEvent); // DeltaV - no solution refactor yet
         SubscribeLocalEvent<FluidEjectorComponent, BodyRelayedEvent<SolutionContainerChangedEvent>>(OnSolutionChanged); // DeltaV - no solution refactor yet
     }
 
