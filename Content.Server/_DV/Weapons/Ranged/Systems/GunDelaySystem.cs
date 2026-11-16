@@ -57,7 +57,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             var dir = gun.DefaultDirection;
             AudioSystem.Stop(comp.PlayingSound);
 
-            if (gun.Holder is not { }) 
+            if (gun.Holder is not { })
             {
                 comp.Firing = true; // Firing should be set to true *only* when the gun is actively firing as to not block shot
                 dir = new Vector2(-dir.Y, dir.X); // Need to invert the vector so the gun shoots in the right direction instead of straight down
@@ -73,4 +73,3 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
         }
     }
 }
-
