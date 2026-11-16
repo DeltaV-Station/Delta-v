@@ -24,14 +24,14 @@ public sealed partial class GunDelayComponent : Component
     public float MaximumDelay = 1;
 
     /// <summary>
-    /// Should the gun be allowed to fire?
-    /// This is only set to true when the system calls AttemptShoot so it doesn't block it
+    /// Has the gun been "Lit" meaning that extra attempts should be blocked to not change the fire time?
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Lit = false;
 
     /// <summary>
-    /// Has the gun been "fired" meaning that extra attempts should be blocked to not change the fire time?
+    /// Should the gun be allowed to fire?
+    /// This is only set to true when the system calls AttemptShoot so it doesn't block it
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Firing = false;

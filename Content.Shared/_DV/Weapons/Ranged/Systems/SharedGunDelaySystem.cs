@@ -20,7 +20,7 @@ public abstract class SharedGunDelaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted, after: [typeof(GunBreakingSystem)]);
+        SubscribeLocalEvent<GunDelayComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<GunDelayComponent, DroppedEvent>(OnDropped);
         SubscribeLocalEvent<GunDelayComponent, GunShotEvent>(OnShot);
         SubscribeLocalEvent<GunDelayComponent, GotEquippedHandEvent>(OnPickup);

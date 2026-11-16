@@ -13,13 +13,13 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
 {
     protected override void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (args.Cancelled) // Has this already been cancled?
+        if (args.Cancelled)
             return;
 
-        if (!ent.Comp.Lit) // Have we not fired, setting fire time yet?
+        if (!ent.Comp.Lit)
         {
             GunSystem.AmmoDelay(ent, ref args); // Checks if the ammo wants to set delay
-            if (ent.Comp.Delay is { } delay) // Checks if we should use random delay or flat delay
+            if (ent.Comp.Delay is { } delay) // Use flat delay if one is provided
                 ent.Comp.FireTime = Timing.CurTime + TimeSpan.FromSeconds(delay);
             else
                 ent.Comp.FireTime = Timing.CurTime + TimeSpan.FromSeconds(Random.NextFloat(ent.Comp.MinimumDelay, ent.Comp.MaximumDelay));
@@ -33,7 +33,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             Dirty(ent);
         }
 
-        if (!ent.Comp.Firing) // Is the gun actually supposed to fire?
+        if (!ent.Comp.Firing) // Because of the fact that the gun firing will trigger this function, we need to block it unless it is firing
             args.Cancel();
     }
 
@@ -57,7 +57,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             var dir = gun.DefaultDirection;
             AudioSystem.Stop(comp.PlayingSound);
 
-            if (gun.Holder is not { }) // Is the gun not being held?
+            if (gun.Holder is not { }) 
             {
                 comp.Firing = true; // Firing should be set to true *only* when the gun is actively firing as to not block shot
                 dir = new Vector2(-dir.Y, dir.X); // Need to invert the vector so the gun shoots in the right direction instead of straight down

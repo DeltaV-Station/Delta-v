@@ -5,10 +5,6 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    public void InitializeAmmoDelay()
-    {
-    }
-
     public void AmmoDelay(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
         if (GetChamberEntity(ent) is not { } ammo)

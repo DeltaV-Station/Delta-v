@@ -11,10 +11,10 @@ public sealed class ChanceGunSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChanceGunComponent, ComponentStartup>(OnCreation);
+        SubscribeLocalEvent<ChanceGunComponent, ComponentStartup>(OnComponentStartup);
     }
 
-    private void OnCreation(Entity<ChanceGunComponent> ent, ref ComponentStartup args)
+    private void OnComponentStartup(Entity<ChanceGunComponent> ent, ref ComponentStartup args)
     {
         TrySpawnInContainer(_random.Pick(ent.Comp.AmmoList), ent, "gun_chamber", out _);
     }

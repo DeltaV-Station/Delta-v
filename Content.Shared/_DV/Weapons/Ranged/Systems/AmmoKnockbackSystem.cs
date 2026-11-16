@@ -19,7 +19,7 @@ public sealed class AmmoKnockbackSystem : EntitySystem
     private void OnImpulse(Entity<AmmoKnockbackComponent> ent, ref ShooterImpulseEvent args)
     {
         args.Push = true;
-        if (args.Gun.Holder is not { })
+        if (args.Gun.Holder is not { }) // If the gun isn't being held the impulse should be weaker so it doesn't go mach 10
         {
             args.ImpulseStrength = ent.Comp.KnockbackStrength / 10;
             return;

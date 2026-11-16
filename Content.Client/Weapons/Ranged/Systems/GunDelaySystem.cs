@@ -58,7 +58,6 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             }
 
             comp.Firing = true; // Firing should be set to true *only* when the gun is actively firing as to not block shot
-
             Dirty(uid, comp);
 
             if (gun.Holder is not { })
