@@ -16,10 +16,11 @@ public abstract partial class SharedGunSystem
         if (ammoDelay.Delay is not null)
         {
             ent.Comp.Delay = ammoDelay.Delay;
+            Dirty(ent);
             return;
         }
         ent.Comp.MinimumDelay = ammoDelay.MinimumDelay;
         ent.Comp.MaximumDelay = ammoDelay.MaximumDelay;
-        Dirty(args.Used.Owner, ent.Comp);
+        Dirty(ent);
     }
 }

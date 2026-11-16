@@ -18,12 +18,13 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
 
         if (!ent.Comp.Lit)
         {
+            ent.Comp.FireTime = Timing.CurTime + TimeSpan.FromSeconds(1); // This is to stop it from mispredicting
+            GunSystem.AmmoDelay(ent, ref args); // Checks if the ammo wants to set delay
             if (ent.Comp.Delay != 0) // Don't need to play the start sound for the delay if there isn't one
-                AudioSystem.PlayPvs(ent.Comp.StartSound, ent);
+                AudioSystem.PlayPredicted(ent.Comp.StartSound, ent, args.User);
 
             ent.Comp.Lit = true;
             ent.Comp.User = args.User;
-            Dirty(ent);
         }
 
         if (!ent.Comp.Firing) // Because of the fact that the gun firing will trigger this function, we need to block it unless it is firing
@@ -53,12 +54,10 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             if (gun.Holder is not { })
             {
                 comp.Firing = true; // Firing should be set to true *only* when the gun is actively firing as to not block shot
-                Dirty(uid, comp);
                 continue;
             }
 
             comp.Firing = true; // Firing should be set to true *only* when the gun is actively firing as to not block shot
-            Dirty(uid, comp);
 
             if (gun.Holder is not { })
                 continue;
