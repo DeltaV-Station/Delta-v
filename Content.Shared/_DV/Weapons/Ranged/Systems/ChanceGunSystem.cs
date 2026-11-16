@@ -1,7 +1,7 @@
 using Content.Shared._DV.Weapons.Ranged.Components;
 using Robust.Shared.Random;
 
-namespace Content.Shared._DV.Weapons.Ranged.Systems;
+namespace Content.Server._DV.Weapons.Ranged.Systems;
 
 public sealed class ChanceGunSystem : EntitySystem
 {
