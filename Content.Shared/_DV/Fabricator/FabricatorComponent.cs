@@ -43,19 +43,16 @@ public sealed partial class FabricatorComponent : Component
     [DataField]
     public string ContainerId = "fabricator_entity_container";
 
-    [DataField, AutoNetworkedField, AutoPausedField]
+    [ViewVariables, AutoNetworkedField, AutoPausedField]
     public TimeSpan EndTime;
 
-    [DataField]
+    [ViewVariables]
     public EntityUid? SoundStream;
-
-    [DataField]
-    public EntityUid? SoundStreamClient;
 
     [ViewVariables]
     public Container Storage = default!;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool FabRunning = false;
 
     [ViewVariables]
