@@ -37,17 +37,18 @@
     back:
     - Flash
 
-# TODO
-#- type: chameleonOutfit
-#  id: WardenChameleonOutfit
-#  job: Warden
-#  hasMindShield: true
-#  equipment:
-#    head: ClothingHeadHatWarden
-#    mask: ClothingMaskGasSecurity
-#    outerClothing: ClothingOuterCoatWarden
-#    jumpsuit: ClothingUniformJumpsuitWarden
-#    neck: Dinkystar
-#    belt: ClothingBeltSecurity
-#    gloves: ClothingHandsGlovesCombat
-#    shoes: ClothingShoesBootsJack
+- type: chameleonOutfit
+  id: ArmorerChameleonOutfit
+  job: Armorer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatSecsoft
+    mask: ClothingMaskGasSecurity
+    outerClothing: ClothingOuterArmorPlateCarrier
+    jumpsuit: ClothingUniformJumpsuitSecSenior
+    neck: Dinkystar
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack
+    id: ArmorerPDA
+    ears: ClothingHeadsetSecurity
