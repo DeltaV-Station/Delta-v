@@ -1,7 +1,7 @@
 - type: job
   id: Armorer
-  name: job-name-warden
-  description: job-description-warden
+  name: job-name-armorer
+  description: job-description-armorer
   playTimeTracker: JobArmorer
   requirements:
   - !type:RoleTimeRequirement
@@ -11,7 +11,7 @@
     department: Security
     time: 10h
   weight: 5
-  #startingGear: ArmorerGear # Bypass ChameleonJobLoadoutTest
+  startingGear: ArmorerGear
   icon: "JobIconWarden"
   requireAdminNotify: true
   supervisors: job-supervisors-hos
