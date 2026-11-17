@@ -22,7 +22,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private readonly ChatUIController _chatController;
-    private readonly ProtoId<TypingIndicatorPrototype> _typingIndicatorProto = "aac";
+    private readonly ProtoId<TypingIndicatorPrototype> _typingIndicatorProto = "pda";
 
     private int _maxNameLength;
     private int _maxIdJobLength;
@@ -122,7 +122,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
                 CharacterCount.StyleClasses.Add("LabelDanger");
             }
         };
-        MessageInput.OnFocusEnter += _ => UpdateTypingIndicator();
+        MessageInput.OnFocusEnter += _ => ShowTypingIndicator();
         MessageInput.OnTextChanged += _ => UpdateTypingIndicator();
         MessageInput.OnFocusExit += _ => HideTypingIndicator();
 
@@ -232,14 +232,16 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         // Clear input
         MessageInput.Text = string.Empty;
         SendButton.Disabled = true;
+    }
 
-        // Hide indicator until the textbox updates again
-        HideTypingIndicator();
+    private void ShowTypingIndicator()
+    {
+        _chatController.NotifyChatFocus(true);
+        UpdateTypingIndicator();
     }
 
     private void UpdateTypingIndicator()
     {
-        // this also shows the indicator if it's not already showing
         _chatController.NotifySpecificIndicatorChatChange(_typingIndicatorProto);
     }
 
