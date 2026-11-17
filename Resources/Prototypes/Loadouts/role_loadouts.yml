@@ -418,25 +418,27 @@
   - SecurityAllAmmo # DeltaV - loadouts
   - SecurityUtility # DeltaV - loadouts
 
-- type: roleLoadout
-  id: JobWarden
-  groups:
-  - WardenHead
-  - SecurityNeck # DeltaV
-  - WardenJumpsuit
-  - SecurityBackpack
-  - SecurityBelt
-  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
-  - SecurityGloves # DeltaV - Security can start with gloves
-  - SecurityShoes
-  - SecurityEyewear # DeltaV - Security eyewear with prescription options
-  - SurvivalSecurity
-  - Trinkets
-  - WardenJobTrinkets
-  - GroupSpeciesBreathToolSecurity
-  - SecurityAllFirearm # DeltaV - loadouts
-  - SecurityAllAmmo # DeltaV - loadouts
-  - SecurityUtility # DeltaV - loadouts
+# DeltaV - warden moved to justce and armorer
+#- type: roleLoadout
+#  id: JobWarden
+#  groups:
+#  - WardenHead
+#  - SecurityNeck # DeltaV
+#  - WardenJumpsuit
+#  - SecurityBackpack
+#  - SecurityBelt
+#  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
+#  - SecurityGloves # DeltaV - Security can start with gloves
+#  - SecurityShoes
+#  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+#  - SurvivalSecurity
+#  - Trinkets
+#  - WardenJobTrinkets
+#  - GroupSpeciesBreathToolSecurity
+#  - SecurityAllFirearm # DeltaV - loadouts
+#  - SecurityAllAmmo # DeltaV - loadouts
+#  - SecurityUtility # DeltaV - loadouts
+# DeltaV end
 
 - type: roleLoadout
   id: JobSecurityOfficer

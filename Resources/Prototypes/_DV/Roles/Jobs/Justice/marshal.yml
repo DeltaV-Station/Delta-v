@@ -3,7 +3,6 @@
   name: job-name-marshal
   description: job-description-marshal
   playTimeTracker: JobMarshal
-  setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 20h
@@ -13,12 +12,11 @@
   - !type:DepartmentTimeRequirement
     department: Justice
     time: 10h
-  #startingGear: MarshalGear # Bypass ChameleonJobLoadoutTest
+  startingGear: MarshalGear
   alwaysUseSpawner: true
   canBeAntag: false
   icon: "JobIconClerk"
   supervisors: job-supervisors-warden
-  setPreference: true
   whitelisted: true
   access:
   - Justice
@@ -29,13 +27,13 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-    # TODO: custom PDA and clothing
+# TODO: custom PDA and clothing
 - type: startingGear
   id: MarshalGear
   equipment:
     id: PrisonGuardPDA
     ears: ClothingHeadsetJustice
-    belt: ClothingBeltSecurity
+    belt: ClothingBeltSecurityFilled
   storage:
     back:
     - Flash
@@ -51,5 +49,6 @@
     ears: ClothingHeadsetJustice
     head: ClothingHeadPrisonGuard
     jumpsuit: ClothingUniformJumpsuitPrisonGuard
-    mask: ClothingMaskGasSecurity
+    mask: ClothingMaskGas
     gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsJack

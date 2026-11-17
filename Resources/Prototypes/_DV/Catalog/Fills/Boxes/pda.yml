@@ -9,8 +9,8 @@
       storagebase: !type:AllSelector
         children:
         - id: SecurityPDA
-        - id: DetectivePDA
-        - id: WardenPDA
+        - id: CorpsmanPDA
+        - id: ArmorerPDA
         - id: SeniorOfficerPDA
 
 - type: entity
@@ -98,4 +98,6 @@
         - id: LawyerPDA
           amount: 2
         - id: ProsecutorPDA
-        - id: ClerkPDA
+        - id: JusticeWardenPDA
+        - id: DetectivePDA
+        - id: MarshalPDA

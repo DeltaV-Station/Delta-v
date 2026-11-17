@@ -94,7 +94,7 @@
       department: Security
       time: 20h
     - !type:RoleTimeRequirement
-      role: JobWarden
+      role: JobArmorer # DV - warden changed to armorer
       time: 10h
     - !type:DepartmentTimeRequirement
       department: Command

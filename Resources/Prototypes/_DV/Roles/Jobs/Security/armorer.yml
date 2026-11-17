@@ -3,7 +3,6 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobArmorer
-  setPreference: false
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
@@ -23,7 +22,6 @@
   - Armory
   - Maintenance
   - External
-  - Detective
   - Cryogenics
 
   special:

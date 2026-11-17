@@ -1,36 +1,37 @@
-- type: job
-  id: Warden
-  name: job-name-warden
-  description: job-description-warden
-  playTimeTracker: JobWarden
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10h
-  weight: 5
-  startingGear: WardenGear
-  icon: "JobIconWarden"
-  requireAdminNotify: true # DeltaV
-  supervisors: job-supervisors-hos
-  canBeAntag: false
-  whitelisted: true # DeltaV
-  access:
-  - Security
-  #- Brig # DeltaV - Removed brig access
-  - Armory
-  - Maintenance
-  - External
-  - Detective
-  - Cryogenics
-  - Corpsman # DeltaV - Warden requires access to the treatment of their prisoners.
-  - GenpopEnter
-  - GenpopLeave
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+# DeltaV - moved to justice dept
+#- type: job
+#  id: Warden
+#  name: job-name-warden
+#  description: job-description-warden
+#  playTimeTracker: JobWarden
+#  requirements:
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityOfficer
+#      time: 5h
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 10h
+#  weight: 5
+#  startingGear: WardenGear
+#  icon: "JobIconWarden"
+#  requireAdminNotify: true # DeltaV
+#  supervisors: job-supervisors-hos
+#  canBeAntag: false
+#  whitelisted: true # DeltaV
+#  access:
+#  - Security
+#  #- Brig # DeltaV - Removed brig access
+#  - Armory
+#  - Maintenance
+#  - External
+#  - Detective
+#  - Cryogenics
+#  - Corpsman # DeltaV - Warden requires access to the treatment of their prisoners.
+#  - GenpopEnter
+#  - GenpopLeave
+#  special:
+#  - !type:AddImplantSpecial
+#    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: WardenGear
