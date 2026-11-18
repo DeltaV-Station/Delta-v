@@ -13,9 +13,10 @@
   recognizable: false #doing this so it wouldn't say red paint upon first inspection, but it wouldn't say blood either
   standsout: true #necessary to make it appear opaque and identical to blood
   physicalDesc: reagent-physical-desc-ferrous
-  Digestion:
-    effects:
-    - !type:SatiateThirst
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
         factor: -1.0
   footstepSound:
     collection: FootstepBlood
