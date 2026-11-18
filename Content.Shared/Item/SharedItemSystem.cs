@@ -10,24 +10,15 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-// Begin Delta-V
-using Content.Shared._DV.Psionics.Events;
-using Content.Shared._DV.Throwing;
-using Content.Shared.Hands.Components;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Throwing;
-using Content.Shared.StatusEffectNew;
-// End Delta-V
+using Content.Shared._DV.Psionics.Events; // Delta-V - Telekinesis
 
 namespace Content.Shared.Item;
 
-public abstract class SharedItemSystem : EntitySystem
+public abstract partial class SharedItemSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!; // Delta-V
-    [Dependency] private readonly StatusEffectsSystem _status = default!; // Delta-V
 
     public override void Initialize()
     {
@@ -40,7 +31,7 @@ public abstract class SharedItemSystem : EntitySystem
 
         SubscribeLocalEvent<ItemToggleSizeComponent, ItemToggledEvent>(OnItemToggle);
 
-        SubscribeLocalEvent<ItemComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V
+        SubscribeLocalEvent<ItemComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V - Telekinesis
     }
 
     private void OnItemAutoState(EntityUid uid, ItemComponent component, ref AfterAutoHandleStateEvent args)
@@ -297,22 +288,5 @@ public abstract class SharedItemSystem : EntitySystem
                 SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.DeactivatedSize, item);
             }
         }
-    }
-
-    private void OnTelekinesisUsed(Entity<ItemComponent> ent, ref TelekinesisUsedEvent args) // Delta-V
-    {
-        if (args.Cancelled || !TryComp<HandsComponent>(args.User, out var hands) || !_handsSystem.CanPickupAnyHand(args.User, ent.Owner, handsComp: hands, item: ent.Comp))
-            return;
-
-        // Small items get brought into hand.
-        _throwing.TryThrow(args.Target, Transform(args.User).Coordinates);
-        _status.TryAddStatusEffectDuration(args.User, "StatusEffectCatcher", TimeSpan.FromSeconds(2.5));
-        if (_status.TryEffectsWithComp<CatcherStatusEffectComponent>(args.User, out var statuses))
-        {
-            foreach (var status in statuses)
-                status.Comp1.Catchable.Add(args.Target);
-        }
-
-        args.Cancel();
     }
 }

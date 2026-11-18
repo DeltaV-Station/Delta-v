@@ -8,7 +8,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed class SignalSwitchSystem : EntitySystem
+public sealed partial class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -21,7 +21,7 @@ public sealed class SignalSwitchSystem : EntitySystem
         SubscribeLocalEvent<SignalSwitchComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SignalSwitchComponent, ActivateInWorldEvent>(OnActivated);
 
-        SubscribeLocalEvent<SignalSwitchComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V
+        SubscribeLocalEvent<SignalSwitchComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V - Telekinesis
     }
 
     private void OnInit(EntityUid uid, SignalSwitchComponent comp, ComponentInit args)
@@ -34,36 +34,20 @@ public sealed class SignalSwitchSystem : EntitySystem
         if (args.Handled || !args.Complex)
             return;
 
-        Activate((uid, comp));
-
-        args.Handled = true;
-    }
-
-    private void OnTelekinesisUsed(Entity<SignalSwitchComponent> ent, ref TelekinesisUsedEvent args) // Delta-V
-    {
-        if (args.Cancelled)
+        if (_lock.IsLocked(uid))
             return;
 
-        Activate(ent);
-
-        args.Cancel();
-    }
-
-    private void Activate(Entity<SignalSwitchComponent> ent) // Delta-V, isolated this from OnActivated
-    {
-
-        if (_lock.IsLocked(ent.Owner))
-            return;
-
-        ent.Comp.State = !ent.Comp.State;
-        _deviceLink.InvokePort(ent.Owner, ent.Comp.State ? ent.Comp.OnPort : ent.Comp.OffPort);
+        comp.State = !comp.State;
+        _deviceLink.InvokePort(uid, comp.State ? comp.OnPort : comp.OffPort);
 
         // only send status if it's a toggle switch and not a button
-        if (ent.Comp.OnPort != ent.Comp.OffPort)
+        if (comp.OnPort != comp.OffPort)
         {
-            _deviceLink.SendSignal(ent.Owner, ent.Comp.StatusPort, ent.Comp.State);
+            _deviceLink.SendSignal(uid, comp.StatusPort, comp.State);
         }
 
-        _audio.PlayPvs(ent.Comp.ClickSound, ent.Owner, AudioParams.Default.WithVariation(0.125f).WithVolume(8f));
+        _audio.PlayPvs(comp.ClickSound, uid, AudioParams.Default.WithVariation(0.125f).WithVolume(8f));
+
+        args.Handled = true;
     }
 }

@@ -1,4 +1,4 @@
-using Content.Shared._DV.Psionics.Events; // Delta-V
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.DeviceLinking.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.DeviceLinking.Systems
 {
-    public sealed class TwoWayLeverSystem : EntitySystem
+    public sealed partial class TwoWayLeverSystem : EntitySystem
     {
         [Dependency] private readonly SharedDeviceLinkSystem _signalSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -115,21 +115,6 @@ namespace Content.Shared.DeviceLinking.Systems
 
             Dirty(uid, component);
             _signalSystem.InvokePort(uid, port);
-        }
-
-        private void OnTelekinesisUsed(Entity<TwoWayLeverComponent> ent, ref TelekinesisUsedEvent args) // Delta-V
-        {
-
-            ent.Comp.State = ent.Comp.State switch
-            {
-                TwoWayLeverState.Middle => ent.Comp.NextSignalLeft ? TwoWayLeverState.Left : TwoWayLeverState.Right,
-                TwoWayLeverState.Right => TwoWayLeverState.Middle,
-                TwoWayLeverState.Left => TwoWayLeverState.Middle,
-                _ => throw new ArgumentOutOfRangeException()
-            };
-
-            StateChanged(ent.Owner, ent.Comp);
-            args.Cancel();
         }
     }
 }

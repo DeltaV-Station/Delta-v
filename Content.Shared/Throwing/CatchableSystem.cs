@@ -9,8 +9,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared._DV.Throwing; // Delta-V - Telekinesis
-using Content.Shared.StatusEffectNew; // Delta-V - Telekinesis
+// Begin Delta-V
+using Content.Shared._DV.Throwing;
+using Content.Shared.StatusEffectNew;
+// End Delta-V
 
 namespace Content.Shared.Throwing;
 
@@ -40,64 +42,45 @@ public sealed partial class CatchableSystem : EntitySystem
 
     private void OnDoHit(Entity<CatchableComponent> ent, ref ThrowDoHitEvent args)
     {
+        if (!_handsQuery.TryGetComponent(args.Target, out var handsComp))
+            return; // don't do anything for walls etc
+
         // Is the catcher in combat mode if required?
         if (ent.Comp.RequireCombatMode && (!_combatModeQuery.TryComp(args.Target, out var combatModeComp) || !combatModeComp.IsInCombatMode))
             return;
+
         // Is the catcher able to catch this item?
         if (!_whitelist.IsWhitelistPassOrNull(ent.Comp.CatcherWhitelist, args.Target))
             return;
 
-        if (!TryCatch(args.Target, ent, ent.Comp.CatchChance)) // Delta-V - Telekinesis
-            return;
-
-        _audio.PlayPvs(ent.Comp.CatchSuccessSound, ent.Owner);
-        args.Handled = true;
-    }
-
-    private void OnGotHit(Entity<CatcherStatusEffectComponent> ent, ref StatusEffectRelayedEvent<ThrowHitByEvent> args)  // Delta-V - Telekinesis
-    {
-        if (!ent.Comp.Catchable.Contains(args.Args.Thrown))
-            return;
-
-        if (TryCatch(args.Args.Target, args.Args.Thrown, ent.Comp.CatchRate))
-            args.Args.Handled = true;
-    }
-
-    private bool TryCatch(EntityUid catcher, EntityUid caught, float catchChance) // Delta-V - Telekinesis - Isolated this into a function
-    {
-        if (!_handsQuery.TryGetComponent(catcher, out var handsComp))
-            return false; // don't do anything for walls etc
-
-        var attemptEv = new CatchAttemptEvent(caught, catchChance);
-        RaiseLocalEvent(catcher, ref attemptEv);
+        var attemptEv = new CatchAttemptEvent(ent.Owner, ent.Comp.CatchChance);
+        RaiseLocalEvent(args.Target, ref attemptEv);
 
         if (attemptEv.Cancelled)
-            return false;
+            return;
 
-        if (!SharedRandomExtensions.PredictedProb(_timing, catchChance, GetNetEntity(caught)))
-            return false;
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.CatchChance, GetNetEntity(ent)))
+            return;
 
         // Try to catch!
-        if (!_hands.TryPickupAnyHand(catcher, caught, handsComp: handsComp, animate: false))
-            return false; // The hands are full!
+        if (!_hands.TryPickupAnyHand(args.Target, ent.Owner, handsComp: handsComp, animate: false))
+            return; // The hands are full!
 
         // Success!
 
         // We picked it up already but we still have to raise the throwing stop (but not the landing) events at the right time,
         // otherwise it will raise the events for that later while still in your hand
-        if (TryComp<ThrownItemComponent>(caught, out var thrown))
-            _thrown.StopThrow(caught, thrown);
+        _thrown.StopThrow(ent.Owner, args.Component);
 
         // Collisions don't work properly with PopupPredicted or PlayPredicted.
         // So we make this server only.
         if (_net.IsClient)
-        {
-            var selfMessage = Loc.GetString("catchable-component-success-self", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
-            var othersMessage = Loc.GetString("catchable-component-success-others", ("item", caught), ("catcher", Identity.Entity(catcher, EntityManager)));
-            _popup.PopupEntity(selfMessage, catcher, catcher);
-            _popup.PopupEntity(othersMessage, catcher, Filter.PvsExcept(catcher), true);
-        }
+            return;
 
-        return true;
+        var selfMessage = Loc.GetString("catchable-component-success-self", ("item", ent.Owner), ("catcher", Identity.Entity(args.Target, EntityManager)));
+        var othersMessage = Loc.GetString("catchable-component-success-others", ("item", ent.Owner), ("catcher", Identity.Entity(args.Target, EntityManager)));
+        _popup.PopupEntity(selfMessage, args.Target, args.Target);
+        _popup.PopupEntity(othersMessage, args.Target, Filter.PvsExcept(args.Target), true);
+        _audio.PlayPvs(ent.Comp.CatchSuccessSound, args.Target);
     }
 }

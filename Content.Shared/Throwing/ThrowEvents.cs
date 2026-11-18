@@ -12,28 +12,14 @@ public readonly record struct ThrowEvent(EntityUid? User, EntityUid Thrown);
 [ByRefEvent]
 public readonly record struct ThrownEvent(EntityUid? User, EntityUid Thrown);
 
-/// <summary>
-/// Raised directed on the target entity being hit by the thrown entity.
-/// </summary>
-[ByRefEvent]
-public sealed class ThrowHitByEvent(EntityUid thrown, EntityUid target, ThrownItemComponent component) : HandledEntityEventArgs // Delta-V
-{
-    public EntityUid Thrown = thrown;
+// /// <summary>
+// /// Raised directed on the target entity being hit by the thrown entity.
+// /// </summary>
+// [ByRefEvent]
+// public readonly record struct ThrowHitByEvent(EntityUid Thrown, EntityUid Target, ThrownItemComponent Component); // Delta-V - Replaced these with handleable events in _DV namespace.
 
-    public EntityUid Target = target;
-
-    public ThrownItemComponent Component = component;
-}
-
-/// <summary>
-/// Raised directed on the thrown entity that hits another.
-/// </summary>
-[ByRefEvent]
-public sealed class ThrowDoHitEvent(EntityUid thrown, EntityUid target, ThrownItemComponent component) : HandledEntityEventArgs // Delta-V
-{
-    public EntityUid Thrown = thrown;
-
-    public EntityUid Target = target;
-
-    public ThrownItemComponent Component = component;
-}
+// /// <summary>
+// /// Raised directed on the thrown entity that hits another.
+// /// </summary>
+// [ByRefEvent]
+// public readonly record struct ThrowDoHitEvent(EntityUid Thrown, EntityUid Target, ThrownItemComponent Component); // Delta-V - Replaced these with handleable events in _DV namespace.
