@@ -25,3 +25,5 @@ uplink-rocketinc-desc = A box containing 3 incendiary rockets compatible with th
 uplink-rocketcon-name = Leviathan concussion rocket bundle
 uplink-rocketcon-desc = A box containing 3 concussion rockets compatible with the Leviathan.
 
+uplink-murderscenebundle-name = Murder Scene Bundle
+uplink-murderscenebundle-desc = Everything you need to create a convincing murder scene, includes six dead crew balloons, convincing fake blood, and bullet casings!

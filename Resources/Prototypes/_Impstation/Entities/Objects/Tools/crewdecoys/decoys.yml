@@ -1,0 +1,155 @@
+# Crew hardsuit balloons for when you need to fake some crime scenes.
+
+- type: entity
+  parent: [BaseItem, BaseFoldable]
+  id: BaseCrewDecoy
+  abstract: true
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: _impstation/Objects/Tools/DecoysCrew/emergency_decoy.rsi
+    layers:
+    - state: oballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/pop_high.ogg
+  - type: Appearance
+  - type: Item
+    size: Normal
+  - type: RandomMetadata #random human names
+    nameSegments:
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-nukie-generic
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  - type: Foldable
+    folded: true
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium #the original decoy kit provides 5 decoys all with high-caps, nerfing this so it can be cheaper on TC
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: HandheldLight
+    addPrefix: false
+  - type: PointLight #simulates PDA light
+    enabled: false
+    radius: 1.7
+    falloff: 3
+    softness: 5
+    autoRot: true
+    netsync: false
+  - type: Tag
+    tags:
+    - Balloon
+    - Flashlight
+
+- type: entity
+  parent: BaseCrewDecoy
+  id: BalloonCrewEngineer
+  name: dead engineer balloon
+  description: Upon closer inspection, this station engineer is actually a balloon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/DecoysCrew/engineer_decoy.rsi
+    layers:
+    - state: crewengineerballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BaseCrewDecoy
+  id: BalloonCrewEmergency
+  name: dead emergency eva balloon
+  description: Upon closer inspection, this person is actually a balloon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/DecoysCrew/emergency_decoy.rsi
+    layers:
+    - state: crewemergencyballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BaseCrewDecoy
+  id: BalloonCrewParamedic
+  name: dead paramedic balloon
+  description: Upon closer inspection, this paramedic is actually a balloon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/DecoysCrew/paramedic_decoy.rsi
+    layers:
+    - state: crewparamedicballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BaseCrewDecoy
+  id: BalloonCrewCaptain
+  name: dead captain balloon
+  description: Upon closer inspection, this captain is actually a balloon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/DecoysCrew/captain_decoy.rsi
+    layers:
+    - state: crewcaptainballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BaseCrewDecoy
+  id: BalloonCrewSalvage
+  name: dead salvage specialist balloon
+  description: Upon closer inspection, this salvage specialist is actually a balloon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/DecoysCrew/salvager_decoy.rsi
+    layers:
+    - state: crewsalvageballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BaseCrewDecoy
+  id: BalloonCrewSecurity
+  name: dead security balloon
+  description: Upon closer inspection, this security officer is actually a balloon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/DecoysCrew/security_decoy.rsi
+    layers:
+    - state: crewsecurityballoon
+      map: ["unfoldedLayer"]
+    - state: folded
+      map: ["foldedLayer"]
+      visible: false
