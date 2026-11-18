@@ -23,6 +23,9 @@ public sealed class DiscouragedWriterSystem : EntitySystem
 
     private void OnPaperWriteAttempt(Entity<DiscouragedWriterComponent> writer, ref PaperWriteAttemptEvent args)
     {
+        if (args.IsSavingText) // Saving text after opening the UI calls the same event.
+            return;
+
         args.Cancelled |= !CanWrite(writer, out var failReason);
         if (failReason != null)
             args.FailReason = failReason;
