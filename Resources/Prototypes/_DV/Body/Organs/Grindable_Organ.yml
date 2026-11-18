@@ -1,0 +1,55 @@
+﻿- type: entity
+  id: OrganGrindable
+  name: OrganGrindable
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+        maxVol: 15
+        reagents:
+          - ReagentId: Protein
+            Quantity: 15
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableBrain
+  name: GrindableBrain
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+        maxVol: 20
+        reagents:
+          - ReagentId: Protein
+            Quantity: 15
+          - ReagentId: GreyMatter
+            Quantity: 5
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableEyes
+  name: OrganGrindableEyes
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+         maxVol: 7
+         reagents:
+           - ReagentId: Water
+             Quantity: 3
+           - ReagentId: Blood
+             Quantity: 2
+           - ReagentId: Protein
+             Quantity: 2
+- type: entity
+  parent: OrganGrindable
+  id: OrganGrindableHeart
+  name: GrindableHeart
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+        maxVol: 20
+        reagents:
+          - ReagentId: Blood
+            Quantity: 8
+          - ReagentId: Protein
+            Quantity: 12
