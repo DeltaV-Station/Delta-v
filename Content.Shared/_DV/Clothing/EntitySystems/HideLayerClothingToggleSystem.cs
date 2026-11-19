@@ -1,6 +1,5 @@
 using Content.Shared._DV.Clothing.Components;
 using Content.Shared._DV.Clothing.Events;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
@@ -36,10 +35,10 @@ public sealed class HideLayerClothingToggleSystem : EntitySystem
         args.Verbs.Add(new AlternativeVerb
         {
             Text = ent.Comp.HideLayers ? "Show hair" : "Hide hair",
-            Act = () => ToggleHideLayers(ent),
+            Act = () => SetHideLayers(ent, !ent.Comp.HideLayers),
             Disabled = verbDisabled,
             Message = verbDisabled ? "Unequip to change" : null,
-            Priority = -1,
+            Priority = -1, // so that alt click works as before (mostly the justice helmet's power cell eject)
         });
     }
 
@@ -48,10 +47,5 @@ public sealed class HideLayerClothingToggleSystem : EntitySystem
     {
         ent.Comp.HideLayers = state;
         Dirty(ent);
-    }
-
-    private void ToggleHideLayers(Entity<HideLayerClothingToggleComponent> ent)
-    {
-        SetHideLayers(ent, !ent.Comp.HideLayers);
     }
 }
