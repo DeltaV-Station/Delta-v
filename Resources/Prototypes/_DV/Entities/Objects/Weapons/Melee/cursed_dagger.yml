@@ -1,0 +1,57 @@
+- type: entity
+  parent: KitchenKnife
+  id: CursedDagger
+  name: cursed knife
+  description: An unassuming bread knife. You feel something evil eminating from it...
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/prison_knife.rsi
+    #layers:
+    #- state: e_sword
+    #- state: e_sword_blade
+    #  color: "#FFFFFF"
+    #  visible: false
+    #  shader: unshaded
+    #  map: [ "blade" ]
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/prison_knife.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 6
+  - type: CursedDagger
+    adrenalinePerHit: 10
+    adrenalineFallAmount: 5
+    adrenalineTierTwo: 50
+    adrenalineTierThree: 80
+    tierOneDamage:
+      types:
+        Slash: 6
+    tierTwoDamage:
+      types:
+        Slash: 10
+        Soul: 6
+    tierThreeDamage:
+      types:
+        Slash: 15
+        Soul: 10
+    speedBoost: 1.2
+    tierTwoReflect: 0.15
+    tierThreeReflect: 0.35
+  - type: ItemToggle
+    onUse: false 
+    onActivate: false 
+  - type: ItemToggleSize
+    activatedSize: Ginormous
+  - type: HeldSpeedModifier 
+    walkModifier: 1
+    sprintModifier: 1 
+  - type: DisarmMalus
+    malus: 0.8
+  - type: Reflect 
+    reflectProb: .15 
+    spread: 30 
+    reflects:
+    - Energy
+    - NonEnergy
