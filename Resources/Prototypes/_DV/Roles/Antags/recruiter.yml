@@ -4,11 +4,9 @@
   objective: roles-antag-syndicate-recruiter-objective
   antagonist: false # you ask questions and write papers not kill people
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 24h
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 1h
+    time: 2h
 
 - type: startingGear
   id: SyndicateRecruiterGear

@@ -4,11 +4,9 @@
   description: job-description-prosecutor
   playTimeTracker: JobProsecutor
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10h
     - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
       department: Security
-      time: 6h
+      time: 4h
   startingGear: ProsecutorGear
   icon: "JobIconProsecutor"
   supervisors: job-supervisors-cj

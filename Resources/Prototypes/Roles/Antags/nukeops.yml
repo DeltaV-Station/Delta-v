@@ -6,7 +6,7 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 30h # DeltaV - was 5h
+    time: 5h
   - !type:DepartmentTimeRequirement # DeltaV - engi dept time requirement
     department: Engineering
     time: 2h
@@ -15,7 +15,7 @@
     time: 2h
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
-    time: 10h
+    time: 2h
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -26,7 +26,7 @@
   objective: roles-antag-nuclear-operative-corpsman-objective # DeltaV
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 30h # DeltaV - was 5h
+    time: 5h
   - !type:RoleTimeRequirement # Delta V - they should be able to make basic chems
     role: JobChemist
     time: 4h # DeltaV
@@ -41,7 +41,7 @@
   guides: [ NuclearOperatives ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 60h # DeltaV - was 5h
+    time: 5h
   - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
     department: Security
     time: 10h # DeltaV - was 5h

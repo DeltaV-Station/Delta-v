@@ -11,15 +11,15 @@
   setPreference: true
   objective: roles-antag-devil-description
   guides: [ Devil ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 30h
-  - !type:DepartmentTimeRequirement
-    department: Command
-    time: 5h
+  requirements: #Delta V - adjusting required playtime
+#  - !type:OverallPlaytimeRequirement
+#    time: 10h
+#  - !type:DepartmentTimeRequirement
+#    department: Command
+#    time: 5h
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 1h
+    time: 2h
 
 - type: startingGear
   id: DevilStartingGear

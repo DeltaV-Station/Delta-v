@@ -4,11 +4,9 @@
   objective: roles-antag-roboneuroticist-objective
   antagonist: true # making evil borgs
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 48h
   - !type:RoleTimeRequirement
     role: JobRoboticist
-    time: 2h
+    time: 4h
 
 - type: startingGear
   id: RoboNeuroticistGear
