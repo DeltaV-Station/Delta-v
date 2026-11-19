@@ -1,3 +1,4 @@
+using Content.Shared._DV.Clothing.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -39,6 +40,16 @@ public sealed class HideLayerClothingSystem : EntitySystem
         Entity<HideableHumanoidLayersComponent?> user,
         bool hideLayers)
     {
+        // Begin DeltaV - let layer hiding be cancelled
+        if (hideLayers)
+        {
+            var ev = new ClothingHideLayerAttemptEvent();
+            RaiseLocalEvent(clothing, ev);
+            if (ev.Cancelled)
+                return;
+        }
+        // End DeltaV - let layer hiding be cancelled
+
         if (_timing.ApplyingState)
             return;
 
