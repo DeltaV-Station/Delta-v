@@ -31,8 +31,6 @@
     role: JobBorg
     time: 5h
   # Begin DeltaV Additions
-  - !type:OverallPlaytimeRequirement
-    time: 10h
   - !type:DepartmentTimeRequirement
     department: Engineering
     time: 2h

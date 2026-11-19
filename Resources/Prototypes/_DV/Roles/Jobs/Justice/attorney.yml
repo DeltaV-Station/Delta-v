@@ -6,11 +6,9 @@
   playTimeTracker: JobAttorney
   canBeAntag: false
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 8h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 4h
+    time: 2h
   #startingGear: AttorneyGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj
