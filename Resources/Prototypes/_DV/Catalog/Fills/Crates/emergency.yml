@@ -1,0 +1,13 @@
+﻿- type: entity
+  parent: CrateInternals
+  id: CrateDoubleEmergencyTankUniversal
+  name: universal double emergency tank crate
+  description: Contains one of each double emergency tank.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled
+        - id: DoubleEmergencyWaterVaporTankFilled
