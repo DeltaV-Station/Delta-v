@@ -5,13 +5,13 @@
   objective: roles-antag-listening-post-objective
   requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
   - !type:OverallPlaytimeRequirement
-    time: 72h
+    time: 10h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 11.1h
+    time: 2h
   - !type:DepartmentTimeRequirement
     department: Civilian
-    time: 11.1h
+    time: 2h
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 11.1h
+    time: 2h

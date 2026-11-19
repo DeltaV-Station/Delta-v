@@ -5,13 +5,13 @@
   antagonist: true # Trading guns for your benefit and watch the chaos commence
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 48h
+    time: 10h
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
-    time: 12h
+    time: 2h
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 12h
+    time: 2h
 
 - type: startingGear
   id: SyndicateArmsdealerGear

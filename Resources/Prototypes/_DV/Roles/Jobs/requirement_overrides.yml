@@ -10,7 +10,7 @@
       time: 1h
     Boxer:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 1h
     Chef:
     - !type:DepartmentTimeRequirement
       department: Civilian
@@ -26,13 +26,13 @@
       time: 2h
     Musician:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 1h
     Reporter:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 1h
     Zookeeper:
     - !type:OverallPlaytimeRequirement
-      time: 2h
+      time: 1h
 
     # Command
     Captain:
@@ -57,10 +57,10 @@
     ChiefEngineer:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 20h
+      time: 10h
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 30h
+      time: 20h
     ChiefMedicalOfficer:
     - !type:RoleTimeRequirement
       role: JobChemist
@@ -70,10 +70,10 @@
     #  time: 3h
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 12h
+      time: 6h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 35h
+      time: 20h
     HeadOfPersonnel:
     - !type:RoleTimeRequirement
       role: JobChef
@@ -86,9 +86,9 @@
       time: 4h
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 20h
+      time: 10h
     - !type:OverallPlaytimeRequirement
-      time: 25h
+      time: 12h
     HeadOfSecurity:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -107,7 +107,20 @@
       time: 2h
     - !type:DepartmentTimeRequirement
       department: Epistemics
-      time: 25h
+      time: 20h
+    Quartermaster: # (LO)
+    - !type:RoleTimeRequirement
+      role: JobCargoTechnician
+      time: 6h
+    - !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 3h
+    - !type:RoleTimeRequirement
+      role: JobCourier
+      time: 2h
+    - !type:DepartmentTimeRequirement
+      department: Logistics
+      time: 20h
 
     # Engineering
     AtmosphericTechnician:
@@ -126,35 +139,14 @@
     ResearchAssistant:
     - !type:OverallPlaytimeRequirement
       time: 1h
-    Scientist:
-    - !type:DepartmentTimeRequirement
-      department: Epistemics
-      time: 4h
 
     # Justice
     Lawyer: # (Attorney)
-    - !type:OverallPlaytimeRequirement
-      time: 10h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 4h
+      time: 2h
 
     # Logistics
-    Quartermaster: # (LO)
-    - !type:RoleTimeRequirement
-      role: JobCargoTechnician
-      time: 6h
-    - !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
-      time: 3h
-    - !type:RoleTimeRequirement
-      role: JobCourier
-      time: 2h
-    - !type:DepartmentTimeRequirement
-      department: Logistics
-      time: 25h
-    - !type:OverallPlaytimeRequirement
-      time: 40h
     SalvageSpecialist:
     - !type:DepartmentTimeRequirement
       department: Logistics
@@ -168,24 +160,21 @@
     Chemist:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 8h
+      time: 6h
     MedicalIntern:
     - !type:OverallPlaytimeRequirement
       time: 1h
     Paramedic:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 8h
+      time: 6h
     Psychologist:
     - !type:OverallPlaytimeRequirement
-      time: 10h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 4h
+      time: 1h
     MedicalDoctor:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 7h
+      time: 4h
 
     # Security
     Detective:
@@ -194,7 +183,7 @@
       time: 6h
     SecurityCadet:
     - !type:OverallPlaytimeRequirement
-      time: 6h
+      time: 4h
     SecurityOfficer:
     - !type:DepartmentTimeRequirement
       department: Security

@@ -7,10 +7,10 @@
   canBeAntag: false
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 10h
+    time: 8h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 6h
+    time: 4h
   #startingGear: AttorneyGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj
