@@ -29,7 +29,7 @@ public sealed partial class BorgSystem
         {
             // DeltaV Begin
             if (!comp.Active)
-                return;
+                continue;
             // DeltaV End
 
             if (comp.NextDisable is { } nextDisable && now >= nextDisable)
