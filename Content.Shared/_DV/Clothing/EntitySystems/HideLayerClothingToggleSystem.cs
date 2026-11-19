@@ -1,5 +1,6 @@
 using Content.Shared._DV.Clothing.Components;
 using Content.Shared._DV.Clothing.Events;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
@@ -38,6 +39,7 @@ public sealed class HideLayerClothingToggleSystem : EntitySystem
             Act = () => ToggleHideLayers(ent),
             Disabled = verbDisabled,
             Message = verbDisabled ? "Unequip to change" : null,
+            Priority = -1,
         });
     }
 
