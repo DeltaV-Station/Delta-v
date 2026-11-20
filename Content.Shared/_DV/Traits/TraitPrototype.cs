@@ -28,6 +28,7 @@ public sealed partial class TraitPrototype : IPrototype
 
     /// <summary>
     /// The category this trait belongs to.
+    /// For sub-traits, they MUST be on the same category to the parent trait.
     /// </summary>
     [DataField(required: true)]
     public ProtoId<TraitCategoryPrototype> Category;
@@ -63,4 +64,10 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public int Priority = 0;
+
+    /// <summary>
+    /// A list of traits (sub-traits) that is related to this trait.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<TraitPrototype>> SubTraits = new();
 }
