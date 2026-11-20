@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public sealed class HideLayerClothingSystem : EntitySystem
+public sealed partial class HideLayerClothingSystem : EntitySystem // DeltaV - partial
 {
     [Dependency] private readonly SharedHideableHumanoidLayersSystem _hideableHumanoidLayers = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -16,6 +16,8 @@ public sealed class HideLayerClothingSystem : EntitySystem
         SubscribeLocalEvent<HideLayerClothingComponent, ClothingGotUnequippedEvent>(OnHideGotUnequipped);
         SubscribeLocalEvent<HideLayerClothingComponent, ClothingGotEquippedEvent>(OnHideGotEquipped);
         SubscribeLocalEvent<HideLayerClothingComponent, ItemMaskToggledEvent>(OnHideToggled);
+
+        InitializeToggle(); // DeltaV - toggle layer hiding
     }
 
     private void OnHideToggled(Entity<HideLayerClothingComponent> ent, ref ItemMaskToggledEvent args)
@@ -47,6 +49,10 @@ public sealed class HideLayerClothingSystem : EntitySystem
 
         // logMissing: false, as this clothing might be getting equipped by a non-human.
         if (!Resolve(user.Owner, ref user.Comp, false))
+            return;
+
+        // DeltaV - let layer hiding be cancelled
+        if (hideLayers && clothing.Comp1.BlockLayerHide)
             return;
 
         hideLayers &= IsEnabled(clothing!);
