@@ -1,0 +1,14 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+            Title="{Loc 'admin-shuttle-title'}"
+            MinWidth="300">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <LineEdit Name="_callShuttleTime" Text="4:00" PlaceHolder="m:ss" HorizontalExpand="True" SizeFlagsStretchRatio="4"/>
+            <Control HorizontalExpand="True" SizeFlagsStretchRatio="1"/>
+            <CheckBox Name="_callShuttleRecallable" Text="{Loc 'admin-shuttle-recallable'}" HorizontalExpand="True" SizeFlagsStretchRatio="4" Pressed="True"/>
+        </BoxContainer>
+        <Button Name="_callShuttleButton" Text="{Loc 'comms-console-menu-call-shuttle'}" HorizontalAlignment="Center"/>
+        <cc:CommandButton Command="recallshuttle" Name="_recallShuttleButton" Text="{Loc 'comms-console-menu-recall-shuttle'}" HorizontalAlignment="Center"/>
+    </BoxContainer>
+</DefaultWindow>
