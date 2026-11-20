@@ -41,7 +41,7 @@
     softness: 1
     offset: "0, -0.5"
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic #Delta-v Changed from Inorganic to StructuralInorganic purely so the hristov can penetrate through.
     damageModifierSet: Metallic
   - type: RCDDeconstructable
     cost: 4
@@ -64,7 +64,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 50 #Delta-v - I HATE YOU INVINCIBLE LIGHT FIXTURE. Reduced from 200 to 50
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -73,7 +73,7 @@
           collection: GlassBreak
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 30 #Delta-v - Changed from 50 to 30.
       behaviors:
       - !type:EmptyAllContainersBehaviour
       - !type:SpawnEntitiesBehavior
@@ -294,13 +294,13 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 100
+          damage: 40 #Delta-v - reduced from 100 to 40
         behaviors: #excess damage, don't spawn entities.
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 25
+          damage: 17 #Delta-v - Reduced from 25 to 17
         behaviors:
         - !type:EmptyAllContainersBehaviour
         - !type:SpawnEntitiesBehavior
