@@ -148,3 +148,18 @@
           amount: 2
         - id: MagazinePistolHighCapacity
           amount: 4
+
+- type: entity
+  parent: CrateWeaponSecure
+  id: CrateArmoryEnergyGunBackpack
+  name: Heavy energy gun crate
+  description: A crate containing a backpack that acts as an external, non-rechargable battery for a special energy gun, allowing it a higher rate of fire along with a higher capacity than handheld models. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingBackpackEnergyBattery
+          amount: 1
+        - id: WeaponEnergyBackpack
+          amount: 1
