@@ -84,6 +84,7 @@
   - type: ItemSlots
     slots:
       beakerSlot:
+        priority: 1  # DeltaV - cryopods now prioritise ejecting the beaker from the pod when alt-clicking instead of ejecting the patient
         whitelist:
           components:
             - FitsInDispenser

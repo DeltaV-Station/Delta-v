@@ -13,6 +13,7 @@ public sealed class MsgJobWhitelist : NetMessage
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         var count = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(count * NetMessageExt.MinSizeOfString); // Delta V - Early merge #46693 security patch
         Whitelist.EnsureCapacity(count);
 
         for (var i = 0; i < count; i++)

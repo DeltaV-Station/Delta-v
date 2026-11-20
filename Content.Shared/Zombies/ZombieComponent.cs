@@ -44,7 +44,7 @@ public sealed partial class ZombieComponent : Component
     };
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ZombieMovementSpeedDebuff = 0.70f;
+    public float ZombieMovementSpeedDebuff = 0.80f; // Delta V - was 0.70f
 
     /// <summary>
     /// The skin color of the zombie

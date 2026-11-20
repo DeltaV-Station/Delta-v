@@ -1,0 +1,85 @@
+- type: entity
+  parent: BaseItem
+  id: BaseMeleeWeaponHardlight # Different to BaseMeleeWeaponEnergy due to hardlight not being hot.
+  abstract: true
+  components:
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ConsumePowerOnHit
+    chargePerHit: 50 # 40 Swings per full charge
+  - type: PryingRequiresPower
+    powerCost: 100 # 2 swings
+  - type: ItemToggle
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_DEN/Effects/holofan_sound_looped.ogg
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: Prying
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+      params:
+        variation: 0.250
+    activatedDamage:
+      types:
+        Slash: 16
+        Structural: 20
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 8
+  - type: Item
+    size: Small
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: '#3F79C1'
+    netsync: false
+  - type: Appearance
+  - type: ToggleableVisuals # Add support for multiple layers
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+
+- type: entity
+  parent: BaseMeleeWeaponHardlight
+  id: HardlightHatchet
+  name: hardlight hatchet
+  description: Nanotrasen's newest attempt to weaponize hardlight, allowing for a flexible, lightweight tool that can tear apart both walls and flesh. With sufficient charge, it's stable enough to pry unpowered airlocks.
+  components:
+  - type: MeleeWeapon
+    swingBeverage: false # Always attack from the left, as the blade faces the right.
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/hardlight_hatchet.rsi
+    layers:
+    - state: base
+    - state: battery
+      shader: unshaded
+    - state: blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: _DV/Objects/Weapons/Melee/hardlight_hatchet.rsi
