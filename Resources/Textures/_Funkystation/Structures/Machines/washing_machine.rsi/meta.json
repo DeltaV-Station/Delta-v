@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "By AraiMaia for Funky Station",
+    "size":
+    {
+        "x": 32,
+        "y": 32
+    },
+    "states":
+    [{
+        "name": "base"
+    },
+    {
+        "name": "empty"
+    },
+    {
+        "name": "door-open"
+    },
+    {
+        "name": "door-closed"
+    },
+    {
+        "name": "full"
+    },
+    {
+        "name": "panel"
+    },
+    {
+        "name": "running",
+        "delays":
+        [
+            [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+            ]
+        ]
+    }]
+    }
