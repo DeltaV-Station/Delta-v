@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: ClothingHeadsetAltLoudspeaker
   id: ClothingHeadsetAltService
   name: head of personnel's over-ear headset
   components:
@@ -15,7 +15,7 @@
     sprite: _DV/Clothing/Ears/Headsets/service.rsi
 
 - type: entity
-  parent: ClothingHeadset
+  parent: ClothingHeadsetAltLoudspeaker
   id: ClothingHeadsetAltJustice
   name: chief justice's headset
   description: The headset used by the chief justice.
@@ -34,7 +34,7 @@
     sprite: _DV/Clothing/Ears/Headsets/justice.rsi
 
 - type: entity
-  parent: ClothingHeadsetAltSyndicate
+  parent: [ ClothingHeadsetAltSyndicate, ClothingHeadsetAltLoudspeaker ]
   id: ClothingHeadsetAltSyndicateListening
   name: blood-red over-ear interception headset
   description: An advanced, modular syndicate interception intercom that fits over the head.
