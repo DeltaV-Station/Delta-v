@@ -235,7 +235,7 @@
       - RFoot
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableBrain] #DeltaV - Added new parent "OrganGrindableBrain"
   id: OrganBaseBrain
   name: brain
   abstract: true
@@ -261,7 +261,7 @@
       Taco: Brain
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableEyes] #DeltaV - Added new parent "OrganGrindableEyes"
   id: OrganBaseEyes
   name: eyes
   abstract: true
@@ -284,7 +284,7 @@
       - Eyes
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseTongue
   name: tongue
   abstract: true
@@ -297,7 +297,7 @@
     - state: tongue
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseAppendix
   name: appendix
   abstract: true
@@ -310,7 +310,7 @@
     - state: appendix
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseEars
   name: ears
   abstract: true
@@ -323,7 +323,7 @@
     - state: ears
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable ] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseLungs
   name: lungs
   abstract: true
@@ -347,7 +347,7 @@
     heldPrefix: lungs
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindableHeart] #DeltaV - Added new parent "OrganGrindableHeart"
   id: OrganBaseHeart
   name: heart
   abstract: true
@@ -363,7 +363,7 @@
     stages: [ Bloodstream ]
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable ] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseStomach
   name: stomach
   abstract: true
@@ -386,7 +386,7 @@
     heldPrefix: stomach
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseLiver
   name: liver
   abstract: true
@@ -404,7 +404,7 @@
     stages: [ Metabolites ]
 
 - type: entity
-  parent: OrganBase
+  parent: [OrganBase, OrganGrindable] #DeltaV - Added new parent "OrganGrindable"
   id: OrganBaseKidneys
   name: kidneys
   abstract: true
