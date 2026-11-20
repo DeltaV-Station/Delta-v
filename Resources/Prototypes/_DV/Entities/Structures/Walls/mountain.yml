@@ -43,13 +43,18 @@
         - FullTileMask
         layer:
         - WallLayer
+
+- type: entity
+  id: BaseAltRockSmoothed
+  parent: BaseAltRock
+  components:
   - type: IconSmooth
     key: walls
     base: rock_
 
 - type: entity
   id: AsteroidAltRock
-  parent: BaseAltRock
+  parent: BaseAltRockSmoothed
   suffix: Low Yield, Standard Value
   components:
   - type: OreVein
@@ -58,7 +63,7 @@
 
 - type: entity
   id: AsteroidAltRockMining
-  parent: AsteroidAltRock
+  parent: BaseAltRockSmoothed
   suffix: High Yield, Standard Value
   components:
   - type: OreVein
@@ -66,17 +71,177 @@
     oreRarityPrototypeId: RandomOreDistributionStandard
 
 - type: entity
+  id: AsteroidAltRockTin
+  parent: BaseAltRock
+  description: An ore vein rich with iron.
+  suffix: Iron
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSteel
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_tin
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockQuartz
+  parent: BaseAltRock
+  description: An ore vein rich with quartz.
+  suffix: Quartz
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSpaceQuartz
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_quartz
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockCoal
+  parent: BaseAltRock
+  description: An ore vein rich with coal.
+  suffix: Coal
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreCoal
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_coal
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockSalt
+  parent: BaseAltRock
+  description: An ore vein rich with salt.
+  suffix: Salt
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSalt
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_salt
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockGold
+  parent: BaseAltRock
+  description: An ore vein rich with gold.
+  suffix: Gold
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreGold
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_gold
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockSilver
+  parent: BaseAltRock
+  description: An ore vein rich with silver.
+  suffix: Silver
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSilver
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_silver
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockPlasma
+  parent: BaseAltRock
+  description: An ore vein rich with plasma.
+  suffix: Plasma
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OrePlasma
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_phoron
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockUranium
+  parent: BaseAltRock
+  description: An ore vein rich with uranium.
+  suffix: Uranium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreUranium
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_uranium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockBananium
+  parent: BaseAltRock
+  description: An ore vein rich with bananium.
+  suffix: Bananium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreBananium
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_bananium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidAltRockArtifactFragment
+  parent: BaseAltRock
+  description: A rock wall. What's that sticking out of it?
+  suffix: Artifact Fragment
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreArtifactFragment
+  - type: Sprite
+    layers:
+    - state: full
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_artifact_fragment
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
   id: AsteroidRockOreCrab
   parent: AsteroidAltRock
   suffix: Ore Crab
   components:
   - type: OreVein
-    oreChance: 0.33
+    oreChance: 0.4
     oreRarityPrototypeId: OreCrab
 
 - type: entity
   id: MountainRock
-  parent: BaseAltRock
+  parent: BaseAltRockSmoothed
   name: mountain rock
   description: A craggy mountain wall.
   suffix: Un-mineable
