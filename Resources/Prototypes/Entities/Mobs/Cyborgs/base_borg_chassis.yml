@@ -411,10 +411,11 @@
     fiberColor: fibers-black
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
+   # Begin DeltaV additions - Syndicate borgs have more HP
   - type: MobThresholds 
     thresholds:
       0: Alive
-      175: Critical #Delta-V - All syndicate borgs are up armored
+      175: Critical
       525: Dead 
     stateAlertDict:
       Alive: BorgHealth
@@ -426,7 +427,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150 #Delta-V Increased to match new health
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -435,12 +436,12 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 525 #Also increased to match new health
+        damage: 525
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-
+    # End DeltaV additions
 - type: entity
   id: BaseBorgChassisDerelict
   parent: BaseBorgChassis

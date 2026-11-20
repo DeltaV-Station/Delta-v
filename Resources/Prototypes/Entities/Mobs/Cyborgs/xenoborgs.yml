@@ -172,7 +172,7 @@
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
-      # Begin DeltaV additions
+      # Begin DeltaV additions - Scout xenoborgs are quieter, but not as much as stealths
       params:
         maxDistance: 10
         volume: 0
@@ -232,10 +232,10 @@
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
-     # Begin DeltaV additions
+     # Begin DeltaV additions - Stealth xenoborgs are very quiet
       params:
         maxDistance: 6
-        volume: -5    #Maximum distance and sound volume is lowered to be stealthy
+        volume: -5
         pitch: 1
       # End DeltaV additions  
   - type: BorgChassis
