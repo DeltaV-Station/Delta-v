@@ -215,7 +215,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                 }
             }
 
-            var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
+            var successRate = totalObjectives > 0 ? (float)completedObjectives / totalObjectives : 0f;
             // Begin DeltaV Additions - custom objective response.
             if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp) &&
                 customComp.ObjectiveSummary.Length <= _maxLengthSummaryLength)
@@ -351,6 +351,19 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             .Where(p => p.HasComponent<ObjectiveComponent>())
             .Select(p => p.ID)
             .Order();
+    }
+
+    /// <summary>
+    /// Sets the issuer for a given Objective
+    /// </summary>
+    /// <param name="objective">The objective to set the issuer for.</param>
+    /// <param name="issuer">The new issuer of the objective.</param>
+    public void SetIssuer(EntityUid objective, LocId issuer)
+    {
+        if (!TryComp<ObjectiveComponent>(objective, out var comp))
+            return;
+
+        comp.Issuer = issuer;
     }
 }
 
