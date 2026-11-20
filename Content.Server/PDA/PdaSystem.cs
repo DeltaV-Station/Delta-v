@@ -30,7 +30,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.PDA
 {
-    public sealed class PdaSystem : SharedPdaSystem
+    public sealed partial class PdaSystem : SharedPdaSystem
     {
         [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
         [Dependency] private readonly InstrumentSystem _instrument = default!;
@@ -68,6 +68,8 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnRelayedEventToIdCard);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnRelayedEventToIdCard);
+
+            InitializeExtras(); // DeltaV
 
             // Begin DeltaV additions
             Subs.CVar(_config,
@@ -253,7 +255,9 @@ namespace Content.Server.PDA
                     JobTitle = job, // DeltaV - silicon PDAs
                     CurrentDate = pda.CurrentDate, // DeltaV - PDA date
                     StationAlertLevel = pda.StationAlertLevel,
-                    StationAlertColor = pda.StationAlertColor
+                    StationAlertColor = pda.StationAlertColor,
+                    EvacArrivalTime = pda.EvacArrivalTime, // DeltaV - PDA Evac Status
+                    EvacDepartureTime = pda.EvacDepartureTime // DeltaV - PDA Evac Status
                 },
                 pda.StationName,
                 showUplink,
