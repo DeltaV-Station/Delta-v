@@ -438,14 +438,16 @@
     minPlayers: 10 # DeltaV - was 20
     minTotalPlayers: 30 # DeltaV
     delay:
-      min: 600
-      max: 900
+      min: 300 # DeltaV: Was 600
+      max: 480 # DeltaV: Was 900
   - type: ZombieRule
     isRoundStartZombies: true # DeltaV - convert to survival if they all die
-  - type: DelayedRule # DeltaV: Grace period of 5 minutes before you can turn, to avoid a random passenger ruining your plan
-    delay: 300
+  - type: DelayedRule # DeltaV: Grace period
+    delay: 1200 # DeltaV: Significantly increased the Grace period since zombifying instanty was 99% just team sabotage (20 mins)
     delayedComponents:
     - type: PendingZombie
+      minInitialInfectedGrace: 600 # DeltaV: Added this since I didnt want to mess around with C#
+      maxInitialInfectedGrace: 900
     - type: ZombifyOnDeath
     - type: IncurableZombie
     endedPopup: zombie-bioterrorist-romerol-active
@@ -453,7 +455,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 6
+      max: 7 # DeltaV: Was 6, slight buff for II, try to win on 70+ pop
       playerRatio: 10
       blacklist:
         components:
