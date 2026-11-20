@@ -1,6 +1,6 @@
 obvious-on-item = When {$used}, { SUBJECT($me) } will be [color=white]obvious[/color] to casual examination.
 obvious-on-item-currently = { CAPITALIZE(SUBJECT($me)) } { CONJUGATE-BE($me) } [color=white]obvious[/color] to casual examination.
-obvious-on-item-for-others = [italic][color=#777777]Others {$will} see:[/color] "{$output}"[/italic]
+obvious-on-item-for-others = [italic][color=#777777]Others will see:[/color] "{$output}"[/italic]
 
 obvious-reveal-default = worn
 obvious-reveal-pockets = worn or pocketed
