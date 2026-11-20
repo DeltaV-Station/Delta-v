@@ -91,7 +91,8 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
                 var expectedIDs = new[] { "HumanHealth", "Debug1", "Debug2" };
-                Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
+                var expectedMKCIDs = new[] { "BorgHealth", "Debug1", "Debug2" }; // starcup
+                Assert.That(alertIDs, Is.SupersetOf(expectedIDs).Or.SupersetOf(expectedMKCIDs)); // starcup: add MKC alerts
             });
 
             await server.WaitAssertion(() =>
@@ -108,7 +109,8 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
                 var expectedIDs = new[] { "HumanHealth", "Debug2" };
-                Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
+                var expectedMKCIDs = new[] { "BorgHealth", "Debug2" }; // starcup
+                Assert.That(alertIDs, Is.SupersetOf(expectedIDs).Or.SupersetOf(expectedMKCIDs)); // starcup: add MKC alerts
             });
         }
     }

@@ -33,6 +33,7 @@
       zapHeal:
         types:
           Asphyxiation: -40
+      damageContainer: Biological # starcup
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
@@ -91,6 +92,7 @@
     zapHeal:
       types:
         Asphyxiation: -40
+    damageContainer: Biological # starcup
     doAfterDuration: 6
   - type: DoAfter
   - type: UseDelay

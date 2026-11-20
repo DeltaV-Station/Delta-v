@@ -1,6 +1,7 @@
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._starcup.Metabolism; // starcup
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -27,6 +28,7 @@ public sealed class MedibotSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private MetabolizerWhitelistSystem _metabolizerWhitelist = default!; // starcup
 
     public override void Initialize()
     {
@@ -117,6 +119,14 @@ public sealed class MedibotSystem : EntitySystem
         }
 
         if (!TryGetTreatment(medibot.Comp, mobState.CurrentState, out var treatment) || !manual) return false;
+
+        // begin starcup: metabolizer whitelist
+        if (!_metabolizerWhitelist.CanMetabolizeReagent((target, null), treatment.Reagent))
+        {
+            _popup.PopupEntity(Loc.GetString("medibot-target-incompatible"), medibot, medibot);
+            return false;
+        }
+        // end starcup
 
         return true;
     }

@@ -172,20 +172,33 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
-      # Begin DeltaV - Fuel eaters
+      # Begin DeltaV - Fuel eaters and MKC
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Fuel]
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        damage:
+          types:
+            Caustic: 1
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [MKC]
+        amount: 4
       # End DeltaV
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox, Fuel] # DeltaV - Fuel eaters are also unharmed by welding fuel
+          type: [Vox, Fuel, MKC] # DeltaV - Fuel eaters are also unharmed by welding fuel
           inverted: true
         damage:
           types:
             Poison: 1
+        
       - !type:Flammable
         multiplier: 0.4
 

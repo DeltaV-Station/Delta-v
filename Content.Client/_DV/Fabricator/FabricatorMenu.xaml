@@ -1,0 +1,110 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Title="{Loc 'fabricator-menu-title'}"
+    MinWidth="512"
+    MinSize="512 256">
+
+    <BoxContainer Orientation="Vertical">
+
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+            <PanelContainer
+                Name="SolidsPanel"
+                Access="Public"
+                MinSize="250 150"
+                Margin="5 5"
+                VerticalExpand="True"
+                HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <ItemList
+                    Name="SolidsList"
+                    Access="Public"
+                    Margin="5 5"
+                    StyleClasses="transparentBackgroundItemList"
+                    SelectMode="Button"
+                    SizeFlagsStretchRatio="3"
+                    ItemSeparation="5"
+                    MinSize="125 125">
+                <!-- Solid ingredients/materials here -->
+                </ItemList>
+            </PanelContainer>
+
+            <PanelContainer
+                    Name="ReagentsPanel"
+                    Access="Public"
+                    MinSize="250 150"
+                    Margin="5 5"
+                    VerticalExpand="True"
+                    HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <PanelContainer Margin="5 5">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#2A2C49" />
+                    </PanelContainer.PanelOverride>
+                    <GridContainer
+                        Name="ReagentsList"
+                        Access="Public"
+                        Margin="5 5"
+                        Columns="1"
+                        VerticalAlignment="Top"
+                        SizeFlagsStretchRatio="3"
+                        MinSize="125 125">
+                        <!-- Reagents here -->
+                    </GridContainer>
+                </PanelContainer>
+
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="5 5">
+            <Label Name="TimeRemaining" Access="Public" Align="Center" Modulate="#FFFFFF" />
+        </BoxContainer>
+
+        <BoxContainer
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            SizeFlagsStretchRatio="3"
+            Margin="5 5">
+            <Control MinSize="0 15" MaxSize="75 25"/>
+            <Button
+                Name="StartButton"
+                Access="Public"
+                Text="{Loc 'fabricator-menu-start-text'}"
+                StyleClasses="positive"
+                TextAlign="Center"/>
+            <Button
+                Name="EjectButton"
+                Access="Public"
+                Text="{Loc 'fabricator-menu-eject-all-text'}"
+                ToolTip="{Loc 'fabricator-menu-eject-all-tooltip'}"
+                StyleClasses="negative"
+                TextAlign="Center"/>
+        </BoxContainer>
+
+        <!-- Footer -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Text="{Loc 'fabricator-menu-footer-flavor-left'}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'fabricator-menu-footer-flavor-right'}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered" VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+
+    <PanelContainer Name="BusyOverlay" MouseFilter="Stop">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E66" />
+        </PanelContainer.PanelOverride>
+    </PanelContainer>
+</controls:FancyWindow>
