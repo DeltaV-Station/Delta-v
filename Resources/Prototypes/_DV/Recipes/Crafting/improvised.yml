@@ -11,7 +11,7 @@
   graph: ModularBreechGraph
   startNode: start
   targetNode: modularbreech
-  category: construction-category-weapons
+  category: construction-category-misc
   objectType: Item
 
 - type: construction
@@ -19,7 +19,7 @@
   graph: ModularTriggerGraph
   startNode: start
   targetNode: modulartrigger
-  category: construction-category-weapons
+  category: construction-category-misc
   objectType: Item
 
 - type: construction
@@ -27,7 +27,7 @@
   graph: BayonetGraph
   startNode: start
   targetNode: bayonet
-  category: construction-category-weapons
+  category: construction-category-misc
   objectType: Item
 
 - type: construction
@@ -38,13 +38,13 @@
   category: construction-category-weapons
   objectType: Item
 
-- type: construction
-  id: WeaponPistolFlintlock
-  graph: WeaponPistolFlintlockGraph
-  startNode: start
-  targetNode: flintlock
-  category: construction-category-weapons
-  objectType: Item
+#- type: construction
+#  id: WeaponPistolFlintlock
+#  graph: WeaponPistolFlintlockGraph
+#  startNode: start
+#  targetNode: flintlock
+#  category: construction-category-weapons
+#  objectType: Item
 
 - type: construction
   id: tinfoilhat

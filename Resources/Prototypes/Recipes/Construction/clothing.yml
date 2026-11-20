@@ -14,21 +14,21 @@
   category: construction-category-clothing
   objectType: Item
 
-- type: construction
-  id: BoneArmor
-  graph: BoneArmor
-  startNode: start
-  targetNode: armor
-  category: construction-category-clothing
-  objectType: Item
+#- type: construction
+#  id: BoneArmor
+#  graph: BoneArmor
+#  startNode: start
+#  targetNode: armor
+#  category: construction-category-clothing
+#  objectType: Item
 
-- type: construction
-  id: BoneHelmet
-  graph: BoneHelmet
-  startNode: start
-  targetNode: helmet
-  category: construction-category-clothing
-  objectType: Item
+#- type: construction
+#  id: BoneHelmet
+#  graph: BoneHelmet
+#  startNode: start
+#  targetNode: helmet
+#  category: construction-category-clothing
+#  objectType: Item
 
 - type: construction
   id: cardHelmet
@@ -107,7 +107,7 @@
   graph: Quiver
   startNode: start
   targetNode: Quiver
-  category: construction-category-clothing
+  category: construction-category-weapons
   objectType: Item
 
 #- type: construction # DeltaV - remove for overstimulation + LRP
