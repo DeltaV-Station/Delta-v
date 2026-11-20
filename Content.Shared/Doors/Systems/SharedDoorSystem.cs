@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Buckle.Components; // DeltaV - Entity containers activate doors
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
@@ -12,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Prying.Components;
 using Content.Shared.Prying.Systems;
+using Content.Shared.Storage.Components; // DeltaV - Entity containers activate doors
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
@@ -617,6 +619,21 @@ public abstract partial class SharedDoorSystem : EntitySystem
             return;
 
         var otherUid = args.OtherEntity;
+
+        // Begin DeltaV - Entity containers activate doors
+        // Both loops break on the first success since we don't need to open the door more than once
+        if (TryComp<StrapComponent>(otherUid, out var strapComp)) // Rollerbeds, chairs, etc
+            foreach (EntityUid ent in strapComp.BuckledEntities)
+                if (Tags.HasTag(ent, DoorBumpTag))
+                    if (TryOpen(uid, door, ent, quiet: door.State == DoorState.Denying, predicted: true))
+                        break;
+
+        if (TryComp<EntityStorageComponent>(otherUid, out var storeComp)) // Bodybags, lockers, etc
+            foreach (EntityUid ent in storeComp.Contents.ContainedEntities)
+                if(Tags.HasTag(ent, DoorBumpTag))
+                    if (TryOpen(uid, door, ent, quiet: door.State == DoorState.Denying, predicted: true))
+                        break;
+        // End DeltaV - Entity containers activate doors
 
         if (Tags.HasTag(otherUid, DoorBumpTag))
             TryOpen(uid, door, otherUid, quiet: door.State == DoorState.Denying, predicted: true);
