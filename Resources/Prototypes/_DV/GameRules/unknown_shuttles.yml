@@ -188,3 +188,49 @@
         randomizeName: false
       mindRoles:
       - MindRoleHitman
+
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SixHitmanShuttle
+  components:
+  - type: StationEvent
+    weight: 10
+    minimumPlayers: 50
+    maxOccurrences: 1
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-hitman-spawn-result-message
+  - type: LoadMapRule
+    gridPath: /Maps/_DV/Shuttles/Event/Professional_six.yml
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - HitmanSurviveObjective
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
+  - type: AntagSelection
+    agentName: hitman-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostHitman
+      min: 6
+      max: 6
+      pickPlayer: false
+      startingGear: HitmanGhostGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      mindRoles:
+      - MindRoleHitman
