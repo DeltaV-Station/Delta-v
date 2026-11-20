@@ -1,0 +1,9 @@
+﻿- type: construction
+  id: ConstructionComputerTabletop
+  name: recipes-computer-tabletop-name
+  graph: ComputerTabletop
+  startNode: start
+  targetNode: tabletop computer
+  category: construction-category-machines
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
