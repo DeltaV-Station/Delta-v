@@ -90,6 +90,7 @@ namespace Content.Shared.Chat
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
         {
             var length = buffer.ReadVariableInt32();
+            buffer.AssertAtLeastSize(length); // Delta V - Early merge #46693 security patch
             using var stream = new MemoryStream(length);
             buffer.ReadAlignedMemory(stream, length);
             serializer.DeserializeDirect(stream, out Message);

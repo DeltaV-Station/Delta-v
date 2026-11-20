@@ -1,1 +1,5 @@
 whitelist-not-whitelisted-peri = You are not whitelisted. To become whitelisted, apply on our forum. It can be found in #whitelist-applications on our Discord at https://discord.gg/deltav
+
+ipintel-server-ratelimited = We are currently unable to verify the authenticity of your connection. Please contact us at https://discord.gg/deltav, or try again later.
+ipintel-unknown = An unknown error has occurred while verifying the authenticity of your connection. Please contact us at https://discord.gg/deltav, or try again later.
+ipintel-suspicious = You are connecting through a datacenter or VPN. For administrative reasons, we do not allow VPN connections to play. This is not a permanent record against your account; turning off your VPN is sufficient. If you have a technical issue and need a VPN to be able to play, you can request an exemption in the #ban-appeals channel of our Discord server at https://discord.gg/deltav.
