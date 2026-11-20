@@ -13,7 +13,7 @@ public sealed partial class PsionicSystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
 
-    public void InitializeItems()
+    private void InitializeItems()
     {
         SubscribeLocalEvent<PsionicallyInsulativeComponent, InventoryRelayedEvent<NoosphericFryEvent>>(OnFry);
     }
