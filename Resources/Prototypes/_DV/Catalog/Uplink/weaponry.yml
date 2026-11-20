@@ -133,3 +133,17 @@
       whitelist:
         tags:
           - NukeOpsUplink #I sure do hope this also spawns in surplus crates!
+
+- type: listing
+  id: UplinkAks74uBundle
+  name: uplink-aks74u-bundle-name
+  description: uplink-aks74u-bundle-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Rifles/aks74u.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 8
+  productEntity: ClothingBackpackDuffelSyndicateFilledAks74u
+  categories:
+  - UplinkWeaponry

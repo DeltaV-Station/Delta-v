@@ -331,3 +331,28 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+
+- type: entity
+  name: AKS-74U
+  parent: WeaponRifleAk
+  id: WeaponRifleAks74u
+  description: A real piece of history, originally fielded in the 20th century. Surprisingly abundant, and as a result very cheap. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/aks74u.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -20
+  - type: Gun
+    minAngle: 16
+    maxAngle: 50
+    angleIncrease: 6
+    angleDecay: 30
+    fireRate: 4
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/aks74u.rsi
