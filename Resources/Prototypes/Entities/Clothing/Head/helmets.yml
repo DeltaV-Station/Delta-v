@@ -45,7 +45,7 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-  - type: HideLayerClothingToggle # DeltaV - toggle for hiding hair
+    allowOverride: true # DeltaV - toggle for hiding hair
 
 #Mercenary Helmet
 - type: entity
@@ -61,7 +61,7 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-  - type: HideLayerClothingToggle # DeltaV - toggle for hiding hair
+    allowOverride: true # DeltaV - toggle for hiding hair
 
 #SWAT Helmet
 - type: entity
@@ -88,7 +88,7 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-  - type: HideLayerClothingToggle # DeltaV - toggle for hiding hair
+    allowOverride: true # DeltaV - toggle for hiding hair
 
 #Syndicate SWAT Helmet
 - type: entity
@@ -127,7 +127,7 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-  - type: HideLayerClothingToggle # DeltaV - toggle for hiding hair
+    allowOverride: true # DeltaV - toggle for hiding hair
 
 #Bombsuit Helmet
 - type: entity
@@ -363,7 +363,7 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-  - type: HideLayerClothingToggle # DeltaV - toggle for hiding hair
+    allowOverride: true # DeltaV - toggle for hiding hair
 
 #ERT Security Helmet
 - type: entity
@@ -445,7 +445,7 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
-  - type: HideLayerClothingToggle # DeltaV - toggle for hiding hair
+    allowOverride: true # DeltaV - toggle for hiding hair
 
 #Bone Helmet
 #No need to hide the hair on this one

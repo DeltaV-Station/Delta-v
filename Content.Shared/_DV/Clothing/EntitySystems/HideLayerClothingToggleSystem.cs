@@ -1,51 +1,44 @@
-using Content.Shared._DV.Clothing.Components;
-using Content.Shared._DV.Clothing.Events;
-using Content.Shared.Inventory;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 
-namespace Content.Shared._DV.Clothing.EntitySystems;
+namespace Content.Shared.Clothing.EntitySystems;
 
-public sealed class HideLayerClothingToggleSystem : EntitySystem
+public sealed partial class HideLayerClothingSystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-
-    public override void Initialize()
+    private void InitializeToggle()
     {
-        base.Initialize();
-
-        SubscribeLocalEvent<HideLayerClothingToggleComponent, ClothingHideLayerAttemptEvent>(OnHideLayerAttempt);
-        SubscribeLocalEvent<HideLayerClothingToggleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
+        SubscribeLocalEvent<HideLayerClothingComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
     }
 
-    private void OnHideLayerAttempt(Entity<HideLayerClothingToggleComponent> ent, ref ClothingHideLayerAttemptEvent args)
+    [PublicAPI]
+    public void SetHideOverride(Entity<HideLayerClothingComponent> ent, bool state)
     {
-        if (!ent.Comp.HideLayers)
-            args.Cancel();
+        ent.Comp.BlockLayerHide = state;
+
+        // try to get the wearer of the clothing
+        if (TryComp(ent, out ClothingComponent? clothing)
+            && clothing.InSlotFlag is { } slotFlag
+            && clothing.Slots.HasFlag(slotFlag))
+        {
+            // update the layer state on the wearer
+            var wearer = Transform(ent).ParentUid;
+            SetLayerVisibility((ent, ent.Comp, clothing), wearer, !state);
+        }
+
+        Dirty(ent);
     }
 
-    private void OnGetAlternativeVerb(Entity<HideLayerClothingToggleComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetAlternativeVerb(Entity<HideLayerClothingComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        // disable the verb if the entity is being worn
-        var verbDisabled = _inventory.TryGetContainingSlot(ent.Owner, out _);
-
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = ent.Comp.HideLayers ? "Show hair" : "Hide hair",
-            Act = () => SetHideLayers(ent, !ent.Comp.HideLayers),
-            Disabled = verbDisabled,
-            Message = verbDisabled ? "Unequip to change" : null,
+            Text = ent.Comp.BlockLayerHide ? "Hide hair" : "Show hair", // technically works for other markings too but whatever
+            Act = () => SetHideOverride(ent, !ent.Comp.BlockLayerHide),
             Priority = -1, // so that alt click works as before (mostly the justice helmet's power cell eject)
         });
-    }
-
-    [PublicAPI]
-    public void SetHideLayers(Entity<HideLayerClothingToggleComponent> ent, bool state)
-    {
-        ent.Comp.HideLayers = state;
-        Dirty(ent);
     }
 }
