@@ -489,71 +489,87 @@
   - type: Paper
     content: paper-fake-nuke-codes
 
-- type: entity
-  parent: [BoxFolderClipboardEmpty, BaseGrandTheftContraband]
-  id: BoxFolderCeClipboard
-  name: power digi-board
-  description: A bulky electric clipboard, filled with building permits and power reports. With so many compromising documents, you ought to keep this safe.
-  components:
-  - type: Sprite
-    sprite: _DV/Objects/Misc/ce_clipboard.rsi
-    layers:
-    - state: ce_clipboard
-    - state: ce_clipboard_paper
-      map: ["ce_clipboard_paper"]
-      visible: false
-    - state: ce_clipboard_pen
-      map: ["ce_clipboard_pen"]
-      visible: false
-    - state: ce_clipboard_over
-  - type: ItemSlots
-    slots:
-      pen_slot:
-        name: clipboard-slot-component-slot-name-pen
-        whitelist:
-          tags:
-          - Write
-        insertOnInteract: true
-  - type: Item
-    sprite: _DV/Objects/Misc/ce_clipboard.rsi
-    size: Normal
-  - type: Clothing
-    sprite: _DV/Objects/Misc/ce_clipboard.rsi
-  - type: Storage
-    grid:
-    - 0,0,4,3
-    quickInsert: true
-  - type: ItemMapper
-    mapLayers:
-      ce_clipboard_paper:
-        whitelist:
-          tags:
-          - Document
-      ce_clipboard_pen:
-        whitelist:
-          tags:
-          - Write
-  - type: PowerMonitoringConsole
-  - type: PowerMonitoringCableNetworks
-  - type: UserInterface
-    interfaces:
-      enum.PowerMonitoringConsoleUiKey.Key:
-        type: PowerMonitoringConsoleBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-  - type: ActivatableUI
-    verbText: ce-clipboard-computer-verb-text
-    key: enum.PowerMonitoringConsoleUiKey.Key
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 10
-  - type: Tag
-    tags:
-    - Folder
-    - HighRiskItem
-  - type: StealTarget
-    stealGroup: BoxFolderCeClipboard
+#- type: entity
+#  parent: [BoxFolderClipboardEmpty, BaseGrandTheftContraband]
+#  id: BoxFolderCeClipboard
+#  name: power digi-board
+#  description: A bulky electric clipboard, filled with building permits and power reports. With so many compromising documents, you ought to keep this safe.
+#  components:
+#  - type: Sprite
+#    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+#    layers:
+#    - state: ce_clipboard
+#    - state: ce_clipboard_paper
+#      map: ["ce_clipboard_paper"]
+#      visible: false
+#    - state: ce_clipboard_pen
+#      map: ["ce_clipboard_pen"]
+#      visible: false
+#    - state: ce_clipboard_over
+#  - type: ItemSlots
+#    slots:
+#      pen_slot:
+#        name: clipboard-slot-component-slot-name-pen
+#        whitelist:
+#          tags:
+#          - Write
+#        insertOnInteract: true
+#  - type: Item
+#    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+#    size: Normal
+#  - type: Clothing
+#    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+#  - type: Storage
+#    grid:
+#    - 0,0,4,3
+#    quickInsert: true
+#  - type: ItemMapper
+#    mapLayers:
+#      ce_clipboard_paper:
+#        whitelist:
+#          tags:
+#          - Document
+#      ce_clipboard_pen:
+#        whitelist:
+#          tags:
+#          - Write
+#  - type: PowerMonitoringConsole
+#  - type: PowerMonitoringCableNetworks
+#  - type: AtmosAlertsComputer
+#  - type: AtmosMonitoringConsole
+#    navMapTileColor: "#1a1a1a"
+#    navMapWallColor: "#404040"
+#  - type: UserInterface
+#    interfaces:
+#      enum.PowerMonitoringConsoleUiKey.Key:
+#        type: PowerMonitoringConsoleBoundUserInterface
+#      enum.AtmosMonitoringConsoleUiKey.Key:
+#        type: AtmosMonitoringConsoleBoundUserInterface
+#      enum.AtmosAlertsComputerUiKey.Key:
+#        type: AtmosAlertsComputerBoundUserInterface
+#      enum.StorageUiKey.Key:
+#        type: StorageBoundUserInterface
+#  - type: ActivatableUI
+#    key: enum.PowerMonitoringConsoleUiKey.Key
+#  - type: MultipleUiKey
+#    index: 0
+#    modes:
+#      - uiKey: enum.PowerMonitoringConsoleUiKey.Key
+#        name: handheld-engineering-monitor-power-monitor-mode-name
+#      - uiKey: enum.AtmosMonitoringConsoleUiKey.Key
+#        name: handheld-engineering-monitor-atmos-monitor-mode-name
+#      - uiKey: enum.AtmosAlertsComputerUiKey.Key
+#        name: handheld-engineering-monitor-atmos-alerts-mode-name
+#  - type: MeleeWeapon
+#    damage:
+#      types:
+#        Blunt: 10
+#  - type: Tag
+#    tags:
+#    - Folder
+#    - HighRiskItem
+#  - type: StealTarget
+#    stealGroup: BoxFolderCeClipboard
 
 #Smile Recipe
 - type: entity

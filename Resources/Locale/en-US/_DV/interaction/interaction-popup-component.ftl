@@ -16,3 +16,8 @@ petting-failure-whimperlet = You reach out to pet {THE($target)}, but {SUBJECT($
 
 petting-success-pibble = You pat {THE($target)} on {POSS-ADJ($target)} head.
 petting-failure-pibble = You attempt to pat {THE($target)} on {POSS-ADJ($target)} head, but {SUBJECT($target)} whips around and growls at you!
+
+
+## MultipleUiKeyComponent
+
+multipleuikey-swap-mode-popup-message-text = Set mode to: {$mode}
