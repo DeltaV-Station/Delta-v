@@ -475,7 +475,7 @@ public sealed class NukeSystem : EntitySystem
     /// <summary>
     ///     Force a nuclear bomb to start a countdown timer
     /// </summary>
-    public void ArmBomb(EntityUid uid, NukeComponent? component = null)
+    public void ArmBomb(EntityUid uid, NukeComponent? component = null, string? announcementId = null) // DeltaV - custom announcements
     {
         if (!Resolve(uid, ref component))
             return;
@@ -500,7 +500,7 @@ public sealed class NukeSystem : EntitySystem
         _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
 
         // warn a crew
-        var announcement = Loc.GetString("nuke-component-announcement-armed",
+        var announcement = Loc.GetString(announcementId ?? "nuke-component-announcement-armed", // DeltaV - custom announcements
             ("time", (int) component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
         var sender = Loc.GetString("nuke-component-announcement-sender");
