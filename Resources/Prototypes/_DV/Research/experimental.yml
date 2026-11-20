@@ -21,3 +21,19 @@
   cost: 5000
   recipeUnlocks:
   - WeaponMicrowaveEmitter
+
+# TODO: Change the recipe unlocks to not overlap with cloning so much...
+- type: technology
+  id: Metempsychosis
+  name: research-technology-metempsychosis
+  icon:
+    sprite: _DV/Structures/Machines/metempsychotic.rsi
+    state: pod_0
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - BiomassReclaimerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - MetempsychoticMachineCircuitboard

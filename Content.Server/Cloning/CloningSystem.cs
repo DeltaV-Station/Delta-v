@@ -19,7 +19,18 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Traits.Assorted; // DV
+using Content.Server.Ghost.Roles.Components; // Delta V
+using Content.Server.Speech.Components; // Delta V
+using Content.Server.StationEvents.Components; // Delta V
+using Content.Shared._DV.Cloning; // Delta V
+using Content.Shared._DV.Psionics.Components; // Delta V
+using Content.Shared.Damage.ForceSay; // Delta V
+using Content.Shared.Emoting; // Delta V
+using Content.Shared.Mind.Components; // Delta V
+using Content.Shared.Preferences; // Delta V
+using Content.Shared.Speech; // Delta V
+using Content.Shared.SSDIndicator; // Delta V
+using Robust.Shared.GameObjects.Components.Localization; // DV
 
 namespace Content.Server.Cloning;
 
@@ -40,11 +51,14 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; //TODO: This system has to support both the old and new status effect systems, until the old is able to be fully removed.
+    [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; // Delta V - Metem Psychotic
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfileSystem = default!; // Delta V - Metem Psychotic
+    [Dependency] private readonly GrammarSystem _grammarSystem = default!; // Delta V - Metem Psychotic
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
     /// </summary>
-    public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone)
+    public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone, MetempsychoticMachineComponent? metemComp = null /* Delta V - Metem Psychotic Machine */, float karmaBonus = 0.25f /* Delta V - Metapsychotic Machine */ )
     {
         clone = null;
         if (!_prototype.Resolve(settingsId, out var settings))
@@ -61,10 +75,56 @@ public sealed partial class CloningSystem : SharedCloningSystem
         if (attemptEv.Cancelled && !settings.ForceCloning)
             return false; // cannot clone, for example due to the unrevivable trait
 
-        clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
-        _visualBody.CopyAppearanceFrom(original, clone.Value);
+        // Delta V Begin - Metem Psychotic Alternative Cloning
+        if (metemComp != null)
+        {
+            int? karma = null;
+            if (TryComp<MetempsychoticKarmaComponent>(original, out var metempsychoticKarma))
+            {
+                karma = metempsychoticKarma.Karma;
+            }
 
-        CloneComponents(original, clone.Value, settings);
+            var entityToSpawn = _metem.GetSpawnEntity((metemComp.Owner, metemComp), karmaBonus, speciesPrototype, out var newSpecies, karma);
+
+            clone = coords == null ? Spawn(entityToSpawn) : Spawn(entityToSpawn, coords.Value);
+
+            if (newSpecies != null)
+            {
+                var newProf = HumanoidCharacterProfile.RandomWithSpecies(newSpecies.ID);
+                _visualBody.ApplyProfileTo(clone.Value, newProf);
+                _humanoidProfileSystem.ApplyProfileTo(original, newProf);
+
+                EnsureComp<MetempsychoticKarmaComponent>(clone.Value, out var karmaComp);
+                karmaComp.Karma = karma != null ? karma.Value + 1 : 1;
+            }
+            else
+            {
+                var grammar = EnsureComp<GrammarComponent>(clone.Value);
+                _grammarSystem.SetProperNoun((clone.Value, grammar), true);
+                _grammarSystem.SetGender((clone.Value, grammar), humanoid.Gender);
+
+                // Add missing components to players reincarnating into mobs
+                EnsureComp<PotentialPsionicComponent>(clone.Value);
+                EnsureComp<SpeechComponent>(clone.Value);
+                EnsureComp<DamageForceSayComponent>(clone.Value);
+                EnsureComp<EmotingComponent>(clone.Value);
+                EnsureComp<MindContainerComponent>(clone.Value);
+                EnsureComp<SSDIndicatorComponent>(clone.Value);
+                RemComp<ReplacementAccentComponent>(clone.Value);
+                RemComp<MonkeyAccentComponent>(clone.Value);
+                RemComp<SentienceTargetComponent>(clone.Value);
+                RemComp<GhostTakeoverAvailableComponent>(clone.Value);
+            }
+        }
+        // Delta V End - Metem Psychotic Alternative Cloning
+
+        if (clone == null) // Delta V - Metempsychotic Conditional Addition
+        {
+            clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
+            _visualBody.CopyAppearanceFrom(original, clone.Value);
+
+            CloneComponents(original, clone.Value, settings);
+        }
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
