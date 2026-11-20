@@ -36,6 +36,7 @@ public sealed class CursedKnifeSystem : EntitySystem
             return;
 
         weapon.Comp.Adrenaline = Math.Min(weapon.Comp.Adrenaline + weapon.Comp.AdrenalinePerHit, 100);
+        Dirty(weapon);
     }
 
     private void CheckAdrenaline()
