@@ -10,6 +10,7 @@ using Content.Shared.Speech;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Player;
+using Content.Shared.Throwing; // Delta-V - Telekinesis
 
 namespace Content.Shared.StatusEffectNew;
 
@@ -45,6 +46,10 @@ public sealed partial class StatusEffectsSystem
         SubscribeLocalEvent<StatusEffectContainerComponent, PsionicPowerUseAttemptEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, TargetedByPsionicPowerEvent>(RefRelayStatusEffectEvent);
         // DeltaV End - Psionics Refactor
+
+        // Delta-V Start - Telekinesis Power
+        SubscribeLocalEvent<StatusEffectContainerComponent, ThrowHitByEvent>(RelayStatusEffectEvent);
+        // Delta-V End - Telekinesis Power
     }
 
     private void RefRelayStatusEffectEvent<T>(EntityUid uid, StatusEffectContainerComponent component, ref T args) where T : struct

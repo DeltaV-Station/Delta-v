@@ -6,3 +6,10 @@
   name: chronic pain suppression
   components:
   - type: ChronicPainSuppressedStatusEffect
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectCatcher
+  name: catcher
+  components:
+  - type: CatcherStatusEffect

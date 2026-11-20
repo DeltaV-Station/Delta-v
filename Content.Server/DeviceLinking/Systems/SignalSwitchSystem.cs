@@ -4,10 +4,11 @@ using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared._DV.Psionics.Events; // Delta-V - Telekinesis
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed class SignalSwitchSystem : EntitySystem
+public sealed partial class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -19,6 +20,8 @@ public sealed class SignalSwitchSystem : EntitySystem
 
         SubscribeLocalEvent<SignalSwitchComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SignalSwitchComponent, ActivateInWorldEvent>(OnActivated);
+
+        SubscribeLocalEvent<SignalSwitchComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V - Telekinesis
     }
 
     private void OnInit(EntityUid uid, SignalSwitchComponent comp, ComponentInit args)

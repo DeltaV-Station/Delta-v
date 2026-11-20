@@ -10,6 +10,10 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+// Begin Delta-V
+using Content.Shared._DV.Throwing;
+using Content.Shared.StatusEffectNew;
+// End Delta-V
 
 namespace Content.Shared.Throwing;
 
@@ -31,6 +35,7 @@ public sealed partial class CatchableSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CatchableComponent, ThrowDoHitEvent>(OnDoHit);
+        SubscribeLocalEvent<CatcherStatusEffectComponent, StatusEffectRelayedEvent<ThrowHitByEvent>>(OnGotHit); // Delta-V - Telekinesis
 
         _handsQuery = GetEntityQuery<HandsComponent>();
         _combatModeQuery = GetEntityQuery<CombatModeComponent>();
