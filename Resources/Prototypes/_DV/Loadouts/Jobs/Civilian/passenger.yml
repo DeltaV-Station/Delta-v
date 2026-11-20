@@ -27,47 +27,61 @@
 #   id: StudentPDA
 
 # Head
+## Skull Bandana Head
+- type: loadout
+  id: SkullBandanaPassenger
+  equipment:
+    head: ClothingHeadBandSkull
+  groupBy: colorbandana
+
 ## Black Bandana Head
 - type: loadout
   id: BlackBandana
   equipment:
     head: ClothingHeadBandBlack
+  groupBy: colorbandana
 
 ## Blue Bandana Head
 - type: loadout
   id: BlueBandana
   equipment:
     head: ClothingHeadBandBlue
+  groupBy: colorbandana
 
 ## Gold Bandana Head
 - type: loadout
   id: GoldBandana
   equipment:
     head: ClothingHeadBandGold
+  groupBy: colorbandana
 
 ## Green Bandana Head
 - type: loadout
   id: GreenBandana
   equipment:
     head: ClothingHeadBandGreen
+  groupBy: colorbandana
 
 ## Grey Bandana Head
 - type: loadout
   id: GreyBandana
   equipment:
     head: ClothingHeadBandGrey
+  groupBy: colorbandana
 
 ## Red Bandana Head
 - type: loadout
   id: RedBandana
   equipment:
     head: ClothingHeadBandRed
+  groupBy: colorbandana
 
 ## Brown Bandana Head
 - type: loadout
   id: BrownBandana
   equipment:
     head: ClothingHeadBandBrown
+  groupBy: colorbandana
 
 ## Beret
 - type: loadout
@@ -80,84 +94,97 @@
   id: BrownFedora
   equipment:
     head: ClothingHeadHatFedoraBrown
+  groupBy: fedora
 
 ## Grey Fedora
 - type: loadout
   id: GreyFedora
   equipment:
     head: ClothingHeadHatFedoraGrey
+  groupBy: fedora
 
 ## Black Fedora
 - type: loadout
   id: BlackFedora
   equipment:
     head: ClothingHeadHatFedoraBlack
+  groupBy: fedora
 
 ## Chocolate Fedora
 - type: loadout
   id: ChocFedora
   equipment:
     head: ClothingHeadHatFedoraChoc
+  groupBy: fedora
 
 ## White Fedora
 - type: loadout
   id: WhiteFedora
   equipment:
     head: ClothingHeadHatFedoraWhite
+  groupBy: fedora
 
 ## Grey Flat Cap
 - type: loadout
   id: GreyFlatCap
   equipment:
     head: ClothingHeadHatGreyFlatcap
-
+  groupBy: flatcap
 ## Black Flat Cap
 - type: loadout
   id: BlackFlatCap
   equipment:
     head: ClothingHeadHatFlatBlack
+  groupBy: flatcap
 
 ## Brown Flat Cap
 - type: loadout
   id: BrownFlatCap
   equipment:
     head: ClothingHeadHatFlatBrown
+  groupBy: flatcap
 
 ## Brown Cowboy Hat
 - type: loadout
   id: BrownCowboyHat
   equipment:
     head: ClothingHeadHatCowboyBrown
+  groupBy: cowboyhat
 
 ## Black Cowboy Hat
 - type: loadout
   id: BlackCowboyHat
   equipment:
     head: ClothingHeadHatCowboyBlack
+  groupBy: cowboyhat
 
 ## Grey Cowboy Hat
 - type: loadout
   id: GreyCowboyHat
   equipment:
     head: ClothingHeadHatCowboyGrey
+  groupBy: cowboyhat
 
 ## Red Cowboy Hat
 - type: loadout
   id: RedCowboyHat
   equipment:
     head: ClothingHeadHatCowboyRed
+  groupBy: cowboyhat
 
 ## White Cowboy Hat
 - type: loadout
   id: WhiteCowboyHat
   equipment:
     head: ClothingHeadHatCowboyWhite
+  groupBy: cowboyhat
 
 ## Bounty Hunter Hat
 - type: loadout
   id: BountyHunterHat
   equipment:
     head: ClothingHeadHatCowboyBountyHunter
+  groupBy: cowboyhat
 
 ## Straw hat
 - type: loadout
@@ -195,48 +222,56 @@
   id: BlackBandanaMask
   equipment:
     mask: ClothingMaskBandBlack
+  groupBy: colorbandanamask
 
 ## Blue Bandana Mask
 - type: loadout
   id: BlueBandanaMask
   equipment:
     mask: ClothingMaskBandBlue
+  groupBy: colorbandanamask
 
 ## Gold Bandana Mask
 - type: loadout
   id: GoldBandanaMask
   equipment:
     mask: ClothingMaskBandGold
+  groupBy: colorbandanamask
 
 ## Green Bandana Mask
 - type: loadout
   id: GreenBandanaMask
   equipment:
     mask: ClothingMaskBandGreen
+  groupBy: colorbandanamask
 
 ## Grey Bandana Mask
 - type: loadout
   id: GreyBandanaMask
   equipment:
     mask: ClothingMaskBandGrey
+  groupBy: colorbandanamask
 
 ## Red Bandana Mask
 - type: loadout
   id: RedBandanaMask
   equipment:
     mask: ClothingMaskBandRed
+  groupBy: colorbandanamask
 
 ## Brown Bandana Mask
 - type: loadout
   id: BrownBandanaMask
   equipment:
     mask: ClothingMaskBandBrown
+  groupBy: colorbandanamask
 
 ## Skull Bandana Mask
 - type: loadout
   id: SkullBandanaMask
   equipment:
     mask: ClothingMaskBandSkull
+  groupBy: colorbandanamask
 
 # Jumpsuit
 ## Black Jumpsuit
@@ -244,143 +279,389 @@
   id: BlackJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: BlackJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorBlack
+  groupBy: colorjumpskirts
 
 ## Blue Jumpsuit
 - type: loadout
   id: BlueJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlue
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: BlueJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorBlue
+  groupBy: colorjumpskirts
 
 ## Dark Blue Jumpsuit
 - type: loadout
   id: DarkBlueJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: DarkBlueJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorDarkBlue
+  groupBy: colorjumpskirts
 
 ## Teal Jumpsuit
 - type: loadout
   id: TealJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorTeal
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: TealJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorTeal
+  groupBy: colorjumpskirts
 
 ## Green Jumpsuit
 - type: loadout
   id: GreenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGreen
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: GreenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGreen
+  groupBy: colorjumpskirts
 
 ## Dark Green Jumpsuit
 - type: loadout
   id: DarkGreenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkGreen
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: DarkGreenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorDarkGreen
+  groupBy: colorjumpskirts
 
 ## Orange Jumpsuit
 - type: loadout
   id: OrangeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorOrange
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: OrangeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorOrange
+  groupBy: colorjumpskirts
 
 ## Pink Jumpsuit
 - type: loadout
   id: PinkJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPink
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: PinkJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPink
+  groupBy: colorjumpskirts
 
 ## Red Jumpsuit
 - type: loadout
   id: RedJumpsuitPassenger # Alternate name to avoid conflict with security_cadet loadout
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: RedJumpskirtPassenger # Alternate name to avoid conflict with security_cadet loadout
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRed
+  groupBy: colorjumpskirts
 
+## Yellow Jumpsuit
+- type: loadout
+  id: YellowJumpsuitPassenger # Alternate name to avoid conflict with technical_assistant loadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+  groupBy: colorjumpsuits
+
+- type: loadout
+  id: YellowJumpskirtPassenger # Alternate name to avoid conflict with technical_assistant loadout
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorWhite
+  groupBy: colorjumpskirts
+
+## White Jumpsuit
+- type: loadout
+  id: WhiteJumpsuitPassenger # Alternate name to avoid conflict with medical_intern loadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+  groupBy: colorjumpsuits
+
+- type: loadout
+  id: WhiteJumpskirtPassenger # Alternate name to avoid conflict with medical_intern loadout
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorWhite
+  groupBy: colorjumpskirts
 ## Purple Jumpsuit
 - type: loadout
   id: PurpleJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPurple
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: PurpleJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPurple
+  groupBy: colorjumpskirts
 
 ## Light Brown Jumpsuit
 - type: loadout
   id: LightBrownJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorLightBrown
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: LightBrownJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorLightBrown
+  groupBy: colorjumpskirts
 
 ## Brown Jumpsuit
 - type: loadout
   id: BrownJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: BrownJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorBrown
+  groupBy: colorjumpskirts
 
 ## Maroon Jumpsuit
 - type: loadout
   id: MaroonJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorMaroon
+  groupBy: colorjumpsuits
 
 - type: loadout
   id: MaroonJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorMaroon
+  groupBy: colorjumpskirts
+
+## Casual Red
+- type: loadout
+  id: CasualRedSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualRed
+  groupBy: casualjumpsuits
+
+- type: loadout
+  id: CasualRedSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualRed
+  groupBy: casualjumpskirts
+
+## Casual Blue
+- type: loadout
+  id: CasualBlueSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualBlue
+  groupBy: casualjumpsuits
+
+- type: loadout
+  id: CasualBlueSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualBlue
+  groupBy: casualjumpskirts
+
+## Casual Purple
+- type: loadout
+  id: CasualPurpleSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualPurple
+  groupBy: casualjumpsuits
+
+- type: loadout
+  id: CasualPurpleSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCasualPurple
+  groupBy: casualjumpskirts
+
+# Elegant dresses
+## Black elegant dress
+- type: loadout
+  id: BlackElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlackElegantDress
+  groupBy: elegantdress
+
+## Red Elegant Dress
+- type: loadout
+  id: RedElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedElegantDress
+  groupBy: elegantdress
+
+## Green Elegant Dress
+- type: loadout
+  id: GreenElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenElegantDress
+  groupBy: elegantdress
+
+## Blue Elegant Dress
+- type: loadout
+  id: BlueElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueElegantDress
+  groupBy: elegantdress
+
+## Purple Elegant Dress
+- type: loadout
+  id: PurpleElegantDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleElegantDress
+  groupBy: elegantdress
+
+# Striped Dresses
+## Cyan Striped Dress
+- type: loadout
+  id: CyanStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCyanStripedDress
+  groupBy: stripeddress
+
+## Red Striped Dress
+- type: loadout
+  id: RedStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedStripedDress
+  groupBy: stripeddress
+
+## Green Striped Dress
+- type: loadout
+  id: GreenStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenStripedDress
+  groupBy: stripeddress
+
+## Pink Striped Dress
+- type: loadout
+  id: PinkStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPinkStripedDress
+  groupBy: stripeddress
+
+## Orange Striped Dress
+- type: loadout
+  id: OrangeStripedDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtOrangeStripedDress
+  groupBy: stripeddress
+
+# Turtleneck Dresses
+## Purple Turtleneck Dress
+- type: loadout
+  id: PurpleTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPurpleTurtleneckDress
+  groupBy: turtleneckdress
+
+## Red Turtleneck Dress
+- type: loadout
+  id: RedTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedTurtleneckDress
+  groupBy: turtleneckdress
+
+## Green Turtleneck Dress
+- type: loadout
+  id: GreenTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenTurtleneckDress
+  groupBy: turtleneckdress
+
+## Blue Turtleneck Dress
+- type: loadout
+  id: BlueTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueTurtleneckDress
+  groupBy: turtleneckdress
+
+## Yellow Turtleneck Dress
+- type: loadout
+  id: YellowTurtleneckDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtYellowTurtleneckDress
+  groupBy: turtleneckdress
+
+## MNK Office Skirt
+- type: loadout
+  id: MNKOfficeSkirt
+  equipment:
+    jumpsuit: ClothingUniformMNKOfficeSkirt
+  groupBy: MNK
+
+## MNK Black Overalls
+- type: loadout
+  id: MNKBlackOveralls
+  equipment:
+    jumpsuit: ClothingUniformMNKBlackOveralls
+  groupBy: MNK
+
+## MNK Gym Bra
+- type: loadout
+  id: MNKGymBra
+  equipment:
+    jumpsuit: ClothingUniformMNKGymBra
+  groupBy: MNK
+
+## MNK Exposed Shoulders
+- type: loadout
+  id: MNKExposedShoulders
+  equipment:
+    jumpsuit: ClothingUniformMNKBlackShoulder
+  groupBy: MNK
+
+## MNK Black Dress
+- type: loadout
+  id: MNKBlackDress
+  equipment:
+    jumpsuit: ClothingUniformMNKDressBlack
+  groupBy: MNK
+
+## MNK Black Tracksuit
+- type: loadout
+  id: MNKBlackTracksuit
+  equipment:
+    jumpsuit: ClothingUniformMNKTracksuitBlack
+  groupBy: MNK
+
+## Yellow Old Dress
+- type: loadout
+  id: OldYellowDress
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtYellowOldDress
 
 ## Rose Hoodie w/ Skirt
 - type: loadout
@@ -394,137 +675,17 @@
   equipment:
     jumpsuit: ClothingCostumeNaota
 
-## Casual Red
+## Black Turtleneck
 - type: loadout
-  id: CasualRedSkirt
+  id: BlackTurtleneck
   equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualRed
+    jumpsuit: ClothingUniformBlackTurtleneck
 
+## White Shirt and Purple Skirt
 - type: loadout
-  id: CasualRedSuit
+  id: WhiteShirtPurpleSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCasualRed
-
-## Casual Blue
-- type: loadout
-  id: CasualBlueSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualBlue
-
-- type: loadout
-  id: CasualBlueSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCasualBlue
-
-## Casual Purple
-- type: loadout
-  id: CasualPurpleSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCasualPurple
-
-- type: loadout
-  id: CasualPurpleSuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitCasualPurple
-
-# Elegant dresses
-## Black elegant dress
-- type: loadout
-  id: BlackElegantDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBlackElegantDress
-
-## Red Elegant Dress
-- type: loadout
-  id: RedElegantDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRedElegantDress
-
-## Green Elegant Dress
-- type: loadout
-  id: GreenElegantDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtGreenElegantDress
-
-## Blue Elegant Dress
-- type: loadout
-  id: BlueElegantDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBlueElegantDress
-
-## Purple Elegant Dress
-- type: loadout
-  id: PurpleElegantDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtPurpleElegantDress
-
-# Striped Dresses
-## Cyan Striped Dress
-- type: loadout
-  id: CyanStripedDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtCyanStripedDress
-
-## Red Striped Dress
-- type: loadout
-  id: RedStripedDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRedStripedDress
-
-## Green Striped Dress
-- type: loadout
-  id: GreenStripedDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtGreenStripedDress
-
-## Pink Striped Dress
-- type: loadout
-  id: PinkStripedDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtPinkStripedDress
-
-## Orange Striped Dress
-- type: loadout
-  id: OrangeStripedDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtOrangeStripedDress
-
-# Turtleneck Dresses
-## Purple Turtleneck Dress
-- type: loadout
-  id: PurpleTurtleneckDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtPurpleTurtleneckDress
-
-## Red Turtleneck Dress
-- type: loadout
-  id: RedTurtleneckDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRedTurtleneckDress
-
-## Green Turtleneck Dress
-- type: loadout
-  id: GreenTurtleneckDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtGreenTurtleneckDress
-
-## Blue Turtleneck Dress
-- type: loadout
-  id: BlueTurtleneckDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBlueTurtleneckDress
-
-## Yellow Turtleneck Dress
-- type: loadout
-  id: YellowTurtleneckDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtYellowTurtleneckDress
-
-## Yellow Old Dress
-- type: loadout
-  id: OldYellowDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtYellowOldDress
+    jumpsuit: ClothingCostumeArcDress
 
 # Gloves
 ## Red Gloves
@@ -532,48 +693,77 @@
   id: RedGloves
   equipment:
     gloves: ClothingHandsGlovesColorRed
+  groupBy: colorgloves
 
 ## Blue Gloves
 - type: loadout
   id: BlueGloves
   equipment:
     gloves: ClothingHandsGlovesColorBlue
+  groupBy: colorgloves
+
+## Purple Gloves
+- type: loadout
+  id: PurpleGlovesPassenger #alt name to avoid conflicting /w epi loadouts
+  equipment:
+    gloves: ClothingHandsGlovesColorPurple
+  groupBy: colorgloves
+
+## Orange Gloves
+- type: loadout
+  id: OrangeGlovesPassenger #alt name to avoid conflicting /w the janitor
+  equipment:
+    gloves: ClothingHandsGlovesColorOrange
+  groupBy: colorgloves
+
+## White Gloves
+- type: loadout
+  id: WhiteGlovesPassenger #alt name to avoid conflicting /w med loadouts
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+  groupBy: colorgloves
 
 ## Teal Gloves
 - type: loadout
   id: TealGloves
   equipment:
     hands: ClothingHandsGlovesColorTeal
+  groupBy: colorgloves
 
 ## Brown Gloves
 - type: loadout
   id: BrownGloves
   equipment:
     gloves: ClothingHandsGlovesColorBrown
+  groupBy: colorgloves
 
 ## Light Brown Gloves
 - type: loadout
   id: LightBrownGloves
   equipment:
     gloves: ClothingHandsGlovesColorLightBrown
+  groupBy: colorgloves
 
 ## Grey Gloves
 - type: loadout
   id: GreyGloves
   equipment:
     gloves: ClothingHandsGlovesColorGray
+  groupBy: colorgloves
 
 ## Green Gloves
 - type: loadout
   id: GreenGloves
   equipment:
     gloves: ClothingHandsGlovesColorGreen
+  groupBy: colorgloves
 
 ## Black Gloves
 - type: loadout
   id: BlackGloves
   equipment:
     gloves: ClothingHandsGlovesColorBlack
+  groupBy: colorgloves
 
 ## Fingerless Black Gloves
 - type: loadout
@@ -581,72 +771,96 @@
   equipment:
     gloves: ClothingHandsGlovesFingerless
 
+## Mercenary Fingerless Gloves
+- type: loadout
+  id: MercenaryFingerlessGloves
+  equipment:
+    gloves: ClothingHandsGlovesMercFingerless
+
 # Outer Clothing/Jackets
+## Winter Coat - the instance of the wintercoat in the upstream passenger.yml didn't play nice with 'groupBy'; became "unknown" with a blank sprite
+- type: loadout
+  id: WintercoatPassenger
+  equipment:
+    outerClothing: ClothingOuterWinterCoat
+  groupBy: colorcoats
+
 ## Black Winter Coat
 - type: loadout
   id: BlackWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorBlack
+  groupBy: colorcoats
 
 ## Purple Winter Coat
 - type: loadout
   id: PurpleWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorPurple
+  groupBy: colorcoats
 
 ## Red Winter Coat
 - type: loadout
   id: RedWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorRed
+  groupBy: colorcoats
 
 ## Blue Winter Coat
 - type: loadout
   id: BlueWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorBlue
+  groupBy: colorcoats
 
 ## Brown Winter Coat
 - type: loadout
   id: BrownWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorBrown
+  groupBy: colorcoats
 
 ## Light Brown Winter Coat
 - type: loadout
   id: LightBrownWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorLightBrown
+  groupBy: colorcoats
 
 ## Gray Winter Coat
 - type: loadout
   id: GrayWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorGray
+  groupBy: colorcoats
 
 ## Green Winter Coat
 - type: loadout
   id: GreenWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorGreen
+  groupBy: colorcoats
 
 ## Orange Winter Coat
 - type: loadout
   id: OrangeWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorOrange
+  groupBy: colorcoats
 
 ## White Winter Coat
 - type: loadout
   id: WhiteWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorWhite
+  groupBy: colorcoats
 
 ## Yellow Winter Coat
 - type: loadout
   id: YellowWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterColorYellow
+  groupBy: colorcoats
 
 ## Black Hoodie
 - type: loadout
@@ -665,18 +879,21 @@
   id: FlannelRed
   equipment:
     outerClothing: ClothingOuterFlannelRed
+  groupBy: colorflannel
 
 ## Flannel Blue
 - type: loadout
   id: FlannelBlue
   equipment:
     outerClothing: ClothingOuterFlannelBlue
+  groupBy: colorflannel
 
 ## Flannel Green
 - type: loadout
   id: FlannelGreen
   equipment:
     outerClothing: ClothingOuterFlannelGreen
+  groupBy: colorflannel
 
 - type: loadout
   id: BomberJacket
@@ -694,30 +911,68 @@
   id: GreenShoes
   equipment:
     shoes: ClothingShoesColorGreen
+  groupBy: colorshoes
 
 ## Orange SHoes
 - type: loadout
   id: OrangeShoes
   equipment:
     shoes: ClothingShoesColorOrange
+  groupBy: colorshoes
 
 ## Red Shoes
 - type: loadout
   id: RedShoes
   equipment:
     shoes: ClothingShoesColorRed
+  groupBy: colorshoes
+
+## Blue Shoes
+- type: loadout
+  id: BlueShoesPassenger #alt name to avoid conflicts with the paramedic
+  equipment:
+    shoes: ClothingShoesColorBlue
+  groupBy: colorshoes
+
+## Brown Shoes
+- type: loadout
+  id: BrownShoesPassenger #alt name to avoid conflicts with the CE/LO
+  equipment:
+    shoes: ClothingShoesColorBrown
+  groupBy: colorshoes
+
+## White Shoes
+- type: loadout
+  id: WhiteShoesPassenger #alt name to avoid conflicts with medical loadouts
+  equipment:
+    shoes: ClothingShoesColorWhite
+  groupBy: colorshoes
 
 ## Yellow Shoes
 - type: loadout
   id: YellowShoes
   equipment:
     shoes: ClothingShoesColorYellow
+  groupBy: colorshoes
 
 ## Purple Shoes
 - type: loadout
   id: PurpleShoes
   equipment:
     shoes: ClothingShoesColorPurple
+  groupBy: colorshoes
+
+## Laceup Shoes
+- type: loadout
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+## Leather Shoes
+- type: loadout
+  id: LeatherShoes
+  equipment:
+    shoes: ClothingShoesLeather
 
 ## High Heels
 - type: loadout
@@ -742,3 +997,16 @@
   id: WhiteCowboyBoots
   equipment:
     shoes: ClothingShoesBootsCowboyWhite
+
+#Back
+## Leather Satchel
+- type: loadout
+  id: LeatherSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+## Mercenary Bag
+- type: loadout
+  id: MercBag
+  equipment:
+    back: ClothingBackpackMerc

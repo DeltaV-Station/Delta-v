@@ -38,6 +38,8 @@ loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
 
 loadout-group-assistant-head = Assistant head
 
+loadout-group-assistant-backpack = Backpack
+
 loadout-group-clown-mask = Clown mask
 
 loadout-group-mime-shoes = Mime shoes
