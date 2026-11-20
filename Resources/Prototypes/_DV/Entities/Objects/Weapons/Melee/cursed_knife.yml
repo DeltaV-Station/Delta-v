@@ -1,26 +1,20 @@
 - type: entity
   parent: KitchenKnife
-  id: CursedDagger
+  id: CursedKnife
   name: cursed knife
   description: An unassuming bread knife. You feel something evil eminating from it...
   components:
   - type: Sprite
-    sprite: _DV/Objects/Weapons/Melee/prison_knife.rsi
-    #layers:
-    #- state: e_sword
-    #- state: e_sword_blade
-    #  color: "#FFFFFF"
-    #  visible: false
-    #  shader: unshaded
-    #  map: [ "blade" ]
-  - type: Item
-    sprite: _DV/Objects/Weapons/Melee/prison_knife.rsi
+    sprite: _DV/Objects/Weapons/Melee/cursed_knife.rsi
+    layers:
+    - state: tier-one
+      map: [ "blade" ]
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
       types:
         Slash: 6
-  - type: CursedDagger
+  - type: CursedKnife
     adrenalinePerHit: 10
     adrenalineFallAmount: 5
     adrenalineTierTwo: 50
@@ -55,3 +49,28 @@
     reflects:
     - Energy
     - NonEnergy
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 5
+    color: '#550405FF'
+    netsync: false
+  - type: Appearance
+  - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
+  - type: ToggleableVisuals 
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.CursedKnifeVisuals.State:
+        knife:
+          TierOne: { state: tier-one }
+          TierTwo: { state: tier-two }
+          TierThree: { state: tier-three }

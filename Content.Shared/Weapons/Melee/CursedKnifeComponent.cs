@@ -1,11 +1,12 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Melee;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class CursedDaggerComponent : Component
+public sealed partial class CursedKnifeComponent : Component
 {
     [DataField, AutoNetworkedField]
     public int Adrenaline = 0;
@@ -49,4 +50,18 @@ public sealed partial class CursedDaggerComponent : Component
 
     [DataField(required: true)]
     public float TierThreeReflect;
+
+    [Serializable, NetSerializable]
+    public enum CursedKnifeVisuals : byte
+    {
+        State
+    }
+
+    [Serializable, NetSerializable]
+    public enum CursedKnifeTier : byte
+    {
+        TierOne,
+        TierTwo,
+        TierThree
+    }
 }

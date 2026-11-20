@@ -6,23 +6,25 @@ using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Timing;
+using static Content.Shared.Weapons.Melee.CursedKnifeComponent;
 
 namespace Content.Shared.Weapons.Melee;
 
-public sealed class CursedDaggerSystem : EntitySystem
+public sealed class CursedKnifeSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly HeldSpeedModifierSystem _heldSpeed = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<CursedDaggerComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<CursedDaggerComponent, GotEquippedHandEvent>(OnEquipped);
-        SubscribeLocalEvent<CursedDaggerComponent, GotUnequippedHandEvent>(OnUnequipped);
+        SubscribeLocalEvent<CursedKnifeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<CursedKnifeComponent, GotEquippedHandEvent>(OnEquipped);
+        SubscribeLocalEvent<CursedKnifeComponent, GotUnequippedHandEvent>(OnUnequipped);
     }
 
-    private void OnMeleeHit(Entity<CursedDaggerComponent> weapon, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<CursedKnifeComponent> weapon, ref MeleeHitEvent args)
     {
         if (!args.IsHit)
             return;
@@ -39,7 +41,7 @@ public sealed class CursedDaggerSystem : EntitySystem
     private void CheckAdrenaline()
     {
         var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<CursedDaggerComponent>();
+        var query = EntityQueryEnumerator<CursedKnifeComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (curTime < comp.NextAdrenalineFall)
@@ -59,6 +61,7 @@ public sealed class CursedDaggerSystem : EntitySystem
 
             if (comp.Adrenaline >= comp.AdrenalineTierThree)
             {
+                _appearance.SetData(uid, CursedKnifeVisuals.State, CursedKnifeTier.TierThree);
                 melee.Damage = comp.TierThreeDamage;
                 _heldSpeed.SetHeldMovementSpeedModifiers(uid, comp.SpeedBoost, comp.SpeedBoost, holder: comp.Holder);
                 _toggle.TryActivate((uid, toggle));
@@ -68,6 +71,7 @@ public sealed class CursedDaggerSystem : EntitySystem
             }
             else if (comp.Adrenaline >= comp.AdrenalineTierTwo)
             {
+                _appearance.SetData(uid, CursedKnifeVisuals.State, CursedKnifeTier.TierTwo);
                 melee.Damage = comp.TierTwoDamage;
                 _heldSpeed.SetHeldMovementSpeedModifiers(uid, 1, 1, holder: comp.Holder);
                 _toggle.TryActivate((uid, toggle));
@@ -75,6 +79,7 @@ public sealed class CursedDaggerSystem : EntitySystem
                 Dirty(uid, comp);
                 return;
             }
+            _appearance.SetData(uid, CursedKnifeVisuals.State, CursedKnifeTier.TierOne);
             melee.Damage = comp.TierOneDamage;
             _heldSpeed.SetHeldMovementSpeedModifiers(uid, 1, 1, holder: comp.Holder);
             _toggle.TryDeactivate((uid, toggle));
@@ -89,13 +94,13 @@ public sealed class CursedDaggerSystem : EntitySystem
         CheckAdrenaline();
     }
 
-    private void OnEquipped(Entity<CursedDaggerComponent> ent, ref GotEquippedHandEvent args)
+    private void OnEquipped(Entity<CursedKnifeComponent> ent, ref GotEquippedHandEvent args)
     {
         ent.Comp.Holder = args.User;
         Dirty(ent);
     }
 
-    private void OnUnequipped(Entity<CursedDaggerComponent> ent, ref GotUnequippedHandEvent args)
+    private void OnUnequipped(Entity<CursedKnifeComponent> ent, ref GotUnequippedHandEvent args)
     {
         ent.Comp.Holder = null;
         Dirty(ent);
