@@ -22,3 +22,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<int> MidiMaxChannelNameLength =
         CVarDef.Create("midi.max_channel_name_length", 64, CVar.SERVERONLY);
 }
+//I may need to change this to 128 but right now I just dont give a shit so it stays as is.
