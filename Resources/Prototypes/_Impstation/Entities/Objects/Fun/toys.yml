@@ -5,5 +5,18 @@
   description: It is rude to not give this plushie hugs and kisses.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
-    state: plushie_thaven
+    sprite: _DV/Objects/Fun/Toys/thaven.rsi # DeltaV - change sprite location
+    state: icon
+  # Begin DeltaV - allow Thaven plushies to be worn on your head and put in cotton burgers
+  - type: Clothing
+    quickEquip: false
+    sprite: _DV/Objects/Fun/Toys/thaven.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: ThavenPlushie
+  # End DeltaV - allow Thaven plushies to be worn on your head and put in cotton burgers
