@@ -38,7 +38,7 @@ public sealed partial class HideLayerClothingComponent : Component
     public bool AllowOverride = false;
 
     /// <summary>
-    /// DeltaV - If false, the layer will not be hidden
+    /// DeltaV - If true, don't hide layers while equipped
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool BlockLayerHide = false;
