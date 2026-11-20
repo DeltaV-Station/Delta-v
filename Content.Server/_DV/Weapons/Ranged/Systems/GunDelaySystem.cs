@@ -5,12 +5,14 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 
 namespace Content.Server._DV.Weapons.Ranged.Systems;
 
 public sealed class GunDelaySystem : SharedGunDelaySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     protected override void OnShotAttempted(Entity<GunDelayComponent> ent, ref ShotAttemptedEvent args)
     {
         if (args.Cancelled)
@@ -22,7 +24,7 @@ public sealed class GunDelaySystem : SharedGunDelaySystem
             if (ent.Comp.Delay is { } delay) // Use flat delay if one is provided
                 ent.Comp.FireTime = Timing.CurTime + TimeSpan.FromSeconds(delay);
             else
-                ent.Comp.FireTime = Timing.CurTime + TimeSpan.FromSeconds(Random.NextFloat(ent.Comp.MinimumDelay, ent.Comp.MaximumDelay));
+                ent.Comp.FireTime = Timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(ent.Comp.MinimumDelay, ent.Comp.MaximumDelay));
 
             if (ent.Comp.Delay != 0) // Don't need to play the start sound for the delay if there isn't one
                 AudioSystem.PlayPredicted(ent.Comp.StartSound, ent, args.User);

@@ -1,7 +1,6 @@
 using Content.Shared._DV.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio.Systems;
@@ -11,7 +10,6 @@ namespace Content.Shared._DV.Weapons.Ranged.Systems;
 
 public abstract class SharedGunDelaySystem : EntitySystem
 {
-    [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly SharedGunSystem GunSystem = default!;
     [Dependency] protected readonly SharedAudioSystem AudioSystem = default!;
