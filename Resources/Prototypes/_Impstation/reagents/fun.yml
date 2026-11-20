@@ -1,0 +1,24 @@
+- type: reagent
+  id: Redpaint
+  name: reagent-name-redpaint
+  desc: reagent-desc-redpaint
+  flavor: bitter
+  color: "#800000"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/bloodglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  recognizable: false #doing this so it wouldn't say red paint upon first inspection, but it wouldn't say blood either
+  standsout: true #necessary to make it appear opaque and identical to blood
+  physicalDesc: reagent-physical-desc-ferrous
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: -1.0
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
