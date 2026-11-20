@@ -1,8 +1,8 @@
+using Content.Shared._DV.Psionics.Events;
 using Content.Shared.DeviceLinking.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
-using Content.Shared._DV.Psionics.Events; // Delta-V - Telekinesis
 
 namespace Content.Shared.DeviceLinking.Systems
 {
@@ -21,7 +21,7 @@ namespace Content.Shared.DeviceLinking.Systems
             SubscribeLocalEvent<TwoWayLeverComponent, ActivateInWorldEvent>(OnActivated);
             SubscribeLocalEvent<TwoWayLeverComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
 
-            SubscribeLocalEvent<TwoWayLeverComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V - Telekinesis
+            SubscribeLocalEvent<TwoWayLeverComponent, TelekinesisUsedEvent>(OnTelekinesisUsed); // Delta-V
         }
 
         private void OnInit(EntityUid uid, TwoWayLeverComponent component, ComponentInit args)
