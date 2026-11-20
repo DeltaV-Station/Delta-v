@@ -172,6 +172,7 @@ public abstract class SharedImplanterSystem : EntitySystem
         }
 
         var ev = new AddImplantAttemptEvent(user, target, implant.Value, implanter);
+        RaiseLocalEvent(implant.Value, ev); // DeltaV - Allow Implants to be exclusive.
         RaiseLocalEvent(target, ev);
         return !ev.Cancelled;
     }

@@ -136,7 +136,13 @@
   - type: Sprite
     sprite: _DV/Objects/Materials/psicrystal.rsi
     state: psicrystal
+  - type: DVExclusiveImplant
+    exclusiveKey: psionic
+  - type: DVImplantRequiresPsionicRoll
   - type: SubdermalImplant
+    whitelist:
+      components:
+      - PotentialPsionic
   - type: DVInsertableImplant
     implanterName: psion-crystal-implanter-name
     implanterDescription: psion-crystal-implanter-description
@@ -149,6 +155,10 @@
   components:
   - type: Sprite
     color: "#ebd039"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - NoosphericZapPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: NoosphericZapPower
@@ -162,6 +172,10 @@
   components:
   - type: Sprite
     color: "#9947b3"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - TelegnosisPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: TelegnosisPower
@@ -175,6 +189,10 @@
   components:
   - type: Sprite
     color: "#3e81a0"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - PrecognitionPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: PrecognitionPower
@@ -188,6 +206,10 @@
   components:
   - type: Sprite
     color: "#f12121"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - PsychokineticScreamPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: PsychokineticScreamPower
@@ -201,6 +223,10 @@
   components:
   - type: Sprite
     color: "#e1f8f7"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - DispelPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: DispelPower
@@ -214,6 +240,10 @@
   components:
   - type: Sprite
     color: "#49b852"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - MetapsionicPulsePower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: MetapsionicPulsePower
@@ -227,6 +257,10 @@
   components:
   - type: Sprite
     color: "#e0305c"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - PsionicRegenerationPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: PsionicRegenerationPower
@@ -240,6 +274,10 @@
   components:
   - type: Sprite
     color: "#e93313"
+  - type: SubdermalImplant
+    blacklist:
+      components:
+      - PyrokinesisPower
   - type: AddComponentsImplant
     componentsToAdd:
     - type: PyrokinesisPower

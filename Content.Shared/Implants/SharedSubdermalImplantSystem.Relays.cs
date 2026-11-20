@@ -1,3 +1,4 @@
+using Content.Shared._DV.Implants.Events; // DeltaV - Allow exclusive implants. REMOVE WHEN METHOD ATTRIBUTES ALLOW SUBSCRIPTIONS!
 using Content.Shared.Chat;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Implants.Components;
@@ -17,6 +18,7 @@ public abstract partial class SharedSubdermalImplantSystem
         SubscribeLocalEvent<ImplantedComponent, TransformSpeakerNameEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, TransformSpeechEvent>(RelayToImplantEvent);
         SubscribeLocalEvent<ImplantedComponent, SeeIdentityAttemptEvent>(RelayToImplantEvent);
+        SubscribeLocalEvent<ImplantedComponent, DVExclusiveImplantAttemptEvent>(RelayToImplantEvent); // DeltaV - Allow exclusive implants. REMOVE WHEN METHOD ATTRIBUTES ALLOW SUBSCRIPTIONS!
     }
 
     /// <summary>
