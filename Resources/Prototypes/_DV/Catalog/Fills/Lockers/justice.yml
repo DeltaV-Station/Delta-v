@@ -36,10 +36,10 @@
       entity_storage: !type:AllSelector
         children:
         - !type:NestedSelector
-          tableId: LockerFillProsector
+          tableId: LockerFillProsecutor
 
 - type: entityTable
-  id: LockerFillProsector
+  id: LockerFillProsecutor
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyJustice
@@ -139,7 +139,7 @@
     - id: RemoteSignaller
       amount: 2
     - id: ClothingOuterStraightjacket
-    - id: TearGasGrenade
+    - id: TearGasGrenade # No access to sectech to oppress prisoners with
       amount: 2
     - id: NetworkConfigurator
     - id: Binoculars
@@ -164,7 +164,7 @@
 - type: entity
   parent: SecurityGunSafeNonlethalHandgunDV
   id: JusticeGunSafeNonlethalHandgunSecureFilledDV
-  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  suffix: Armory, JusticeWarden, Locked, Filled
   components:
   - type: EntityTableContainerFill
     containers:
@@ -184,7 +184,7 @@
 - type: entity
   parent: JusticeGunSafeNonLethalShotgunSecureDV
   id: JusticeGunSafeNonLethalShotgunSecureFilledDV
-  suffix: Armory, Marshal, JusticeWarden, Locked, Filled
+  suffix: Armory, JusticeWarden, Locked, Filled
   components:
   - type: EntityTableContainerFill
     containers:

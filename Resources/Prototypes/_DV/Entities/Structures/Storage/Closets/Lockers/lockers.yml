@@ -62,7 +62,7 @@
     stateDoorOpen: clerk_open
     stateDoorClosed: clerk_door
   - type: AccessReader
-    access: [["Clerk"]]
+    access: [["Warden"]] # Clerk access changed to warden
 
 - type: entity
   parent: LockerJustice
@@ -422,10 +422,10 @@
 - type: entity
   parent: JusticeGunSafeNonlethalDV
   id: JusticeGunSafeNonlethalSecureDV
-  suffix: Armory, Marshal, JusticeWarden, Locked
+  suffix: Armory, JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+    access: [["Armory"], ["JusticeWarden"]]
 
 - type: entity
   parent: SecurityGunSafeNonlethalHandgunDV
@@ -439,10 +439,10 @@
 - type: entity
   parent: SecurityGunSafeNonlethalHandgunDV
   id: JusticeGunSafeNonlethalHandgunSecureDV
-  suffix: Armory, Marshal, JusticeWarden, Locked
+  suffix: Armory,  JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+    access: [["Armory"], ["JusticeWarden"]]
 
 - type: entity
   parent: SecurityGunSafeNonlethalDV
@@ -459,10 +459,10 @@
 - type: entity
   parent: JusticeGunSafeNonLethalShotgunDV
   id: JusticeGunSafeNonLethalShotgunSecureDV
-  suffix: Armory, Marshal, JusticeWarden, Locked
+  suffix: Armory, JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+    access: [["Armory"], ["JusticeWarden"]]
 
 - type: entity
   parent: JusticeGunSafeNonlethalHandgunDV
