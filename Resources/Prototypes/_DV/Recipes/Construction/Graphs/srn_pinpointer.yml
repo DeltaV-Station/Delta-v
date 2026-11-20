@@ -1,0 +1,34 @@
+- type: constructionGraph
+  id: RepairRoboNeuroticistPointer
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: repairedPinpointer
+      steps:
+      - tag: RoboNeuroticistPinpointerPiece
+        name: construction-graph-tag-core-pinpointer-piece
+        icon:
+          sprite: Objects/Devices/pinpointer.rsi
+          state: pinpointer-xenoborg-piece-1
+        doAfter: 4
+      - tag: RoboNeuroticistPinpointerPiece
+        name: construction-graph-tag-core-pinpointer-piece
+        icon:
+          sprite: Objects/Devices/pinpointer.rsi
+          state: pinpointer-xenoborg-piece-1
+        doAfter: 4
+      - tag: RoboNeuroticistPinpointerPiece
+        name: construction-graph-tag-core-pinpointer-piece
+        icon:
+          sprite: Objects/Devices/pinpointer.rsi
+          state: pinpointer-xenoborg-piece-1
+        doAfter: 4
+      - tag: RoboNeuroticistPinpointerPiece
+        name: construction-graph-tag-core-pinpointer-piece
+        icon:
+          sprite: Objects/Devices/pinpointer.rsi
+          state: pinpointer-xenoborg-piece-1
+        doAfter: 4
+  - node: repairedPinpointer
+    entity: RoboNeuroticistPointer

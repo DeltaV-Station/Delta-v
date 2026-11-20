@@ -7,67 +7,20 @@
   content:
   - ClothingMaskGasVoiceChameleon
   - BorgModuleSyndicateWeapon
-  - EncryptionKeyCommon
+  - BorgModuleSyndicateWeapon
+  - EncryptionKeyStationMaster
 
 - type: thiefBackpackSet
-  id: RoboNeuroticistSaboteur
-  name: roboneuroticist-set-saboteur-name
-  description: roboneuroticist-set-saboteur-description
+  id: RoboNeuroticistBreacher
+  name: roboneuroticist-set-breacher-name
+  description: roboneuroticist-set-breacher-description
   sprite:
-    entity: PowerSink
+    entity: C4
   content:
-  - PowerSink
-  - BorgModuleRCD
-  - BorgModuleRCD
-  - RCDRecharging
-  - RCDRecharging
-
-- type: thiefBackpackSet
-  id: RoboNeuroticistMechanic
-  name: roboneuroticist-set-mechanic-name
-  description: roboneuroticist-set-mechanic-description
-  sprite:
-    entity: ClothingBeltChiefEngineerFilled
-  content:
-  - ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  - C4
+  - C4
   - ClothingBeltChiefEngineerFilled
-
-- type: thiefBackpackSet
-  id: RoboNeuroticistInfiltrator
-  name: roboneuroticist-set-infiltrator-name
-  description: roboneuroticist-set-infiltrator-description
-  sprite:
-    entity: BorgChassisSyndicateSaboteur
-  content:
-  - PlayerBorgSyndicateSaboteurGhostRole
-  - BorgModuleEsword
-  - BorgModuleRCD
-  - BorgModuleChameleonProjector
-
-- type: thiefBackpackSet
-  id: RoboNeuroticistWarmonger
-  name: roboneuroticist-set-warmonger-name
-  description: roboneuroticist-set-warmonger-description
-  sprite:
-    entity: BorgChassisSyndicateAssault
-  content:
-  - PlayerBorgSyndicateAssaultGhostRole
-
-- type: thiefBackpackSet
-  id: RoboNeuroticistClown
-  name: roboneuroticist-set-clown-name
-  description: roboneuroticist-set-clown-description
-  sprite:
-    entity: ClothingMaskClown
-  content:
-  - ClothingOuterHardsuitClown
-  - ClothingHeadHatJesterAlt
-  - BorgChassisService
-  - BorgModuleClowning
-  - SoapOmega
-  - ClothingBackpackDuffelSyndicateCostumeClown
-  - MobJonkBot
-  - HappyHonk
+  - Doorjack
 
 - type: thiefBackpackSet
   id: RoboNeuroticistPirate
@@ -76,6 +29,7 @@
   sprite:
     entity: CannonBall
   content:
+  - BorgModuleCannon
   - BorgModuleCannon
   - BorgModuleBuccaneer
   - BorgModuleBuccaneer
@@ -92,8 +46,7 @@
   sprite:
     entity: BorgHypo
   content:
-  - PlayerBorgSyndicateMedicalGhostRole
   - PowerCellHyper
   - DefibrillatorSyndicate
   - BorgModuleSleeper
-  - SoapOmega # Scrubadubdub
+  - BorgModuleSleeper
