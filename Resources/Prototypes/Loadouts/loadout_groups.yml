@@ -1435,7 +1435,10 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
-  - HeadofSecurityCavalier # DeltaV
+  # Begin DeltaV changes
+  - HeadofSecurityCavalier
+  - HeadofSecurityHelmetEVA
+  # End DeltaV changes
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1454,6 +1457,7 @@
   - HeadofSecurityJumpskirtGrey
   - HeadofSecurityJumpsuitWhite
   - HeadofSecurityJumpskirtWhite
+  - HeadofSecurityFancyUniform
   # End DeltaV changes
 
 - type: loadoutGroup
@@ -1503,6 +1507,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - WardenGoggles # DeltaV
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1517,13 +1522,17 @@
   - WardenJumpskirtWhite
   - WardenTurtlesuit
   - WardenTurtleskirt
+  - ArmourerTurtleneck
   # End DeltaV additions
 
 - type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
-  - WardenLongcoat # DeltaV - Longcoats
+  # Begin DeltaV additions
+  - WardenLongcoat
+  - ArmourerCoatLeather
+  # End DeltaV additions
   - WardenCoat
   - WardenArmoredWinterCoat
 
@@ -1558,6 +1567,7 @@
   # Begin DeltaV changes
   - SecurityJumpsuitWhite
   - SecurityJumpskirtWhite
+  - SecurityJumpsuitSuspenders
 #  - SeniorOfficerJumpsuit # Removed for incongruence
 #  - SeniorOfficerJumpskirt # Removed for incongruence
   - SeniorSecOfficerTurtlesuit
