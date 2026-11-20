@@ -3,6 +3,7 @@ borg-slot-organ-empty = Organs
 borg-slot-medical-transport-empty = Patient transportation
 
 borg-slot-handcuffs-empty = Handcuffs and zipties
+borg-slot-bola-empty = Bola slot
 
 borg-slot-spraypaint-empty = Spraypaint supplies
 

@@ -137,6 +137,13 @@
   - type: ItemBorgModule
     hands:
     - item: WeaponDisablerSelfCharge
+    - item: Bola
+      hand:
+        emptyRepresentative: Bola
+        emptyLabel: borg-slot-bola-empty
+        whitelist:
+          tags:
+          - Bola
     - item: FlashlightSecliteRecharging
     - item: SecurityWhistle
   - type: BorgModuleIcon
