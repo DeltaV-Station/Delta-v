@@ -349,4 +349,10 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<bool> RoundEndIsOOCVote =
         CVarDef.Create("deltav.round_end_is_ooc_vote", false, CVar.SERVER);
+
+    /// <summary>
+    /// Goob - Whether the Round Intro plays.
+    /// </summary>
+    public static readonly CVarDef<bool> RoundIntroEnabled =
+        CVarDef.Create("game.round_intro", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
