@@ -23,3 +23,19 @@
   cost: 7000
   recipeUnlocks:
   - PlantAnalyzer
+
+- type: technology
+  id: EmuPLU
+  name: research-technology-emu-plu
+  icon:
+    sprite: _NF/Objects/Specific/Mech/mecha.rsi
+    state: emu
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - EmuHarness
+  - EmuLLeg
+  - EmuRLeg
+  - EmuCentralElectronics
+  - EmuPeripheralsElectronics
