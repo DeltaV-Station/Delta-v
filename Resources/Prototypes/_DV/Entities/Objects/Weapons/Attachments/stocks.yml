@@ -15,3 +15,22 @@
     tags:
     - AttachmentStock
     - AttachmentBasicStock
+
+# make this one let you shoot unwielded ..?
+- type: entity 
+  parent: BaseGunAttachmentStock
+  id: GunAttachmentStockWire
+  name: wire stock
+  description: Like a normal stock, but for people who think they're cool.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: cargotechnician
+  - type: ESGunComponentAttachment
+    component:
+    - type: Wieldable
+      unwieldOnUse: false
+  - type: Tag
+    tags:
+    - AttachmentStock
+    - AttachmentWireStock

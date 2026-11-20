@@ -12,3 +12,18 @@
   - type: Tag
     tags:
     - AttachmentStock
+
+- type: entity
+  parent: BaseItem
+  id: BaseGunAttachmentForend
+  name: stock
+  description: Basically half the gun!
+  suffix: LARP Attachment
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: ESGunAttachment
+  - type: Tag
+    tags:
+    - AttachmentForend

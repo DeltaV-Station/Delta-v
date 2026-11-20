@@ -331,3 +331,193 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+
+# rifle not wieldable by default? sucks to be you! copy the base prototype components and explode
+- type: entity
+  name: LARP-26
+  parent: [BaseItem]
+  id: WeaponRifleLARP
+  description: The infamous Long Automatic Rifle Platform. Slap on some attachments to make the tacticool slop of your dreams!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/arg.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - map: ["gripAttachment"]
+      - map: ["opticAttachment"]
+      - map: ["stockAttachment"]
+        offset: -0.25, 0
+      - map: ["forendAttachment"]
+        offset: 0.25, 0
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,2
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/arg.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - AttachmentGrip
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentOptic
+      attachment_stock:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentStock
+      attachment_forend:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentForend
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+      attachment_stock: !type:ContainerSlot
+      attachment_forend: !type:ContainerSlot
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - AttachmentGrip
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - AttachmentOptic
+    - name: gun-attachments-slot-name-stock
+      containerId: attachment_stock
+      whitelist:
+        tags:
+        - AttachmentStock
+    - name: gun-attachments-slot-name-forend
+      containerId: attachment_forend
+      whitelist:
+        tags:
+        - AttachmentForend
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: laser
+        whitelist:
+          tags:
+          - AttachmentLaser
+      - containerId: attachment_grip
+        state: bipod
+        whitelist:
+          tags:
+          - AttachmentBipod
+      opticAttachment:
+      - containerId: attachment_optic
+        state: opticholo
+        whitelist:
+          tags:
+          - AttachmentOpticHolo
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - AttachmentOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - AttachmentOptic8x
+      stockAttachment:
+      - containerId: attachment_stock
+        state: stock
+        whitelist:
+          tags:
+          - AttachmentBasicStock
+      - containerId: attachment_stock
+        state: wirestock
+        whitelist:
+          tags:
+          - AttachmentWireStock
+      forendAttachment:
+      - containerId: attachment_forend
+        state: basebarrel
+        whitelist:
+          tags:
+          - AttachmentForendBase
+      - containerId: attachment_forend
+        state: supbarrel
+        whitelist:
+          tags:
+          - AttachmentForendSuppressed
+      - containerId: attachment_forend
+        state: sniperbarrel
+        whitelist:
+          tags:
+          - AttachmentForendSniper
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500

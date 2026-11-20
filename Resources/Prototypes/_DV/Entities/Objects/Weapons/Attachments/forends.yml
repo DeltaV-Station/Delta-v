@@ -1,0 +1,59 @@
+# I googled if this was the right name for this part of the gun because using "barrel" has too much overlap
+# I'm probably not right but "forend" gets the point across
+
+- type: entity
+  parent: BaseGunAttachmentForend
+  id: GunAttachmentForendFactory
+  name: factory forend
+  description: The intended experience of the LARP-26.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: medicalintern
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.5
+    recoilIncreaseModifier: 1
+    minSpreadModifier: 1.0
+    maxSpreadModifier: 1.1
+  - type: Tag
+    tags:
+    - AttachmentForend
+    - AttachmentForendBase
+
+- type: entity
+  parent: BaseGunAttachmentForend
+  id: GunAttachmentForendSuppressed
+  name: suppressed forend
+  description: So much LARP-26, it's a crime.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: medicalintern
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.5
+    recoilIncreaseModifier: 1
+    minSpreadModifier: 1.0
+    maxSpreadModifier: 1.1
+  - type: Tag
+    tags:
+    - AttachmentForend
+    - AttachmentForendSuppressed
+
+- type: entity
+  parent: BaseGunAttachmentForend
+  id: GunAttachmentForendSniper
+  name: sniper forend
+  description: What the hell kind of shot are you making, on a space station, that needs THIS?
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushielizard_jobs.rsi
+    state: medicalintern
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.5
+    recoilIncreaseModifier: 1
+    minSpreadModifier: 1.0
+    maxSpreadModifier: 1.1
+  - type: Tag
+    tags:
+    - AttachmentForend
+    - AttachmentForendSniper

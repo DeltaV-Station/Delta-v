@@ -1,0 +1,116 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken/modified from Paradise SS13 at https://github.com/ParadiseSS13/Paradise/blob/4e8992132e1c15d919bf96f5597adcff40bde7a6/icons/obj/guns/projectile.dmi. Additional sprites from same commit, righthand_guns.dmi/lefthand_guns.dmi/onmob_back.dmi. Attachment sprites modified from https://github.com/cmss13-devs/cmss13/tree/b5c1ff8c3b96768d1e07f86ee630c6085dcf6e74/icons/obj/items/weapons/guns/attachments. Modified by kotobdev (GitHub)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACK",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "bipod"
+        },
+        {
+            "name": "opticholo"
+        },
+        {
+            "name": "optic4x"
+        },
+        {
+            "name": "optic8x"
+        },
+        {
+            "name": "stock"
+        },
+        {
+            "name": "wirestock"
+        },
+        {
+            "name": "riflestock"
+        },
+        {
+            "name": "laser"
+        },
+        {
+            "name": "supbarrel"
+        },
+        {
+            "name": "sniperbarrel"
+        },
+        {
+            "name": "basebarrel"
+        }
+    ]
+}
