@@ -62,6 +62,17 @@
     sprintModifier: 0.95
 
 - type: entity
+  parent: ClothingNeckCWPGorlex
+  id: ClothingNeckCWPHitman
+  name: Heavy cold weather poncho
+  description: A stylish black poncho made of heavy, cut-proof weave. Protects the wearer from the harshest weather conditions (and more!)
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Misc/cwphitman.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Misc/cwphitman.rsi
+
+- type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCopperNecklace
   name: copper necklace
