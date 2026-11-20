@@ -33,3 +33,208 @@
   - type: GuideHelp
     guides:
     - Psionics
+
+- type: npcConversationTree
+  id: SophiaTree
+  dialogue:
+  - prompts: [glimmer, reading, psi]
+    responses:
+    - is: !type:NPCConversationGetGlimmerEvent
+        text: sophia-response-glimmer
+
+  - prompts: [purpose, job, occupation, profession, role]
+    weight: 0.5
+    responses:
+    - text: sophia-response-job
+
+  - prompts: [help, topics]
+    weight: 0.5
+    hidden: true
+    responses:
+    - is: !type:NPCConversationHelpEvent
+        text: sophia-response-help
+
+  - prompts: [nature, statue, being]
+    weight: 0.3
+    responses:
+    - text: sophia-response-nature
+
+  - prompts: [Absence, Dormancy, "Period of Silence"] #Attempt at lore on why she never spoke since rebase
+    weight: 0.3
+    responses:
+    - text: sophia-response-absence
+
+  - prompts: [epistemics, epi]
+    weight: 0.2
+    responses:
+    - text: sophia-response-epi
+
+  - prompts: [mantis]
+    weight: 0.2
+    responses:
+    - text: sophia-response-mantis
+
+  - prompts: [mystagogue, mysta]
+    weight: 0.2
+    responses:
+    - text: sophia-response-mystagogue
+
+  - prompts: [psionics, psychic]
+    weight: 0.2
+    responses:
+    - text: sophia-response-psionics
+
+  - prompts: [noösphere, noosphere]
+    weight: 0.2
+    responses:
+    - text: sophia-response-noosphere
+
+  - prompts: [calendar, date]
+    weight: 0.2
+    responses:
+    - text: sophia-response-calendar
+
+  - prompts: [cycle, reincarnation, finality, death]
+    weight: 0.2
+    responses:
+    - text: sophia-response-cycle
+
+  - prompts: [gods, god]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-god
+
+  - prompts: [truth, "true", "false", falsity, falsehood]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-truth
+
+  - prompts: [human, humans, humanoid]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-human
+
+  - prompts: [felinid, felinids, felid, felids, catperson, catpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-felinid
+
+  - prompts: [oni, onis]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-oni
+
+  - prompts: [arachne, arachnid, arachnids, spiderperson, spiderpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-arachne
+
+  - prompts: [moth, moths, moff, moths, mothpeople, mothperson]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-moth
+
+  - prompts: [thaven, ariral, arirals, thavens]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-thaven
+
+  - prompts: [shadowkin, shadowkind, shadowpeople, shadowperson]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-shadowkin
+
+  - prompts: [ovinia, harmonypeople, harmonyperson, livestockpeople, livestockperson, cowperson, cowpeople, sheepperson, sheeppeople, sheeperson, sheepeople]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-ovinia
+
+  - prompts: [lamiae, lamia, lamias, snakepeople, snakeperson]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-lamiae
+
+  - prompts: [mushpeople, fungipeople] #Was originally something else, but I had zero clue as to what that race was. There was literally no mention of it in prebase code. I just replaced it with something more recognizable to those who have studied the ancient code of prebase.
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-mushpeople
+
+  - prompts: [crisis, causality, incident]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-crisis
+
+  - prompts: [oracle]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-oracle
+
+  - prompts: ["the unknown", "cosmic god", "bringer of the curtains Fall", "cosmic cult"] #Might as well since its no longer metashielded
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-theunknown
+
+  - prompts: ["goddess of slaughter", "blood Goddess", "goddess of blood", narsie, nar'sie]
+    weight: 0.1
+    responses:
+    - text: sophia-response-narsie
+
+  - prompts: ["lord of Time", "lord of Progress", "god of time", "god of progress", ratvar, rat'var]
+    weight: 0.1
+    responses:
+    - text: sophia-response-ratvar
+
+  - prompts: ["goddess of humor", "goddess of chaos", "chaos goddess", "clown goddess", Honkmother]
+    weight: 0.1
+    responses:
+    - text: sophia-response-honkmother
+
+  - prompts: [hi, hello, hey, greetings, salutations, yo]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-hello-1
+    - text: sophia-response-hello-2
+
+  - prompts: [bye, goodbye, done, farewell, later, seeya, godspeed]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-bye-1
+      event: !type:NPCConversationByeEvent
+    - text: sophia-response-bye-2
+      event: !type:NPCConversationByeEvent
+    - text: sophia-response-bye-3
+      event: !type:NPCConversationByeEvent
+    - text: sophia-response-bye-4
+      event: !type:NPCConversationByeEvent
+
+  attention:
+  - text: sophia-response-attention-1
+  - text: sophia-response-attention-2
+  - text: sophia-response-attention-3
+
+  idle:
+  - text: sophia-idle-phrase-1
+  - text: sophia-idle-phrase-2
+  - text: sophia-idle-phrase-3
+
+  unknown:
+  - text: sophia-response-sorry-1
+  - text: sophia-response-sorry-2
+  - text: sophia-response-sorry-3
