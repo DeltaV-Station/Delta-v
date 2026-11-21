@@ -22,11 +22,12 @@
   cost:
     Telecrystal: 10
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Musician
+    - UplinkWeaponry # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Musician
 
 - type: listing
   id: UplinkSamurai

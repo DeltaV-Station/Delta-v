@@ -2179,11 +2179,12 @@
   cost:
     Telecrystal: 6
   categories:
-    - UplinkJob
-  conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Passenger
+    - UplinkWeaponry # DeltaV - change category of job items
+  #  - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  #   - !type:BuyerJobCondition
+  #     whitelist:
+  #       - Passenger
 
 - type: listing
   id: uplinkNecronomicon
@@ -2217,11 +2218,12 @@
   cost:
     Telecrystal: 20
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
+    - UplinkExplosives # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Chaplain
 
 - type: listing
   id: uplinkRevolverCapGunFake
@@ -2234,12 +2236,13 @@
   cost:
     Telecrystal: 3
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Mime
-    - Clown
+    - UplinkWeaponry # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Mime
+  #   - Clown
 
 - type: listing
   id: uplinkBananaPeelExplosive
@@ -2253,11 +2256,12 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
+    - UplinkExplosives # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Clown
 
 - type: listing
   id: UplinkClusterBananaPeel
@@ -2270,11 +2274,12 @@
   cost:
     Telecrystal: 4 # DeltaV - was 6
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
+    - UplinkExplosives # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Clown
 
 - type: listing
   id: UplinkHoloclownKit
@@ -2288,11 +2293,12 @@
   cost:
     Telecrystal: 12
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
+    - UplinkImplants # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Clown
 
 - type: listing
   id: uplinkHotPotato
@@ -2305,15 +2311,16 @@
   cost:
     Telecrystal: 2 # DeltaV - was 4
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chef
-    - Botanist
-    - Clown
-    - Mime
-    - ServiceWorker # DeltaV
+    - UplinkExplosives # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Chef
+  #   - Botanist
+  #   - Clown
+  #   - Mime
+  #   - ServiceWorker # DeltaV
 
 - type: listing
   id: UplinkChimpUpgradeKit
@@ -2343,11 +2350,12 @@
   cost:
     Telecrystal: 5 # was 4, with my buff made it 5 to be closer to minibomb -panzer
   categories:
-  - UplinkJob
+    - UplinkExplosives # DeltaV - change category of job items
+  # - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Janitor
+  # - !type:BuyerJobCondition # DeltaV - remove job locks on most antag items
+  #   whitelist:
+  #   - Janitor
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -2364,15 +2372,16 @@
   productEntity: SyndicateSpongeBox
   cost:
     Telecrystal: 4
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
-    whitelist:
-    - Zookeeper # DeltaV - Keep Zookeeper/Boxer
-    - Scientist
-    - ResearchDirector
-    - Chef
+  categories: 
+    - UplinkAllies
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
+  #   whitelist:
+  #   - Zookeeper # DeltaV - Keep Zookeeper/Boxer
+  #   - Scientist
+  #   - ResearchDirector
+  #   - Chef
 
 - type: listing
   id: UplinkCaneBlade
@@ -2385,12 +2394,13 @@
     Telecrystal: 2
   cost:
     Telecrystal: 3
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Librarian
+  categories: 
+    - UplinkWeaponry # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Librarian
 
 - type: listing
   id: UplinkCombatBakery
@@ -2443,12 +2453,13 @@
     Telecrystal: 3
   cost:
     Telecrystal: 4
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
+  categories: 
+    - UplinkWearables # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Chaplain
 
 - type: listing
   id: UplinkSawAdvanced
@@ -2462,12 +2473,13 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - MedicalDoctor
-    - Surgeon # DeltaV - Dr. Han I AM A SURGEON
+    - UplinkWeaponry # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - MedicalDoctor
+  #   - Surgeon # DeltaV - Dr. Han I AM A SURGEON
 
 - type: listing
   id: uplinkBriefcaseGun
@@ -2479,9 +2491,10 @@
     Telecrystal: 10
   cost:
     Telecrystal: 14
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Lawyer
+  categories: 
+    - UplinkWeaponry # DeltaV - change category of job items
+  # - UplinkJob
+  # conditions: # DeltaV - remove job locks on most antag items
+  # - !type:BuyerJobCondition
+  #   whitelist:
+  #   - Lawyer
