@@ -133,3 +133,17 @@
       whitelist:
         tags:
           - NukeOpsUplink #I sure do hope this also spawns in surplus crates!
+
+- type: listing
+  id: UplinkCursedKnife
+  name: uplink-cursed-knife-name
+  description: uplink-cursed-knife-desc
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Melee/cursed_knife.rsi, state: tier-one }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
+  productEntity: CursedKnife
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
