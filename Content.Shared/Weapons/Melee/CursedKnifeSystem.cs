@@ -2,6 +2,7 @@ using Content.Shared.Hands;
 using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Reflect;
@@ -17,6 +18,7 @@ public sealed class CursedKnifeSystem : EntitySystem
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly HeldSpeedModifierSystem _heldSpeed = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<CursedKnifeComponent, MeleeHitEvent>(OnMeleeHit);
@@ -32,11 +34,16 @@ public sealed class CursedKnifeSystem : EntitySystem
         if (_delay.IsDelayed(weapon.Owner))
             return;
 
-        if (args.HitEntities.Count == 0)
-            return;
 
-        weapon.Comp.Adrenaline = Math.Min(weapon.Comp.Adrenaline + weapon.Comp.AdrenalinePerHit, 100);
-        Dirty(weapon);
+        foreach (var entity in args.HitEntities)
+        {
+            if (!_mob.IsAlive(entity)) // Also filters out non-living things like walls
+                continue;
+
+            weapon.Comp.Adrenaline = Math.Min(weapon.Comp.Adrenaline + weapon.Comp.AdrenalinePerHit, 100);
+            Dirty(weapon);
+        }
+
     }
 
     private void CheckAdrenaline()

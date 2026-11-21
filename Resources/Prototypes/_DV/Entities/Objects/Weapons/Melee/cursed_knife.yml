@@ -1,5 +1,5 @@
 - type: entity
-  parent: KitchenKnife
+  parent: BaseKnife
   id: CursedKnife
   name: cursed knife
   description: An unassuming bread knife. You feel something evil eminating from it...
@@ -9,6 +9,10 @@
     layers:
     - state: tier-one
       map: [ "knife" ]
+  - type: Item
+    sprite: _DV/Objects/Weapons/Melee/cursed_knife.rsi
+    storedOffset: -1,-3
+    storedRotation: -45
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
