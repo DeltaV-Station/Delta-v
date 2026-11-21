@@ -26,7 +26,7 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      default: [ VulpTail ]
+      default: [ VulpTail ] # DeltaV - We have our own Vulp markings
     enum.HumanoidVisualLayers.LArm:
       limit: 2
       required: false
@@ -54,13 +54,16 @@
     enum.HumanoidVisualLayers.UndergarmentTop:
       limit: 1
       required: false
+      # nudityDefault: [ UndergarmentTopTanktopVulpkanin ] # DeltaV - DV Vulps have the same underwear as humans
     enum.HumanoidVisualLayers.UndergarmentBottom:
       limit: 1
       required: false
+      # nudityDefault: [ UndergarmentBottomBoxersVulpkanin ] # DeltaV - DV Vulps have the same underwear as humans
 
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceVulpkanin
+  categories: [ HideSpawnMenu ]
   name: vulpkanin appearance
   components:
   - type: InitialBody
@@ -136,6 +139,7 @@
 #          32:
 #            sprite: Mobs/Species/Vulpkanin/displacement.rsi
 #            state: belt
+# DeltaV End - No displacements for Vulpkanines
 
 - type: entity
   parent:
@@ -144,6 +148,13 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#ccac1f"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: MessyDrinker
     spillChance: 0.33
   - type: Speech
@@ -165,11 +176,11 @@
       types:
         Piercing: 2
         Slash: 3
-  - type: Temperature # Same as moth temperatures until below is solved.
+  - type: Temperature
     specificHeat: 44
   - type: TemperatureDamage
-    heatDamageThreshold: 320 # TODO: 315 when there is a way to make the temperature alert not blink to the side of the screen and disappear when you "sweat" at 39C.
-    coldDamageThreshold: 230 # TODO: 220 when the above is solved.
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold: 0.05 # Per second, scales with temperature & other constants
@@ -177,6 +188,7 @@
       types:
         Heat: 2.5 # Per second, scales with temperature & other constants
   - type: Wagging
+    # action: ActionToggleWaggingVulpkanin # DeltaV - We have no wagging action
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
@@ -191,6 +203,17 @@
 #        pitch: 1.33
 #        volume: -5
 #        variation: 0.05
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: SulfurBlood
+        Quantity: 300
+#  DeltaV Start - Different Vulpkanine facial structure
+#  - type: CreamPied
+#    sprite:
+#      sprite: Effects/creampie.rsi
+#      state: creampie_vulpkanin
+#  DeltaV End - Different Vulpkanine facial structure
 
 - type: entity
   parent: OrganBase
@@ -211,7 +234,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+    sprite: Mobs/Species/Vulpkanin/organs.rsi
 
 - type: entity
   id: OrganVulpkaninVisual
@@ -237,7 +260,7 @@
   id: OrganVulpkaninTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ]
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ] # DeltaV - Different Sex Head
   id: OrganVulpkaninHead
   components:
   - type: VisualOrganMarkings
@@ -250,6 +273,12 @@
     dependentHidingLayers:
       enum.HumanoidVisualLayers.Snout:
       - enum.HumanoidVisualLayers.SnoutCover
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hair
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
@@ -290,23 +319,25 @@
 - type: entity
   parent: [ OrganVulpkaninVisual, OrganBaseEyes, OrganVulpkaninInternal ]
   id: OrganVulpkaninEyes
+  # DeltaV Start - Different Eyes
   components:
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.Eyes
     data:
-      sprite: Mobs/Customization/eyes.rsi # Delta V - Different eyes
+      sprite: Mobs/Customization/eyes.rsi
       state: eyes
+  # DeltaV End.
 
 - type: entity
   parent: [ OrganBaseTongue, OrganVulpkaninInternal ]
   id: OrganVulpkaninTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganVulpkaninInternal ]
+  parent: [ OrganBaseAppendix, OrganVulpkaninInternal ]
   id: OrganVulpkaninAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganVulpkaninInternal ]
+  parent: [ OrganBaseEars, OrganVulpkaninInternal ]
   id: OrganVulpkaninEars
 
 - type: entity
@@ -322,9 +353,9 @@
   id: OrganVulpkaninStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseLiver, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninKidneys

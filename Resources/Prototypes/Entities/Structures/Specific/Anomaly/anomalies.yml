@@ -848,8 +848,9 @@
           radius: 0.2
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Diona
+  - type: Injurable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
       - trigger:

@@ -425,7 +425,6 @@
     spawned:
     - id: FoodMeatSlime
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Cockroach
   - type: Tag
     tags:
@@ -527,7 +526,7 @@
     insertingState: inserting_mothroach
   - type: MothAccent
   - type: Sprite
-    sprite: Mobs/Animals/mothroach.rsi
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mothroach
@@ -542,7 +541,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mothroach.rsi
+    sprite: Mobs/Animals/mothroach/mothroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD
@@ -567,7 +566,6 @@
     weightlessFriction: 1
     baseWeightlessModifier: 1
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
     bloodReferenceSolution:
@@ -586,9 +584,11 @@
     spawned:
     - id: FoodMeatRat
       amount: 2
+    # DeltaV Start - Make Mothroaches drop their hide.
     - id: HideMothroach # Gotta make the plushies
       amount: 1
       prob: 0.5
+    # DeltaV End.
   - type: Extractable
     grindableSolutionName: food
   - type: ReplacementAccent
@@ -628,9 +628,43 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: hamster
+    templateId: hamster
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: suitstorage
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: eyes
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: neck
   - type: NightVision #DeltaV - Added nightvision to animals
     color: "#808080"
-
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -929,7 +963,7 @@
 
 - type: entity
   name: crab
-  parent: [ SimpleMobBase, BaseMobHemocyanin, DVNodeCrawler ]
+  parent: [ SimpleMobBase, BaseMobHemocyanin, DVNodeCrawler ] # DeltaV - Nodecrawling
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
@@ -1336,137 +1370,6 @@
   components:
   - type: CombatMode
     canDisarm: true
-  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
-  - type: Inventory
-    templateId: monkey
-    speciesId: monkey
-  - type: Deathgasp
-    prototype: MonkeyDeathgasp
-  - type: Cuffable
-  - type: RotationVisuals
-    defaultRotation: 90
-    horizontalRotation: 90
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 80
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: Stripping
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: Mobs/Animals/monkey.rsi
-    - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "ears" ]
-    - map: [ "id" ]
-    - map: [ "outerClothing" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "neck" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-  - type: Carriable # DeltaV
-  - type: Hands
-    activeHandId: Hand
-    hands:
-      Hand:
-        location: Left
-  - type: ComplexInteraction
-  - type: GenericVisualizer
-    visuals:
-      enum.CreamPiedVisuals.Creamed:
-        clownedon:
-          True: {visible: true}
-          False: {visible: false}
-  - type: CreamPied
-  - type: FireVisuals
-    sprite: Mobs/Effects/onfire.rsi
-    normalState: Monkey_burning
-  - type: InteractionPopup
-    successChance: 0.9
-    interactSuccessString: petting-success-monkey
-    interactFailureString: petting-failure-monkey
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/ferret_happy.ogg
-    interactFailureSound:
-      path: /Audio/Items/wirecutter.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    angle: 30
-    animation: WeaponArcBite
-    damage:
-      types:
-        Blunt: 3
-        Piercing: 3
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeat
-      amount: 3
-  - type: Puller
-    needsHands: false
-  - type: CanHostGuardian
-  - type: NPCRetaliation
-    attackMemoryLength: 10
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-      - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-  - type: IdExaminable
-  - type: Tag
-    tags:
-    - VimPilot
-    - DoorBumpOpener
-    - AnomalyHost
-  - type: Reactive
-    groups:
-      Flammable: [ Touch ]
-      Extinguish: [ Touch ]
-    reactions:
-    - reagents: [ Water, SpaceCleaner ]
-      methods: [ Touch ]
-      effects:
-      - !type:WashCreamPie
-
-
-# DV - For ancestors without shitmed components (scurrets)
-- type: entity
-  name: genetic ancestor
-  id: MobBaseAncestorNoShitmed
-  parent: [SimpleMobBase, StripableInventoryBase]
-  description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
-  abstract: true
-  components:
-  - type: CombatMode
-  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1505,24 +1408,16 @@
     - map: [ "outerClothing" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-  - type: Carriable # DeltaV
   - type: Hands
     activeHandId: Hand
     hands:
       Hand:
         location: Left
   - type: ComplexInteraction
-  - type: GenericVisualizer
-    visuals:
-      enum.CreamPiedVisuals.Creamed:
-        clownedon:
-          True: {visible: true}
-          False: {visible: false}
   - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_monkey
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Monkey_burning
@@ -1560,7 +1455,10 @@
       - Passive
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: MonkeyCompound
+    blackboard:
+      NavInteract: !type:Bool
+        true
   - type: IdExaminable
   - type: Tag
     tags:
@@ -1580,6 +1478,8 @@
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew
+  - type: Carriable # DeltaV
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
 
 - type: entity
   name: monkey
@@ -1629,7 +1529,7 @@
 - type: entity
   name: monkey
   id: MobBaseSyndicateMonkey
-  parent: MobBaseAncestor
+  parent: MobBaseAncestor # TODO: fix copy paste from MobMonkey
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   suffix: syndicate base
   components:
@@ -1859,7 +1759,7 @@
   parent:
   - SimpleMobBase
   - BaseMobAnimal
-  - DVNodeCrawler
+  - DVNodeCrawler # DeltaV - Nodecrawler
   id: MobMouse
   description: Squeak!
   components:
@@ -2179,7 +2079,6 @@
     - id: SheetUranium1
       amount: 1
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Zombie
 
 - type: entity
@@ -2188,7 +2087,8 @@
   id: MobLizard
   description: A harmless dragon.
   components:
-  - type: ReplacementAccent # Impstation starts here
+  # Impstation Start - Lizard speech.
+  - type: ReplacementAccent
     accent: kobold
   - type: Speech
     speechSounds: Lizard
@@ -2198,7 +2098,8 @@
     sounds:
       Male: MaleReptilian
       Female: FemaleReptilian
-      Unsexed: MaleReptilian # Impstation ends here
+      Unsexed: MaleReptilian
+  # Impstation End.
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
@@ -2246,7 +2147,6 @@
       - ReagentId: Blood
         Quantity: 150
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Scale
   - type: Tag
     tags:
@@ -2385,6 +2285,7 @@
 - type: entity
   parent: [ SimpleMobBase, FlyingMobBase ]
   id: MobParrotBase
+  name: parrot
   abstract: true
   description: Infiltrates your domain, spies on you, and somehow still a cool pet.
   components:
@@ -2465,7 +2366,6 @@
         Quantity: 50
 
 - type: entity
-  name: parrot
   parent: MobParrotBase
   id: MobParrot
   components:
@@ -2661,7 +2561,6 @@
       - ReagentId: Blood
         Quantity: 50
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Scale
 
 # Code unique spider prototypes or combine them all into one spider and get a
@@ -3146,6 +3045,11 @@
   - type: MobPrice
     price: 200
   - type: MessyDrinker
+  # TODO: Fix the sprite offset
+  #- type: CreamPied
+  #  sprite:
+  #    sprite: Effects/creampie.rsi
+  #    state: creampie_corgi
 
 - type: entity
   parent: MobCorgiBase
@@ -3220,8 +3124,9 @@
       - ReagentId: DemonsBlood
         Quantity: 150
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42
@@ -3371,7 +3276,7 @@
   id: MobCatSyndy
   parent: MobCatSpace
   # description: Explosive kitten.
-  description: An adorable cat in a terrifying red suit, prepared to cause trouble. #DeltaV
+  description: An adorable cat in a terrifying red suit, prepared to cause trouble. # DeltaV
   components:
   - type: Sprite
     layers:
@@ -3396,7 +3301,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  #- type: AutoImplant  # DetlaV
+  #- type: AutoImplant  # DeltaV
   #  implants:
   #  - MicroBombImplant
   - type: ExplosionResistance
@@ -3691,7 +3596,7 @@
       40: Critical
       60: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1.9  # DeltaV - Allows them to sneak over traps
+    baseWalkSpeed : 1.9  # DeltaV - Allows them to sneak over traps. Was 2.5
     baseSprintSpeed : 4
   - type: Inventory
     speciesId: hamster
@@ -3834,11 +3739,9 @@
         Base: dead
   - type: Butcherable
     spawned:
-    - id: FoodMeat
-      amount: 6
-      # Begin DeltaV Additions
     - id: FoodMeatBacon
       amount: 6
+      # Begin DeltaV Additions
     - id: TreasureCoinIron
       amount: 0
       maxAmount: 3
@@ -3876,7 +3779,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: nymph
       sprite: Mobs/Animals/nymph.rsi
-  # DeltaV changes begin
+  # DeltaV Start - Better Nymphs.
   - type: Carriable
   - type: GhostRole
     makeSentient: true
@@ -3895,7 +3798,7 @@
     - Rootsong
   - type: TypingIndicator
     proto: diona
-  # DeltaV changes end
+  # DeltaV End.
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -3966,9 +3869,10 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
-  - type: LightReactive # DeltaV
+  # DeltaV Start - Make Dionas gain/lose health in bright/dark areas.
+  - type: LightReactive
     manual: true
-  - type: LightLevelHealth # DeltaV
+  - type: LightLevelHealth
     darkThreshold: 0.4
     lightThreshold: 1.2
     darkDamage:
@@ -3983,6 +3887,7 @@
         Poison: -0.1
         Asphyxiation: -0.1
     darkMovementSpeedMultiplier: 0.7
+  # DeltaV End.
 
 - type: entity
   parent: MobDionaNymph

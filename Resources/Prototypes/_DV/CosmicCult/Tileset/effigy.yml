@@ -44,8 +44,9 @@
         - FlyingMobLayer
   - type: Clickable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: DamageOnAttacked
     damage:
       types:
