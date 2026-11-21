@@ -26,3 +26,6 @@ uplink-anaconda-desc = A inaccurate one handed SMG with a 100 bullet mag. Perfec
 
 uplink-pacifier-bundle-name = Pacifier Bundle
 uplink-pacifier-bundle-desc = A compact grenade launcher that fires cluster bombs which spreads corrosive smoke over large areas. Perfect support weapon for creating impassable smoke screens and clearing out foxholes. Comes with 11 acid grenades.
+
+uplink-aks74u-bundle-name = AKS-74U Bundle
+uplink-aks74u-bundle-desc = A surpringly common half-millenia old carbine. Comes with a spare .30 rifle magazine.
