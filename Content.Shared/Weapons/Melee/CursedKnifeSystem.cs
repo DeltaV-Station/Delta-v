@@ -34,7 +34,6 @@ public sealed class CursedKnifeSystem : EntitySystem
         if (_delay.IsDelayed(weapon.Owner))
             return;
 
-
         foreach (var entity in args.HitEntities)
         {
             if (!_mob.IsAlive(entity)) // Also filters out non-living things like walls
@@ -92,13 +91,11 @@ public sealed class CursedKnifeSystem : EntitySystem
             _heldSpeed.SetHeldMovementSpeedModifiers(uid, 1, 1, holder: comp.Holder);
             _toggle.TryDeactivate((uid, toggle));
             Dirty(uid, comp);
-
         }
     }
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
         CheckAdrenaline();
     }
 
