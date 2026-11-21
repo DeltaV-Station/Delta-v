@@ -594,14 +594,23 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 90 # DeltaV - was 50
+    earliestStart: 60 # DeltaV - Lowered it a bit so it doesnt always feel like an end-round thing
     minimumPlayers: 40
-    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
+    weight: 1.5 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
     occursDuringRoundEnd: false
   - type: PrecognitionResult # DeltaV - Precogniton
     message: psionic-power-precognition-zombie-outbreak-result-message
   - type: ZombieRule
+  - type: DelayedRule # DeltaV: Grace period
+    delay: 300 # DeltaV: Significantly smaller delay compared to II before you can turn, also gives less time to coordinate with your team (no implant)
+    delayedComponents:
+    - type: PendingZombie
+      minInitialInfectedGrace: 120
+      maxInitialInfectedGrace: 300 # DeltaV: Damage is being dealt almost immediately after being allowed to zombify, forcing much more agressive play.
+    - type: ZombifyOnDeath
+    - type: IncurableZombie
+    endedPopup: zombie-bioterrorist-romerol-active
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
@@ -616,16 +625,16 @@
         color: Plum
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       components:
-      - type: PendingZombie #less time to prepare than normal
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 450
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
+      # DeltaV Removals: Moved things to the same logic as original II, see DelayedRule above.
+      #- type: PendingZombie #less time to prepare than normal
+      #- type: ZombifyOnDeath
+      #- type: IncurableZombie
+      # End DeltaV Removals
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
   - type: DynamicRuleCost
-    cost: 200
+    cost: 150 # DeltaV - Lowered to 150 from 200
 
 # Lone Operative
 - type: entity
