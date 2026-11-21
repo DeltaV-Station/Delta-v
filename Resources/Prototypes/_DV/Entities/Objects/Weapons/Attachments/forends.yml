@@ -11,10 +11,14 @@
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: medicalintern
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 1.5
-    recoilIncreaseModifier: 1
-    minSpreadModifier: 1.0
-    maxSpreadModifier: 1.1
+    recoilRecoveryModifier: 1.05
+    recoilIncreaseModifier: 0.90
+    minSpreadModifier: 0.90
+    maxSpreadModifier: 0.95
+  - type: ESGunComponentAttachment
+    component:
+    - type: GunUpgradeFireRate
+      coefficient: 1
   - type: Tag
     tags:
     - AttachmentForend
@@ -30,10 +34,19 @@
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: medicalintern
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 1.5
-    recoilIncreaseModifier: 1
-    minSpreadModifier: 1.0
-    maxSpreadModifier: 1.1
+    recoilRecoveryModifier: 1.10
+    recoilIncreaseModifier: 0.85
+    minSpreadModifier: 0.85
+    maxSpreadModifier: 0.9
+  - type: ESGunSoundAttachment
+    sound:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        maxDistance: 4
+  - type: ESGunComponentAttachment
+    component:
+    - type: GunUpgradeFireRate
+      coefficient: 0.95
   - type: Tag
     tags:
     - AttachmentForend
@@ -49,10 +62,14 @@
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: medicalintern
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 1.5
-    recoilIncreaseModifier: 1
-    minSpreadModifier: 1.0
-    maxSpreadModifier: 1.1
+    recoilRecoveryModifier: 1.20
+    recoilIncreaseModifier: 0.70
+    minSpreadModifier: 0.8
+    maxSpreadModifier: 0.83
+  - type: ESGunComponentAttachment
+    component:
+    - type: GunUpgradeFireRate
+      coefficient: 0.80
   - type: Tag
     tags:
     - AttachmentForend

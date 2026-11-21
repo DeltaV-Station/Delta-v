@@ -337,7 +337,7 @@
   name: LARP-26
   parent: [BaseItem]
   id: WeaponRifleLARP
-  description: The infamous Long Automatic Rifle Platform. Slap on some attachments to make the tacticool slop of your dreams!
+  description: The infamous Long Automatic Rifle Platform, chambered in .20 rifle. Slap on some attachments to make the tacticool slop of your dreams!
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Rifles/arg.rsi
@@ -364,7 +364,11 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 5
+    fireRate: 3.5
+    minAngle: 8
+    maxAngle: 18
+    angleIncrease: 3
+    angleDecay: 6
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -378,20 +382,20 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineLightRifle
+        startingItem: MagazineRifle
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineLightRifle
+            - MagazineRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         priority: 1
         whitelist:
           tags:
-            - CartridgeLightRifle
+            - CartridgeRifle
       attachment_grip:
         priority: 0
         insertSound: /Audio/Items/screwdriver2.ogg

@@ -7,10 +7,20 @@
   - type: Sprite
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: cargotechnician
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.00
+    recoilIncreaseModifier: 0.85
+    minSpreadModifier: 1.25
+    maxSpreadModifier: 1.25
   - type: ESGunComponentAttachment
     component:
     - type: Wieldable
       unwieldOnUse: false
+    - type: GunWieldBonus
+      minAngle: -5
+      maxAngle: -11
+  - type: GunUpgradeFireRate
+    coefficient: 1.43
   - type: Tag
     tags:
     - AttachmentStock
@@ -26,10 +36,20 @@
   - type: Sprite
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: cargotechnician
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.00
+    recoilIncreaseModifier: 1.00
+    minSpreadModifier: 1.25
+    maxSpreadModifier: 1.25
   - type: ESGunComponentAttachment
     component:
     - type: Wieldable
       unwieldOnUse: false
+    - type: GunWieldBonus
+      minAngle: -3
+      maxAngle: -7
+  - type: GunUpgradeFireRate
+    coefficient: 1.70
   - type: Tag
     tags:
     - AttachmentStock
