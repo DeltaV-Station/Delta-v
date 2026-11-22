@@ -47,6 +47,7 @@ public sealed class HeldSpeedModifierSystem : EntitySystem
         var (walkMod, sprintMod) = GetHeldMovementSpeedModifiers(uid, component);
         args.Args.ModifySpeed(walkMod, sprintMod);
     }
+
     // begin DeltaV - add way to set held speed modifer
     public void SetHeldMovementSpeedModifiers(EntityUid weapon, float walk, float sprint, HeldSpeedModifierComponent? component = null, EntityUid? holder = null)
     {

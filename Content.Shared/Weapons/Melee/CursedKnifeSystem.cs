@@ -19,6 +19,7 @@ public sealed class CursedKnifeSystem : EntitySystem
     [Dependency] private readonly HeldSpeedModifierSystem _heldSpeed = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<CursedKnifeComponent, MeleeHitEvent>(OnMeleeHit);
@@ -93,6 +94,7 @@ public sealed class CursedKnifeSystem : EntitySystem
             Dirty(uid, comp);
         }
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
