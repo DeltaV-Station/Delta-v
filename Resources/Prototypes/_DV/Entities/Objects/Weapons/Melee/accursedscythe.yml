@@ -34,21 +34,20 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 8
-        Soul: 10
+        Slash: 10
+        Soul: 8
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 4
-        Soul: 8
+        Slash: 8
+        Soul: 4
   - type: GunRequiresWield
   - type: DisarmMalus
-  - type: Prying
   - type: DashAbility
   - type: LimitedCharges
     maxCharges: 1
   - type: AutoRecharge
-    rechargeDuration: 30
+    rechargeDuration: 45
