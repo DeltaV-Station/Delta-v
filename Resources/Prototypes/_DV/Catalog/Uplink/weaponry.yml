@@ -135,16 +135,16 @@
           - NukeOpsUplink #I sure do hope this also spawns in surplus crates!
 
 - type: listing
-  id: UplinkAKMSBundle
-  name: uplink-akms-bundle-name
-  description: uplink-akms-bundle-desc
+  id: UplinkAKMBundle
+  name: uplink-akm-bundle-name
+  description: uplink-akm-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 10
   cost:
     Telecrystal: 15
-  productEntity: ClothingBackpackDuffelSyndicateFilledAKMS
+  productEntity: ClothingBackpackDuffelSyndicateFilledAKM
   categories:
   - UplinkWeaponry
   conditions:

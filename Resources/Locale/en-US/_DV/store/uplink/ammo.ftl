@@ -9,3 +9,6 @@ uplink-caseless-pistol-tranq-desc = A magazine with 10 rounds of tranquilizer am
 
 uplink-caseless-pistol-poison-name = pistol magazine (.25 caseless toxin)
 uplink-caseless-pistol-poison-desc = A magazine with 10 rounds of poisonous ammunition loaded with Lexorin. Takes four shots and a short time to kill. For use with the Cobra.
+
+uplink-30-rifle-name = Rifle magazine (.30 rifle)
+uplink-30-rifle-desc = a magazine made to hold .30 rifle rounds, with a 30 round capacity.
