@@ -34,9 +34,15 @@ public sealed partial class HideLayerClothingSystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
+        // don't add the verb if we can't override
+        if (!ent.Comp.AllowOverride)
+            return;
+
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = ent.Comp.BlockLayerHide ? "Hide hair" : "Show hair", // technically works for other markings too but whatever
+            Text = ent.Comp.BlockLayerHide
+                ? Loc.GetString("hidelayerclothing-component-toggle-off")
+                : Loc.GetString("hidelayerclothing-component-toggle-on"),
             Act = () => SetHideOverride(ent, !ent.Comp.BlockLayerHide),
             Priority = -1, // so that alt click works as before (mostly the justice helmet's power cell eject)
         });
