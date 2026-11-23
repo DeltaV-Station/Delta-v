@@ -18,25 +18,31 @@
     damage:
       types:
         Slash: 6
-  - type: CursedKnife
+  - type: AdrenalineMelee
     adrenalinePerHit: 10
     adrenalineFallAmount: 5
-    adrenalineTierTwo: 50
-    adrenalineTierThree: 80
-    tierOneDamage:
-      types:
-        Slash: 6
-    tierTwoDamage:
-      types:
-        Slash: 10
-        Soul: 6
-    tierThreeDamage:
-      types:
-        Slash: 15
-        Soul: 10
-    speedBoost: 1.2
-    tierTwoReflect: 0.15
-    tierThreeReflect: 0.35
+    tiers:
+    - visual: TierOne
+      damage:
+        types:
+          Slash: 6
+    - visual: TierTwo
+      activate: true
+      reflect: 0.15
+      adrenalineRequired: 50
+      damage:
+        types:
+          Slash: 10
+          Soul: 6
+    - visual: TierThree
+      activate: true
+      reflect: 0.35
+      adrenalineRequired: 80
+      speedMultiplier: 1.2
+      damage:
+        types:
+          Slash: 15
+          Soul: 10
   - type: ItemToggle
     onUse: false 
     onActivate: false 
@@ -73,7 +79,7 @@
         shader: unshaded
   - type: GenericVisualizer
     visuals:
-      enum.CursedKnifeVisuals.State:
+      enum.AdrenalineMeleeVisuals.State:
         knife:
           TierOne: { state: tier-one }
           TierTwo: { state: tier-two }

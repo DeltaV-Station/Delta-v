@@ -1,12 +1,11 @@
-using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Weapons.Melee;
+namespace Content.Shared._DV.Weapons.Melee;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class CursedKnifeComponent : Component
+public sealed partial class AdrenalineMeleeComponent : Component
 {
     [DataField, AutoNetworkedField]
     public int Adrenaline = 0;
@@ -17,12 +16,6 @@ public sealed partial class CursedKnifeComponent : Component
     [DataField(required: true)]
     public int AdrenalineFallAmount;
 
-    [DataField(required: true)]
-    public int AdrenalineTierTwo;
-
-    [DataField(required: true)]
-    public int AdrenalineTierThree;
-
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAdrenalineFall = TimeSpan.Zero;
@@ -31,34 +24,19 @@ public sealed partial class CursedKnifeComponent : Component
     public TimeSpan AdrenalineFallRate = TimeSpan.FromSeconds(1);
 
     [DataField(required: true)]
-    public DamageSpecifier TierOneDamage;
-
-    [DataField(required: true)]
-    public DamageSpecifier TierTwoDamage;
-
-    [DataField(required: true)]
-    public DamageSpecifier TierThreeDamage;
-
-    [DataField(required: true)]
-    public float SpeedBoost;
+    public List<AdrenalineMeleeTier> Tiers;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Holder;
 
-    [DataField(required: true)]
-    public float TierTwoReflect;
-
-    [DataField(required: true)]
-    public float TierThreeReflect;
-
     [Serializable, NetSerializable]
-    public enum CursedKnifeVisuals : byte
+    public enum AdrenalineMeleeVisuals : byte
     {
         State
     }
 
     [Serializable, NetSerializable]
-    public enum CursedKnifeTier : byte
+    public enum AdrenalineMeleeTierVisual : byte
     {
         TierOne,
         TierTwo,
