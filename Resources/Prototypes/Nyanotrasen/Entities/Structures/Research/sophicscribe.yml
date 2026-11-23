@@ -123,6 +123,24 @@
     responses:
     - text: sophia-response-felinid
 
+  - prompts: [vulpankin, vulps, canids, dogpeople, wolfpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-vulpankin
+
+  - prompts: [kitsune, kitsun, foxpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-kitsune
+
+  - prompts: [allualo, raptorpeople, raptorians, raptorperson, tinybird]
+    weight: 0.1
+    hidden: true
+    responses:
+    - text: sophia-response-allualo
+    
   - prompts: [oni, onis]
     weight: 0.1
     hidden: true
