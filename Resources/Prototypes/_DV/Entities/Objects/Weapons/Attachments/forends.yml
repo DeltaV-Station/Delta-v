@@ -11,14 +11,12 @@
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: medicalintern
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 1.05
+    recoilRecoveryModifier: 1.00
     recoilIncreaseModifier: 0.90
-    minSpreadModifier: 0.90
-    maxSpreadModifier: 0.95
-  - type: ESGunComponentAttachment
-    component:
-    - type: GunUpgradeFireRate
-      coefficient: 1
+    minSpreadModifier: 0.25
+    maxSpreadModifier: 0.55
+  - type: GunUpgradeFireRate
+    coefficient: 1.28
   - type: Tag
     tags:
     - AttachmentForend
@@ -34,19 +32,19 @@
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: medicalintern
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 1.10
-    recoilIncreaseModifier: 0.85
-    minSpreadModifier: 0.85
-    maxSpreadModifier: 0.9
+    recoilRecoveryModifier: 0.8
+    recoilIncreaseModifier: 1.5
+    minSpreadModifier: 0.5
+    maxSpreadModifier: 1.0
   - type: ESGunSoundAttachment
     sound:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
         maxDistance: 4
-  - type: ESGunComponentAttachment
-    component:
-    - type: GunUpgradeFireRate
-      coefficient: 0.95
+  - type: GunUpgradeFireRate
+    coefficient: 1.47
+  - type: GunUpgradeSpeed
+    coefficient: 0.65
   - type: Tag
     tags:
     - AttachmentForend
@@ -62,14 +60,14 @@
     sprite: Objects/Fun/plushielizard_jobs.rsi
     state: medicalintern
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 1.20
-    recoilIncreaseModifier: 0.70
-    minSpreadModifier: 0.8
-    maxSpreadModifier: 0.83
-  - type: ESGunComponentAttachment
-    component:
-    - type: GunUpgradeFireRate
-      coefficient: 0.80
+    recoilRecoveryModifier: 0.75
+    recoilIncreaseModifier: 2.0
+    minSpreadModifier: 0.10
+    maxSpreadModifier: 0.25
+  - type: GunUpgradeFireRate
+    coefficient: 0.5
+  - type: GunDamageModifierAttachment
+    multiplier: 2.5 # yeah man fuck it somebody else can balance this shit
   - type: Tag
     tags:
     - AttachmentForend

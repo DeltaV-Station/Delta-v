@@ -12,15 +12,15 @@
     recoilIncreaseModifier: 0.85
     minSpreadModifier: 1.25
     maxSpreadModifier: 1.25
+  - type: GunUpgradeFireRate
+    coefficient: 1.43
   - type: ESGunComponentAttachment
     component:
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
-      minAngle: -5
-      maxAngle: -11
-  - type: GunUpgradeFireRate
-    coefficient: 1.43
+      minAngle: -7
+      maxAngle: -15
   - type: Tag
     tags:
     - AttachmentStock
@@ -41,15 +41,15 @@
     recoilIncreaseModifier: 1.00
     minSpreadModifier: 1.25
     maxSpreadModifier: 1.25
+  - type: GunUpgradeFireRate
+    coefficient: 1.70
   - type: ESGunComponentAttachment
     component:
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
-      minAngle: -3
-      maxAngle: -7
-  - type: GunUpgradeFireRate
-    coefficient: 1.70
+      minAngle: -5
+      maxAngle: -12
   - type: Tag
     tags:
     - AttachmentStock

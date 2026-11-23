@@ -10,6 +10,7 @@ using Content.Shared.Localizations;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Content.Shared.Wieldable; // DeltaV
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization.Manager; // Mono
 using Robust.Shared.Timing; // Mono
@@ -34,18 +35,20 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
     {
         SubscribeLocalEvent<ESAttachableGunComponent, EntInsertedIntoContainerMessage>(OnEntInsertedIntoContainer);
         SubscribeLocalEvent<ESAttachableGunComponent, EntRemovedFromContainerMessage>(OnEntRemovedFromContainer);
-        SubscribeLocalEvent<ESAttachableGunComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+        SubscribeLocalEvent<ESAttachableGunComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers, after: [typeof(SharedWieldableSystem)]); // DeltaV - after SharedWieldableSystem
         SubscribeLocalEvent<ESAttachableGunComponent, InteractUsingEvent>(OnAfterInteract, before: [typeof(ItemSlotsSystem)]);
         SubscribeLocalEvent<ESAttachableGunComponent, ExaminedEvent>(OnExamined);
 
         SubscribeAllEvent<ESAttachableGunModifySlotEvent>(OnAttachableGunModifySlots);
 
-        SubscribeLocalEvent<ESGunSoundAttachmentComponent, GunRefreshModifiersEvent>(OnGunSoundRefreshModifiers);
-        SubscribeLocalEvent<ESGunRecoilAttachmentComponent, GunRefreshModifiersEvent>(OnGunRecoilRefreshModifiers); // Mono
+        SubscribeLocalEvent<ESGunSoundAttachmentComponent, GunRefreshModifiersEvent>(OnGunSoundRefreshModifiers, after: [typeof(SharedWieldableSystem)]); // DeltaV - after SharedWieldableSystem
+        SubscribeLocalEvent<ESGunRecoilAttachmentComponent, GunRefreshModifiersEvent>(OnGunRecoilRefreshModifiers, after: [typeof(SharedWieldableSystem)]); // Mono // DeltaV - after SharedWieldableSystem
 
-        SubscribeLocalEvent<ESGunComponentAttachmentComponent, GunRefreshModifiersEvent>(OnCompAttachmentEquip); // Mono
+        SubscribeLocalEvent<ESGunComponentAttachmentComponent, GunRefreshModifiersEvent>(OnCompAttachmentEquip, after: [typeof(SharedWieldableSystem)]); // Mono // DeltaV - after SharedWieldableSystem
         SubscribeLocalEvent<ESGunComponentAttachmentComponent, EntGotRemovedFromContainerMessage>(OnCompAttachmentUnequip); // Mono
         SubscribeLocalEvent<ESGunRecoilAttachmentComponent, ExaminedEvent>(OnAttachmentExamined); // Mono
+
+        SubscribeLocalEvent<ESAttachableGunComponent, AmmoShotEvent>(OnAmmoShot); // DeltaV
 
         _attachmentQuery = GetEntityQuery<ESGunAttachmentComponent>();
     }
@@ -260,4 +263,14 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
         }
     }
     // Mono end
+
+    // Begin DeltaV - AmmoShot fwd
+    private void OnAmmoShot(Entity<ESAttachableGunComponent> ent, ref AmmoShotEvent args)
+    {
+        foreach (var attachment in EnumerateAttachments(ent))
+        {
+            RaiseLocalEvent(attachment.Owner, args);
+        }
+    }
+    // End DeltaV
 }
