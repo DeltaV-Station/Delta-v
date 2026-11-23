@@ -38,5 +38,15 @@ namespace Content.Server.Construction.Components
         // TODO Force flush interaction queue before serializing to YAML.
         // Otherwise you can end up with entities stuck in invalid states (e.g., waiting for DoAfters).
         public readonly Queue<object> InteractionQueue = new();
+
+        // DeltaV Start - WashingMachine shouldn't keep people inside when it breaks to a previous node.
+        /// <summary>
+        /// These containers should not be handled by construction and should resume their normal behavior.
+        /// </summary>
+        /// <example>Washing machines shouldn't transfer their entityStorage container to the previous node when broken,
+        /// but instead release their content.</example>
+        [DataField]
+        public HashSet<string>? ForbiddenContainers;
+        // DeltaV End.
     }
 }

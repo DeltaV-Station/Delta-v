@@ -1,0 +1,177 @@
+﻿using Content.Shared._Funkystation.Fluids;
+using Content.Shared._Funkystation.Stains.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
+using Content.Shared.Fluids;
+using Content.Shared.Inventory;
+using Content.Shared.Item;
+using Content.Shared.Popups;
+using Content.Shared.Verbs;
+using Robust.Shared.Containers;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
+
+namespace Content.Shared._Funkystation.Stains.Systems;
+
+public abstract class SharedStainSystem : EntitySystem
+{
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
+    [Dependency] private readonly SharedItemSystem _item = null!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
+    [Dependency] private readonly SharedContainerSystem _container = null!;
+    [Dependency] private readonly InventorySystem _inventory = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+
+    private EntityQuery<StainBlockerComponent> _stainBlockerQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<StainableComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<StainableComponent, InventoryRelayedEvent<SpilledOnEvent>>(OnSpilledOn);
+        SubscribeLocalEvent<StainableComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+        SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWring);
+        SubscribeLocalEvent<StainableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
+
+        _stainBlockerQuery = GetEntityQuery<StainBlockerComponent>();
+    }
+
+    private void OnSolutionChanged(Entity<StainableComponent> ent, ref SolutionContainerChangedEvent args)
+    {
+        if (args.SolutionId == ent.Comp.SolutionName)
+            UpdateVisuals(ent);
+    }
+
+    private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
+    {
+        if (_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var sol))
+            _solution.SetCanReact(sol.Value, false);
+    }
+
+    private void OnSpilledOn(Entity<StainableComponent> clothing, ref InventoryRelayedEvent<SpilledOnEvent> args)
+    {
+        if (!args.Args.IgnoreBlockers && IsStainBlocked(clothing))
+            return;
+
+        if (!_solution.TryGetSolution(clothing.Owner, clothing.Comp.SolutionName, out var stainSolution))
+            return;
+
+        var attemptedTransferAmount = FixedPoint2.Min(args.Args.Solution.Volume, clothing.Comp.SpillTransferAmount);
+        var actualTransferAmount = FixedPoint2.Min(attemptedTransferAmount, stainSolution.Value.Comp.Solution.AvailableVolume);
+        // Exit early if nothing can be transferred.
+        if (actualTransferAmount == 0)
+            return;
+
+        var split = args.Args.Solution.SplitSolution(actualTransferAmount);
+
+        for (var i = split.Contents.Count - 1; i >= 0; i--)
+        {
+            if (split.Contents[i].Reagent.Prototype == "Water")
+                split.RemoveReagent(split.Contents[i].Reagent, split.Contents[i].Quantity);
+        }
+
+        if (split.Volume > 0)
+        {
+            _solution.TryAddSolution(stainSolution.Value, split);
+            UpdateVisuals(clothing);
+            OnStained(clothing, stainSolution.Value);
+        }
+    }
+
+    protected virtual void OnStained(Entity<StainableComponent> ent, Entity<SolutionComponent> solution) { }
+
+    private bool IsStainBlocked(Entity<StainableComponent> ent)
+    {
+        if (!_container.TryGetContainingContainer(ent.Owner, out var container) || !TryComp<InventoryComponent>(container.Owner, out var inv))
+            return false;
+
+        if (!_inventory.TryGetSlot(container.Owner, container.ID, out var slotDef, inv))
+            return false;
+
+        foreach (var slot in inv.Slots)
+        {
+            if (!_inventory.TryGetSlotEntity(container.Owner, slot.Name, out var slotEnt, inv))
+                continue;
+
+            if (_stainBlockerQuery.TryComp(slotEnt, out var blocker) && blocker.BlockedSlots.HasFlag(slotDef.SlotFlags))
+                return true;
+        }
+
+        return false;
+    }
+
+    public void UpdateVisuals(Entity<StainableComponent> ent)
+    {
+        _item.VisualsChanged(ent.Owner);
+
+        if (TryComp<AppearanceComponent>(ent.Owner, out var app))
+        {
+            var toggled = true;
+            if (_appearance.TryGetData(ent.Owner, StainVisuals.Toggle, out bool current, app))
+                toggled = !current;
+
+            _appearance.SetData(ent.Owner, StainVisuals.Toggle, toggled, app);
+        }
+        if (_container.TryGetContainingContainer(ent.Owner, out var container))
+        {
+            if (TryComp<AppearanceComponent>(container.Owner, out var wearerApp))
+            {
+                _appearance.QueueUpdate(container.Owner, wearerApp);
+
+                Dirty(container.Owner, wearerApp);
+            }
+        }
+    }
+
+    private void OnGetVerbs(Entity<StainableComponent> ent, ref GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess || args.Using != ent.Owner)
+            return;
+
+        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var sol) || sol.Volume <= 0)
+            return;
+
+        var user = args.User;
+        args.Verbs.Add(new Verb
+        {
+            Text = Loc.GetString("stain-verb-wring"),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
+            Act = () =>
+            {
+                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.WringDoAfterDuration, new WringStainDoAfterEvent(), ent.Owner)
+                {
+                    BreakOnMove = true,
+                    BreakOnDamage = true,
+                    NeedHand = true
+                });
+            }
+        });
+    }
+
+    private void OnWring(Entity<StainableComponent> ent, ref WringStainDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+        args.Handled = true;
+
+        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var solComp, out var sol))
+            return;
+
+        var split = _solution.SplitSolution(solComp.Value, sol.Volume);
+        UpdateVisuals(ent);
+
+        if (_puddle.TrySpillAt(args.User, split, out _))
+            _popup.PopupEntity(Loc.GetString("stain-verb-wring-success"), args.User, args.User);
+    }
+}
+
+[Serializable, NetSerializable]
+public enum StainVisuals : byte
+{
+    Toggle,
+}
