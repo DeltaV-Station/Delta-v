@@ -53,13 +53,19 @@ sophia-response-job = I observe the glimmer here, and record it.
 
 sophia-response-human = Humans were the most curious, even more than the felinids. They often strived to make their own fate.
 
-sophia-response-felinid = Felinids were the first, and the most willing. In true feline nature, they shaped themselves.
+sophia-response-felinid = Felinids were the most willing. In true feline nature, they shaped themselves.
+
+sophia-response-vulpankin = The canine folk? They don a wide variety of faces and shapes. It is almost as if they yearn to be unique in their own way.
+
+sophia-response-kitsune = The ethereal foxes? They shift between animal and humanoid forms at will, mainly using their foxlike form for travel.
+
+sophia-response-allualo = The small avians? Their forms size does not seem to hold them back. Its almost as if they made this far on nothing but sheer cunning and bravery...
 
 sophia-response-oni = Oni, it is said, originated in Sirius. The brightest star in the night sky from Earth may have attracted some chromatically inclined entities, explaining their vivid coloring. But, that's just speculation.
 
-sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They once took the form of humans with arachnid parts, but now they seem to have embraced the genes of the latter.
+sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They once took the form of humans with arachnid legs and abdomen, but now they seem to have embraced the genes of the latter, becoming almost completely spiderlike in appearance.
 
-sophia-response-moth = Moths scarecely look human, but, strangely, their genes confirm they are. They seem to take great joy in bright lights and the consumption of cloth.
+sophia-response-moth = Mothpeople scarecely look human, but, strangely, their genes confirm they are. They seem to take great joy in bright lights and the consumption of cloth.
 
 sophia-response-lamiae = So, you remember the beings with long, slithering tails? You must be remembering their mythological namesake. If you've really retained that fleeting memory for that long... Perhaps I've said too much.
 
