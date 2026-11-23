@@ -135,6 +135,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("codewordGenerator");
             _prototypeManager.RegisterIgnore("codewordFaction");
             // Begin DeltaV Additions
+            _prototypeManager.RegisterIgnore("npcConversationTree");
             _prototypeManager.RegisterIgnore("candyFlavor");
             _prototypeManager.RegisterIgnore("mappingCategory");
             _prototypeManager.RegisterIgnore("mapCategories");
