@@ -23,7 +23,7 @@ sophia-response-attention-4 = Yes?
 sophia-response-sorry-1 = That's not a question for me.
 sophia-response-sorry-2 = Ask someone else.
 sophia-response-sorry-3 = Maybe I know the answer, maybe I do not. Either way, I will not be answering that question.
-sophia-response-sorry-4 = This is not related to my expertise. 
+sophia-response-sorry-4 = This is not related to my expertise.
 
 sophia-response-nature = My nature doesn't really matter, does it? I'm fulfilling my purpose. Can you say the same, or are you just wasting time?
 
@@ -51,7 +51,7 @@ sophia-response-cycle = Some believe that you've died thousands of times, and yo
 
 sophia-response-truth = If you seek the truth, you're in the wrong place. From a perspective tainted by material reality, the best you can hope is to try and divine higher truths that are not dependent on it.
 
-sophia-response-job = I observe the glimmer here, and record it. I also carry and give information on this sector's inhabitants, as well as currently active gods. 
+sophia-response-job = I observe the glimmer here, and record it. I also carry and give information on this sector's inhabitants, as well as currently active gods.
 
 sophia-response-human = Humans were the most curious, even more than the felinids. They often strived to make their own fate.
 
