@@ -43,7 +43,7 @@ sophia-response-noosphere = The noösphere is a field connecting all of consciou
 
 sophia-response-god = 'God' is such a vague term. There are so many entities out there that have defeated mortality. How you choose to regard them is your business.
 
-sophia-response-calendar = It's currently (REPLACE WITH INGAME DATE).
+sophia-response-calendar = It's currently { $date }.
 
 sophia-response-crisis = The first FTL travel was incompatible with the old ways. Fortunately, its resolution made more apparent the inherent futility in trying to give one history, one narrative, one account. Truth cannot be found in the material world, only higher ones.
 
