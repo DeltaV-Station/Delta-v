@@ -349,14 +349,14 @@
     minAngle: -10
     maxAngle: -20
   - type: Gun
-    minAngle: 16
-    maxAngle: 40
-    angleIncrease: 4
-    angleDecay: 30
+    minAngle: 14
+    maxAngle: 36
+    angleIncrease: 2
+    angleDecay: 24
     fireRate: 4
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Rifles/aks74u.rsi
   - type: Item
     size: Large
     shape:
-    0,0,2,1
+    - 0,0,2,1
