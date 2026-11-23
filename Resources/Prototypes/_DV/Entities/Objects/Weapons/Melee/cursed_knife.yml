@@ -44,18 +44,18 @@
           Slash: 15
           Soul: 10
   - type: ItemToggle
-    onUse: false 
-    onActivate: false 
+    onUse: false
+    onActivate: false
   - type: ItemToggleSize
     activatedSize: Ginormous
-  - type: HeldSpeedModifier 
+  - type: HeldSpeedModifier
     walkModifier: 1
-    sprintModifier: 1 
+    sprintModifier: 1
   - type: DisarmMalus
     malus: 0.8
-  - type: Reflect 
-    reflectProb: .15 
-    spread: 30 
+  - type: Reflect
+    reflectProb: .15
+    spread: 30
     reflects:
     - Energy
     - NonEnergy
@@ -68,7 +68,7 @@
   - type: Appearance
   - type: ItemTogglePointLight
     toggleableVisualsColorModulatesLights: true
-  - type: ToggleableVisuals 
+  - type: ToggleableVisuals
     spriteLayer: blade
     inhandVisuals:
       left:
