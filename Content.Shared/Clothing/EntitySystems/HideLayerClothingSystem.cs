@@ -52,7 +52,7 @@ public sealed partial class HideLayerClothingSystem : EntitySystem // DeltaV - p
             return;
 
         // DeltaV - let layer hiding be cancelled
-        if (hideLayers && clothing.Comp1.BlockLayerHide)
+        if (hideLayers && clothing.Comp1.AllowOverride && clothing.Comp1.BlockLayerHide)
             return;
 
         hideLayers &= IsEnabled(clothing!);
