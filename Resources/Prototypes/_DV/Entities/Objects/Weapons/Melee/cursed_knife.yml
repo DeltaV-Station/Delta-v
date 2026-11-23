@@ -84,3 +84,8 @@
           TierOne: { state: tier-one }
           TierTwo: { state: tier-two }
           TierThree: { state: tier-three }
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Ambience/anomaly_scary.ogg
+      params:
+        volume: -5
