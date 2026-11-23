@@ -1,127 +1,4 @@
 ﻿Entries:
-- author: kotobdev
-  changes:
-  - message: You can now write much longer announcements with the communications console!
-    type: Tweak
-  id: 2203
-  time: '2026-03-30T07:50:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5574
-- author: snowywinters
-  changes:
-  - message: AI can now see turrets and control panels without cameras
-    type: Add
-  - message: Turrets can now target the colossus
-    type: Fix
-  id: 2204
-  time: '2026-03-30T11:25:01.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5496
-- author: kotobdev
-  changes:
-  - message: You can no longer saw off the forged shotgun.
-    type: Remove
-  id: 2205
-  time: '2026-03-31T03:57:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5504
-- author: Stxcking
-  changes:
-  - message: Removed Conspiracy from the game mode rotation (for now).
-    type: Remove
-  id: 2206
-  time: '2026-04-01T20:35:54.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5594
-- author: rebe83
-  changes:
-  - message: Combat medipens no longer OD on omni and have more tranex.
-    type: Tweak
-  id: 2207
-  time: '2026-04-02T12:04:49.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5584
-- author: TehFlaminTaco
-  changes:
-  - message: The infestation of cars has been appropriately resolved.
-    type: Fix
-  id: 2208
-  time: '2026-04-02T23:02:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5608
-- author: rebe83
-  changes:
-  - message: NT Armory has researched a better breaching hammer. It pries faster and
-      bonks harder! Permas beware.
-    type: Tweak
-  id: 2209
-  time: '2026-04-03T08:21:53.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5586
-- author: rebe83
-  changes:
-  - message: Shotgun slugs now do much more damage to structures.
-    type: Tweak
-  id: 2210
-  time: '2026-04-03T08:22:38.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5590
-- author: Woljif
-  changes:
-  - message: Vulcan firerate increased from 3.5 to 4.0
-    type: Tweak
-  id: 2211
-  time: '2026-04-03T08:28:35.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5583
-- author: keekee38
-  changes:
-  - message: ported RMC's pose feature!
-    type: Add
-  id: 2212
-  time: '2026-04-04T13:29:42.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5558
-- author: FieldCommand, Stxcking
-  changes:
-  - message: The captain and HoS now have a very dapper hat and cloak in the loadout.
-    type: Add
-  id: 2213
-  time: '2026-04-04T18:21:04.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5601
-- author: Minerva
-  changes:
-  - message: DV-specific medical scrubs and surgical caps can now be obtained from
-      the MediDrobe.
-    type: Tweak
-  id: 2214
-  time: '2026-04-04T18:55:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5613
-- author: Minerva
-  changes:
-  - message: Surgeons are no longer required by loadout to have a surgical cap.
-    type: Tweak
-  id: 2215
-  time: '2026-04-04T18:59:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5614
-- author: Stxcking
-  changes:
-  - message: Icy fountain variant, this one is slippery!
-    type: Add
-  id: 2216
-  time: '2026-04-04T19:18:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5560
-- author: Thinbug0, DisposableCrewmember42
-  changes:
-  - message: Ghost sprites now change based on damage types [upstream cherrypick]
-    type: Add
-  id: 2217
-  time: '2026-04-04T19:39:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5516
-- author: Stxcking
-  changes:
-  - message: Dragons and Sharkminnows are no longer affected by spacewind.
-    type: Fix
-  id: 2218
-  time: '2026-04-05T01:04:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5523
-- author: TehFlaminTaco
-  changes:
-  - message: Fixed critical error effecting some players.
-    type: Fix
-  id: 2219
-  time: '2026-04-05T08:55:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5615
 - author: Coryler
   changes:
   - message: Telescopic and Energyshields working without being activated
@@ -4457,4 +4334,147 @@
   id: 2703
   time: '2026-10-26T15:52:03.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6586
+- author: JustTNE
+  changes:
+  - message: Added Rule B7 - Leave room for doubt!
+    type: Add
+  - message: Clarified role of DAGD traitors in rule C3.2
+    type: Tweak
+  - message: Round stalling is now explicitly prohibited by rule B3
+    type: Tweak
+  - message: Xenoborgs are considered round-ending once more
+    type: Fix
+  id: 2704
+  time: '2026-10-27T06:41:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6666
+- author: rebe83
+  changes:
+  - message: security breaching charges are now less explosive, and only 4 come in
+      the sectech.
+    type: Tweak
+  id: 2705
+  time: '2026-10-29T07:37:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6638
+- author: nlaky
+  changes:
+  - message: Lanyards now show their text under a separate examine tab
+    type: Tweak
+  id: 2706
+  time: '2026-10-29T21:24:29.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6580
+- author: SirWarock
+  changes:
+  - message: Removed the melee exploit that allowed people to instakill others.
+    type: Remove
+  id: 2707
+  time: '2026-10-30T22:44:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6684
+- author: Proxysseia
+  changes:
+  - message: K9 Hardsuit heat res to 20% (from 25%)
+    type: Tweak
+  - message: K9 Hardsuit slowdown to 25% (from 15%)
+    type: Tweak
+  - message: K9 Hardsuit is no longer insulated
+    type: Remove
+  - message: K9 Riot Armor slowdown to 15%
+    type: Tweak
+  - message: K9 Durathread Blunt and Slash res to 20% (from 40%)
+    type: Tweak
+  - message: K9 Durathread Pierce res to 20% (from 10%)
+    type: Tweak
+  id: 2708
+  time: '2026-11-04T18:13:56.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6677
+- author: nlaky
+  changes:
+  - message: Conveyor belts no longer remove your hitbox
+    type: Fix
+  id: 2709
+  time: '2026-11-08T08:18:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6715
+- author: CMuncey
+  changes:
+  - message: The borg transponder wire now correctly removes just that borg from monitor.
+    type: Fix
+  id: 2710
+  time: '2026-11-12T15:47:44.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6665
+- author: Proxysseia
+  changes:
+  - message: The vape's description has been changed. Slightly.
+    type: Tweak
+  id: 2711
+  time: '2026-11-12T16:02:19.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6687
+- author: Creb206
+  changes:
+  - message: Added hatred and malice to the smart fridges.
+    type: Add
+  id: 2712
+  time: '2026-11-12T16:03:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6695
+- author: Proxysseia
+  changes:
+  - message: K9 Units can no longer wear sec glasses or corpsman glasses
+    type: Remove
+  id: 2713
+  time: '2026-11-12T16:23:07.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6678
+- author: SirWarock
+  changes:
+  - message: Fixed Mimes not being able to save their written text!
+    type: Fix
+  id: 2714
+  time: '2026-11-14T19:10:52.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6733
+- author: Coryler
+  changes:
+  - message: Hitman's Voice Mask Implant is in the assassin's thing again
+    type: Fix
+  id: 2715
+  time: '2026-11-18T20:10:23.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6748
+- author: CarolCuchara
+  changes:
+  - message: Pens can no longer be inserted into paper bins, no more lost pens!
+    type: Tweak
+  id: 2716
+  time: '2026-11-22T19:20:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6682
+- author: StarboundSolaris
+  changes:
+  - message: The pitbulls can be found with even more unique names!
+    type: Add
+  - message: Nanotrasen has utilized special breeding practices to allow for more
+      ventbulls aboard the station. Expect to see them more often!
+    type: Add
+  - message: Fixed ventbulls always being ghostroles. It's an official feature now!
+    type: Fix
+  id: 2717
+  time: '2026-11-22T19:41:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6656
+- author: nlaky
+  changes:
+  - message: Vulps can now have up to 3 snout markings
+    type: Tweak
+  id: 2718
+  time: '2026-11-22T19:55:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6562
+- author: keekee38
+  changes:
+  - message: believe it or not you can probably win a fight against a duck
+    type: Tweak
+  id: 2719
+  time: '2026-11-22T20:04:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6751
+- author: EmberAstra
+  changes:
+  - message: Kitchen freezer boards can now be printed at Engi and Service.
+    type: Tweak
+  - message: Added sauna heaters, the heater counterpart to kitchen freezer.
+    type: Add
+  id: 2720
+  time: '2026-11-23T08:25:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6500
 Order: 1
