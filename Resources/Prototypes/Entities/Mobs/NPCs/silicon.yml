@@ -204,6 +204,8 @@
         density: 20
         mask:
         - MobMask
+        layer: # DeltaV - let honkbots be shot and wideswung
+        - MobMask
   - type: Construction
     graph: HonkBot
     node: bot
