@@ -6,6 +6,9 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping;
 using Content.Shared.Interaction;
 using JetBrains.Annotations;
+using Content.Server.Power.Components;  //DV pump parity
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Power;
 
 namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 {
@@ -15,7 +18,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-
+        [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;  //DV pump parity
         public override void Initialize()
         {
             base.Initialize();
@@ -23,6 +26,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             SubscribeLocalEvent<GasOutletInjectorComponent, AtmosDeviceUpdateEvent>(OnOutletInjectorUpdated);
             SubscribeLocalEvent<GasOutletInjectorComponent, ActivateInWorldEvent>(OnActivate);
             SubscribeLocalEvent<GasOutletInjectorComponent, MapInitEvent>(OnMapInit);
+            SubscribeLocalEvent<GasOutletInjectorComponent, PowerChangedEvent>(OnPowerChanged);  //DV pump parity
         }
 
         private void OnMapInit(EntityUid uid, GasOutletInjectorComponent component, MapInitEvent args)
@@ -39,18 +43,21 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             UpdateAppearance(uid, component);
             args.Handled = true;
         }
-
+        private void OnPowerChanged(EntityUid uid, GasOutletInjectorComponent injector, PowerChangedEvent args)  //DV pump parity
+        {
+            UpdateAppearance(uid, injector);
+        }
         public void UpdateAppearance(EntityUid uid, GasOutletInjectorComponent component, AppearanceComponent? appearance = null)
         {
             if (!Resolve(uid, ref appearance, false))
                 return;
 
-            _appearance.SetData(uid, OutletInjectorVisuals.Enabled, component.Enabled, appearance);
+            _appearance.SetData(uid, OutletInjectorVisuals.Enabled, component.Enabled && _powerReceiverSystem.IsPowered(uid), appearance);  //DV pump parity
         }
 
         private void OnOutletInjectorUpdated(EntityUid uid, GasOutletInjectorComponent injector, ref AtmosDeviceUpdateEvent args)
         {
-            if (!injector.Enabled)
+            if (!injector.Enabled || !_powerReceiverSystem.IsPowered(uid))  //DV pump parity
                 return;
 
             if (!_nodeContainer.TryGetNode(uid, injector.InletName, out PipeNode? inlet))

@@ -15,6 +15,9 @@ using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using Content.Server.Power.Components;  //DV pump parity
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Power;
 
 namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 {
@@ -28,7 +31,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-
+        [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;  //DV pump parity
         public override void Initialize()
         {
             base.Initialize();
@@ -44,6 +47,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
             SubscribeLocalEvent<GasMixerComponent, AtmosDeviceDisabledEvent>(OnMixerLeaveAtmosphere);
             SubscribeLocalEvent<GasMixerComponent, MapInitEvent>(OnMapInit); // Frontier
+            SubscribeLocalEvent<GasMixerComponent, PowerChangedEvent>(OnPowerChanged); //DV pump parity
         }
 
         private void OnInit(EntityUid uid, GasMixerComponent mixer, ComponentInit args)
@@ -56,6 +60,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             // TODO ATMOS: Cache total moles since it's expensive.
 
             if (!mixer.Enabled
+                || (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered) //DV pump parity
                 || !_nodeContainer.TryGetNodes(uid, mixer.InletOneName, mixer.InletTwoName, mixer.OutletName, out PipeNode? inletOne, out PipeNode? inletTwo, out PipeNode? outlet))
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
@@ -167,13 +172,16 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             _userInterfaceSystem.SetUiState(uid, GasMixerUiKey.Key,
                 new GasMixerBoundUserInterfaceState(Comp<MetaDataComponent>(uid).EntityName, mixer.TargetPressure, mixer.Enabled, mixer.InletOneConcentration));
         }
-
+        private void OnPowerChanged(EntityUid uid, GasMixerComponent mixer, PowerChangedEvent args) //DV pump parity
+        {
+            UpdateAppearance(uid,mixer);
+        }
         private void UpdateAppearance(EntityUid uid, GasMixerComponent? mixer = null, AppearanceComponent? appearance = null)
         {
             if (!Resolve(uid, ref mixer, ref appearance, false))
                 return;
-
-            _appearance.SetData(uid, FilterVisuals.Enabled, mixer.Enabled, appearance);
+            var on = mixer.Enabled && _powerReceiverSystem.IsPowered(uid); //DV pump parity
+            _appearance.SetData(uid, FilterVisuals.Enabled, on, appearance);
         }
 
         private void OnToggleStatusMessage(EntityUid uid, GasMixerComponent mixer, GasMixerToggleStatusMessage args)
