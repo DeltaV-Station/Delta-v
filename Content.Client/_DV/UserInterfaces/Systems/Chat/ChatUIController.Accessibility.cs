@@ -18,6 +18,7 @@ public sealed partial class ChatUIController
     private void InitializeAccessibility()
     {
         _config.OnValueChanged(DCCVars.ForceChatContrast, value => { _forceChatContrast = value; });
+        _forceChatContrast = _config.GetCVar(DCCVars.ForceChatContrast);
     }
 
     /// <summary>
@@ -105,6 +106,6 @@ public sealed partial class ChatUIController
             }
         }
 
-        return bestColor;
+        return _safeColors[foreground] = bestColor;
     }
 }
