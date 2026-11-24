@@ -31,8 +31,8 @@ public sealed partial class NPCConversationComponent : Component
     */
 
     [ViewVariables]
-    [DataField("tree", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<NPCConversationTreePrototype>))]
-    public string? ConversationTreeId;
+    [DataField("tree", required: true)]
+    public ProtoId<NPCConversationTreePrototype> ConversationTreeId;
 
     /// <summary>
     /// This is the cached prototype.
