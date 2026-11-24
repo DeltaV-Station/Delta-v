@@ -19,6 +19,7 @@
       types:
         Slash: 6
   - type: AdrenalineMelee
+    adrenalineFallRate: 2
     adrenalinePerHit: 10
     adrenalineFallAmount: 5
     tiers:
@@ -33,7 +34,7 @@
       damage:
         types:
           Slash: 10
-          Soul: 6
+          Soul: 10
     - visual: TierThree
       activate: true
       reflect: 0.35
@@ -41,8 +42,8 @@
       speedMultiplier: 1.2
       damage:
         types:
-          Slash: 15
-          Soul: 10
+          Slash: 20
+          Soul: 15
   - type: ItemToggle
     onUse: false
     onActivate: false
