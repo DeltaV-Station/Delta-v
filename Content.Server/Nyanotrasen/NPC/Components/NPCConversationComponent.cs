@@ -94,7 +94,8 @@ public sealed class NPCConversationComponent : Component
     /// </summary>
     [ViewVariables]
     [DataField("nextAttentionLoss", customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NextAttentionLoss;
+    [AutoPausedField]
+    public TimeSpan? NextAttentionLoss;
 
     /// <summary>
     /// This event is fired the next time the NPC hears something from the
