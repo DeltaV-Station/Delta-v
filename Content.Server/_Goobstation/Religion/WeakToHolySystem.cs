@@ -49,11 +49,12 @@ public sealed class WeakToHolySystem : EntitySystem
     // Begin DeltaV Additions - Holy Weakness
     private void OnInit(Entity<WeakToHolyComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp<DamageableComponent>(ent, out var damageable))
+        if (!TryComp<DamageableComponent>(ent, out var damageable)
+            || !TryComp<InjurableComponent>(ent, out var injurable))
             return;
 
         var dmg = _damageableSystem.GetPositiveDamage((ent, damageable));
-        _damageableSystem.ChangeDamageContainer((ent, damageable), DamageContainerId); // Delta V - Changes the DamageContainer of the Entity from (presumably) Biological to BiologicalMetaphysical.
+        _damageableSystem.ChangeDamageContainer((ent, injurable), DamageContainerId); // Delta V - Changes the DamageContainer of the Entity from (presumably) Biological to BiologicalMetaphysical.
     }
 
     private void OnRemove(Entity<WeakToHolyComponent> ent, ref ComponentRemove args)

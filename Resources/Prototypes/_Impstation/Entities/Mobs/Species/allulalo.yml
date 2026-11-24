@@ -42,8 +42,9 @@
   - type: CanEscapeInventory
     baseResistTime: 1.0 #they break out of grabs FAST
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Allulalo #stops them from being oppressive hopefully
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
     bloodReferenceSolution: # Delta V - updated to Nubody
       reagents:
@@ -227,7 +228,7 @@
   # base scale to determine the metric/imperial height values, so we're just correcting the scale
   # because Allulalo have to be the special kid on the block.
   - type: ScaleVisuals
-    scale: 2.0, 2.0 
+    scale: 2.0, 2.0
     originalScale: 2.0, 2.0
   # END DeltaV
 

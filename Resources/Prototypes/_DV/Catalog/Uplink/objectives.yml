@@ -7,7 +7,7 @@
     state: closed
   productEntity: ToolboxSyndicateFilledCoreExtraction
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:ListingLimitedStockCondition
@@ -26,7 +26,7 @@
     state: generic
   productEntity: SyndicateCircuitBoard
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:ListingLimitedStockCondition
@@ -45,7 +45,7 @@
   cost:
     Telecrystal: 1
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
@@ -63,7 +63,7 @@
   icon: { sprite: Objects/Specific/Medical/Morgue/bodybags.rsi, state: bag }
   productEntity: BoxBodyBag
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:ListingLimitedStockCondition
@@ -85,7 +85,7 @@
   icon: { sprite: Objects/Storage/boxes.rsi, state: box_of_doom }
   productEntity: BoxSyndicateStunBundle
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:ListingLimitedStockCondition
@@ -106,7 +106,7 @@
   icon: { sprite: Objects/Misc/handcuffs.rsi, state: handcuff }
   productEntity: BoxSyndicateHostageImplanter
   categories:
-  - UplinkObjectives
+  - UplinkObjective
   conditions:
   - !type:ObjectiveUnlockCondition
   - !type:ListingLimitedStockCondition

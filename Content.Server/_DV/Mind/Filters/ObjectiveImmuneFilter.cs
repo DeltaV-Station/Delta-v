@@ -9,7 +9,7 @@ namespace Content.Server._DV.Mind.Filters;
 /// </summary>
 public sealed partial class ObjectiveImmuneFilter : MindFilter
 {
-    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? excluded, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? excluded, IEntityManager entMan)
     {
         // Check the mind first
         if (entMan.HasComponent<TargetObjectiveImmuneComponent>(mind))
