@@ -29,11 +29,6 @@ public partial class ChatBox : UIWidget
     [Dependency] private readonly IConfigurationManager _cfg = default!; // EE - Chat stacking
     [Dependency] private readonly ILocalizationManager _loc = default!; // EE - Chat stacking
 
-    /// <summary>
-    ///     DeltaV - Add color contrast enforcement accessibility option
-    /// </summary>
-    private Dictionary<Color, Color> _safeColors = [];
-
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
@@ -97,9 +92,7 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        // DeltaV - Begin Additions (Chat contrast accessibility)
-        color = GetSafeForegroundColor(color, minContrast: 4.5f); // TODO: From options.
-        // DeltaV - End Additions
+        color = _controller.GetSafeForegroundColor(color, this); // DeltaV - Chat color accessibility
 
         // EE - Chat stacking
         var index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
@@ -295,114 +288,6 @@ public partial class ChatBox : UIWidget
     {
         // Warn typing indicator about focus
         _controller.NotifyChatFocus(false);
-    }
-
-    /// <summary>
-    ///     Get the relative luminance of the specified color.
-    /// </summary>
-    /// <remarks>
-    ///     <para>DeltaV - Chat color accessibility</para>
-    ///     <para>See https://www.w3.org/WAI/GL/wiki/Relative_luminance</para>
-    /// </remarks>
-    /// <param name="color"></param>
-    /// <returns></returns>
-    private float GetRelativeLuminance(Color color)
-    {
-        var linear = Color.FromSrgb(color);
-
-        return linear.R * 0.2126f + linear.G * 0.7152f + linear.B * 0.0722f;
-    }
-
-    /// <summary>
-    ///     Get the contrast ratio between a foreground and background.
-    /// </summary>
-    /// <remarks>
-    ///     <para>DeltaV - Chat color accessibility</para>
-    ///     <para>See https://www.w3.org/WAI/GL/wiki/Contrast_ratio</para>
-    /// </remarks>
-    /// <param name="foreground"></param>
-    /// <param name="background"></param>
-    /// <returns></returns>
-    private float GetContrastRatio(Color foreground, Color background)
-    {
-        var fgLum = GetRelativeLuminance(foreground);
-        var bgLum = GetRelativeLuminance(background);
-
-        return (fgLum + 0.05f) / (bgLum + 0.05f);
-    }
-
-    /// <summary>
-    ///     Get the background color of the chatbox.
-    /// </summary>
-    /// <returns></returns>
-    /// <remarks>
-    ///     <para>DeltaV - Chat color accessibility</para>
-    /// </remarks>
-    public Color GetCurrentBackgroundColor()
-    {
-        if (ChatWindowPanel is null)
-            return Color.FromHex("#25252ADD");
-
-        Color color;
-        if (ChatWindowPanel.PanelOverride is StyleBoxFlat styleBoxFlat)
-            color = styleBoxFlat.BackgroundColor;
-        else if (ChatWindowPanel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
-                 && style is StyleBoxFlat propStyleBoxFlat)
-            color = propStyleBoxFlat.BackgroundColor;
-        else
-            color = Color.FromHex("#25252ADD");
-
-        return color;
-    }
-
-    /// <summary>
-    ///     Get the background color of the chatbox.
-    /// </summary>
-    /// <returns></returns>
-    /// <remarks>
-    ///     <para>DeltaV - Chat color accessibility</para>
-    /// </remarks>
-    public Color GetSafeForegroundColor(Color foreground, float minContrast = 4.5f)
-    {
-        // check cache
-        if (_safeColors.TryGetValue(foreground, out var safe))
-            return safe;
-
-        var background = GetCurrentBackgroundColor();
-
-        // check if we're already good
-        if (GetContrastRatio(foreground, background) >= minContrast)
-            return _safeColors[foreground] = foreground;
-
-        // figure out which way to calculate
-        var target = GetContrastRatio(Color.Black, background) >= GetContrastRatio(Color.White, background)
-            ? Color.Black
-            : Color.White;
-
-        // find something with a decent contrast.
-        float low = 0f,
-              high = 1f;
-
-        var bestColor = foreground;
-
-        for (var i = 0; i < 5; i++) // Do a binary search to get decently "close" to minContrast.
-        {
-            var blend = (low + high) / 2.0f;
-
-            var candidate = Color.InterpolateBetween(foreground, target, blend);
-
-            if (GetContrastRatio(candidate, background) >= minContrast)
-            {
-                bestColor = candidate;
-                high = blend;
-            }
-            else
-            {
-                low = blend;
-            }
-        }
-
-        return bestColor;
     }
 
     protected override void Dispose(bool disposing)

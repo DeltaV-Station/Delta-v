@@ -247,6 +247,7 @@ public sealed partial class ChatUIController : UIController
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
         InitializeHighlights();
+        InitializeAccessibility(); // DeltaV - Chat color accessibility
     }
 
     public void OnScreenLoad()
@@ -278,7 +279,7 @@ public sealed partial class ChatUIController : UIController
         if (chatBox is null || panel is null) // DeltaV - check if the chatbox is null because technically it can be.
             return;
 
-        Color color = chatBox.GetCurrentBackgroundColor(); // DeltaV - extracted this to a method on the chatbox itself.
+        Color color = GetChatBackgroundColor(); // DeltaV - extracted this to a method on the chatbox itself.
 
         /* DeltaV - extracted this to a method on the chatbox itself.
         if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
@@ -294,6 +295,32 @@ public sealed partial class ChatUIController : UIController
         {
             BackgroundColor = color.WithAlpha(opacity)
         };
+    }
+
+    /// <summary>
+    ///     Get the background color of the chatbox.
+    /// </summary>
+    /// <returns></returns>
+    /// <remarks>
+    ///     <para>DeltaV - Chat color accessibility</para>
+    /// </remarks>
+    private Color GetChatBackgroundColor(ChatBox? chatBox = null)
+    {
+        chatBox ??= UIManager.ActiveScreen?.GetWidget<ChatBox>() ?? UIManager.ActiveScreen?.GetWidget<ResizableChatBox>();
+        var panel = chatBox?.ChatWindowPanel;
+
+        if (panel is null || chatBox is null) return Color.FromHex("#25252ADD");
+
+        Color color;
+        if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
+            color = styleBoxFlat.BackgroundColor;
+        else if (panel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
+                 && style is StyleBoxFlat propStyleBoxFlat)
+            color = propStyleBoxFlat.BackgroundColor;
+        else
+            color = Color.FromHex("#25252ADD");
+
+        return color;
     }
 
     public void SetMainChat(bool setting)
