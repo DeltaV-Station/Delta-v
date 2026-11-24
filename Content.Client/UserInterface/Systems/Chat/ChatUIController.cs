@@ -279,7 +279,7 @@ public sealed partial class ChatUIController : UIController
             return;
 
         //DeltaV - Begin Changes (extracted this to a shared helper)
-        Color color = GetChatBackgroundColor();
+        Color color = GetChatBackgroundColor(chatBox);
         // if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
         //     color = styleBoxFlat.BackgroundColor;
         // else if (panel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
@@ -870,12 +870,12 @@ public sealed partial class ChatUIController : UIController
     }
 
     /// <summary>
-    /// DeltaV - Regex expression to match on the chat message text in order to replace it with another color.
+    /// DeltaV - Regex expression to match on the chat message text in order to replace it with another color. 
     /// </summary>
     private static readonly Regex RadioChatColorRegex = new(@"color=#?([a-fA-F0-9]{8})", RegexOptions.Compiled);
 
     /// <summary>
-    /// DeltaV - Replaces the channel color hex code in a message with the client-side hex color
+    /// DeltaV - Replaces the channel color hex code in a message with the client-side hex color 
     /// overridden by <see cref="Content.Client._DV.Radio.RadioChannelColorSystem"/> .
     /// </summary>
     /// <param name="message">The message to find and replace the color hex code in.</param>
