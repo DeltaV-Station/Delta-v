@@ -74,7 +74,8 @@ public sealed class NPCConversationComponent : Component
     /// </summary>
     [ViewVariables]
     [DataField("nextResponse", customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NextResponse;
+    [AutoPausedField]
+    public TimeSpan? NextResponse;
 
     /// <summary>
     /// This is the direction the NPC was facing before looking towards a conversation partner.
