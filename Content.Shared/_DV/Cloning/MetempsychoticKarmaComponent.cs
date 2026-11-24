@@ -7,5 +7,5 @@ namespace Content.Shared._DV.Cloning;
 public sealed partial class MetempsychoticKarmaComponent : Component
 {
     [DataField("karma")]
-    public int Karma = 0;
+    public int Karma;
 }

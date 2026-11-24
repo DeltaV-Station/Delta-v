@@ -18,18 +18,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Ghost.Roles.Components; // Delta V
-using Content.Server.Speech.Components; // Delta V
-using Content.Server.StationEvents.Components; // Delta V
-using Content.Shared._DV.Cloning; // Delta V
-using Content.Shared._DV.Psionics.Components; // Delta V
-using Content.Shared.Damage.ForceSay; // Delta V
-using Content.Shared.Emoting; // Delta V
-using Content.Shared.Mind.Components; // Delta V
-using Content.Shared.Preferences; // Delta V
-using Content.Shared.Speech; // Delta V
-using Content.Shared.SSDIndicator; // Delta V
-using Robust.Shared.GameObjects.Components.Localization; // DV
+using Content.Shared._DV.Cloning; // DeltaV - MetemComp for TryCloning
 
 namespace Content.Server.Cloning;
 
@@ -59,7 +48,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
         MapCoordinates? coords,
         ProtoId<CloningSettingsPrototype> settingsId,
         [NotNullWhen(true)] out EntityUid? clone,
-        MetemPsychoticMachineComponent? metemComp)
+        MetempsychoticMachineComponent? metemComp)
     {
         clone = null;
         if (!_prototype.Resolve(settingsId, out var settings))
@@ -79,48 +68,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
                 return false; // cannot clone, for example due to the unrevivable trait
         }
 
-        // Delta V Begin - Metem Psychotic Alternative Cloning
-        if (metemComp != null)
-        {
-            int? karma = null;
-            if (TryComp<MetempsychoticKarmaComponent>(original, out var metempsychoticKarma))
-            {
-                karma = metempsychoticKarma.Karma;
-            }
-
-            var entityToSpawn = _metem.GetSpawnEntity((metemComp.Owner, metemComp), karmaBonus, speciesPrototype, out var newSpecies, karma);
-
-            clone = coords == null ? Spawn(entityToSpawn) : Spawn(entityToSpawn, coords.Value);
-
-            if (newSpecies != null)
-            {
-                var newProf = HumanoidCharacterProfile.RandomWithSpecies(newSpecies.ID);
-                _visualBody.ApplyProfileTo(clone.Value, newProf);
-                _humanoidProfileSystem.ApplyProfileTo(original, newProf);
-
-                EnsureComp<MetempsychoticKarmaComponent>(clone.Value, out var karmaComp);
-                karmaComp.Karma = karma != null ? karma.Value + 1 : 1;
-            }
-            else
-            {
-                var grammar = EnsureComp<GrammarComponent>(clone.Value);
-                _grammarSystem.SetProperNoun((clone.Value, grammar), true);
-                _grammarSystem.SetGender((clone.Value, grammar), humanoid.Gender);
-
-                // Add missing components to players reincarnating into mobs
-                EnsureComp<PotentialPsionicComponent>(clone.Value);
-                EnsureComp<SpeechComponent>(clone.Value);
-                EnsureComp<DamageForceSayComponent>(clone.Value);
-                EnsureComp<EmotingComponent>(clone.Value);
-                EnsureComp<MindContainerComponent>(clone.Value);
-                EnsureComp<SSDIndicatorComponent>(clone.Value);
-                RemComp<ReplacementAccentComponent>(clone.Value);
-                RemComp<MonkeyAccentComponent>(clone.Value);
-                RemComp<SentienceTargetComponent>(clone.Value);
-                RemComp<GhostTakeoverAvailableComponent>(clone.Value);
-            }
-        }
-        // Delta V End - Metem Psychotic Alternative Cloning
+        clone = TryMetemClone(original, humanoid, speciesPrototype, coords, metemComp, out var metemClone) ? metemClone : null; // DeltaV - Metem Psychotic Cloning
 
         if (clone == null) // Delta V - Metempsychotic Conditional Addition
         {

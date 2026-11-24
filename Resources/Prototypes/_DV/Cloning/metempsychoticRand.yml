@@ -6,13 +6,14 @@
     Felinid: 1
     Vulpkanin: 1
     Harpy: 1
-    Oni: 0.5
-    Diona: 0.5
-    Reptilian: 0.5
-    SlimePerson: 0.5
-    Arachnid: 0.5
-    Shadekin: 0.25
-    Allulalo: 0.25
+    Oni: 1
+    Diona: 1
+    Reptilian: 1
+    SlimePerson: 1
+    Arachnid: 1
+    Shadekin: 1
+    Allulalo: 1
+    Kitsune: 1
 
 - type: weightedRandom
   id: MetempsychoticNonHumanoidPool # Other Entities
@@ -21,4 +22,5 @@
     MobScurret: 1
     MobKobold: 1
     MobXenoQueen: 0.01
+    MobSpaceShrimp: 0.01
     MobCrab: 0.01
