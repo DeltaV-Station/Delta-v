@@ -145,7 +145,8 @@ public sealed class NPCConversationComponent : Component
     /// </remarks>
     [ViewVariables]
     [DataField("nextIdleChat", customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NextIdleChat;
+    [AutoPausedField]
+    public TimeSpan? NextIdleChat;
 
 #endregion
 
