@@ -51,12 +51,12 @@
     size: Small
     storedRotation: -90
   - type: ESGunAttachment
-  - type: ESGunComponentAttachment
-    component:
-      - type: CursorOffsetRequiresWield
-      - type: EyeCursorOffset
-        maxOffset: 3
-        pvsIncrease: 0.3
+  #- type: ESGunComponentAttachment # DeltaV - actual entity...
+  #  component:
+  #    - type: CursorOffsetRequiresWield
+  #    - type: EyeCursorOffset
+  #      maxOffset: 3
+  #      pvsIncrease: 0.3
   - type: Tag
     tags:
     - AttachmentOptic # DeltaV - was MonoOptic
