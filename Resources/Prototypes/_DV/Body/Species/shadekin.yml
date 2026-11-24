@@ -115,8 +115,9 @@
   - type: FlashModifier
     modifier: 2
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Shadekin
+  - type: Injurable
+    damageContainer: Biological
   - type: Deathgasp
     damageType: Bloodloss
   - type: Reactive

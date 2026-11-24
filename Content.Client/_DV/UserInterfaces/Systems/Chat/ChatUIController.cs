@@ -79,36 +79,6 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
     }
 
     /// <summary>
-    /// This is ugly but it's only going to be around until the next upstream merge.
-    /// We'll still use DCCVars.ChatHighlights.
-    /// </summary>
-    private void MigrateDVHighlightSettings()
-    {
-        // AutoHightligt Checkbox
-        bool shouldSave = false;
-        var oldDCCAutofillFlag = _config.GetCVar(DCCVars.ChatAutoFillHighlights);
-        if (oldDCCAutofillFlag)
-        {
-            _config.SetCVar(CCVars.ChatAutoFillHighlights, oldDCCAutofillFlag);
-            _config.SetCVar(DCCVars.ChatAutoFillHighlights, false); // Next time this runs, it won't migrate this value again since CCVars.ChatAutoFillHighlights defaults to false.
-            shouldSave = true;
-        }
-
-        // Chat Color
-        var oldDCCVarColor = _config.GetCVar(DCCVars.ChatHighlightsColor);
-        var defaultColor = "#17FFC1FF";
-        if (!oldDCCVarColor.Equals(defaultColor)) // Default value
-        {
-            _config.SetCVar(CCVars.ChatHighlightsColor, oldDCCVarColor); // Next time, it should equal those words
-            _config.SetCVar(DCCVars.ChatHighlightsColor, defaultColor); // Prevents it from running again
-            shouldSave = true;
-        }
-
-        if (shouldSave)
-            _config.SaveToFile();
-    }
-
-    /// <summary>
     ///     Notifies and sets what type of typing indicator should be put.
     /// </summary>
     public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel)
