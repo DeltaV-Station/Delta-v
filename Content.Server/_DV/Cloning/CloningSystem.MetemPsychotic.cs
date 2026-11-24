@@ -28,12 +28,11 @@ public sealed partial class CloningSystem
     /// </summary>
     /// <param name="original">The original body EntityUId</param>
     /// <param name="humanoid">HumanoidProfile of the original body</param>
-    /// <param name="speciesPrototype">Species of the original body</param>
     /// <param name="coords">Coordinates of the Cloning Pod</param>
     /// <param name="metemComp">The MetempPsychoticMachineComponent of the Cloning Pod we're using </param>
     /// <param name="clone">The Resulting Clone or nothing</param>
     /// <returns></returns>
-    private bool TryMetemClone(EntityUid original, HumanoidProfileComponent humanoid, ProtoId<SpeciesPrototype> speciesPrototype, MapCoordinates? coords, MetempsychoticMachineComponent? metemComp, out EntityUid? clone)
+    private bool TryMetemClone(EntityUid original, HumanoidProfileComponent humanoid, MapCoordinates? coords, MetempsychoticMachineComponent? metemComp, out EntityUid? clone)
     {
         if (metemComp != null)
         {

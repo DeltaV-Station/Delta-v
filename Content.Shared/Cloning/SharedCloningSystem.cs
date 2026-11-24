@@ -4,6 +4,7 @@ using Content.Shared.Inventory;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Storage;
 using Content.Shared.Whitelist;
+using Content.Shared._DV.Cloning; // DeltaV - Metem Psychotic Machine
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
@@ -21,7 +22,8 @@ public abstract partial class SharedCloningSystem : EntitySystem
         EntityUid original,
         MapCoordinates? coords,
         ProtoId<CloningSettingsPrototype> settingsId,
-        [NotNullWhen(true)] out EntityUid? clone)
+        [NotNullWhen(true)] out EntityUid? clone,
+        MetempsychoticMachineComponent? metemComp = null /* DeltaV - Metem Device */)
     {
         clone = null;
         return false;

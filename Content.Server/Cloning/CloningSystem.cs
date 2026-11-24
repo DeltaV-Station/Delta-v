@@ -39,16 +39,13 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly MetempsychoticMachineSystem _metem = default!; // Delta V - Metem Psychotic
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfileSystem = default!; // Delta V - Metem Psychotic
-    [Dependency] private readonly GrammarSystem _grammarSystem = default!; // Delta V - Metem Psychotic
 
     public override bool TryCloning(
         EntityUid original,
         MapCoordinates? coords,
         ProtoId<CloningSettingsPrototype> settingsId,
         [NotNullWhen(true)] out EntityUid? clone,
-        MetempsychoticMachineComponent? metemComp)
+        MetempsychoticMachineComponent? metemComp = null)
     {
         clone = null;
         if (!_prototype.Resolve(settingsId, out var settings))
@@ -68,7 +65,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
                 return false; // cannot clone, for example due to the unrevivable trait
         }
 
-        clone = TryMetemClone(original, humanoid, speciesPrototype, coords, metemComp, out var metemClone) ? metemClone : null; // DeltaV - Metem Psychotic Cloning
+        clone = TryMetemClone(original, humanoid, coords, metemComp, out var metemClone) ? metemClone : null; // DeltaV - Metem Psychotic Cloning
 
         if (clone == null) // Delta V - Metempsychotic Conditional Addition
         {
