@@ -712,6 +712,11 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: MobThresholds # Delta V
+    thresholds:
+      0: Alive
+      25: Critical
+      50: Dead
 
 - type: entity
   name: white duck #Quack
