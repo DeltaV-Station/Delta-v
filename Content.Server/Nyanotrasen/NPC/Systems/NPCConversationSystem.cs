@@ -263,7 +263,7 @@ public sealed class NPCConversationSystem : EntitySystem
                 Respond(uid, component, component.ResponseQueue.Pop());
             }
 
-            if (curTime >= component.NextAttentionLoss && component.AttendingTo != null)
+            if (curTime >= component.NextAttentionLoss && component.AttendingTo is not null)
             {
                 // Forget who we were talking to.
                 LoseAttention(uid, component);
