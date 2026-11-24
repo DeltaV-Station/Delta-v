@@ -115,7 +115,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         _activeDoors.Remove(door);
     }
 
-    private void OnEmagged(EntityUid uid, DoorComponent door, ref GotEmaggedEvent args)
+    protected virtual void OnEmagged(EntityUid uid, DoorComponent door, ref GotEmaggedEvent args) // DeltaV - private -> protected virtual for server's DoorSystem to override 
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Access))
             return;
