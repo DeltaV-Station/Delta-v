@@ -10,7 +10,7 @@ using Content.Shared.Localizations;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
-using Content.Shared.Wieldable;
+using Content.Shared.Wieldable; // DeltaV
 using Content.Shared.Wieldable.Components; // DeltaV
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization.Manager; // Mono
@@ -238,7 +238,8 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
         if (!TryComp<ESAttachableGunComponent>(target, out var gun) || gun.Slots.All(slot => slot.ContainerId != args.Container.ID))
             return;
 
-        if (TryComp<WieldableComponent>(target, out var wieldable) && wieldable.Wielded) // yeah maybe just don't
+        // DeltaV - yeah maybe just dont
+        if (TryComp<WieldableComponent>(target, out var wieldable) && wieldable.Wielded)
             return;
 
         EntityManager.RemoveComponents(target, component.Components);
