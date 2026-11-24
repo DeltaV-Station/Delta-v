@@ -29,7 +29,7 @@ public sealed class NPCConversationSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly TypingIndicatorSystem _typingIndicatorSystem = default!;
 
-    private ISawmill _sawmill = default!;
+    protected override string SawmillName => "npc.conversation";
 
     // TODO: attention attenuation. distance, facing, visible
     // TODO: attending to multiple people, multiple streams of conversation
