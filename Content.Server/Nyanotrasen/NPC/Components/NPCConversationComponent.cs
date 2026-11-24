@@ -8,7 +8,8 @@ namespace Content.Server.NPC.Components;
 
 [RegisterComponent]
 [Access(typeof(NPCConversationSystem))]
-public sealed class NPCConversationComponent : Component
+[AutoGenerateComponentPause]
+public sealed partial class NPCConversationComponent : Component
 {
     /// <summary>
     /// Whether or not the listening logic is turned on.
