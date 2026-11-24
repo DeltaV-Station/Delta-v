@@ -29,6 +29,6 @@ public sealed class GunDamageModifierAttachmentSystem : EntitySystem
     {
         Color GetColor(float m) => m > 1 ? Color.Crimson : m < 1 ? Color.Lime : Color.Gold; // thanks mono
 
-        args.PushMarkup(Loc.GetString("gun-damage-modifier-attachment-component-examine", ("color", GetColor(ent.Comp.Multiplier)), ("multiplier", ent.Comp.Multiplier)));
+        args.PushMarkup(Loc.GetString("gun-damage-modifier-attachment-component-examine", ("color", GetColor(1/ent.Comp.Multiplier)), ("multiplier", ent.Comp.Multiplier)));
     }
 }

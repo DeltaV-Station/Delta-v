@@ -8,15 +8,15 @@
   description: The intended experience of the LARP-26.
   components:
   - type: Sprite
-    sprite: Objects/Fun/plushielizard_jobs.rsi
-    state: medicalintern
+    sprite: _DV/Objects/Weapons/Guns/Attachments/forends.rsi
+    state: factory
   - type: ESGunRecoilAttachment # make these mean something eventually
     recoilRecoveryModifier: 1.00
-    recoilIncreaseModifier: 0.90
-    minSpreadModifier: 0.25
-    maxSpreadModifier: 0.55
+    recoilIncreaseModifier: 0.80
+    minSpreadModifier: 0.75
+    maxSpreadModifier: 0.60
   - type: GunUpgradeFireRate
-    coefficient: 1.28
+    coefficient: 1.42
   - type: Tag
     tags:
     - AttachmentForend
@@ -29,20 +29,20 @@
   description: So much LARP-26, it's a crime.
   components:
   - type: Sprite
-    sprite: Objects/Fun/plushielizard_jobs.rsi
-    state: medicalintern
+    sprite: _DV/Objects/Weapons/Guns/Attachments/forends.rsi
+    state: suppressed
   - type: ESGunRecoilAttachment # make these mean something eventually
-    recoilRecoveryModifier: 0.8
-    recoilIncreaseModifier: 1.5
-    minSpreadModifier: 0.5
-    maxSpreadModifier: 1.0
+    recoilRecoveryModifier: 1.5
+    recoilIncreaseModifier: 2.5
+    minSpreadModifier: 1.5
+    maxSpreadModifier: 2.0
   - type: ESGunSoundAttachment
     sound:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
         maxDistance: 4
   - type: GunUpgradeFireRate
-    coefficient: 1.47
+    coefficient: 1.71
   - type: GunUpgradeSpeed
     coefficient: 0.65
   - type: Tag
@@ -57,15 +57,15 @@
   description: What the hell kind of shot are you making, on a space station, that needs THIS?
   components:
   - type: Sprite
-    sprite: Objects/Fun/plushielizard_jobs.rsi
-    state: medicalintern
+    sprite: _DV/Objects/Weapons/Guns/Attachments/forends.rsi
+    state: sniper
   - type: ESGunRecoilAttachment # make these mean something eventually
     recoilRecoveryModifier: 0.75
-    recoilIncreaseModifier: 2.0
-    minSpreadModifier: 0.10
-    maxSpreadModifier: 0.25
+    recoilIncreaseModifier: 6.4
+    minSpreadModifier: 0.5
+    maxSpreadModifier: 0.65
   - type: GunUpgradeFireRate
-    coefficient: 0.5
+    coefficient: 0.4
   - type: GunDamageModifierAttachment
     multiplier: 2.5 # yeah man fuck it somebody else can balance this shit
   - type: Tag

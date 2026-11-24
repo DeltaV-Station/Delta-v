@@ -502,6 +502,11 @@
         whitelist:
           tags:
           - AttachmentWireStock
+      - containerId: attachment_stock
+        state: riflestock
+        whitelist:
+          tags:
+          - AttachmentRifleStock
       forendAttachment:
       - containerId: attachment_forend
         state: basebarrel

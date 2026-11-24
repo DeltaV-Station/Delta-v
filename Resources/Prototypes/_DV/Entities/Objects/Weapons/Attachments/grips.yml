@@ -5,15 +5,15 @@
   description: Allows for deploying your weapon, increasing fire rate and accuracy at the cost of mobility.
   components:
   - type: Sprite
-    sprite: Objects/Fun/plushielizard_jobs.rsi
-    state: technicalassistant
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: bipod
   - type: ESGunComponentAttachment
     component:
     - type: GunBipod
-      minAngle: -4
-      maxAngle: -15
+      minAngle: -1
+      maxAngle: -4
       angleDecay: 4
-      fireRateIncrease: 2
+      fireRateIncrease: 1.5
   - type: Tag
     tags:
     - AttachmentGrip
@@ -26,16 +26,16 @@
   description: Turn that crime scene into a rave with this red grip laser! Only starts laser-ing once wielded. Make sure you have a stock!
   components:
   - type: Sprite
-    sprite: Objects/Fun/plushielizard_jobs.rsi
-    state: scientist
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: lasersight
   - type: Item
     size: Small
     storedRotation: -90
   - type: ESGunRecoilAttachment
-    recoilRecoveryModifier: 1.2
+    recoilRecoveryModifier: 1.15
     recoilIncreaseModifier: 1.0
     minSpreadModifier: 0.8
-    maxSpreadModifier: 1.0
+    maxSpreadModifier: 0.85
   - type: ESGunComponentAttachment
     component:
     - type: LaserPointer

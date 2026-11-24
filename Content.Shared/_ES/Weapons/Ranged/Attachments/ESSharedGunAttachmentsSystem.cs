@@ -232,6 +232,11 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
     private void OnCompAttachmentUnequip(EntityUid uid, ESGunComponentAttachmentComponent component, EntGotRemovedFromContainerMessage args)
     {
         var target = args.Container.Owner;
+
+        // DeltaV - ONLY clean up gun attachment slots
+        if (!TryComp<ESAttachableGunComponent>(target, out var gun) || gun.Slots.All(slot => slot.ContainerId != args.Container.ID))
+            return;
+
         EntityManager.RemoveComponents(target, component.Components);
     }
 

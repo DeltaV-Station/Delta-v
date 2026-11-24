@@ -2,8 +2,12 @@
 
 - type: loadout
   id: SecurityFirearmWeaponPistolPollock
+  dummyEntity: WeaponPistolPollock
   equipment:
     pocket1: WeaponPistolPollock
+  storage:
+    back: 
+    - RandomGunAttachmentKitPistol
 
 - type: loadout
   id: SecurityFirearmWeaponPistolSLP57

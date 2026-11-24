@@ -14,7 +14,7 @@
   name: Pollock
   parent: BaseWeaponPistol
   id: WeaponPistolPollock
-  description: A compact and mass-produced combat pistol. Uses .35 auto ammo.
+  description: A compact and mass-produced combat pistol, now with support for attachments. Uses .35 auto ammo.
   suffix: Mercenary
   components:
   - type: Sprite
@@ -32,8 +32,12 @@
         offset: 0.25, 0
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
-  - type: Gun
-    fireRate: 5
+  - type: Gun # Slightly worse then other guns, but can use attachments
+    fireRate: 5 
+    minAngle: 2
+    maxAngle: 4
+    angleIncrease: 0.75
+    angleDecay: 4
     availableModes:
     - SemiAuto
   - type: ItemSlots
@@ -107,7 +111,7 @@
       whitelist:
         tags:
         - AttachmentStock
-    - name: gun-attachments-slot-name-barrel
+    - name: es-gun-attachments-slot-name-barrel
       containerId: attachment_barrel
       whitelist:
         tags:
@@ -155,6 +159,16 @@
         whitelist:
           tags:
           - AttachmentBasicStock
+      - containerId: attachment_stock
+        state: wirestock
+        whitelist:
+          tags:
+          - AttachmentWireStock
+      - containerId: attachment_stock
+        state: riflestock
+        whitelist:
+          tags:
+          - AttachmentRifleStock
       barrelAttachment:
       - containerId: attachment_barrel
         state: suppressor
