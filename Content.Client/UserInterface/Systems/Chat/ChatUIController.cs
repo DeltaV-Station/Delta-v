@@ -274,10 +274,13 @@ public sealed partial class ChatUIController : UIController
         var chatBox = UIManager.ActiveScreen?.GetWidget<ChatBox>() ?? UIManager.ActiveScreen?.GetWidget<ResizableChatBox>();
 
         var panel = chatBox?.ChatWindowPanel;
-        if (panel is null)
+
+        if (chatBox is null || panel is null) // DeltaV - check if the chatbox is null because technically it can be.
             return;
 
-        Color color;
+        Color color = chatBox.GetCurrentBackgroundColor(); // DeltaV - extracted this to a method on the chatbox itself.
+
+        /* DeltaV - extracted this to a method on the chatbox itself.
         if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
             color = styleBoxFlat.BackgroundColor;
         else if (panel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
@@ -285,6 +288,7 @@ public sealed partial class ChatUIController : UIController
             color = propStyleBoxFlat.BackgroundColor;
         else
             color = Color.FromHex("#25252ADD");
+        */
 
         panel.PanelOverride = new StyleBoxFlat
         {
@@ -841,12 +845,12 @@ public sealed partial class ChatUIController : UIController
     }
 
     /// <summary>
-    /// DeltaV - Regex expression to match on the chat message text in order to replace it with another color. 
+    /// DeltaV - Regex expression to match on the chat message text in order to replace it with another color.
     /// </summary>
     private static readonly Regex RadioChatColorRegex = new(@"color=#?([a-fA-F0-9]{8})", RegexOptions.Compiled);
 
     /// <summary>
-    /// DeltaV - Replaces the channel color hex code in a message with the client-side hex color 
+    /// DeltaV - Replaces the channel color hex code in a message with the client-side hex color
     /// overridden by <see cref="Content.Client._DV.Radio.RadioChannelColorSystem"/> .
     /// </summary>
     /// <param name="message">The message to find and replace the color hex code in.</param>
