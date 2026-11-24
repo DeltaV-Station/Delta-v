@@ -275,21 +275,19 @@ public sealed partial class ChatUIController : UIController
         var chatBox = UIManager.ActiveScreen?.GetWidget<ChatBox>() ?? UIManager.ActiveScreen?.GetWidget<ResizableChatBox>();
 
         var panel = chatBox?.ChatWindowPanel;
-
-        if (chatBox is null || panel is null) // DeltaV - check if the chatbox is null because technically it can be.
+        if (panel is null)
             return;
 
-        Color color = GetChatBackgroundColor(); // DeltaV - extracted this to a method on the chatbox itself.
-
-        /* DeltaV - extracted this to a method on the chatbox itself.
-        if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
-            color = styleBoxFlat.BackgroundColor;
-        else if (panel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
-                 && style is StyleBoxFlat propStyleBoxFlat)
-            color = propStyleBoxFlat.BackgroundColor;
-        else
-            color = Color.FromHex("#25252ADD");
-        */
+        //DeltaV - Begin Changes (extracted this to a shared helper)
+        Color color = GetChatBackgroundColor();
+        // if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
+        //     color = styleBoxFlat.BackgroundColor;
+        // else if (panel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
+        //          && style is StyleBoxFlat propStyleBoxFlat)
+        //     color = propStyleBoxFlat.BackgroundColor;
+        // else
+        //     color = Color.FromHex("#25252ADD");
+        //DeltaV - End Changes (extracted this to a shared helper)
 
         panel.PanelOverride = new StyleBoxFlat
         {
