@@ -66,9 +66,9 @@
     - state: gumball-shine
 
 - type: entity
-  name: carob bar
   parent: BaseItem
   id: FoodSnackCarob
+  name: carob bar
   description: finally, safe chocolate.
   components:
   - type: Sprite
@@ -88,9 +88,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: carob chocolate bar
   parent: FoodSnackBase
   id: FoodSnackCarobBar
+  name: carob chocolate bar
   description: Finally, safe chocolate.
   components:
   - type: FlavorProfile
@@ -100,6 +100,7 @@
     state: chocolatebar-open
   - type: Item
     heldPrefix: chocolatebar-open
+    storedOffset: 1, -2
   - type: Tag
     tags:
       - FoodSnack
