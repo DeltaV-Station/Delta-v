@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DV.Cargo.Components;
 using Content.Shared._DV.Cargo.Systems;
+using Content.Shared._DV.Nutrition;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -70,7 +71,7 @@ public abstract class SharedMailSystem : EntitySystem
         SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(IngestionSystem) });
         SubscribeLocalEvent<MailComponent, MailToolUseDoAfterEvent>(OnOpenWithTool);
-        SubscribeLocalEvent<MailComponent, GetUtensilsEvent>(OnUseUtensil);
+        SubscribeLocalEvent<MailComponent, AttemptUtensilUseEvent>(OnAttemptUseUtensil);
     }
 
     /// <summary>
@@ -307,10 +308,11 @@ public abstract class SharedMailSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnUseUtensil(Entity<MailComponent> ent, ref GetUtensilsEvent args)
+    private void OnAttemptUseUtensil(Entity<MailComponent> ent, ref AttemptUtensilUseEvent args)
     {
         // don't try to eat locked mail with a utensil, it fucks up tool use
-        args.BlockUse = ent.Comp.IsLocked;
+        if (ent.Comp.IsLocked)
+            args.Cancel();
     }
 
     /// <summary>
