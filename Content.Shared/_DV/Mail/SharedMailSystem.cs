@@ -357,7 +357,8 @@ public abstract class SharedMailSystem : EntitySystem
             // anti-tamper lock, so remove that too.
             Appearance.SetData(ent, MailVisuals.IsPriority, false);
 
-            // The examination code depends on this to show the priority description
+            // The examination code depends on this being false to not show
+            // // the priority tape description anymore.
             ent.Comp.IsPriority = false;
         }
 
