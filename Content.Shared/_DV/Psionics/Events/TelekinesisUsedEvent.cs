@@ -4,7 +4,7 @@ namespace Content.Shared._DV.Psionics.Events;
 /// This is used for things that do something special when they are hit by telekinesis, like simple buttons and switches.
 /// </summary>
 [ByRefEvent]
-public sealed class TelekinesisUsedEvent(EntityUid target, EntityUid performer) : CancellableEntityEventArgs
+public sealed class TelekinesisUsedEvent(EntityUid target, EntityUid performer) : HandledEntityEventArgs
 {
     public EntityUid Target { get; } = target;
 

@@ -43,7 +43,7 @@ public sealed partial class CatchableSystem : EntitySystem
 
     private void OnDoHit(Entity<CatchableComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (!_handsQuery.TryGetComponent(args.Target, out var handsComp))
+        if (!_handsQuery.TryGetComponent(args.Target, out var handsComp) || args.Handled) // Delta-V - Made event handleable.
             return; // don't do anything for walls etc
 
         // Is the catcher in combat mode if required?
@@ -72,6 +72,8 @@ public sealed partial class CatchableSystem : EntitySystem
         // We picked it up already but we still have to raise the throwing stop (but not the landing) events at the right time,
         // otherwise it will raise the events for that later while still in your hand
         _thrown.StopThrow(ent.Owner, args.Component);
+
+        args.Handled = true; // Delta-V - Made event handleable
 
         // Collisions don't work properly with PopupPredicted or PlayPredicted.
         // So we make this server only.

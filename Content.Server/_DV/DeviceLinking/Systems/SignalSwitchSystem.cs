@@ -8,12 +8,12 @@ public sealed partial class SignalSwitchSystem
 {
     private void OnTelekinesisUsed(Entity<SignalSwitchComponent> ent, ref TelekinesisUsedEvent args)
     {
-        if (args.Cancelled)
+        if (args.Handled)
             return;
 
         Activate(ent);
 
-        args.Cancel();
+        args.Handled = true;
     }
 
     private void Activate(Entity<SignalSwitchComponent> ent)

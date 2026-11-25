@@ -29,14 +29,18 @@ public sealed class TelekinesisPowerSystem : BasePsionicPowerSystem<TelekinesisP
 
         var ev = new TelekinesisUsedEvent(args.Target, psionic.Owner);
         RaiseLocalEvent(args.Target, ref ev);
-        if (ev.Cancelled)
+        if (ev.Handled)
             return;
 
         // Any special interactions cancel the event, so really this is just a fall-back where you pull the target towards you.
 
         // The ability effectively works as a 'pull,' and the pullable check prevents edge cases with thief/fulton beacons.
         if (!HasComp<PhysicsComponent>(args.Target) || !HasComp<PullableComponent>(args.Target))
+        {
+            args.Handled = false;
             return;
+        }
+
 
         var targetCoords = (_xform.GetWorldPosition(args.Performer) - _xform.GetWorldPosition(args.Target));
         var angle = targetCoords.Normalized();

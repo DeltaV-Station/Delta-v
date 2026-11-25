@@ -6,7 +6,7 @@ using Content.Shared._DV.Psionics.Events; // Delta-V - Telekinesis
 
 namespace Content.Shared.DeviceLinking.Systems
 {
-    public sealed partial class TwoWayLeverSystem : EntitySystem
+    public sealed partial class TwoWayLeverSystem : EntitySystem // Delta-V - Made partial
     {
         [Dependency] private readonly SharedDeviceLinkSystem _signalSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;

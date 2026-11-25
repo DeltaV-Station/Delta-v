@@ -8,7 +8,7 @@ using Content.Shared._DV.Psionics.Events; // Delta-V - Telekinesis
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed partial class SignalSwitchSystem : EntitySystem
+public sealed partial class SignalSwitchSystem : EntitySystem // Delta-V - Made partial
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;

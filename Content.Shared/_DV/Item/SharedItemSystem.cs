@@ -13,7 +13,7 @@ public abstract partial class SharedItemSystem
 
     private void OnTelekinesisUsed(Entity<ItemComponent> ent, ref TelekinesisUsedEvent args)
     {
-        if (args.Cancelled || !TryComp<HandsComponent>(args.User, out var hands) || !_handsSystem.CanPickupAnyHand(args.User, ent.Owner, handsComp: hands, item: ent.Comp))
+        if (args.Handled || !TryComp<HandsComponent>(args.User, out var hands) || !_handsSystem.CanPickupAnyHand(args.User, ent.Owner, handsComp: hands, item: ent.Comp))
             return;
 
         // Small items get brought into hand.
@@ -25,6 +25,6 @@ public abstract partial class SharedItemSystem
                 status.Comp1.Catchable.Add(args.Target);
         }
 
-        args.Cancel();
+        args.Handled = true;
     }
 }

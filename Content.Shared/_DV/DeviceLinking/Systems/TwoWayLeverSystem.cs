@@ -17,6 +17,6 @@ public sealed partial class TwoWayLeverSystem
         };
 
         StateChanged(ent.Owner, ent.Comp);
-        args.Cancel();
+        args.Handled = true;
     }
 }
