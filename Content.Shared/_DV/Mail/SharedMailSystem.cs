@@ -70,7 +70,7 @@ public abstract class SharedMailSystem : EntitySystem
         SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(IngestionSystem) });
         SubscribeLocalEvent<MailComponent, MailToolUseDoAfterEvent>(OnOpenWithTool);
-        SubscribeLocalEvent<MailComponent, AttemptUtensilUseEvent>(OnAttemptUseUtensil);
+        SubscribeLocalEvent<MailComponent, AttemptUtensilUseEvent>(OnAttemptUtensilUse);
     }
 
     /// <summary>
@@ -307,7 +307,7 @@ public abstract class SharedMailSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnAttemptUseUtensil(Entity<MailComponent> ent, ref AttemptUtensilUseEvent args)
+    private void OnAttemptUtensilUse(Entity<MailComponent> ent, ref AttemptUtensilUseEvent args)
     {
         // don't try to eat locked mail with a utensil, it fucks up tool use
         if (ent.Comp.IsLocked)
