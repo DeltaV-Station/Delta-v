@@ -98,11 +98,12 @@
   - LeatherShoes # DeltaV
   - LaceupShoes # DeltaV
 
-#- type: loadoutGroup
-#  id: ChiefMedicalOfficerJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+- type: loadoutGroup
+  id: ChiefMedicalOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieChiefMedicalOfficer
 
 # Medical Doctor
 
@@ -182,11 +183,12 @@
   - ClinicianPDA # DeltaV
   - CryogenicsSpecialistPDA # DeltaV
 
-#- type: loadoutGroup
-#  id: MedicalDoctorJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+- type: loadoutGroup
+  id: MedicalDoctorJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieMedicalDoctor
 
 # Medical Intern
 
@@ -198,11 +200,12 @@
   - WhiteJumpskirt
   - MedicalBlueScrubs # DeltaV
 
-#- type: loadoutGroup
-#  id: MedicalInternJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+- type: loadoutGroup
+  id: MedicalInternJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieMedicalIntern
 
 # Chemist
 
@@ -248,11 +251,12 @@
   - ChemistSatchel
   - ChemistDuffel
 
-#- type: loadoutGroup
-#  id: ChemistJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+- type: loadoutGroup
+  id: ChemistJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieChemist
 
 # Paramedic
 
@@ -296,8 +300,9 @@
   - ParamedicWinterBoots
   # DeltaV End.
 
-#- type: loadoutGroup
-#  id: ParamedicJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+- type: loadoutGroup
+  id: ParamedicJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieParamedic
