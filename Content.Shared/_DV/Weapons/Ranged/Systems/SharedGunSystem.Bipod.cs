@@ -145,7 +145,7 @@ public abstract partial class SharedGunSystem
         Dirty(ent);
     }
 
-    private void PackUpBipod(Entity<GunBipodComponent> weapon, EntityUid user, IsUsingBipodComponent? userComp)
+    public void PackUpBipod(Entity<GunBipodComponent> weapon, EntityUid user, IsUsingBipodComponent? userComp)
     {
         if (Timing.ApplyingState
             || !Resolve(user, ref userComp)) // Component can be nullable, so we resolve. Less expensive than TryComp.

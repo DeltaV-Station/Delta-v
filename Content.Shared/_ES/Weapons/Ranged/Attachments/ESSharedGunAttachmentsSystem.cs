@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._DV.Weapons.Ranged.Components; // DeltaV
 using Content.Shared._ES.Weapons.Ranged.Attachments.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Containers.ItemSlots;
@@ -7,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Localizations;
+using Content.Shared.Weapons.Ranged.Components; // DeltaV
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
@@ -28,6 +30,7 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!; // Mono
     [Dependency] private readonly IGameTiming _timing = default!; // Mono
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // DeltaV
 
     private EntityQuery<ESGunAttachmentComponent> _attachmentQuery;
 
@@ -238,9 +241,23 @@ public abstract class ESSharedGunAttachmentsSystem : EntitySystem
         if (!TryComp<ESAttachableGunComponent>(target, out var gun) || gun.Slots.All(slot => slot.ContainerId != args.Container.ID))
             return;
 
-        // DeltaV - yeah maybe just dont
-        if (TryComp<WieldableComponent>(target, out var wieldable) && wieldable.Wielded)
-            return;
+        // Begin DeltaV - evil ass fixes
+        // evil ass wieldable jank fix (lasers, stocks)
+        if (TryComp<WieldableComponent>(target, out var wieldable) && wieldable.Wielded && TryComp<GunComponent>(target, out var gunComp) &&
+            gunComp.Holder is { } holder)
+        {
+            _wieldable.TryUnwield(target, wieldable, holder, force: true);
+        }
+
+        // evil ass bipod jank fix (bipod)
+        if (TryComp<GunBipodComponent>(target, out var bipod) &&
+            bipod.IsSetup &&
+            TryComp<GunComponent>(target, out var gunComponent) &&
+            gunComponent.Holder is { } bipodUser)
+        {
+            _gun.PackUpBipod((target, bipod), bipodUser, null);
+        }
+        // End DeltaV - evil ass fixes
 
         EntityManager.RemoveComponents(target, component.Components);
     }
