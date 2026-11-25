@@ -19,7 +19,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
-using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
