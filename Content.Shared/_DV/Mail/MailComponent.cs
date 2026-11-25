@@ -102,6 +102,18 @@ public sealed partial class MailComponent : Component
     public int Penalty = -250;
 
     /// <summary>
+    /// The list of tool qualities needed to open mail
+    /// </summary>
+    [DataField]
+    public List<string> OpenToolQualities = new() {"Slicing"};
+
+    /// <summary>
+    /// The amount of time in seconds it takes to open mail with a tool
+    /// </summary>
+    [DataField]
+    public float OpenToolTime = 5.0f;
+
+    /// <summary>
     /// The sound that's played when the mail's lock is broken.
     /// </summary>
     [DataField]

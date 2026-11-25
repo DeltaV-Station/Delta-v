@@ -10,6 +10,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -17,17 +18,20 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Station;
 using Content.Shared.Tag;
+using Content.Shared.Tools.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._DV.Mail;
@@ -46,6 +50,7 @@ public abstract class SharedMailSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] protected readonly SharedStationSystem Station = default!;
     [Dependency] protected readonly TagSystem Tag = default!;
 
@@ -64,6 +69,8 @@ public abstract class SharedMailSystem : EntitySystem
         SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(IngestionSystem) });
+        SubscribeLocalEvent<MailComponent, MailToolUseDoAfterEvent>(OnOpenWithTool);
+        SubscribeLocalEvent<MailComponent, GetUtensilsEvent>(OnUseUtensil);
     }
 
     /// <summary>
@@ -81,6 +88,14 @@ public abstract class SharedMailSystem : EntitySystem
     {
         if (!args.CanReach || !ent.Comp.IsLocked)
             return;
+
+        // check and handle if you're using a tool on it
+        var toolDoAfter = new MailToolUseDoAfterEvent();
+        if (_tool.UseTool(args.Used, args.User, ent.Owner, ent.Comp.OpenToolTime, ent.Comp.OpenToolQualities, toolDoAfter))
+        {
+            args.Handled = true;
+            return;
+        }
 
         if (!HasComp<AccessReaderComponent>(ent))
             return;
@@ -265,7 +280,7 @@ public abstract class SharedMailSystem : EntitySystem
         if (!ent.Comp.IsLocked)
             return;
 
-        UnlockMail(ent);
+        UnlockMail(ent, args.UserUid, true);
 
         _popup.PopupPredicted(Loc.GetString("mail-unlocked-by-emag"), ent, args.UserUid);
 
@@ -292,6 +307,19 @@ public abstract class SharedMailSystem : EntitySystem
 
         args.Handled = true;
         OpenMail(ent.AsNullable(), args.User);
+    }
+
+    private void OnOpenWithTool(Entity<MailComponent> ent, ref MailToolUseDoAfterEvent args)
+    {
+        UnlockMail(ent, args.User, true);
+        OpenMail(ent.AsNullable(), args.User);
+        PenalizeStationFailedDelivery(ent, "mail-penalty-lock");
+    }
+
+    private void OnUseUtensil(Entity<MailComponent> ent, ref GetUtensilsEvent args)
+    {
+        // don't try to eat locked mail with a utensil, it fucks up tool use
+        args.BlockUse = ent.Comp.IsLocked;
     }
 
     /// <summary>
@@ -324,24 +352,26 @@ public abstract class SharedMailSystem : EntitySystem
     /// Handle logic similar between a normal mail unlock and an emag
     /// frying out the lock.
     /// </summary>
-    private void UnlockMail(Entity<MailComponent> ent)
+    private void UnlockMail(Entity<MailComponent> ent, EntityUid? opener = null, bool fraudulent = false)
     {
         ent.Comp.IsLocked = false;
         UpdateAntiTamperVisuals(ent, false);
 
         if (!ent.Comp.IsPriority)
-            return;
+        {
+            // This is a successful delivery. Keep the failure timer from triggering.
+            ent.Comp.PriorityCancelToken?.Cancel();
 
-        // This is a successful delivery. Keep the failure timer from triggering.
-        ent.Comp.PriorityCancelToken?.Cancel();
+            // The priority tape is visually considered to be a part of the
+            // anti-tamper lock, so remove that too.
+            Appearance.SetData(ent, MailVisuals.IsPriority, false);
 
-        // The priority tape is visually considered to be a part of the
-        // anti-tamper lock, so remove that too.
-        Appearance.SetData(ent, MailVisuals.IsPriority, false);
+            // The examination code depends on this to show the priority description
+            ent.Comp.IsPriority = false;
+        }
 
-        // The examination code depends on this being false to not show
-        // the priority tape description anymore.
-        ent.Comp.IsPriority = false;
+        var ev = new MailOpenedEvent(opener, fraudulent);
+        RaiseLocalEvent(ent, ref ev);
 
         Dirty(ent);
 
@@ -527,4 +557,14 @@ public struct MailRecipient(
     public readonly string JobIcon = jobIcon;
     public readonly HashSet<ProtoId<AccessLevelPrototype>> AccessTags = accessTags;
     public readonly bool MayReceivePriorityMail = mayReceivePriorityMail;
+}
+
+
+[Serializable, NetSerializable]
+public sealed partial class MailToolUseDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone()
+    {
+        return this;
+    }
 }

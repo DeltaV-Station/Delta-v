@@ -186,6 +186,8 @@ public record struct GetUtensilsEvent()
 
     public UtensilType RequiredTypes = UtensilType.None;
 
+    public bool BlockUse = false; // DeltaV - allow blocking utensil use fully
+
     // Forces you to add to both lists if a utensil is required.
     public void AddRequiredTypes(UtensilType type)
     {

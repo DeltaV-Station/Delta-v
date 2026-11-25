@@ -40,6 +40,9 @@ public sealed partial class IngestionSystem
         var ev = new GetUtensilsEvent();
         RaiseLocalEvent(target, ref ev);
 
+        if (ev.BlockUse) // DeltaV - allow blocking utensil use entirely
+            return false;
+
         //Prevents food usage with a wrong utensil
         if (ev.Types != UtensilType.None && (ev.Types & utensil.Comp.Types) == 0)
         {
