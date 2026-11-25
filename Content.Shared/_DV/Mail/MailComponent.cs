@@ -1,7 +1,9 @@
 using System.Threading;
 using Content.Shared.Storage;
+using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared._DV.Mail;
 
@@ -104,8 +106,8 @@ public sealed partial class MailComponent : Component
     /// <summary>
     /// The list of tool qualities needed to open mail
     /// </summary>
-    [DataField]
-    public List<string> OpenToolQualities = new() {"Slicing"};
+    [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ToolQualityPrototype>))]
+    public List<string> OpenToolQualities = new() {"Slicing"}; // TODO change to List<ProtoId<ToolQualityPrototype>> when UseTool overloads support it
 
     /// <summary>
     /// The amount of time in seconds it takes to open mail with a tool
