@@ -311,9 +311,13 @@ public abstract class SharedMailSystem : EntitySystem
 
     private void OnOpenWithTool(Entity<MailComponent> ent, ref MailToolUseDoAfterEvent args)
     {
+        if (!ent.Comp.IsLocked)
+            return;
+
         UnlockMail(ent, args.User, true);
-        OpenMail(ent.AsNullable(), args.User);
-        PenalizeStationFailedDelivery(ent, "mail-penalty-lock");
+        _popup.PopupPredicted(Loc.GetString("mail-unlocked-cut"), ent, args.User);
+        ent.Comp.IsProfitable = false;
+        Dirty(ent);
     }
 
     private void OnUseUtensil(Entity<MailComponent> ent, ref GetUtensilsEvent args)
