@@ -350,7 +350,7 @@ public abstract class SharedMailSystem : EntitySystem
         ent.Comp.IsLocked = false;
         UpdateAntiTamperVisuals(ent, false);
 
-        if (!ent.Comp.IsPriority)
+        if (ent.Comp.IsPriority)
         {
             // This is a successful delivery. Keep the failure timer from triggering.
             ent.Comp.PriorityCancelToken?.Cancel();
