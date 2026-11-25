@@ -9,8 +9,9 @@
   - type: Icon
     sprite: _DV/Structures/Windows/plasma_window.rsi #Delta V - Resprite windows
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

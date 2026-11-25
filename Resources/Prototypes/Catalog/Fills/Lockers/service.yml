@@ -12,7 +12,8 @@
   id: FillLockerBooze
   table: !type:AllSelector
     children:
-    - id: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasicSlim replaced in favour of stabproof vest
+    #- id: ClothingOuterArmorBasicSlim # DeltaV - replaced in favor of the durathread.
+    - id: ClothingOuterArmorDuraVest
     - id: WeaponShotgunDoubleBarreledRubber
     - id: DrinkShaker
     - id: ClothingEyesHudBeer
@@ -25,6 +26,10 @@
       children:
       - id: BoxBeanbag
       - id: RagItem
+    - id: PlushieLizardJobBartender
+      prob: 0.02
+    - id: PlushieLizardJobServiceworker
+      prob: 0.02
     - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
       prob: 0.3
 
@@ -54,10 +59,9 @@
     - id: FoodCondimentBottleEnzyme
     - id: DrinkSoyMilkCarton
     - !type:AllSelector
-      rolls: 3
+      rolls: 2
       children:
       - id: DrinkMilkCarton
-      - id: DrinkSoyMilkCarton
       # really, milk should go in the fridge. Unfortunately saltern only has freezers.
       # yes, I'm using this as an excuse to not have to do extra work.
       - id: ReagentContainerFlour
@@ -67,6 +71,10 @@
       children:
       - id: FoodCondimentPacketSalt
       - id: FoodCondimentPacketPepper
+    - id: PlushieLizardJobChef
+      prob: 0.02
+    - id: PlushieLizardJobServiceworker
+      prob: 0.02
     - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
       prob: 0.3
 
@@ -89,6 +97,7 @@
     - id: LightReplacer
     - id: BoxLightMixed
     - id: Holoprojector
+    - id: WireBrush
     - !type:AllSelector
       rolls: 2
       children:
@@ -98,10 +107,10 @@
       - id: SoapNT
       - id: FlashlightLantern
       - id: Plunger
-      - id: WireBrush
-        amount: 2
-      - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
-        prob: 0.3
+    - id: PlushieLizardJobJanitor
+      prob: 0.02
+    - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
+      prob: 0.3
 
 - type: entity
   id: ClosetLegalFilled
@@ -120,6 +129,8 @@
     - id: BriefcaseBrownFilled
       prob: 0.80
     - id: ClothingOuterRobesJudge
+    - id: PlushieLizardJobLawyer
+      prob: 0.02
 
 - type: entity
   id: LockerBotanistFilled
@@ -148,6 +159,10 @@
     - id: ClothingUniformOveralls
     - id: ClothingHeadHatTrucker
       prob: 0.1
+    - id: PlushieLizardJobBotanist
+      prob: 0.02
+    - id: PlushieLizardJobServiceworker
+      prob: 0.02
     - id: LunchboxServiceFilledRandom # DeltaV Lunchboxes!
       prob: 0.3
 

@@ -27,8 +27,8 @@ public sealed partial class CatchableSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
-    private EntityQuery<HandsComponent> _handsQuery;
-    private EntityQuery<CombatModeComponent> _combatModeQuery;
+    [Dependency] private readonly EntityQuery<HandsComponent> _handsQuery = default!;
+    [Dependency] private readonly EntityQuery<CombatModeComponent> _combatModeQuery = default!;
 
     public override void Initialize()
     {
@@ -36,9 +36,6 @@ public sealed partial class CatchableSystem : EntitySystem
 
         SubscribeLocalEvent<CatchableComponent, ThrowDoHitEvent>(OnDoHit);
         SubscribeLocalEvent<CatcherStatusEffectComponent, StatusEffectRelayedEvent<ThrowHitByEvent>>(OnGotHit); // Delta-V - Telekinesis
-
-        _handsQuery = GetEntityQuery<HandsComponent>();
-        _combatModeQuery = GetEntityQuery<CombatModeComponent>();
     }
 
     private void OnDoHit(Entity<CatchableComponent> ent, ref ThrowDoHitEvent args)

@@ -5,8 +5,10 @@
     TraitorObjectiveGroupSteal: 1
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 0.5 #As in, something about your character. Alive, dead, arrested, gained an ability... # DeltaV - was 1
-    TraitorObjectiveGroupSocial: 0.2 # DeltaV #Involves helping/harming others without killing them or stealing their stuff
+    TraitorObjectiveGroupSocial: 0.2 #Involves helping/harming others without killing them or stealing their stuff # DeltaV - Was 1
     TraitorObjectiveGroupSpecial: 0.2 # DeltaV
+    TraitorObjectiveGroupSabotage: 1
+    TraitorObjectiveGroupOther: 1
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -42,9 +44,10 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 0.1 # DeltaV, was 1. Very unlikely but possible.
-    TeachLessonRandomPersonObjective: 1
-    KillRandomHeadObjective: 0.5
+    TeachLessonRandomPersonObjective: 1 # DeltaV
+    KillRandomHeadObjective: 0.25
     KillRandomTraitorObjective: 0.2 # DeltaV
+    KillStationAiObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
@@ -58,6 +61,19 @@
   weights:
 #    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
+
+- type: weightedRandom
+  id: TraitorObjectiveGroupSabotage
+  weights:
+    SupercritAnomaliesObjective: 1
+
+#misc objectives that don't fall other another category
+- type: weightedRandom
+  id: TraitorObjectiveGroupOther
+  weights:
+    HijackTradeStationObjective: 1
+    MailFraudObjective: 1
+
 
 #Thief groups
 - type: weightedRandom
@@ -79,22 +95,27 @@
     HeadBedsheetStealCollectionObjective: 1
     StampStealCollectionObjective: 1
     DoorRemoteStealCollectionObjective: 1
+    # OfficerHandgunsStealCollectionObjective: 1         #sec # DeltaV
     TechnologyDiskStealCollectionObjective: 1           #sci
     MailStealCollectionObjective: 1                     #cargo
     IDCardsStealCollectionObjective: 1
-    LAMPStealCollectionObjective: 2                     #only for moth
+    LAMPStealCollectionObjective: 0.1                   #only for moth, weight decreased cause boring and insanely easy
     ReactorFuelRodStealCollectionObjective: 1 #Far Horizons/Nuclear Reactor Port
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem
   weights:
+# DeltaV Start - Removing some objectives.
+#    ChiefEngineerToolbeltStealObjective: 0.5             #command
+#    CaptainSwordStealObjective: 0.5
+#    ClothingHeadsetAltMedicalStealObjective: 1
+# DeltaV End.
     ForensicScannerStealObjective: 1                    #sec
     FlippoEngravedLighterStealObjective: 0.5
     ClothingHeadHatWardenStealObjective: 1
-    ClothingNeckShockCollarStealObjective: 1
+    WantedListCartridgeStealObjective: 1
     ClothingOuterHardsuitVoidParamedStealObjective: 1   #med
     MedicalTechFabCircuitboardStealObjective: 1
-    ClothingHeadsetAltMedicalStealObjective: 1
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
     ExpeditionsCircuitboardStealObjective: 1            #sup
