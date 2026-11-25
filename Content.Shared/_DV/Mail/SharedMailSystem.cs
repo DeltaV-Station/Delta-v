@@ -91,7 +91,7 @@ public abstract class SharedMailSystem : EntitySystem
 
         // check and handle if you're using a tool on it
         var toolDoAfter = new MailToolUseDoAfterEvent();
-        if (_tool.UseTool(args.Used, args.User, ent.Owner, ent.Comp.OpenToolTime, ent.Comp.OpenToolQualities, toolDoAfter))
+        if (_tool.UseTool(args.Used, args.User, ent.Owner, ent.Comp.OpenToolTime, ent.Comp.OpenToolQualities, toolDoAfter, out _))
         {
             args.Handled = true;
             return;

@@ -111,7 +111,7 @@ public sealed partial class MailComponent : Component
     /// The amount of time in seconds it takes to open mail with a tool
     /// </summary>
     [DataField]
-    public float OpenToolTime = 5.0f;
+    public TimeSpan OpenToolTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The sound that's played when the mail's lock is broken.
