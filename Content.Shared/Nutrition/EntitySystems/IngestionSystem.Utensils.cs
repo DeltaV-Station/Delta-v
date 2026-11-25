@@ -1,4 +1,3 @@
-using Content.Shared._DV.Nutrition;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
@@ -38,13 +37,6 @@ public sealed partial class IngestionSystem
 
     public bool TryUseUtensil(EntityUid user, EntityUid target, Entity<UtensilComponent> utensil)
     {
-        // Begin DeltaV - allow cancel utensil use
-        var checkUseEv = new AttemptUtensilUseEvent();
-        RaiseLocalEvent(target, checkUseEv);
-        if (checkUseEv.Cancelled)
-            return false;
-        // End DeltaV - allow cancel utensil use
-
         var ev = new GetUtensilsEvent();
         RaiseLocalEvent(target, ref ev);
 

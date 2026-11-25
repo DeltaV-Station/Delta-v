@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DV.Cargo.Components;
 using Content.Shared._DV.Cargo.Systems;
-using Content.Shared._DV.Nutrition;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -61,6 +60,7 @@ public abstract class SharedMailSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MailComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<MailComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<MailComponent, ComponentShutdown>(OnShutdown);
@@ -70,7 +70,6 @@ public abstract class SharedMailSystem : EntitySystem
         SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(IngestionSystem) });
         SubscribeLocalEvent<MailComponent, MailToolUseDoAfterEvent>(OnOpenWithTool);
-        SubscribeLocalEvent<MailComponent, AttemptUtensilUseEvent>(OnAttemptUtensilUse);
     }
 
     /// <summary>
@@ -82,20 +81,30 @@ public abstract class SharedMailSystem : EntitySystem
     }
 
     /// <summary>
+    /// Checks if the mail should be opened using a tool
+    /// </summary>
+    private void OnInteractUsing(Entity<MailComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || !ent.Comp.IsLocked)
+            return;
+
+        var toolDoAfter = new MailToolUseDoAfterEvent();
+        args.Handled = _tool.UseTool(args.Used,
+            args.User,
+            ent.Owner,
+            ent.Comp.OpenToolTime,
+            ent.Comp.OpenToolQualities,
+            toolDoAfter,
+            out _);
+    }
+
+    /// <summary>
     /// Handle the <see cref="AfterInteractEvent"/> by checking the ID against the mail.
     /// </summary>
     private void OnAfterInteractUsing(Entity<MailComponent> ent, ref AfterInteractUsingEvent args)
     {
         if (!args.CanReach || !ent.Comp.IsLocked)
             return;
-
-        // check and handle if you're using a tool on it
-        var toolDoAfter = new MailToolUseDoAfterEvent();
-        if (_tool.UseTool(args.Used, args.User, ent.Owner, ent.Comp.OpenToolTime, ent.Comp.OpenToolQualities, toolDoAfter, out _))
-        {
-            args.Handled = true;
-            return;
-        }
 
         if (!HasComp<AccessReaderComponent>(ent))
             return;
@@ -305,13 +314,6 @@ public abstract class SharedMailSystem : EntitySystem
         ent.Comp.IsProfitable = false;
 
         Dirty(ent);
-    }
-
-    private void OnAttemptUtensilUse(Entity<MailComponent> ent, ref AttemptUtensilUseEvent args)
-    {
-        // don't try to eat locked mail with a utensil, it fucks up tool use
-        if (ent.Comp.IsLocked)
-            args.Cancel();
     }
 
     /// <summary>
