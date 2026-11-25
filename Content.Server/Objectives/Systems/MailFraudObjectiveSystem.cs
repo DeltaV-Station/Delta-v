@@ -39,9 +39,6 @@ public sealed partial class MailFraudObjectiveSystem : EntitySystem
     }
 
     // Begin DeltaV - mail fraud for different system
-    /// <summary>
-    /// DeltaV - We use a different mail system than upstream, but should still update the objective
-    /// </summary>
     private void OnMailOpened(Entity<MailComponent> ent, ref MailOpenedEvent args)
     {
         if (!args.Fraudulent)
