@@ -16,7 +16,7 @@
     - UplinkWearables
     - UplinkJob
     - UplinkPointless
-    - UplinkObjectives # DeltaV
+    - UplinkObjective
     currencyWhitelist:
     - Telecrystal
     balance:
@@ -51,3 +51,10 @@
     - ChangelingAbilities
     currencyWhitelist:
     - ChangelingDNA
+
+- type: entity
+  parent: StorePresetUplink
+  id: StorePresetRemoteUplink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RingerAccessUplink

@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: Minerva
-  changes:
-  - message: Surgeons are no longer required by loadout to have a surgical cap.
-    type: Tweak
-  id: 2215
-  time: '2026-04-04T18:59:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5614
-- author: Stxcking
-  changes:
-  - message: Icy fountain variant, this one is slippery!
-    type: Add
-  id: 2216
-  time: '2026-04-04T19:18:44.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5560
-- author: Thinbug0, DisposableCrewmember42
-  changes:
-  - message: Ghost sprites now change based on damage types [upstream cherrypick]
-    type: Add
-  id: 2217
-  time: '2026-04-04T19:39:24.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5516
-- author: Stxcking
-  changes:
-  - message: Dragons and Sharkminnows are no longer affected by spacewind.
-    type: Fix
-  id: 2218
-  time: '2026-04-05T01:04:18.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5523
-- author: TehFlaminTaco
-  changes:
-  - message: Fixed critical error effecting some players.
-    type: Fix
-  id: 2219
-  time: '2026-04-05T08:55:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5615
 - author: Coryler
   changes:
   - message: Telescopic and Energyshields working without being activated
@@ -4470,4 +4435,46 @@
   id: 2715
   time: '2026-11-18T20:10:23.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6748
+- author: CarolCuchara
+  changes:
+  - message: Pens can no longer be inserted into paper bins, no more lost pens!
+    type: Tweak
+  id: 2716
+  time: '2026-11-22T19:20:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6682
+- author: StarboundSolaris
+  changes:
+  - message: The pitbulls can be found with even more unique names!
+    type: Add
+  - message: Nanotrasen has utilized special breeding practices to allow for more
+      ventbulls aboard the station. Expect to see them more often!
+    type: Add
+  - message: Fixed ventbulls always being ghostroles. It's an official feature now!
+    type: Fix
+  id: 2717
+  time: '2026-11-22T19:41:39.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6656
+- author: nlaky
+  changes:
+  - message: Vulps can now have up to 3 snout markings
+    type: Tweak
+  id: 2718
+  time: '2026-11-22T19:55:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6562
+- author: keekee38
+  changes:
+  - message: believe it or not you can probably win a fight against a duck
+    type: Tweak
+  id: 2719
+  time: '2026-11-22T20:04:50.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6751
+- author: EmberAstra
+  changes:
+  - message: Kitchen freezer boards can now be printed at Engi and Service.
+    type: Tweak
+  - message: Added sauna heaters, the heater counterpart to kitchen freezer.
+    type: Add
+  id: 2720
+  time: '2026-11-23T08:25:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6500
 Order: 1

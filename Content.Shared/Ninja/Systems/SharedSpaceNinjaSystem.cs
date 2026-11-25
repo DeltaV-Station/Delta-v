@@ -18,13 +18,11 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // DeltaV
 
-    public EntityQuery<SpaceNinjaComponent> NinjaQuery;
+    [Dependency] public readonly EntityQuery<SpaceNinjaComponent> NinjaQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        NinjaQuery = GetEntityQuery<SpaceNinjaComponent>();
 
         // SubscribeLocalEvent<SpaceNinjaComponent, AttackedEvent>(OnNinjaAttacked); // DeltaV - Handled by the DamageChangedEvent
         SubscribeLocalEvent<SpaceNinjaComponent, MeleeAttackEvent>(OnNinjaAttack);
@@ -107,7 +105,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        // If the damage doesn't have a source, we need to check the type, in case it 
+        // If the damage doesn't have a source, we need to check the type, in case it
         // was a grenade or explosion. We want to ignore airloss and toxin damage types.
         if (!args.Origin.HasValue)
         {
