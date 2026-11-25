@@ -190,7 +190,7 @@
       types:
         Heat: 2.5 # Per second, scales with temperature & other constants
   - type: Wagging
-    # action: ActionToggleWaggingVulpkanin # DeltaV - We have no wagging action
+    # action: ActionToggleWaggingVulpkanin # DeltaV - We have no vulp wagging action, use default
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
