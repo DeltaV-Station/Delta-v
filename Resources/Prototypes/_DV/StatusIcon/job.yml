@@ -66,7 +66,7 @@
   parent: JobIcon
   id: JobIconArmorer
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: Warden
   jobName: job-name-armorer
 
@@ -74,24 +74,24 @@
   parent: JobIcon
   id: JobIconJusticeWarden
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi-dv
     state: PrisonGuard
   jobName: job-name-warden
 
-- type: jobIcon
+- type: jobIcon # TODO - Requires better sprite
   parent: JobIcon
   id: JobIconMarshal
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
-    state: SeniorOfficer #TODO make marshal icon
+    sprite: *icon-rsi-dv
+    state: SeniorOfficer
   jobName: job-name-marshal
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSecurityBorg
   icon:
-    sprite: /Textures/_DV/Interface/Misc/job_icons.rsi
-    state: SecurityBorg
+    sprite: *icon-rsi-dv
+    state: SeniorOfficer
   jobName: job-name-security-borg
 
 - type: jobIcon

@@ -53,18 +53,6 @@
     access: [["ChiefJustice"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerClerk # TODO - Remove for Justice Rework
-  name: clerk's locker
-  components:
-  - type: EntityStorageVisuals
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
-  - type: AccessReader
-    access: [["Warden"]] # Clerk access changed to warden
-
-- type: entity
   parent: LockerJustice
   id: LockerProsecutor # TODO - Resprite
   name: prosecutor's locker

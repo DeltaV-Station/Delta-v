@@ -169,15 +169,11 @@
   id: FillLockerDetective
   table: !type:AllSelector
     children:
-    - !type:NestedSelector # DeltaV - Adds our modifications.
-      tableId: FillLockerDetectiveDeltaV
     - id: ClothingEyesGlassesNoir
-    # Begin DeltaV Removals - removed for incongruence
-    #- id: ClothingHeadHatDetGadget
-    #- id: ClothingNeckTieDet
-    #- id: ClothingOuterVestDetective
-    #- id: ClothingOuterCoatDetectiveLoadout
-    # End DeltaV Removals
+    - id: ClothingHeadHatDetGadget
+    - id: ClothingNeckTieDet
+    - id: ClothingOuterVestDetective
+    - id: ClothingOuterCoatDetectiveLoadout
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner

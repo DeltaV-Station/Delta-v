@@ -211,6 +211,21 @@
     - id: ClothingOuterArmorBasicSlim
     - id: TicketPad
 
+- type: entityTable
+  id: FillLockerBrigmedicDeltaV
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadsetBrigmedic
+    - id: ClothingBeltCorpsmanWebbing
+    - id: HandheldGPSBasic
+    - id: BoxBodyBag
+    - id: EmergencyRollerBedSpawnFolded
+    - id: MedkitCombatFilled
+    - id: Portafib
+    - id: ChemistryBottleRevivopine
+    - id: LunchboxSecurityFilledRandom
+      prob: 0.3
+
 # Armorer Lockers - copy of old warden. New warden is in justice.yml
 - type: entity
   parent: LockerArmorer
