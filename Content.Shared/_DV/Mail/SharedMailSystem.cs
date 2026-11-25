@@ -187,17 +187,7 @@ public abstract class SharedMailSystem : EntitySystem
     private void OnDestruction(Entity<MailComponent> ent, ref DestructionEventArgs args)
     {
         if (ent.Comp.IsLocked)
-        {
-            ExecuteForEachLogisticsStats(ent,
-                (station, logisticStats) =>
-                {
-                    LogisticsStats.AddTamperedMailLosses(station,
-                        logisticStats,
-                        ent.Comp.IsProfitable ? ent.Comp.Penalty : 0);
-                });
-
-            PenalizeStationFailedDelivery(ent, "mail-penalty-lock");
-        }
+            PenalizeTamperedMail(ent);
 
         if (!Tag.HasTag(ent, TrashTag))
             OpenMail(ent.AsNullable());
@@ -278,8 +268,7 @@ public abstract class SharedMailSystem : EntitySystem
             return;
 
         UnlockMail(ent, args.UserUid, true);
-
-        _popup.PopupPredicted(Loc.GetString("mail-unlocked-by-emag"), ent, args.UserUid);
+        PenalizeTamperedMail(ent);
 
         Audio.PlayPredicted(ent.Comp.EmagSound, ent, args.UserUid, AudioParams.Default.WithVolume(4));
         ent.Comp.IsProfitable = false;
@@ -312,8 +301,9 @@ public abstract class SharedMailSystem : EntitySystem
             return;
 
         UnlockMail(ent, args.User, true);
-        _popup.PopupPredicted(Loc.GetString("mail-unlocked-cut"), ent, args.User);
+        PenalizeTamperedMail(ent);
         ent.Comp.IsProfitable = false;
+
         Dirty(ent);
     }
 
@@ -377,6 +367,19 @@ public abstract class SharedMailSystem : EntitySystem
         Dirty(ent);
 
         RemComp<StealTargetComponent>(ent);
+    }
+
+    private void PenalizeTamperedMail(Entity<MailComponent> ent)
+    {
+        ExecuteForEachLogisticsStats(ent,
+            (station, logisticStats) =>
+            {
+                LogisticsStats.AddTamperedMailLosses(station,
+                    logisticStats,
+                    ent.Comp.IsProfitable ? ent.Comp.Penalty : 0);
+            });
+
+        PenalizeStationFailedDelivery(ent, "mail-penalty-lock");
     }
 
     private void UpdateAntiTamperVisuals(EntityUid uid, bool isLocked)
