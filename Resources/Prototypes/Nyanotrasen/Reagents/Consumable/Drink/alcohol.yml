@@ -14,12 +14,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.07
+      metabolites:
+        Ethanol: 0.14
 
 - type: reagent
   id: Soju
@@ -37,12 +33,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
+      metabolites:
+        Ethanol: 0.14
 
 - type: reagent
   id: OrangeCreamice
@@ -60,12 +52,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
+      metabolites:
+        Ethanol: 0.1
 
 - type: reagent
   id: Silverjack
@@ -83,12 +71,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.0625
+      metabolites:
+        Ethanol: 0.125
 
 - type: reagent
   id: Brainbomb
@@ -106,6 +90,10 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
+      metabolites:
+        Ethanol: 0.17
+        THC: 0.66
+        SpaceDrugs: 0.66
       effects:
       - !type:HealthChange
         conditions:
@@ -115,17 +103,6 @@
         damage:
           types:
             Caustic: 0.25
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.085
-      - !type:AdjustReagent
-        reagent: THC
-        amount: 0.33
-      - !type:AdjustReagent
-        reagent: SpaceDrugs
-        amount: 0.33
 
 - type: reagent
   id: ClownBlood
@@ -143,12 +120,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.025
+      metabolites:
+        Ethanol: 0.05
 
 - type: reagent
   id: CircusJuice
@@ -166,12 +139,9 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
+      metabolites:
+        Ethanol: 0.125
       effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.0625
       - !type:Emote #It's very funny
         emote: Laugh
         probability: 0.15
@@ -192,12 +162,9 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
+      metabolites:
+        Ethanol: 0.13
       effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.065
       - !type:AdjustTemperature
         amount: 75 # thermal energy, not temperature!
 
@@ -217,9 +184,5 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.03
+      metabolites:
+        Ethanol: 0.06

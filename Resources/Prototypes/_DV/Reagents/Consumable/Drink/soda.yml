@@ -8,6 +8,8 @@
   color: "#570303"
   metabolisms:
     Digestion:
+      metabolites:
+        UncookedAnimalProteins: 0.1
       effects:
       - !type:SatiateThirst
         factor: 2.0
@@ -15,6 +17,3 @@
         - !type:MetabolizerTypeCondition
           type: [ Human ]
           inverted: true
-      - !type:AdjustReagent
-        reagent: UncookedAnimalProteins
-        amount: 0.05

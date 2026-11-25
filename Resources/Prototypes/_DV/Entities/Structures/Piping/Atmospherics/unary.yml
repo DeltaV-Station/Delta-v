@@ -17,8 +17,40 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Piping/Atmospherics/kitchenthermomachine.rsi
+    granularLayersRendering: true
+    layers:
+    - state: freezerOff
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: freezerPanelOpen
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
   - type: GasThermoMachine
     minTemperature: 230.15
     targetTemperature: 235.15
   - type: Machine
     board: KitchenFreezerMachineCircuitBoard
+
+# Sauna heater, cant go above 363,15 K (90C)
+- type: entity
+  parent: GasThermoMachineHeater
+  id: GasThermoMachineSaunaHeater
+  name: sauna heater
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Piping/Atmospherics/kitchenthermomachine.rsi
+    layers:
+    - state: heaterOff
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: heaterPanelOpen
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
+  - type: GasThermoMachine
+    maxTemperature: 363.15
+    targetTemperature: 323.15
+    coefficientOfPerformance: 0.95
+  - type: Machine
+    board: SaunaHeaterMachineCircuitBoard

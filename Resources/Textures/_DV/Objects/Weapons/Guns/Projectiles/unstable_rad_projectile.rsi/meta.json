@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Apersos, or coll for delta v",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "unstable_muzzle_flash",
+            "delays": [
+                [
+                    0.01,
+                    0.01,
+                    0.01,
+                    0.02,
+                    0.03,
+                    0.02,
+                    0.02,
+                    0.02,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "unstable_beam",
+            "delays": [
+                [
+                    0.01,
+                    0.01,
+                    0.01,
+                    0.02,
+                    0.03,
+                    0.02,
+                    0.02,
+                    0.02,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "unstable_impact",
+            "delays": [
+                [
+                    0.01,
+                    0.01,
+                    0.01,
+                    0.02,
+                    0.03,
+                    0.02,
+                    0.02,
+                    0.02,
+                    0.2
+                ]
+            ]
+        }
+    ]
+}
