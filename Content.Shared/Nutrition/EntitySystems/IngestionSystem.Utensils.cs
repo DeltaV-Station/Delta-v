@@ -43,7 +43,7 @@ public sealed partial class IngestionSystem
         RaiseLocalEvent(target, checkUseEv);
         if (checkUseEv.Cancelled)
             return false;
-        // Begin DeltaV - allow cancel utensil use
+        // End DeltaV - allow cancel utensil use
 
         var ev = new GetUtensilsEvent();
         RaiseLocalEvent(target, ref ev);
