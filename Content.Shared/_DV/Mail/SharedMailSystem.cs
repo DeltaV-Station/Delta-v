@@ -566,7 +566,6 @@ public struct MailRecipient(
     public readonly bool MayReceivePriorityMail = mayReceivePriorityMail;
 }
 
-
 [Serializable, NetSerializable]
 public sealed partial class MailToolUseDoAfterEvent : DoAfterEvent
 {
