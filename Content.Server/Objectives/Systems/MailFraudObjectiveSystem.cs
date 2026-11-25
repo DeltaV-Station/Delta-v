@@ -1,6 +1,5 @@
 using Content.Server.Mind;
 using Content.Server.Objectives.Components;
-using Content.Shared._DV.Mail;
 using Content.Shared.Delivery;
 using Content.Shared.FingerprintReader;
 
@@ -15,7 +14,6 @@ public sealed partial class MailFraudObjectiveSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<DeliveryComponent, DeliveryOpenedEvent>(OnDeliveryOpened);
-        SubscribeLocalEvent<MailComponent, MailOpenedEvent>(OnMailOpened); // DeltaV - different mail system
     }
 
     private void OnDeliveryOpened(Entity<DeliveryComponent> ent, ref DeliveryOpenedEvent args)
@@ -37,24 +35,4 @@ public sealed partial class MailFraudObjectiveSystem : EntitySystem
             }
         }
     }
-
-    // Begin DeltaV - mail fraud for different system
-    private void OnMailOpened(Entity<MailComponent> ent, ref MailOpenedEvent args)
-    {
-        if (!args.Fraudulent)
-            return;
-
-        if (args.Opener is not { } opener
-            || !_mind.TryGetMind(opener, out _, out var mind))
-            return;
-
-        foreach (var obj in mind.Objectives)
-        {
-            if (HasComp<MailFraudConditionComponent>(obj))
-            {
-                _counterCondition.IncreaseCount(obj);
-            }
-        }
-    }
-    // End DeltaV - mail fraud for different system
 }
