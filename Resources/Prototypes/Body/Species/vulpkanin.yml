@@ -148,13 +148,15 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#ccac1f"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+# DeltaV start - no vulp sulfur blood
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#ccac1f"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
+# DeltaV end - no vulp sulfur blood
   - type: MessyDrinker
     spillChance: 0.33
   - type: Speech
@@ -203,11 +205,13 @@
 #        pitch: 1.33
 #        volume: -5
 #        variation: 0.05
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: SulfurBlood
-        Quantity: 300
+# DeltaV start - no vulp sulfur blood
+#  - type: Bloodstream
+#    bloodReferenceSolution:
+#      reagents:
+#      - ReagentId: SulfurBlood
+#        Quantity: 300
+# DeltaV end - no vulp sulfur blood
 #  DeltaV Start - Different Vulpkanine facial structure
 #  - type: CreamPied
 #    sprite:
@@ -234,7 +238,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Vulpkanin/organs.rsi
+    sprite: Mobs/Species/Human/organs.rsi # DeltaV - Vulpkanin->Human (no sulfur blood)
 
 - type: entity
   id: OrganVulpkaninVisual
