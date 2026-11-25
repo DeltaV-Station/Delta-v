@@ -25,9 +25,12 @@
   - type: Access
     tags:
     - Chapel
-  - type: Damageable # DeltaV
-    damageContainer: BiologicalMetaphysical
+  # DeltaV Start.
+  - type: Damageable
     damageModifierSet: ManifestedSpirit
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
+  # DeltaV End.
   - type: MindContainer
   - type: MindExaminable
   - type: NpcFactionMember

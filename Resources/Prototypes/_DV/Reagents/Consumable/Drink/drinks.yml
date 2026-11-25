@@ -40,7 +40,7 @@
 - type: reagent
   id: HealthViolation
   name: reagent-name-healthviolation
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-healthviolation
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: healthcodeviolation
@@ -53,12 +53,9 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
+      metabolites:
+        Ethanol: 0.6
       effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.3
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
@@ -78,7 +75,7 @@
 - type: reagent
   id: Gunmetal #Credit to DinkusMcsplinkus for inspiring this drink. This could've also been called "Creamy Ignition"
   name: reagent-name-gunmetal
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-gunmetal
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: gunmetal
@@ -91,12 +88,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.20
+      metabolites:
+        Ethanol: 0.4
     Bloodstream:
       effects:
       - !type:HealthChange
@@ -107,7 +100,7 @@
 - type: reagent
   id: LemonDrop
   name: reagent-name-lemondrop
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-lemondrop
   physicalDesc: reagent-physical-desc-lemony-fresh
   flavor: lemondrop
@@ -119,17 +112,13 @@
   metamorphicFillBaseName: fill-
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
+      metabolites:
+        Ethanol: 0.3
 
 - type: reagent
   id: GreenGrass
   name: reagent-name-greengrass
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-greengrass
   physicalDesc: reagent-physical-desc-tangy
   flavor: greengrass
@@ -141,17 +130,13 @@
   metamorphicFillBaseName: fill-
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
+      metabolites:
+        Ethanol: 0.1
 
 - type: reagent
   id: ArsonistsBrew
   name: reagent-name-arsonistsbrew
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-arsonistsbrew
   physicalDesc: reagent-physical-desc-volatile
   flavor: arsonistsbrew
@@ -164,12 +149,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.30
+      metabolites:
+        Ethanol: 0.6
     Bloodstream:
       effects:
       - !type:HealthChange
@@ -201,7 +182,7 @@
 - type: reagent
   id: Mothamphetamine
   name: reagent-name-mothamphetamine
-  parent: BaseDrink
+  parent: BaseAlcohol
   desc: reagent-desc-mothamphetamine
   physicalDesc: reagent-physical-desc-fuzzy
   flavor: mothamphetamine #Delta-V Flavor additions
@@ -214,12 +195,8 @@
   metamorphicChangeColor: false
   metabolisms:
     Digestion:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.25
+      metabolites:
+        Ethanol: 0.5
     Bloodstream:
       effects:
       - !type:Jitter

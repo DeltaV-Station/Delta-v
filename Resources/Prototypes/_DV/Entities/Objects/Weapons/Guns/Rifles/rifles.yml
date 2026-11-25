@@ -45,7 +45,7 @@
   parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleJackdaw
   description: The beginning of the end is heralded by the song of a Jackdaw. Uses .25 caseless ammo.
-  suffix: Deathsquad
+  suffix: ERT # was Deathsquad
   components:
   - type: Item
     size: Large
@@ -56,12 +56,15 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -11
   - type: Gun
-    minAngle: 2
-    maxAngle: 6
+    minAngle: 17
+    maxAngle: 17
     angleIncrease: 2
     angleDecay: 8
-    fireRate: 6 # DeltaV - was 8
+    fireRate: 6 # was 8
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -73,7 +76,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineCaselessRifle
+        startingItem: MagazineCaselessRifleShort # was a normal magazine
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2

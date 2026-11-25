@@ -225,3 +225,43 @@
     board: EpistemicsTechFabCircuitboard
   - type: StealTarget
     stealGroup: EpistemicsTechFabCircuitboard
+
+- type: entity
+  parent: BaseTechFabDepartmental
+  id: JusticeTechFab
+  name: justice techfab
+  description: Prints equipment for the justice department.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: jus
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - LVCablesStatic
+    - MaterialsStatic
+    - PowerCellsStatic
+    - ReportingStatic
+    - SimpleElectronicsStatic
+    - EVASuit
+    - PaperStatic
+    - PensStatic
+    - FoldersStatic
+    - StampsStatic
+  - type: Machine
+    board: JusticeTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: JusticeTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Justice]

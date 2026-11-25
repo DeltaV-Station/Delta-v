@@ -91,6 +91,8 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect
     reflectProb: .25
+    slotFlags:
+    - NONE # needed so it doesn't reflect when worn
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:

@@ -20,3 +20,9 @@ uplink-dualswords-desc = A set of dual swords made for those who prefer somethin
 
 uplink-leveraction-name = SKL93 AP Bundle
 uplink-leveraction-desc = A bundle containing a SKL93 lever action sniper loaded with AP ammo. Comes with a spare box of standard magnum.
+
+uplink-anaconda-name = Anaconda Bundle
+uplink-anaconda-desc = A inaccurate one handed SMG with a 100 bullet mag. Perfect for laying down supressive fire.
+
+uplink-pacifier-bundle-name = Pacifier Bundle
+uplink-pacifier-bundle-desc = A compact grenade launcher that fires cluster bombs which spreads corrosive smoke over large areas. Perfect support weapon for creating impassable smoke screens and clearing out foxholes. Comes with 11 acid grenades.

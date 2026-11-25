@@ -34,7 +34,6 @@
     - GlassesCorpsman # Added for prescription glasses.
     - HamsterWearable
     - WhitelistChameleon
-    - SecDogWearable
   - type: GuideHelp
     guides:
     - Security
@@ -111,6 +110,7 @@
   components:
   - type: ToggleClothing
     action: ActionToggleTray
+  - type: UseDelay
   - type: TrayScanner
     enabled: false
   - type: FlashImmunity

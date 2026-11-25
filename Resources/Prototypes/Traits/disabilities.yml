@@ -3,7 +3,7 @@
 # If you want to add a new one, do it there
 
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
-#
+
 #- type: trait
 #  id: Blindness
 #  name: trait-blindness-name
@@ -90,7 +90,7 @@
 #  specials:
 #  - !type:ApplyStatusEffectSpecial
 #    statusEffects:
-#    - PainNumbnessTraitStatusEffect
+#    - TraitStatusEffectPainNumbness
 #
 #- type: trait
 #  id: Hemophilia
@@ -100,7 +100,7 @@
 #  specials:
 #  - !type:ApplyStatusEffectSpecial
 #    statusEffects:
-#    - StatusEffectHemophiliaTrait
+#    - TraitStatusEffectHemophilia
 #
 #- type: trait
 #  id: ImpairedMobility
@@ -110,4 +110,3 @@
 #  category: Disabilities
 #  components:
 #    - type: ImpairedMobility
-#
