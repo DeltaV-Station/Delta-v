@@ -30,6 +30,7 @@ flavor-complex-candy-bubblegum = like bubble gum
 flavor-complex-double-ice-cream = like ice cream, twice
 flavor-complex-drgibbbloodred = like severe malpractice
 flavor-complex-lemon-lime-bitters = like an Aussie dessert
+flavor-complex-spicy-pickle = like spicy pickle crackers
 
 ## Delta-V additional drink flavors
 flavor-complex-absinthe-deltav = like green death
@@ -50,6 +51,7 @@ flavor-complex-devils-kiss-deltav = like temptation
 flavor-complex-doctors-delight-deltav = like a medical miracle
 flavor-complex-driest-martini-deltav = like a dry sense of humor
 flavor-complex-erika-surprise-deltav = like a green dream, perfect for a warm day
+flavor-complex-firebolt-deltav = like above while burning like below
 flavor-complex-gin-fizz-deltav = like a fizzy lemon
 flavor-complex-gildlager-deltav = like a spicy secret told over spring break
 flavor-complex-grog-deltav = like a day on the high seas
@@ -77,7 +79,33 @@ flavor-complex-vodka-tonic-deltav = like depression in denial
 flavor-complex-kvass-deltav = like bread tossed into a blender
 flavor-complex-mothamphetamine-deltav = like there are buzzing wings in your mouth
 flavor-complex-unholy-water = like something cold and wrong
+flavor-complex-old-fashioned = like bittersweet whiskey
+flavor-complex-mnatsa-collins = like sweet and sour brandy
+flavor-complex-affogato = like boozy ice cream
+flavor-complex-five-oclock = like hard tea
+flavor-complex-mliko = like a prank
+flavor-complex-pure = like the purest water
+flavor-complex-clarifying = like an old memory you remember clearly
+
+## DeltaV deep fryer
+flavor-base-crispy = crispy
+flavor-base-stale = stale
+flavor-base-burnt = burnt
+flavor-base-rancid = rancid
+flavor-base-awful = awful
 
 candy-flavor-profile = This one is supposed to taste {$flavor}.
 candy-flavor-profile-multiple = This one is supposed to taste {$flavors} and {$lastFlavor}.
 candy-flavor-profile-unknown = You have no idea what this one is supposed to taste like.
+
+flavor-complex-tart = tart
+flavor-complex-icecream-apple-caramel = like apple pie
+flavor-complex-icecream-caramel-fudge = like a liquid caramel brownie
+flavor-complex-icecream-cobbler = a dessert with a tasty idenity crisis
+flavor-complex-icecream-cookiedough = like a weekend at grandma's
+flavor-complex-icecream-neapolitan = like chocolate, vanillia, and cherry
+flavor-complex-icecream-rockyroad = like a bumpy highway
+flavor-complex-icecream-tower = like a tower of power
+flavor-complex-sherbert-rainbow = like a rainbow of flavors
+
+flavor-base-prickly = prickly

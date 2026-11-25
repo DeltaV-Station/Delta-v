@@ -1,0 +1,143 @@
+# beach lounge chairs
+
+- type: entity
+  abstract: true
+  parent: ChairBase
+  id: BaseChairBeachLounge
+  name: lounge chair
+  description: For sitting back, relaxing, and soaking in the solar lamp radiation.
+  components:
+  - type: Sprite
+    sprite: _DEN/Structures/Furniture/lounge_chair.rsi
+  - type: Construction
+    graph: ChairBeachLounge
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeBeige
+  suffix: beige
+  components:
+  - type: Sprite
+    state: beige
+  - type: Construction
+    node: beige
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeBlack
+  suffix: black
+  components:
+  - type: Sprite
+    state: black
+  - type: Construction
+    node: black
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeBlue
+  suffix: blue
+  components:
+  - type: Sprite
+    state: blue
+  - type: Construction
+    node: blue
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeBrown
+  suffix: brown
+  components:
+  - type: Sprite
+    state: brown
+  - type: Construction
+    node: brown
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeGray
+  suffix: gray
+  components:
+  - type: Sprite
+    state: gray
+  - type: Construction
+    node: gray
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeGreen
+  suffix: green
+  components:
+  - type: Sprite
+    state: green
+  - type: Construction
+    node: green
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeOrange
+  suffix: orange
+  components:
+  - type: Sprite
+    state: orange
+  - type: Construction
+    node: orange
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungePink
+  suffix: pink
+  components:
+  - type: Sprite
+    state: pink
+  - type: Construction
+    node: pink
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungePurple
+  suffix: purple
+  components:
+  - type: Sprite
+    state: purple
+  - type: Construction
+    node: purple
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeRed
+  suffix: red
+  components:
+  - type: Sprite
+    state: red
+  - type: Construction
+    node: red
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeTeal
+  suffix: teal
+  components:
+  - type: Sprite
+    state: teal
+  - type: Construction
+    node: teal
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeWhite
+  suffix: white
+  components:
+  - type: Sprite
+    state: white
+  - type: Construction
+    node: white
+
+- type: entity
+  parent: BaseChairBeachLounge
+  id: ChairBeachLoungeYellow
+  suffix: yellow
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Construction
+    node: yellow

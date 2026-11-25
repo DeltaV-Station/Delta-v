@@ -15,14 +15,12 @@
         Base: mite
       Dead:
         Base: mite_dead
-    baseDecayRate: 0.25
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Ectoplasm
           Quantity: 15
-  - type: PotentialPsionic
   - type: Psionic
   - type: GlimmerSource
   - type: AmbientSound
@@ -42,7 +40,6 @@
   components:
   # appearance
   - type: Sprite
-    drawDepth: Ghosts
     sprite: Nyanotrasen/Mobs/Monster/glimmer_wisp.rsi
     layers:
     - state: willowisp
@@ -65,19 +62,18 @@
           radius: 0.35
         density: 13
         mask:
-        - Opaque
+        - SmallMobMask
         layer:
-        - MobLayer
+        - Opaque
   - type: MovementSpeedModifier
     baseSprintSpeed: 8
     baseWalkSpeed: 5
   - type: MovementIgnoreGravity
   - type: Speech
   # powers
-  - type: PotentialPsionic
   - type: Psionic
-    removable: false
   - type: NoosphericZapPower
+    canBeRemoved: false
   - type: LifeDrainer
     damage:
       types:
@@ -114,8 +110,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: ManifestedSpirit
     damageModifierSet: CorporealSpirit
+  - type: Injurable
+    damageContainer: ManifestedSpirit
   - type: DamageOnDispel
     damage:
       types:
@@ -140,7 +137,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WispLash
     fireCost: 1
     # TODO: implement upstream or make it use a proper thing, maybe copy dragon
@@ -149,7 +146,6 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 100
   # AI
   - type: HTN

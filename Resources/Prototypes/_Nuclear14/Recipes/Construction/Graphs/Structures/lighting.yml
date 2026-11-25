@@ -6,8 +6,8 @@
       edges:
         - to: bulbLight
           steps:
-            - material: Steel
-              amount: 1
+            - material: MetalRod # DeltaV - to differentiate recipes
+              amount: 2 # DeltaV
               doAfter: 2.0
         # - to: tubeLight
           # steps:
@@ -46,9 +46,9 @@
               doAfter: 2.0
           completed:
             - !type:SpawnPrototype
-              prototype: SheetSteel1
+              prototype: PartRodMetal1 # DeltaV 
               amount: 1
-            - !type:DeleteEntity {}
+            - !type:DeleteEntity
     # - node: groundLight
       # entity: PoweredLightPostSmallEmpty
       # edges:

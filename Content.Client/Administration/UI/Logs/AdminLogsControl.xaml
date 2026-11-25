@@ -47,8 +47,14 @@
                 <BoxContainer Name="TopRightContainer">
                     <BoxContainer Name="LogImpactContainer" Orientation="Horizontal"/>
                     <Control HorizontalExpand="True"/>
+                    <BoxContainer Name="LogOrderContainer" Orientation="Horizontal">
+                        <Button Name="AscendingOrderButton" Access="Public" Text="{Loc admin-logs-order-ascending}" StyleClasses="OpenRight" />
+                        <Button Name="DescendingOrderButton" Access="Public" Text="{Loc admin-logs-order-descending}" StyleClasses="OpenLeft" />
+                    </BoxContainer>
+                    <Control HorizontalExpand="True"/>
                     <Label Name="Count" Access="Public"/>
                     <Control HorizontalExpand="True"/>
+                    <Button Name="ExportLogs" Access="Public" Text="{Loc admin-logs-export}"/>
                     <Button Name="PopOutButton" Access="Public" Text="{Loc admin-logs-pop-out}"/>
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">

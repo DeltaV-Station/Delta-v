@@ -15,7 +15,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// What will happen if all of the nuclear operatives will die. Used by LoneOpsSpawn event.
     /// </summary>
     [DataField]
-    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.ShuttleCall;
+    public RoundEndBehavior RoundEndBehavior = RoundEndBehavior.BecomeSurvival; // DeltaV - Change from ShuttlCall To BecomeSurvival
 
     /// <summary>
     /// Text for shuttle call if RoundEndBehavior is ShuttleCall.
@@ -63,7 +63,7 @@ public sealed partial class NukeopsRuleComponent : Component
     ///     This amount of TC will be given to each nukie
     /// </summary>
     [DataField]
-    public int WarTcAmountPerNukie = 40;
+    public int WarTcAmountPerNukie = 30; // DeltaV - was 40
 
     /// <summary>
     ///     Delay between war declaration and nuke ops arrival on station map. Gives crew time to prepare

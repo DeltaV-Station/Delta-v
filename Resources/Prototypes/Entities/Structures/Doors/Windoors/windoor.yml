@@ -80,6 +80,10 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChapel ]
+  # DeltaV - Add epistemics wires
+  - type: Wires 
+    layoutId: AirlockScience
+  # Delta V - End
 
 - type: entity
   parent: WindoorServiceLocked
@@ -199,15 +203,14 @@
     containers:
       board: [ DoorElectronicsBar ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: WindoorSecureSecurityLocked
-#  id: WindoorSecureBrigLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+- type: entity
+  parent: WindoorSecureSecurityLocked
+  id: WindoorSecureBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: WindoorSecure
@@ -221,7 +224,7 @@
     layoutId: AirlockCargo
 
 - type: entity
-  parent: WindoorSecure
+  parent: WindoorSecureScienceLocked # DeltaV - Epistemics wires
   id: WindoorSecureChapelLocked
   suffix: Chapel, Locked
   components:
@@ -411,7 +414,7 @@
 - type: entity
   parent: WindoorSecureCommandLocked
   id: WindoorSecureResearchDirectorLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -462,7 +465,7 @@
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureScienceLocked
-  suffix: Science, Locked, Plasma
+  suffix: Epistemics, Locked, Plasma # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:

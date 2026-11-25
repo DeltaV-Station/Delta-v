@@ -17,7 +17,6 @@ namespace Content.Shared.Silicons.Borgs;
 [Prototype(-5)] // DeltaV - force load after shaders
 public sealed partial class BorgTypePrototype : IPrototype
 {
-    [ValidatePrototypeId<SoundCollectionPrototype>]
     private static readonly ProtoId<SoundCollectionPrototype> DefaultFootsteps = new("FootstepBorg");
 
     [IdDataField]
@@ -164,6 +163,17 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// <seealso cref="InteractionPopupComponent"/>
     [DataField]
     public string PetFailureString { get; set; } = "petting-failure-generic-cyborg";
+
+    // Begin DeltaV
+    [DataField]
+    public string? PdaBorderColor;
+
+    [DataField]
+    public string? PdaAccentHorizontalColor;
+
+    [DataField]
+    public string? PdaAccentVerticalColor;
+    // End DeltaV
 
     //
     // Sounds

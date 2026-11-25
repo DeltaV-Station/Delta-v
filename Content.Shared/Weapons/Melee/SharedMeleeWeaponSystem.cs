@@ -1,17 +1,21 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._ES.Camera; // ES - Screenshake
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -27,6 +31,8 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Wieldable.Components; // Starlight | ES Screenshake
+using Content.Shared.Zombies; // DeltaV - Buff Zombies
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -51,6 +57,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
+    [Dependency] private   readonly SharedHandsSystem _hands = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly MeleeSoundSystem _meleeSound = default!;
     [Dependency] protected readonly MobStateSystem MobState = default!;
@@ -61,6 +68,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private   readonly DamageExamineSystem _damageExamine = default!;
+    // ES START
+    [Dependency] private readonly SharedESScreenshakeSystem _shake = default!;
+    // ES END
+
+    [Dependency] private readonly EntityQuery<DamageableComponent> _damageQuery = default!;
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -81,6 +94,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeLocalEvent<MeleeWeaponComponent, HandSelectedEvent>(OnMeleeSelected);
         SubscribeLocalEvent<MeleeWeaponComponent, ShotAttemptedEvent>(OnMeleeShotAttempted);
         SubscribeLocalEvent<MeleeWeaponComponent, GunShotEvent>(OnMeleeShot);
+        SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetMeleeDamageEvent>(OnGetBonusMeleeDamage);
         SubscribeLocalEvent<BonusMeleeDamageComponent, GetHeavyDamageModifierEvent>(OnGetBonusHeavyDamageModifier);
         SubscribeLocalEvent<BonusMeleeAttackRateComponent, GetMeleeAttackRateEvent>(OnGetBonusMeleeAttackRate);
@@ -93,8 +107,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeAllEvent<StopAttackEvent>(OnStopAttack);
 
 #if DEBUG
-        SubscribeLocalEvent<MeleeWeaponComponent,
-                            MapInitEvent>                   (OnMapInit);
+        SubscribeLocalEvent<MeleeWeaponComponent, MapInitEvent>(OnMapInit);
     }
 
     private void OnMapInit(EntityUid uid, MeleeWeaponComponent component, MapInitEvent args)
@@ -122,6 +135,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
     }
 
+    private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
+    {
+        if (component.Hidden)
+            return;
+
+        var damageSpec = GetDamage(uid, args.User, component);
+
+        if (damageSpec.Empty)
+            return;
+
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+    }
     private void OnMeleeSelected(EntityUid uid, MeleeWeaponComponent component, HandSelectedEvent args)
     {
         var attackRate = GetAttackRate(uid, args.User, component);
@@ -205,8 +230,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon) ||
-            !weapon.CanWideSwing) // Goobstation Change
+            weaponUid != GetEntity(msg.Weapon))
         {
             return;
         }
@@ -297,15 +321,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Use inhands entity if we got one.
-        if (EntityManager.TryGetComponent(entity, out HandsComponent? hands) &&
-            hands.ActiveHandEntity is { } held)
+        if (_hands.TryGetActiveItem(entity, out var held))
         {
             // Make sure the entity is a weapon AND it doesn't need
             // to be equipped to be used (E.g boxing gloves).
-            if (EntityManager.TryGetComponent(held, out melee) &&
+            if (TryComp(held, out melee) &&
                 !melee.MustBeEquippedToUse)
             {
-                weaponUid = held;
+                weaponUid = held.Value;
                 return true;
             }
 
@@ -315,7 +338,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Use hands clothing if applicable.
         if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
-            TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee))
+            TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee)
+            && !HasComp<ZombieComponent>(entity)) // DeltaV - Zombies don't lose gloves, but also shouldn't use them for combat over their bite.
         {
             weaponUid = gloves.Value;
             melee = glovesMelee;
@@ -421,6 +445,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var ev = new AttemptMeleeEvent();
         RaiseLocalEvent(weaponUid, ref ev);
 
+        if (weapon.SwingBeverage)
+        {
+            weapon.SwingLeft = !weapon.SwingLeft;
+            DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.SwingLeft));
+        }
+
         if (ev.Cancelled)
         {
             if (ev.Message != null)
@@ -501,7 +531,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Low,
                     $"{ToPrettyString(user):actor} melee attacked (light) using {ToPrettyString(meleeUid):tool} and missed");
             }
-            var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null);
+            var missEvent = new MeleeHitEvent(new HashSet<EntityUid>(), user, meleeUid, damage, null); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
             RaiseLocalEvent(meleeUid, missEvent);
             _meleeSound.PlaySwingSound(user, meleeUid, component);
             return;
@@ -510,39 +540,44 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Sawmill.Debug($"Melee damage is {damage.Total} out of {component.Damage.Total}");
 
         // Raise event before doing damage so we can cancel damage if the event is handled
-        var hitEvent = new MeleeHitEvent(new List<EntityUid> { target.Value }, user, meleeUid, damage, null);
+        var hitEvent = new MeleeHitEvent(new HashSet<EntityUid> { target.Value }, user, meleeUid, damage, null); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         RaiseLocalEvent(meleeUid, hitEvent);
 
         if (hitEvent.Handled)
             return;
 
-        var targets = new List<EntityUid>(1)
+        var targets = new HashSet<EntityUid>(1) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         {
-            target.Value
+            target.Value, // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         };
 
         var weapon = GetEntity(ev.Weapon);
 
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
         // somewhat messy scuffle. See also, heavy attacks.
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
 
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
         RaiseLocalEvent(target.Value, attackedEvent);
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.ClickPartDamageMultiplier); // Shitmed Change
 
-        if (damageResult is {Empty: false})
+        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
             {
-                _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: true); // DeltaV - No Stamina Resistance Doubledipping
+                //DeltaV - No Stamina Resistance Doubledipping, unless we want to.
+                var ignoreResist = true;
+                if (TryComp<StaminaResistanceComponent>(target, out var staminaResist))
+                    ignoreResist = !staminaResist.MeleeResistance;
+
+                _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: ignoreResist);
+                // END DeltaV
             }
 
             if (meleeUid == user)
@@ -562,13 +597,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);
 
-        if (damageResult?.GetTotal() > FixedPoint2.Zero)
+        if (damageResult.GetTotal() > FixedPoint2.Zero && !TerminatingOrDeleted(target.Value))
         {
             DoDamageEffect(targets, user, targetXform);
+            DoScreenshake(meleeUid, damageResult, user, targets); // Starlight | ES Screenshake
         }
     }
 
-    protected abstract void DoDamageEffect(List<EntityUid> targets, EntityUid? user,  TransformComponent targetXform);
+    protected abstract void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user,  TransformComponent targetXform); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
     private bool DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
@@ -586,7 +622,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var distance = Math.Min(component.Range, direction.Length());
 
         var damage = GetDamage(meleeUid, user, component);
-        var entities = GetEntityList(ev.Entities);
+        var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
+        var entities = GetEntitySet(ev.Entities); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
         if (entities.Count == 0)
         {
@@ -602,7 +639,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     LogImpact.Low,
                     $"{ToPrettyString(user):actor} melee attacked (heavy) using {ToPrettyString(meleeUid):tool} and missed");
             }
-            var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, direction);
+            var missEvent = new MeleeHitEvent(new HashSet<EntityUid>(), user, meleeUid, damage, direction); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
             RaiseLocalEvent(meleeUid, missEvent);
 
             // immediate audio feedback
@@ -614,35 +651,29 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Naughty input
         if (entities.Count > MaxTargets)
         {
-            entities.RemoveRange(MaxTargets, entities.Count - MaxTargets);
+            entities = entities.Take(MaxTargets).ToHashSet(); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         }
 
         // Validate client
-        for (var i = entities.Count - 1; i >= 0; i--)
-        {
-            if (ArcRaySuccessful(entities[i],
-                    userPos,
-                    direction.ToWorldAngle(),
-                    component.Angle,
-                    distance,
-                    userXform.MapID,
-                    user,
-                    session))
-            {
-                continue;
-            }
+        // DeltaV Start - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
+        entities.RemoveWhere(entity => TerminatingOrDeleted(entity) ||
+                                       !ArcRaySuccessful(entity,
+                                           userPos,
+                                           direction.ToWorldAngle(),
+                                           component.Angle,
+                                           distance,
+                                           userXform.MapID,
+                                           user,
+                                           session));
 
-            // Bad input
-            entities.RemoveAt(i);
-        }
-
-        var targets = new List<EntityUid>();
+        var targets = new HashSet<EntityUid>();
+        // DeltaV End - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         var damageQuery = GetEntityQuery<DamageableComponent>();
 
         foreach (var entity in entities)
         {
             if (entity == user ||
-                !damageQuery.HasComponent(entity))
+                !_damageQuery.HasComponent(entity))
                 continue;
 
             targets.Add(entity);
@@ -659,7 +690,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var weapon = GetEntity(ev.Weapon);
 
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // For stuff that cares about it being attacked.
         foreach (var target in targets)
@@ -668,21 +699,22 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
             // somewhat messy scuffle. See also, light attacks.
-            Interaction.DoContactInteraction(user, target);
+            Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
         }
 
         var appliedDamage = new DamageSpecifier();
+        var filteredTargets = new HashSet<EntityUid>(); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
-        for (var i = targets.Count - 1; i >= 0; i--)
+        foreach (var entity in targets) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
         {
-            var entity = targets[i];
+            // var entity = targets[i];  // DeltaV - Hotfix Melee Exploit. REMOVE ENTIRE LINE WHEN #46299 IS MERGED
             // We raise an attack attempt here as well,
             // primarily because this was an untargeted wideswing: if a subscriber to that event cared about
             // the potential target (such as for pacifism), they need to be made aware of the target here.
             // In that case, just continue.
             if (!Blocker.CanAttack(user, entity, (weapon, component)))
             {
-                targets.RemoveAt(i);
+                filteredTargets.Add(entity); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
                 continue;
             }
 
@@ -690,14 +722,20 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
+            var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
 
-            if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
+            if (damageResult.GetTotal() > FixedPoint2.Zero)
             {
                 // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
                 if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
                 {
-                    _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: true); // DeltaV - No Stamina Resistance Doubledipping
+                    //DeltaV - No Stamina Resistance Doubledipping, unless we want to.
+                    var ignoreResist = true;
+                    if (TryComp<StaminaResistanceComponent>(entity, out var staminaResist))
+                        ignoreResist = !staminaResist.MeleeResistance;
+
+                    _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid, ignoreResist: ignoreResist);
+                    // END DeltaV
                 }
 
                 appliedDamage += damageResult;
@@ -715,7 +753,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                         $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
                 }
             }
+
+            if (TerminatingOrDeleted(entity)) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
+                filteredTargets.Add(entity);
         }
+
+        targets.ExceptWith(filteredTargets); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
 
         if (entities.Count != 0)
         {
@@ -723,9 +766,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
-        if (appliedDamage.GetTotal() > FixedPoint2.Zero)
+        if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0)
         {
-            DoDamageEffect(targets, user, Transform(targets[0]));
+            DoDamageEffect(targets, user, Transform(targets.First())); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
+            DoScreenshake(meleeUid, damage, user, targets); // Starlight | ES Screenshake
         }
 
         return true;
@@ -867,9 +911,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         EntityUid? inTargetHand = null;
 
-        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
+        if (_hands.TryGetActiveItem(target.Value, out var activeHeldEntity))
         {
-            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
+            inTargetHand = activeHeldEntity.Value;
         }
 
         var attemptEvent = new DisarmAttemptEvent(target.Value, user, inTargetHand);
@@ -908,7 +952,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, null, true); // Stellar - Interaction particles
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
@@ -1041,4 +1085,55 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
         }
     }
+
+    //Starlight begin | ES Screenshake
+    private void DoScreenshake(EntityUid weapon, DamageSpecifier damage, EntityUid attacker, HashSet<EntityUid> targets)
+    {
+        if(damage.GetTotal()>4) // only show to others if it hurts real bad // DeltaV - reduce from 8 to 4
+        {
+            var otherTranslation = new ESScreenshakeParameters
+            {
+                Trauma = 0.45f,
+                DecayRate = 1.1f,
+                Frequency = 0.04f,
+            };
+            foreach(var target in targets)
+                _shake.Screenshake(target, otherTranslation, null);
+        }
+
+        // only show to attacker if they put real oompf into it, or the weapon is just THAT strong
+        // var bluntRequirement = damage.DamageDict.TryGetValue(BluntDamageName, out var blunt) && blunt >= 20; // DeltaV - unused
+        var isWielding = TryComp<WieldableComponent>(weapon, out var wieldable) && wieldable.Wielded;
+
+        // DeltaV - unused
+        // if (!bluntRequirement && !wieldRequirement)
+        //    return;
+
+        // DeltaV - heavy/light screenshake variants START
+        ESScreenshakeParameters userRotation;
+        if (damage.GetTotal() >= 15 || isWielding)
+        {
+            // heavy damage or two-handed
+            userRotation = new ESScreenshakeParameters
+            {
+                Trauma = 0.08f,
+                DecayRate = 1,
+                Frequency = 0.009f,
+            };
+        }
+        else
+        {
+            // light damage
+            userRotation = new ESScreenshakeParameters
+            {
+                Trauma = 0.06f,
+                DecayRate = 1,
+                Frequency = 0.0045f,
+            };
+        }
+        // DeltaV END
+
+        _shake.Screenshake(attacker, null, userRotation);
+    }
+    //Starlight end
 }

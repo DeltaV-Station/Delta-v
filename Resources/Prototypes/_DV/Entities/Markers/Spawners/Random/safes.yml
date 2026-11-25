@@ -62,14 +62,23 @@
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
-      - id: GunSafeBeamDevastator
       - id: GunSafeRocketLauncher
       - id: GunSafeGamblagator
 
 - type: entity
   parent: BaseGunSafeSpawner
+  id: AdvancedWeaponsSafeSpawner
+  suffix: AdvancedWeapon
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeAdvancedLaser
+
+- type: entity
+  parent: BaseGunSafeSpawner
   id: SalvageweaponSafeSpawner
-  suffix: Salvage, Random
+  suffix: LO, Random, Filled
   components:
   - type: EntityTableSpawner
     table: !type:GroupSelector
@@ -82,3 +91,14 @@
         children:
         - id: SalvageGunSafeRevolverSnub
         - id: SalvageGunSafeVulcan
+
+- type: entity
+  parent: BaseGunSafeSpawner
+  id: SubMachineGunSafeSpawner
+  suffix: SubMachineGun
+  components:
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: GunSafeSubMachineGunDrozd
+      - id: GunSafeSubMachineGunPatos

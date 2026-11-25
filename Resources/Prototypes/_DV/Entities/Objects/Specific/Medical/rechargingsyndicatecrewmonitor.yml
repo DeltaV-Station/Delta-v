@@ -2,10 +2,10 @@
   parent: SyndiCrewMonitor
   id: SyndiCrewMonitorRecharging
   name: syndicate crew monitor recharging
-  description: The syndicated version of crew monitor, intercepts information from the server.
+  description: The syndicate version of crew monitor, which intercepts suit coordinate information from the server.
   components:
   - type: PowerCellDraw
-    useRate: 10
+    useCharge: 10
   - type: ItemSlots
     slots:
       cell_slot:

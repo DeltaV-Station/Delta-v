@@ -1,6 +1,6 @@
 - type: entity
   name: Kitsune
-  parent: [SimpleMobBase, StripableInventoryBase, BaseMobKitsune]
+  parent: [SimpleMobBase, StripableInventoryBase]
   id: MobKitsuneFox
   description: A Kitsune's fox form.
   components:
@@ -20,11 +20,28 @@
       100: Critical
       200: Dead
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
     damageModifierSet: KitsuneFox
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: Inventory
     speciesId: fox
     templateId: pet
+  - type: InteractionPopup
+    interactSuccessString: petting-success-soft-floofy-kitsune
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Speech
+    speechSounds: Alto
+    allowedEmotes: ['Growl', 'Squeak']
+  - type: Vocal
+    sounds:
+      Male: MaleKitsune
+      Female: FemaleKitsune
+      Unsexed: MaleKitsune
   - type: DamageStateVisuals
     states:
       Alive:
@@ -38,7 +55,10 @@
     - id: FoodMeat
       amount: 3
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -55,7 +75,8 @@
     rootTask:
       task: IdleCompound
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
+  - type: Kitsune
   - type: CosmicMarkVisuals
     subtleState: kitsunefox
     starState: kitsunefox

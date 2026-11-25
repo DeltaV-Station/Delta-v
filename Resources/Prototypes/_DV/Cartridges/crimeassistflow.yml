@@ -13,12 +13,12 @@
 - type: crimeAssistPage
   id: "questionWasSomeoneAttacked"
   locKey: "crime-assist-question-wassomeoneattacked"
-  onYes: "questionWasItSophont"
+  onYes: "questionWasItEmployee"
   onNo: "questionIsItBullying"
 
 - type: crimeAssistPage
-  id: "questionWasItSophont"
-  locKey: "crime-assist-question-wasitsophont"
+  id: "questionWasItEmployee"
+  locKey: "crime-assist-question-wasitemployee"
   onYes: "questionDidVictimDie"
   onNo: "resultAnimalCruelty"
 
@@ -124,12 +124,6 @@
 - type: crimeAssistPage
   id: "questionWasEntranceLocked"
   locKey: "crime-assist-question-wasentrancelocked"
-  onYes: "questionWasItHighSecArea"
-  onNo: "resultTrespass"
-
-- type: crimeAssistPage
-  id: "questionWasItHighSecArea"
-  locKey: "crime-assist-question-questionwasithighsec"
   onYes: "resultBreakingAndEntering"
   onNo: "resultTrespass"
 

@@ -33,8 +33,9 @@
       state: rock_asteroid_west
   - type: MiningScannerViewable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Rock
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -59,6 +60,12 @@
         layer:
         - WallLayer
         density: 2000
+  # Delta V - add Tag
+  - type: Tag
+    tags:
+    - Wall
+    - Natural
+  # Delta V - end tags
 
 - type: entity
   abstract: true
@@ -77,7 +84,7 @@
           Unprimed:
             state: gibtonite_inactive
             visible: false
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     examinable: false
     beepInterval: 0.4
     beepSound:
@@ -86,6 +93,8 @@
     min: 8
     max: 10
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 450
@@ -109,6 +118,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:TriggerBehavior
+        keyOut: timer # explode immediately
   - type: Gatherable # DeltaV - prevent mining gibtonite
     toolWhitelist:
       tags: []
@@ -491,6 +501,37 @@
     oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionStandard
 
+- type: entity
+  id: IronSandstone
+  parent: AsteroidRock
+  name: ironsandstone
+  suffix: no ore yield
+  components:
+  - type: Icon
+    state: ironsandstone
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: ironsandstone
+    - map: [ "enum.EdgeLayer.South" ]
+      state: ironsandstone_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: ironsandstone_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: ironsandstone_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: ironsandstone_west
+
+- type: entity
+  id: IronSandstoneMining
+  parent: IronSandstone
+  name: ironsandstone
+  suffix: higher ore yield
+  components:
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionStandard
+
 # Ore veins
 - type: entity
   id: IronRockCoal
@@ -779,8 +820,9 @@
       tags:
       - Pickaxe
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -809,6 +851,12 @@
       state: rock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
+  # Delta V - add Tag
+  - type: Tag
+    tags:
+    - Wall
+    - Natural
+  # Delta V - end tags
 
 # Ore veins
 - type: entity
@@ -2006,7 +2054,7 @@
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_chromite_west
     - state: rock_coal
-    map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockChromiteGold

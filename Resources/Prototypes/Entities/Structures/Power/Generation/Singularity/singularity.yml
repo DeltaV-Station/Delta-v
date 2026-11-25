@@ -51,6 +51,12 @@
   - type: RandomWalk # To make the singularity move around.
     maxSpeed: 2.5
     minSpeed: 1.875
+  - type: ChasingWalk # DeltaV - Add comp
+    minSpeed: 1
+    maxSpeed: 1.875
+    impulseInterval: 5
+    chasingComponent:
+    - type: Cable # Other comps like Destructible and Transform are also assigned to Entities the singulo can't eat
   - type: SingularityDistortion
     falloffPower: 2.529822
     intensity: 3645
@@ -77,10 +83,10 @@
       - GhostOnlyWarp
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/singularity_1.rsi
-    shader: unshaded
     layers:
     - map: [ "VisualLevel" ]
       state: singularity_1
+      shader: unshaded
   - type: GenericVisualizer
     visuals:
       enum.SingularityAppearanceKeys.Singularity:

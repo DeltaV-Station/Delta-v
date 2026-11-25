@@ -65,7 +65,7 @@
   - type: Sprite
     netsync: false
     drawdepth: Mobs
-    shader: unshaded
+    # shader: unshaded # Don't exist in the component
   - type: Tag
     tags:
     - HideContextMenu
@@ -162,6 +162,36 @@
       interpolate: Linear
       minDuration: 1.575
       maxDuration: 1.575
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: ColossusBuffVfx
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/colossus_buffvfx.rsi
+      state: vfx
+      shader: unshaded
+  - type: PointLight
+    color: "#a35d7b"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 0.8
+      maxDuration: 0.8
       startValue: 0.1
       endValue: 2
       property: Energy

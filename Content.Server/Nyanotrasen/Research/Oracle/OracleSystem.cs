@@ -3,10 +3,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Botany;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Psionics;
-using Content.Shared.Abilities.Psionics;
+using Content.Shared._DV.Psionics.Components;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -15,9 +13,11 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Research.Systems;
 using Content.Shared.Silicons.Borgs.Components;
-using Robust.Server.GameObjects;
+using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -26,14 +26,16 @@ namespace Content.Server.Research.Oracle;
 
 public sealed class OracleSystem : EntitySystem
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedResearchSystem _research = default!;
 
     public override void Update(float frameTime)
     {
@@ -67,6 +69,7 @@ public sealed class OracleSystem : EntitySystem
         SubscribeLocalEvent<OracleComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<OracleComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<OracleComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<OracleComponent, GetVerbsEvent<Verb>>(AddInsertDesiredItemVerb);
     }
 
     private void OnInit(EntityUid uid, OracleComponent component, ComponentInit args)
@@ -74,91 +77,116 @@ public sealed class OracleSystem : EntitySystem
         NextItem(component);
     }
 
-    private void OnInteractHand(EntityUid uid, OracleComponent component, InteractHandEvent args)
+    private void OnInteractHand(Entity<OracleComponent> oracle, ref InteractHandEvent args)
     {
-        if (!HasComp<PotentialPsionicComponent>(args.User) || HasComp<PsionicInsulationComponent>(args.User))
+        if (!HasComp<PotentialPsionicComponent>(args.User)
+            || !_playerManager.TryGetSessionByEntity(args.User, out var session))
             return;
 
-        if (!TryComp<ActorComponent>(args.User, out var actor))
-            return;
-
-        var message = Loc.GetString("oracle-current-item", ("item", component.DesiredPrototype.Name));
+        var message = Loc.GetString("oracle-current-item", ("item", oracle.Comp.DesiredPrototype.Name));
 
         var messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
             ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
 
         _chatManager.ChatMessageToOne(ChatChannel.Telepathic,
-            message, messageWrap, uid, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
+            message, messageWrap, oracle, false, session.Channel, Color.PaleVioletRed);
 
-        if (component.LastDesiredPrototype != null)
+        if (oracle.Comp.LastDesiredPrototype != null)
         {
-            var message2 = Loc.GetString("oracle-previous-item", ("item", component.LastDesiredPrototype.Name));
+            var message2 = Loc.GetString("oracle-previous-item", ("item", oracle.Comp.LastDesiredPrototype.Name));
             var messageWrap2 = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
                 ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")),
                 ("message", message2));
 
             _chatManager.ChatMessageToOne(ChatChannel.Telepathic,
-                message2, messageWrap2, uid, false, actor.PlayerSession.Channel, Color.PaleVioletRed);
+                message2, messageWrap2, oracle, false, session.Channel, Color.PaleVioletRed);
         }
+    }
+
+    private void AddInsertDesiredItemVerb(Entity<OracleComponent> ent, ref GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanAccess
+            || !args.CanInteract
+            || args.Using == null
+            || HasComp<MobStateComponent>(args.Using)
+            || !TryComp(args.Using, out MetaDataComponent? meta)
+            || HasComp<BorgChassisComponent>(args.User)
+            || meta.EntityPrototype == null)
+            return;
+
+        var argsUser = args.User;
+        var argsUsing = args.Using;
+
+        Verb insertVerb = new()
+        {
+            Text = Name(argsUsing.Value),
+            Category = InsertDesiredItemVerbCategory,
+            Act = () =>
+            {
+                DoOnInteractUsing(ent, argsUser, argsUsing.Value);
+            }
+        };
+
+        args.Verbs.Add(insertVerb);
     }
 
     private void OnInteractUsing(EntityUid uid, OracleComponent component, InteractUsingEvent args)
     {
-        if (HasComp<MobStateComponent>(args.Used))
+        DoOnInteractUsing((uid, component), args.User, args.Used);
+    }
+
+    private void DoOnInteractUsing(Entity<OracleComponent> oracle, EntityUid user, EntityUid used)
+    {
+        if (HasComp<MobStateComponent>(used)
+            || !TryComp(used, out MetaDataComponent? meta)
+            || HasComp<BorgChassisComponent>(user)
+            || meta.EntityPrototype == null)
             return;
 
-        if (!TryComp(args.Used, out MetaDataComponent? meta))
-            return;
-
-        if (HasComp<BorgChassisComponent>(args.User))
-            return;
-
-        if (meta.EntityPrototype == null)
-            return;
-
-        var validItem = CheckValidity(meta.EntityPrototype, component.DesiredPrototype);
+        var validItem = CheckValidity(meta.EntityPrototype, oracle.Comp.DesiredPrototype);
 
         var nextItem = true;
 
-        if (component.LastDesiredPrototype != null &&
-            CheckValidity(meta.EntityPrototype, component.LastDesiredPrototype))
+        if (oracle.Comp.LastDesiredPrototype != null &&
+            CheckValidity(meta.EntityPrototype, oracle.Comp.LastDesiredPrototype))
         {
             nextItem = false;
             validItem = true;
-            component.LastDesiredPrototype = null;
+            oracle.Comp.LastDesiredPrototype = null;
         }
 
         if (!validItem)
         {
-            if (!HasComp<RefillableSolutionComponent>(args.Used) &&
-                component.RejectAccumulator >= component.RejectTime.TotalSeconds)
+            if (!HasComp<RefillableSolutionComponent>(used) &&
+                oracle.Comp.RejectAccumulator >= oracle.Comp.RejectTime.TotalSeconds)
             {
-                component.RejectAccumulator = 0;
-                _chat.TrySendInGameICMessage(uid, _random.Pick(component.RejectMessages), InGameICChatType.Speak, true);
+                oracle.Comp.RejectAccumulator = 0;
+                _chat.TrySendInGameICMessage(oracle.Owner, _random.Pick(oracle.Comp.RejectMessages), InGameICChatType.Speak, true);
             }
             return;
         }
 
-        QueueDel(args.Used);
+        QueueDel(used);
 
         _adminLog.Add(LogType.InteractHand,
             LogImpact.Medium,
-            $"{ToPrettyString(args.User):player} sold {ToPrettyString(args.Used)} to {ToPrettyString(uid)}.");
+            $"{ToPrettyString(user):player} sold {ToPrettyString(used)} to {ToPrettyString(oracle.Owner)}.");
 
-        Spawn("ResearchDisk5000", Transform(args.User).Coordinates);
+        Spawn("ResearchDisk5000", Transform(user).Coordinates);
 
-        DispenseLiquidReward(uid, component);
+        DispenseLiquidReward(oracle.Owner, oracle.Comp);
 
         var i = _random.Next(1, 4);
 
         while (i != 0)
         {
-            Spawn("MaterialBluespace1", Transform(args.User).Coordinates);
+            var entityToSpawn = _random.Next(0, 2) == 0 ? "MaterialBluespace1" : "CrystalNormality";
+            Spawn(entityToSpawn, Transform(user).Coordinates);
             i--;
         }
 
         if (nextItem)
-            NextItem(component);
+            NextItem(oracle.Comp);
     }
 
     private bool CheckValidity(EntityPrototype given, EntityPrototype target)
@@ -229,18 +257,37 @@ public sealed class OracleSystem : EntitySystem
     }
 
 
-    public List<string> GetAllProtos(OracleComponent component)
+    public List<EntProtoId> GetAllProtos(OracleComponent component)
     {
         var allTechs = _prototypeManager.EnumeratePrototypes<TechnologyPrototype>();
-        var allRecipes = new List<string>();
+        var allRecipes = new List<EntProtoId>();
+
+        var researchServers = new List<(
+            Entity<TechnologyDatabaseComponent> database,
+            Dictionary<string, int> disciplineTiers
+        )>();
+        var query = EntityQueryEnumerator<ResearchServerComponent, TechnologyDatabaseComponent>();
+        while (query.MoveNext(out var serverUid, out var server, out var database))
+        {
+            researchServers.Add(((serverUid, database), _research.GetDisciplineTiers(database)));
+        }
 
         foreach (var tech in allTechs)
         {
-            foreach (var recipe in tech.RecipeUnlocks)
+            if (
+                researchServers.Count == 0
+                || researchServers.Any(server =>
+                    _research.IsTechnologyUnlocked(server.database.Owner, tech, server.database.Comp)
+                    || _research.IsTechnologyAvailable(server.database.Comp, tech, server.disciplineTiers)
+                )
+            )
             {
-                var recipeProto = _prototypeManager.Index(recipe);
-                if (recipeProto.Result is {} result)
-                    allRecipes.Add(result);
+                foreach (var recipe in tech.RecipeUnlocks)
+                {
+                    var recipeProto = _prototypeManager.Index(recipe);
+                    if (recipeProto.Result is { } result)
+                        allRecipes.Add(result);
+                }
             }
         }
 
@@ -280,4 +327,7 @@ public sealed class OracleSystem : EntitySystem
 
         return allProtos;
     }
+
+    public static readonly VerbCategory InsertDesiredItemVerbCategory = new("verb-categories-oracle-insert-desired", null);
+
 }

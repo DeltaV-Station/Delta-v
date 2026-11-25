@@ -1,19 +1,16 @@
-using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
-using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
-using Content.Shared.Database;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
 using Robust.Shared.Prototypes;
@@ -21,6 +18,8 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Content.Shared._DV.Tips; // DeltaV - Tips
+using Robust.Shared.Map;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -29,7 +28,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
 
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
+    // [Dependency] private readonly SharedJobSystem _jobs = default!; // DV - not used
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -38,6 +37,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private readonly SharedTipSystem _tips = default!; // DeltaV - Tips
 
     public override void Initialize()
     {
@@ -126,19 +126,19 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Add traitor briefing components");
-            AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = briefing;
+            EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
+            briefingComp.Briefing = briefing;
         }
         else
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - did not get traitor briefing");
         }
 
-        // Send codewords to only the traitor client
         var color = TraitorCodewordColor; // Fall back to a dark red Syndicate color if a prototype is not found
 
-        RoleCodewordComponent codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
-        _roleCodewordSystem.SetRoleCodewords(codewordComp, "traitor", factionCodewords.ToList(), color);
+        // The mind entity is stored in nullspace with a PVS override for the owner, so only they can see the codewords.
+        var codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
+        _roleCodewordSystem.SetRoleCodewords((mindId, codewordComp), "traitor", factionCodewords.ToList(), color);
 
         // Change the faction
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Change faction");
@@ -146,40 +146,38 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Finished");
+        _tips.ShowTip(traitor, new ProtoId<TipPrototype>("TraitorTip")); // DeltaV - Tips
         return true;
     }
 
     private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
     {
         var pda = _uplink.FindUplinkTarget(traitor);
-        Note[]? code = null;
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
-        var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
+        var uplinked = _uplink.AddUplink(traitor, startingBalance, out var code, pda, giveDiscounts: true, bindToPda: false);
 
-        if (pda is not null && uplinked)
+        if (code != null && uplinked == AddUplinkResult.Pda)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
-            // Codes are only generated if the uplink is a PDA
-            var ev = new GenerateUplinkCodeEvent();
-            RaiseLocalEvent(pda.Value, ref ev);
 
-            if (ev.Code is { } generatedCode)
-            {
-                code = generatedCode;
-
-                // If giveUplink is false the uplink code part is omitted
-                briefing = string.Format("{0}\n{1}",
-                    briefing,
-                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
-                return (code, briefing);
-            }
+            // If giveUplink is false the uplink code part is omitted
+            briefing = string.Format("{0}\n{1}",
+                briefing,
+                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+            return (code, briefing);
         }
-        else if (pda is null && uplinked)
+
+        if (uplinked == AddUplinkResult.Implant)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
         }
+        else
+        {
+            Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
+        }
+
 
         return (null, briefing);
     }

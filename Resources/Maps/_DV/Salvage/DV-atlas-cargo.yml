@@ -3543,15 +3543,13 @@ entities:
     - type: Transform
       pos: 7.5,-6.5
       parent: 509
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 513
     components:
     - type: Transform
       pos: -2.5,-0.5
       parent: 509
-    - type: WarpPoint
-      location: Space Debris
 - proto: WeldingFuelTankFull
   entities:
   - uid: 93

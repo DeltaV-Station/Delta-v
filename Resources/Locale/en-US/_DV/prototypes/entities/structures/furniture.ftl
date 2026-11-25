@@ -1,0 +1,12 @@
+structure-furniture-fancy-counter = fancy wood counter
+structure-furniture-fancy-counter-corner = fancy wood counter (corner)
+structure-furniture-fancy-counter-junction = fancy wood counter (t-junction)
+structure-furniture-fancy-counter-cross = fancy wood counter (intersection)
+structure-furniture-shoddy-counter = shoddy wood counter
+structure-furniture-shoddy-counter-corner = shoddy wood counter (corner)
+structure-furniture-shoddy-counter-junction = shoddy wood counter (t-junction)
+structure-furniture-shoddy-counter-cross =  shoddy wood counter (intersection)
+structure-furniture-fancy-steel-counter = steel counter
+structure-furniture-fancy-steel-counter-corner = steel counter (corner)
+structure-furniture-fancy-steel-counter-junction = steel counter (t-junction)
+structure-furniture-fancy-steel-counter-cross = steel counter (intersection)

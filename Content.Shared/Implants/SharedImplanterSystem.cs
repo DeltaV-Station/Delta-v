@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Forensics;
@@ -29,6 +29,8 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
+    [Dependency] private readonly EntityQuery<SubdermalImplantComponent> _implantCompQuery = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -49,16 +51,17 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         _itemSlots.AddItemSlot(uid, ImplanterComponent.ImplanterSlotId, component.ImplanterSlot);
 
-        return; // DeltaV - don't use deimplant chosing
-        component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
-
-        Dirty(uid, component);
+        // DeltaV - don't use deimplant chosing
+        // component.DeimplantChosen ??= component.DeimplantWhitelist.FirstOrNull();
+        //
+        // Dirty(uid, component);
     }
 
     private void OnEntInserted(EntityUid uid, ImplanterComponent component, EntInsertedIntoContainerMessage args)
     {
-        var implantData = EntityManager.GetComponent<MetaDataComponent>(args.Entity);
+        var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+        ImplantMode(uid, component); // DeltaV - Properly update implant mode
     }
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)
@@ -119,7 +122,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     //Set to draw mode if not implant only
     public void Implant(EntityUid user, EntityUid target, EntityUid implanter, ImplanterComponent component)
     {
-        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp))
+        if (!CanImplant(user, target, implanter, component, out var implant, out _))
             return;
 
         // Check if we are trying to implant a implant which is already implanted
@@ -138,7 +141,6 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         if (component.ImplanterSlot.ContainerSlot != null)
             _container.Remove(implant.Value, component.ImplanterSlot.ContainerSlot);
-        implantComp.ImplantedEntity = target;
         implantContainer.OccludesLight = false;
         _container.Insert(implant.Value, implantContainer);
 
@@ -179,7 +181,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     protected bool CheckTarget(EntityUid target, EntityWhitelist? whitelist, EntityWhitelist? blacklist)
     {
         return _whitelistSystem.IsWhitelistPassOrNull(whitelist, target) &&
-            _whitelistSystem.IsBlacklistFailOrNull(blacklist, target);
+            _whitelistSystem.IsWhitelistFailOrNull(blacklist, target);
     }
 
     //Draw the implant out of the target
@@ -195,13 +197,11 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         if (_container.TryGetContainer(target, ImplanterComponent.ImplantSlotId, out var implantContainer))
         {
-            var implantCompQuery = GetEntityQuery<SubdermalImplantComponent>();
-
             if (component.AllowDeimplantAll)
             {
                 foreach (var implant in implantContainer.ContainedEntities)
                 {
-                    if (!implantCompQuery.TryGetComponent(implant, out var implantComp))
+                    if (!_implantCompQuery.TryGetComponent(implant, out var implantComp))
                         continue;
 
                     //Don't remove a permanent implant and look for the next that can be drawn
@@ -236,7 +236,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                     }
                 }
 
-                if (implant != null && implantCompQuery.TryGetComponent(implant, out var implantComp))
+                if (implant != null && _implantCompQuery.TryGetComponent(implant, out var implantComp))
                 {
                     //Don't remove a permanent implant
                     if (!_container.CanRemove(implant.Value, implantContainer))
@@ -281,7 +281,6 @@ public abstract class SharedImplanterSystem : EntitySystem
     private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp)
     {
         _container.Remove(implant, implantContainer);
-        implantComp.ImplantedEntity = null;
         _container.Insert(implant, implanterContainer);
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };

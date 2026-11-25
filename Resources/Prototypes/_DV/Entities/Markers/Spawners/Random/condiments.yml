@@ -1,0 +1,45 @@
+- type: entity
+  parent: MarkerBase
+  id: CondimentSpawner
+  name: condiment random spawner
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: Objects/Consumable/Food/condiments.rsi
+    layers:
+    - state: packet-hotsauce
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.90
+      children:
+      # Packets
+      - !type:GroupSelector
+        weight: 2
+        children:
+        - id: FoodCondimentPacketAstrotame
+        - id: FoodCondimentPacketBbq
+        - id: FoodCondimentPacketCornoil
+        - id: FoodCondimentPacketColdsauce
+        - id: FoodCondimentPacketHorseradish
+        - id: FoodCondimentPacketHotsauce
+        - id: FoodCondimentPacketKetchup
+        - id: FoodCondimentPacketMustard
+        - id: FoodCondimentPacketPepper
+        - id: FoodCondimentPacketSalt
+        - id: FoodCondimentPacketSoy
+        - id: FoodCondimentPacketSugar
+      # Bottles/Shakers
+      - !type:GroupSelector
+        children:
+        - id: FoodCondimentBottleColdsauce
+        - id: FoodCondimentBottleVinegar
+        - id: FoodCondimentBottleHotsauce
+        - id: FoodCondimentBottleKetchup
+        - id: FoodCondimentBottleBBQ
+        - id: FoodShakerSalt
+        - id: FoodShakerPepper
+        - id: ReagentContainerOliveoil
+    offset: 0

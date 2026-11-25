@@ -6,21 +6,21 @@ namespace Content.Server.Roboisseur.Roboisseur
     public sealed partial class RoboisseurComponent : Component
     {
         [ViewVariables]
-        [DataField("accumulator")]
+        [DataField]
         public float Accumulator = 0f;
 
         [ViewVariables(VVAccess.ReadOnly)]
-        [DataField("impatient")]
+        [DataField]
         public Boolean Impatient { get; set; } = false;
 
         [ViewVariables]
-        [DataField("resetTime")]
+        [DataField]
         public TimeSpan ResetTime = TimeSpan.FromMinutes(10);
 
-        [DataField("barkAccumulator")]
+        [DataField]
         public float BarkAccumulator = 0f;
 
-        [DataField("barkTime")]
+        [DataField]
         public TimeSpan BarkTime = TimeSpan.FromMinutes(1);
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Content.Server.Roboisseur.Roboisseur
         /// </summary>
         public TimeSpan StateTime = default!;
 
-        [DataField("stateCD")]
+        [DataField]
         public TimeSpan StateCD = TimeSpan.FromSeconds(5);
 
         [ViewVariables(VVAccess.ReadWrite)]

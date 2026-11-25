@@ -8,19 +8,23 @@
     size: Huge
   - type: Sprite
     sprite: Objects/Power/portable_recharger.rsi
-    state: charging
+    layers:
+    - map: ["enum.PowerChargerVisualLayers.Base"]
+      state: charging
+    - map: ["enum.PowerChargerVisualLayers.Light"]
+      state: charging-unlit
+      shader: unshaded
   - type: Clothing
     equippedPrefix: charging
     quickEquip: false
     slots:
     - back
+    - Belt # Mono
+    - SuitStorage # Mono
   - type: Charger
     slotId: charger_slot
     portable: true
   - type: PowerChargerVisuals
-  - type: ApcPowerReceiver
-    needsPower: false
-    powerLoad: 0
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -31,11 +35,15 @@
   - type: ItemSlots
     slots:
       charger_slot:
-        ejectOnInteract: true
+        ejectOnInteract: false # Mono
+        ejectOnUse: true # Mono
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
-        blacklist: # DeltaV - Disallows recharging of superweapon
+          - BatteryAmmoProvider
+        blacklist:
           tags:
+          # Begin DeltaV additions - Disallows recharging of superweapons
           - GamblagatorCartridge
+          - BeamDevastator
+          - UnstableCoreRefractor
+          # End DeltaV additions - Disallows recharging of superweapons

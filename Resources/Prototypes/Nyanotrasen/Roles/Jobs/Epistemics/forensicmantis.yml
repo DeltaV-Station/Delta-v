@@ -4,11 +4,12 @@
   description: job-description-mantis
   playTimeTracker: JobForensicMantis
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000
-    - !type:DepartmentTimeRequirement
-      department: Epistemics # DeltaV - Epistemics Department replacing Science
-      time: 3600
+    - !type:RoleTimeRequirement
+      role: JobChaplain
+      time: 18000 # 5 hours
+    - !type:RoleTimeRequirement
+      role: JobScientist
+      time: 18000 # 5 hours
   startingGear: ForensicMantisGear
   icon: "JobIconForensicMantis"
   supervisors: job-supervisors-rd
@@ -21,8 +22,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Psionic
-    - type: MetapsionicPower
+    - type: MetapsionicPulsePower
 
 - type: startingGear
   id: ForensicMantisGear
@@ -37,6 +37,7 @@
     - PillMindbreakerToxin
     - BoxFolderGrey
     - RubberStampMantis
+    - ClaridisolSynth
 
 - type: chameleonOutfit
   id: ForensicMantisChameleonOutfit

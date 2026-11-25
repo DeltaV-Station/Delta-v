@@ -27,6 +27,8 @@ For MIT this means you **must not** remove the copy of the MIT license from any 
 
 - Code taken from [the Starlight project](https://github.com/ss14Starlight/space-station-14) in the `_Starlight` namespace was taken under [their custom MIT-like license](/LICENSE-Starlight.txt) and sublicensed to AGPLv3.
 
+- Code from [Ephemeral Space](https://github.com/EphemeralSpace/ephemeral-space) in the `_ES` namespace was taken under [the MIT license](/LICENSE-MIT.txt).
+
 Assets have distinct licenses in `attributions.yml` and `meta.json` files which must be followed individually.
 
 ## Warranty

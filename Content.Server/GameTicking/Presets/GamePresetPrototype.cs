@@ -1,8 +1,6 @@
-
 using Content.Server.Maps;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.GameTicking.Presets
 {
@@ -42,8 +40,8 @@ namespace Content.Server.GameTicking.Presets
         public int Cooldown = 0;
         // End Imp
 
-        [DataField("rules", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-        public IReadOnlyList<string> Rules { get; private set; } = Array.Empty<string>();
+        [DataField]
+        public IReadOnlyList<EntProtoId> Rules { get; private set; } = Array.Empty<EntProtoId>();
 
         /// <summary>
         /// If specified, the gamemode will only be run with these maps.

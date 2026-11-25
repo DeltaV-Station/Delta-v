@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Light.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -62,7 +64,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        Spawn(args.Entity, args.Target);
+        Spawn(args.EntityAction, args.Target);
         args.Handled = true;
     }
 }

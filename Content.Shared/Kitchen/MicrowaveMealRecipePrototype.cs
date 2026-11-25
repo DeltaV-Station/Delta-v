@@ -47,6 +47,12 @@ namespace Content.Shared.Kitchen
         public bool SecretRecipe = false;
 
         /// <summary>
+        /// DeltaV: Changes the guidebook formatting to "Fry for"
+        /// </summary>
+        [DataField]
+        public bool DeepFried;
+
+        /// <summary>
         ///    Count the number of ingredients in a recipe for sorting the recipe list.
         ///    This makes sure that where ingredient lists overlap, the more complex
         ///    recipe is picked first.

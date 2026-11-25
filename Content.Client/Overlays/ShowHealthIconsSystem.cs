@@ -1,14 +1,12 @@
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Damage;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Overlays;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Mobs; // The Den - Nuke Health icons.
-
+using Content.Shared.Damage.Components;
+using Content.Shared.Mobs; // DeltaV - Nuke Health icons.
 
 namespace Content.Client.Overlays;
 
@@ -26,7 +24,7 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DamageableComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
+        SubscribeLocalEvent<InjurableComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
         SubscribeLocalEvent<ShowHealthIconsComponent, AfterAutoHandleStateEvent>(OnHandleState);
     }
 
@@ -34,9 +32,13 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
     {
         base.UpdateInternal(component);
 
-        foreach (var damageContainerId in component.Components.SelectMany(x => x.DamageContainers))
+        DamageContainers.Clear();
+        foreach (var comp in component.Components)
         {
-            DamageContainers.Add(damageContainerId);
+            foreach (var damageContainerId in comp.DamageContainers)
+            {
+                DamageContainers.Add(damageContainerId);
+            }
         }
     }
 
@@ -52,7 +54,7 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         RefreshOverlay();
     }
 
-    private void OnGetStatusIconsEvent(Entity<DamageableComponent> entity, ref GetStatusIconsEvent args)
+    private void OnGetStatusIconsEvent(Entity<InjurableComponent> entity, ref GetStatusIconsEvent args)
     {
         if (!IsActive)
             return;
@@ -62,12 +64,12 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         args.StatusIcons.AddRange(healthIcons);
     }
 
-    private IReadOnlyList<HealthIconPrototype> DecideHealthIcons(Entity<DamageableComponent> entity)
+    private IReadOnlyList<HealthIconPrototype> DecideHealthIcons(Entity<InjurableComponent> entity)
     {
-        var damageableComponent = entity.Comp;
+        var injurableComp = entity.Comp;
 
-        if (damageableComponent.DamageContainerID == null ||
-            !DamageContainers.Contains(damageableComponent.DamageContainerID))
+        if (injurableComp.DamageContainer == null ||
+            !DamageContainers.Contains(injurableComp.DamageContainer))
         {
             return Array.Empty<HealthIconPrototype>();
         }
@@ -75,16 +77,16 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         var result = new List<HealthIconPrototype>();
 
         // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
-        if (damageableComponent?.DamageContainerID == "Biological")
+        if (injurableComp?.DamageContainer == "Biological")
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {
                 if (state.CurrentState != MobState.Alive) // Den: Nuke Alive Icon so they don't hide speech bubbles
                     return result;
                 // Since there is no MobState for a rotting mob, we have to deal with this case first.
-                if (HasComp<RottingComponent>(entity) && _prototypeMan.TryIndex(damageableComponent.RottingIcon, out var rottingIcon))
+                if (HasComp<RottingComponent>(entity) && _prototypeMan.Resolve(injurableComp.RottingIcon, out var rottingIcon))
                     result.Add(rottingIcon);
-                else if (damageableComponent.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.TryIndex(value, out var icon))
+                else if (injurableComp.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.Resolve(value, out var icon))
                     result.Add(icon);
             }
         }

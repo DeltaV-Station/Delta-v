@@ -7,7 +7,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 18000 #5 hrs
+      time: 5h
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
@@ -15,12 +15,6 @@
   - Medical
   - Chemistry
   - Maintenance
-  # Shitmed Change, DeltaV - role modifiers bad
-  # special:
-  # - !type:AddComponentSpecial
-  #   components:
-  #   - type: SurgerySpeedModifier
-  #    speedModifier: 1.75
 
 - type: startingGear
   id: ChemistGear

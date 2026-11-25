@@ -35,7 +35,7 @@ public sealed class SealingCabinetSystem : EntitySystem
         if (!ent.Comp.Emaggable)
             return;
 
-        if (!_cabinet.HasItem(ent.Owner) || _openable.IsOpen(ent))
+        if (!_cabinet.HasItem(ent.Owner) || !_openable.IsClosed(ent))
             return;
 
         _openable.SetOpen(ent, true);

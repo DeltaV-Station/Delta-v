@@ -13,6 +13,20 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: ian
+  - type: Inventory
+    speciesId: dog
+    templateId: petAdvanced
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_head_displacement
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_eyes_displacement
   - type: DamageStateVisuals
     states:
       Alive:
@@ -84,6 +98,20 @@
     attributes:
       proper: true
       gender: female
+  - type: Inventory
+    speciesId: dog
+    templateId: petAdvanced
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: lisa_head_displacement
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_eyes_displacement
 
 - type: entity
   name: real mouse
@@ -275,6 +303,10 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: JumpAbility # DeltaV - Don't leave Bingus out on being able to pounce
+    jumpThrowSpeed: 16 # Fastest it can be without hurting themselves by run+jumping into a wall
+    jumpDistance: 3
+    action: ActionCatJump
   - type: StealTarget
     stealGroup: AnimalNamedCat
 
@@ -290,6 +322,8 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mcgriff
+    - map: [ "head" ]
+    - map: [ "eyes" ]
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -304,7 +338,18 @@
         - MobLayer
   - type: Inventory
     speciesId: puppy
-    templateId: pet
+    templateId: petAdvanced
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: mcgriff_head_displacement
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: mcgriff_eyes_displacement
   - type: DamageStateVisuals
     states:
       Alive:
@@ -339,6 +384,7 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
+  - type: MessyDrinker
 
 - type: entity
   name: Paperwork
@@ -435,6 +481,7 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+  - type: MessyDrinker
 
 - type: entity
   name: Morty
@@ -630,6 +677,22 @@
     - sadness
 
 - type: entity
+  parent: MobHamsterHamlet
+  id: MobHamsterHamletSlippery
+  suffix: Slippery
+  components:
+  - type: Slippery
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: GibOnTrigger
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Animals/mouse_squeak.ogg"
+    positional: true
+    predicted: true
+
+- type: entity
   name: Shiva
   parent: MobGiantSpider
   id: MobSpiderShiva
@@ -642,10 +705,7 @@
     name: ghost-role-information-Shiva-name
     description: ghost-role-information-Shiva-description
     rules: ghost-role-information-Shiva-rules
-    requirements: # Delta V - No raiders
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # DeltaV - 4 hours
+    job: RoleShiva # DeltaV - controls the playtime requirement, no raiders
   - type: GhostTakeoverAvailable # DeltaV
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
@@ -693,6 +753,8 @@
       types:
         Piercing: 8
         Poison: 8
+  - type: Spider
+    spawnsWebsAsNonPlayer: false
   - type: Grammar
     attributes:
       proper: true
@@ -780,9 +842,6 @@
         BaseUnshaded: aslime-_3
       Dead:
         Base: rainbow_baby_slime_dead
-  - type: Body  # DeltaV - Changes to add brain
-    prototype: Smiles
-    requiredLegs: 1
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
@@ -797,6 +856,7 @@
         Bloodloss:
           -0.8
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 800
     coldDamageThreshold: 0
   - type: MeleeWeapon
@@ -808,8 +868,6 @@
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
     size: Huge
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
     price: 3000 # it is a truly valuable creature
   - type: GhostRole
@@ -836,10 +894,7 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
-    requirements: # Delta V - No raiders
-    - !type:RoleTimeRequirement
-      role: JobBartender
-      time: 14400 # Delta V - 4 hours
+    job: RolePunPun
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
@@ -860,6 +915,10 @@
     attributes:
       proper: true
       gender: male
+  #DeltaV Changes - he can shoot his gun 80% of the time
+  - type: Clumsy
+    clumsyGunShootCheck: 0.2
+    #DeltaV Changes end
 
 - type: entity
   name: Tropico
@@ -887,3 +946,21 @@
 #  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
     stealGroup: AnimalTropico
+
+- type: entity
+  name: Polly the parrot
+  parent: MobParrotBase
+  id: MobPollyParrot
+  description: An expert in quantum cracker theory
+  components:
+  - type: Vocalizer
+    maxVocalizeInterval: 240 # polly is chattier
+  - type: RadioVocalizer
+    radioAttemptChance: 0.8 # polly wants to share with the world
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Loadout
+    prototypes: [ MobPollyGear ]
+

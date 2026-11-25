@@ -7,6 +7,7 @@
   recipes:
   - AppraisalTool
   - Pickaxe
+  - UtilityKnife
 
 - type: latheRecipePack
   id: CargoBoardsStatic
@@ -26,6 +27,10 @@
   - MineralScannerEmpty
   - AdvancedMineralScannerEmpty
   - OreBagOfHolding
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
+  - ClothingShoesBootsJump # DV - Jump Boots since its mining research
 
 - type: latheRecipePack
   parent:
@@ -33,5 +38,5 @@
   id: CargoBoards
   recipes:
   - OreProcessorIndustrialMachineCircuitboard
-  - CargoTelepadMachineCircuitboard
+  #- CargoTelepadMachineCircuitboard # DeltaV - Telepad removed for benefit of cargo pilots + logi gameplay flow.
   - ShuttleGunKineticCircuitboard

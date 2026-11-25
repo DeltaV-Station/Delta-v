@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Prototypes;
@@ -23,7 +24,7 @@ using Content.Shared.Actions;
 
 namespace Content.Shared.Anomaly;
 
-public abstract class SharedAnomalySystem : EntitySystem
+public abstract partial class SharedAnomalySystem : EntitySystem // DeltaV - Made Partial
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -37,12 +38,16 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
 
+    [Dependency] private readonly EntityQuery<PhysicsComponent> _physQuery = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<AnomalyComponent, MeleeThrowOnHitStartEvent>(OnAnomalyThrowStart);
         SubscribeLocalEvent<AnomalyComponent, LandEvent>(OnLand);
+
+        InitializePsionics(); // DeltaV - Introduce Dispellable behavior to Anomalies.
     }
 
     private void OnAnomalyThrowStart(Entity<AnomalyComponent> ent, ref MeleeThrowOnHitStartEvent args)
@@ -81,7 +86,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             Log.Info($"Performing anomaly pulse. Entity: {ToPrettyString(uid)}");
 
         // if we are above the growth threshold, then grow before the pulse
-        if (component.Stability > component.GrowthThreshold)
+        if (component.AlwaysGrow || component.Stability > component.GrowthThreshold) // DeltaV - Add AlwaysGrow
         {
             ChangeAnomalySeverity(uid, GetSeverityIncreaseFromGrowth(component), component);
         }
@@ -138,11 +143,12 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (_net.IsServer)
             Log.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(ent.Owner)}");
 
-        Audio.PlayPvs(ent.Comp.SupercriticalSoundAtAnimationStart, Transform(ent).Coordinates);
+        Audio.PlayPvs(ent.Comp.SupercriticalSoundAtAnimationStart, ent);
 
         var super = AddComp<AnomalySupercriticalComponent>(ent);
-        super.EndTime = Timing.CurTime + super.SupercriticalDuration;
+        super.EndTime = Timing.CurTime + ent.Comp.SupercriticalDuration;
         Appearance.SetData(ent, AnomalyVisuals.Supercritical, true);
+        SetScannerSupercritical((ent, ent.Comp), true);
         Dirty(ent, super);
     }
 
@@ -188,7 +194,8 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
     /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
+    /// <param name="forced">Whether or not the anomaly shutdown was caused by component shutdown</param> // DeltaV - Add forced
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false, bool forced = false)  // DeltaV - Add forced
     {
         if (logged)
         {
@@ -203,7 +210,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var ev = new AnomalyShutdownEvent(uid, supercritical);
+        var ev = new AnomalyShutdownEvent(uid, supercritical, forced); // DeltaV - Add forced
         RaiseLocalEvent(uid, ref ev, true);
 
         if (Terminating(uid) || _net.IsClient)
@@ -341,12 +348,13 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             // if the stability is under the death threshold,
             // update it every second to start killing it slowly.
-            if (anomaly.Stability < anomaly.DecayThreshold)
+            if (!anomaly.AlwaysGrow && anomaly.Stability < anomaly.DecayThreshold) // DeltaV - Add AlwaysGrow
             {
                 ChangeAnomalyHealth(ent, anomaly.HealthChangePerSecond * frameTime, anomaly);
             }
 
-            if (Timing.CurTime > anomaly.NextPulseTime)
+            var secondsUntilNextPulse = (anomaly.NextPulseTime - Timing.CurTime).TotalSeconds;
+            if (secondsUntilNextPulse < 0)
             {
                 DoAnomalyPulse(ent, anomaly);
             }
@@ -372,6 +380,18 @@ public abstract class SharedAnomalySystem : EntitySystem
                 continue;
             DoAnomalySupercriticalEvent(ent, anom);
             // Removal of the supercritical component is handled by DoAnomalySupercriticalEvent
+        }
+    }
+
+    private void SetScannerSupercritical(Entity<AnomalyComponent> anomalyEnt, bool value)
+    {
+        var scannerQuery = EntityQueryEnumerator<AnomalyScannerComponent>();
+        while (scannerQuery.MoveNext(out var scannerUid, out var scanner))
+        {
+            if (scanner.ScannedAnomaly != anomalyEnt)
+                continue;
+
+            Appearance.SetData(scannerUid, AnomalyScannerVisuals.AnomalyIsSupercritical, value);
         }
     }
 
@@ -403,7 +423,6 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (tilerefs.Count == 0)
             return null;
 
-        var physQuery = GetEntityQuery<PhysicsComponent>();
         var resultList = new List<TileRef>();
         while (resultList.Count < amount)
         {
@@ -425,10 +444,13 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             if (!settings.CanSpawnOnEntities)
             {
+                // If it can't spawn on entities, ensure that maximum one entity will be spawned here this pulse.
+                tilerefs.Remove(tileref);
+
                 var valid = true;
                 foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
                 {
-                    if (!physQuery.TryGetComponent(ent, out var body))
+                    if (!_physQuery.TryGetComponent(ent, out var body))
                         continue;
 
                     if (body.BodyType != BodyType.Static ||
@@ -441,7 +463,6 @@ public abstract class SharedAnomalySystem : EntitySystem
                 }
                 if (!valid)
                 {
-                    tilerefs.Remove(tileref);
                     continue;
                 }
             }
@@ -449,6 +470,41 @@ public abstract class SharedAnomalySystem : EntitySystem
             resultList.Add(tileref);
         }
         return resultList;
+    }
+
+    public bool TryGetStabilityVisual(Entity<AnomalyComponent?> ent, [NotNullWhen(true)] out AnomalyStabilityVisuals? visual)
+    {
+        visual = null;
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))
+            return false;
+
+        // DeltaV - Colossus Additions START
+        if (ent.Comp.AlwaysGrow)
+        {
+            visual = AnomalyStabilityVisuals.Growing;
+            return true;
+        }
+        // DeltaV - Colossus Additions END
+
+        visual = AnomalyStabilityVisuals.Stable;
+        if (ent.Comp.Stability <= ent.Comp.DecayThreshold)
+        {
+            visual = AnomalyStabilityVisuals.Decaying;
+        }
+        else if (ent.Comp.Stability >= ent.Comp.GrowthThreshold)
+        {
+            visual = AnomalyStabilityVisuals.Growing;
+        }
+
+        return true;
+    }
+
+    public AnomalyStabilityVisuals GetStabilityVisualOrStable(Entity<AnomalyComponent?> ent)
+    {
+        if(TryGetStabilityVisual(ent, out var visual))
+            return visual.Value;
+
+        return AnomalyStabilityVisuals.Stable;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Text;
 using Content.Server._DV.Speech.Components;
 using Content.Shared._DV.Speech.Prototypes;
 using Content.Server.Speech;
+using Content.Shared.Speech;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
 

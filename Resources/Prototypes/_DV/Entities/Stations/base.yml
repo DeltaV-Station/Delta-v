@@ -42,3 +42,12 @@
   - type: StationPlanetSpawner
     planet: Lavaland
     gridPath: /Maps/_DV/Nonstations/lavaland_mining_base.yml
+
+- type: entity
+  abstract: true
+  id: BaseStationKeycardAuthenticationDevice
+  components:
+  - type: DVStationKeycardAuthenticationDevice
+    actionThresholds:
+      Mayday: 2
+      Scuttling: 3

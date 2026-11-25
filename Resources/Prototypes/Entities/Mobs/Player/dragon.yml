@@ -6,10 +6,11 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
-  - type: Body # Shitmed
-    prototype: SpaceDragon
   - type: Bloodstream
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 400 # DeltaV - reduced from 650 to 400 to prevent overflow
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -102,24 +103,17 @@
       types: {}
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - SlowedDown
-    - Stutter
     - Electrocution
-    - ForcedSleep
-    - TemporaryBlindness
     - Pacified
-    - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Temperature
-    heatDamageThreshold: 800
+  - type: TemperatureDamage
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
+    stages: [ Digestion, Bloodstream ]
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -133,15 +127,20 @@
     soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
   - type: MeleeWeapon
     altDisarm: false
+    angle: 90 # DeltaV - Give dragons a wide-sweep attack
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Piercing: 15
-        Slash: 15
+        Piercing: 20 # DeltaV - Increase piercing damage from 15 to 20
+        Slash: 20 # DeltaV - Increase slashing damage from 15 to 20
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidProfile
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 7.5
     whitelist:
@@ -154,8 +153,11 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - StunImmune
   - type: Puller
     needsHands: false
+  - type: MovedByPressure # DeltaV - Spacewind Immune
+    enabled: false
   - type: RandomMetadata
     nameSegments:
     - NamesDragon
@@ -167,6 +169,14 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
+    # Begin DeltaV additions - Give Dragons blood and night vision.
+  - type: NightVision
+    color: "#808080"
+  - type: SharkVision
+    pulseTime: 5
+    activateSound: null
+    deactivateSound: null
+    # End DeltaV additions
 
 - type: entity
   parent: BaseMobDragon
@@ -204,7 +214,7 @@
     soundGunshot:
       path: /Audio/Animals/space_dragon_roar.ogg
     soundEmpty: null
-    projectileSpeed: 5
+    projectileSpeed: 7.5 # DeltaV - Increased from 5 to 7.5
 
 - type: entity
   parent: BaseMobDragon
@@ -230,8 +240,8 @@
       amount: 1
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
+      types:
+        Piercing: 12
 
 - type: entity
   parent: BaseAction
@@ -286,3 +296,16 @@
     range: 0
   - type: WorldTargetAction
     event: !type:ActionGunShootEvent
+
+- type: entity
+  parent: Smoke
+  id: BloodSmoke
+  name: smoke
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Smoke
+    spreadAmount: 3
+    duration: 2
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke_white

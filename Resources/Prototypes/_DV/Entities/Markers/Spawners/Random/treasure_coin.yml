@@ -1,0 +1,28 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomTreasureCoin
+  name: random treasure coin spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/coins.rsi
+      state: coin_gold
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.8
+      children:
+      - !type:GroupSelector
+        children:
+        - id: TreasureCoinIron
+          weight: 100
+          amount: !type:RangeNumberSelector
+            range: 1, 3
+        - id: TreasureCoinSilver
+          weight: 2
+        - id: TreasureCoinGold
+        - id: TreasureCoinIron
+          prob: 0.01
+          rolls: !type:ConstantNumberSelector
+            value: 100

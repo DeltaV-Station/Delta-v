@@ -115,9 +115,9 @@
   description: It's a jumpskirt worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cmo.rsi # DeltaV - Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/cmo.rsi # DeltaV - Resprite
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -465,9 +465,9 @@
   description: A dress for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hosformaldress.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
+    sprite: _DV/Clothing/Uniforms/Jumpskirt/hosformaldress.rsi # DeltaV - resprite
 
 - type: entity
   parent: [UnsensoredClothingUniformSkirtBase, BaseSyndicateContraband]

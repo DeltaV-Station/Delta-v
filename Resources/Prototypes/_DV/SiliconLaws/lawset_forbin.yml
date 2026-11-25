@@ -1,0 +1,29 @@
+- type: siliconLaw
+  id: Forbin1
+  order: 1
+  lawString: law-forbin-1
+
+- type: siliconLaw
+  id: Forbin2
+  order: 2
+  lawString: law-forbin-2
+
+- type: siliconLaw
+  id: Forbin3
+  order: 3
+  lawString: law-forbin-3
+
+- type: siliconLaw
+  id: Forbin4
+  order: 4
+  lawString: law-forbin-4
+
+- type: siliconLawset
+  id: ForbinLaws
+  name: law-forbin-name
+  laws:
+  - Forbin1
+  - Forbin2
+  - Forbin3
+  - Forbin4
+  obeysTo: laws-owner-station

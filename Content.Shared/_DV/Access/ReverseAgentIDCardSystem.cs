@@ -49,7 +49,7 @@ public sealed class ReverseAgentIDCardSystem : EntitySystem
             return;
 
         _accessReader.SetDenyTags((args.Target.Value, targetAccess), access.DenyTags);
-        _accessReader.SetAccesses((args.Target.Value, targetAccess), access.AccessLists);
+        _accessReader.TrySetAccesses((args.Target.Value, targetAccess), access.AccessLists);
         _accessReader.SetAccessKeys((args.Target.Value, targetAccess), access.AccessKeys);
 
         _popup.PopupClient(Loc.GetString("reverse-agent-access-overwrote"), args.User, args.User);

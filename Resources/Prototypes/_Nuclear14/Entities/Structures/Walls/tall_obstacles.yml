@@ -9,8 +9,9 @@
     drawdepth: Mobs
   - type: SpriteFade
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RangedDamageSound
     soundGroups:
       Brute:
@@ -50,8 +51,6 @@
   components:
   - type: Sprite
     state: bars
-    allowedVerbs:
-    - Rattle
 
 - type: entity
   parent: N14CellBars

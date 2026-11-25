@@ -1,3 +1,9 @@
 reagent-physical-desc-dark = dark
 reagent-physical-desc-menacing = menacing
 reagent-physical-desc-synthetic = synthetic
+reagent-physical-desc-diluted = diluted
+reagent-physical-desc-bittersweet = bittersweet
+reagent-physical-desc-pure = pure
+reagent-physical-desc-clarifying = elucidating
+reagent-physical-desc-repairing = repairing
+reagent-physical-desc-highcorrosive = highly corrosive

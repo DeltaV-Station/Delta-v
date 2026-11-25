@@ -10,7 +10,7 @@ public sealed class NextEventSystem : EntitySystem
     /// </summary>
     public EntProtoId? UpdateNextEvent(NextEventComponent component, EntProtoId newEventId, TimeSpan newEventTime)
     {
-        EntProtoId? oldEventId = component.NextEventId; // Store components current NextEventId for return
+        var oldEventId = component.NextEventId; // Store components current NextEventId for return
         component.NextEventId = newEventId;
         component.NextEventTime = newEventTime;
         return oldEventId;

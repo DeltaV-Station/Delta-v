@@ -1,0 +1,99 @@
+# Basic tip shown to everyone
+- type: tip
+  id: WelcomeTip
+  title: tip-welcome-title
+  description: tip-welcome-description
+  delay: 5
+  priority: 0
+
+# Tip with custom sound
+- type: tip
+  id: ChatTip
+  title: tip-chat-title
+  description: tip-chat-description
+  delay: 30
+  priority: 10
+#  sound: /Audio/Effects/adminhelp.ogg # not actually bwoinking people because heart attack but you can do that
+
+# Tip for new players (less than 60 minutes total playtime)
+- type: tip
+  id: NewPlayerTip
+  title: tip-newplayer-title
+  description: tip-newplayer-description
+  delay: 10
+  priority: 1
+  conditions:
+  - !type:MaxPlaytimeCondition
+    tracker: Overall
+    time: 1h
+
+# Tip for players who understand sign language # TODO placeholder
+#- type: tip
+#  id: SignLanguageTip
+#  title: tip-signlanguage-title
+#  description: tip-signlanguage-description
+#  delay: 15
+#  priority: 5
+#  conditions:
+#  - !type:HasCompCondition
+#    comp: UnderstandsSignLanguageComponent
+
+# Security job tip
+- type: tip
+  id: SecurityTip
+  title: tip-security-title
+  description: tip-security-description
+  delay: 10
+  priority: 5
+  conditions:
+  - !type:HasJobCondition
+    job: SecurityOfficer
+
+# Security cadet tip for players new to security (both conditions must pass)
+# OR conditions are not supported as of right now
+- type: tip
+  id: SecurityCadetTip
+  title: tip-cadet-title
+  description: tip-cadet-description
+  delay: 8
+  priority: 3
+  conditions:
+  - !type:HasJobCondition
+    job: SecurityCadet
+  - !type:MaxPlaytimeCondition
+    tracker: JobSecurityCadet
+    time: 2h
+
+# Medical Intern job tip
+- type: tip
+  id: MedicalTip
+  title: tip-medical-title
+  description: tip-medical-description
+  delay: 10
+  priority: 5
+  conditions:
+  - !type:HasJobCondition
+    job: MedicalIntern
+
+# Tip for traitors, shown when becoming a traitor
+- type: tip
+  id: TraitorTip
+  title: tip-traitor-title
+  description: tip-traitor-description
+  delay: 20
+  priority: 2
+  conditions:
+  - !type:HasRoleTypeCondition
+    roleType: SoloAntagonist
+
+# Tip for experienced players
+#- type: tip
+#  id: VeteranTip
+#  title: tip-veteran-title
+#  description: tip-veteran-description
+#  delay: 60
+#  priority: 100
+#  conditions:
+#  - !type:MinPlaytimeCondition
+#    tracker: Overall
+#    time: 10h

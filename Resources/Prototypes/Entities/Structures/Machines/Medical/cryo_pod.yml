@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [BaseStructure, ConstructibleMachine] # Not a BaseMachinePowered since we don't want the anchorable component
   id: CryoPod
   name: cryo pod
@@ -54,8 +54,9 @@
     boardName: wires-board-name-cryopod
     layoutId: CryoPod
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -84,20 +85,18 @@
   - type: ItemSlots
     slots:
       beakerSlot:
+        priority: 1  # DeltaV - cryopods now prioritise ejecting the beaker from the pod when alt-clicking instead of ejecting the patient
         whitelist:
           components:
             - FitsInDispenser
-  - type: ItemToggle
-  - type: HealthAnalyzer
-    scanDelay: 0
   - type: UserInterface
     interfaces:
-      enum.HealthAnalyzerUiKey.Key:
-        type: HealthAnalyzerBoundUserInterface
+      enum.CryoPodUiKey.Key:
+        type: CryoPodBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: ActivatableUI
-    key: enum.HealthAnalyzerUiKey.Key
+    key: enum.CryoPodUiKey.Key
     requiresComplex: false
   - type: ActivatableUIRequiresPower
   - type: PointLight
@@ -108,10 +107,65 @@
   - type: EmptyOnMachineDeconstruct
     containers:
       - scanner-body
+  - type: SolutionContainerManager
+    solutions:
+      injectionBuffer:
+        maxVol: 50
   - type: CryoPod
+    beakerTransferAmount: 0.5 # DeltaV - Inject Evenly
+    injectEvenly: true # DeltaV - Inject Evenly
   - type: CryoPodAir
-  - type: ContainerTemperatureDamageThresholds
+  - type: Climbable # so that ejected bodies don't get stuck
+    vaultable: false
+  - type: ContainerTemperature
     coldDamageThreshold: 10
   - type: GuideHelp
     guides:
     - Cryogenics
+  - type: CrawlableNode # DeltaV - node crawling
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
+
+- type: entity
+  parent: BaseStructure
+  id: CryoPodDestroyed
+  name: destroyed cryo pod
+  description: A cryo pod that has seen better days. It's entirely inoperable; not good for anything but scrap.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/Medical/cryopod.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0, 0.5
+    state: pod-cracked
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.90"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 2000 # 20 sheets
+      Glass: 1000 # 10 sheets

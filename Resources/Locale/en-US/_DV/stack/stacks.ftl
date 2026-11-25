@@ -10,3 +10,7 @@ stack-treatcoin = treatcoin
 stack-biogenerator-plastic1 = plastic (single)
 stack-biogenerator-plastic10 = plastic (10)
 stack-biogenerator-plastic30 = plastic (30)
+
+stack-frosting = frosting
+
+stack-mowed-astro-snow-floor = mowed astro-snow floor

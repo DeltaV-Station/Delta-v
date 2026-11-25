@@ -1,2 +1,3 @@
 damage-type-ion = Ion
-damage-type-shadow = Shadow
+damage-type-soul = Soul
+damage-type-radiant = Radiant

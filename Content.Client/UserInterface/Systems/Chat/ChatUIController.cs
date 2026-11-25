@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions; // DeltaV - Client-Side Radio Channel Colors
 using Content.Client.Administration.Managers;
 using Content.Client.Chat;
 using Content.Client.Chat.Managers;
@@ -42,9 +43,9 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Client.Nyanotrasen.Chat; //Nyano - Summary: chat namespace.
 
+
 namespace Content.Client.UserInterface.Systems.Chat;
 
-// DeltaV - Make partial to implement message highlighting
 public sealed partial class ChatUIController : UIController
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
@@ -69,8 +70,7 @@ public sealed partial class ChatUIController : UIController
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
 
-    [ValidatePrototypeId<ColorPalettePrototype>]
-    private const string ChatNamePalette = "ChatNames";
+    private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
     private string[] _chatNameColors = default!;
     private bool _chatNameColorsEnabled;
 
@@ -237,7 +237,7 @@ public sealed partial class ChatUIController : UIController
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
 
-        var nameColors = _prototypeManager.Index<ColorPalettePrototype>(ChatNamePalette).Colors.Values.ToArray();
+        var nameColors = _prototypeManager.Index(ChatNamePalette).Colors.Values.ToArray();
         _chatNameColors = new string[nameColors.Length];
         for (var i = 0; i < nameColors.Length; i++)
         {
@@ -246,7 +246,7 @@ public sealed partial class ChatUIController : UIController
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
-        InitializeChatHighlights(); // DeltaV - Message highlighting
+        InitializeHighlights();
     }
 
     public void OnScreenLoad()
@@ -284,7 +284,7 @@ public sealed partial class ChatUIController : UIController
                  && style is StyleBoxFlat propStyleBoxFlat)
             color = propStyleBoxFlat.BackgroundColor;
         else
-            color = StyleNano.ChatBackgroundColor;
+            color = Color.FromHex("#25252ADD");
 
         panel.PanelOverride = new StyleBoxFlat
         {
@@ -433,6 +433,8 @@ public sealed partial class ChatUIController : UIController
     private void OnAttachedChanged(EntityUid uid)
     {
         UpdateChannelPermissions();
+
+        UpdateAutoFillHighlights();
     }
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
@@ -702,7 +704,7 @@ public sealed partial class ChatUIController : UIController
         radioChannel = null;
         return _player.LocalEntity is EntityUid { Valid: true } uid
            && _chatSys != null
-           && _chatSys.TryProccessRadioMessage(uid, text, out _, out radioChannel, quiet: true);
+           && _chatSys.TryProcessRadioMessage(uid, text, out _, out radioChannel, quiet: true);
     }
 
     public void UpdateSelectedChannel(ChatBox box)
@@ -713,6 +715,13 @@ public sealed partial class ChatUIController : UIController
             box.ChatInput.ChannelSelector.UpdateChannelSelectButton(box.SelectedChannel, null);
         else
             box.ChatInput.ChannelSelector.UpdateChannelSelectButton(prefixChannel, radioChannel);
+
+        // DeltaV begin - refresh indicator change
+        if (CurrentChannel != prefixChannel)
+            _typingIndicator?.ClientSubmittedChatText();
+
+        CurrentChannel = prefixChannel;
+        // DeltaV end
     }
 
     public (ChatSelectChannel chatChannel, string text, RadioChannelPrototype? radioChannel) SplitInputContents(string text)
@@ -831,8 +840,38 @@ public sealed partial class ChatUIController : UIController
         }
     }
 
+    /// <summary>
+    /// DeltaV - Regex expression to match on the chat message text in order to replace it with another color. 
+    /// </summary>
+    private static readonly Regex RadioChatColorRegex = new(@"color=#?([a-fA-F0-9]{8})", RegexOptions.Compiled);
+
+    /// <summary>
+    /// DeltaV - Replaces the channel color hex code in a message with the client-side hex color 
+    /// overridden by <see cref="Content.Client._DV.Radio.RadioChannelColorSystem"/> .
+    /// </summary>
+    /// <param name="message">The message to find and replace the color hex code in.</param>
+    /// <param name="channelProtoId">The proto ID of the channel. Basically the replacement color.</param>
+    /// <returns>The message with the color hex code replaced, if it exists.</returns>
+    private string ReplaceRadioChannelColorFromServer(string message, string channelProtoId)
+    {
+        if (_prototypeManager.Resolve<RadioChannelPrototype>(channelProtoId, out var channel))
+        {
+            return RadioChatColorRegex.Replace(message, $"color={channel.Color.ToHex()}");
+        }
+
+        return message;
+    }
+
     public void ProcessChatMessage(ChatMessage msg, bool speechBubble = true)
     {
+        // BEGIN DeltaV
+        // Needs to happen before ANY other color or pattern matching so that we don't screw up the other colors in the message.
+        if (msg.Channel == ChatChannel.Radio && msg.RadioChannelProtoId is { } channel)
+        {
+            msg.WrappedMessage = ReplaceRadioChannelColorFromServer(msg.WrappedMessage, channel);
+        }
+        // END DeltaV
+
         // color the name unless it's something like "the old man"
         if ((msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper) && _chatNameColorsEnabled)
         {
@@ -841,13 +880,11 @@ public sealed partial class ChatUIController : UIController
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
         }
 
-        // DeltaV - Message highlighting start
-        // Color any words choosen by the client.
+        // Color any words chosen by the client.
         foreach (var highlight in _highlights)
         {
             msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);
         }
-        // DeltaV - Message highlighting end
 
         // Color any codewords for minds that have roles that use them
         if (_player.LocalUser != null && _mindSystem != null && _roleCodewordSystem != null)

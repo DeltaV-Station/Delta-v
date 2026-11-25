@@ -41,8 +41,9 @@
     softness: 1
     offset: "0, -0.5"
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RCDDeconstructable
     cost: 4
     delay: 2
@@ -54,7 +55,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,0.5,0.4,0.35"
+          bounds: "-0.4,0.35,0.4,0.5"
         density: 190
         mask:
         - None
@@ -86,6 +87,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: PlacementReplacement
+    key: lights
+# ES START
+  - type: ESSparkOnHit
+# ES END
   placement:
     mode: SnapgridCenter
     snap:
@@ -277,13 +283,14 @@
         fix1:
           shape:
             !type:PhysShapeAabb
-            bounds: "-0.1,0.5,0.1,0.255"
+            bounds: "-0.1,0.255,0.1,0.5"
           density: 190
           mask:
           - None
           layer:
           - TabletopMachineLayer
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
     - type: Destructible
       thresholds:
@@ -456,6 +463,11 @@
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Battery
+    # Very important:
+    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+    # This can not be done by changing the charge rate as the power supply ramps up over time.
+    # This disables prediction for this battery.
+    netsync: false
     maxCharge: 30000
     startingCharge: 0
   - type: EmergencyLight

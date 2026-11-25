@@ -43,7 +43,7 @@
   - You can conjure a cloud of [color=#77b58e]ammonia[/color] using [color=purple][italic]Rat King's Domain[/italic][/color]. This purple gas is mildly poisonous to humans but heals rats.
   - [color=#9daa98][italic]Rummage[/italic][/color] through a disposal unit by using the context menu. Use this to find [bold]scraps of food[/bold] to grow your army.
   - Besides your abilities, [bold]you are stronger than most other animals.[/bold] You and your servants are capable of speech and you're both small enough to fit under airlocks and tables.
-  - [bold]Your underlings are still very fragile![/bold] Beware of spacings, explosions and the buisness end of a melee weapon.
+  - [bold]Your underlings are still very fragile![/bold] Beware of spacings, explosions and the business end of a melee weapon.
 
   # Space Dragon
 
@@ -61,7 +61,7 @@
   - Your [color=orange][italic]Dragon's Breath[/italic][/color] is a [bold]flaming projectile[/bold] which travels a straight flight path, exploding multiple times and igniting things along the way. Try not to hit your carps with this!
   - You have the ability to [color=#4b7fcc][italic]Summon a Carp Rift[/italic][/color]. Rifts periodically spawn [bold]space carp[/bold] and charge up energy over a period of 5 minutes, [bold]which is when it's vulnerable.[/bold] After 5 minutes, it becomes invulnerable and will continue summoning carp as long as the dragon lives.
   - You'll suffer a [bold]temporary debilitating feedback effect[/bold] if one of your rifts are destroyed before it's done charging.
-  - If a period of <!-- DeltaV - five to ten -->ten minutes passes since your spawn or since the last time a rift was charging, [bold]you'll <!-- DeltaV - dissappear to die -->die.[/bold]
+  <!-- DeltaV - changed five to ten minutes, and changed dissapear to die -->- If a period of ten minutes passes since your spawn or since the last time a rift was charging, [bold]you'll die.[/bold]
   - Dragons who have the maximum of 3 fully charged rifts will [bold]never disappear[/bold], but they are still mortal.
 
   # Slimes and Spiders
@@ -86,4 +86,34 @@
   - You can additionally [color=yellow]control[/color] your host for up to 40 seconds, during which time you can [color=yellow]lay an egg[/color] if you have at least 200 chemicals stored. Said egg can hatch into a new borer once it's ready...
   - A borer's abilities will temporarily stop working if the host ingests sugar. The borer can be removed from a host via surgery.
  <!-- DeltaV - end cortical borer changes-->
+ <!-- DeltaV - start Skia changes--># Skia
+
+  <Box>
+    <GuideEntityEmbed Entity="MobSkia"/>
+  </Box>
+  Skias are a Shade of the [color=#8f63e6]Noosphere[/color]. They use darkness and shadows to [color=red][italic]prey[/italic][/color] upon unsuspecting crewmembers of the station.
+  - As a Skia, [bold]you will take damage when exposed to light[/bold]. You can use your abilities to help work around this vulnerability.
+  - "Night vision" will allow you to see in dark areas. To check if you are near light or not there is an indicator that turns yellow when you are in range of light.
+  - "Shatter Lights" Emits a blood-curdling scream that shatters all lights in the area. 
+  - "Technokinetic Pulse" Unleashes a burst of Technokinetic energy, disabling and destroying nearby electronics.
+  - Skias have [bold]very sharp claws[/bold] that will additionally deal [bold]shadow damage[/bold] that requires Holy water to heal.
+<!-- DeltaV - end Skia changes-->
+
+<!-- DeltaV - start Gnome changes--># Gnomes
+
+  <Box>
+    <GuideEntityEmbed Entity="MobGnome"/>
+  </Box>
+  Gnomes are whimsical fairytale creatures brought into realspace by the magic of the [color=#8f63e6]Noosphere[/color].
+  They seek to coexist with the crew, while collecting small trinkets and treats.
+  - You're just a little guy! You can't shoot guns, use both hands to carry anything, and will die very quickly in a fight.
+  - [bold]Once you die, you cannot be revived[/bold].
+  - If you are injured, you may slowly regenerate with [italic]Psionic Regeneration[/italic].
+  - You may sneak around invisibly with [italic]Psionic Invisibility[/italic], but beware, crewmembers can hear your footsteps. People can see you if they are psionically insulated!
+  - Your internal storage allows you to keep your treasures, but you should find a nice place to make a home and store your trinkets.
+  - You have nimble hands which are capable of stealing quickly and performing pranks.
+  - You are able to [italic]Jaunt[/italic] into the ether for a brief moment to reposition.
+  - You can slowly cast a knock spell by interacting with doors (alt click by default) to open them.
+  - [bold]Obey fairy law![/bold] Conflicts are not solved with violence but with pranks and lessons. You should avoid being seen as much as possible. Any loser owes a debt that can be be repaid by fulfilling a request.
+  <!-- DeltaV - end Gnome changes-->
 </Document>

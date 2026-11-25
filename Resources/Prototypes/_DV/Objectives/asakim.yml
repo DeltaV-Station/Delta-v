@@ -30,7 +30,16 @@
   - type: TargetObjective
     title: objective-condition-asakim-terminate-title
   - type: PickRandomPerson
-    onlyChoosableJobs: true
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: RerollAfterCompletion
     rerollObjectivePrototype: AsakimKillObjective
     rerollObjectiveMessage: objective-condition-asakim-terminate-reroll-message
@@ -56,14 +65,6 @@
   id: AsakimInterrogateObjective
   name: ">INTERROGATE"
   description: WARNING - Time-gap of [ERROR] years detected. Records may be outdated. Consult local population.
-  components:
-  - type: Objective
-
-- type: entity
-  parent: [BaseAsakimObjective, BaseSurviveObjective]
-  id: AsakimUpgradeObjective
-  name: ">UPGRADE"
-  description: Preliminary sector scans detect possible high-value cybernetics. Upgrade your body.
   components:
   - type: Objective
 

@@ -35,4 +35,9 @@ public sealed partial record MedicalRecord
     /// The name of the doctor who has claimed care of this patient
     /// </summary>
     public string? ClaimedName;
+
+    /// <summary>
+    /// The time when this record was last updated (for expiration tracking)
+    /// </summary>
+    public TimeSpan? LastUpdated;
 }

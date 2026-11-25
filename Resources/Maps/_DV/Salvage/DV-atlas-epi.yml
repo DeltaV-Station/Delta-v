@@ -3700,15 +3700,13 @@ entities:
     - type: Transform
       pos: 6.5,-14.5
       parent: 550
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 552
     components:
     - type: Transform
       pos: 9.5,-2.5
       parent: 550
-    - type: WarpPoint
-      location: Space Debris
 - proto: WatcherAISpawner
   entities:
   - uid: 111

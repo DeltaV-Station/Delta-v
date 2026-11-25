@@ -22,11 +22,10 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 300
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFrag
     fireCost: 300
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2
 
 - type: entity
@@ -56,11 +55,10 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFlash
     fireCost: 200
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 6
   - type: GunWieldBonus
     wieldBonusExamineMessage: null
@@ -99,11 +97,10 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeCleanade
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 10
   - type: GunWieldBonus
     wieldBonusExamineMessage: null
@@ -131,11 +128,10 @@
   - type: Battery
     maxCharge: 750
     startingCharge: 750
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CannonBall
     fireCost: 750
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: AmmoCounter
   - type: BatteryWeaponFireModes
@@ -146,3 +142,45 @@
       fireCost: 375
     - proto: CannonBallGrapeshot
       fireCost: 250
+
+- type: entity
+  parent: [ BaseWeaponLauncher, WeaponFlareGun, BaseSyndicateContraband ]
+  id: WeaponLauncherPacifier
+  name: Pacifier
+  description: A purpose built break-action grenade launcher made for firing acid spreading cluster grenades. "One taste and you'll never go back, even if you wanted to!"
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Launchers/pacifier_acid_launcher.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Launchers/pacifier_acid_launcher.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,2
+    sprite: _DV/Objects/Weapons/Guns/Launchers/pacifier_acid_launcher.rsi
+  - type: GunRequiresWield
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: 40mmacid
+        priority: 1
+        whitelist:
+          tags:
+            - Acid40mm
+  - type: ContainerContainer
+    containers:
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+    boltClosed: false
+    canRack: false
+    soundBoltClosed: /Audio/Weapons/Guns/Bolt/rifle_bolt_closed.ogg
+    soundBoltOpened: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+    soundRack: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg

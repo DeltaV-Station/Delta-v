@@ -5,12 +5,15 @@
   components:
   - type: RandomDecalSpawner
     radius: 0.3
-    zIndex: 1
+    zIndex: 5
     deleteSpawnerAfterSpawn: true
     tileWhitelist:
     - FloorAstroGrass
     - FloorMowedAstroGrass
     - FloorJungleAstroGrass
+    - FloorDarkAstroGrass
+    - FloorLightAstroGrass
+    - FloorDesertAstroSand
     - FloorAstroIce
     - FloorAstroSnow
     - FloorAstroAsteroidSand
@@ -26,6 +29,13 @@
     - FloorGrassDark
     - FloorGrassJungle
     - FloorGrass
+    # Delta V - Begin Additions
+    - FloorMowedAstroSnow
+    - FloorAstroSnowDug
+    - FloorGrassDarkIndoors
+    - FloorGrassLightIndoors
+    - FloorMowedAstroSnowDug
+    # Delta V - End Additions
 
 - type: entity
   parent: DecalSpawnerFloraBase

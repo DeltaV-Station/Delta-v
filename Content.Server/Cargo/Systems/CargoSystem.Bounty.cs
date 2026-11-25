@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Access.Systems; // DeltaV
 using Content.Server.Cargo.Components;
 using Content.Server.NameIdentifier;
 using Content.Shared.Access.Components;
@@ -20,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._DV.Cargo.Components; // DeltaV: Bounty claim messages
 
 namespace Content.Server.Cargo.Systems;
 
@@ -28,9 +30,9 @@ public sealed partial class CargoSystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
+    [Dependency] private readonly IdCardSystem _idCard = default!; // DeltaV
 
-    [ValidatePrototypeId<NameIdentifierGroupPrototype>]
-    private const string BountyNameIdentifierGroup = "Bounty";
+    private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Bounty";
 
     private EntityQuery<StackComponent> _stackQuery;
     private EntityQuery<ContainerManagerComponent> _containerQuery;
@@ -41,6 +43,8 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<CargoBountyConsoleComponent, BoundUIOpenedEvent>(OnBountyConsoleOpened);
         SubscribeLocalEvent<CargoBountyConsoleComponent, BountyPrintLabelMessage>(OnPrintLabelMessage);
         SubscribeLocalEvent<CargoBountyConsoleComponent, BountySkipMessage>(OnSkipBountyMessage);
+        SubscribeLocalEvent<CargoBountyConsoleComponent, BountyClaimedMessage>(OnBountyClaimedMessage); // DeltaV
+        SubscribeLocalEvent<CargoBountyConsoleComponent, BountySetStatusMessage>(OnSetBountyStatusMessage); // DeltaV
         SubscribeLocalEvent<CargoBountyLabelComponent, PriceCalculationEvent>(OnGetBountyPrice);
         SubscribeLocalEvent<EntitySoldEvent>(OnSold);
         SubscribeLocalEvent<StationCargoBountyDatabaseComponent, MapInitEvent>(OnMapInit);
@@ -112,17 +116,83 @@ public sealed partial class CargoSystem
         _audio.PlayPvs(component.SkipSound, uid);
     }
 
+    // Begin DeltaV bounty claim system
+    private void OnSetBountyStatusMessage(Entity<CargoBountyConsoleComponent> ent, ref BountySetStatusMessage args)
+    {
+        if (_station.GetOwningStation(ent.Owner) is not { } station || !TryComp<StationCargoBountyDatabaseComponent>(station, out var bountyDbComp))
+            return;
+
+        for (var i = 0; i < bountyDbComp.Bounties.Count; i++)
+        {
+            var bounty = bountyDbComp.Bounties[i];
+
+            if (bounty.Id != args.BountyId)
+                continue;
+
+            var newData = new CargoBountyData
+            {
+                Id = bounty.Id,
+                Bounty = bounty.Bounty,
+                ClaimedBy = bounty.ClaimedBy,
+                Status = (CargoBountyStatus)args.Status,
+            };
+
+            bountyDbComp.Bounties[i] = newData;
+        }
+
+        var untilNextSkip = bountyDbComp.NextSkipTime - Timing.CurTime;
+        _uiSystem.SetUiState(ent.Owner, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(bountyDbComp.Bounties, bountyDbComp.History, untilNextSkip));
+    }
+
+    private void OnBountyClaimedMessage(Entity<CargoBountyConsoleComponent> ent, ref BountyClaimedMessage args)
+    {
+        if (_station.GetOwningStation(ent.Owner) is not { } station || !TryComp<StationCargoBountyDatabaseComponent>(station, out var bountyDbComp))
+            return;
+
+        for (var i = 0; i < bountyDbComp.Bounties.Count; i++)
+        {
+            var bounty = bountyDbComp.Bounties[i];
+
+            if (bounty.Id != args.BountyId)
+                continue;
+
+            string name;
+            if (_idCard.TryFindIdCard(args.Actor, out var idCard) && idCard.Comp.FullName != null)
+            {
+                name = idCard.Comp.FullName;
+            }
+            else
+            {
+                name = Loc.GetString("bounty-console-claimed-by-unknown");
+            }
+
+            var newData = new CargoBountyData
+            {
+                Id = bounty.Id,
+                Bounty = bounty.Bounty,
+                ClaimedBy = name.Equals(bounty.ClaimedBy) ? string.Empty : name,
+                Status = bounty.Status,
+            };
+
+            bountyDbComp.Bounties[i] = newData;
+        }
+
+        var untilNextSkip = bountyDbComp.NextSkipTime - Timing.CurTime;
+        _uiSystem.SetUiState(ent.Owner, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(bountyDbComp.Bounties, bountyDbComp.History, untilNextSkip));
+    }
+    // End DeltaV bounty claim system
+
     public void SetupBountyLabel(EntityUid uid, EntityUid stationId, CargoBountyData bounty, PaperComponent? paper = null, CargoBountyLabelComponent? label = null)
     {
-        if (!Resolve(uid, ref paper, ref label) || !_protoMan.TryIndex<CargoBountyPrototype>(bounty.Bounty, out var prototype))
+        if (!Resolve(uid, ref paper, ref label) || !_protoMan.Resolve<CargoBountyPrototype>(bounty.Bounty, out var prototype))
             return;
 
         label.Id = bounty.Id;
         label.AssociatedStationId = stationId;
         var msg = new FormattedMessage();
-        msg.AddText(Loc.GetString("bounty-manifest-header", ("id", bounty.Id)));
+        msg.AddMarkupOrThrow(Loc.GetString("bounty-manifest-header", ("id", bounty.Id)));
         msg.PushNewline();
-        msg.AddText(Loc.GetString("bounty-manifest-list-start"));
+        msg.AddMarkupOrThrow(Loc.GetString("bounty-manifest-list-start"));
         msg.PushNewline();
         foreach (var entry in prototype.Entries)
         {
@@ -157,7 +227,7 @@ public sealed partial class CargoSystem
         if (!TryGetBountyFromId(station, component.Id, out var bounty, database))
             return;
 
-        if (!_protoMan.TryIndex(bounty.Value.Bounty, out var bountyPrototype) ||
+        if (!_protoMan.Resolve(bounty.Value.Bounty, out var bountyPrototype) ||
             !IsBountyComplete(container.Owner, bountyPrototype))
             return;
 
@@ -276,7 +346,7 @@ public sealed partial class CargoSystem
 
     public bool IsBountyComplete(EntityUid container, CargoBountyData data, out HashSet<EntityUid> bountyEntities)
     {
-        if (!_protoMan.TryIndex(data.Bounty, out var proto))
+        if (!_protoMan.Resolve(data.Bounty, out var proto))
         {
             bountyEntities = new();
             return false;

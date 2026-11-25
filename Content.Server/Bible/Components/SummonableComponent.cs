@@ -31,6 +31,15 @@ namespace Content.Server.Bible.Components
         [DataField("requiresBibleUser")]
         public bool RequiresBibleUser = true;
 
+        // DeltaV - Begin Anomalite Limited Respawns
+        [DataField]
+        public int? Lives = null;
+        [ViewVariables(VVAccess.ReadWrite)]
+        public int Deaths = 0;
+
+        public bool CanSummon => !AlreadySummoned && (Lives is null || Deaths < Lives) && SpecialItemPrototype != null;
+        // DeltaV - End Anomalite Limited Respawns
+
         /// <summary>
         /// The specific creature this summoned, if the SpecialItemPrototype has a mobstate.
         /// </summary>

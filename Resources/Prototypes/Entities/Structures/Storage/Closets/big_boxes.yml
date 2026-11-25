@@ -34,6 +34,7 @@
       containers:
         entity_storage: !type:Container
     - type: Damageable
+    - type: Injurable
       damageContainer: Box
     - type: Sprite
       noRot: true
@@ -55,6 +56,7 @@
       node: basebigbox
       containers:
         - entity_storage
+    - type: GravityAffected
 
 - type: entity
   id: StealthBox

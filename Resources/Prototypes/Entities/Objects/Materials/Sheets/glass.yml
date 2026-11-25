@@ -15,11 +15,13 @@
   - type: Tag
     tags:
     - Sheet
-    - BorgMaterial # DeltaV
+    - TiderAnvilParts #SL
+    - ConstructionMaterial
   - type: Material
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Appearance
   - type: Destructible
     thresholds:
@@ -49,13 +51,6 @@
     solutions:
       glass:
         canReact: false
-  # EE - IPC Healing
-  - type: BlindHealing
-    damageContainers:
-      - Silicon
-      - HumanoidSilicon # DeltaV - IPCs need to see
-  - type: StackPrice
-    price: 2
 
 - type: entity
   parent: SheetGlassBase
@@ -115,15 +110,6 @@
   - type: Stack
     stackType: Glass
     count: 1
-
-- type: entity
-  parent: SheetGlass
-  id: SheetGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -204,15 +190,6 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
-
-- type: entity
-  parent: SheetRGlass
-  id: SheetRGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -343,15 +320,6 @@
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
-
-- type: entity
-  parent: SheetRPGlass
-  id: SheetRPGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -534,7 +502,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: brassglass
+    grindableSolutionName: cglass
   - type: SolutionContainerManager
     solutions:
       cglass:

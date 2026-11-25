@@ -3,8 +3,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Speech;
-using Content.Server.Speech.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
@@ -13,6 +11,7 @@ using Content.Shared.Power;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Content.Shared.Telephone;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -22,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using System.Linq;
+using Content.Shared._DV.Pager; // DeltaV - pagers
 
 namespace Content.Server.Telephone;
 
@@ -37,6 +37,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
+    [Dependency] private readonly PageSenderSystem _pageSender = default!; // DeltaV - pagers
 
     // Has set used to prevent telephone feedback loops
     private HashSet<(EntityUid, string, Entity<TelephoneComponent>)> _recentChatMessages = new();
@@ -124,7 +125,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
     {
         base.Update(frameTime);
 
-        var query = EntityManager.EntityQueryEnumerator<TelephoneComponent>();
+        var query = EntityQueryEnumerator<TelephoneComponent>();
         while (query.MoveNext(out var uid, out var telephone))
         {
             var entity = new Entity<TelephoneComponent>(uid, telephone);
@@ -243,6 +244,12 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         // Otherwise start ringing the receiver
         SetTelephoneState(source, TelephoneState.Calling);
         SetTelephoneState(receiver, TelephoneState.Ringing);
+        // Begin DeltaV - pagers
+        _pageSender.Notify(receiver.Owner,
+            Loc.GetString("pager-message-call",
+                ("name", callerInfo.Item1 ?? Loc.GetString("pager-message-unknown-caller")),
+                ("job", callerInfo.Item2 ?? Loc.GetString("pager-message-unknown-job"))));
+        // End DeltaV - pagers
 
         return true;
     }
@@ -341,7 +348,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
-        if (ev.SpeechVerb != null && _prototype.TryIndex(ev.SpeechVerb, out var evntProto))
+        if (ev.SpeechVerb != null && _prototype.Resolve(ev.SpeechVerb, out var evntProto))
             speech = evntProto;
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
@@ -490,6 +497,6 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
     public bool IsTelephonePowered(Entity<TelephoneComponent> entity)
     {
-        return this.IsPowered(entity, EntityManager) || !entity.Comp.RequiresPower;
+        return this.IsPowered(entity, EntityManager);
     }
 }

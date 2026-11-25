@@ -19,7 +19,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: NTES Titan
     - type: Transform
       pos: -0.515625,-0.484375
       parent: invalid
@@ -75,7 +75,7 @@ entities:
     - type: DeviceNetwork
       configurators: [ ]
       deviceLists: [ ]
-      transmitFrequencyId: ShuttleTimer
+      transmitFrequencyId: NTNet
       deviceNetId: Wireless
     - type: GridPathfinding
     - type: DecalGrid

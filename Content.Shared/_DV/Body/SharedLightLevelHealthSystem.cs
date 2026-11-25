@@ -1,6 +1,8 @@
 using Content.Shared._DV.Body;
 using Content.Shared._DV.Light;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
@@ -38,7 +40,7 @@ public abstract class SharedLightLevelHealthSystem : EntitySystem
         {
             _audio.PlayPvs(target.Comp.SizzleSoundPath, target);
         }
-        _damageable.TryChangeDamage(target, damage, true, false);
+        _damageable.TryChangeDamage(target.Owner, damage, true, false);
     }
 
     private void OnGetMoveSpeedModifiers(Entity<LightLevelHealthComponent> ent, ref RefreshMovementSpeedModifiersEvent args)

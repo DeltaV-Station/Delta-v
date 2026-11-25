@@ -62,6 +62,7 @@ public sealed class CosmicRiftSystem : EntitySystem
 
             var pos = Transform(uid).Coordinates;
             Spawn(comp.PulseVFX, pos);
+            _mobs.Clear();
             _lookup.GetEntitiesInRange<MobStateComponent>(pos, comp.PulseRange, _mobs);
             _mobs.RemoveWhere(target => _chaplainsQuery.HasComp(target) || _cultistsQuery.HasComp(target) || _colossiQuery.HasComp(target));
             foreach(var mob in _mobs)
@@ -74,8 +75,7 @@ public sealed class CosmicRiftSystem : EntitySystem
                 if (TryComp<CosmicEntropyDebuffComponent>(mob, out var debuff)) debuff.Degen =
                 new(){DamageDict = new(){
                     {"Cold", 0.05 * damageMultiplier},
-                    {"Asphyxiation", 0.15 * damageMultiplier},
-                    {"Ion", 0.15 * damageMultiplier}
+                    {"Asphyxiation", 0.15 * damageMultiplier}
                 }};
             }
         }

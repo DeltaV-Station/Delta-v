@@ -41,7 +41,7 @@
         startingItem: null
         whitelist:
           components:
-          - Food
+          - Edible
         blacklist:
           components:
           - Storage
@@ -82,7 +82,7 @@
       icon-food:
         whitelist:
           components:
-          - Food
+          - Edible
       icon-cash:
         whitelist:
           components:
@@ -99,6 +99,7 @@
     sprite: _NF/Objects/Misc/mail_capsule.rsi
   - type: Dumpable
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -132,9 +133,10 @@
   - type: Storage
     grid:
     - 0,0,4,3
-  - type: StorageFill
-    contents:
-      - id: MailCapsulePrimed
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MailCapsulePrimed
         amount: 10
   - type: Sprite
     layers:

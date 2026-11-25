@@ -1,0 +1,97 @@
+- type: microwaveMealRecipe
+  id: RecipeFries
+  name: space fries recipe
+  result: FoodMealFries
+  secretRecipe: true
+  time: 15
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodPotato: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeFries
+  baseRecipe: RecipeFries
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeCheesyFries
+  name: cheesy fries recipe
+  result: FoodMealFriesCheesy
+  secretRecipe: true
+  time: 10
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodPotato: 1
+    FoodCheeseSlice: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeCheesyFries
+  baseRecipe: RecipeCheesyFries
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeCarrotFries
+  name: carrot fries recipe
+  result: FoodMealFriesCarrot
+  secretRecipe: true
+  time: 15
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodCarrot: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeCarrotFries
+  baseRecipe: RecipeCarrotFries
+  burnTime: 10
+
+
+- type: microwaveMealRecipe
+  id: RecipeFriedChicken
+  name: fried chicken recipe
+  result: FoodMeatChickenFried
+  secretRecipe: true
+  time: 30
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodMeatChicken: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeFriedChicken
+  baseRecipe: RecipeFriedChicken
+  burnTime: 45
+
+- type: microwaveMealRecipe
+  id: RecipeOnionRings
+  name: onion rings recipe
+  result: FoodOnionRings
+  secretRecipe: true
+  time: 5
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodOnionSlice: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeOnionRings
+  baseRecipe: RecipeOnionRings
+  burnTime: 10
+
+- type: microwaveMealRecipe
+  id: RecipeTacoShell
+  name: taco shell recipe
+  result: FoodTacoShell
+  secretRecipe: true
+  time: 5
+  group: DeepFried
+  deepFried: true
+  solids:
+    FoodDoughTortillaFlat: 1
+
+- type: deepFryerRecipe
+  id: DeepFryerRecipeTacoShell
+  baseRecipe: RecipeTacoShell
+  burnTime: 10

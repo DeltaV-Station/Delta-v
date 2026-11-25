@@ -24,11 +24,13 @@
   id: MedicalDeltaV
   recipes:
   - HandheldCrewMonitor # RE
+  - HoverBedHoloSpawnFolded
 
 - type: latheRecipePack
   id: MedicalBoardsDeltaV
   recipes:
   - CrewMonitoringComputerCircuitboard
+  - CrewMonitoringServerMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
   - CloningPodMachineCircuitboard

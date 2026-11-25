@@ -212,10 +212,16 @@ public sealed class NewsSystem : SharedNewsSystem
         }
 
         if (_webhookSendDuringRound)
-            Task.Run(async () => await SendArticleToDiscordWebhook(article));
+            AddNewsSendWebhook(article);
 
         UpdateWriterDevices();
     }
+
+    private async void AddNewsSendWebhook(NewsArticle article)
+    {
+        await Task.Run(async () => await SendArticleToDiscordWebhook(article));
+    }
+
     #endregion
 
     #region Reader Event Handlers
@@ -369,7 +375,7 @@ public sealed class NewsSystem : SharedNewsSystem
         if (_webhookSendDuringRound)
             return;
 
-        var query = EntityManager.EntityQueryEnumerator<StationNewsComponent>();
+        var query = EntityQueryEnumerator<StationNewsComponent>();
 
         while (query.MoveNext(out _, out var comp))
         {

@@ -31,6 +31,7 @@
   parent: [ RadioHandheld, BaseSecurityContraband ]
   id: RadioHandheldSecurity
   components:
+  - type: Appearance # DeltaV - radio screen appearance control
   - type: RadioMicrophone
     broadcastChannel: Security
     listenRange: 1
@@ -39,6 +40,17 @@
     - Security
   - type: Sprite
     sprite: _DV/Objects/Devices/securityhandy.rsi # DeltaV - resprite security radio
+    layers:
+    - state: walkietalkie-off # DeltaV - show off screen when radio disabled
+    - state: walkietalkie-on # DeltaV - animated screen when radio enabled
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      visible: false # DeltaV - start with screen off
   - type: Item
     sprite: _DV/Objects/Devices/securityhandy.rsi # DeltaV - resprite security radio
     heldPrefix: walkietalkie
+  - type: GenericVisualizer # DeltaV - toggle radio screen overlay
+    visuals:
+      enum.RadioDeviceVisuals.Speaker:
+        enum.RadioDeviceVisualLayers.Speaker:
+          True: { visible: true }
+          False: { visible: false }

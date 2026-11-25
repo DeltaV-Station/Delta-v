@@ -7,6 +7,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: EmitSoundOnLand # DeltaV
+    sound:
+      path: /Audio/_DV/Effects/metalpipe.ogg
   - type: Visibility
     layer: 1
   - type: Item
@@ -14,8 +17,9 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: SubFloorHide
   - type: CollideOnAnchor
   - type: Anchorable
@@ -77,6 +81,8 @@
         Primary: Structures/Piping/Atmospherics/pipe.rsi
         Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
         Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
+  - type: CrawlableNode # DeltaV
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]
 
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
@@ -114,6 +120,10 @@
     guides:
     - Pipes
     - PipeNetworks
+  - type: Tag
+    tags:
+    - Pipe
+    - GasPipeHalf
 
 - type: entity
   parent: GasPipeBase
@@ -148,6 +158,7 @@
     - 0,0,0,2
   - type: MeleeWeapon
     attackRate: 1
+    wideAnimationRotation: 1 # DeltaV
     damage:
       types:
         Blunt: 8
@@ -366,31 +377,37 @@
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 0
+        volume: 50
       south1:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 1
+        volume: 50
       south2:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 2
+        volume: 50
       north0:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 0
+        volume: 50
       north1:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 1
+        volume: 50
       north2:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 2
+        volume: 50
   - type: GasPipeManifold
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasPipeManifold
@@ -399,3 +416,5 @@
   - type: Tag
     tags:
     - Unstackable
+  - type: CrawlableNode # DeltaV
+    reachableNodeTypes: [ Content.Server.NodeContainer.Nodes.PipeNode ]

@@ -117,7 +117,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
     private bool CheckBlacklist(Entity<RecruiterPenComponent> ent, EntityUid user, string action)
     {
         var (uid, comp) = ent;
-        if (_whitelist.IsBlacklistPass(comp.Blacklist, user) || _faction.IsMemberOfAny(user, ent.Comp.FactionBlacklist))
+        if (_whitelist.IsWhitelistPass(comp.Blacklist, user) || _faction.IsMemberOfAny(user, ent.Comp.FactionBlacklist))
         {
             Popup.PopupPredicted(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
             return true;

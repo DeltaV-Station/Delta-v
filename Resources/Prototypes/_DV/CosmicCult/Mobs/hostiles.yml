@@ -18,6 +18,7 @@
         true
   - type: NpcFactionMember
     factions:
+    - CosmicCult
     - SimpleHostile
   - type: Tag
     tags:
@@ -31,8 +32,9 @@
       0: Alive
       50: Dead
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -50,10 +52,12 @@
             sound:
               path: /Audio/_DV/CosmicCult/ability_lapse.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
     maxBleedAmount: 10.75
     bleedReductionAmount: 0.1
-    bloodReagent: Entropy
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Entropy
+        Quantity: 100
     bloodlossDamage:
       types:
         Bloodloss:
@@ -69,7 +73,7 @@
     damage:
       types:
         Asphyxiation: 5
-        Cold: 5
+        Blunt: 5
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
       params:

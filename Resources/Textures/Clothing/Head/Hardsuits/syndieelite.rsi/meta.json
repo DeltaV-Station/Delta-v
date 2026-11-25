@@ -1,13 +1,12 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from vg at commit https://github.com/vgstation-coders/vgstation13/commit/a16e41020a93479e9a7e2af343b1b74f7f2a61bd. Vox states by Flareguy for Space Station 14 | Feroxi sprites edited by juniwoofs (Delta-V)",
-
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
+  "copyright": "Taken from vg at commit https://github.com/vgstation-coders/vgstation13/commit/a16e41020a93479e9a7e2af343b1b74f7f2a61bd. Vox states by Flareguy for Space Station 14 | Feroxi sprites edited by juniwoofs (Delta-V), Dog states modified from base states by casiliuscestus for Space Station 14. Reptilian states by TiniestShark (Github).",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
     {
       "name": "icon"
     },
@@ -45,6 +44,22 @@
     {
       "name": "on-equipped-HELMET-feroxi",
       "directions": 4
+    },
+    {
+        "name": "off-equipped-HELMET-reptilian",
+        "directions": 4
+    },
+    {
+        "name": "on-equipped-HELMET-reptilian",
+        "directions": 4
+    },
+    {
+        "name": "off-equipped-HELMET-dog",
+        "directions": 4
+    },
+    {
+        "name": "on-equipped-HELMET-dog",
+        "directions": 4
     }
   ]
 }

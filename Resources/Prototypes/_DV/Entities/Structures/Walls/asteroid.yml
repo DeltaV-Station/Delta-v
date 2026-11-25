@@ -256,3 +256,144 @@
     - state: gibtonite_inactive
       visible: false
       map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+# Un-mineable Variants
+
+- type: entity
+  id: WallRockUnmineable
+  parent: MountainRock
+  name: compacted rock
+  description: It looks too tough to mine.
+  components:
+  - type: Icon
+    sprite: _DV/Structures/Walls/compacted_rocks.rsi
+    state: rock_wall
+  - type: Sprite
+    sprite: _DV/Structures/Walls/compacted_rocks.rsi
+    layers:
+    - state: rock_base
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_west
+  - type: IconSmooth
+    mode: NoSprite
+  - type: SmoothEdge
+
+- type: entity
+  id: WallRockBasaltUnmineable
+  parent: WallRockUnmineable
+  name: compacted basalt
+  components:
+  - type: Icon
+    state: rock_wall
+  - type: Sprite
+    layers:
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west
+
+- type: entity
+  id: WallRockSandUnmineable
+  parent: WallRockUnmineable
+  name: compacted sandstone
+  components:
+  - type: Icon
+    state: rock_sand
+  - type: Sprite
+    layers:
+    - state: rock_sand
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_sand_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_sand_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_sand_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_sand_west
+
+- type: entity
+  id: WallRockChromiteUnmineable
+  parent: WallRockUnmineable
+  name: compacted chromite
+  components:
+  - type: Icon
+    state: rock_chromite
+  - type: Sprite
+    layers:
+    - state: rock_chromite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_chromite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_chromite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_chromite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_chromite_west
+
+- type: entity
+  id: WallRockAndesiteUnmineable
+  parent: WallRockUnmineable
+  name: compacted andesite
+  components:
+  - type: Icon
+    state: rock_andesite
+  - type: Sprite
+    layers:
+    - state: rock_andesite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_andesite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_andesite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_andesite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_andesite_west
+
+- type: entity
+  id: WallRockSnowUnmineable
+  parent: WallRockUnmineable
+  name: compacted snowdrift
+  components:
+  - type: Icon
+    state: rock_snow
+  - type: Sprite
+    layers:
+    - state: rock_snow
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_snow_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_snow_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_snow_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_snow_west
+
+- type: entity
+  id: WallRockAsteroidUnmineable
+  parent: WallRockUnmineable
+  name: compacted asteroid
+  components:
+  - type: Icon
+    state: rock_asteroid
+  - type: Sprite
+    layers:
+    - state: rock_asteroid
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_asteroid_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_asteroid_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_asteroid_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_asteroid_west

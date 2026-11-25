@@ -70,6 +70,12 @@
                                        Access="Public"
                                        Text="{Loc 'comp-pda-ui-ringtone-button'}"
                                        Description="{Loc 'comp-pda-ui-ringtone-button-description'}"/>
+                <!-- Begin DeltaV Additions: Pagers -->
+                <pda:PdaSettingsButton Name="LinkedDevicesButton"
+                                       Access="Public"
+                                       Text="{Loc 'comp-pda-ui-linked-devices-button'}"
+                                       Description="{Loc 'comp-pda-ui-linked-devices-description'}"/>
+                <!-- End DeltaV Additions: Pagers -->
                 <pda:PdaSettingsButton Name="ActivateMusicButton"
                                        Access="Public"
                                        Visible="False"
@@ -92,6 +98,13 @@
                       HorizontalExpand="True"
                       Name="ProgramView"
                       Access="Public">
+            <!-- Begin DeltaV Additions: Pagers -->
+            <BoxContainer Orientation="Vertical"
+                          VerticalExpand="True"
+                          HorizontalExpand="True"
+                          Name="LinkedDeviceList"
+                          Visible="False"/>
+            <!-- End DeltaV Additions: Pagers -->
         </BoxContainer>
     </BoxContainer>
     <BoxContainer Name="ContentFooter" HorizontalExpand="True" SetHeight="28" Margin="1 0 2 1">

@@ -27,6 +27,9 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
+    storedSprite:
+      state: ointment-storage
+      sprite: Objects/Specific/Medical/medical.rsi
   - type: Healing
     damageContainers:
       - Biological
@@ -61,15 +64,6 @@
   - type: Stack
     stackType: Ointment
     count: 1
-
-- type: entity
-  id: Ointment10Lingering
-  parent: Ointment
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   name: regenerative mesh
@@ -121,15 +115,6 @@
     count: 1
 
 - type: entity
-  parent: RegenerativeMesh
-  id: RegenerativeMeshLingering0
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   name: bruise pack
   description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
   parent: BaseHealingItem
@@ -148,8 +133,10 @@
       - Biological
       - BiologicalMetaphysical # DeltaV
     damage:
-      groups:
-        Brute: -15 # 5 for each type in the group
+      types:
+        Blunt: -5
+        Piercing: -5
+        Slash: -5
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -176,15 +163,6 @@
     count: 1
 
 - type: entity
-  id: Brutepack10Lingering
-  parent: Brutepack
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   name: medicated suture
   description: A suture soaked in medicine, treats blunt-force trauma effectively and closes wounds.
   parent: BaseHealingItem
@@ -204,8 +182,10 @@
       - Biological
       - BiologicalMetaphysical # DeltaV
     damage:
-      groups:
-        Brute: -30 # 10 for each type in the group
+      types:
+        Blunt: -10
+        Piercing: -10
+        Slash: -10
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -233,15 +213,6 @@
     count: 1
 
 - type: entity
-  parent: MedicatedSuture
-  id: MedicatedSutureLingering0
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   name: blood pack
   description: Contains a groundbreaking universal blood replacement created by Nanotrasen's advanced medical science.
   parent: BaseHealingItem
@@ -262,7 +233,7 @@
     damage:
       types:
         Bloodloss: -0.5 #lowers bloodloss damage
-    ModifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
+    modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -281,12 +252,12 @@
 
 - type: entity
   parent: Bloodpack
-  id: Bloodpack10Lingering
-  suffix: 10, Lingering
+  id: Bloodpack1
+  suffix: Single
   components:
   - type: Stack
-    lingering: true
-    count: 10
+    stackType: Bloodpack
+    count: 1
 
 - type: entity
   parent: BaseHealingItem
@@ -297,6 +268,7 @@
     - type: Tag
       tags:
         - SecBeltEquip
+        - Tourniquet
     - type: Sprite
       state: tourniquet
     - type: Item
@@ -306,9 +278,8 @@
         - Biological
         - BiologicalMetaphysical # DeltaV
       damage:
-        groups:
-          Brute: 5 # Tourniquets HURT!
         types:
+          Blunt: 5 # Tourniquets HURT
           Asphyxiation: 5 # Essentially Stopping all blood reaching a part of your body
       bloodlossModifier: -10 # Tourniquets stop bleeding
       delay: 0.5
@@ -337,6 +308,7 @@
     state: gauze
   - type: Item
     heldPrefix: gauze
+    storedRotation: -90
   - type: Construction
     graph: Gauze
     node: gauze
@@ -374,15 +346,6 @@
     count: 1
 
 - type: entity
-  id: Gauze10Lingering
-  parent: Gauze
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   name: aloe cream
   description: A topical cream for burns.
   parent: Ointment ##Yes it's a direct reskin
@@ -394,6 +357,12 @@
   - type: Stack
     stackType: AloeCream
     count: 10
+  - type: Item
+    storedRotation: 90
+    storedOffset: 4, 0
+    storedSprite:
+      state: cream
+      sprite: Objects/Specific/Hydroponics/aloe.rsi
 
 - type: entity
   parent: BaseHealingItem
@@ -409,10 +378,14 @@
     damageContainers:
     - Biological
     damage:
-      groups: # these are all split across multiple types
-        Brute: -150
-        Burn: -150
-        Toxin: -150
+      types: # these are all split across multiple types
+        Blunt: -50
+        Piercing: -50
+        Slash: -50
+        Heat: -50
+        Cold: -50
+        Shock: -50
+        Poison: -150
     bloodlossModifier: -20
     delay: 1
     selfHealPenaltyMultiplier: 0
@@ -448,7 +421,6 @@
         - ReagentId: Dexalin
           Quantity: 10
 
-
 - type: entity
   name: pill canister
   parent: PillCanister
@@ -457,10 +429,11 @@
   components:
   - type: Label
     currentLabel: dexalin 10u
-  - type: StorageFill
-    contents:
-    - id: PillDexalin
-      amount: 7
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillDexalin
+        amount: 7
 
 - type: entity
   name: pill
@@ -490,10 +463,11 @@
   components:
   - type: Label
     currentLabel: dylovene 10u
-  - type: StorageFill
-    contents:
-    - id: PillDylovene
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillDylovene
+        amount: 5
 
 - type: entity
   name: pill
@@ -523,10 +497,11 @@
   components:
   - type: Label
     currentLabel: hyronalin 10u
-  - type: StorageFill
-    contents:
-    - id: PillHyronalin
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillHyronalin
+        amount: 5
 
 - type: entity
   name: pill
@@ -556,10 +531,11 @@
   components:
   - type: Label
     currentLabel: potassium iodide 10u
-  - type: StorageFill
-    contents:
-    - id: PillPotassiumIodide
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillPotassiumIodide
+        amount: 5
 
 - type: entity
   name: pill
@@ -609,10 +585,11 @@
   components:
   - type: Label
     currentLabel: iron 10u
-  - type: StorageFill
-    contents:
-    - id: PillIron
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillIron
+        amount: 5
 
 - type: entity
   name: pill canister
@@ -622,10 +599,11 @@
   components:
   - type: Label
     currentLabel: copper 10u
-  - type: StorageFill
-    contents:
-    - id: PillCopper
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillCopper
+        amount: 5
 
 - type: entity
   name: pill
@@ -655,10 +633,11 @@
   components:
   - type: Label
     currentLabel: kelotane 10u
-  - type: StorageFill
-    contents:
-    - id: PillKelotane
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillKelotane
+        amount: 5
 
 - type: entity
   name: pill
@@ -688,10 +667,11 @@
   components:
   - type: Label
     currentLabel: dermaline 10u
-  - type: StorageFill
-    contents:
-    - id: PillDermaline
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillDermaline
+        amount: 5
 
 - type: entity
   name: space mirage
@@ -734,10 +714,11 @@
   components:
   - type: Label
     currentLabel: tricordrazine 10u
-  - type: StorageFill
-    contents:
-    - id: PillTricordrazine
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillTricordrazine
+        amount: 5
 
 - type: entity
   name: pill
@@ -767,10 +748,11 @@
   components:
   - type: Label
     currentLabel: bicaridine 10u
-  - type: StorageFill
-    contents:
-    - id: PillBicaridine
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillBicaridine
+        amount: 5
 
 - type: entity
   name: pill
@@ -800,10 +782,11 @@
   components:
   - type: Label
     currentLabel: charcoal 10u
-  - type: StorageFill
-    contents:
-    - id: PillCharcoal
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillCharcoal
+        amount: 3
 
 - type: entity
   name: romerol pill
@@ -853,68 +836,38 @@
   id: PillCanisterRandom
   suffix: Random
   components:
-  - type: StorageFill
-    contents:
-    - id: PillDexalin
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillDylovene
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillHyronalin
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillPotassiumIodide
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillIron
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillCopper
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillKelotane
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillDermaline
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillTricordrazine
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillBicaridine
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillCharcoal
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillAmbuzol
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillAmbuzolPlus
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillSpaceDrugs
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: StrangePill
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: PillDexalin
+          amount: 1, 6
+        - id: PillDylovene
+          amount: 1, 6
+        - id: PillHyronalin
+          amount: 1, 6
+        - id: PillPotassiumIodide
+          amount: 1, 6
+        - id: PillIron
+          amount: 1, 6
+        - id: PillCopper
+          amount: 1, 6
+        - id: PillKelotane
+          amount: 1, 6
+        - id: PillDermaline
+          amount: 1, 6
+        - id: PillTricordrazine
+          amount: 1, 6
+        - id: PillBicaridine
+          amount: 1, 6
+        - id: PillCharcoal
+          amount: 1, 6
+        - id: PillSpaceDrugs
+          weight: 0.75
+          amount: 1, 6
+        - id: StrangePill
+          weight: 0.75
+          amount: 1, 6
 
 # Syringes
 - type: entity
@@ -1127,3 +1080,37 @@
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
+
+# Entity Tables
+- type: entityTable
+  id: RandomSafePillTable
+  table: !type:GroupSelector
+    children:
+    - id: PillBicaridine
+    - id: PillCharcoal
+    - id: PillCopper
+    - id: PillDermaline
+    - id: PillDexalin
+    - id: PillDylovene
+    - id: PillHyronalin
+    - id: PillIron
+    - id: PillKelotane
+    - id: PillPotassiumIodide
+    - id: PillTricordrazine
+    - id: StrangePill
+
+- type: entityTable
+  id: RandomSafeSyringeTable
+  table: !type:GroupSelector
+    children:
+    - id: SyringeBicaridine
+    - id: SyringeDermaline
+    - id: SyringeEphedrine
+    - id: SyringeEthylredoxrazine
+    - id: SyringeHyronalin
+    - id: SyringeInaprovaline
+    - id: SyringeIpecac
+    - id: SyringePhalanximine
+    - id: SyringeSaline
+    - id: SyringeSigynate
+    - id: SyringeTranexamicAcid

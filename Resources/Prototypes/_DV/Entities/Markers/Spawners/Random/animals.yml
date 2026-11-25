@@ -1,0 +1,53 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomAnimalSpawner
+  name: random animal spawner
+  suffix: No Mice
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Animals/chicken.rsi
+      state: icon-1
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      children:
+      - id: MobChicken
+      - id: MobDuckMallard
+      - id: MobDuckWhite
+      - id: MobDuckBrown
+      - id: MobCow
+      - id: MobGoat
+      - id: MobPig
+      - id: MobMonkey
+      - id: MobParrot
+      - id: MobPenguin
+      - id: MobPossum
+      - id: MobPossumOld
+      - id: MobRaccoon
+      - id: MobFox
+      - id: MobArcticFox
+      - id: MobCat
+      - !type:GroupSelector
+        weight: 0.2
+        children:
+        - id: MobGorilla
+        - id: MobKangaroo
+        - id: MobBoxingKangaroo
+        - id: MobGoose
+        - id: MobSnake
+        - id: MobCorgi
+        - id: MobCorgiPuppy
+        - id: MobCrab
+        - id: MobCatSpace
+        - id: MobCatKitten
+        - id: MobSloth
+        - id: MobFerret
+        - id: MobFerretWhite
+        - id: MobLizard
+        - id: MobSlug
+        - id: MobFrog
+        - id: MobMothroach
+        - id: MobArcticFox
+        - id: MobPitbull

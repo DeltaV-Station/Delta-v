@@ -19,6 +19,9 @@
         Slash: 6
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/hoe.rsi
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -46,17 +49,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
-  # Begin Shitmed Changes
-  - type: Retractor # Same as wirecutters
-    speed: 0.35
-  - type: Hemostat
-    speed: 0.6
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
-  # End Shitmed Changes
 
 - type: entity
   name: scythe
@@ -69,7 +61,7 @@
     sprite: Objects/Tools/Hydroponics/scythe.rsi
     state: icon
   - type: MeleeWeapon
-    wideAnimationRotation: 135
+    wideAnimationRotation: -135 # DeltaV: Changed to negative
     damage:
       types:
         Slash: 10
@@ -108,14 +100,12 @@
         Piercing: 2
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/hatchet.rsi
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
-  - type: BoneSaw # Shitmed
-    speed: 0.35
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 
 - type: entity
   name: spade
@@ -139,6 +129,9 @@
       collection: MetalThud
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
   - type: PhysicalComposition

@@ -26,6 +26,8 @@
     - type: Carriable # DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
+    - type: MovedByPressure # DeltaV - Spacewind Immune
+      enabled: false
     - type: Fixtures
       fixtures:
         fix1:
@@ -41,12 +43,12 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        50: Dead # DeltaV, was 40
+        40: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
     - type: Stamina
-      critThreshold: 100
+      baseCritThreshold: 100
     - type: DamageStateVisuals
       states:
         Alive:
@@ -78,6 +80,7 @@
       tags:
         - Carp
         - DoorBumpOpener
+        - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -87,13 +90,8 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-    - type: Body # Shitmed: Special carp organs
-      prototype: Carp
-    - type: SurgeryTarget # Shitmed
-    - type: UserInterface # Shitmed
-      interfaces:
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
+    - type: NightVision #DeltaV - Added nightvision to animals
+      color: "#808080"
 
 - type: entity
   parent: BaseMobCarp
@@ -155,7 +153,7 @@
   components:
   - type: PointLight
     radius: 1.5
-    energy: 0.5
+    energy: 2
   - type: RgbLightController
     layers: [ 0 ]
 
@@ -199,7 +197,12 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+    - type: TemperatureDamage
+      heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp
@@ -219,7 +222,7 @@
 
 - type: entity
   name: sharkminnow
-  parent: BaseMobCarp
+  parent: [ BaseMobBloodsucker, BaseMobCarp ]
   id: MobShark
   description: A dangerous shark from the blackness of endless space, who loves to drink blood.
   components:
@@ -247,7 +250,7 @@
         0: Alive
         150: Dead
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:
@@ -256,14 +259,6 @@
         Dead:
           Base: dead
           BaseUnshaded: dead_mouth
-    - type: Body
-      prototype: Bloodsucker
-      requiredLegs: 1
-    - type: SurgeryTarget # Shitmed
-    - type: UserInterface # Shitmed
-      interfaces:
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
     - type: Butcherable
       spawned:
         - id: FoodMeatFish

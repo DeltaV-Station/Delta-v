@@ -48,6 +48,7 @@
   description: Disable any nearby technology with an electro-magnetic pulse.
   components:
   - type: Action
+    useDelay: 5 # DeltaV - missing action delay
     icon:
       sprite: Objects/Weapons/Grenades/empgrenade.rsi
       state: icon
@@ -86,6 +87,7 @@
       params:
         volume: 5
     priority: -12
+    useDelay: 5 # DeltaV - small cooldown
   - type: TargetAction
     checkCanAccess: false
     range: 0

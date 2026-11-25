@@ -12,6 +12,11 @@
       map: [ "light" ]
   - type: Clothing
     equippedPrefix: off
+  - type: Armor #Delta V - Personal protective equipment is now protective!
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.95
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -37,8 +42,8 @@
       id: blinking
       interpolate: Nearest
       maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
+      startValue: 0.1
+      endValue: 2.0
       isLooped: true
   - type: ToggleableVisuals
     spriteLayer: light

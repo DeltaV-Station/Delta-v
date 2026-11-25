@@ -1,7 +1,8 @@
 - type: entity
   id: MeteorLargeDeltaV
   name: meteor
-  categories: [ HideSpawnMenu ]
+  description: Big.
+  suffix: DeltaV swarms, no debris
   components:
   - type: Sprite
     noRot: false
@@ -24,6 +25,8 @@
     maxIntensity: 45
   - type: Physics
     bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:
@@ -42,10 +45,10 @@
 # this gets spawned by the meteor swarm rule if the target map has an atmosphere
 # since meteors dont make much sense
 - type: entity
-  categories: [ HideSpawnMenu ]
   id: MeteorGlacierDeltaV
-  name: meteor
+  name: ablating meteor
   description: This meteor is burning up like a in the atmosphere, like a... meteor.
+  suffix: DeltaV Glacier swarms, no explosion
   components:
   - type: Sprite
     noRot: false
@@ -77,6 +80,8 @@
     deleteOnCollide: false
   - type: Physics
     bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:

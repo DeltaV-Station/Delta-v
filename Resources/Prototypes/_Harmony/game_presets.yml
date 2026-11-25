@@ -1,0 +1,17 @@
+- type: gamePreset
+  id: Conspiracy
+  alias:
+  - conspirators
+  - conspirator
+  name: conspiracy-title
+  description: conspiracy-description
+  showInVote: false # secret
+  cooldown: 1 # DeltaV
+  rules:
+  - Conspirators
+  - ThiefChance
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - GlimmerEventScheduler # DeltaV

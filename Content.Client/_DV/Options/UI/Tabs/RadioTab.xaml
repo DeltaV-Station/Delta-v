@@ -1,0 +1,87 @@
+<tabs:RadioTab xmlns="https://spacestation14.io"
+               xmlns:tabs="clr-namespace:Content.Client._DV.Options.UI.Tabs"
+               xmlns:ui="clr-namespace:Content.Client.Options.UI">
+    <BoxContainer Orientation="Vertical">
+       <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+              <BoxContainer Orientation="Vertical" Margin="8">
+              <!-- Common -->
+              <Label Text="{Loc 'ui-options-radio-header-common'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioCommonColorSlider"
+              Example="{Loc 'ui-options-radio-example-common'}"/>
+              <Button Name="ResetCommonColorButton" Text="{Loc 'ui-options-radio-reset-common'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Command -->
+              <Label Text="{Loc 'ui-options-radio-header-command'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioCommandColorSlider"
+              Example="{Loc 'ui-options-radio-example-command'}"/>
+              <Button Name="ResetCommandColorButton" Text="{Loc 'ui-options-radio-reset-command'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Security -->
+              <Label Text="{Loc 'ui-options-radio-header-security'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioSecurityColorSlider"
+              Example="{Loc 'ui-options-radio-example-security'}"/>
+              <Button Name="ResetSecurityColorButton" Text="{Loc 'ui-options-radio-reset-security'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Medical -->
+              <Label Text="{Loc 'ui-options-radio-header-medical'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioMedicalColorSlider"
+              Example="{Loc 'ui-options-radio-example-medical'}"/>
+              <Button Name="ResetMedicalColorButton" Text="{Loc 'ui-options-radio-reset-medical'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Engineering -->
+              <Label Text="{Loc 'ui-options-radio-header-engineering'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioEngineeringColorSlider"
+              Example="{Loc 'ui-options-radio-example-engineering'}"/>
+              <Button Name="ResetEngineeringColorButton" Text="{Loc 'ui-options-radio-reset-engineering'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Science -->
+              <Label Text="{Loc 'ui-options-radio-header-science'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioScienceColorSlider"
+              Example="{Loc 'ui-options-radio-example-science'}"/>
+              <Button Name="ResetScienceColorButton" Text="{Loc 'ui-options-radio-reset-science'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Cargo -->
+              <Label Text="{Loc 'ui-options-radio-header-cargo'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioCargoColorSlider"
+              Example="{Loc 'ui-options-radio-example-cargo'}"/>
+              <Button Name="ResetCargoColorButton" Text="{Loc 'ui-options-radio-reset-cargo'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Service -->
+              <Label Text="{Loc 'ui-options-radio-header-service'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioServiceColorSlider"
+              Example="{Loc 'ui-options-radio-example-service'}"/>
+              <Button Name="ResetServiceColorButton" Text="{Loc 'ui-options-radio-reset-service'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- Binary -->
+              <Label Text="{Loc 'ui-options-radio-header-binary'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioBinaryColorSlider"
+              Example="{Loc 'ui-options-radio-example-binary'}"/>
+              <Button Name="ResetBinaryColorButton" Text="{Loc 'ui-options-radio-reset-binary'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- DeltaV - Justice -->
+              <Label Text="{Loc 'ui-options-radio-header-justice'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioJusticeColorSlider"
+              Example="{Loc 'ui-options-radio-example-justice'}"/>
+              <Button Name="ResetJusticeColorButton" Text="{Loc 'ui-options-radio-reset-justice'}" MaxWidth="300" Margin="0 4 0 0" />
+
+              <!-- DeltaV - Prison -->
+              <Label Text="{Loc 'ui-options-radio-header-prison'}"
+                     StyleClasses="LabelKeyText"/>
+              <ui:OptionColorSlider Name="RadioPrisonColorSlider"
+              Example="{Loc 'ui-options-radio-example-prison'}"/>
+              <Button Name="ResetPrisonColorButton" Text="{Loc 'ui-options-radio-reset-prison'}" MaxWidth="300" Margin="0 4 0 0" />
+              </BoxContainer>
+        </ScrollContainer>
+        <ui:OptionsTabControlRow Name="Control" Access="Public" />
+    </BoxContainer>
+</tabs:RadioTab>

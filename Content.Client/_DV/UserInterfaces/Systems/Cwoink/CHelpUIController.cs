@@ -6,6 +6,7 @@ using Content.Client._DV.Curation.UI.Cwoink;
 using Content.Client.Administration.Managers;
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared._DV.CCVars;
@@ -235,13 +236,13 @@ public sealed class CHelpUIController : UIController, IOnSystemChanged<CwoinkSys
 
     private void UnreadCHelpReceived()
     {
-        GameCHelpButton?.StyleClasses.Add(MenuButton.StyleClassRedTopButton);
+        GameCHelpButton?.StyleClasses.Add(StyleClass.Negative);
         _hasUnreadCHelp = true;
     }
 
     private void UnreadCHelpRead()
     {
-        GameCHelpButton?.StyleClasses.Remove(MenuButton.StyleClassRedTopButton);
+        GameCHelpButton?.StyleClasses.Remove(StyleClass.Negative);
         _hasUnreadCHelp = false;
     }
 

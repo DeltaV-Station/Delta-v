@@ -22,8 +22,9 @@
         layer:
         - FullTileMask
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -52,7 +53,8 @@
     - reagents: [Water]
       methods: [Touch, Ingestion, Injection]
       effects:
-      - !type:AddToSolutionReaction
+      - !type:AddReagentToSolution
+        reagent: Water
         solution: soil
   - type: Appearance
   - type: PlantHolderVisuals

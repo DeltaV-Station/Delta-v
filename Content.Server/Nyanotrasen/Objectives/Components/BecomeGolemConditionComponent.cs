@@ -1,4 +1,4 @@
-using Content.Server.Objectives.Systems;
+using Content.Server.Nyanotrasen.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
 

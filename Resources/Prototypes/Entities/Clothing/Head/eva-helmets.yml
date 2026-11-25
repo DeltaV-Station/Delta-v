@@ -13,6 +13,7 @@
     tags:
     - HelmetEVA
     - WhitelistChameleon
+    - CorgiWearable
 
 #Large EVA Helmet
 - type: entity
@@ -25,6 +26,11 @@
     sprite: Clothing/Head/Helmets/eva_large.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_large.rsi
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon
+    - CorgiWearable
 
 #Syndicate EVA Helmet
 - type: entity
@@ -84,8 +90,13 @@
       head-vox:
       - state: equipped-head-light-vox
       head-vulpkanin: # DeltaV - add modified vulp helmet
-      - state: equipped-head-vulpkanin
-        sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+      - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+        state: equipped-head-light-vulpkanin
+      head-feroxi: # DeltaV - add modified feroxi helmet
+      - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+        state: equipped-head-light-feroxi
+      head-dog:
+      - state: equipped-head-light-dog
   - type: Clothing
     clothingVisuals:
       head:
@@ -93,8 +104,13 @@
       head-vox:
       - state: equipped-head-vox
       head-vulpkanin: # DeltaV - add modified vulp helmet
-      - state: equipped-head-vulpkanin
-        sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+      - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+        state: equipped-head-vulpkanin
+      head-feroxi: # DeltaV - add modified feroxi helmet
+      - sprite: _DV/Clothing/Head/Hardsuits/paramedhelm.rsi
+        state: equipped-head-feroxi
+      head-dog:
+      - state: equipped-head-dog
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
@@ -107,3 +123,8 @@
     radius: 5
     energy: 2
     color: "#00ffff"
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - HelmetEVA
+    - WhitelistChameleon

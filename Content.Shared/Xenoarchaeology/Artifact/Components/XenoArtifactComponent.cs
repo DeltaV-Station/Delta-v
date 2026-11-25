@@ -79,10 +79,43 @@ public sealed partial class XenoArtifactComponent : Component
     public TimeSpan UnlockStateRefractory = TimeSpan.FromSeconds(5);
 
     /// <summary>
+    /// DeltaV - If set, will overwrite the unlocking state time remaining as soon as a node is ready to unlock (triggers are met).
+    ///   (why: letting the timer run out naturally makes artifacts less dangerous, since scientists have lots of time to run away)
+    /// If null, the unlock time will just run its course naturally.
+    /// </summary>
+    [DataField]
+    public TimeSpan? UnlockCompleteDuration = TimeSpan.FromSeconds(0.7);
+    
+    /// <summary>
     /// When next unlock session can be triggered.
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan NextUnlockTime;
+
+    /// <summary>
+    /// DeltaV - The end time of the last-completed XenoArtifactUnlockingComponent phase.
+    /// If null, no unlocking phase has occurred yet, and the other LastUnlocking... fields are also invalid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan? LastUnlockingEndTime = null;
+
+    /// <summary>
+    /// DeltaV - The set of related nodes that were triggered during the last completed XenoArtifactUnlockingComponent phase.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<int> LastUnlockingTriggeredNodeIndexesRelated = new();
+
+    /// <summary>
+    /// DeltaV - The list of nodes that were triggered during the last completed XenoArtifactUnlockingComponent phase.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<int> LastUnlockingTriggeredNodeIndexesOrdered = new();
+
+    /// <summary>
+    /// DeltaV - Whether the last completed unlocking phase resulted in a newly-unlocked node.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool LastUnlockingSuccessful = false;
     #endregion
 
     // NOTE: you should not be accessing any of these values directly. Use the methods in SharedXenoArtifactSystem.Graph
@@ -166,6 +199,18 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId<InstantActionComponent> SelfActivateAction = "ActionArtifactActivate";
+
+    /// <summary>
+    /// DeltaV - Probability for each node that its effect will be hidden in the analysis console until it is unlocked.
+    /// </summary>
+    [DataField]
+    public float LockedEffectHiddenProbability = 0.1f;
+
+    /// <summary>
+    /// DeltaV - Probability for each node that its effect will give a generic hint, rather than a specific one (until it is unlocked).
+    /// </summary>
+    [DataField]
+    public float LockedEffectVagueProbability = 0.67f;
 }
 
 /// <summary>

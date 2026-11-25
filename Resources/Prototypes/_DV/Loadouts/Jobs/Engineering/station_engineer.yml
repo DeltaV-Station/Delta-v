@@ -9,8 +9,18 @@
   equipment:
     id: MechanicPDA
 
+- type: loadout
+  id: NuclearScientistPDA
+  equipment:
+    id: NuclearScientistPDA
+
 # OuterClothing
 - type: loadout
   id: StationEngineerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterEngi
+
+- type: loadout
+  id: BomberEngineering
+  equipment:
+    outerClothing: ClothingOuterCoatBomberEngineering

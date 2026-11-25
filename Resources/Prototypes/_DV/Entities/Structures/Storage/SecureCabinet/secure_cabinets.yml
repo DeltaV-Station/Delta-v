@@ -38,8 +38,9 @@
     containers:
       storagebase: !type:Container
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -71,6 +72,7 @@
   components:
   - type: Lock
   - type: LockVisuals
+  - type: LockedStorage
   - type: AccessReader
   - type: Sprite
     layers:
@@ -188,7 +190,7 @@
 - type: entity
   parent: FilledSecureCabinet
   id: SecureCabinetWarden
-  suffix: Warden
+  suffix: Warden, Security
   components:
   - type: AccessReader
     access: [["Armory"]]
@@ -214,7 +216,7 @@
 #Clerk
 - type: entity
   parent: FilledSecureCabinet
-  id: SecureCabinetClerk
+  id: SecureCabinetClerk # TODO - Remove for Justice Rework
   suffix: Clerk
   components:
   - type: AccessReader
@@ -238,6 +240,33 @@
   - type: AccessReader
     access: [["Lawyer"]]
 
+#Warden (Justice)
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetJusticeWarden
+  suffix: Justice Warden
+  components:
+  - type: AccessReader
+    access: [["JusticeWarden"]]
+
+#Marshal
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetMarshal
+  suffix: Marshal
+  components:
+  - type: AccessReader
+    access: [["Marshal"]]
+
+#Armorer
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetArmorer
+  suffix: Armorer
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
 #Psychologist
 - type: entity
   parent: FilledSecureCabinet
@@ -255,6 +284,15 @@
   components:
   - type: AccessReader
     access: [["Mantis"]]
+
+#Archivist
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetArchivist
+  suffix: Archivist
+  components:
+  - type: AccessReader
+    access: [["Library"]]
 
 #Department Secure Cabinets
 #Command
@@ -328,3 +366,12 @@
   components:
   - type: AccessReader
     access: [["Justice"]]
+
+#CentComm
+- type: entity
+  parent: FilledSecureCabinet
+  id: SecureCabinetCentComm
+  suffix: Dept CentComm
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]

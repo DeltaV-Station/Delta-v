@@ -2,7 +2,7 @@
   name: Vulcan
   parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleVulcan
-  description: One of the heaviest small arms to grace Security's armory, this rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses .30 rifle ammo.
+  description: One of the heaviest small arms to grace Security's armory, this scoped rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses .30 rifle ammo.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Rifles/vulcan.rsi
@@ -16,33 +16,18 @@
     maxAngle: -30
   - type: Gun
     minAngle: 21
-    maxAngle: 54
+    maxAngle: 32
     angleIncrease: 6
     angleDecay: 24
-    fireRate: 5
+    fireRate: 4.0
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - FullAuto
   - type: ChamberMagazineAmmoProvider
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineLightRifle
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineLightRifle
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeLightRifle
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeLightRifle
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2.5
+    pvsIncrease: 0.25
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -60,7 +45,7 @@
   parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleJackdaw
   description: The beginning of the end is heralded by the song of a Jackdaw. Uses .25 caseless ammo.
-  suffix: Deathsquad
+  suffix: ERT # was Deathsquad
   components:
   - type: Item
     size: Large
@@ -71,12 +56,15 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -11
   - type: Gun
-    minAngle: 2
-    maxAngle: 6
+    minAngle: 17
+    maxAngle: 17
     angleIncrease: 2
     angleDecay: 8
-    fireRate: 8
+    fireRate: 6 # was 8
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -88,16 +76,16 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineCaselessRifle
+        startingItem: MagazineCaselessRifleShort # was a normal magazine
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
             - MagazineCaselessRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
@@ -152,9 +140,9 @@
         whitelist:
           tags:
             - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifle
         priority: 1
         whitelist:
           tags:
@@ -185,33 +173,59 @@
 - type: entity
   name: musket
   id: WeaponRifleMusket
-  parent: [Musket, BaseGunWieldable]
-  suffix: "craftable"
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   description: An old flintlock musket. Uses musket cartridges.
   components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+    state: base
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 30
+    maxAngle: 30
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -25
+    maxAngle: -25
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
-  - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
-    state: base
-  - type: Gun #Smoothbore
-    fireRate: .125
-    resetOnHandSelected: false
-    minAngle: 22
-    maxAngle: 43
-  - type: Wieldable
-  - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -40
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 12
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: Sharp
+    butcherDelayModifier: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
   - type: Construction
     graph: WeaponRifleMusketGraph
     node: musket
-  - type: UseDelay
-    delay: 0 #Straight up doesn't work for guns
 
 - type: entity
   parent: WeaponRifleLecter
@@ -230,9 +244,9 @@
         whitelist:
           tags:
           - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifleRubber
         priority: 1
         whitelist:
           tags:
@@ -255,18 +269,16 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbine.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: GunRequiresWield
   - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: 0
+    minAngle: -20
+    maxAngle: -20
   - type: Gun
-    fireRate: 1.5
-    minAngle: 1
-    maxAngle: 4
+    fireRate: 2
+    minAngle: 21
+    maxAngle: 32
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - FullAuto
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
@@ -285,7 +297,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLaser
         priority: 1
         whitelist:
           tags:
@@ -300,8 +311,8 @@
 - type: entity
   parent: WeaponRifleLaser
   id: WeaponRifleLaserERT
-  name: IK-60
-  description: A short, compact carbine like rifle, relying more on battery cartridges rather than a built in power cell. Utilized by the Nanotrasen Navy for combat operations.
+  name: IK-60-M
+  description: A short, compact carbine, utilizing battery cartridges rather than a built in power cell. Utilized by the Nanotrasen Navy for combat operations.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Rifles/lasercarbineert.rsi

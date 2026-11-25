@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.CartridgeLoader;
@@ -18,6 +19,10 @@ using Content.Shared.Light;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
+using Content.Shared.Silicons.Borgs.Components; // DeltaV - silicon PDAs
+using Content.Shared.Silicons.StationAi; // DeltaV - silicon PDAs
+using Content.Shared.Store.Components;
+using Content.Shared.VoiceMask;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration; // DeltaV - PDA date
@@ -63,7 +68,8 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<StationRenamedEvent>(OnStationRenamed);
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
-            SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
+            SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnRelayedEventToIdCard);
+            SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnRelayedEventToIdCard);
 
             // Begin DeltaV additions
             Subs.CVar(_config,
@@ -73,7 +79,7 @@ namespace Content.Server.PDA
             // End DeltaV additions
         }
 
-        private void ChameleonControllerOutfitItemSelected(Entity<PdaComponent> ent, ref InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent> args)
+        private void OnRelayedEventToIdCard<T>(Entity<PdaComponent> ent, ref InventoryRelayedEvent<T> args)
         {
             // Relay it to your ID so it can update as well.
             if (ent.Comp.ContainedId != null)
@@ -168,9 +174,12 @@ namespace Content.Server.PDA
         {
             _ringer.RingerPlayRingtone(ent.Owner);
 
-            if (!_containerSystem.TryGetContainingContainer((ent, null, null), out var container)
-                || !TryComp<ActorComponent>(container.Owner, out var actor))
+            // Begin DeltaV - PDAs can be self-viewed
+            if (!(TryComp<ActorComponent>(ent, out var actor) ||
+                (_containerSystem.TryGetContainingContainer((ent, null, null), out var container)
+                && TryComp<ActorComponent>(container.Owner, out actor))))
                 return;
+            // End DeltaV - PDAs can be self-viewed
 
             var message = FormattedMessage.EscapeText(args.Message);
             var wrappedMessage = Loc.GetString("pda-notification-message",
@@ -199,7 +208,7 @@ namespace Content.Server.PDA
 
             var address = GetDeviceNetAddress(uid);
             var hasInstrument = HasComp<InstrumentComponent>(uid);
-            var showUplink = HasComp<UplinkComponent>(uid) && IsUnlocked(uid);
+            var showUplink = TryGetUnlockedStore(uid, out _);
 
             pda.CurrentDate = pda.DateOverride ?? ServerDate; // DeltaV - PDA date
             UpdateStationName(uid, pda);
@@ -213,6 +222,26 @@ namespace Content.Server.PDA
 
             var programs = _cartridgeLoader.GetAvailablePrograms(uid, loader);
             var id = CompOrNull<IdCardComponent>(pda.ContainedId);
+
+            // Begin DeltaV - PDAs can be silicons
+            var owner = id?.FullName;
+            var job = id?.LocalizedJobTitle;
+            if (HasComp<BorgChassisComponent>(uid))
+            {
+                if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable) && switchable.SelectedBorgType is { } borgType)
+                    job = Loc.GetString($"borg-type-{borgType}-transponder");
+                else
+                    job = Loc.GetString("borg-type-any-transponder");
+
+                owner = MetaData(uid).EntityName;
+            }
+            if (HasComp<StationAiHeldComponent>(uid))
+            {
+                job = Loc.GetString($"station-ai-transponder");
+                owner = MetaData(uid).EntityName;
+            }
+            // End DeltaV - PDAs can be silicons
+
             var state = new PdaUpdateState(
                 programs,
                 GetNetEntity(loader.ActiveProgram),
@@ -222,8 +251,8 @@ namespace Content.Server.PDA
                 new PdaIdInfoText
                 {
                     ActualOwnerName = pda.OwnerName,
-                    IdOwner = id?.FullName,
-                    JobTitle = id?.LocalizedJobTitle,
+                    IdOwner = owner, // DeltaV - silicon PDAs
+                    JobTitle = job, // DeltaV - silicon PDAs
                     CurrentDate = pda.CurrentDate, // DeltaV - PDA date
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor
@@ -286,8 +315,19 @@ namespace Content.Server.PDA
                 return;
 
             // check if its locked again to prevent malicious clients opening locked uplinks
-            if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid))
-                _store.ToggleUi(msg.Actor, uid);
+            if (TryGetUnlockedStore(uid, out var store))
+            {
+                if (store != uid)
+                {
+                    if (TryComp<RemoteStoreComponent>(uid, out var remoteStore))
+                        remoteStore.Store = store;
+                    _store.ToggleUi(msg.Actor, store.Value, remoteAccess: uid);
+                }
+                else
+                {
+                    _store.ToggleUi(msg.Actor, store.Value);
+                }
+            }
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaLockUplinkMessage msg)
@@ -297,14 +337,24 @@ namespace Content.Server.PDA
 
             if (TryComp<RingerUplinkComponent>(uid, out var uplink))
             {
+                if (TryComp<RemoteStoreComponent>(uid, out var remoteStore))
+                    remoteStore.Store = null;
                 _ringer.LockUplink((uid, uplink));
                 UpdatePdaUi(uid, pda);
             }
         }
 
-        private bool IsUnlocked(EntityUid uid)
+        /// <summary>
+        /// Returns the currently unlocked store, if there is one.
+        /// </summary>
+        private bool TryGetUnlockedStore(EntityUid uid, [NotNullWhen(true)] out EntityUid? store)
         {
-            return !TryComp<RingerUplinkComponent>(uid, out var uplink) || uplink.Unlocked;
+            store = null;
+            if (!TryComp<RingerUplinkComponent>(uid, out var uplink) || !uplink.Unlocked)
+                return false;
+
+            store = _store.GetStore(uid);
+            return store != null;
         }
 
         private void UpdateStationName(EntityUid uid, PdaComponent pda)

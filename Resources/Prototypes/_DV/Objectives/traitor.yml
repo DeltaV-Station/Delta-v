@@ -3,7 +3,7 @@
   id: LOLuckyBillStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    jobs: [ Quartermaster ]
   - type: StealCondition
     stealGroup: SpaceCashLuckyBill
     # owner: job-name-qm
@@ -13,7 +13,7 @@
   id: HardsuitRhinoStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    jobs: [ Quartermaster ]
   - type: StealCondition
     stealGroup: HardsuitRhino
     # owner: job-name-qm
@@ -23,7 +23,7 @@
   id: HoPBookIanDossierStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfPersonnel
+    jobs: [ HeadOfPersonnel ]
   - type: StealCondition
     stealGroup: BookIanDossier
     # owner: job-name-hop
@@ -35,17 +35,44 @@
   - type: Objective
     difficulty: 3 # HoS will mostly be using the gun to stop you from stealing it
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    jobs: [ HeadOfSecurity ]
   - type: StealCondition
-    stealGroup: WeaponEnergyGunMultiphase
+    stealGroup: HoSSidearm
     owner: job-name-hos
+
+- type: entity
+  parent: BaseCMOStealObjective
+  id: MedicalFolderStealObjective
+  components:
+  - type: Objective
+    # CMO may or may not have this on them
+    difficulty: 2.25
+  - type: StealCondition
+    stealGroup: BookMedicalDocuments
+    owner: job-name-cmo
+
+## warden steal objective
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: EnergyShotgunStealObjective
+  components:
+  - type: Objective
+    # Steal from the warden? This will go peacefully
+    difficulty: 3
+  - type: NotJobRequirement
+    jobs: [ Warden ]
+  - type: StealCondition
+    stealGroup: WeaponEnergyShotgun
+    owner: job-name-warden
 
 - type: entity # Clerk steal objective.
   parent: BaseTraitorStealObjective
   id: ClerkNotaryStealObjective
   components:
+  - type: Objective
+    difficulty: 1.75 # Not a command item really
   - type: NotJobRequirement
-    job: Clerk
+    jobs: [ Clerk ]
   - type: StealCondition
     stealGroup: RubberStampNotary
     owner: job-name-clerk
@@ -56,7 +83,7 @@
   id: RdClipboardStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs: [ ResearchDirector ]
   - type: StealCondition
     stealGroup: BoxFolderRdClipboard
     owner: job-name-rd
@@ -66,10 +93,46 @@
   id: BibleMystagogueStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs: [ ResearchDirector ]
   - type: StealCondition
     stealGroup: BibleMystagogue
     owner: job-name-rd
+
+# Chief Engineer steal objective
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CeClipboardStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: StealCondition
+    stealGroup: BoxFolderCeClipboard
+    owner: job-name-ce
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: CeHardsuitStealObjective
+  components:
+  - type: Objective
+    # You can't hide it, and will probably have to kill CE for it
+    difficulty: 3
+  - type: NotJobRequirement
+    jobs: [ ChiefEngineer ]
+  - type: StealCondition
+    stealGroup: ClothingOuterHardsuitEngineeringWhite
+    owner: job-name-ce
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: MantisKnifeStealObjective
+  components:
+  - type: Objective
+    difficulty: 1.75 # Pretty easy
+  - type: NotJobRequirement
+    jobs: [ ForensicMantis ]
+  - type: StealCondition
+    stealGroup: AntiPsychicKnife
+    owner: job-name-mantis
 
 # teach lesson
 - type: entity
@@ -100,7 +163,13 @@
   - type: TargetObjective
     title: objective-condition-teach-person-title
   - type: PickRandomPerson
-    onlyChoosableJobs: true
+    filters:
+    - !type:ObjectiveImmuneFilter
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
 
 # Kill fellow traitor objective
 - type: entity
@@ -146,7 +215,7 @@
   components:
   - type: Objective
     # its hard to steal and leaves evidence, but you can get away with it.
-    difficulty: 3.5
+    difficulty: 3
   - type: NotCommandRequirement
   - type: StealCondition
     stealGroup: PlutoniumCore

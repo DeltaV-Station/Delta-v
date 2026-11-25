@@ -1,7 +1,7 @@
 - type: entity
   id: UraniumWindow
   name: uranium window
-  parent: WindowRCDResistant
+  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -10,19 +10,20 @@
     sprite: _DV/Structures/Windows/uranium_window.rsi #Delta V - Resprite windows
     state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 200 # DeltaV - Increased health cap by 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 90 # DeltaV - Increased health by 15 (more than plasma) 
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -55,7 +56,7 @@
 
 - type: entity
   id: UraniumWindowDirectional
-  parent: WindowDirectional
+  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional uranium window
   description: Don't smudge up the glass down there.
   placement:
@@ -83,13 +84,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 100 # DeltaV - Increased health cap by 25 
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 37
+        damage: 50 # DeltaV - Increased health by 13 (more than plasma)
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -122,6 +123,7 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
     key: windows

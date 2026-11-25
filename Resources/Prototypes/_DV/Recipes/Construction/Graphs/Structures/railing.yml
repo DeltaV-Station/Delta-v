@@ -1,0 +1,317 @@
+
+- type: constructionGraph
+  id: RailingDeltaVRecipes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: railingDeltaV
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
+        - to: railingDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
+        - to: railingDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
+
+        - to: railingCornerDeltaV
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingCornerDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingCornerDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingCornerDeltaV
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: railingCornerDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: railingCornerDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+
+        - to: railingCornerSmallDeltaV
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 1
+        - to: railingCornerSmallDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: railingCornerSmallDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+
+        - to: railingRoundDeltaV
+          steps:
+            - material: Plasteel
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingRoundDeltaVGrey
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+        - to: railingRoundDeltaVWood
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+
+    - node: railingDeltaV
+      entity: RailingDeltaV
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 1.5
+
+
+    - node: railingCornerDeltaV
+      entity: RailingCornerDeltaV
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 2
+
+
+    - node: railingCornerSmallDeltaV
+      entity: RailingCornerSmallDeltaV
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: .5
+
+
+    - node: railingRoundDeltaV
+      entity: RailingRoundDeltaV
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 2.5
+
+
+    - node: railingDeltaVGrey
+      entity: RailingDeltaVGrey
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 1
+
+
+    - node: railingCornerDeltaVGrey
+      entity: RailingCornerDeltaVGrey
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 1.5
+
+
+    - node: railingCornerSmallDeltaVGrey
+      entity: RailingCornerSmallDeltaVGrey
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: .5
+
+
+    - node: railingRoundDeltaVGrey
+      entity: RailingRoundDeltaVGrey
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 2
+
+
+    - node: railingDeltaVWood
+      entity: RailingDeltaVWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+
+    - node: railingCornerDeltaVWood
+      entity: RailingCornerDeltaVWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+
+    - node: railingCornerSmallDeltaVWood
+      entity: RailingCornerSmallDeltaVWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 1
+
+
+    - node: railingRoundDeltaVWood
+      entity: RailingRoundDeltaVWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 2

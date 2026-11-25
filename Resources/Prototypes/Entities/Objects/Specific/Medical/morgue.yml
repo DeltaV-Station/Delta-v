@@ -1,6 +1,6 @@
 - type: entity
   id: BodyBag
-  parent: BaseDeployFoldable
+  parent: [ BaseDeployFoldable, BasePaperLabelableVisualized ]
   name: body bag
   description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
   components:
@@ -39,7 +39,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.25,-0.4,0.25,0.1"
-        density: 20
+        density: 80
         mask:
         - ItemMask
   - type: EntityStorage
@@ -47,23 +47,13 @@
     isCollidableWhenOpen: true
     whitelist: # Use a tag whitelist rather than filtering for PerishableComponent to avoid chefs using body bags for food preservation
       tags:
-        - VimPilot # Pets
-        - CanPilot # People
+      - VimPilot # Pets
+      - CanPilot # People
     closeSound:
       path: /Audio/Misc/zip.ogg
     openSound:
       path: /Audio/Misc/zip.ogg
   - type: EntityStorageLayingDownOverride
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: comp-paper-label-insert
-      ejectVerbText: comp-paper-label-eject
-      whitelist:
-        components:
-        - Paper
-      blacklist:
-        tags:
-        - Book
   - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: open_overlay
@@ -88,7 +78,6 @@
           False: {visible: true}
   - type: Pullable
   - type: AntiRottingContainer
-  - type: ItemSlots
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
@@ -105,6 +94,10 @@
   components:
   - type: Foldable
     folded: true
+  - type: Tag # DeltaV - Whitelist for Medical Borg
+    tags:
+    - PatientTransportation
+    - BodyBag
 #  - type: BodyBagItem #TODO: we need some kind of generic placable, like thus:
 # - type: Placeable
 #   prototype: someId
@@ -123,6 +116,7 @@
     state: ash
   - type: Tag
     tags:
+    - Burnt
     - Trash
   - type: SolutionContainerManager
     solutions:
@@ -145,24 +139,24 @@
   name: ectoplasm
   description: Much less deadly in this form.
   components:
-    - type: Sprite
-      sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
-      state: ectoplasm
-    - type: Tag
-      tags:
-        - Trash
-        - Ectoplasm
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 50
-          reagents:
-            - ReagentId: Ash
-              Quantity: 5
-            - ReagentId: Necrosol
-              Quantity: 5
-            - ReagentId: Ectoplasm  # DeltaV - for normality crystals
-              Quantity: 5          # DeltaV
-    - type: GuideHelp
-      guides:
-      - MinorAntagonists
+  - type: Sprite
+    sprite: _DV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+    state: ectoplasm
+  - type: Tag
+    tags:
+    - Trash
+    - Ectoplasm
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+          - ReagentId: Ash
+            Quantity: 5
+          - ReagentId: Necrosol
+            Quantity: 5
+          - ReagentId: Ectoplasm  # DeltaV - for normality crystals
+            Quantity: 5          # DeltaV
+  - type: GuideHelp
+    guides:
+    - MinorAntagonists

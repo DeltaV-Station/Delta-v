@@ -1,9 +1,13 @@
-- type: entity
+﻿- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
   description: It opens, it closes, and maybe crushes you.
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: StationAiWhitelist
   - type: MeleeSound
     soundGroups:
@@ -41,6 +45,10 @@
       shader: unshaded
       visible: false
       map: ["enum.ElectrifiedLayers.Sparks"]
+    - state: sparks
+      map: ["enum.DoorVisualLayers.BaseEmagging"]
+      shader: unshaded
+      visible: false
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -69,7 +77,7 @@
     openSound:
       path: /Audio/Machines/airlock_open.ogg
     closeSound:
-      path: /Audio/Machines/airlock_close.ogg
+      path: /Audio/_ES/Machines/airlock_close.ogg # Ephemeral Space - better door timings
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: ContainerContainer
@@ -133,8 +141,9 @@
     resistance: 3
   - type: Occluder
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -158,9 +167,6 @@
     - board
   - type: PlacementReplacement
     key: walls
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
   - type: Paintable
     group: AirlockStandard
   - type: StaticPrice
@@ -171,6 +177,8 @@
     tags:
       - Airlock
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+      - DoorRemoteWhitelist
+      # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
   - type: PryUnpowered
   - type: BlockWeather
   - type: GuideHelp
@@ -178,6 +186,11 @@
     - Airlocks
     - WirePanels
     - Networking
+# ES START
+  - type: ESSparkOnHit
+    prob: 0.25
+    count: 2
+# ES END
   placement:
     mode: SnapgridCenter
 
@@ -230,3 +243,5 @@
     tags:
       - GlassAirlock
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+      - DoorRemoteWhitelist
+      # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door

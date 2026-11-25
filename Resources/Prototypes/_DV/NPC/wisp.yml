@@ -11,6 +11,14 @@
     - !type:HTNCompoundTask
       task: IdleCompound
 
+  - preconditions:
+      - !type:PulledPrecondition
+        isPulled: true
+    tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UnPullOperator
+          shutdownState: TaskFinished
+
 - type: htnCompound
   id: DrainPsionicCompound
   branches:

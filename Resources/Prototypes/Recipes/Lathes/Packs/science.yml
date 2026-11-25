@@ -10,13 +10,6 @@
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
 
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
 ## Dynamic
 
 - type: latheRecipePack
@@ -32,6 +25,7 @@
   - SignallerAdvanced
   - DeviceQuantumSpinInverter
   - DeviceDesynchronizer
+  # - ClothingBackpackHarmpack # DeltaV - HARMPACKS deemed harmful
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -39,6 +33,7 @@
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
   - ClothingShoesBootsSpeed
+  - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
@@ -65,16 +60,7 @@
   #- WeaponTetherGun
   # End DeltaV Removals
   - WeaponGauntletGorilla
-
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
+  - WeaponMicrowaveEmitter # DeltaV - Microwave emitter
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack

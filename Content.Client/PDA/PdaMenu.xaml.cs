@@ -131,6 +131,12 @@ namespace Content.Client.PDA
             {
                 _clipboard.SetText(_currentDate);
             };
+
+            LinkedDevicesButton.OnPressed += _ =>
+            {
+                LinkedDeviceList.Visible = true;
+                ToProgramView(Loc.GetString("comp-pda-ui-linked-devices-title"));
+            };
             // End DeltaV additions
 
             
@@ -146,7 +152,7 @@ namespace Content.Client.PDA
 
             if (state.PdaOwnerInfo.ActualOwnerName != null)
             {
-                _pdaOwner = state.PdaOwnerInfo.ActualOwnerName;
+                _pdaOwner = FormattedMessage.EscapeText(state.PdaOwnerInfo.ActualOwnerName); // DeltaV - Escape actual owner
                 PdaOwnerLabel.SetMarkup(Loc.GetString("comp-pda-ui-owner",
                     ("actualOwnerName", _pdaOwner)));
                 PdaOwnerLabel.Visible = true;
@@ -159,8 +165,8 @@ namespace Content.Client.PDA
 
             if (state.PdaOwnerInfo.IdOwner != null || state.PdaOwnerInfo.JobTitle != null)
             {
-                _owner = state.PdaOwnerInfo.IdOwner ?? Loc.GetString("comp-pda-ui-unknown");
-                _jobTitle = state.PdaOwnerInfo.JobTitle ?? Loc.GetString("comp-pda-ui-unassigned");
+                _owner = FormattedMessage.EscapeText(state.PdaOwnerInfo.IdOwner ?? Loc.GetString("comp-pda-ui-unknown")); // DeltaV - Escape owner and job
+                _jobTitle = FormattedMessage.EscapeText(state.PdaOwnerInfo.JobTitle ?? Loc.GetString("comp-pda-ui-unassigned")); // DeltaV - Escape owner and job
                 IdInfoLabel.SetMarkup(Loc.GetString("comp-pda-ui",
                     ("owner", _owner),
                     ("jobTitle", _jobTitle)));
@@ -300,6 +306,7 @@ namespace Content.Client.PDA
             ProgramCloseButton.Visible = false;
             ProgramListButton.Visible = true;
             SettingsButton.Visible = true;
+            LinkedDeviceList.Visible = false; // DeltaV - pagers
         }
 
         /// <summary>

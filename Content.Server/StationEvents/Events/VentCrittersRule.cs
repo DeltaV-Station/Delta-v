@@ -48,8 +48,9 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
             return;
 
         var nearest = beacon?.Comp?.Text!;
-        Comp<StationEventComponent>(uid).StartAnnouncement = Loc.GetString("station-event-vent-creatures-start-announcement-deltav", ("location", nearest));
-
+        if (TryComp<StationEventComponent>(uid, out var stationEventComp) && stationEventComp.StartAnnouncement != null){
+            stationEventComp.StartAnnouncement = Loc.GetString(stationEventComp.StartAnnouncement, ("location", nearest));
+        }
         base.Added(uid, comp, gameRule, args);
     }
 
@@ -90,6 +91,9 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
         _locations.Clear();
         while (locations.MoveNext(out var uid, out _, out var transform))
         {
+            if (!transform.Anchored)
+                continue;
+
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
             {
                 _locations.Add(transform.Coordinates);

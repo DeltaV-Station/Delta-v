@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Standard rollerbed sprites taken from cev-eris at https://github.com/discordia-space/CEV-Eris/blob/86295657390c25acdab82edca221fe124867aed8/icons/obj/rollerbed.dmi, Baystation 12 at https://github.com/Baystation12/Baystation12/blob/04b76229eb607fcc675c904cf6ca9fed5264a699/icons/obj/rollerbed.dmi,and AuroraStation at https://github.com/Aurorastation/Aurora.3/blob/d5471f20b7ddf1f2d521a2f7a51b528fa3caf367/icons/obj/rollerbed.dmi and modified by AftrLite (Github), Holographic rollerbed sprites taken from Paradise Station at https://github.com/S34NW/Paradise/blob/76a9423a993ed0920e3f969fcbe086bc49c028bc/icons/obj/rollerbed.dmi",
+    "copyright": "Standard rollerbed sprites taken from cev-eris at https://github.com/discordia-space/CEV-Eris/blob/86295657390c25acdab82edca221fe124867aed8/icons/obj/rollerbed.dmi, Baystation 12 at https://github.com/Baystation12/Baystation12/blob/04b76229eb607fcc675c904cf6ca9fed5264a699/icons/obj/rollerbed.dmi,and AuroraStation at https://github.com/Aurorastation/Aurora.3/blob/d5471f20b7ddf1f2d521a2f7a51b528fa3caf367/icons/obj/rollerbed.dmi and modified by AftrLite (Github), Holographic rollerbed sprites taken from Paradise Station at https://github.com/S34NW/Paradise/blob/76a9423a993ed0920e3f969fcbe086bc49c028bc/icons/obj/rollerbed.dmi, Holographic Hoverbed Sprites animated by SirWarock on Github",
     "size": {
         "x": 32,
         "y": 32
@@ -35,13 +35,40 @@
             "name": "emergency_rollerbed_folded"
         },
         {
-            "name": "holographic_rollerbed"
+            "name": "holographic_hoverbed_shaded"
         },
         {
-            "name": "holographic_rollerbed_buckled"
+            "name": "holographic_hoverbed_unshaded",
+            "delays": [
+                [
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
+                ]
+            ]
         },
         {
-            "name": "holographic_rollerbed_folded"
+            "name": "holographic_hoverbed_buckled_shaded"
+        },
+        {
+            "name": "holographic_hoverbed_buckled_unshaded",
+            "delays": [
+                [
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
+                ]
+            ]
+        },
+        {
+            "name": "holographic_hoverbed_folded_shaded"
+        },
+        {
+            "name": "holographic_hoverbed_folded_unshaded"
         }
     ]
 }

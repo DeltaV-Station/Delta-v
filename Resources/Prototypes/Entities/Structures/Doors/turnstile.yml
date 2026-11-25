@@ -5,7 +5,7 @@
   description: A mechanical door that permits one-way access and prevents tailgating.
   components:
   - type: Sprite
-    sprite: Structures/Doors/turnstile.rsi
+    sprite: _DV/Structures/Doors/turnstile.rsi #DeltaV - Blue Security resprite
     snapCardinals: true
     drawdepth: Doors
     layers:
@@ -45,8 +45,9 @@
       - Pullable # no dragging things in
   - type: Appearance
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -66,7 +67,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Structures/Doors/turnstile.rsi
+    sprite: _DV/Structures/Doors/turnstile.rsi #DeltaV - Blue Security resprite
     color: "#FFFFFFBB"
     layers:
     - state: arrow

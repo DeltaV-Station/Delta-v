@@ -15,8 +15,10 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-    - type: PsionicBonusChance # DeltaV - makes it more likely to become psionic.
-      multiplier: 3
+    - type: Condemned
+      soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
+  - !type:ModifyPsionicChanceSpecial # DeltaV - Chaplains are much more likely to be psionic.
+    jobBonusChance: 0.15 # Additional 15% chance.
 
 - type: startingGear
   id: ChaplainGear
@@ -26,7 +28,6 @@
     ears: ClothingHeadsetScience # DeltaV - Move Chaplain into Epistemics
   storage:
     back:
-    - Bible
     - RubberStampChaplain
 
 - type: chameleonOutfit

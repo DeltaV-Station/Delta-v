@@ -19,11 +19,13 @@ public sealed partial class RehydratableComponent : Component
     [DataField("catalyst")]
     public ProtoId<ReagentPrototype> CatalystPrototype = "Water";
 
+    // Begin DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
     /// <summary>
     /// The type of solution it is attached to
     /// </summary>
     [DataField]
     public String SolutionName = "cube";
+    // End DeltaV Additions - Improve animal cube interactions (31668 - Upstream)
 
     /// <summary>
     /// The minimum amount of catalyst that must be present to be hydrated.

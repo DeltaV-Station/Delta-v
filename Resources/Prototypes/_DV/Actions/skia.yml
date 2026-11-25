@@ -1,18 +1,17 @@
 - type: entity
-  id: ActionShatterLights
-  name: Shatter Lights
-  description: Emit a blood-curdling scream that shatters all lights in the area.
+  parent: ActionPsychokineticScream
+  id: ActionPsychokineticScreamSkia # This one has a smaller cooldown
   components:
   - type: Action
     icon: { sprite: _DV/Actions/shatterlights.rsi, state: shatter-lights }
     useDelay: 30
   - type: InstantAction
-    event: !type:ShatterLightsActionEvent
+    event: !type:PsychokineticScreamPowerActionEvent
 
 - type: entity
   id: ActionTechnokineticPulse
   name: Technokinetic Pulse
-  description: Unleash a burst of Technokinetic energy, disabling and destroying nearby electronics.
+  description: Unleash a burst of Technokinetic energy, disabling or destroying nearby electronics.
   components:
   - type: Action
     icon: { sprite: _DV/Actions/technokineticpulse.rsi, state: technokinetic-pulse }

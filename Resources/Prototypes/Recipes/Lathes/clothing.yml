@@ -223,6 +223,11 @@
   id: ClothingUniformJumpsuitClown
   result: ClothingUniformJumpsuitClown
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtClown
+  result: ClothingUniformJumpskirtClown
+
 ## CMO
 
 - type: latheRecipe
@@ -340,10 +345,11 @@
   id: ClothingUniformJumpsuitHoSAlt
   result: ClothingUniformJumpsuitHoSAlt
 
-- type: latheRecipe
-  parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpsuitHoSBlue
-  result: ClothingUniformJumpsuitHoSBlue
+# DeltaV - Disabled due to blue security resprite
+#- type: latheRecipe
+#  parent: BaseCommandJumpsuitRecipe
+#  id: ClothingUniformJumpsuitHoSBlue
+#  result: ClothingUniformJumpsuitHoSBlue
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
@@ -385,6 +391,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitLawyerBlack
   result: ClothingUniformJumpsuitLawyerBlack
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtLawyerBlack
+  result: ClothingUniformJumpskirtLawyerBlack
 
 ## Librarian
 

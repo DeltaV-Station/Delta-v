@@ -1,3 +1,4 @@
+using System.Collections.Frozen;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Systems;
@@ -7,12 +8,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Content.Shared.SSDIndicator; // DeltaV - SSD time indicator
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // DeltaV - SSD time indicator
 
 namespace Content.Client.Administration;
 
@@ -24,6 +27,8 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly EntityLookupSystem _entityLookup;
     private readonly IUserInterfaceManager _userInterfaceManager;
     private readonly SharedRoleSystem _roles;
+    private readonly IPrototypeManager _prototypeManager;
+    private readonly IGameTiming _timing; // DeltaV - Add timing
     private readonly Font _font;
     private readonly Font _fontBold;
     private AdminOverlayAntagFormat _overlayFormat;
@@ -36,8 +41,9 @@ internal sealed class AdminNameOverlay : Overlay
     private float _overlayMergeDistance;
 
     //TODO make this adjustable via GUI?
-    private readonly ProtoId<RoleTypePrototype>[] _filter =
-        ["SoloAntagonist", "TeamAntagonist", "SiliconAntagonist", "FreeAgent"];
+    private static readonly FrozenSet<ProtoId<RoleTypePrototype>> Filter =
+        new ProtoId<RoleTypePrototype>[] {"SoloAntagonist", "TeamAntagonist", "SiliconAntagonist", "FreeAgent"}
+        .ToFrozenSet();
 
     private readonly string _antagLabelClassic = Loc.GetString("admin-overlay-antag-classic");
 
@@ -49,7 +55,9 @@ internal sealed class AdminNameOverlay : Overlay
         EntityLookupSystem entityLookup,
         IUserInterfaceManager userInterfaceManager,
         IConfigurationManager config,
-        SharedRoleSystem roles)
+        SharedRoleSystem roles,
+        IPrototypeManager prototypeManager,
+        IGameTiming timing) // DeltaV - Add timing
     {
         _system = system;
         _entityManager = entityManager;
@@ -57,6 +65,8 @@ internal sealed class AdminNameOverlay : Overlay
         _entityLookup = entityLookup;
         _userInterfaceManager = userInterfaceManager;
         _roles = roles;
+        _prototypeManager = prototypeManager;
+        _timing = timing; // DeltaV - Add timing
         ZIndex = 200;
         // Setting these to a specific ttf would break the antag symbols
         _font = resourceCache.NotoStack();
@@ -125,6 +135,14 @@ internal sealed class AdminNameOverlay : Overlay
         foreach (var info in sortable.OrderBy(s => s.Item4.Y).ToList())
         {
             var playerInfo = info.Item1;
+            var rolePrototype = playerInfo.RoleProto == null
+                ? null
+                : _prototypeManager.Index(playerInfo.RoleProto.Value);
+
+            var roleName = rolePrototype?.Name ?? RoleTypePrototype.FallbackName;
+            var roleColor = rolePrototype?.Color ?? RoleTypePrototype.FallbackColor;
+            var roleSymbol = rolePrototype?.Symbol ?? RoleTypePrototype.FallbackSymbol;
+
             var aabb = info.Item2;
             var entity = info.Item3;
             var screenCoordinatesCenter = info.Item4;
@@ -183,8 +201,22 @@ internal sealed class AdminNameOverlay : Overlay
             // Username
             color = Color.Yellow;
             color.A = alpha;
-            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected);
-            currentOffset += lineoffset;
+            var usernameSpace = args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected); // DeltaV - store return value
+
+            // DeltaV - add watchlist suffix START
+            if (playerInfo.Watchlisted)
+            {
+                color = Color.Red;
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_fontBold,
+                    screenCoordinates + currentOffset + usernameSpace with { Y = 0 },
+                    " " + Loc.GetString("admin-overlay-watchlisted-username-suffix"),
+                    uiScale,
+                    color);
+            }
+            // DeltaV - add watchlist suffix END
+
+            currentOffset += lineoffset; // DeltaV - moved down from username block
 
             // Playtime
             if (!string.IsNullOrEmpty(playerInfo.PlaytimeString) && _overlayPlaytime)
@@ -200,16 +232,28 @@ internal sealed class AdminNameOverlay : Overlay
             {
                 color = Color.GreenYellow;
                 color.A = alpha;
-                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, Loc.GetString(playerInfo.StartingJob), uiScale, playerInfo.Connected ? color : colorDisconnected);
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.StartingJob, uiScale, playerInfo.Connected ? color : colorDisconnected);
                 currentOffset += lineoffset;
             }
+
+            // DeltaV - SSD Time START
+            if (_entityManager.TryGetComponent<SSDIndicatorComponent>(entity, out var ssdIndicator)
+                && ssdIndicator.SsdSince is {} ssdSince)
+            {
+                color = Color.MediumPurple;
+                color.A = alpha;
+                var ssdText = Loc.GetString("admin-overlay-ssd-time", ("time", (_timing.CurTime - ssdSince).ToString("%hh':'mm':'ss")));
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, ssdText, uiScale, color);
+                currentOffset += lineoffset;
+            }
+            // DeltaV END
 
             // Determine antag symbol
             string? symbol;
             switch (_overlaySymbolStyle)
             {
                 case AdminOverlayAntagSymbolStyle.Specific:
-                    symbol = playerInfo.RoleProto.Symbol;
+                    symbol = roleSymbol;
                     break;
                 case AdminOverlayAntagSymbolStyle.Basic:
                     symbol = Loc.GetString("player-tab-antag-prefix");
@@ -225,17 +269,17 @@ internal sealed class AdminNameOverlay : Overlay
             switch (_overlayFormat)
             {
                 case AdminOverlayAntagFormat.Roletype:
-                    color = playerInfo.RoleProto.Color;
-                    symbol = _filter.Contains(playerInfo.RoleProto) ? symbol : string.Empty;
-                    text = _filter.Contains(playerInfo.RoleProto)
-                        ? Loc.GetString(playerInfo.RoleProto.Name).ToUpper()
+                    color = roleColor;
+                    symbol = IsFiltered(playerInfo.RoleProto) ? symbol : string.Empty;
+                    text = IsFiltered(playerInfo.RoleProto)
+                        ? Loc.GetString(roleName).ToUpper()
                         : string.Empty;
                     break;
                 case AdminOverlayAntagFormat.Subtype:
-                    color = playerInfo.RoleProto.Color;
-                    symbol = _filter.Contains(playerInfo.RoleProto) ? symbol : string.Empty;
-                    text = _filter.Contains(playerInfo.RoleProto)
-                        ? _roles.GetRoleSubtypeLabel(playerInfo.RoleProto.Name, playerInfo.Subtype).ToUpper()
+                    color = roleColor;
+                    symbol = IsFiltered(playerInfo.RoleProto) ? symbol : string.Empty;
+                    text = IsFiltered(playerInfo.RoleProto)
+                        ? _roles.GetRoleSubtypeLabel(roleName, playerInfo.Subtype).ToUpper()
                         : string.Empty;
                     break;
                 default:
@@ -257,5 +301,13 @@ internal sealed class AdminNameOverlay : Overlay
             //Save the coordinates and size of the text block, for stack merge check
             drawnOverlays.Add((screenCoordinatesCenter, currentOffset));
         }
+    }
+
+    private static bool IsFiltered(ProtoId<RoleTypePrototype>? roleProtoId)
+    {
+        if (roleProtoId == null)
+            return false;
+
+        return Filter.Contains(roleProtoId.Value);
     }
 }

@@ -12,8 +12,9 @@
   - type: Tag
     tags:
     - Sheet
-    - BorgMaterial # DeltaV
+    - ConstructionMaterial
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -84,13 +85,6 @@
   - type: PhysicalComposition
     materialComposition:
       Plasma: 100
-  - type: Healing # DeltaV - Plasma heals IPC radiation
-    delay: 2.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      types:
-        Radiation: -5.0
   - type: Stack
     stackType: Plasma
     baseLayer: base
@@ -115,10 +109,11 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
-  - type: Tag
+  - type: Tag # DeltaV - Added to include TiderAnvilParts
     tags:
     - Sheet
-    - BorgMaterial # DeltaV
+    - TiderAnvilParts #SL
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -142,16 +137,6 @@
     count: 1
 
 - type: entity
-  parent: SheetPlasma
-  id: SheetPlasmaLingering0
-  name: plasma
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
@@ -161,19 +146,12 @@
     tags:
     - Plastic
     - Sheet
-    - BorgMaterial # DeltaV
+    - TiderAnvilParts #SL
+    - ConstructionMaterial
   - type: Material
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
-  - type: Healing # DeltaV - plastic repairs stop bleeding
-    delay: 3.0
-    damageContainers:
-    - HumanoidSilicon
-    damage:
-      groups:
-        Brute: 0 # funny
-    bloodlossModifier: -20
   - type: Stack
     stackType: Plastic
     baseLayer: base
@@ -230,7 +208,7 @@
   suffix: Full
   components:
   - type: Material
-  - type: Food
+  - type: Edible
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition

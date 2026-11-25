@@ -281,6 +281,7 @@
   id: LockerChiefMedicalOfficer
   parent: LockerBaseSecure
   name: chief medical officer's locker
+  description: A standard-issue Nanotrasen storage unit. Looking closer, there are some letters etched into the side of the locker. A.G., S.H., S.D., M.N., & A.N. # DeltaV - Honoring Quanteey. I hope you're well.
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -338,6 +339,7 @@
   id: LockerWarden
   parent: LockerBaseSecureDeltaV # DeltaV - resprite security lockers
   name: warden's locker
+  suffix: Security # DeltaV
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -416,6 +418,7 @@
 - type: entity
   id: GenpopBase
   abstract: true
+  parent: LockerBaseDeltaV # DeltaV - resprite security lockers
   components:
   - type: GenpopLocker
   - type: EntityStorageVisuals
@@ -428,6 +431,7 @@
         type: GenpopLockerBoundUserInterface
   - type: AccessReader # note! this access is for the UI, not the door. door access is handled on GenpopLocker
     access: [["Security"]]
+    examinationText: access-reader-examination-functionality-restricted
   - type: Lock
     locked: false
     useAccess: false
@@ -465,6 +469,7 @@
         hard: True
         restitution: 0
         friction: 0.4
+  - type: EntityStorage
 
 - type: entity
   parent: LockerPrisoner
@@ -551,15 +556,18 @@
 # Syndicate
 - type: entity
   id: LockerSyndicatePersonal
-  name: armory closet
+  name: blood-red locker
   parent: LockerBaseSecure
-  description: It's a personal storage unit for operative gear.
+  description: It's a personal storage unit with a blood-red design.
+  suffix: "Locked"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: syndicate
     stateDoorOpen: syndicate_open
     stateDoorClosed: syndicate_door
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
 
 # Bluespace
 - type: entity

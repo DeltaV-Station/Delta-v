@@ -14,6 +14,7 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  - BorgModuleAdvancedBotany # DeltaV
 
 - type: technology
   id: CritterMechs
@@ -80,6 +81,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - BorgModuleDJ # DeltaV
 
 - type: technology
   id: MeatManipulation
@@ -95,6 +97,8 @@
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   - AdvancedMicrowaveMachineCircuitBoard # DeltaV
+  - BorgModuleAdvancedChef # DeltaV
+  - BorgModuleAdvancedBartender # DeltaV
 
 # Tier 2
 
@@ -111,9 +115,16 @@
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
+  - FauxTileMowedAstroSnow # DeltaV
   - FauxTileAstroAsteroidSand
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileDesertAstroSand
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
 
 - type: technology
   id: BiochemicalStasis
@@ -140,7 +151,9 @@
   tier: 1 # DeltaV - was 2
   cost: 5000
   recipeUnlocks:
-  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedTopical
+  - BorgModuleAdvancedChemicalDV # DeltaV - Readd Chemical Module
+  - AdvancedJetInjector
 
 - type: technology
   id: AdvancedCleaning
@@ -149,7 +162,7 @@
     sprite: Objects/Specific/Janitorial/advmop.rsi
     state: advmop
   discipline: CivilianServices
-  tier: 2
+  tier: 3 # DeltaV - We need one T3 civ tech at least
   cost: 10000
   recipeUnlocks:
   - AdvMopItem
@@ -192,17 +205,18 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
 
-- type: technology
-  id: BluespaceCargoTransport
-  name: research-technology-bluespace-cargo-transport
-  icon:
-    sprite: Structures/cargo_telepad.rsi
-    state: display
-  discipline: CivilianServices
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-  - CargoTelepadMachineCircuitboard
+# DeltaV - Telepad removed for benefit of cargo pilots + logi gameplay flow.
+#- type: technology
+#  id: BluespaceCargoTransport
+#  name: research-technology-bluespace-cargo-transport
+#  icon:
+#    sprite: Structures/cargo_telepad.rsi
+#    state: display
+#  discipline: CivilianServices
+#  tier: 2
+#  cost: 15000
+#  recipeUnlocks:
+#  - CargoTelepadMachineCircuitboard
 
 - type: technology
   id: PushHorn
@@ -215,20 +229,22 @@
   cost: 4000
   recipeUnlocks:
   - PushHorn
+  - BorgModuleAdvancedClowning
 
 # Tier 3
 
-- type: technology
-  id: QuantumFiberWeaving
-  name: research-technology-quantum-fiber-weaving
-  icon:
-    sprite: Clothing/Shoes/Boots/speedboots.rsi
-    state: icon
-  discipline: CivilianServices
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - ClothingShoesBootsSpeed
+# DeltaV - Kill Speedboots
+# - type: technology
+#   id: QuantumFiberWeaving
+#   name: research-technology-quantum-fiber-weaving
+#   icon:
+#     sprite: Clothing/Shoes/Boots/speedboots.rsi
+#     state: icon
+#   discipline: CivilianServices
+#   tier: 3
+#   cost: 10000
+#   recipeUnlocks:
+#   - ClothingShoesBootsSpeed
 
 - type: technology
   id: BluespaceChemistry

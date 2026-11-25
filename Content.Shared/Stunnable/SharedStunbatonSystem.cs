@@ -1,4 +1,3 @@
-using Content.Server.Stunnable.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Item.ItemToggle.Components;
 

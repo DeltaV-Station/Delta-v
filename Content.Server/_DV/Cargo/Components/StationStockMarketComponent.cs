@@ -61,4 +61,4 @@ public sealed partial class StationStockMarketComponent : Component
 }
 
 [DataRecord]
-public record struct MarketChange(float Chance, Vector2 Range);
+public partial record struct MarketChange(float Chance, Vector2 Range);

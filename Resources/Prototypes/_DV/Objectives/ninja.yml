@@ -18,7 +18,12 @@
   parent: BaseNinjaTeachLessonObjective
   id: NinjaTeachLessonRandomHeadObjective
   components:
-  - type: PickRandomHead
+  - type: PickRandomPerson
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
 
 - type: entity
   parent: BaseNinjaTeachLessonObjective
@@ -37,7 +42,13 @@
       state: icon
   - type: TargetObjective
     title: objective-ninja-kill-head-title
-  - type: PickRandomHead
+  - type: PickRandomPerson
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+
   - type: KillPersonCondition
     requireDead: true
 

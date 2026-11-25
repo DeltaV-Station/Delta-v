@@ -1,4 +1,11 @@
 - type: stealTargetGroup
+  id: AntiPsychicKnife
+  name: steal-target-groups-anti-psychic-knife
+  sprite:
+    sprite: Nyanotrasen/Objects/Weapons/Melee/anti_psychic_knife.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: SpaceCashLuckyBill
   name: steal-target-groups-lucky-bill
   sprite:
@@ -13,18 +20,25 @@
     state: folder-hop-ian
 
 - type: stealTargetGroup
-  id: BookSecretDocuments
-  name: steal-target-groups-secret-documents
+  id: BookMedicalDocuments
+  name: steal-target-groups-medical-docs-documents
   sprite:
-    sprite: Objects/Misc/folders.rsi
-    state: folder-sec-doc
+    sprite: _DV/Objects/Misc/folders.rsi
+    state: folder-medical-docs
 
 - type: stealTargetGroup
-  id: WeaponEnergyGunMultiphase
-  name: steal-target-groups-x01
+  id: HoSSidearm
+  name: steal-target-groups-hos-sidearm
   sprite:
-    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-    state: base
+    sprite: _DV/Objects/Tools/HoS-Briefcase.rsi
+    state: steal
+
+- type: stealTargetGroup
+  id: WeaponEnergyShotgun
+  name: steal-target-groups-energy-shotgun
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: BoxFolderRdClipboard
@@ -76,6 +90,13 @@
     state: supply
 
 - type: stealTargetGroup
+  id: JusticeTechFabCircuitboard
+  name: steal-target-groups-justice-techfab-circuitboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: security
+
+- type: stealTargetGroup
   id: ServiceTechFabCircuitboard
   name: steal-target-groups-service-techfab-circuitboard
   sprite:
@@ -94,6 +115,20 @@
   name: steal-target-groups-hardsuit-rhino
   sprite:
     sprite: _DV/Clothing/OuterClothing/Hardsuits/rhinosuit.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: BoxFolderCeClipboard
+  name: steal-target-groups-box-folder-ce-clipboard
+  sprite:
+    sprite: _DV/Objects/Misc/ce_clipboard.rsi
+    state: ce_clipboard
+
+- type: stealTargetGroup
+  id: ClothingOuterHardsuitEngineeringWhite
+  name: steal-target-groups-hardsuit-CE
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
     state: icon
 
 # Ninja

@@ -1,3 +1,69 @@
+# Department parents
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadCommand
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Command]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadEngineering
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Engineering]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadMedical
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Medical]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadSecurity
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Security]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadJustice
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Justice]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadEpistemics
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Epistemics]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadPrison
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Security]
+    autoLinkJobs: [Prisoner, Gladiator]
+
+- type: entity
+  abstract: true
+  parent: Holopad
+  id: HolopadLogistics
+  components:
+  - type: PageSender
+    autoLinkDepartments: [Logistics]
+
 ## Mapping prototypes
 #Command
 - type: entity
@@ -7,9 +73,11 @@
   components:
   - type: Label
     currentLabel: holopad-command-cj
+  - type: PageSender
+    autoLinkJobs: [ChiefJustice]
 
 - type: entity
-  parent: Holopad
+  parent: HolopadCommand
   id: HolopadCommandEvac
   suffix: Command Evac
   components:
@@ -17,7 +85,7 @@
     currentLabel: holopad-command-evac
 
 - type: entity
-  parent: Holopad
+  parent: HolopadCommand
   id: HolopadCommandBridgeLobby
   suffix: Bridge Lobby
   components:
@@ -25,7 +93,7 @@
     currentLabel: holopad-command-lobby
 
 - type: entity
-  parent: Holopad
+  parent: HolopadCommand
   id: HolopadCommandBar
   suffix: Command Bar
   components:
@@ -40,17 +108,61 @@
   components:
   - type: Label
     currentLabel: holopad-justice-prosecutor
+  - type: PageSender
+    autoLinkJobs: [Prosecutor]
 
 - type: entity
   parent: Holopad
-  id: HolopadJusticeClerk
+  id: HolopadJusticeAttorney
+  suffix: Attorney
+  components:
+  - type: Label
+    currentLabel: holopad-justice-attorney
+  - type: PageSender
+    autoLinkJobs: [Attorney]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeDetective
+  suffix: Detective, Justice
+  components:
+  - type: Label
+    currentLabel: holopad-justice-detective
+  - type: PageSender
+    autoLinkJobs: [Detective]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeClerk # TODO - Remove for Justice Rework
   suffix: Clerk
   components:
   - type: Label
     currentLabel: holopad-justice-clerk
+  - type: PageSender
+    autoLinkJobs: [Clerk]
 
 - type: entity
   parent: Holopad
+  id: HolopadJusticeJusticeWarden
+  suffix: Justice Warden
+  components:
+  - type: Label
+    currentLabel: holopad-justice-warden
+  - type: PageSender
+    autoLinkJobs: [JusticeWarden]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeMarshal
+  suffix: Marshal
+  components:
+  - type: Label
+    currentLabel: holopad-justice-marshal
+  - type: PageSender
+    autoLinkJobs: [Marshal]
+
+- type: entity
+  parent: HolopadJustice
   id: HolopadJusticeLobby
   suffix: Justice Lobby
   components:
@@ -65,6 +177,8 @@
   components:
   - type: Label
     currentLabel: holodpad-logistics-mailroom
+  - type: PageSender
+    autoLinkJobs: [Courier]
 
 - type: entity
   parent: Holopad
@@ -73,9 +187,11 @@
   components:
   - type: Label
     currentLabel: holodpad-logistics-mailfront
+  - type: PageSender
+    autoLinkJobs: [Courier]
 
 - type: entity
-  parent: Holopad
+  parent: HolopadLogistics
   id: HolopadCargoLobby
   suffix: Logistics Lobby
   components:
@@ -90,9 +206,11 @@
   components:
   - type: Label
     currentLabel: holopad-epistemics-mantis
+  - type: PageSender
+    autoLinkJobs: [ForensicMantis]
 
 - type: entity
-  parent: Holopad
+  parent: HolopadEpistemics
   id: HolopadEpistemicsOracle
   suffix: Oracle
   components:
@@ -100,7 +218,7 @@
     currentLabel: holopad-epistemics-oracle
 
 - type: entity
-  parent: Holopad
+  parent: HolopadEpistemics
   id: HolopadEpistemicsLobby
   suffix: Epistemics Lobby
   components:
@@ -115,18 +233,30 @@
   components:
   - type: Label
     currentLabel: holopad-security-corpsman
+  - type: PageSender
+    autoLinkJobs: [Brigmedic]
 
 - type: entity
-  parent: Holopad
+  parent: HolopadSecurity
   id: HolopadSecurityLobby
   suffix: Security Lobby
   components:
   - type: Label
     currentLabel: holopad-security-lobby
 
-#Station Specific - Security
 - type: entity
   parent: Holopad
+  id: HolopadSecurityArmorer
+  suffix: Armorer
+  components:
+  - type: Label
+    currentLabel: holopad-security-armorer
+  - type: PageSender
+    autoLinkJobs: [Armorer]
+
+#Station Specific - Security
+- type: entity
+  parent: HolopadPrison
   id: HolopadSecurityPermaKitchen
   suffix: Perma Kitchen
   components:
@@ -134,7 +264,7 @@
     currentLabel: holopad-security-perma-kitchen
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityPermaBotany
   suffix: Perma Botany
   components:
@@ -142,7 +272,7 @@
     currentLabel: holopad-security-perma-botany
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityPermaYardOne
   suffix: Perma Yard One
   components:
@@ -150,7 +280,7 @@
     currentLabel: holopad-security-perma-yard-one
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityPermaYardTwo
   suffix: Perma Yard Two
   components:
@@ -158,7 +288,7 @@
     currentLabel: holopad-security-perma-yard-two
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityPermaWorkshop
   suffix: Perma Workshop
   components:
@@ -166,7 +296,7 @@
     currentLabel: holopad-security-perma-workshop
 
 - type: entity
-  parent: Holopad
+  parent: HolopadSecurity
   id: HolopadSecurityPermaGuardComplex
   suffix: Perma Guard Complex
   components:
@@ -174,7 +304,7 @@
     currentLabel: holopad-security-perma-guard-complex
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityPermaMineshaft
   suffix: Perma Mineshaft
   components:
@@ -182,7 +312,7 @@
     currentLabel: holopad-security-perma-mineshaft
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityArena
   suffix: Arena
   components:
@@ -190,7 +320,7 @@
     currentLabel: holopad-security-perma-arena
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecurityGladiatorLounge
   suffix: Gladiator Lounge
   components:
@@ -198,7 +328,7 @@
     currentLabel: holopad-security-perma-gladiator-lounge
 
 - type: entity
-  parent: Holopad
+  parent: HolopadPrison
   id: HolopadSecuritySolitary
   suffix: Solitary Confinement
   components:
@@ -206,7 +336,7 @@
     currentLabel: holopad-security-solitary
 
 - type: entity
-  parent: Holopad
+  parent: HolopadSecurity
   id: HolopadSecurityBomb
   suffix: Bomb Training Room
   components:
@@ -214,7 +344,7 @@
     currentLabel: holopad-security-bomb-training
 
 - type: entity
-  parent: Holopad
+  parent: HolopadSecurity
   id: HolopadSecurityHall
   suffix: Security Hallway
   components:
@@ -222,7 +352,7 @@
     currentLabel: holopad-security-hallway
 
 - type: entity
-  parent: Holopad
+  parent: HolopadSecurity
   id: HolopadSecurityEvidence
   suffix: Evidence
   components:
@@ -294,10 +424,12 @@
   components:
   - type: Label
     currentLabel: holopad-general-zoo
+  - type: PageSender
+    autoLinkJobs: [Zookeeper]
 
 #Medical
 - type: entity
-  parent: Holopad
+  parent: HolopadMedical
   id: HolopadMedicalOutpost
   suffix: Outpost
   components:
@@ -311,9 +443,11 @@
   components:
   - type: Label
     currentLabel: holopad-medical-psychologist
+  - type: PageSender
+    autoLinkJobs: [Psychologist]
 
 - type: entity
-  parent: Holopad
+  parent: HolopadMedical
   id: HolopadMedicalLobby
   suffix: Medical Lobby
   components:
@@ -322,7 +456,7 @@
 
 #Engineering
 - type: entity
-  parent: Holopad
+  parent: HolopadEngineering
   id: HolopadEngineeringParticleAccelerator
   suffix: PA Control
   components:
@@ -330,7 +464,7 @@
     currentLabel: holopad-engineering-pa-control
 
 - type: entity
-  parent: Holopad
+  parent: HolopadEngineering
   id: HolopadEngineeringLobby
   suffix: Engineering Lobby
   components:

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Polaris at https://github.com/PolarisSS13/Polaris/commit/ff87150c3dfc387c46db7d1c956abf19ddff7819, backpack sprite by Peptide. Modified by TJohnson.",
+    "copyright": "Taken from Polaris at https://github.com/PolarisSS13/Polaris/commit/ff87150c3dfc387c46db7d1c956abf19ddff7819, backpack sprite by Peptide. Modified by TJohnson, wielded sprites by Verybigman311",
     "size": {
         "x": 32,
         "y": 32
@@ -14,10 +14,10 @@
             "name": "base"
         },
         {
-            "name": "mag-0"
+            "name": "bolt-open"
         },
         {
-            "name": "bolt-open"
+            "name": "mag-0"
         },
         {
             "name": "inhand-left",
@@ -28,7 +28,19 @@
             "directions": 4
         },
         {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
             "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
             "directions": 4
         }
     ]

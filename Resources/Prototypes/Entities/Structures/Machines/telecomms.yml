@@ -92,7 +92,7 @@
     enabled: false
     castShadows: false
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#39b8ee"
   - type: LitOnPowered
   - type: GenericVisualizer
@@ -219,7 +219,7 @@
 - type: entity
   parent: TelecomServer
   id: TelecomServerFilledCargo
-  suffix: Cargo
+  suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: ContainerFill
     containers:
@@ -249,7 +249,7 @@
 - type: entity
   parent: TelecomServer
   id: TelecomServerFilledScience
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:

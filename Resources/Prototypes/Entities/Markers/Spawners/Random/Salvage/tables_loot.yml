@@ -104,7 +104,7 @@
       rolls: !type:RangeNumberSelector
         range: 1, 2
     - !type:NestedSelector
-      tableId: RandomInstrumentTable
+      tableId: SalvageInstrumentTable
     - id: AncientBookDamagedCommon # DeltaV
 
 - type: entityTable
@@ -175,6 +175,8 @@
     - id: ClothingHeadHatFancyCrown
     - id: GoldenBikeHorn
     - id: ClothingHeadHatCatEars
+    - id: GoldenPersonalAI
+    - id: UnstableReactorCore # DeltaV
     - id: TreasureCoinDiamond
       amount: !type:RangeNumberSelector
         range: 2, 5
@@ -249,6 +251,7 @@
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5
+    - id: NFWeaponHoloflareGun # Frontier
     - !type:GroupSelector
       children:
       - id: JetpackBlue
@@ -264,15 +267,18 @@
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: ChemistryBottleOmnizine
+    - id: ClothingShoesRealJordans # DeltaV
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled
       - id: JetpackBlackFilled
-    - !type:GroupSelector
-      children:
-      - id: PKAUpgradeDamage
-      - id: PKAUpgradeRange
-      - id: PKAUpgradeFireRate
+    # Begin DeltaV removal - Made PKA upgrades unobtainable after buff to PKA
+    #- !type:GroupSelector
+    #  children:
+    #  - id: PKAUpgradeDamage
+    #  - id: PKAUpgradeRange
+    #  - id: PKAUpgradeFireRate
+    # End DeltaV removal
 
 
 - type: entityTable

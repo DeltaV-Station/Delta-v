@@ -14,7 +14,6 @@ using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
 using Content.Shared._DV.CCVars;
-using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;

@@ -5,6 +5,8 @@
     - id: MothroachSpawn
     - id: XenoVents
     - id: MalignRiftSpawn
+    - id: GnomeSpawn
+    - id: PitbullMigration # FETCH ME THEIR SOULS
 
 - type: entityTable
   id: BasicAntagEventsTableDeltaV
@@ -16,6 +18,9 @@
     - id: MenaceSkeleton
     - id: SkiaSpawn
     - id: RatKingSpawn
+    - id: NTAgentSleeper
+    - id: ColossusSpawn
+    - id: HitmanShuttle
 
 # Replaces upstream meteor events until they're good
 - type: entity
@@ -29,7 +34,7 @@
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
-      path: /Audio/Announcements/meteors.ogg
+      path: /Audio/_DV/Announcements/meteors.ogg
       params:
         volume: -4
     duration: null #ending is handled by MeteorSwarmRule
@@ -44,7 +49,7 @@
   - type: StationEvent
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/_DV/Announcements/aliens.ogg
     earliestStart: 25
     minimumPlayers: 30
     weight: 2
@@ -54,22 +59,22 @@
   - type: VentCrittersRule
     table: !type:GroupSelector
       children:
-      - id: MobXeno
-        weight: 0.55
+      - id: MobXenoPlayer
+        weight: 0.20
       - id: MobXenoRouny
         weight: 0.01
       - id: MobXenoDrone
-        weight: 0.25
+        weight: 0.35
       - id: MobXenoSpitter
-        weight: 0.05
+        weight: 0.14
       - id: MobXenoRunner
-        weight: 0.08
+        weight: 0.14
       - id: MobXenoPraetorian
-        weight: 0.03
+        weight: 0.08
       - id: MobXenoRavager
-        weight: 0.02
+        weight: 0.05
       - id: MobXenoQueen
-        weight: 0.01
+        weight: 0.03
 # Mothroaches
 - type: entity
   parent: BaseGameRule
@@ -121,6 +126,9 @@
       roleLoadout:
       - RoleSurvivalStandard
       components:
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+        keepGender: true
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
@@ -130,6 +138,10 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: IntrinsicRadioReceiver
+      - type: ActiveRadio
+        channels:
+        - Binary
       mindRoles:
       - MindRoleListeningPost
 # Malign Rifts
@@ -147,6 +159,15 @@
     minAmount: 1
     maxAmount: 3
 
+- type: entity
+  id: Epsilon
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    weight: 0
+    duration: 12
+    maxDuration: 12
+  - type: EpsilonEventRule
 
 # Mid round antag spawns
 - type: entity
@@ -166,10 +187,11 @@
   id: RatKingSpawn
   components:
   - type: StationEvent
-    weight: 7
+    weight: 5
     minimumPlayers: 20
-  - type: AntagSpawner
-    prototype: MobRatKing
+    reoccurrenceDelay: 30
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostRatKing
@@ -209,6 +231,7 @@
         nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: EmitSoundOnSpawn # fell out of the ceiling
         sound: /Audio/Effects/clang.ogg
       mindRoles:
@@ -219,7 +242,7 @@
   id: RoboNeuroticist
   components:
   - type: StationEvent
-    weight: 1
+    weight: 2
     minimumPlayers: 35 #big threat, but has to have ghosts to matter
     reoccurrenceDelay: 30
     duration: null # so it shows up in round end
@@ -256,6 +279,7 @@
         sound: /Audio/Ambience/Antag/emagged_borg.ogg
       - type: RandomHumanoidAppearance
         randomizeName: false
+        keepGender: true
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -269,7 +293,7 @@
   - type: StationEvent
     startAnnouncement: station-event-noospheric-storm-announcement
     startAudio:
-      path: /Audio/Announcements/noosphericstorm.ogg
+      path: /Audio/_DV/Announcements/noosphericstorm.ogg
     weight: 5
     earliestStart: 15
   - type: NoosphericStormRule
@@ -323,6 +347,8 @@
     message: psionic-power-precognition-skia-result-message
   - type: AntagSpawner
     prototype: MobSkia
+  - type: MidRoundAntagRule
+    preferVentSpawns: true
   - type: AntagObjectives
     objectives:
     - SkiaReapObjective
@@ -340,3 +366,160 @@
           sound: /Audio/_DV/Effects/creepyshriek.ogg
         - type: BreakLightsOnSpawn
           radius: 10
+
+# nt agent (this is usually for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: NTAgentRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - NTAgentObjective
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+
+# Hitman (for the admeme spawn)
+- type: entity
+  parent: BaseGameRule
+  id: HitmanRule
+  components:
+  - type: GameRule
+  - type: AntagObjectives
+    objectives:
+    - HitmanEscapeShuttleObjective
+    - HitmanTeachLessonRandomPersonObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HitmanObjectiveGroup
+      maxPicks: 2 # i would rather it be tied to diffculty but if it wont assign a objective if it goes over difficulty this works
+    maxDifficulty: 300
+  - type: AntagSelection
+    agentName: hitman-round-end-agent-name
+    definitions:
+    - min: 1
+      max: 2
+      pickPlayer: true
+      startingGear: HitmanGear
+      briefing:
+        text: hitman-role-greeting-human
+        color: yellow
+        sound: /Audio/_DV/Ambience/Antag/hitman_briefing_piano_between.ogg
+      mindRoles:
+      - MindRoleHitman
+      components:
+      - type: AutoImplant
+        implants:
+        - HitmanCardImplant
+
+# nt agent sleeper event
+- type: entity
+  id: NTAgentSleeper
+  parent: [NTAgentRule]
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 25
+    weight: 3
+    maxOccurrences: 1
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AntagRandomObjectives
+    sets:
+    - groups: NTAgentObjectiveGroup
+      maxPicks: 2
+    maxDifficulty: 100
+  - type: AntagSelection
+    agentName: NTAgent-round-end-name
+    definitions:
+    - prefRoles: [ NTAgent ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      pickPlayer: true
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: NTAgent-role-greeting-human
+        color: lightblue
+        sound: /Audio/_DV/Ambience/Antag/centcomm_nt_agent.ogg
+      mindRoles:
+      - MindRoleNTAgent
+      components:
+      - type: AutoImplant
+        implants:
+        - RadioImplantCentcomm
+        - NanolinkSubImplant
+
+# Gnomes
+- type: entity
+  parent: BaseMidRoundAntag
+  id: GnomeSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 5
+    weight: 2
+    duration: null
+  - type: PrecognitionResult
+    message: psionic-power-precognition-gnome-spawn-result-message
+  - type: AntagSpawner
+    prototype: MobGnome
+  - type: AntagSelection
+    agentName: gnome-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGnome
+      min: 1
+      max: 2
+      pickPlayer: false
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+      components:
+        - type: EmitSoundOnSpawn
+          sound: /Audio/Effects/bodyfall3.ogg
+        - type: SpawnOnTrigger
+          proto: EffectFlashBluespace
+
+# NT Pest Control via Pitbulls
+- type: entity
+  id: PitbullMigration
+  parent: BaseStationEvent
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-pitbull-start-announcement
+    startAudio:
+      path: /Audio/_DV/Announcements/attention.ogg
+    earliestStart: 30
+    minimumPlayers: 10
+    weight: 3
+    duration: 15
+  - type: PrecognitionResult
+    message: psionic-power-precognition-pitbull-spawn-result-message
+  - type: VentCrittersRule
+    min: 1           # @  10 Pop -> Spawns  6 mice, 1 pitbull
+    max: 1           # @  50 Pop -> Spawns 12 mice, 2 pitbulls
+    playerRatio: 25  # @ 100 Pop -> Spawns 24 mice, 4 pitbulls
+    table: !type:AllSelector
+      children:
+      - id: MobMouse # VentCrittersRule is coded in a way that it ignores ranges, so we duplicate entries to ensure more mice than dogs
+      - id: MobMouse
+      - id: MobMouse1
+      - id: MobMouse1
+      - id: MobMouse2
+      - id: MobMouse2
+      - id: MobPitbullVent

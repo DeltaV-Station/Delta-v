@@ -1,0 +1,7 @@
+<ui:BuildInfoRow xmlns="https://spacestation14.io"
+                 xmlns:ui="clr-namespace:Content.Client._DV.UserInterfaces.BuildInfo.Controls"
+                 Orientation="Horizontal">
+    <Label Name="Label" HorizontalAlignment="Left" />
+    <Label Name="Value" HorizontalAlignment="Right" HorizontalExpand="True" Margin="4" />
+    <Button Name="CopyButton" HorizontalAlignment="Right" Text="{Loc ui-options-function-text-copy}" />
+</ui:BuildInfoRow>

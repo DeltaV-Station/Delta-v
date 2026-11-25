@@ -9,11 +9,11 @@
   - type: Lathe
     staticPacks:
     - BorgModulesSyndicateStatic
-    - RoboticsStaticDeltaV
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
     - BorgModulesResearched
+    - RoboticsEmagStatic
   - type: Machine
     board: SyndieExosuitFabricatorMachineCircuitboard
 
@@ -24,6 +24,7 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
+    snapCardinals: true
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -92,6 +93,8 @@
     - UpgradeKits
     - UpgradeKits_Goob
     - EngineeringHardsuits
+    - AdvancedConstruction
+    - LightingEquipment
   - type: Machine
     board: EngineeringTechFabCircuitboard
   - type: StealTarget
@@ -132,13 +135,11 @@
     - Mining
     - SalvageWeapons
     - SalvageHardsuits
+    - LightingEquipment
   - type: Machine
     board: LogisticsTechFabCircuitboard
   - type: StealTarget
     stealGroup: LogisticsTechFabCircuitboard
-  - type: MaterialStorageMagnetPickup
-    magnetEnabled: True
-    range: 0.30
   - type: LatheAnnouncing
     channels: [Supply]
 
@@ -169,6 +170,7 @@
     - LightsStatic
     - ServiceStatic
     - PartsStaticDeltaV # Add Beaker and Hand Labeler to the service techfab
+    - SimpleToolsStaticDeltaV
     - SimpleElectronicsStatic
     - EVASuit
     dynamicPacks:
@@ -212,6 +214,7 @@
     - ReportingStatic
     - SimpleElectronicsStatic
     - EVASuit
+    - EpistemicsStaticDeltaV
     dynamicPacks:
     - ScienceEquipment
     - ScienceClothing
@@ -222,3 +225,43 @@
     board: EpistemicsTechFabCircuitboard
   - type: StealTarget
     stealGroup: EpistemicsTechFabCircuitboard
+
+- type: entity
+  parent: BaseTechFabDepartmental
+  id: JusticeTechFab
+  name: justice techfab
+  description: Prints equipment for the justice department.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: jus
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    staticPacks:
+    - ToolsStatic
+    - PartsStatic
+    - LVCablesStatic
+    - MaterialsStatic
+    - PowerCellsStatic
+    - ReportingStatic
+    - SimpleElectronicsStatic
+    - EVASuit
+    - PaperStatic
+    - PensStatic
+    - FoldersStatic
+    - StampsStatic
+  - type: Machine
+    board: JusticeTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: JusticeTechFabCircuitboard
+  - type: LatheAnnouncing
+    channels: [Justice]

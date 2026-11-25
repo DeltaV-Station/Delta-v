@@ -1,0 +1,75 @@
+- type: entity
+  parent: BaseWeaponBatterySmall # DeltaV - Removed NF Parents
+  id: NFWeaponHoloflareGun
+  name: holoflare pistol
+  description: A modification of a civilian-grade laser pistol that can project holoflares onto surfaces.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Battery/holoflare_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+    - state: mode-cyan
+      shader: unshaded
+      map: [ "Firemode" ]
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: Gun
+#    examineCaliber: gun-examine-energybolt-holoflare # DeltaV - Does not exist.
+    selectedMode: SemiAuto
+    fireRate: 2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
+    projectileSpeed: 15
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+#    autoRecharge: true # DeltaV - Does not exist under BatterySelfRecharger.
+    autoRechargeRate: 10
+  - type: BatteryAmmoProvider # DeltaV - ProjectileBatteryAmmoProvider was refactored.
+    proto: HoloFlareCyan
+    fireCost: 240
+  - type: EnergyGun
+    fireModes:
+    - proto: HoloFlareCyan
+      fireCost: 240
+      name: cyan
+      state: cyan
+    - proto: HoloFlareRed
+      fireCost: 240
+      name: red
+      state: red
+    - proto: HoloFlareYellow
+      fireCost: 240
+      name: yellow
+      state: yellow
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Cyan: { state: mode-cyan }
+          Red: { state: mode-red }
+          Yellow: { state: mode-yellow }
+  - type: PacifismAllowedGun # harmless
+  - type: StaticPrice
+    price: 50 # DeltaV - Was 250

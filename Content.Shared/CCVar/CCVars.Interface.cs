@@ -87,6 +87,21 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> AdminPlayerTabRoleSetting =
         CVarDef.Create("ui.admin_player_tab_role", "Subtype", CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    // DeltaV - Additions START
+
+    /// <summary>
+    /// Whether to prepend "(G)" to player character names in the players tab
+    /// </summary>
+    public static readonly CVarDef<bool> AdminPlayerTabMarkGhosted =
+        CVarDef.Create("ui.admin_player_tab_mark_ghosted", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether to prepend "(WL)" to player character names in the players tab
+    /// </summary>
+    public static readonly CVarDef<bool> AdminPlayerTabMarkWatchlisted =
+        CVarDef.Create("ui.admin_player_tab_mark_watchlisted", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+    // DeltaV - Additions END
+
     /// <summary>
     /// Determines how antagonist status/roletype is displayed. Based on AdminOverlayAntagSymbolStyles enum
     /// Off: No symbol is shown.
@@ -120,4 +135,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> AdminOverlayStackMax =
         CVarDef.Create("ui.admin_overlay_stack_max", 3, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, ghosts will see an "(F)" button next to chat messages, which can be used to follow the sender.
+    /// </summary>
+    public static readonly CVarDef<bool> InterfaceChatFollowButton =
+        CVarDef.Create("ui.chat_follow_button", true, CVar.CLIENT | CVar.REPLICATED | CVar.ARCHIVE);
 }

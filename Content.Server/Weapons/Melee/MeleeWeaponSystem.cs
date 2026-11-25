@@ -1,7 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Movement.Systems;
-using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Effects;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Melee;
@@ -16,28 +15,14 @@ namespace Content.Server.Weapons.Melee;
 public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
-        SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
-    }
-
-    private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
-    {
-        if (component.Hidden)
-            return;
-
-        var damageSpec = GetDamage(uid, args.User, component);
-
-        if (damageSpec.Empty)
-            return;
-
-        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,
@@ -83,10 +68,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return Interaction.InRangeUnobstructed(user, target, range);
     }
 
-    protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
+    protected override void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user, TransformComponent targetXform) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     {
         var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
-        _color.RaiseEffect(Color.Red, targets, filter);
+        _color.RaiseEffect(Color.Red, targets.ToList(), filter); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     }
 
     public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true)

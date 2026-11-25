@@ -6,3 +6,12 @@
   components:
   - type: InstantAction
     event: !type:ToggleActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleTray
+  name: Toggle T-ray
+  description: Toggles T-ray hud on and off.
+  components:
+  - type: InstantAction
+    event: !type:ToggleTrayScannerEvent

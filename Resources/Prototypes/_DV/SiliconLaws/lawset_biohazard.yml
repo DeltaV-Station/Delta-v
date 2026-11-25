@@ -1,0 +1,29 @@
+- type: siliconLaw
+  id: Biohazard1
+  order: 1
+  lawString: law-biohazard-1
+
+- type: siliconLaw
+  id: Biohazard2
+  order: 2
+  lawString: law-biohazard-2
+
+- type: siliconLaw
+  id: Biohazard3
+  order: 3
+  lawString: law-biohazard-3
+
+- type: siliconLaw
+  id: Biohazard4
+  order: 4
+  lawString: law-biohazard-4
+
+- type: siliconLawset
+  id: Biohazard
+  name: law-biohazard-name
+  laws:
+  - Biohazard1
+  - Biohazard2
+  - Biohazard3
+  - Biohazard4
+  obeysTo: laws-owner-nanotrasen

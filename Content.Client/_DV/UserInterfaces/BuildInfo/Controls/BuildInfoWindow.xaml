@@ -1,0 +1,14 @@
+<buildInfo:BuildInfoWindow xmlns="https://spacestation14.io"
+                    xmlns:buildInfo="clr-namespace:Content.Client._DV.UserInterfaces.BuildInfo.Controls"
+                    Title="{Loc build-info-window-title}"
+                    Resizable="True">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <buildInfo:BuildInfoRow Name="EngineVersion" LabelText="{Loc build-info-engine-version-label}" />
+        <buildInfo:BuildInfoRow Name="Fork" LabelText="{Loc build-info-fork-label}" />
+        <buildInfo:BuildInfoRow Name="Version" LabelText="{Loc build-info-version-label}" />
+        <buildInfo:BuildInfoRow Name="DownloadUrl" LabelText="{Loc build-info-download-url-label}" />
+        <buildInfo:BuildInfoRow Name="BuildHash" LabelText="{Loc build-info-build-hash-label}" />
+        <buildInfo:BuildInfoRow Name="BuildManifestUrl" LabelText="{Loc build-info-build-manifest-url-label}" />
+        <buildInfo:BuildInfoRow Name="BuildManifestHash" LabelText="{Loc build-info-build-manifest-hash-label}" />
+    </BoxContainer>
+</buildInfo:BuildInfoWindow>

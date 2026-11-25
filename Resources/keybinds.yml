@@ -44,9 +44,6 @@ binds:
 - function: Walk
   type: State
   key: Shift
-- function: ToggleStanding
-  type: State
-  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -69,6 +66,7 @@ binds:
 - function: ShuttleBrake
   type: State
   key: Space
+# Camera
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7
@@ -212,7 +210,7 @@ binds:
   mod1: Alt
 - function: OpenCharacterMenu
   type: State
-  key: C
+  key: U
 - function: OpenEmotesMenu
   type: State
   key: Y
@@ -281,6 +279,18 @@ binds:
   type: State
   key: E
   mod1: Shift
+- function: SmartEquipPocket1
+  type: State
+  key: F
+  mod1: Shift
+- function: SmartEquipPocket2
+  type: State
+  key: G
+  mod1: Shift
+- function: SmartEquipSuitStorage
+  type: State
+  key: H
+  mod1: Shift
 - function: OpenBackpack
   type: State
   key: V
@@ -294,6 +304,14 @@ binds:
 - function: InspectEntity
   type: State
   key: v
+  mod1: Alt
+- function: InspectServerComponent
+  type: State
+  key: b
+  mod1: Alt
+- function: InspectClientComponent
+  type: State
+  key: c
   mod1: Alt
 - function: MouseMiddle
   type: State
@@ -526,6 +544,11 @@ binds:
   type: State
   key: MouseMiddle
   mod1: Shift
+# Floofstation section
+- function: OfferItem
+  type: State
+  key: F
+# Floofstation section end
 - function: ArcadeUp
   type: State
   key: Up
@@ -551,6 +574,9 @@ binds:
 - function: Arcade3
   type: State
   key: Z
+- function: ToggleKnockdown
+  type: State
+  key: C
 - function: OpenAbilitiesMenu
   type: State
   key: K

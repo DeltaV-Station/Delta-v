@@ -74,6 +74,7 @@
           False:
             visible: false
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -96,7 +97,7 @@
       types:
         Blunt: 10
   - type: CargoSellBlacklist # Frontier
-  - type: Food # Frontier - Moth food
+  - type: Edible # Frontier - Moth food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:

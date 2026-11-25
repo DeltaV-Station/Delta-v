@@ -9,7 +9,7 @@
             - !type:SnapToGrid
               southRotation: true
           conditions:
-            - !type:EntityAnchored {}
+            - !type:EntityAnchored
           steps:
             - material: Steel
               amount: 2

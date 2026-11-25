@@ -2,14 +2,16 @@
   id: CrateVendingMachineRestockPrideFilled
   parent: CratePlastic
   components:
-  - type: StorageFill
-    contents:
-      - id: VendingMachineRestockPride
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: VendingMachineRestockPride
 
 - type: entity
   id: CrateVendingMachineRestockSustenanceFilled
   parent: CratePlastic
   components:
-  - type: StorageFill
-    contents:
-    - id: VendingMachineRestockSustenance
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: VendingMachineRestockSustenance

@@ -1,11 +1,10 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Trinary.Components;
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Atmos.Piping.Trinary.Components;
@@ -44,6 +43,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             SubscribeLocalEvent<GasMixerComponent, GasMixerToggleStatusMessage>(OnToggleStatusMessage);
 
             SubscribeLocalEvent<GasMixerComponent, AtmosDeviceDisabledEvent>(OnMixerLeaveAtmosphere);
+            SubscribeLocalEvent<GasMixerComponent, MapInitEvent>(OnMapInit); // Frontier
         }
 
         private void OnInit(EntityUid uid, GasMixerComponent mixer, ComponentInit args)
@@ -143,7 +143,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             if (args.Handled || !args.Complex)
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             if (Transform(uid).Anchored)
@@ -165,7 +165,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
                 return;
 
             _userInterfaceSystem.SetUiState(uid, GasMixerUiKey.Key,
-                new GasMixerBoundUserInterfaceState(EntityManager.GetComponent<MetaDataComponent>(uid).EntityName, mixer.TargetPressure, mixer.Enabled, mixer.InletOneConcentration));
+                new GasMixerBoundUserInterfaceState(Comp<MetaDataComponent>(uid).EntityName, mixer.TargetPressure, mixer.Enabled, mixer.InletOneConcentration));
         }
 
         private void UpdateAppearance(EntityUid uid, GasMixerComponent? mixer = null, AppearanceComponent? appearance = null)
@@ -200,7 +200,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             mixer.InletOneConcentration = nodeOne;
             mixer.InletTwoConcentration = 1.0f - mixer.InletOneConcentration;
             _adminLogger.Add(LogType.AtmosRatioChanged, LogImpact.Medium,
-                $"{EntityManager.ToPrettyString(args.Actor):player} set the ratio on {EntityManager.ToPrettyString(uid):device} to {mixer.InletOneConcentration}:{mixer.InletTwoConcentration}");
+                $"{ToPrettyString(args.Actor):player} set the ratio on {ToPrettyString(uid):device} to {mixer.InletOneConcentration}:{mixer.InletTwoConcentration}");
             DirtyUI(uid, mixer);
         }
 
@@ -236,5 +236,19 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
             args.DeviceFlipped = inletOne != null && inletTwo != null && inletOne.CurrentPipeDirection.ToDirection() == inletTwo.CurrentPipeDirection.ToDirection().GetClockwise90Degrees();
         }
+
+        // Frontier - Start: Enable mixers at roundstart
+        private void OnMapInit(EntityUid uid, GasMixerComponent mixer, MapInitEvent args) 
+        {
+            if (mixer.StartOnMapInit)
+            {
+                mixer.Enabled = true;
+                DirtyUI(uid, mixer);
+
+                UpdateAppearance(uid, mixer);
+                _userInterfaceSystem.CloseUi(uid, GasMixerUiKey.Key);
+            }
+        }
+        // Frontier - End: Enable mixers at roundstart
     }
 }

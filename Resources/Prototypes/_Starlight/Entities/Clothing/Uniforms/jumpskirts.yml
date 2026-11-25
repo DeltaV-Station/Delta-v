@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtClown
+  name: clown skirt
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Uniforms/Jumpskirt/clown.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Uniforms/Jumpskirt/clown.rsi
+  - type: Tag
+    tags:
+    - ClownSuit
+    - WhitelistChameleon

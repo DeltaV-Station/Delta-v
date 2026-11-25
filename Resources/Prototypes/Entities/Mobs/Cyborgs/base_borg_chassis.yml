@@ -33,6 +33,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
+    baseWeightlessModifier: 0.75 # DeltaV
+    baseWeightlessAcceleration: 1.25 # DeltaV
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
@@ -46,7 +48,7 @@
     thresholds:
       0: Alive
       100: Critical
-      200: Dead
+      300: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -73,7 +75,16 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
-  - type: Targeting # Shitmed Change
+      # Begin DeltaV - borg PDAs
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      # End DeltaV - borg PDAs
+      # Begin DeltaV - borg wires
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+      # End DeltaV
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -103,24 +114,19 @@
     - Common
     - Science
   - type: ZombieImmune
-  # Begin DeltaV Changes - use IPC healing instead of 1 weld to heal everything
-  #- type: Repairable
-  #  doAfterDelay: 10
-  #  allowSelfRepair: false
-  - type: WeldingHealable
-    allowSelfHeal: false
-  # End DeltaV Changes
+  - type: Repairable
+    damageValue: -10 # 10 seconds to repair from crit
+    doAfterDelay: 1
+    fuelCost: 0.5
+    qualityNeeded: Welding # DeltaV - for now
+    allowSelfRepair: true # DeltaV - was false
   - type: BorgChassis
-  - type: SurgerySelfDirty # DeltaV: borgs get dirty from doing surgery
-  - type: Fiber # DeltaV - borgs leave metal fibers
-    fiberMaterial: fibers-plasteel
   - type: LockingWhitelist
     blacklist:
       components:
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -131,20 +137,16 @@
       borg_id_chip: !type:ContainerSlot # DeltaV - borg id chips
       borg_module: !type:Container { }
       part-container: !type:Container
+      program-container: !type:Container # DeltaV - Borg PDAs
+      Cartridge-Slot: !type:ContainerSlot # DeltaV - Borg PDAs
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
-  - type: ItemToggle
-    onActivate: false # You should not be able to turn off a borg temporarily.
-    activated: false # gets activated when a mind is added
-    onUse: false # no item-borg toggling sorry
-  - type: ItemTogglePointLight
-  #- type: AccessToggle # DeltaV - IdChipSlot disables access, don't re-enable it when losing power
-  # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
-  # TODO: or just have sentient speedboots be fast idk
+  - type: Access
+    enabled: false # needs a player so that scientists can't drag around an empty borg for free AA
   - type: PowerCellDraw
-    drawRate: 0.6
-  # no ToggleCellDraw since dont want to lose access when power is gone
+    drawRate: 0.4 # DeltaV - Was 0.6
+    enabled: false # the borg is only activated when a player takes over, otherwise the battery is likely empty
   - type: ItemSlots
     slots:
       cell_slot:
@@ -156,9 +158,6 @@
   - type: Body
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Flashed
   - type: TypingIndicator
     proto: robot
@@ -168,7 +167,8 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
-    wilhelmProbability: 0
+    wilhelm: "/Audio/_DV/Machines/robotwilhelm.ogg" # DeltaV - "There seems to be someone among us".
+    wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -184,15 +184,18 @@
   - type: Lock
     locked: true
     unlockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
   - type: LockedWiresPanel
   - type: Damageable
+  - type: Injurable
     damageContainer: Silicon
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 80 # DeltaV - Was 70
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -219,6 +222,11 @@
     wattage: 0.2
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  # These two components are required to make HandheldLight work, even though we don't even have ItemToggle.
+  # The code is a total mess and needs a complete rewrite.
+  - type: ItemTogglePointLight
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: LightBehaviour
     behaviours:
     - !type:FadeBehaviour
@@ -232,11 +240,9 @@
       id: blinking
       interpolate: Nearest
       maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
+      startValue: 0.1
+      endValue: 2.0
       isLooped: true
-  - type: ToggleableVisuals
-    spriteLayer: light
   - type: PointLight
     enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     mask: /Textures/Effects/LightMasks/cone.png
@@ -253,7 +259,7 @@
     - FootstepSound
     - CanPilot
     - SiliconEmotes
-    - SiliconOrIPCEmotes # DeltaV
+    - Honker # DeltaV - Can honk
     - Unimplantable
   - type: Emoting
   - type: GuideHelp
@@ -271,16 +277,12 @@
     - Normal
   - type: JetpackUser # DeltaV: Lets cyborgs fly in space
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
-  - type: EmoteCooldown # DeltaV - implement RMC emote cooldown
-  - type: PassiveDamage # DeltaV - electric damage disappears over time
-    allowedStates:
-    - Alive
+  - type: BypassLock
+    openWiresPanel: true
+  - type: BypassLockRequiresMobState
+    requiredMobState:
     - Critical
     - Dead
-    damage:
-      groups:
-        Electronic: -0.5
-  - type: SiliconEmp # DeltaV - EMP damage
 
 - type: entity
   abstract: true
@@ -299,7 +301,7 @@
     receiveFrequencyId: CyborgControl
     transmitFrequencyId: RoboticsConsole
     savableAddress: false
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     delay: 10
     examinable: false
     beepSound:
@@ -307,8 +309,9 @@
       params:
         volume: -4
   # prevent any funnies if someone makes a cyborg item...
-  - type: AutomatedTimer
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   # explosion does most of its damage in the center and less at the edges
   - type: Explosive
     explosionType: Minibomb
@@ -330,6 +333,7 @@
     networkSet: true
     nameSet: True
     id: Xenoborg
+    useEntityNameAsCameraId: true
   - type: Explosive
     explosionType: Minibomb
     deleteAfterExplosion: false # let damage threshold gib the borg
@@ -349,18 +353,20 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: Access
-    enabled: false
-    groups:
-    - AllAccessBorg # DeltaV
-    tags:
-    - Borg
+  #- type: Access # DeltaV - Borgs ID Chips
+  #  groups:
+  #  - AllAccessBorg
+  #  tags:
+  #  - Borg
   - type: AccessReader
     access: [["Command"], ["Research"], ["Robotics"]] # DeltaV - add Robotics
     breakOnAccessBreaker: false # DeltaV - prevent emag metachecking by unlocking without an id
   - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
     law: ObeyAI
+  - type: Wires # DeltaV: NT borgs have a circuit panel
+    layoutId: Cyborg
   - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
@@ -389,6 +395,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
+    - Binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -403,6 +410,8 @@
     color: "#dd200b"
   - type: Fiber # DeltaV - syndiborgs have black plasteel fibers
     fiberColor: fibers-black
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -412,10 +421,9 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
-  - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
-    groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  #- type: Access # DeltaV - Borg ID chips
+  #  groups:
+  #  - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
     access: [["Command"], ["Robotics"]] # DeltaV - Robotics instead of Research
   - type: StartIonStormed
@@ -425,41 +433,83 @@
   - type: ShowJobIcons
   - type: Fiber # DeltaV - derelict borgs have degraded plasteel fibers
     fiberMaterial: fibers-degraded-plasteel
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
+
+- type: entity
+  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
+  parent: BaseBorgChassis # We don't want them to see Nukies or have syndi comms, their database is out of date
+  abstract: true
+  components:
+  - type: SiliconLawProvider
+    laws: SyndicateStatic #Non-subverted version so they can still be changed
+  - type: StartIonStormed
+    ionStormAmount: 3
+  - type: IonStormTarget
+    chance: 1
+  - type: ShowJobIcons
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
+  - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
+    factions:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+    - Robotics # DeltaV - Allow robotics to open derelict syndicate borgs to update access
+  - type: AccessReader
+    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ], [ "Robotics" ] ] # DeltaV - Added Robotics
+  - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
+    channels:
+    - Binary #1984
+  - type: ActiveRadio
+    channels:
+    - Binary
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: PointLight
+    color: "#dd200b"
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
   id: BaseXenoborgChassis
   name: xenoborg
-  description: A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh xenoborg chassis to grow their army.
+  description: A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army.
   save: false
   abstract: true
   components:
   - type: RandomMetadata
     nameSegments:
     - NamesXenoborg
+  - type: NameIdentifier
+    group: Xenoborg
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: MobThresholds
     thresholds: # slightly tankier than a normal borg
       0: Alive
       125: Critical
-      250: Dead
+      375: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
   - type: EmagSiliconLaw # should xenoborgs be emagable?
     stunTime: 5
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
-    subverted: true
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
-    - Binary
+    # - Binary # DeltaV - only the mothership can talk over binary (prevents "accidents" on binary)
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
     - Xenoborg
     - Binary
-  - type: Repairable
-    doAfterDelay: 13 # 25% more HP, so 30% more time to heal
   - type: BorgChassis
     maxModules: 0
     hasMindState: robot_e
@@ -477,7 +527,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconXenoborg
-    screamAction: null
+    wilhelmProbability: 0.001 # DeltaV
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
@@ -503,7 +553,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Machines/warning_buzzer.ogg
+          path: /Audio/Machines/warning_buzzer_xenoborg.ogg
           params:
             volume: 5
     - trigger:
@@ -513,6 +563,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PinpointerMothershipPiece: # drop a piece of core pinpointer upon being destructed (4 pieces to make a core pinpointer)
+            min: 1
+            max: 1
       - !type:EmptyContainersBehaviour
         containers:
         - borg_brain
@@ -521,25 +576,31 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PointLight
-    color: "#0033ff"
+    color: "#3010ff"
+    energy: 7
   - type: GuideHelp
     guides:
     - Cyborgs
     - Robotics
-    # TODO: add Xenoborg guide (part 7 spoilers)
+    - Xenoborgs
   - type: Access
-    enabled: false # DeltaV - comment to prevent upstream removing, borg id chips
     tags:
     - Xenoborg
-  - type: ContainerFill # DeltaV - borg id chips
-    containers:
-      borg_id_chip:
+  - type: IdChipSlot # DeltaV - no crew IDs. Incompatible with *xeno*borg systems.
+    whitelist:
+      tags:
       - IdChipXenoborg
   - type: AccessReader
     access: [["Xenoborg"]]
   - type: ShowJobIcons # not sure if it is needed
+  #- type: ShowCrewIcons # DeltaV - Disable crew icons
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Fiber # DeltaV - xenoborgs have replicated plasteel fibers
     fiberMaterial: fibers-replicated-plasteel
+  - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
+  - type: EmpResistance # DeltaV
+    durationMultiplier: 0.1 # Only disabled for 10%. Default EMP stun time is 60% so still a 6 second disable. Battery has 40% resistance already.

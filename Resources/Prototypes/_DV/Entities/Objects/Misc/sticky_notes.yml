@@ -131,6 +131,7 @@
   id: PaperStickyNoteStack
   name: sticky note stack
   suffix: yellow
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/stickies.rsi
@@ -179,6 +180,7 @@
   id: PaperStickyNoteStackPink
   name: sticky note stack
   suffix: pink
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     color: "#ff8cba"
@@ -192,6 +194,7 @@
   id: PaperStickyNoteStackGreen
   name: sticky note stack
   suffix: green
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     color: "#9fd4a3"
@@ -205,6 +208,7 @@
   id: PaperStickyNoteStackBlue
   name: sticky note stack
   suffix: blue
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     color: "#00c2e7"

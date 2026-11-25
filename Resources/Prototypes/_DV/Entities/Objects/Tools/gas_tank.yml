@@ -10,6 +10,9 @@
     sprite: _DV/Objects/Tanks/water_vapor.rsi
   - type: Clothing
     sprite: _DV/Objects/Tanks/water_vapor.rsi
+  - type: Tag
+    tags:
+    - WaterVaporTank
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -49,3 +52,53 @@
     sprite: _DV/Objects/Tanks/emergency_double_water_vapor.rsi
   - type: Clothing
     sprite: _DV/Objects/Tanks/emergency_double_water_vapor.rsi
+
+# ERT
+
+- type: entity
+  parent: OxygenTank
+  id: OxygenTankERT
+  name: ERT oxygen tank
+  description: A cylindrical gas tank for oxygen, worn by Emergency Response Team members. It can hold 5 L of gas.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tanks/emergency_oxygen_ert.rsi
+  - type: Item
+    sprite: _DV/Objects/Tanks/emergency_oxygen_ert.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Tanks/emergency_oxygen_ert.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - OxygenTank
+
+- type: entity
+  parent: NitrogenTank
+  id: NitrogenTankERT
+  name: ERT nitrogen tank
+  description: A cylindrical gas tank for nitrogen, worn by Emergency Response Team members. It can hold 5 L of gas.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tanks/emergency_nitrogen_ert.rsi
+  - type: Item
+    sprite: _DV/Objects/Tanks/emergency_nitrogen_ert.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Tanks/emergency_nitrogen_ert.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrogenTank
+
+- type: entity
+  parent: WaterVaporTank
+  id: WaterVaporTankERT
+  name: ERT water vapor tank
+  description: A cylindrical gas tank for water vapor, worn by Emergency Response Team members. It can hold 5 L of gas.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tanks/emergency_water_vapor_ert.rsi
+  - type: Item
+    sprite: _DV/Objects/Tanks/emergency_water_vapor_ert.rsi
+  - type: Clothing
+    sprite: _DV/Objects/Tanks/emergency_water_vapor_ert.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - WaterVaporTank

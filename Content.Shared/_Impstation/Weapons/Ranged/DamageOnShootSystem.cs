@@ -62,9 +62,9 @@ public sealed class DamageOnShootSystem : EntitySystem
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage);
+        var didSelfDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage);
 
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (didSelfDamage)
         {
             // Record this interaction and determine when a user is allowed to interact with this entity again
             entity.Comp.LastInteraction = _gameTiming.CurTime;
@@ -78,7 +78,7 @@ public sealed class DamageOnShootSystem : EntitySystem
 
             // Attempt to paralyze the user after they have taken damage
             if (_random.Prob(entity.Comp.StunChance))
-                _stun.TryParalyze(args.User, entity.Comp.StunSeconds, true);
+                _stun.TryUpdateParalyzeDuration(args.User, entity.Comp.StunSeconds);
         }
     }
 }

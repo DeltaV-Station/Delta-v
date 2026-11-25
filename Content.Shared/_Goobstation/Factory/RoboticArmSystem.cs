@@ -29,7 +29,6 @@ public sealed class RoboticArmSystem : EntitySystem
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _device = default!;
@@ -399,7 +398,7 @@ public sealed class RoboticArmSystem : EntitySystem
     private bool IsOutputBlocked(EntityUid uid)
     {
         var coords = OutputPosition(uid);
-        return coords.GetTileRef(EntityManager, _map) is {} turf &&
+        return _turf.GetTileRef(coords) is {} turf &&
             _turf.IsTileBlocked(turf, CollisionGroup.MachineMask);
     }
 

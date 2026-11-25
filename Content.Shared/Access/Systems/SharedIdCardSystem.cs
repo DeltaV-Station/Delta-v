@@ -1,9 +1,10 @@
 using System.Globalization;
+using Content.Shared._DV.Access.Systems; // DeltaV - Subdermal ID Cards
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
@@ -21,9 +22,12 @@ public abstract class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAccessSystem _access = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
+    [Dependency] private readonly SharedSubdermalIdCardSystem _subdermalId = default!; // DeltaV - Subdermal ID Cards
 
     // CCVar.
     private int _maxNameLength;
@@ -34,6 +38,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<IdCardComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<IdCardComponent, AfterAutoHandleStateEvent>(OnHandleState);
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
         SubscribeLocalEvent<EntityRenamedEvent>(OnRename);
 
@@ -76,6 +81,15 @@ public abstract class SharedIdCardSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnHandleState(Entity<IdCardComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        // Try to update the job status icon of the player owning the ID, if any.
+        if (HasComp<PdaComponent>(Transform(ent).ParentUid))
+            _jobStatus.UpdateStatus(Transform(Transform(ent).ParentUid).ParentUid); //ID is inside a PDA
+        else
+            _jobStatus.UpdateStatus(Transform(ent).ParentUid); //ID is held/directly in the ID slot
+    }
+
     /// <summary>
     ///     Attempt to find an ID card on an entity. This will look in the entity itself, in the entity's hands, and
     ///     in the entity's inventory.
@@ -83,8 +97,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     public bool TryFindIdCard(EntityUid uid, out Entity<IdCardComponent> idCard)
     {
         // check held item?
-        if (TryComp(uid, out HandsComponent? hands) &&
-            hands.ActiveHandEntity is EntityUid heldItem &&
+        if (_hands.GetActiveItem(uid) is { } heldItem &&
             TryGetIdCard(heldItem, out idCard))
         {
             return true;
@@ -97,6 +110,11 @@ public abstract class SharedIdCardSystem : EntitySystem
         // check inventory slot?
         if (_inventorySystem.TryGetSlotEntity(uid, "id", out var idUid) && TryGetIdCard(idUid.Value, out idCard))
             return true;
+
+        // Begin DeltaV Additions - Subdermal ID cards
+        if (_subdermalId.TryGetIdCard(uid, out var idEntity) && TryGetIdCard(idEntity.Value, out idCard))
+            return true;
+        // End DeltaV Additions - Subdermal ID cards
 
         return false;
     }

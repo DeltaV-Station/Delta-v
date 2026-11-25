@@ -1,0 +1,53 @@
+- type: siliconLaw
+  id: Eightfold1
+  order: 1
+  lawString: law-eightfold-1
+
+- type: siliconLaw
+  id: Eightfold2
+  order: 2
+  lawString: law-eightfold-2
+
+- type: siliconLaw
+  id: Eightfold3
+  order: 3
+  lawString: law-eightfold-3
+
+- type: siliconLaw
+  id: Eightfold4
+  order: 4
+  lawString: law-eightfold-4
+
+- type: siliconLaw
+  id: Eightfold5
+  order: 5
+  lawString: law-eightfold-5
+
+- type: siliconLaw
+  id: Eightfold6
+  order: 6
+  lawString: law-eightfold-6
+
+- type: siliconLaw
+  id: Eightfold7
+  order: 7
+  lawString: law-eightfold-7
+
+- type: siliconLaw
+  id: Eightfold8
+  order: 8
+  lawString: law-eightfold-8
+
+- type: siliconLawset
+  id: EightfoldLaws
+  name: law-eightfold-name
+  laws:
+  - Eightfold1
+  - Eightfold2
+  - Eightfold3
+  - Eightfold4
+  - Eightfold5
+  - Eightfold6
+  - Eightfold7
+  - Eightfold8
+  obeysTo: laws-owner-people

@@ -165,6 +165,7 @@
         Heat: 0.95
         Radiation: 0.65
   - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: BreathMask
   - type: HideLayerClothing
     slots:
@@ -204,6 +205,11 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadBase
@@ -345,9 +351,9 @@
   name: chief medical officer's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodcmo.rsi # DeltaV - Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodcmo.rsi # DeltaV - Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -411,9 +417,9 @@
   name: medic coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodmed.rsi # DeltaV - Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
+    sprite: _DV/Clothing/Head/Hoods/Coat/hoodmed.rsi # DeltaV - Resprite
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase

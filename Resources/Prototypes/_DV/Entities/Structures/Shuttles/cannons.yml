@@ -1,0 +1,51 @@
+- type: entity
+  parent: [ ShuttleGunBase, ConstructibleMachine]
+  id: ShuttleGunXenoborgXRay
+  name: XIL-550 "X-ray"
+  description: A highly advanced beam cannon of unknown origin, made for structural breaching via high-intensity radiation. An internal self-recharging power system is integrated within.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Shuttles/xenoborg.rsi
+    layers:
+    - state: xil-550
+    - state: mag-unshaded-5
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 # Not impossible, just need explosives.
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/gamblagatorshot.ogg
+      params:
+        variation: 0.05
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Battery
+    maxCharge: 400
+    startingCharge: 400
+  - type: Machine
+    board: ShuttleGunXenoborgCircuitboard
+  - type: BatterySelfRecharger
+    autoRechargeRate: 10
+  - type: BatteryAmmoProvider
+    proto: XRayLaser
+    fireCost: 50
+  - type: Lock
+  - type: AccessReader
+    access: [["Xenoborg"]]

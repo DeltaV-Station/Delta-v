@@ -1,4 +1,5 @@
 using Content.Client.CartridgeLoader;
+using Content.Shared._DV.Pager; // DeltaV - pagers
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PDA;
@@ -72,6 +73,13 @@ namespace Content.Client.PDA
                 SendMessage(new PdaLockUplinkMessage());
             };
 
+            // Begin DeltaV - pagers
+            _menu.OnUnlinkDevicePressed += address =>
+            {
+                SendMessage(new PagerRemoveAddressMessage(address));
+            };
+            // End DeltaV - pagers
+
             _menu.OnProgramItemPressed += ActivateCartridge;
             _menu.OnInstallButtonPressed += InstallCartridge;
             _menu.OnUninstallButtonPressed += UninstallCartridge;
@@ -100,6 +108,7 @@ namespace Content.Client.PDA
             }
 
             _menu.UpdateState(updateState);
+            UpdateLinkedDevices(); // DeltaV - pagers
         }
 
         protected override void AttachCartridgeUI(Control cartridgeUIFragment, string? title)
@@ -127,5 +136,13 @@ namespace Content.Client.PDA
         {
             return EntMan.GetComponentOrNull<PdaBorderColorComponent>(Owner);
         }
+
+        // Begin DeltaV - pagers
+        public void UpdateLinkedDevices()
+        {
+            if (EntMan.TryGetComponent<PagerComponent>(Owner, out var receiver))
+                _menu?.UpdateLinkedDevices(receiver.Devices);
+        }
+        // End DeltaV - pagers
     }
 }

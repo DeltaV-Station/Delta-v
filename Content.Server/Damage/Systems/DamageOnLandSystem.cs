@@ -11,7 +11,7 @@ namespace Content.Server.Damage.Systems
     /// </summary>
     public sealed class DamageOnLandSystem : EntitySystem
     {
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly SafeSolutionThrowerSystem _safesolthrower = default!; // DeltaV - Beergoggles enable safe throw
 
         public override void Initialize()
@@ -23,7 +23,7 @@ namespace Content.Server.Damage.Systems
         private void DamageOnLand(EntityUid uid, DamageOnLandComponent component, ref LandEvent args)
         {
             // DeltaV - start of Beergoggles enable safe throw
-            if (args.User is { } user && HasComp<DrinkComponent>(uid))
+            if (args.User is { } user && TryComp<EdibleComponent>(uid, out var edible) && edible.Edible == "Drink") // TODO: Probably create an event for this.
             {
                 if (_safesolthrower.GetSafeThrow(user))
                     return;

@@ -1,0 +1,290 @@
+- type: reaction
+  id: Caramel
+  minTemp: 350
+  reactants:
+    Saline:
+      amount: 1
+    Sugar:
+      amount: 2
+  products:
+    Caramel: 1
+
+- type: reaction
+  id: IceCreamAppleCaramel
+  reactants:
+    IceCreamCaramel:
+      amount: 3
+    JuiceApple:
+      amount: 1
+  products:
+    IceCreamAppleCaramel: 4
+
+- type: reaction
+  id: IceCreamCaramel
+  reactants:
+    IceCream:
+      amount: 1
+    Caramel:
+      amount: 1
+  products:
+    IceCreamCaramel: 2
+
+- type: reaction
+  id: IceCreamCaramelFudge
+  reactants:
+    IceCreamChocolate:
+      amount: 2
+    Caramel:
+      amount: 1
+  products:
+    IceCreamCaramelFudge: 3
+
+- type: reaction
+  id: IceCreamBerryCobbler
+  reactants:
+    IceCream:
+      amount: 2
+    Oats:
+      amount: 1
+    JuiceBerry:
+      amount: 1
+  products:
+    IceCreamBerryCobbler: 4
+
+- type: reaction
+  id: IceCreamCherry
+  reactants:
+    IceCream:
+      amount: 1
+    JuiceCherry:
+      amount: 1
+  products:
+    IceCreamCherry: 2
+
+- type: reaction
+  id: IceCreamChocolate
+  reactants:
+    IceCream:
+      amount: 1
+    CocoaPowder:
+      amount: 1
+  products:
+    IceCreamChocolate: 2
+
+- type: reaction
+  id: IceCreamCoffee
+  reactants:
+    IceCream:
+      amount: 1
+    Coffee:
+      amount: 1
+  products:
+    IceCreamCoffee: 2
+
+- type: reaction
+  id: IceCreamCookieDough
+  reactants:
+    IceCream:
+      amount: 1
+    IceCreamChocolate:
+      amount: 1
+    Flour:
+      amount: 1
+  products:
+    IceCreamCookieDough: 2
+
+- type: reaction
+  id: IceCreamGreenTea
+  reactants:
+    IceCream:
+      amount: 1
+    GreenTea:
+      amount: 1
+  products:
+    IceCreamGreenTea: 2
+
+- type: reaction
+  id: IceCreamNeapolitan
+  reactants:
+    IceCream:
+      amount: 1
+    IceCreamCherry:
+      amount: 1
+    IceCreamChocolate:
+      amount: 1
+  products:
+    IceCreamNeapolitan: 3
+
+- type: reaction
+  id: IceCreamMint
+  reactants:
+    IceCream:
+      amount: 1
+    Angobitters:
+      amount: 1
+  products:
+    IceCreamMint: 2
+
+- type: reaction
+  id: IceCreamTower
+  reactants:
+    IceCreamNeapolitan:
+      amount: 1
+    IceCreamSherbetRainbow:
+      amount: 1
+  products:
+    IceCreamTower: 2
+
+- type: reaction
+  id: IceCreamVegan
+  reactants:
+    Sugar:
+      amount: 1
+    Ice:
+      amount: 1
+    MilkSoy:
+      amount: 1
+  products:
+    IceCreamVegan: 3
+
+- type: reaction
+  id: IceCreamWatermelon
+  reactants:
+    IceCream:
+      amount: 1
+    JuiceWatermelon:
+      amount: 1
+  products:
+    IceCreamWatermelon: 2
+
+- type: reaction
+  id: IceCreamSherbetLemon
+  reactants:
+    IceCream:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+  products:
+    IceCreamSherbetLemon: 2
+
+- type: reaction
+  id: IceCreamSherbetLime
+  reactants:
+    IceCream:
+      amount: 1
+    JuiceLime:
+      amount: 1
+  products:
+    IceCreamSherbetLime: 2
+
+- type: reaction
+  id: IceCreamSherbetPineapple
+  reactants:
+    IceCream:
+      amount: 1
+    JuicePineapple:
+      amount: 1
+  products:
+    IceCreamSherbetPineapple: 2
+
+- type: reaction
+  id: IceCreamSherbetOrange
+  reactants:
+    IceCream:
+      amount: 1
+    JuiceOrange:
+      amount: 1
+  products:
+    IceCreamSherbetOrange: 2
+
+- type: reaction
+  id: IceCreamSherbetRaspberry
+  reactants:
+    IceCream:
+      amount: 1
+    JuiceBerry:
+      amount: 1
+  products:
+    IceCreamSherbetRaspberry: 2
+
+- type: reaction
+  id: IceCreamSherbetRainbow
+  reactants:
+    IceCreamSherbetOrange:
+      amount: 1
+    IceCreamSherbetLime:
+      amount: 1
+    IceCreamSherbetRaspberry:
+      amount: 1
+  products:
+    IceCreamSherbetRainbow: 3
+
+- type: reaction
+  id: SlushCherry
+  reactants:
+    JuiceCherry:
+      amount: 1
+    Ice:
+      amount: 2
+    Sugar:
+      amount: 1
+  products:
+    SlushCherry: 4
+
+- type: reaction
+  id: SlushCola
+  reactants:
+    Cola:
+      amount: 1
+    Ice:
+      amount: 2
+    Sugar:
+      amount: 1
+  products:
+    SlushCola: 4
+
+- type: reaction
+  id: SlushBlueRaspberry
+  reactants:
+    JuiceBerry:
+      amount: 1
+    Ice:
+      amount: 2
+    Sugar:
+      amount: 1
+  products:
+    SlushBlueRaspberry: 4
+
+- type: reaction
+  id: IceCreamSundaeTropical
+  reactants:
+    IceCream:
+      amount: 3
+    JuiceBanana:
+      amount: 1
+    CoconutWater:
+      amount: 1
+    JuiceBungo:
+      amount: 1
+  products:
+    IceCreamSundaeTropical: 6
+
+- type: reaction
+  id: IceCreamPistachio
+  reactants:
+    IceCream:
+      amount: 1
+    ChoppedNuts:
+      amount: 1
+  products:
+    IceCreamPistachio: 2
+
+- type: reaction
+  id: IceCreamRockyRoad
+  reactants:
+    IceCreamChocolate:
+      amount: 2
+    ChoppedNuts:
+      amount: 1
+  products:
+    IceCreamRockyRoad: 3

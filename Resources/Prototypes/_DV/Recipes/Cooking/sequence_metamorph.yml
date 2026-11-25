@@ -1,0 +1,25 @@
+- type: metamorphRecipe
+  id: NachosCheesy
+  key: Nachos
+  result: FoodMealNachosCheesy
+  rules:
+  - !type:SequenceLength
+    range:
+      min: 1
+      max: 1
+  - !type:LastElementHasTags
+    tags:
+    - Cheese
+
+- type: metamorphRecipe
+  id: NachosCuban
+  key: Nachos
+  result: FoodMealNachosCuban
+  rules:
+  - !type:SequenceLength
+    range:
+      min: 1
+      max: 1
+  - !type:LastElementHasTags
+    tags:
+    - Vegetable # Only vegetable tag for now since the only vegetable we allow on nachos is chili and they don't have another tag

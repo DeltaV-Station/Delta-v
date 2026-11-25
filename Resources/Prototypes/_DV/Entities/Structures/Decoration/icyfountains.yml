@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseStructure
+  id: IcyFountainLargeRound
+  name: large round icy fountain
+  description: A fountain full of yummy water that was iced over.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: FloorObjects
+    offset: "0.0,0.1"
+    sprite: _DV/Structures/Decoration/icyfountains.rsi
+    layers:
+      - state: large-round-base
+      - state: large-round-base-icy
+  - type: InteractionOutline
+  - type: Prayable
+    sentMessage: prayer-popup-notify-fountainwish-sent
+    notificationPrefix: prayer-chat-notify-fountainwish
+    verb: prayer-verbs-fountainwish
+    verbImage: null
+  - type: Slippery
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 400
+        layer:
+        - WallLayer
+      fix2:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.9
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+
+- type: entity
+  parent: BaseStructure
+  id: IcyFountainLargeRoundTop
+  name: large round icy fountain top
+  description: Sparkling ice!
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    offset: "0.0,0.1"
+    sprite: _DV/Structures/Decoration/icyfountains.rsi
+    layers:
+      - state: large-round-top
+      - state: large-round-top-icy

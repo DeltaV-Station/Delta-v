@@ -251,6 +251,11 @@
   id: DawInstrumentMachineCircuitboard
   result: DawInstrumentMachineCircuitboard
 
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe]
+  id: SmartFridgeCircuitboard
+  result: SmartFridgeCircuitboard
+
 # Bar
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
@@ -296,10 +301,10 @@
 
 ## Supply
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
-  id: CargoTelepadMachineCircuitboard
-  result: CargoTelepadMachineCircuitboard
+#- type: latheRecipe # DeltaV - Telepad removed for benefit of cargo pilots + logi gameplay flow.
+#  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+#  id: CargoTelepadMachineCircuitboard
+#  result: CargoTelepadMachineCircuitboard
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]

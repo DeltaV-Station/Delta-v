@@ -31,16 +31,15 @@
         Piercing: 0.60
         Radiation: 0.75
         Caustic: 0.75
-        Heat: 0.75
+        Heat: 0.80
   - type: StaminaResistance
     damageCoefficient: 0.3
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCombatK9
   - type: AllowSuitStorage
-  - type: Insulated
   - type: Tag
     tags:
       - K9Armor
@@ -78,6 +77,9 @@
         Radiation: 0.80
         Caustic: 0.80
         Heat: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: ClothingOuterHardsuitCombatRiotK9Helmet
 
@@ -104,7 +106,14 @@
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Armor/duravest.rsi
-    states: icon-secdog
+    state: icon-secdog
   - type: Tag
     tags:
       - K9Armor
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.90

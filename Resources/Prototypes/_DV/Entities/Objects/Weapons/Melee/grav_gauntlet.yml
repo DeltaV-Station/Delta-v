@@ -1,0 +1,50 @@
+- type: entity
+  parent: [BaseItem]
+  id: GravGauntlet
+  name: Grav Gauntlet MK-00c
+  description: A developmental prototype of Nanotrasen's Melee Arms Department. When striking an enemy, a gravitational wave pulses and sweeps them in for a follow-up.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Melee/grav_gauntlet.rsi
+    state: icon
+  - type: MeleeWeapon
+    range: 1.4
+    attackRate: 0.85
+    angle: 0
+    animation: WeaponArcFist
+    wideAnimationRotation: 230
+    damage:
+      types:
+        Blunt: 25
+        Heat: 3
+        Structural: 20
+  - type: ClothingSlowResistance
+    modifier: 0.30
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Heat: 7
+        Structural: 5
+  - type: Wieldable
+  - type: MeleeThrowOnHit
+    speed: 2
+    distance: -.75
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 2
+  - type: Tool
+    qualities:
+    - Prying
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+    - suitStorage
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StealTarget
+    stealGroup: HoSSidearm

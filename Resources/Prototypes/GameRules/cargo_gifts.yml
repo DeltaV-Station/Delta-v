@@ -65,9 +65,9 @@
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizza: 2 # DeltaV - Changed to 2 small pizza crates, 8 pizzas total
+      FoodPizza: 2 # DeltaV - Changed to 2 small pizza crates, 8 pizzas total (Was 16)
       FoodBarSupply: 1
-      FoodSoftdrinksLarge: 1
+      FoodSoftdrinks: 2         # 32 sodas
 
 - type: entity
   id: GiftsEngineering

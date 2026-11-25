@@ -7,8 +7,9 @@
   components:
     - type: Anchorable
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Metallic
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
         - trigger:
@@ -55,8 +56,8 @@
 - type: entity
   id: ShowcaseRobotAntique
   parent: BaseShowcaseRobot
-  name: cargo robot showcase
-  description: A non-functional replica of an old cargo robot.
+  name: logistics robot showcase # DeltaV - Logistics Department replacing Cargo
+  description: A non-functional replica of an old logistics robot. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Structures/Decoration/showcase.rsi

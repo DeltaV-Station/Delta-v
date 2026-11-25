@@ -1,0 +1,72 @@
+# Role reinforced shelfs
+# Captain
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalCaptain
+  suffix: Captain
+  components:
+  - type: AccessReader
+    access: [["Captain"]]
+
+# HeadOfSecurity
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalHoS
+  suffix: Head Of Security
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+
+# HeadOfPersonnel
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalHoP
+  suffix: Head Of Personnel
+  components:
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
+
+# Logistics Officer (Quartermaster)
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalLO
+  suffix: Logistics Officer
+  components:
+  - type: AccessReader
+    access: [["Quartermaster"]]
+
+# ChiefMedicalOfficer
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalCMO
+  suffix: Chief Medical Officer
+  components:
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
+
+# ChiefJustice
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalCJ
+  suffix: Chief Justice
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+# Mystagogue (ResearchDirector)
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalMG
+  suffix: Mystagogue
+  components:
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+
+# ChiefEngineer
+- type: entity
+  parent: ShelfRMetal
+  id: ShelfRMetalCE
+  suffix: Chief Engineer
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]

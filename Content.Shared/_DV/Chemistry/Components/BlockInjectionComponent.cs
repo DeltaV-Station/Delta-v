@@ -7,4 +7,8 @@ namespace Content.Shared._DV.Chemistry.Components;
 /// Hyposprays are unaffected.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class BlockInjectionComponent : Component;
+public sealed partial class BlockInjectionComponent : Component
+{
+    [DataField]
+    public LocId ReasonLocId = "injector-component-deny-user-chitnid";
+}

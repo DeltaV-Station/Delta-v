@@ -2,7 +2,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatSecretary
   name: secretary hat
-  description: A hat for those dedicated to serve coffe and take notes.
+  description: A hat for those dedicated to serve coffee and take notes.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hats/admin_hat.rsi
@@ -84,7 +84,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapBlack
-  name: surgical cap
+  name: black surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapCyan
-  name: surgical cap
+  name: cyan surgical cap
   description: A cyan cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -106,7 +106,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapCybersun
-  name: surgical cap
+  name: cybersun surgical cap
   description: A surgical cap worn by members of Cybersun's Biotechnology division.
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapPink
-  name: surgical cap
+  name: pink surgical cap
   description: A pink cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -128,7 +128,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapRainbow
-  name: surgical cap
+  name: rainbow surgical cap
   description: A rainbow cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -139,7 +139,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapWhite
-  name: surgical cap
+  name: white surgical cap
   description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -248,3 +248,363 @@
     sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
   - type: Clothing
     sprite: _DV/Clothing/Head/Hats/propellerhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretAtmospherics
+  name: atmospherics beret
+  description: A yellow and blue beret that encourages you to make canister bombs. Do not listen.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_atmos.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatReindeer
+  name: reindeer headband
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/reindeer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/reindeer.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatRedRibbon
+  name: red ribbon
+  description: A little red ribbon.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/red_ribbon.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/red_ribbon.rsi
+    slots:
+    - HEAD
+    - neck
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFestiveHatRed
+  name: festive red hat
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/festive_red.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/festive_red.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFestiveHatGreen
+  name: festive green hat
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/festive_green.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/festive_green.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCandyCane
+  name: candy cane headband
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/candycane.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/candycane.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatStar
+  name: star topper headband
+  description: Festive headwear to get you in the holiday spirit.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/star.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/star.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFestiveLights
+  name: festive lights
+  description: Seems like you got tangled in these.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/festive_lights.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/festive_lights.rsi
+    slots:
+    - HEAD
+    - NECK
+    - OUTERCLOTHING
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatElf
+  name: elf hat
+  description: Santa's little helper's hat.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/elf.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/elf.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapSec
+  name: security cap
+  description: A cap worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/cap_sec.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCadet
+  name: security cadet beret
+  description: A beret worn by security cadets.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_cadet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSecurityGrey
+  name: grey security beret
+  description: A light grey beret worn by security personnel.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_security_grey.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMedical
+  name: medical beret
+  description: A light blue beret with a white cross.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_medical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_medical.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeniorChemistry
+  name: chemist senior beret
+  description: A white beret with blue and orange accents, a sign of skill and prestige within the chemistry lab.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_senior_chemist.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_senior_chemist.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretParamedic
+  name: paramedic beret
+  description: A dark blue beret with a white cross.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_paramedic.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_paramedic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHeadOfSecurityCavalier
+  name: head of security cavalier hat
+  description: A well-made cavalier hat made of the finest materials for all your flamboyant needs..
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/hoscavalier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/hoscavalier.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCaptainCavalier
+  name: captain cavalier hat
+  description: A well-made cavalier hat made of the finest materials for all your flamboyant needs..
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/captaincavalier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/captaincavalier.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCentcommCavalier
+  name: centcomm cavalier hat
+  description: A well-made cavalier hat made of the finest materials for all your flamboyant needs..
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/centcommcavalier.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/centcommcavalier.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
+
+
+# Wrestling masks
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaRed
+  name: Red Lucha Libre Mask
+  description: The luchador never removes his mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaRed.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWrestlingMaskLuchaBlue
+  name: Blue Lucha Libre Mask
+  description: Don't touch the mask.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/WrestlerMaskLuchaBlue.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretViro
+  name: virology beret
+  description: A white beret with a green stripe that reminds you to wash your hands.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_viro.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_viro.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGnome
+  name: gnome hat
+  description: For those that honor the first gnome in space, Gnome Chompsky. Still has a bit of magic that sparkles in its velvet sheen.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/gnomehat.rsi
+    clothingVisuals:
+      head:
+      - state: equipped
+        offset: "0, 0.35"
+  - type: EmbeddableProjectile # funny
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 180
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.40,-0.30
+            - -0.30,-0.40
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    maxItemSize: Small
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PsionicallyInsulative
+    canBeFried: false
+    allowsPsionicUsage: true
+  - type: GuideHelp
+    guides:
+    - Psionics
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSodaJerkCap
+  name: soda jerk cap
+  description: I was a wimp before the soda jerk.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/SodaJerkCap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSRT
+  name: SRT beret
+  description: A red beret with a dark blue NanoTrasen logo on it.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_SRT.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_SRT.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMimeTassledBlack
+  name: mime's black tassled beret
+  description: A black tassled beret for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_black.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMimeTassledWhite
+  name: mime's white tassled beret
+  description: A white tassled beret for a mime.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hats/beret_mime_tassled_white.rsi

@@ -1,6 +1,6 @@
-using Content.Server.Body.Components;
 using Content.Server.Forensics;
 using Content.Server.Objectives.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._DV.Recruiter;
@@ -32,7 +32,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
             return;
         }
 
-        if (_transfer.Transfer(user, user, blood, uid, dest, desired) != desired)
+        if (_transfer.Transfer(new SolutionTransferData(user, user, blood, uid, dest, desired)) != desired)
             return;
 
         // this is why you have to keep the pen safe, it has the dna of everyone you recruited!

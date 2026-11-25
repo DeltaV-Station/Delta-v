@@ -5,3 +5,5 @@ seeds-ghostpepper-name = ghost pepper
 seeds-ghostpepper-display-name = ghost pepper
 seeds-cosmicrevenant-name = cosmic revenant
 seeds-cosmicrevenant-display-name = cosmic revenant pepper
+seeds-ambrosianobilis-name = ambrosia nobilis
+seeds-ambrosianobilis-display-name = ambrosia nobilis

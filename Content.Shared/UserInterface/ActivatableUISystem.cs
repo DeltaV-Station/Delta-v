@@ -21,6 +21,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {
@@ -72,7 +73,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
         args.Verbs.Add(new ActivationVerb
         {
-            Act = () => InteractUI(args.User, uid, component),
+            Act = () => InteractUI(args.User, (uid, component)), // Stellar - interaction particles
             Text = Loc.GetString(component.VerbText),
             // TODO VERB ICON find a better icon
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
@@ -86,7 +87,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
         args.Verbs.Add(new Verb
         {
-            Act = () => InteractUI(args.User, uid, component),
+            Act = () => InteractUI(args.User, (uid, component)), // Stellar - interaction particles
             Text = Loc.GetString(component.VerbText),
             // TODO VERB ICON find a better icon
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
@@ -108,15 +109,18 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
             if (component.InHandsOnly)
             {
-                if (!_hands.IsHolding(args.User, uid, out var hand, args.Hands))
+                if (!_hands.IsHolding((args.User, args.Hands), uid, out var hand))
                     return false;
 
-                if (component.RequireActiveHand && args.Hands.ActiveHand != hand)
+                if (component.RequireActiveHand && args.Hands.ActiveHandId != hand)
                     return false;
             }
         }
 
-        return args.CanInteract || HasComp<GhostComponent>(args.User) && !component.BlockSpectators;
+        return ((args.CanInteract
+            || HasComp<GhostComponent>(args.User)
+            && !component.BlockSpectators))
+            && RaiseCanOpenEventChecks(args.User, uid, silent: true); // silent to prevent popups or sounds when only looking at the verb
     }
 
     private void OnUseInHand(EntityUid uid, ActivatableUIComponent component, UseInHandEvent args)
@@ -130,7 +134,8 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (component.RequiredItems != null)
             return;
 
-        args.Handled = InteractUI(args.User, uid, component);
+        var interactionParticle = false; // Stellar - interaction particles
+        args.Handled = InteractUI(args.User, uid, component, ref interactionParticle); // Stellar - interaction particles
     }
 
     private void OnActivate(EntityUid uid, ActivatableUIComponent component, ActivateInWorldEvent args)
@@ -144,7 +149,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (component.RequiredItems != null)
             return;
 
-        args.Handled = InteractUI(args.User, uid, component);
+        args.Handled = InteractUI(args.User, uid, component, ref args.InteractionParticle); // Stellar - interaction particles
     }
 
     private void OnInteractUsing(EntityUid uid, ActivatableUIComponent component, InteractUsingEvent args)
@@ -161,7 +166,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(component.RequiredItems, args.Used))
             return;
 
-        args.Handled = InteractUI(args.User, uid, component);
+        args.Handled = InteractUI(args.User, uid, component, ref args.InteractionParticle); // Stellar - interaction particles
     }
 
     private void OnUIClose(EntityUid uid, ActivatableUIComponent component, BoundUIClosedEvent args)
@@ -177,13 +182,23 @@ public sealed partial class ActivatableUISystem : EntitySystem
         SetCurrentSingleUser(uid, null, component);
     }
 
-    private bool InteractUI(EntityUid user, EntityUid uiEntity, ActivatableUIComponent aui)
+    // Begin Stellar - interaction particles
+    private void InteractUI(EntityUid user, Entity<ActivatableUIComponent> ui)
+    {
+        var interactionParticle = false;
+        InteractUI(user, ui, ui, ref interactionParticle);
+        _interaction.DoContactInteraction(user, ui, null, true, interactionParticles: interactionParticle);
+    }
+    // End Stellar - interaction particles
+
+    private bool InteractUI(EntityUid user, EntityUid uiEntity, ActivatableUIComponent aui, ref bool interactionParticle) // Stellar - interaction particles
     {
         if (aui.Key == null || !_uiSystem.HasUi(uiEntity, aui.Key))
             return false;
 
         if (_uiSystem.IsUiOpen(uiEntity, aui.Key, user))
         {
+            interactionParticle = false; // Stellar - interaction particles
             _uiSystem.CloseUi(uiEntity, aui.Key, user);
             return true;
         }
@@ -202,10 +217,10 @@ public sealed partial class ActivatableUISystem : EntitySystem
             if (!TryComp(user, out HandsComponent? hands))
                 return false;
 
-            if (!_hands.IsHolding(user, uiEntity, out var hand, hands))
+            if (!_hands.IsHolding((user, hands), uiEntity, out var hand))
                 return false;
 
-            if (aui.RequireActiveHand && hands.ActiveHand != hand)
+            if (aui.RequireActiveHand && hands.ActiveHandId != hand)
                 return false;
         }
 
@@ -225,11 +240,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
         // If we've gotten this far, fire a cancellable event that indicates someone is about to activate this.
         // This is so that stuff can require further conditions (like power).
-        var oae = new ActivatableUIOpenAttemptEvent(user);
-        var uae = new UserOpenActivatableUIAttemptEvent(user, uiEntity);
-        RaiseLocalEvent(user, uae);
-        RaiseLocalEvent(uiEntity, oae);
-        if (oae.Cancelled || uae.Cancelled)
+        if (!RaiseCanOpenEventChecks(user, uiEntity))
             return false;
 
         // Give the UI an opportunity to prepare itself if it needs to do anything
@@ -241,8 +252,10 @@ public sealed partial class ActivatableUISystem : EntitySystem
         _uiSystem.OpenUi(uiEntity, aui.Key, user);
 
         //Let the component know a user opened it so it can do whatever it needs to do
-        var aae = new AfterActivatableUIOpenEvent(user, user);
+        var aae = new AfterActivatableUIOpenEvent(user);
         RaiseLocalEvent(uiEntity, aae);
+
+        interactionParticle = aae.InteractionParticle; // Stellar
 
         return true;
     }
@@ -285,5 +298,24 @@ public sealed partial class ActivatableUISystem : EntitySystem
     {
         if (ent.Comp.InHandsOnly)
             CloseAll(ent, ent);
+    }
+
+    private bool RaiseCanOpenEventChecks(EntityUid user, EntityUid uiEntity, bool silent = false)
+    {
+        // If we've gotten this far, fire a cancellable event that indicates someone is attempting to activate this UI.
+        // This is so that stuff can require further conditions (like power).
+        var uae = new UserOpenActivatableUIAttemptEvent(user, uiEntity, silent);
+        RaiseLocalEvent(user, uae);
+
+        if (uae.Cancelled)
+            return false;
+
+        var oae = new ActivatableUIOpenAttemptEvent(user, silent);
+        RaiseLocalEvent(uiEntity, oae);
+
+        if (oae.Cancelled)
+            return false;
+
+        return true;
     }
 }

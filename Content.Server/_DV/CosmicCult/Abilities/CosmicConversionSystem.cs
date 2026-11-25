@@ -3,7 +3,7 @@ using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
@@ -18,7 +18,6 @@ public sealed class CosmicConversionSystem : EntitySystem
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly CosmicGlyphSystem _cosmicGlyph = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
@@ -90,8 +89,8 @@ public sealed class CosmicConversionSystem : EntitySystem
             }
             else
             {
-                _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
-                _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
+                _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(4f));
+                _damageable.TryChangeDamage(target.Owner, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
             }
         }

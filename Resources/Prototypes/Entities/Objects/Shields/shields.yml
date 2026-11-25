@@ -32,7 +32,10 @@
           Piercing: 1
           Heat: 1
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
+    - type: ExaminableDamage
+      messages: ShieldMessages
     - type: Destructible
       thresholds:
         - trigger:
@@ -62,7 +65,6 @@
       price: 100
     # Begin DeltaV additions
     - type: MeleeWeapon
-      canWideSwing: false
       damage:
         types:
           Blunt: 3
@@ -71,11 +73,29 @@
       bluntStaminaDamageFactor: 1.5
     # End DeltaV additions
 
+- type: entity
+  name: base repairable shield
+  parent: BaseShield
+  id: BaseRepairableShield
+  description: A repairable shield!
+  abstract: true
+  components:
+  - type: Repairable # Negative values represent healing
+    damage:
+      types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
+        Heat: -20
+    fuelCost: 10 # 1/2 of a Welder for a full repair
+    doAfterDelay: 5
+    allowSelfRepair: false
+    qualityNeeded: Welding # DeltaV
 #Security Shields
 
 - type: entity
   name: riot shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -109,7 +129,7 @@
 
 - type: entity
   name: laser shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -117,7 +137,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       state: icon
-      #state: riot_laser-icon 
+      #state: riot_laser-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       size: Ginormous
@@ -140,7 +160,7 @@
 
 - type: entity
   name: ballistic shield
-  parent: [ BaseShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
@@ -148,7 +168,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       state: icon
-      #state: riot_bullet-icon 
+      #state: riot_bullet-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       size: Ginormous
@@ -157,7 +177,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
 # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -238,14 +258,66 @@
       price: 150
 
 - type: entity
-  name: makeshift shield
+  name: cardboard shield
   parent: BaseShield
+  id: CardShield
+  description: A shield made of cardboard. Won't protect you from much.
+  components:
+    - type: Sprite
+      state: cardshield-icon
+    - type: Item
+      heldPrefix: cardshield
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 2
+          Piercing: 0.6
+          Heat: 3
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 1.8
+          Piercing: 0.5
+          Heat: 2.5
+        flatReductions:
+          Blunt: 0.5
+    - type: Construction
+      graph: CardShield
+      node: cardShield
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 10 #Very very weak shield
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound: /Audio/Items/Toys/ToyFall2.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialCardboard:
+              min: 2
+              max: 4
+    - type: StaticPrice
+      price: 20
+
+- type: entity
+  name: makeshift shield
+  parent: BaseRepairableShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
 # Begin of Harmony Change: Shield Rework -- Suit Storage Slot
     - type: Sprite
-      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi 
+      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       state: icon
       #state: makeshift-icon
     - type: Item
@@ -256,7 +328,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
   # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -301,6 +373,8 @@
                 SheetSteel:
                   min: 1
                   max: 2
+
+#Starlight Changes End
 
 - type: entity
   name: web shield
@@ -359,7 +433,7 @@
 
 - type: entity
   name: clockwork shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: ClockworkShield
   description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
   components:
@@ -507,7 +581,10 @@
           Piercing: 1
     - type: Appearance
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
+    - type: ExaminableDamage
+      messages: EnergyShieldMessages
     - type: Destructible
       thresholds:
         - trigger:
@@ -549,7 +626,7 @@
 
 - type: entity
   name: telescopic shield
-  parent: BaseShield
+  parent: BaseRepairableShield
   id: TelescopicShield
   description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:
@@ -615,4 +692,4 @@
                   min: 2
                   max: 2
     - type: StaticPrice
-      price: 250
+      price: 150

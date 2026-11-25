@@ -3,7 +3,6 @@ using Content.Shared.Movement.Components; // DeltaV - make EyeCursorOffsetCompon
 using Content.Client.Movement.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Hands;
-using Content.Shared.Movement.Components;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 using Robust.Client.Timing;
@@ -29,7 +28,10 @@ public sealed class WieldableSystem : SharedWieldableSystem
             return;
 
         if (_gameTiming.IsFirstTimePredicted)
+        {
             cursorOffsetComp.CurrentPosition = Vector2.Zero;
+            cursorOffsetComp.TargetPosition = Vector2.Zero;
+        }
     }
 
     public void OnGetEyeOffset(Entity<CursorOffsetRequiresWieldComponent> entity, ref HeldRelayedEvent<GetEyeOffsetRelayedEvent> args)

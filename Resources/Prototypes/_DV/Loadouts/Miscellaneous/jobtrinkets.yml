@@ -1,0 +1,35 @@
+- type: loadout
+  id: LizardPlushieBoxer
+  effects:
+    - !type:JobRequirementLoadoutEffect
+      requirement:
+        !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 72000 # 20hr
+  storage:
+    back:
+      - PlushieLizardJobBoxer
+
+- type: loadout
+  id: LizardPlushieZookeeper
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobZookeeper
+      time: 72000 # 20hr
+  storage:
+    back:
+    - PlushieLizardJobZookeeper
+
+- type: loadout
+  id: LighterCentComm
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 72000 # 20hr
+  storage:
+    back:
+    - CentCommFlippoNerfed

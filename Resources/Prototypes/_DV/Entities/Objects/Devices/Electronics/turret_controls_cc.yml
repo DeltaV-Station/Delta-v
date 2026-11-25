@@ -1,0 +1,10 @@
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanelElectronicsBase
+  id: WeaponEnergyTurretCentralCommandControlPanelElectronics
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: command
+  - type: ElectronicsBoard
+    prototype: WeaponEnergyTurretCentralCommandControlPanel

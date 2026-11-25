@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Server.Power.Components; // Frontier
 using Content.Server.Power.EntitySystems; // Frontier
@@ -34,15 +34,15 @@ public sealed partial class GunSystem
                 if (!autoShoot.Enabled)
                     continue;
 
-                AttemptShoot(uid, gun);
+                AttemptShoot((uid, gun));
             }
             else if (gun.BurstActivated)
             {
                 var parent = TransformSystem.GetParentUid(uid);
                 if (HasComp<DamageableComponent>(parent))
-                    AttemptShoot(parent, uid, gun, gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
+                    AttemptShoot(parent, (uid, gun), gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
                 else
-                    AttemptShoot(uid, gun);
+                    AttemptShoot((uid, gun));
             }
         }
     }

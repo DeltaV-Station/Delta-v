@@ -1,0 +1,11 @@
+- type: tile
+  id: PlatingBurnt
+  name: tiles-plating
+  sprite: /Textures/Tiles/plating_burnt.png
+  baseTurf: Lattice
+  isSubfloor: true
+  deconstructTools: [ Axing ]
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 1.5
+  heatCapacity: 10000

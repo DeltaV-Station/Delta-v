@@ -16,8 +16,14 @@ The anomaly vessel is a machine that generates points from anomalies. Use the an
 <Box>
 <GuideEntityEmbed Entity="MachineAnomalyVessel"/>
 </Box>
+<Box>
+<GuideEntityEmbed Entity="MachineAnomalyVesselExperimental"/>
+</Box>
+<!--Delta V: Added the Experimental Anomaly Vessel to the above box, also reworded the below to account for it.  -->
 
 The amount of points a vessel generates per second is based on the severity, stability, and health of an anomaly. The higher each of these values, the higher the point output will be.
+
+It is also increased by a substantial amount if assigned to an Experimental Anomaly Vessel. However, as a cost it will proactivley produce radiation surrounding it.
 
 Be careful: if an anomaly goes [color=#a4885c]supercritical[/color], the vessel it is linked to will explode. This may damage the station and nearby equipment.
 

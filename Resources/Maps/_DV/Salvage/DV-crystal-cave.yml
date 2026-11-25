@@ -983,15 +983,13 @@ entities:
     - type: Transform
       pos: 1.5,-1.5
       parent: 192
-- proto: WarpPoint
+- proto: WarpPointDebris
   entities:
   - uid: 37
     components:
     - type: Transform
       pos: -1.5,-1.5
       parent: 192
-    - type: WarpPoint
-      location: Space Debris
 - proto: WatcherAISpawner
   entities:
   - uid: 9

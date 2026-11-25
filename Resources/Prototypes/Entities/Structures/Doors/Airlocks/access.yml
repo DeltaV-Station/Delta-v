@@ -360,7 +360,7 @@
 - type: entity
   parent: AirlockCommand
   id: AirlockResearchDirectorLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -402,15 +402,15 @@
     containers:
       board: [ DoorElectronicsDetective ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: AirlockSecurity
-#  id: AirlockBrigLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockBrigLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: AirlockSecurity
@@ -609,6 +609,18 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
+  parent: AirlockStandardGlass
+  id: AirlockChapelStandardGlassLocked
+  suffix: Chapel, Locked
+  categories: [ HideSpawnMenu ] # DeltaV - Chapel is Epistemics and redundant
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChapel ]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
   parent: AirlockEngineeringGlass
   id: AirlockEngineeringGlassLocked
   suffix: Engineering, Locked
@@ -764,7 +776,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockResearchDirectorGlassLocked
-  suffix: ResearchDirector, Locked
+  suffix: Mystagogue, Locked # DeltaV - Epistemics Department replacing Science
   components:
   - type: ContainerFill
     containers:
@@ -806,15 +818,14 @@
     containers:
       board: [ DoorElectronicsDetective ]
 
-#Delta V: Removed Brig Access
-#- type: entity
-#  parent: AirlockSecurityGlass
-#  id: AirlockBrigGlassLocked
-#  suffix: Brig, Locked
-#  components:
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronicsBrig ]
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockBrigGlassLocked
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
 
 - type: entity
   parent: AirlockSecurityGlass
@@ -866,6 +877,15 @@
   parent: AirlockMaint
   id: AirlockMaintLocked
   suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]
+
+- type: entity
+  parent: AirlockXeno
+  id: AirlockXenoMaintLocked
+  suffix: Maintenance, Locked
   components:
   - type: ContainerFill
     containers:
@@ -930,7 +950,7 @@
     sprite: _DV/Structures/Doors/Airlocks/Standard/maint.rsi # DeltaV - Changed to our sprites
 
 - type: entity
-  parent: AirlockMaintRnDLocked # DeltaV - Chapel is in Epistemics
+  parent: AirlockChapelLocked # DeltaV - Chapel is in Epistemics
   id: AirlockMaintChapelLocked
   components:
   - type: Sprite
@@ -1115,6 +1135,17 @@
     containers:
       board: [ DoorElectronicsNukeop ]
 
+- type: entity
+  parent: AirlockXenoborg
+  id: AirlockXenoborgLocked
+  suffix: Xenoborg, Locked
+  components:
+  - type: StationAiWhitelist
+    enabled: false
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsXenoborg ]
+
 # Shuttle airlocks
 - type: entity
   parent: AirlockShuttle
@@ -1142,6 +1173,17 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNukeop ]
+
+- type: entity
+  parent: AirlockShuttleXenoborg
+  id: AirlockGlassShuttleXenoborgLocked
+  suffix: External, Docking, Xenoborg, Locked
+  components:
+  - type: StationAiWhitelist
+    enabled: false
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsXenoborg ]
 
 - type: entity
   parent: AirlockGlassShuttle
@@ -1246,10 +1288,19 @@
 #Airtight hatch
 
 - type: entity
-  parent: AirlockHatch
-  id: AirlockHatchSyndicate
+  parent: AirlockHatchSyndicate
+  id: AirlockHatchSyndicateLocked
   suffix: Syndicate, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
+
+- type: entity
+  parent: AirlockHatchMaintenance
+  id: AirlockHatchMaintenanceLocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]

@@ -1,0 +1,98 @@
+- type: entity
+  parent: MarkerBase
+  id: SalvageSeedSpawnerLow
+  name: random seed spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Hydroponics/banana.rsi
+      state: seed
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.90
+      children:
+      - id: WheatSeeds
+      - id: OatSeeds
+      - id: BananaSeeds
+      - id: CarrotSeeds
+      - id: CabbageSeeds
+      - id: GarlicSeeds
+      - id: LemonSeeds
+      - id: LimeSeeds
+      - id: OrangeSeeds
+      - id: PotatoSeeds
+      - id: SugarcaneSeeds
+      - id: TowercapSeeds
+      - id: TomatoSeeds
+      - id: EggplantSeeds
+      - id: AppleSeeds
+      - id: CornSeeds
+      - id: ChanterelleSeeds
+      - id: ChiliSeeds
+      - id: AloeSeeds
+      - id: PoppySeeds
+      - id: LingzhiSeeds
+      - id: AmbrosiaVulgarisSeeds
+      - id: GalaxythistleSeeds
+      - id: FlyAmanitaSeeds
+      - id: OnionSeeds
+      - id: RiceSeeds
+      - id: SoybeanSeeds
+      - id: OnionRedSeeds
+      - id: WatermelonSeeds
+      - id: GrapeSeeds
+      - id: CocoaSeeds
+      - id: BerrySeeds
+      - id: BungoSeeds
+      - id: PeaSeeds
+      - id: PumpkinSeeds
+      - id: CottonSeeds
+      - id: LilySeeds
+      - id: TeaPlantSeeds
+      - id: CherrySeeds
+      - id: PearSeeds
+      - id: CoffeeSeeds
+      - !type:GroupSelector
+        weight: 0.15
+        children:
+        - id: PineappleSeeds
+        - id: EggySeeds
+        - id: TobaccoSeeds
+        - id: CannabisSeeds
+        - id: NettleSeeds
+        - id: BloodTomatoSeeds
+        - id: BlueTomatoSeeds
+        - id: ChillySeeds
+        - id: MimanaSeeds
+        - id: LemoonSeeds
+        - id: SteelcapSeeds
+        - id: KoibeanSeeds
+        - id: SpacemansTrumpetSeeds
+        - id: LaughinPeaSeeds
+        - id: MeatwheatSeeds
+        - id: ExtradimensionalOrangeSeeds
+        - id: PapercaneSeeds
+        - id: GoldenAppleSeeds
+        - id: GlasstleSeeds
+        - id: WorldPeaSeeds
+        - id: BluePumpkinSeeds
+        - id: BloonionSeeds
+        - id: GhostPepperSeeds
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: KillerTomatoSeeds
+        - id: RainbowCannabisSeeds
+        - id: DeathNettleSeeds
+        - id: AmbrosiaDeusSeeds
+        - id: GatfruitSeeds
+        - id: HolymelonSeeds
+        - id: PyrottonSeeds
+        - id: RealCapfruitSeeds
+        - id: FakeCapfruitSeeds
+        - id: AnomalyBerrySeeds
+        - id: CrystalThistleSeeds
+        - id: CosmicRevenantSeeds
+        - id: AmbrosiaNobilis

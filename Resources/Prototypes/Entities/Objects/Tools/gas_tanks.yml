@@ -5,13 +5,20 @@
   components:
   - type: Sprite
     sprite: Objects/Tanks/generic.rsi
-    state: icon
+    layers:
+    - state: icon
+    - state: integrity-unshaded-0
+      map: [ "enum.MaxPressureVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+      visible: false
+    - state: mask
+      map: [ "enum.MaxPressureVisualLayers.Base" ]
+      visible: false
+  - type: Appearance
+  - type: MaxPressureVisuals
   - type: Item
     size: Normal
     sprite: Objects/Tanks/generic.rsi
-  - type: Tag
-    tags:
-    - GasTank
   - type: Clothing
     quickEquip: false
     sprite: Objects/Tanks/generic.rsi
@@ -28,16 +35,20 @@
     interfaces:
       enum.SharedGasTankUiKey.Key:
         type: GasTankBoundUserInterface
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       # If gas tank volume is changed, adjust MinimumTritiumOxyburnEnergy in Atmospherics.cs by the same proportions
       volume: 5
       temperature: 293.15
     tankLowPressure: 30.0
   - type: Explosive
-    explosionType: MicroBomb
+    explosionType: Minibomb # Mostly a pressure wave explosive so primarily blunt damage
     maxIntensity: 20
+    tileBreakScale: 0.2
   - type: MeleeWeapon
     wideAnimationRotation: 45
     attackRate: 0.8
@@ -49,6 +60,9 @@
       Steel: 185
   - type: StaticPrice
     price: 30
+  - type: Tag # DeltaV - Rebalance of tide crafting
+    tags:
+    - GasTank
 
 - type: entity
   abstract: true
@@ -72,6 +86,10 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - OxygenTank
+    - GasTank # DeltaV - Added for the Anvil
 
 - type: entity
   parent: GasTankRoundBase
@@ -85,6 +103,9 @@
     sprite: Objects/Tanks/red.rsi
   - type: Clothing
     sprite: Objects/Tanks/red.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrogenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -97,7 +118,11 @@
   - type: Item
     size: Small
     sprite: Objects/Tanks/emergency.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency.rsi
   - type: GasTank
+    overpressure: 1519.875 # Poorly manufactured, they also lose pressure quickly so this makes exploding them easier, at the cost of the explosion being smaller.
     air:
       volume: 0.66
       temperature: 293.15
@@ -125,6 +150,9 @@
     sprite: Objects/Tanks/emergency_red.rsi
   - type: Item
     sprite: Objects/Tanks/emergency_red.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_red.rsi
 
@@ -138,6 +166,9 @@
     sprite: Objects/Tanks/emergency_extended.rsi
   - type: Item
     sprite: Objects/Tanks/emergency_extended.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency_extended.rsi
   - type: GasTank
     air:
       volume: 1.5
@@ -155,8 +186,14 @@
     sprite: Objects/Tanks/emergency_extended_red.rsi
   - type: Item
     sprite: Objects/Tanks/emergency_extended_red.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency_extended_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_extended_red.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrogenTank
 
 - type: entity
   parent: ExtendedEmergencyOxygenTank
@@ -168,6 +205,9 @@
     sprite: Objects/Tanks/emergency_double.rsi
   - type: Item
     sprite: Objects/Tanks/emergency_double.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency_double.rsi
   - type: GasTank
     air:
       volume: 2.5
@@ -190,6 +230,9 @@
     sprite: Objects/Tanks/emergency_double_red.rsi
   - type: Item
     sprite: Objects/Tanks/emergency_double_red.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency_double_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_double_red.rsi
 
@@ -203,8 +246,14 @@
     sprite: Objects/Tanks/emergency_clown.rsi
   - type: Item
     sprite: Objects/Tanks/emergency_clown.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tanks/emergency_clown.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_clown.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - ClownOxygenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -213,7 +262,10 @@
   description: Mixed anyone? It can hold 5 L of gas.
   components:
   - type: GasTank
-    outputPressure: 101.3
+    releasePressure: 101.3
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - AirTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -226,9 +278,12 @@
   - type: Item
     sprite: Objects/Tanks/anesthetic.rsi
   - type: GasTank
-    outputPressure: 30.4
+    releasePressure: 30.4
   - type: Clothing
     sprite: Objects/Tanks/anesthetic.rsi
+  - type: Tag # Funkystation - Crash Carts
+    tags:
+    - NitrousOxideTank
 
 - type: entity
   # it's a square so no rolling dough
@@ -242,7 +297,7 @@
   - type: Item
     sprite: Objects/Tanks/plasma.rsi
   - type: GasTank
-    outputPressure: 101.3
+    releasePressure: 101.3
   - type: Clothing
     sprite: Objects/Tanks/plasma.rsi
     slots:

@@ -1,5 +1,5 @@
 - type: listing
-  id: Mouse Operative Reinforcement
+  id: MouseOperativeReinforcement
   name: uplink-reinforcement-radio-nukie-mouse-name
   description: uplink-reinforcement-radio-nukie-mouse-desc
   productEntity: ReinforcementRadioSyndicateNukieMouse
@@ -9,5 +9,47 @@
     Telecrystal: 2
   cost:
     Telecrystal: 3
+  categories:
+  - UplinkAllies
+
+- type: listing
+  id: SpiderOperativeReinforcement
+  name: uplink-reinforcement-radio-nukie-spider-name
+  description: uplink-reinforcement-radio-nukie-spider-desc
+  productEntity: ReinforcementRadioSyndicateNukieSpider
+  icon: { sprite: _DV/Mobs/Animals/nukiespider.rsi, state: syndicate-spider-egg }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAllies
+
+- type: listing
+  id: UplinkMobCatC4
+  name: uplink-mobcat-C4-name
+  description: uplink-mobcat-C4-desc
+  productEntity: BoxSyndicateSydicatC4
+  icon: { sprite: _DV/Objects/Devices/communication.rsi, state: radio-syndicat}
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAllies
+
+- type: listing
+  id: UplinkReinforcementRadioSyndicateCyborgSaboteur
+  name: uplink-reinforcement-radio-cyborg-saboteur-name
+  description: uplink-reinforcement-radio-cyborg-saboteur-desc
+  productEntity: ReinforcementRadioSyndicateCyborgSaboteur
+  icon: { sprite: _DV/Objects/Devices/communication.rsi, state: old-radio-borg-synd_engi }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 7
+  cost:
+    Telecrystal: 12
   categories:
   - UplinkAllies

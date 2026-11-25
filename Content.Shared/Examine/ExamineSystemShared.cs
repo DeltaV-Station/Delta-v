@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory; // Harmony - for lanyards
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
@@ -21,6 +22,8 @@ namespace Content.Shared.Examine
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] protected readonly MobStateSystem MobStateSystem = default!;
 
+        [Dependency] private readonly EntityQuery<GhostComponent> _ghostQuery = default!;
+
         public const float MaxRaycastRange = 100;
 
         /// <summary>
@@ -39,11 +42,9 @@ namespace Content.Shared.Examine
         public const float DeadExamineRange = 0.75f;
 
         public const float ExamineRange = 16f;
-        protected const float ExamineDetailsRange = 3f;
+        protected const float ExamineDetailsRange = ExamineRange; // DeltaV - increase examine range
 
         protected const float ExamineBlurrinessMult = 2.5f;
-
-        private EntityQuery<GhostComponent> _ghostQuery;
 
         /// <summary>
         ///     Creates a new examine tooltip with arbitrary info.
@@ -111,7 +112,7 @@ namespace Content.Shared.Examine
             if (!examinerComp.CheckInRangeUnOccluded)
                 return true;
 
-            if (EntityManager.GetComponent<TransformComponent>(examiner).MapID != target.MapId)
+            if (Comp<TransformComponent>(examiner).MapID != target.MapId)
                 return false;
 
             // Do target InRangeUnoccluded which has different checks.
@@ -268,7 +269,7 @@ namespace Content.Shared.Examine
             //Add an entity description if one is declared
             if (!string.IsNullOrEmpty(metadata.EntityDescription))
             {
-                message.AddText(metadata.EntityDescription);
+                message.PushMarkup(metadata.EntityDescription);
                 hasDescription = true;
             }
 
@@ -293,7 +294,7 @@ namespace Content.Shared.Examine
     ///     If you're pushing multiple messages that should be grouped together (or ordered in some way),
     ///     call <see cref="PushGroup"/> before pushing and <see cref="PopGroup"/> when finished.
     /// </summary>
-    public sealed class ExaminedEvent : EntityEventArgs
+    public sealed class ExaminedEvent : EntityEventArgs, IInventoryRelayEvent //Harmony InventoryRelayEvent for Lanyards
     {
         /// <summary>
         ///     The message that will be displayed as the examine text.
@@ -529,6 +530,7 @@ namespace Content.Shared.Examine
         }
 
         private record ExamineMessagePart(FormattedMessage Message, int Priority, bool DoNewLine, string? Group);
+        public SlotFlags TargetSlots { get; } = SlotFlags.NECK; // Harmony - For targeting lanyards.
     }
 
 

@@ -49,6 +49,16 @@
     sprite: _DV/Structures/Wallmounts/signs.rsi
     state: direction_aicore
 
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalRobotics
+  name: robotics sign
+  description:  A direction sign, pointing out which way the robotics lab is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: direction_robo
+
 # Non-Directional Signs
 - type: entity
   parent: BaseSign

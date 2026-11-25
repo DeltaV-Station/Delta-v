@@ -33,6 +33,21 @@
       "Muted": {28: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/eguitar.rsi
+  # Start DeltaV additions
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 8
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
+  - type: Tag
+    tags:
+    - EletricGuitarInstrument
+  # End DeltaV additions
 
 - type: entity
   parent: BaseStringInstrumentClothing
@@ -50,6 +65,18 @@
       "Slap (XTra Funky)": {37: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/bassguitar.rsi
+  # Start DeltaV additions
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 8
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
+  # End DeltaV additions
 
 - type: entity
   parent: BaseStringInstrumentClothing
@@ -77,7 +104,7 @@
     damage:
       types:
         Blunt: 4
-        Slash: 2
+        Slash: 4 # DeltaV: Increased by 2 to make it more like an "axe"
 
 - type: entity
   parent: BaseStringInstrumentClothing
@@ -95,6 +122,7 @@
     sprite: Objects/Fun/Instruments/guitar.rsi
   - type: Wieldable
   - type: Damageable # Smash it! Does 20 damage a hit, but breaks after 1 hit.
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

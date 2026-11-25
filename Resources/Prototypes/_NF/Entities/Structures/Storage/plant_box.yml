@@ -9,8 +9,9 @@
   - type: Anchorable
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -70,6 +71,15 @@
   - type: Dumpable
   - type: MagnetPickup
     range: 1.5  # plant bag has a range of 1.0
+  - type: ItemToggle # Delta-V: Add Toggle for the Plantbox Magnetism
+    soundActivate: &soundActivate
+      collection: sparks
+      params:
+        variation: 0.25
+    soundDeactivate: *soundActivate
+  - type: ItemToggleExamine # Delta-V: Add On/Off Examine message for the above
+    on: magnet-pickup-component-magnet-on
+    off: magnet-pickup-component-magnet-off
   - type: Fixtures
     fixtures:
       fix1:

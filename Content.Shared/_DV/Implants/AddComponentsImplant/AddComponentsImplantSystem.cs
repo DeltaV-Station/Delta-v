@@ -15,13 +15,12 @@ public sealed class AddComponentsImplantSystem : EntitySystem
 
     private void OnImplantImplantedEvent(Entity<AddComponentsImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        if (args.Implanted is not {} target)
-            return;
+        var target = args.Implanted;
 
         foreach (var component in ent.Comp.ComponentsToAdd)
         {
             // Don't add the component if it already exists
-            if (EntityManager.HasComponent(target, _factory.GetComponent(component.Key).GetType()))
+            if (HasComp(target, _factory.GetComponent(component.Key).GetType()))
                 continue;
 
             EntityManager.AddComponent(target, component.Value);

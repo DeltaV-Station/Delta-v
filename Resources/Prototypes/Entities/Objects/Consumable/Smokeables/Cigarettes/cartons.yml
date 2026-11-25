@@ -17,9 +17,10 @@
   - type: Storage
     grid:
     - 0,0,5,1 # DeltaV - increased from 5x2 to 6x2
-  - type: StorageFill
-    contents:
-      - id: CigPackGreen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackGreen
         amount: 6 # DeltaV - Increased contents to match description
   - type: Tag
     tags:
@@ -41,9 +42,10 @@
     ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
-  - type: StorageFill
-    contents:
-      - id: CigPackRed
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackRed
         amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
@@ -58,9 +60,10 @@
     ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
-  - type: StorageFill
-    contents:
-      - id: CigPackBlue
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackBlue
         amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
@@ -75,9 +78,10 @@
     ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
-  - type: StorageFill
-    contents:
-      - id: CigPackBlack
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackBlack
         amount: 6 # DeltaV - Increased contents to match description
 
 - type: entity
@@ -92,7 +96,8 @@
     ##  - state: closed #DeltaV - Already inherited, causes issues.
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
-  - type: StorageFill
-    contents:
-    - id: CigPackMixed
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackMixed
+        amount: 3

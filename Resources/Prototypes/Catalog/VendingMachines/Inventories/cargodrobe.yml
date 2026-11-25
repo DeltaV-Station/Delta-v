@@ -1,4 +1,4 @@
-- type: vendingMachineInventory
+﻿- type: vendingMachineInventory
   id: CargoDrobeInventory
   startingInventory:
     ClothingBackpackCargo: 3
@@ -11,6 +11,9 @@
     ClothingUniformJumpsuitCargoTechOveralls: 3
     ClothingUniformJumpskirtCargoTechRomper: 3
     # End DeltaV Additions
+    # Omustation Changes Start
+    ClothingUniformJumpsuitCargoMascot: 3
+    # Omustation Changes End
     ClothingShoesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
     ClothingHeadHatCargosoft: 3
@@ -18,6 +21,7 @@
     ClothingHeadsetCargo: 3
     ClothingOuterWinterCargo: 2
     ClothingOuterWinterMiner: 2
+    ClothingOuterCoatBomberLogistic: 2 # DeltaV - Department Bombers
     ClothingNeckScarfStripedBrown: 3
     ClothingShoesBootsWinterCargo: 2
     ClothingShoesBootsSalvage: 3  # DeltaV - Cargo clothing expansion
@@ -25,4 +29,3 @@
     ToyFigurineCargoTech: 1
     ToyFigurineSalvage: 1
     ToyFigurineQuartermaster: 1
-

@@ -43,14 +43,9 @@
       clothingPrototype: ClothingHeadHatHoodWinterMailCarrier 
     - type: ContainerContainer
       containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
         toggleable-clothing: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
+        toggleable-under-clothing: !type:ContainerSlot {}
+        storagebase: !type:Container
     - type: Sprite
       sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mail_winter_coat.rsi
     - type: Clothing

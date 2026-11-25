@@ -6,6 +6,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
+using Content.Shared.Ghost; // DeltaV - Admin QOL
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -14,7 +15,11 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Mindshield.Components; // DeltaV - Admin QOL
+using Content.Shared.Mobs; // DeltaV - Admin QOL
+using Content.Shared.Mobs.Components; // DeltaV - Admin QOL
 using Content.Shared.Popups;
+using Content.Shared.SSDIndicator; // DeltaV - Admin QOL
 using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -35,6 +40,10 @@ public abstract class SharedStrippableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+
+    private readonly string[] _keyItemSlots = ["id", "belt", "back"]; // DeltaV - high impact on player, key items
+    private readonly string[] _extremeStripSlots = ["jumpsuit"]; // DeltaV - people shouldn't be stripping each others clothes off
+    private readonly string[] _highSsdStripSlots = ["pocket1", "pocket2"]; // DeltaV - rummaging through pockets of ssd people is not nice
 
     public override void Initialize()
     {
@@ -104,8 +113,8 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         var hasEnt = _inventorySystem.TryGetSlotEntity(strippable, args.Slot, out var held, inventory);
 
-        if (userHands.ActiveHandEntity != null && !hasEnt)
-            StartStripInsertInventory((user, userHands), strippable.Owner, userHands.ActiveHandEntity.Value, args.Slot);
+        if (_handsSystem.GetActiveItem((user, userHands)) is { } activeItem && !hasEnt)
+            StartStripInsertInventory((user, userHands), strippable.Owner, activeItem, args.Slot);
         else if (hasEnt)
             StartStripRemoveInventory(user, strippable.Owner, held!.Value, args.Slot);
     }
@@ -124,22 +133,21 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!target.Comp.CanBeStripped)
             return;
 
-        if (!_handsSystem.TryGetHand(target.Owner, handId, out var handSlot))
-            return;
+        var heldEntity = _handsSystem.GetHeldItem(target.Owner, handId);
 
         // Is the target a handcuff?
-        if (TryComp<VirtualItemComponent>(handSlot.HeldEntity, out var virtualItem) &&
-            TryComp<CuffableComponent>(target.Owner, out var cuffable) &&
-            _cuffableSystem.GetAllCuffs(cuffable).Contains(virtualItem.BlockingEntity))
+        if (TryComp<VirtualItemComponent>(heldEntity, out var virtualItem) &&
+            _cuffableSystem.TryGetAllCuffs(target.Owner, out var cuffs) &&
+            cuffs.Contains(virtualItem.BlockingEntity))
         {
-            _cuffableSystem.TryUncuff(target.Owner, user, virtualItem.BlockingEntity, cuffable);
+            _cuffableSystem.TryUncuff(target.Owner, user, virtualItem.BlockingEntity);
             return;
         }
 
-        if (user.Comp.ActiveHandEntity != null && handSlot.HeldEntity == null)
-            StartStripInsertHand(user, target, user.Comp.ActiveHandEntity.Value, handId, targetStrippable);
-        else if (handSlot.HeldEntity != null)
-            StartStripRemoveHand(user, target, handSlot.HeldEntity.Value, handId, targetStrippable);
+        if (_handsSystem.GetActiveItem(user.AsNullable()) is { } activeItem && heldEntity == null)
+            StartStripInsertHand(user, target, activeItem, handId, targetStrippable);
+        else if (heldEntity != null)
+            StartStripRemoveHand(user, target, heldEntity.Value, handId, targetStrippable);
     }
 
     /// <summary>
@@ -154,16 +162,10 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!Resolve(user, ref user.Comp))
             return false;
 
-        if (user.Comp.ActiveHand == null)
+        if (!_handsSystem.TryGetActiveItem(user, out var activeItem) || activeItem != held)
             return false;
 
-        if (user.Comp.ActiveHandEntity == null)
-            return false;
-
-        if (user.Comp.ActiveHandEntity != held)
-            return false;
-
-        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHand))
+        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHandId!))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop"));
             return false;
@@ -210,10 +212,14 @@ public abstract class SharedStrippableSystem : EntitySystem
         var (time, stealth) = GetStripTimeModifiers(user, target, held, slotDef.StripTime);
 
         if (!stealth)
+        {
             _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-insert",
                                                         ("user", Identity.Entity(user, EntityManager)),
-                                                        ("item", user.Comp.ActiveHandEntity!.Value)),
-                                                        target, target, PopupType.Large);
+                                                        ("item", _handsSystem.GetActiveItem((user, user.Comp))!.Value)),
+                                                        target,
+                                                        target,
+                                                        PopupType.Large);
+        }
 
         var prefix = stealth ? "stealthily " : "";
         _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s {slot} slot");
@@ -246,7 +252,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!CanStripInsertInventory(user, target, held, slot))
             return;
 
-        if (!_handsSystem.TryDrop(user, handsComp: user.Comp))
+        if (!_handsSystem.TryDrop(user))
             return;
 
         _inventorySystem.TryEquip(user, target, held, slot, triggerHandContact: true);
@@ -305,16 +311,21 @@ public abstract class SharedStrippableSystem : EntitySystem
             if (IsStripHidden(slotDef, user))
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-hidden", ("slot", slot)), target, target, PopupType.Large);
             else
+            {
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner",
                                                             ("user", Identity.Entity(user, EntityManager)),
                                                             ("item", item)),
-                                                            target, target, PopupType.Large);
+                                                            target,
+                                                            target,
+                                                            PopupType.Large);
+
+            }
         }
 
         var prefix = stealth ? "stealthily " : "";
         _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
 
-        _interactionSystem.DoContactInteraction(user, item);
+        _interactionSystem.DoContactInteraction(user, item, null, true); // Stellar - Interaction particles
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, true, slot), user, target, item)
         {
@@ -329,6 +340,19 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
+
+    // DeltaV - Add utility function START
+    private (bool isTargetSsd, bool isTargetDead, bool isUserShielded, bool isUserGhost) LogValuesForStripAction(EntityUid user, EntityUid target)
+    {
+        var isTargetSsd = TryComp<SSDIndicatorComponent>(target, out var ssdIndicator) && ssdIndicator.IsSSD;
+        var isTargetDead = TryComp<MobThresholdsComponent>(target, out var thresholds) &&
+                           thresholds.CurrentThresholdState == MobState.Dead;
+        var isUserShielded = HasComp<MindShieldComponent>(user);
+        var isUserGhost = HasComp<GhostComponent>(user);
+
+        return (isTargetSsd, isTargetDead, isUserShielded, isUserGhost);
+    }
+    // DeltaV - Add utility function END
 
     /// <summary>
     ///     Removes the item from the target's inventory and inserts it in the user's active hand.
@@ -349,7 +373,44 @@ public abstract class SharedStrippableSystem : EntitySystem
         RaiseLocalEvent(item, new DroppedEvent(user), true); // Gas tank internals etc.
 
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth);
-        _adminLogger.Add(LogType.Stripping, LogImpact.High, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
+
+        // DeltaV - LogImpact Additions START
+        // Previously High by default. Stop chat spam from searches in Sec. Somebody with bad intentions is likely to strip from the specified slots.
+        var (isTargetSsd, isTargetDead, isUserShielded, isUserGhost) = LogValuesForStripAction(user, target);
+        var logImpact = LogImpact.Medium;
+
+        // If someone strips a key item from a living SSD, always alert. If not SSD or SSD and dead, alert on new player.
+        if (_keyItemSlots.Contains(slot.ToLower()))
+        {
+            logImpact = isTargetSsd && !isTargetDead ? LogImpact.Extreme : LogImpact.High;
+        }
+
+        // In any case, alert if a new player is trying to strip certain additional slots from a living SSD
+        if (_highSsdStripSlots.Contains(slot.ToLower()) && isTargetSsd && !isTargetDead)
+        {
+            logImpact = LogImpact.High;
+        }
+
+        // ... unless the user is mindshielded. Security searches people who might disconnect.
+        if (isUserShielded)
+        {
+            logImpact = LogImpact.Medium;
+        }
+
+        // If someone strips a jumpsuit from a dead player, they're probably trying to perform surgery, alert on new player. Otherwise, always alert, even if shielded.
+        if (_extremeStripSlots.Contains(slot.ToLower()))
+        {
+            logImpact = isTargetDead ? LogImpact.High : LogImpact.Extreme;
+        }
+
+        // ... unless the user is an (admin) observer, admins setting up ghost roles in ATAG shouldn't trigger alerts
+        if (isUserGhost)
+        {
+            logImpact = LogImpact.Medium;
+        }
+        // DeltaV - LogImpact Additions END
+
+        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isTargetSsd ? "[SSD] " : "")}{(isTargetDead ? "[DEAD] " : "")}{ToPrettyString(target):target}'s {slot} slot"); // DeltaV - replace default LogImpact, insert SSD and DEAD indicators
     }
 
     /// <summary>
@@ -368,23 +429,16 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!target.Comp.CanBeStripped)
             return false;
 
-        if (user.Comp.ActiveHand == null)
+        if (!_handsSystem.TryGetActiveItem(user, out var activeItem) || activeItem != held)
             return false;
 
-        if (user.Comp.ActiveHandEntity == null)
-            return false;
-
-        if (user.Comp.ActiveHandEntity != held)
-            return false;
-
-        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHand))
+        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHandId!))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop"));
             return false;
         }
 
-        if (!_handsSystem.TryGetHand(target, handName, out var handSlot, target.Comp) ||
-            !_handsSystem.CanPickupToHand(target, user.Comp.ActiveHandEntity.Value, handSlot, checkActionBlocker: false, target.Comp))
+        if (!_handsSystem.CanPickupToHand(target, activeItem.Value, handName, checkActionBlocker: false, handsComp: target.Comp))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-put-message", ("owner", Identity.Entity(target, EntityManager))));
             return false;
@@ -414,10 +468,15 @@ public abstract class SharedStrippableSystem : EntitySystem
         var (time, stealth) = GetStripTimeModifiers(user, target, null, targetStrippable.HandStripDelay);
 
         if (!stealth)
+        {
             _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-insert-hand",
                                                         ("user", Identity.Entity(user, EntityManager)),
-                                                        ("item", user.Comp.ActiveHandEntity!.Value)),
-                                                        target, target, PopupType.Large);
+                                                        ("item", _handsSystem.GetActiveItem(user)!.Value)),
+                                                        target,
+                                                        target,
+                                                        PopupType.Large);
+
+        }
 
         var prefix = stealth ? "stealthily " : "";
         _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
@@ -452,7 +511,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!CanStripInsertHand(user, target, held, handName))
             return;
 
-        _handsSystem.TryDrop(user, checkActionBlocker: false, handsComp: user.Comp);
+        _handsSystem.TryDrop(user, checkActionBlocker: false);
         _handsSystem.TryPickup(target, held, handName, checkActionBlocker: false, animateUser: stealth, animate: !stealth, handsComp: target.Comp);
         _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has placed the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
 
@@ -474,22 +533,22 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!target.Comp.CanBeStripped)
             return false;
 
-        if (!_handsSystem.TryGetHand(target, handName, out var handSlot, target.Comp))
+        if (!_handsSystem.TryGetHand(target, handName, out _))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-item-slot-free-message", ("owner", Identity.Entity(target, EntityManager))));
             return false;
         }
 
-        if (HasComp<VirtualItemComponent>(handSlot.HeldEntity))
+        if (!_handsSystem.TryGetHeldItem(target, handName, out var heldEntity))
             return false;
 
-        if (handSlot.HeldEntity == null)
+        if (HasComp<VirtualItemComponent>(heldEntity))
             return false;
 
-        if (handSlot.HeldEntity != item)
+        if (heldEntity != item)
             return false;
 
-        if (!_handsSystem.CanDropHeld(target, handSlot, false))
+        if (!_handsSystem.CanDropHeld(target, handName, false))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop-message", ("owner", Identity.Entity(target, EntityManager))));
             return false;
@@ -519,15 +578,18 @@ public abstract class SharedStrippableSystem : EntitySystem
         var (time, stealth) = GetStripTimeModifiers(user, target, null, targetStrippable.HandStripDelay);
 
         if (!stealth)
+        {
             _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner",
                                                         ("user", Identity.Entity(user, EntityManager)),
                                                         ("item", item)),
-                                                        target, target);
+                                                        target,
+                                                        target);
+        }
 
         var prefix = stealth ? "stealthily " : "";
         _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
 
-        _interactionSystem.DoContactInteraction(user, item);
+        _interactionSystem.DoContactInteraction(user, item, null, true); // Stellar - Interaction particles
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, false, handName), user, target, item)
         {
@@ -560,10 +622,41 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!CanStripRemoveHand(user, target, item, handName))
             return;
 
-        _handsSystem.TryDrop(target, item, checkActionBlocker: false, handsComp: target.Comp);
+        _handsSystem.TryDrop(target, item, checkActionBlocker: false);
         _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: !stealth, handsComp: user.Comp);
-        _adminLogger.Add(LogType.Stripping, LogImpact.High, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
 
+        var (isTargetSsd, isTargetDead, isUserShielded, isUserGhost) = LogValuesForStripAction(user, target); // DeltaV
+
+        // DeltaV - Add conditional logImpact START
+        // Lower default to Medium - the target is much more likely to notice, the item was probably being offered.
+        var logImpact = LogImpact.Medium;
+
+        // If they are SSD
+        if (isTargetSsd)
+        {
+            // ... and dead, alert on new player.
+            if (isTargetDead)
+            {
+                logImpact = LogImpact.High;
+            }
+            // TODO: ... and living, and the user is not mindshielded, alert on recent SSD
+            // Previously this was setting it to Extreme always if not shielded, but that's going to lead to a lot of false positives.
+            // Set it to extreme again once SSD Recency is merged and it happened in the first stage.
+            else if (!isUserShielded)
+            {
+                // logImpact = LogImpact.Extreme;
+                logImpact = LogImpact.High;
+            }
+        }
+
+        // If the user is an (admin) observer, don't alert.
+        if (isUserGhost)
+        {
+            logImpact = LogImpact.Medium;
+        }
+        // DeltaV - Add conditional logImpact END
+
+        _adminLogger.Add(LogType.Stripping, logImpact, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {(isTargetSsd ? "[SSD] " : "")}{(isTargetDead ? "[DEAD] " : "")}{ToPrettyString(target):target}'s hands"); // DeltaV - replace logImpact, previously High. add SSD and DEAD indicators.
         // Hand update will trigger strippable update.
     }
 
@@ -580,13 +673,17 @@ public abstract class SharedStrippableSystem : EntitySystem
         {
             if ( ev.Event.InsertOrRemove && !CanStripInsertInventory((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
                 !ev.Event.InsertOrRemove && !CanStripRemoveInventory(entity.Owner, args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName))
-                    ev.Cancel();
+            {
+                ev.Cancel();
+            }
         }
         else
         {
             if ( ev.Event.InsertOrRemove && !CanStripInsertHand((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
                 !ev.Event.InsertOrRemove && !CanStripRemoveHand(entity.Owner, args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName))
-                    ev.Cancel();
+            {
+                ev.Cancel();
+            }
         }
     }
 
@@ -621,8 +718,13 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (args.Handled || !args.Complex || args.Target == args.User)
             return;
 
+        // Begin Stellar Changes - don't play an interact particle for examining the strip UI
         if (TryOpenStrippingUi(args.User, (uid, component)))
+        {
             args.Handled = true;
+            args.InteractionParticle = false;
+        }
+        // End Stellar Changes - don't play an interact particle for examining the strip UI
     }
 
     /// <summary>

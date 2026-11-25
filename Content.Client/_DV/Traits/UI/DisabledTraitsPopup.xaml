@@ -1,0 +1,48 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc disabled-traits-popup-title}"
+                      MinSize="400 200"
+                      SetSize="500 350">
+    <BoxContainer Orientation="Vertical" Margin="10">
+        <!-- Header -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
+            <TextureRect TexturePath="/Textures/Interface/info.svg.192dpi.png"
+                         TextureScale="0.5 0.5"
+                         VerticalAlignment="Center"
+                         Margin="0 0 10 0" />
+            <Label Name="TitleLabel"
+                   StyleClasses="LabelHeading"
+                   VAlign="Center" />
+        </BoxContainer>
+
+        <!-- Message -->
+        <RichTextLabel Name="MessageLabel"
+                       Margin="0 0 0 15" />
+
+        <!-- List of disabled traits -->
+        <Label Text="{Loc disabled-traits-popup-list-header}"
+               StyleClasses="LabelSubText"
+               Margin="0 0 0 5" />
+
+        <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+            <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+                <BoxContainer Name="DisabledTraitsContainer"
+                              Orientation="Vertical"
+                              Margin="5" />
+            </ScrollContainer>
+        </PanelContainer>
+
+        <!-- Footer with checkbox and close button -->
+        <BoxContainer Orientation="Vertical" Margin="0 10 0 0">
+            <CheckBox Name="SkipCheckBox"
+                      Text="{Loc disabled-traits-popup-skip-checkbox}"
+                      HorizontalAlignment="Center" />
+
+            <Button Name="ButtonClose"
+                    Text="{Loc disabled-traits-popup-close-button}"
+                    HorizontalAlignment="Center"
+                    Margin="0 10 0 0"
+                    MinSize="120 0" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

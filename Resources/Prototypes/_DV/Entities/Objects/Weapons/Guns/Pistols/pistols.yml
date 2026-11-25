@@ -1,6 +1,6 @@
 - type: entity
   name: viper
-  parent: BaseWeaponPistol
+  parent: WeaponPistolViper
   id: WeaponPistolViperWood
   description: A small, low-power pistol with pleasant lacquered wooden grips. Uses .35 auto ammo.
   suffix: Wood
@@ -9,29 +9,6 @@
     sprite: _DV/Objects/Weapons/Guns/Pistols/viperwood.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/viperwood.rsi
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistol
-        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazinePistol
-            - MagazinePistolHighCapacity
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgePistol
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgePistol
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
 
 - type: entity
   name: Pollock
@@ -48,29 +25,6 @@
     fireRate: 5
     availableModes:
     - SemiAuto
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistol
-        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazinePistol
-            - MagazinePistolHighCapacity
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgePistol
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgePistol
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
 
 - type: entity
   name: psi-breaker
@@ -90,48 +44,54 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolSpecialMindbreaker
+        startingItem: MagazinePistolSpecialLernaea
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
             - MagazinePistolSpecial
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeSpecialMindbreaker
         priority: 1
         whitelist:
           tags:
             - CartridgeSpecial
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
 
 - type: entity
   name: flintlock
-  suffix: "craftable"
-  parent: WeaponPistolFlintlock
-  id: WeaponPistolFlintlockCrafted
-  description: An old flintlock, feels like 1800s gang warfare. Uses musket cartridges.
+  id: WeaponPistolFlintlock
+  parent: BaseWeaponSniper
+  description: An old flintlock pistol, feels like 1800s gang warfare. Uses musket cartridges.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-5
+  - type: Tag
+    tags:
+    - Sidearm
+    - ConcealCarry
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: Construction
+    graph: WeaponPistolFlintlockGraph
+    node: flintlock
+  - type: Gun
+    fireRate: 4
+    minAngle: 15
+    maxAngle: 15
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CartridgeMusket
     capacity: 1
     proto: CartridgeMusket
-  - type: Gun #Smoothbore
-    minAngle: 0
-    maxAngle: 30
-    fireRate: .125 #slow firerate
-    resetOnHandSelected: false #Dual Wielding Muskets
-  - type: Construction
-    graph: WeaponPistolFlintlockCraftedGraph
-    node: flintlock
-  - type: UseDelay
-    delay: 0 #Straight up doesn't work for guns
 
 - type: entity
   name: SLP-67 "Volk"
@@ -159,11 +119,10 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
 
 - type: entity
   name: SLP-57
@@ -231,13 +190,13 @@
         whitelist:
           tags:
             - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistolRubber
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
 
 - type: entity
   parent: WeaponPistolSLP57
@@ -255,13 +214,13 @@
         whitelist:
           tags:
             - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistolRubber
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+          - CartridgePistol
 
 - type: entity
   parent: BaseWeaponPistol
@@ -274,7 +233,7 @@
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/universal.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -290,9 +249,9 @@
         whitelist:
           tags:
           - MagazineUniversalMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeMagnum
         priority: 1
         whitelist:
           tags:
@@ -314,9 +273,9 @@
         whitelist:
           tags:
           - MagazineUniversalMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeMagnumIncendiary
         priority: 1
         whitelist:
           tags:
@@ -338,9 +297,9 @@
         whitelist:
           tags:
           - MagazineUniversalMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeMagnumRubber
         priority: 1
         whitelist:
           tags:

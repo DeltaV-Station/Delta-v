@@ -1,13 +1,14 @@
 # This file will contain strings for both DeltaV and Nyanotrasen loadouts, because I'm lazy
 
 # Miscellaneous
-loadout-group-survival-corpsman = Corpsman Survival Box
+loadout-group-survival-corpsman = Corpsman survival box
 
 # Command
 loadout-group-captain-gloves = Captain gloves
 loadout-group-captain-shoes = Captain shoes
 loadout-group-hop-gloves = Head of Personnel gloves
 loadout-group-hop-shoes = Head of Personnel shoes
+loadout-group-chief-engineer-gloves = Chief Engineer gloves
 
 # Civilian
 loadout-group-librarian-neck = Librarian neck
@@ -17,7 +18,7 @@ loadout-group-bartender-neck = Bartender neck
 
 loadout-group-janitor-neck = Janitor neck
 
-loadout-group-botanist-neck = Botanist Neck
+loadout-group-botanist-neck = Botanist neck
 
 loadout-group-mime-neck = Mime neck
 
@@ -25,7 +26,10 @@ loadout-group-musician-neck = Musician neck
 
 loadout-group-passenger-id-delta = Assistant PDA
 loadout-group-bartender-id-delta = Bartender PDA
+
+loadout-group-chef-shoes-delta = Chef Shoes
 loadout-group-chef-id-delta = Chef PDA
+
 loadout-group-clown-id-delta = Clown PDA
 loadout-group-janitor-id-delta = Janitor PDA
 
@@ -33,6 +37,10 @@ loadout-group-serviceworker-head = Service Worker head
 loadout-group-serviceworker-jumpsuit = Service Worker jumpsuit
 
 loadout-group-assistant-head = Assistant head
+
+loadout-group-clown-mask = Clown mask
+
+loadout-group-mime-shoes = Mime shoes
 
 # Logistics
 
@@ -68,6 +76,7 @@ loadout-group-chemist-gloves = Chemist gloves
 loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-neck = Chemist neck
 loadout-group-chemist-id = Chemist PDA
+loadout-group-chemist-head = Chemist head
 
 loadout-group-medical-doctor-neck = Medical Doctor neck
 
@@ -77,7 +86,7 @@ loadout-group-psychologist-head = Psychologist head
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-id-delta = Psychologist PDA
-loadout-group-psychologist-belt = Psychologist Belt
+loadout-group-psychologist-belt = Psychologist belt
 
 loadout-group-surgeon-head = Surgeon head
 loadout-group-surgeon-mask = Surgeon mask
@@ -98,6 +107,7 @@ loadout-group-mantis-gloves = Mantis gloves
 loadout-group-roboticist-head = Roboticist head
 loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
 loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-glasses = Roboticist glasses
 loadout-group-roboticist-shoes = Roboticist shoes
 loadout-group-roboticist-outerclothing = Roboticist outer clothing
 loadout-group-roboticist-id = Roboticist PDA
@@ -109,29 +119,33 @@ loadout-group-atmospheric-technician-neck = Atmospheric Technician neck
 
 loadout-group-atmos-id-delta = Atmospheric Technician PDA
 
-loadout-group-atmospheric-technician-head = Atmospheric Technician Head
+loadout-group-atmospheric-technician-head = Atmospheric Technician head
 
 # Security
 loadout-group-head-of-security-shoes = Head of Security shoes
 
 loadout-group-security-cadet-head = Security Cadet head
 loadout-group-security-neck = Security neck
+loadout-group-security-gloves = Security gloves
+loadout-group-security-eyewear = Security eyewear
 
 loadout-group-brig-medic-head = Corpsman head
 loadout-group-brig-medic-jumpsuit = Corpsman jumpsuit
 loadout-group-brig-medic-back = Corpsman backpack
 loadout-group-brig-medic-neck = Corpsman neck
 loadout-group-brig-medic-outerclothing = Corpsman outer clothing
+loadout-group-corpsman-eyewear = Corpsman eyewear
 
 loadout-group-prison-guard-head = Prison Guard head
 loadout-group-prison-guard-jumpsuit = Prison Guard jumpsuit
 
-loadout-group-security-gun = Security Sidearm
-loadout-group-revolver-gun = Security Revolver
-loadout-group-all-gun = Security Sidearm
+loadout-group-security-gun = Security sidearm
+loadout-group-revolver-gun = Security revolver
+loadout-group-all-gun = Security sidearm
 loadout-group-security-gun-ammo = Ammunition
 loadout-group-revolver-ammo = Ammunition
 loadout-group-all-ammo = Ammunition
+security-utility = Utility
 
 # Justice
 loadout-group-chiefjustice-head = Chief Justice head
@@ -159,5 +173,6 @@ loadout-group-martial-artist-shoes = Martial Artist shoes
 loadout-group-gladiator-jumpsuit = Gladiator jumpsuit
 loadout-group-gladiator-outerclothing = Gladiator outer clothing
 
-# Species
-loadout-group-humanoid-silicon = Silicon-friendly survival box
+loadout-group-boxer-jumpsuit = Boxer jumpsuit
+loadout-group-boxer-gloves = Boxer gloves
+loadout-group-boxer-mask = Wrestling mask

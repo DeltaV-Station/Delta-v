@@ -21,6 +21,7 @@
 - type: entity
   parent: PoweredSmallLightEmpty
   id: N14LightSmallEmpty
+  name: caged light # DeltaV: Need caged light to have different name to show up
   description: A light fixture. Draws power and produces light when equipped with a light bulb.
   suffix: Empty
   components:
@@ -35,6 +36,7 @@
 
 - type: entity
   parent: PoweredSmallLight
+  name: caged light # DeltaV 
   id: N14LightSmall
   components:
   - type: Sprite

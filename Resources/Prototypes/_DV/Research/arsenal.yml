@@ -39,6 +39,7 @@
   - BoxShotgunUranium
   - SpeedLoaderSpecialUranium
   - MagazineBoxSpecialUranium
+  - MagazinePistolHighCapacityUranium
   # Incendiary
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
@@ -54,6 +55,7 @@
   - SpeedLoaderSpecialUranium
   - MagazineBoxSpecialIncendiary
   - MagazineBoxSpecialHoly
+  - MagazinePistolHighCapacityIncendiary
 
 - type: technology
   id: EnergyGuns
@@ -124,6 +126,7 @@
   recipeUnlocks:
   - WeaponEnergyGunPistol
   - WeaponRifleLaser
+  - MagazineLaser
 
 - type: technology
   id: IncendiaryLaserWeapons
@@ -148,6 +151,7 @@
   cost: 12500
   recipeUnlocks:
   - AdvancedTruncheon
+  - HardlightHatchet
   - TelescopicShield
   - BorgModuleSecurityEscalate
   - BorgModuleSecurityBastion

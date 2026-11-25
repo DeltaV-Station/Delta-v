@@ -35,12 +35,17 @@ alert-level-delta = Delta
 alert-level-delta-announcement = Station scuttling is imminent, or there is another existential crisis affecting the station. All crew and passengers must be evacuated as applicable. Martial Law is now in effect.
 alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
+## DeltaV - Epsilon rewrite
 alert-level-epsilon = Epsilon
-alert-level-epsilon-announcement = The Epsilon alert level is now in effect. Consider all contracts terminated.
-alert-level-epsilon-instructions = Crewmembers are advised to make their way to an accessible location for efficient termination.
+alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Only orders from Central Command Officials are to be obeyed by the Station's Crew. Martial Law is now in effect.
+alert-level-epsilon-instructions = Crewmember are advised to await instructions from Central Command Personnel and to follow their orders when given.
 
 ## DeltaV - Cosmic Cult
 alert-level-octarine = Octarine
 alert-level-octarine-announcement = A cataclysmic noospheric event threatens to envelop realspace. Station crew are to contain the event if possible, or else evacuate.
 alert-level-octarine-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
+## DeltaV - Zeta
+alert-level-zeta = Zeta
+alert-level-zeta-announcement = The station is unrecoverable, and all important assets and crewmembers are to be evacuated. A distress signal has been sent to all nearby vessels. Security and Engineering staff are advised to minimize hazards and secure the Evacuation Dock. Crewmembers are advised to disembark the station by any means necessary. Godspeed.
+alert-level-zeta-instructions = Avoid hazards and prepare for Evacuation.

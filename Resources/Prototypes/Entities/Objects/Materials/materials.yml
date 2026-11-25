@@ -13,6 +13,7 @@
     tags:
       - RawMaterial
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -56,6 +57,13 @@
           Quantity: 6
   - type: Item
     heldPrefix: cardboard
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: SpawnAfterInteract #Nuke after convert to FloorTile
+    prototype: CarpetCard
+    doAfter: 0.5
+    removeOnInteract: true
 
 - type: entity
   parent: MaterialCardboard
@@ -123,7 +131,7 @@
     - state: cloth_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -140,7 +148,8 @@
       - ClothMade
       - Gauze
       - RawMaterial
-      - BorgMaterial # DeltaV
+      - TiderAnvilParts #SL
+      - ConstructionMaterial
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
@@ -193,7 +202,7 @@
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -206,7 +215,7 @@
     tags:
       - ClothMade
       - RawMaterial
-      - BorgMaterial # DeltaV
+      - ConstructionMaterial
   - type: Item
     heldPrefix: durathread
 
@@ -219,13 +228,6 @@
     state: durathread
   - type: Stack
     count: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents: #Hell if I know what durathread is made out of.
-        - ReagentId: Fiber
-          Quantity: 6
 
 - type: entity
   parent: MaterialBase
@@ -256,7 +258,8 @@
     tags:
     - Wooden
     - RawMaterial
-    - BorgMaterial # DeltaV
+    - TiderAnvilParts #SL
+    - ConstructionMaterial
   - type: Extractable
     grindableSolutionName: wood
   - type: SolutionContainerManager
@@ -335,7 +338,7 @@
       - HEAD
   - type: PointLight
     radius: 1.2
-    energy: 1.5
+    energy: 2.7
     color: "#4faffb"
     slots:
 
@@ -424,7 +427,7 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -483,7 +486,7 @@
     - state: pyrotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -545,7 +548,7 @@
   - type: FlavorProfile
     flavors:
       - banana
-  - type: Food
+  - type: Edible
     trash:
     - TrashBananiumPeel
   - type: BadFood
@@ -597,7 +600,7 @@
   - type: Stack
     count: 50
     stackType: WebSilk
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -740,7 +743,7 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Edible
   - type: BadFood
   - type: SolutionContainerManager
     solutions:

@@ -26,7 +26,7 @@ public sealed partial class WhitelistRequirement : JobRequirement
         if (isWhitelisted)
             return true;
 
-        reason = FormattedMessage.FromMarkup(Loc.GetString("playtime-deny-reason-not-whitelisted"));
+        reason = FormattedMessage.FromMarkupOrThrow(Loc.GetString("playtime-deny-reason-not-whitelisted"));
         return false;
     }
 }

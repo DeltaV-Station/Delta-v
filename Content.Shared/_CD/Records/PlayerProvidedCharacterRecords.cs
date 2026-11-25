@@ -12,7 +12,7 @@ namespace Content.Shared._CD.Records;
 public sealed partial class PlayerProvidedCharacterRecords
 {
     public const int TextMedLen = 64;
-    public const int TextVeryLargeLen = 4096;
+    public const int TextVeryLargeLen = 8192; //DeltaV
 
     /* Basic info */
 

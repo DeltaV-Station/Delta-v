@@ -1,5 +1,5 @@
-using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
+using Content.Shared.Chat;
 
 namespace Content.Server.Speech.EntitySystems
 {
@@ -12,7 +12,7 @@ namespace Content.Server.Speech.EntitySystems
 
         private void OnCheck(EntityUid uid, UnblockableSpeechComponent component, CheckIgnoreSpeechBlockerEvent args)
         {
-            args.IgnoreBlocker = true;
+            args.IgnoreBlocker = component.Active; // DeltaV
         }
     }
 }

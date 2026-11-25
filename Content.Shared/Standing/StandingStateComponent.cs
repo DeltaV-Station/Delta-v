@@ -4,19 +4,21 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Standing;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(StandingStateSystem))]
 public sealed partial class StandingStateComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public SoundSpecifier DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
-
-    // WD EDIT START
-    [DataField, AutoNetworkedField]
-    public StandingState CurrentState { get; set; } = StandingState.Standing;
-    // WD EDIT END
+    public SoundSpecifier? DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
 
     [DataField, AutoNetworkedField]
     public bool Standing { get; set; } = true;
+
+    /// <summary>
+    /// Friction modifier applied to an entity in the downed state.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DownFrictionMod = 0.4f;
 
     /// <summary>
     ///     List of fixtures that had their collision mask changed when the entity was downed.
@@ -25,11 +27,3 @@ public sealed partial class StandingStateComponent : Component
     [DataField, AutoNetworkedField]
     public List<string> ChangedFixtures = new();
 }
-// WD EDIT START
-public enum StandingState
-{
-    Lying,
-    GettingUp,
-    Standing,
-}
-// WD EDIT END

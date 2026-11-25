@@ -5,11 +5,9 @@ using Content.Server._NF.Shuttles.Components; // Frontier: FTL knockdown immunit
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Content.Shared.Ghost;
-using Content.Shared.Maps;
 using Content.Shared.Parallax;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -27,6 +25,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using FTLMapComponent = Content.Shared.Shuttles.Components.FTLMapComponent;
+using Robust.Shared.Random;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -49,7 +48,8 @@ public sealed partial class ShuttleSystem
     public float DefaultStartupTime;
     public float DefaultTravelTime;
     public float DefaultArrivalTime;
-    private float FTLCooldown;
+    private TimeSpan FTLCooldown;
+    private TimeSpan ArrivalsFTLCooldown;
     public float FTLMassLimit;
     private TimeSpan _hyperspaceKnockdownTime = TimeSpan.FromSeconds(5);
 
@@ -88,7 +88,8 @@ public sealed partial class ShuttleSystem
         _cfg.OnValueChanged(CCVars.FTLStartupTime, time => DefaultStartupTime = time, true);
         _cfg.OnValueChanged(CCVars.FTLTravelTime, time => DefaultTravelTime = time, true);
         _cfg.OnValueChanged(CCVars.FTLArrivalTime, time => DefaultArrivalTime = time, true);
-        _cfg.OnValueChanged(CCVars.FTLCooldown, time => FTLCooldown = time, true);
+        _cfg.OnValueChanged(CCVars.FTLCooldown, time => FTLCooldown = TimeSpan.FromSeconds(time), true);
+        _cfg.OnValueChanged(CCVars.ArrivalsFTLCooldown, time => ArrivalsFTLCooldown = TimeSpan.FromSeconds(time), true);
         _cfg.OnValueChanged(CCVars.FTLMassLimit, time => FTLMassLimit = time, true);
         _cfg.OnValueChanged(CCVars.HyperspaceKnockdownTime, time => _hyperspaceKnockdownTime = TimeSpan.FromSeconds(time), true);
     }
@@ -268,6 +269,12 @@ public sealed partial class ShuttleSystem
         float? hyperspaceTime = null,
         string? priorityTag = null)
     {
+        if (!coordinates.IsValid(EntityManager) || !double.IsFinite(angle.Theta))
+        {
+            Log.Error($"Found invalid FTL destination with coordinates {coordinates} and angle {angle} for shuttle {shuttleUid}");
+            return;
+        }
+
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
             return;
 
@@ -543,7 +550,10 @@ public sealed partial class ShuttleSystem
         }
 
         comp.State = FTLState.Cooldown;
-        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, FTLCooldown);
+        var cooldown = entity.Comp2.FTLCooldownOverride ?? (HasComp<ArrivalsShuttleComponent>(uid)
+                ? ArrivalsFTLCooldown
+                : FTLCooldown);
+        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, cooldown);
         _console.RefreshShuttleConsoles(uid);
         _mapSystem.SetPaused(mapId, false);
         Smimsh(uid, xform: xform);
@@ -617,11 +627,8 @@ public sealed partial class ShuttleSystem
         {
             foreach (var child in toKnock)
             {
-                if (!_statusQuery.TryGetComponent(child, out var status))
-                    continue;
-
                 if (!HasComp<FTLKnockdownImmuneComponent>(child)) // Frontier: FTL knockdown immunity
-                    _stuns.TryParalyze(child, _hyperspaceKnockdownTime, true, status);
+                    _stuns.TryUpdateParalyzeDuration(child, _hyperspaceKnockdownTime);
 
                 // If the guy we knocked down is on a spaced tile, throw them too
                 if (grid != null)
@@ -681,7 +688,7 @@ public sealed partial class ShuttleSystem
         // only toss if its on lattice/space
         var tile = _mapSystem.GetTileRef(shuttleEntity, shuttleGrid, childXform.Coordinates);
 
-        if (!tile.IsSpace(_tileDefManager))
+        if (!_turf.IsSpace(tile))
             return;
 
         var throwDirection = childXform.LocalPosition - shuttleBody.LocalCenter;
@@ -1002,7 +1009,7 @@ public sealed partial class ShuttleSystem
                 {
                     _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(ent):player} got gibbed by the shuttle" +
                                                                 $" {ToPrettyString(uid)} arriving from FTL at {xform.Coordinates:coordinates}");
-                    var gibs = _bobby.GibBody(ent, body: mob);
+                    var gibs = _gibbing.Gib(ent);
                     _immuneEnts.UnionWith(gibs);
                     continue;
                 }

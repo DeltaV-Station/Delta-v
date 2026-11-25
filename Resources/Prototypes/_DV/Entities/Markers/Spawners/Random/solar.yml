@@ -2,14 +2,43 @@
   parent: MarkerBase
   id: RandomSolarPanelState
   name: Random solar panel
+  suffix: 90%
   components:
   - type: Sprite
     layers:
       - sprite: _DV/Structures/Power/Generation/solar_panel.rsi
         state: random_solar
-  - type: RandomSpawner
+  - type: EntityTableSpawner
     offset: 0
-    prototypes:
-      - SolarPanel
-      - SolarPanelBroken
-    chance: 0.83
+    table: !type:GroupSelector
+      prob: 0.90
+      children: &solarWeights
+      - id: SolarPanel
+        weight: 3
+      - id: SolarPanelBroken
+      - id: SolarPanelPlasma
+        weight: .10
+      - id: SolarPanelUranium
+        weight: .01
+
+- type: entity
+  parent: RandomSolarPanelState
+  id: RandomSolarPanelStateMid
+  suffix: 50%
+  components:
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.50
+      children: *solarWeights
+
+- type: entity
+  parent: RandomSolarPanelState
+  id: RandomSolarPanelStateLow
+  suffix: 33%
+  components:
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:GroupSelector
+      prob: 0.33
+      children: *solarWeights

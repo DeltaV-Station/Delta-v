@@ -19,9 +19,6 @@ public sealed class MonumentBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
 
         _menu = this.CreateWindow<MonumentMenu>();
 
-        _menu.OnSelectGlyphButtonPressed += protoId => SendMessage(new GlyphSelectedMessage(protoId));
-        _menu.OnRemoveGlyphButtonPressed += () => SendMessage(new GlyphRemovedMessage());
-
         _menu.OnGainButtonPressed += OnInfluenceSelected;
     }
 

@@ -13,7 +13,7 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Server._DV.Shuttles.Events;
 using Content.Shared.Audio;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
@@ -79,13 +79,13 @@ public sealed class MonumentSystem : SharedMonumentSystem
             {
                 comp.SongTimer = null;
                 if (comp.SelectedSong is { } song)
-                    _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
+                    _sound.DispatchGlobalEventMusic(song, StationEventMusicType.CosmicCult);
             }
 
             if (comp.CurrentState == FinaleState.ActiveFinale && comp.FinaleAnnounceCheck && comp.FinaleTimer - _timing.CurTime < comp.VisualsThreshold)
             {
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
-                _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
+                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
                 comp.FinaleAnnounceCheck = false;
             }
 
@@ -324,12 +324,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
         UpdateMonumentAppearance(uid, false);
 
-        //this is probably unnecessary but I have no idea where they get added to the list atm - ruddygreat
-        foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 1))
-        {
-            uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
-        }
-
         //basically completely unnecessary, but putting this here for sanity & futureproofing - ruddygreat
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
@@ -356,11 +350,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
 
         UpdateMonumentAppearance(uid, true);
 
-        foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 2))
-        {
-            uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
-        }
-
         var objectiveQuery = EntityQueryEnumerator<CosmicTierConditionComponent>();
         while (objectiveQuery.MoveNext(out _, out var objectiveComp))
         {
@@ -385,7 +374,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         while (leaderQuery.MoveNext(out var leader, out var leaderComp))
         {
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
-                _actions.AddAction(polyComp.Parent, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent);
+                _actions.AddAction(polyComp.Parent.Value, ref polyLeaderComp.CosmicMonumentMoveActionEntity, polyLeaderComp.CosmicMonumentMoveAction, polyComp.Parent.Value);
             else
                 _actions.AddAction(leader, ref leaderComp.CosmicMonumentMoveActionEntity, leaderComp.CosmicMonumentMoveAction, leader);
         }
@@ -397,11 +386,6 @@ public sealed class MonumentSystem : SharedMonumentSystem
     {
         if (_cosmicRule.AssociatedGamerule(uid) is not { } cult)
             return;
-
-        foreach (var glyphProto in _protoMan.EnumeratePrototypes<GlyphPrototype>().Where(proto => proto.Tier == 3))
-        {
-            uid.Comp.UnlockedGlyphs.Add(glyphProto.ID);
-        }
 
         UpdateMonumentAppearance(uid, true);
 
@@ -433,7 +417,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
         {
             _actions.RemoveAction(leader, leaderComp.CosmicMonumentMoveActionEntity);
             if (TryComp<PolymorphedEntityComponent>(leader, out var polyComp) && TryComp<CosmicCultLeadComponent>(polyComp.Parent, out var polyLeaderComp))
-                _actions.RemoveAction(polyComp.Parent, polyLeaderComp.CosmicMonumentMoveActionEntity);
+                _actions.RemoveAction(polyComp.Parent.Value, polyLeaderComp.CosmicMonumentMoveActionEntity);
         }
 
         Dirty(uid);

@@ -28,8 +28,9 @@
           children:
           - id: FoodSpaceshroom
     - type: Damageable
-      damageContainer: StructuralInorganic
       damageModifierSet: Wood
+    - type: Injurable
+      damageContainer: StructuralInorganic
     - type: Destructible
       thresholds:
         - trigger:
@@ -89,6 +90,7 @@
   - type: AtmosExposed
   - type: Temperature
     currentTemperature: 290
+  - type: TemperatureDamage
   - type: InternalTemperature
     thickness: 0.02
     area: 0.02

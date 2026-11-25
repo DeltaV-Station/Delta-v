@@ -13,10 +13,12 @@
     energyPerUse: 50
   - type: ItemToggle
     predictable: false
-    soundActivate:
-      collection: sparks
-      params:
-        variation: 0.250
+# ES START
+#    soundActivate:
+#      collection: sparks
+#      params:
+#        variation: 0.250
+# ES END
     soundDeactivate:
       collection: sparks
       params:
@@ -40,6 +42,10 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
+# ES START
+  - type: ESSparkOnItemToggle
+    count: 1
+# ES END
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
@@ -50,6 +56,7 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
+  - type: UseDelay
   - type: Item
     heldPrefix: off
     size: Normal
@@ -138,12 +145,14 @@
       sprite: Objects/Weapons/Melee/flash.rsi
       layers:
       - state: flash
-        map: [ "enum.FlashVisuals.BaseLayer" ]
+        map: [ "enum.FlashVisualLayers.BaseLayer" ]
       - state: flashing
-        map: [ "enum.FlashVisuals.LightLayer" ]
+        map: [ "enum.FlashVisualLayers.LightLayer" ]
         visible: false
         shader: unshaded
     - type: Flash
+      flashingTime: 2 # DeltaV - serialize flashingTime variable here to line up with delay variable, which have to match
+    - type: RevolutionaryConverter
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon
@@ -155,16 +164,20 @@
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
+    - type: UseDelay
+      # DeltaV - Reduce delay from 4 to 2
+      delay: 2 # has to be the same as the FlashingTime datafield in FlashComponent
+    - type: UseDelayOnMeleeHit
     - type: StaticPrice
       price: 40
     - type: Appearance
     - type: GenericVisualizer
       visuals:
         enum.FlashVisuals.Burnt:
-          enum.FlashVisuals.BaseLayer:
+          enum.FlashVisualLayers.BaseLayer:
             True: {state: burnt}
         enum.FlashVisuals.Flashing:
-          enum.FlashVisuals.LightLayer:
+          enum.FlashVisualLayers.LightLayer:
             True: {visible: true}
             False: {visible: false}
     - type: GuideHelp
@@ -188,6 +201,7 @@
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:
     - type: EmitSoundOnTrigger
+      predicted: true
       sound:
         path: /Audio/Weapons/flash.ogg
     - type: FlashOnTrigger

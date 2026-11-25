@@ -39,6 +39,9 @@
     channels:
     - Supply
   - type: SalvageMagnet
+  - type: ActivatableUIRequiresAccess # DeltaV - Limit access
+  - type: AccessReader # DeltaV - Limit access
+    access: [["Salvage"]]
   - type: ApcPowerReceiver
     powerLoad: 2500 # TODO change this to a HV power draw that really hits the grid hard WHEN active
   - type: Machine
@@ -54,11 +57,3 @@
   - type: SalvageMagnet
   - type: ApcPowerReceiver
     powerLoad: 1000
-
-- type: weightedRandomEntity
-  id: RandomAsteroidPool
-  weights:
-    AsteroidSalvageSmall: 0 #Delta V: remove chance for small chunks
-    AsteroidSalvageMedium: 7
-    AsteroidSalvageLarge: 5
-    AsteroidSalvageHuge: 3

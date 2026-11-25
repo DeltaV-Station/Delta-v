@@ -1,3 +1,4 @@
+using System.Linq; // DeltaV
 using Content.Shared.Access;
 using Content.Shared.Doors.Electronics;
 using Robust.Client.GameObjects;
@@ -46,7 +47,9 @@ public sealed class DoorElectronicsBoundUserInterface : BoundUserInterface
             }
         }
 
-        accessLevels.Sort();
+        // DeltaV - Sort Better
+        accessLevels = accessLevels.OrderBy(x => _prototypeManager.TryIndex<AccessLevelPrototype>(x.Id, out var access) ? access.GetAccessLevelName() : x.Id).ToList();
+
         _window?.Reset(_prototypeManager, accessLevels);
     }
 

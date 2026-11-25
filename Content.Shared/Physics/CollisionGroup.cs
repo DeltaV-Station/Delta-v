@@ -65,8 +65,8 @@ public enum CollisionGroup
     TabletopMachineLayer = Opaque | BulletImpassable,
 
     // Airlocks, windoors, firelocks
-    GlassAirlockLayer = HighImpassable | MidImpassable | BulletImpassable | InteractImpassable,
-    AirlockLayer = Opaque | GlassAirlockLayer,
+    GlassAirlockLayer = HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable, // DeltaV - we have ventcrawling
+    AirlockLayer = Opaque | LowImpassable | GlassAirlockLayer, // DeltaV - we have ventcrawling
 
     // Airlock assembly
     HumanoidBlockLayer = HighImpassable | MidImpassable,
@@ -78,6 +78,8 @@ public enum CollisionGroup
     WallLayer = Opaque | Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     GlassLayer = Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     HalfWallLayer = MidImpassable | LowImpassable,
+    FlimsyLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | InteractImpassable,
+
     // Allows people to interact past and target players inside of this
     SpecialWallLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable,
 

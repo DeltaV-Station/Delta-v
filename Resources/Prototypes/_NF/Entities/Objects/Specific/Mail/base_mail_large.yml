@@ -6,7 +6,7 @@
 #  name: mail-large-item-name-unaddressed # DeltaV - use fluent attributes instead
   components:
   - type: Item
-    size: Ginormous
+    size: Huge # DeltaV - Was Ginourmous
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _NF/Objects/Specific/Mail/mail_large.rsi
@@ -71,6 +71,9 @@
   - type: MultiHandedItem
   - type: Mail
     isLarge: true
+  - type: Tag
+    tags:
+    - PackageDelivery
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -56,10 +56,8 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
-  # Begin DeltaV additions
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  # End DeltaV additions
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -92,6 +90,8 @@
     sprite: Clothing/Shoes/Boots/mercboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/mercboots.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -140,14 +140,14 @@
   name: medical winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # Delta V - Recolor to match department color
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _DV/Clothing/Shoes/Boots/winterbootsmed.rsi # Delta V - Recolor to match department color
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterSci
-  name: science winter boots
+  name: epistemics winter boots # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssci.rsi

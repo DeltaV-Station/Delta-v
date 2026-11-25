@@ -14,7 +14,8 @@ public abstract class SharedMedicalRecordsSystem : EntitySystem
             if (!Identity.Name(uid, EntityManager).Equals(name))
                 continue;
 
-            if (status.Status == TriageStatus.None)
+            // Only remove the component if both status is None AND patient is unclaimed
+            if (status is { Status: TriageStatus.None, ClaimedName: null })
             {
                 RemComp<MedicalRecordComponent>(uid);
             }

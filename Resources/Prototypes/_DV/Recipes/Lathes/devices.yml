@@ -36,3 +36,24 @@
     Steel: 100
     Glass: 100
     Gold: 100
+
+- type: latheRecipe
+  id: WeaponMicrowaveEmitter
+  result: WeaponMicrowaveEmitter
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 400
+    Uranium: 100
+
+- type: latheRecipe
+  id: ConstructionBagOfHolding
+  result: ConstructionBagOfHolding
+  completetime: 5
+  materials:
+    Steel: 1000
+    Silver: 750
+    Plasma: 500
+    Bluespace: 100

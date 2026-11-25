@@ -5,6 +5,7 @@
   - MobDamageable
   - MobAtmosExposed
   - MobCombat
+  - BaseMobAnimal
   abstract: true
   components:
   - type: Reactive
@@ -12,25 +13,19 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - SlowedDown
-    - Stutter
-    - Stun
     - Electrocution
-    - TemporaryBlindness
-    - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: StandingState
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: NightVision #DeltaV - Added nightvision to animals
+    color: "#808080"
 
 - type: entity
   id: MobGoliath
@@ -38,8 +33,6 @@
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
-  - type: Body # Shitmed Change
-    prototype: Goliath
   - type: Sprite
     sprite: _DV/Mobs/Aliens/Asteroid/goliath.rsi # DeltaV - upstream uses ancient goliath sprites for some reason
     layers:
@@ -55,12 +48,14 @@
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
   - type: Bloodstream
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead
+      150: Dead
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -74,7 +69,7 @@
     range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob #DeltaV - Changed to SalvageMob to not be friendly to Ovinia
   - type: HTN
     constantlyReplan: false
     rootTask:
@@ -246,7 +241,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -300,7 +295,7 @@
         acts: [ "Destruction" ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -344,6 +339,8 @@
   - type: Tag
     tags:
     - HivelordRemains
+    - Meat
+    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -363,7 +360,8 @@
   - type: Tag
     tags:
     - HivelordRemains
-
+    - Meat
+    - Raw
 
 - type: entity
   id: MobBasilisk
@@ -388,7 +386,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      45: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -414,11 +412,13 @@
     capacity: 1
     count: 1
   - type: Bloodstream
-    bloodMaxVolume: 200
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 200
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - SalvageMob # DeltaV - Changed to SalvageMob
   - type: HTN
     rootTask:
       task: BasiliskCompound

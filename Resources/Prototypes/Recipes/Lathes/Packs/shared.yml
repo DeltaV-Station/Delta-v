@@ -4,6 +4,7 @@
   id: MaterialsStatic
   recipes:
   - SheetRGlass
+  - MaterialDurathread
 
 - type: latheRecipePack
   id: PartsStatic
@@ -40,6 +41,17 @@
   - CableMVStack
   - CableHVStack
 
+- type: latheRecipePack
+  id: PaperworkStatic
+  recipes:
+  - BoxFolderClipboardEmpty
+  - BoxFolderPlasticClipboardEmpty
+
+- type: latheRecipePack
+  id: TowelsStatic # This is used for both the autolathe and the uniform printer, so "unique" towels that only HoP can print shouldn't be included!
+  recipes:
+  - TowelColorWhite
+
 ## Dynamic
 
 # Things you'd expect sci salv and engi to make use of
@@ -61,6 +73,8 @@
   id: SalvageSecurityWeapons
   recipes:
   - WeaponProtoKineticAccelerator
-  - PKAUpgradeDamage
-  - PKAUpgradeRange
-  - PKAUpgradeFireRate
+  # Begin DeltaV removal - Made PKA upgrades unobtainable after buff to PKA
+  #- PKAUpgradeDamage
+  #- PKAUpgradeRange
+  #- PKAUpgradeFireRate
+  # End DeltaV removal

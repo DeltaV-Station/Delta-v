@@ -1,0 +1,8 @@
+- type: construction
+  id: reinforced_camera
+  graph: ReinforcedSurveillanceCameraGraph
+  startNode: start
+  targetNode: camera
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter

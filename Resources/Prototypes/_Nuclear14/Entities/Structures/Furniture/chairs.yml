@@ -12,30 +12,38 @@
     node: N14ChairArmchair
 
 - type: entity
-  parent: Chair
+  parent: StoolBase # DeltaV - so it can swivel
   id: N14ChairBarRetro
   name: retro chair
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/chairs.rsi
     state: retro_chair
+  - type: Construction # Begin DeltaV Additions
+    graph: N14Seat 
+    node: N14ChairRetro # End DeltaV Additions
 
 - type: entity
-  parent: N14ChairBarRetro
   id: N14ChairDinerBench
+  parent: ChairBase # DeltaV
   name: diner chair
   description: A cozy diner chair.
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
     state: diner_chair
 
 - type: entity
-  parent: N14ChairBarRetro
   id: N14ChairOfficeErgonomic
   name: ergonomic office chair
+  parent: OfficeChairBase # DeltaV - furniture rework
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi # DeltaV - furniture rework
     state: ergo_chair
+  - type: Construction # DeltaV
+    graph: N14Seat # DeltaV
+    node: N14ChairErgonomic # DeltaV - furniture rework
 
 - type: entity
   parent: N14ChairBarRetro

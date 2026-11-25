@@ -13,13 +13,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
-      - !type:AdjustReagent
-        reagent: Radium
-        amount: 0.01
+    Digestion:
+      metabolites:
+        Radium: 0.02
 
 - type: reagent
   id: PinkDrink
@@ -28,19 +24,13 @@
   desc: reagent-desc-pinkdrink
   physicalDesc: reagent-physical-desc-glowing
   flavor: pinkdrink
-  color: "#d04949"
+  color: "#d48592" #DeltaV - was #d04949
   metamorphicSprite:
-    sprite: Nyanotrasen/Objects/Consumable/Drinks/pinkdrink.rsi
+    sprite: _DV/Objects/Consumable/Drinks/pinkdrink.rsi # DeltaV replacement
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
 
 - type: reagent
   id: BubbleTea
@@ -57,13 +47,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
+    Digestion:
+      metabolites:
+        Sugar: 0.4
+        Nutriment: 0.2

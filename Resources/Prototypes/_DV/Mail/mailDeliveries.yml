@@ -7,7 +7,7 @@
     MailNFBikeHorn: 0.5
     MailBooksAll: 1
     MailBlockGameDIY: 0.5
-    MailNFBuildABuddy: 0.6
+#    MailNFBuildABuddy: 0.6 # Delta V - Nubody commented out for now
     MailCrayon: 1
     MailNFCake: 1
     MailNFCheese: 1
@@ -66,7 +66,8 @@
     MailFoamSabre: 0.1
     # Mainly for Glacier
     MailWinterCoat: 1.5
-    MailGorlexGirlfriends: 0.5
+    MailGorlexGirlfriends: 0.25
+    MailCentcommChads: 0.25
 
   # Department and job-specific mail can have slightly higher weights,
   # since they'll be merged with the everyone pool.
@@ -81,7 +82,6 @@
       MailMedicalStabilizers: 2
       MailNFMedkit: 2
     Engineering:
-      MailAMEGuide: 1
       MailEngineeringCables: 2
       MailEngineeringKudzuDeterrent: 2
       MailEngineeringSheetGlass: 2
@@ -124,8 +124,8 @@
     Clown:
       MailClownGildedBikeHorn: 0.5
       MailClownHonkSupplement: 3
-    Detective: # Deltav - Detective is in charge of investigating crimes.
-      MailDetectiveForensicSupplement: 2 # Deltav - Detective is in charge of investigating crimes.
+    Detective: # DeltaV - Detective is in charge of investigating crimes.
+      MailDetectiveForensicSupplement: 2 # DeltaV - Detective is in charge of investigating crimes.
     HeadOfPersonnel:
       MailHoPBureaucracy: 2
       MailHoPSupplement: 3
@@ -139,8 +139,6 @@
       MailMimeBottleOfNothing: 1
     ResearchDirector: # DeltaV - Epistemics Department replacing Science but keeping their IDs
       MailEpistemologyIngotGold: 2
-    Musician:
-      MailMusicianInstrumentSmall: 1
     Passenger:
       MailPassengerMoney: 3
     Warden:

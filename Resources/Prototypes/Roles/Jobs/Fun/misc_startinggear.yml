@@ -26,7 +26,7 @@
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesColorBlack
     id: SyndiPDA
-    ears: ClothingHeadsetAltSyndicate
+    ears: ClothingHeadsetAltSyndicateCommon # Delta V - Removed the syndicate key from their headset.
 
 # Syndicate Footsoldier Gear - No Headset
 - type: startingGear
@@ -56,6 +56,7 @@
     gloves: ClothingHandsGlovesCombat
     back: ClothingBackpack
     shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetAltSyndicate # Delta V - Comms were removed from parent
   storage:
     back:
     - BoxSurvivalSyndicate
@@ -103,6 +104,18 @@
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
     id: PunPunIDCard
 
+- type: startingGear
+  id: MobPollyGear
+  equipment:
+    ears: ClothingHeadsetEngineering
+
+# Emotional Support Scurret
+
+- type: startingGear
+  id: EmotionalSupportScurretGear
+  equipment:
+    id: ScurretPDA
+
 # DeathMatch Gear
 
 - type: startingGear
@@ -136,14 +149,14 @@
 - type: startingGear
   id: MobAghostGear
   equipment:
-    back: ClothingBackpackSatchelHolding
+    back: ClothingBackpackSatchelAdmin
     id: AdminPDA
+    belt: AdminToolbelt
   storage:
     back:
-    - GasAnalyzer
-    - trayScanner
-    - AccessConfiguratorUniversal
-    - Multitool
+    - AdminMaterialBox
+    - PowerCellMicroreactor
+    - PowerCellMicroreactor
 
 #Gladiator with spear
 - type: startingGear
@@ -152,16 +165,6 @@
     jumpsuit: ClothingUniformJumpsuitGladiator
     back: SpearBone
     head: ClothingHeadHatGladiator
-    shoes: ClothingShoesCult
-
-#Ash Walker
-- type: startingGear
-  id: AshWalker
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitGladiator
-    outerClothing: ClothingOuterArmorBone
-    back: SpearBone
-    head: ClothingHeadHelmetBone
     shoes: ClothingShoesCult
 
 #Banana Clown

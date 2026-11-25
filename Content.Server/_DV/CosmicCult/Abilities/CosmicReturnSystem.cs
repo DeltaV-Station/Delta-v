@@ -2,7 +2,7 @@ using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components.Examine;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Stunnable;
 

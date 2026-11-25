@@ -1,0 +1,67 @@
+# Main Company Policy Directory
+- type: guideEntry
+  id: companyPolicies
+  name: company-policy-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/Preface.xml
+
+  priority: 1
+  children:
+
+  - policyCodeOfConduct
+  - policyAppearanceStandards
+  - policyRightsAndResponsibilities
+  - policySelfDefence
+  - policyDangersFromOurCompetitors
+  - policyPotentialThreats
+  - policyContactingCentralCommand
+  - policyConclusion
+
+# Child entries
+
+
+- type: guideEntry
+  id: policyCodeOfConduct
+  name: company-policy-coc-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/CodeofConduct.xml
+
+
+- type: guideEntry
+  id: policyAppearanceStandards
+  name: company-policy-as-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/AppearanceStandards.xml
+
+
+- type: guideEntry
+  id: policyRightsAndResponsibilities
+  name: company-policy-rar-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/RightsandResponsibilities.xml
+
+
+- type: guideEntry
+  id: policySelfDefence
+  name: company-policy-sd-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/SelfDefence.xml
+
+
+- type: guideEntry
+  id: policyDangersFromOurCompetitors
+  name: company-policy-dfoc-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/DangersFromOurCompetitors.xml
+
+
+- type: guideEntry
+  id: policyPotentialThreats
+  name: company-policy-pt-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/PotentialThreats.xml
+
+
+- type: guideEntry
+  id: policyContactingCentralCommand
+  name: company-policy-ccc-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/ContactingCentralCommand.xml
+
+
+- type: guideEntry
+  id: policyConclusion
+  name: company-policy-conclusion-name
+  text: /ServerInfo/Guidebook/_DV/SpaceLaw/CompanyPolicy/Conclusion.xml

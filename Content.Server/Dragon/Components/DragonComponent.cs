@@ -1,5 +1,5 @@
-using Content.Shared.Damage; // DeltaV
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Chemistry.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -22,7 +22,7 @@ namespace Content.Server.Dragon
         /// When any rift is destroyed how long is the dragon weakened for
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("weakenedDuration")]
-        public float WeakenedDuration = 60f;
+        public float WeakenedDuration = 120f;
 
         /// <summary>
         /// Has a rift been destroyed and the dragon in a temporary weakened state?
@@ -68,23 +68,15 @@ namespace Content.Server.Dragon
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
 
         /// <summary>
-        /// DeltaV: Damage dealt to dragon on death
-        /// So we dont just delete it
+        /// The smoke to spawn upon rift timeout death.
         /// </summary>
         [DataField]
-        public DamageSpecifier DeathDamage = new()
-        {
-            DamageDict = new()
-            {
-                { "Blunt", 400 },
-            },
-        };
+        public EntProtoId SmokePrototype = "BloodSmoke";
 
         /// <summary>
-        /// DeltaV: Stops the halftime popup from displaying 1000 times
+        /// The solution to place into the smoke (mostly just needed for color)
         /// </summary>
         [DataField]
-        public bool HalftimePopupShown;
-
+        public Solution SmokeSolution = new ([new("Blood", 1)]);
     }
 }

@@ -16,14 +16,6 @@
 
 - type: entity
   parent: BaseImplantOnlyImplanter
-  id: GenericRadioImplanter
-  name: generic radio implanter
-  components:
-  - type: Implanter
-    implant: RadioImplant
-
-- type: entity
-  parent: BaseImplantOnlyImplanter
   id: WatchdogImplanter
   name: watchdog implanter
   components:
@@ -31,9 +23,10 @@
     implant: WatchdogImplant
 
 - type: entity
-  parent: BaseImplantOnlyImplanter
+  parent: BaseImplantOnlyImplanterCentcomm
   id: CentCommImplanter
-  name: centcomm implanter
+  name: centcomm mindshield implanter
+  suffix: mindshield
   components:
   - type: Implanter
     implant: CentCommImplant
@@ -57,3 +50,52 @@
   components:
   - type: Implanter
     implant: NukeopsUplinkImplant
+
+# NTAgent
+
+- type: entity
+  parent: BaseImplantOnlyImplanterCentcomm
+  id: NanolinkImplant
+  name: nanolink implant
+  suffix: NanolinkImplant
+  components:
+  - type: Implanter
+    implant: NanolinkSubImplant
+
+- type: entity
+  parent: [BaseImplantOnlyImplanterCentcomm, ChameleonControllerImplanter]
+  id: ChameleonControllerImplanterNT
+
+- type: entity
+  parent: [BaseImplantOnlyImplanterCentcomm, FakeMindShieldImplanter]
+  id: FakeMindShieldImplantNT
+  name: fake mindshield implanter
+
+# hitman
+
+- type: entity
+  id: HitmanCardImplanter
+  name: hitman card implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: HitmanCardImplant
+
+# MARK: DAGD
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: UnrevivableImplanterSyndicate
+  name: true death implanter
+  suffix: DAGD
+  components:
+  - type: Implanter
+    implant: UnrevivableImplantSyndicate
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: MicroBombImplanterSyndicateDAGD
+  name: micro-bomb implanter
+  suffix: DAGD
+  components:
+  - type: Implanter
+    implant: MicroBombImplantSyndicateDAGD

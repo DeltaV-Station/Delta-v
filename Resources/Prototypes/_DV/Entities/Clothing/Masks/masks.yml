@@ -8,3 +8,23 @@
     sprite: _DV/Clothing/Mask/interdynechemmask.rsi
   - type: Clothing
     sprite: _DV/Clothing/Mask/interdynechemmask.rsi
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasSecurityDV
+  name: security gas mask
+  description: A gas mask designed for Nanotrasen Security teams, built to handle the hazards of the future. #Actual Gas Mask for Security, based off the MCU-2P mask used by the United States Military.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _DV/Clothing/Mask/gassecurityDV.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Mask/gassecurityDV.rsi
+  - type: Armor #Below values can be buffed or nerfed as needed.
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95

@@ -1,37 +1,4 @@
 - type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckHeadphones
-  name: headphones
-  description: Quality headphones from Drunk Masters, with good sound insulation.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Misc/headphones.rsi
-    layers:
-    - state: icon
-      map: [ "enum.ToggleableVisuals.Layer" ]
-  - type: Clothing
-    equippedPrefix: off
-    sprite: Clothing/Neck/Misc/headphones.rsi
-  - type: ToggleableVisuals
-    spriteLayer: enum.ToggleableVisuals.Layer
-    clothingVisuals:
-      neck:
-      - state: on-equipped-NECK
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: {state: icon-on}
-          False: {state: icon}
-  - type: ItemToggle
-    predictable: false
-    soundActivate:
-      path: /Audio/Items/flashlight_on.ogg
-    soundDeactivate:
-      path: /Audio/Items/flashlight_off.ogg
-
-- type: entity
   parent: Clothing
   id: ClothingNeckStethoscope
   name: stethoscope
@@ -79,7 +46,7 @@
     sprite: Clothing/Neck/Misc/bling.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: [ ClothingNeckBase, BaseObviousBadge ] # imp
   id: ClothingNeckLawyerbadge
   name: lawyer badge
   description: A badge to show that the owner is a 'legitimate' lawyer who passed the NT bar exam required to practice law.
@@ -90,6 +57,8 @@
     sprite: Clothing/Neck/Misc/lawyerbadge.rsi
   - type: TypingIndicatorClothing
     proto: lawyer
+  - type: WearerGetsExamineText # imp
+    thingType: obvious-type-law
 
 - type: entity
   parent: ClothingNeckBase

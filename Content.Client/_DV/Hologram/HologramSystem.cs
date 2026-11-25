@@ -11,13 +11,14 @@ public sealed class HologramSystem : SharedHologramSystem
     [Dependency] private readonly OccluderSystem _occluder = default!;
     [Dependency] private readonly EntityManager _entMan = default!;
 
+    private static readonly ProtoId<ShaderPrototype> HologramProto = "HologramDeltaV";
     private ShaderInstance _shader = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _shader = _protoMan.Index<ShaderPrototype>("HologramDeltaV").InstanceUnique();
+        _shader = _protoMan.Index(HologramProto).InstanceUnique();
         SubscribeLocalEvent<HologramComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HologramComponent, ComponentStartup>(OnStartup);
     }

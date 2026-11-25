@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
+using Content.Server.Administration.Notes; // DeltaV - Admin QOL
 using Content.Server.Chat.Managers;
-using Content.Server.Forensics;
 using Content.Server.GameTicking;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
@@ -13,6 +13,7 @@ using Content.Shared.Administration.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Ghost; // DeltaV - Admin QOL
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
@@ -21,6 +22,7 @@ using Content.Shared.PDA;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.StationRecords;
 using Content.Shared.Throwing;
@@ -55,6 +57,7 @@ public sealed class AdminSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly AdminNotesSystem _notes = default!; // DeltaV
 
     private readonly Dictionary<NetUserId, PlayerInfo> _playerList = new();
 
@@ -220,18 +223,20 @@ public sealed class AdminSystem : EntitySystem
         var entityName = string.Empty;
         var identityName = string.Empty;
         var sortWeight = 0;
+        var ghost = false; // DeltaV
 
         // Visible (identity) name can be different from real name
         if (session?.AttachedEntity != null)
         {
-            entityName = EntityManager.GetComponent<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
+            entityName = Comp<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
             identityName = Identity.Name(session.AttachedEntity.Value, EntityManager);
+            ghost = HasComp<GhostComponent>(session.AttachedEntity.Value); // DeltaV
         }
 
         var antag = false;
 
         // Starting role, antagonist status and role type
-        RoleTypePrototype roleType = new();
+        RoleTypePrototype? roleType = null;
         var startingRole = string.Empty;
         LocId? subtype = null;
         if (_minds.TryGetMind(session, out var mindId, out var mindComp) && mindComp is not null)
@@ -244,7 +249,7 @@ public sealed class AdminSystem : EntitySystem
                 subtype = mindComp.Subtype;
             }
             else
-                Log.Error($"{ToPrettyString(mindId)} has invalid Role Type '{mindComp.RoleType}'. Displaying '{Loc.GetString(roleType.Name)}' instead");
+                Log.Error($"{ToPrettyString(mindId)} has invalid Role Type '{mindComp.RoleType}'. Displaying '{Loc.GetString(RoleTypePrototype.FallbackName)}' instead");
 
             antag = _role.MindIsAntagonist(mindId);
             startingRole = _jobs.MindTryGetJobName(mindId);
@@ -252,6 +257,7 @@ public sealed class AdminSystem : EntitySystem
 
         // Connection status and playtime
         var connected = session != null && session.Status is SessionStatus.Connected or SessionStatus.InGame;
+        var watchlisted = connected && _notes.ConnectedPlayerWatchlists.ContainsKey(session!.UserId); // DeltaV
 
         // Start with the last available playtime data
         var cachedInfo = GetCachedPlayerInfo(data.UserId);
@@ -270,14 +276,17 @@ public sealed class AdminSystem : EntitySystem
             identityName,
             startingRole,
             antag,
-            roleType,
+            roleType?.ID,
             subtype,
             sortWeight,
             GetNetEntity(session?.AttachedEntity),
             data.UserId,
             connected,
             _roundActivePlayers.Contains(data.UserId),
-            overallPlaytime);
+            overallPlaytime,
+            ghost, // DeltaV - Add ghost
+            watchlisted // DeltaV - Add watchlisted
+        );
     }
 
     private void OnPanicBunkerChanged(bool enabled)
@@ -383,8 +392,13 @@ public sealed class AdminSystem : EntitySystem
         {
             _chat.DeleteMessagesBy(uid);
 
+            var eraseEvent = new EraseEvent(uid);
+
             if (!_minds.TryGetMind(uid, out var mindId, out var mind) || mind.OwnedEntity == null || TerminatingOrDeleted(mind.OwnedEntity.Value))
+            {
+                RaiseLocalEvent(ref eraseEvent);
                 return;
+            }
 
             var entity = mind.OwnedEntity.Value;
 
@@ -433,9 +447,9 @@ public sealed class AdminSystem : EntitySystem
 
             if (TryComp(entity, out HandsComponent? hands))
             {
-                foreach (var hand in _hands.EnumerateHands(entity, hands))
+                foreach (var hand in _hands.EnumerateHands((entity, hands)))
                 {
-                    _hands.TryDrop(entity, hand, checkActionBlocker: false, doDropInteraction: false, handsComp: hands);
+                    _hands.TryDrop((entity, hands), hand, checkActionBlocker: false, doDropInteraction: false);
                 }
             }
 
@@ -444,6 +458,8 @@ public sealed class AdminSystem : EntitySystem
 
             if (_playerManager.TryGetSessionById(uid, out var session))
                 _gameTicker.SpawnObserver(session);
+
+            RaiseLocalEvent(ref eraseEvent);
         }
 
     private void OnSessionPlayTimeUpdated(ICommonSession session)
@@ -451,3 +467,10 @@ public sealed class AdminSystem : EntitySystem
         UpdatePlayerList(session);
     }
 }
+
+/// <summary>
+/// Event fired after a player is erased by an admin
+/// </summary>
+/// <param name="PlayerNetUserId">NetUserId of the player that was the target of the Erase</param>
+[ByRefEvent]
+public record struct EraseEvent(NetUserId PlayerNetUserId);

@@ -1,8 +1,25 @@
 - type: entity
   parent: BoxShotgunSlug
   id: BoxShellSoulbreaker
-  name: shell box (soulbreaker)
+  name: ammunition box (.50 soulbreaker)
   description: A box full of anti-psionic soulbreaker cartridges, designed for riot shotguns.
   components:
   - type: BallisticAmmoProvider
     proto: ShellSoulbreaker
+
+- type: entity
+  parent: AmmoProviderShotgunShell
+  id: BoxShellCaseless
+  name: ammunition box (.50 caseless)
+  description: A box full of caseless shotgun cartridges, designed to leave no trace behind.
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunCaseless
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - state: caseless

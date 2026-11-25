@@ -71,24 +71,24 @@ public sealed partial class MaterialDisplay : PanelContainer
         if (!_canEject)
             return;
 
-        int[] sheetsToEjectArray = { 1, 5, 10 };
+        int[] sheetsToEjectArray = { 1, 5, 10, 30 }; // DeltaV - added 30 to array
 
         for (var i = 0; i < sheetsToEjectArray.Length; i++)
         {
             var sheetsToEject = sheetsToEjectArray[i];
 
-            var styleClass = StyleBase.ButtonOpenBoth;
+            var styleClass = StyleClass.ButtonOpenBoth;
             if (i == 0)
-                styleClass = StyleBase.ButtonOpenRight;
+                styleClass = StyleClass.ButtonOpenRight;
             else if (i == sheetsToEjectArray.Length - 1)
-                styleClass = StyleBase.ButtonOpenLeft;
+                styleClass = StyleClass.ButtonOpenLeft;
 
             var button = new Button
             {
                 Name = $"{sheetsToEject}",
                 Access = AccessLevel.Public,
                 Text = Loc.GetString($"{sheetsToEject}"),
-                MinWidth = 45,
+                MinWidth = 35, // DeltaV - reduced from 45 to accomodate extra button
                 StyleClasses = { styleClass }
             };
 

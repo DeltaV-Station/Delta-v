@@ -7,7 +7,7 @@
   - type: Item
     size: Normal
   - type: Sprite
-    sprite: Objects/Weapons/Throwable/bola.rsi
+    sprite: _DV/Objects/Weapons/Throwable/bola.rsi # DeltaV - Blue Security Resprite
     state: icon
   - type: EmitSoundOnThrow
     sound: /Audio/Weapons/bolathrow.ogg
@@ -17,6 +17,7 @@
     graph: Bola
     node: bola
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -49,3 +50,13 @@
     canMoveBreakout: true
     maxEnsnares: 1
   - type: LandAtCursor
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2

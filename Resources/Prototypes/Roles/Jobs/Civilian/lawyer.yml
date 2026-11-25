@@ -6,7 +6,7 @@
   antagAdvantage: 4 # DeltaV - Reduced TC: Security Radio and Access
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 9000 # 2.5 hrs
+      time: 2.5h
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj # DeltaV - Change supervisor to chief justice
@@ -15,6 +15,11 @@
   - Lawyer
   #- Brig # DeltaV - Removed brig access
   - Maintenance
+  special: # Goobstation - Everyone knows lawyers are soulless.
+  - !type:AddComponentSpecial
+    components:
+    - type: Condemned
+      soulOwnedNotDevil: true
 
 - type: startingGear
   id: LawyerGear
@@ -28,6 +33,7 @@
     back:
     - RubberStampLawyer
     - BookSpaceLaw
+    - ForensicScanner # DeltaV - lets lawyers grab evidence
 
 - type: chameleonOutfit
   id: LawyerChameleonOutfit

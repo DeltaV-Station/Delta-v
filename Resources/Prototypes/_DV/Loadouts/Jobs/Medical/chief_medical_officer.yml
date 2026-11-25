@@ -1,5 +1,54 @@
+# Outer clothing
+- type: loadout
+  id: ChiefMedicalOfficerLongcoat
+  equipment:
+    outerClothing: ClothingLongcoatCMO
+
+- type: loadout
+  id: ChiefMedicalOfficerLongLabCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabLongCMO
+
 # Shoes
 - type: loadout
   id: ChiefMedicalOfficerWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterChiefMedicalOfficer
+
+# Neck
+- type: loadout
+  id: ChiefMedicalOfficerOverTheShoulderCoat
+  equipment:
+    neck: ClothingNeckCMOOverShoulder
+
+- type: loadout
+  id: ChiefMedicalOfficerShawl
+  equipment:
+    neck: ClothingNeckCMOShawl
+
+# Jumpsuit
+
+- type: loadout
+  id: ChiefMedicalOfficerFormalJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformCMOFormal
+
+- type: loadout
+  id: ChiefMedicalOfficerFormalJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCMOFormal
+
+- type: loadout
+  id: ChiefMedicalOfficerVestJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformCMOVest
+
+- type: loadout
+  id: ChiefMedicalOfficerVestJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCMOVest
+
+- type: loadout
+  id: ChiefMedicalOfficerSummerShirt
+  equipment:
+    jumpsuit: ClothingUniformCMOSummer

@@ -8,10 +8,124 @@
   color: "#331002"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Ethanol: 0.6
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.3
+
+- type: reagent
+  id: OldFashioned
+  name: reagent-name-old-fashioned
+  parent: BaseAlcohol
+  desc: reagent-desc-old-fashioned
+  physicalDesc: reagent-physical-desc-bittersweet
+  flavor: oldfashioned
+  color: "#c8753f"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/oldfashioned.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+
+- type: reagent
+  id: MnatsaCollins
+  name: reagent-name-mnatsa-collins
+  parent: BaseAlcohol
+  desc: reagent-desc-mnatsa-collins
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: mnatsacollins
+  color: "#fcb76f"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/mnatsacollins.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Digestion:
+      metabolites:
+        Ethanol: 0.14
+  fizziness: 0.4
+
+- type: reagent
+  id: Affogato
+  name: reagent-name-affogato
+  parent: BaseAlcohol
+  desc: reagent-desc-affogato
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: affogato
+  color: "#fff3ce"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/affogato.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Digestion:
+      metabolites:
+        Ethanol: 0.14
+
+- type: reagent
+  id: FiveOClock
+  name: reagent-name-five-oclock
+  parent: BaseAlcohol
+  desc: reagent-desc-five-oclock
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: fiveoclock
+  color: "#851800"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/fiveoclock.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Digestion:
+      metabolites:
+        Ethanol: 0.14
+
+- type: reagent
+  id: Mliko
+  name: reagent-name-mliko
+  parent: BaseAlcohol
+  desc: reagent-desc-mliko
+  physicalDesc: reagent-physical-desc-foamy
+  flavor: mliko
+  color: "#fefff1"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/mliko.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Digestion:
+      metabolites:
+        Ethanol: 0.04
+
+- type: reagent
+  id: Firebolt
+  name: reagent-name-firebolt
+  parent: BaseAlcohol
+  desc: reagent-desc-firebolt
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: firebolt
+  color: "#f29219"
+  metamorphicSprite:
+    sprite: _DV/Objects/Consumable/Drinks/firebolt.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
