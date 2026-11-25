@@ -6,7 +6,6 @@
   id: FoodBakedBase
   abstract: true
   components:
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
   - type: SolutionContainerManager
@@ -27,7 +26,7 @@
   id: FoodBakedMuffin
   description: A delicious and spongy little cake.
   components:
-  - type: Food
+  - type: Edible
     trash:
     - FoodPlateMuffinTin
   - type: Sprite
@@ -44,7 +43,7 @@
           Quantity: 2
   - type: FlavorProfile
     flavors:
-      - sweet
+    - sweet
   - type: Item
     size: Tiny
 
@@ -256,20 +255,20 @@
   components:
   - type: Tag
     tags:
-      - Nugget
-      - Meat
+    - Nugget
+    - Meat
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/nuggets.rsi
     layers:
-      - state: tendie
-        map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: tendie
+      map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: RandomSprite
     available:
-      - enum.DamageStateVisualLayers.Base:
-          tendie: ""
-          lizard: ""
-          star: ""
-          corgi: ""
+    - enum.DamageStateVisualLayers.Base:
+        tendie: ""
+        lizard: ""
+        star: ""
+        corgi: ""
   - type: SolutionContainerManager
     solutions:
       food:
@@ -281,9 +280,6 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
-  - type: FlavorProfile # DeltaV - custom flavor, see Resources/Locale/en-US/deltav/flavors/flavor_profiles.ftl
-    flavors:
-     - nuggie
 
 # Waffles/Pancakes
 
@@ -463,8 +459,8 @@
   components:
   - type: Sprite
     layers:
-      - state: tray
-      - state: waffles
+    - state: tray
+    - state: waffles
   - type: SolutionContainerManager
     solutions:
       food:
@@ -483,8 +479,8 @@
   components:
   - type: Sprite
     layers:
-      - state: tray
-      - state: waffles-soy
+    - state: tray
+    - state: waffles-soy
   - type: SolutionContainerManager
     solutions:
       food:
@@ -503,8 +499,8 @@
   components:
   - type: Sprite
     layers:
-      - state: tray
-      - state: waffles-soylent
+    - state: tray
+    - state: waffles-soylent
   - type: SolutionContainerManager
     solutions:
       food:
@@ -523,8 +519,8 @@
   components:
   - type: Sprite
     layers:
-      - state: tray
-      - state: waffles-roffle
+    - state: tray
+    - state: waffles-roffle
   - type: SolutionContainerManager
     solutions:
       food:
@@ -583,8 +579,8 @@
           Quantity: 2
   - type: FlavorProfile
     flavors:
-      - meaty
-      - bread
+    - meaty
+    - bread
   - type: Tag
     tags:
     - Meat
@@ -597,10 +593,10 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bread
-      - nutty
-      - creamy
-      - smokey
+    - bread
+    - nutty
+    - creamy
+    - smokey
   - type: Sprite
     state: chevrechaud
   - type: SolutionContainerManager
@@ -628,7 +624,7 @@
     - cotton
   - type: Sprite
     state: chevrechaud-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -646,15 +642,18 @@
           Quantity: 0.5
 
 - type: entity
-  name: brownies
   parent: FoodBakedBase
   id: FoodBakedBrownieBatch
+  name: brownies
   description: A pan of brownies.
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
-      - sweet
-      - chocolate
+    - sweet
+    - chocolate
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
@@ -680,8 +679,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - sweet
-      - chocolate
+    - sweet
+    - chocolate
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
@@ -699,16 +698,19 @@
     - Slice
 
 - type: entity
-  name: special brownies
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownieBatch
+  name: special brownies
   description: A pan of "special" brownies.
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
-      - sweet
-      - magical
-      - chocolate
+    - sweet
+    - magical
+    - chocolate
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
@@ -728,16 +730,16 @@
     slice: FoodBakedCannabisBrownie
 
 - type: entity
-  name: special brownie
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownie
+  name: special brownie
   description: A "special" brownie.
   components:
   - type: FlavorProfile
     flavors:
-      - sweet
-      - magical
-      - chocolate
+    - sweet
+    - magical
+    - chocolate
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
@@ -762,34 +764,40 @@
   id: FoodOnionRings
   description: You can eat it or propose to your loved ones.
   components:
-    - type: FlavorProfile
-      flavors:
-        - onion
-        - oily
-    - type: Sprite
-      state: onionrings
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 4
-          reagents:
-          - ReagentId: Nutriment
-            Quantity: 1
-          - ReagentId: Allicin
-            Quantity: 1
-          - ReagentId: Vitamin
-            Quantity: 1
-
-- type: entity
-  name: croissant
-  parent: FoodBakedBase
-  id: FoodBakedCroissant
-  description: Buttery, flaky goodness.
-  components:
   - type: FlavorProfile
     flavors:
-      - bread
-      - butter
+    - onion
+    - oily
+  - type: Sprite
+    state: onionrings
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Allicin
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
+
+- type: entity
+  parent: FoodBakedBase
+  id: FoodBakedCroissant
+  name: croissant
+  description: Buttery, flaky goodness.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: -2,-4
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - butter
   - type: Sprite
     state: croissant
   - type: SolutionContainerManager
@@ -803,17 +811,18 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
 
 - type: entity
-  name: cotton croissant
   parent: FoodBakedCroissant
   id: FoodBakedCroissantCotton
+  name: cotton croissant
   description: Buttery, flaky, fibery goodness.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
   - type: FlavorProfile
     flavors:
     - bread
@@ -821,7 +830,7 @@
     - cotton
   - type: Sprite
     state: croissant-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -841,15 +850,19 @@
           Quantity: 1
 
 - type: entity
-  name: grilled cheese sandwich
   parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwich
+  name: grilled cheese sandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
   - type: FlavorProfile
     flavors:
-      - cheesy
-      - bread
+    - cheesy
+    - bread
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese
@@ -869,7 +882,7 @@
       Burger: GrilledCheese
 
 - type: entity
-  parent: FoodBakedBase
+  parent: FoodBakedGrilledCheeseSandwich
   id: FoodBakedGrilledCheeseSandwichCotton
   name: cotton grilled cheese sandwich
   description: Cotton bread slightly burnt in butter, with melted cheese. Moths find it difficult to resist this combination.
@@ -882,7 +895,7 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -900,3 +913,27 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 3
+
+# Entity Tables
+
+- type: entityTable
+  id: FoodRandomCakeTable
+  table: !type:GroupSelector
+    children:
+    - id: FoodCakeApple
+    - id: FoodCakeBirthday
+    - id: FoodCakeBlueberry
+    - id: FoodCakePlain
+    - id: FoodCakeCarrot
+    - id: FoodCakeCheese
+    - id: FoodCakeChocolate
+    - id: FoodCakeChristmas
+    - id: FoodCakeClown
+    - id: FoodCakeLemon
+    - id: FoodCakeLime
+    - id: FoodCakeOrange
+    - id: FoodCakePumpkin
+    - id: FoodCakeSlime
+    - id: FoodCakeSpaceman
+    - id: FoodCakeVanilla
+    - id: FoodCakeLemoon

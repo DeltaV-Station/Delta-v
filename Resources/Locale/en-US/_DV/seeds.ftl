@@ -5,5 +5,3 @@ seeds-ghostpepper-name = ghost pepper
 seeds-ghostpepper-display-name = ghost pepper
 seeds-cosmicrevenant-name = cosmic revenant
 seeds-cosmicrevenant-display-name = cosmic revenant pepper
-seeds-carob-name = carob seeds
-seeds-carob-display-name = carob plant
