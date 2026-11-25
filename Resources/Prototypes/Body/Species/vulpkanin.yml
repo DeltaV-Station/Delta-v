@@ -212,12 +212,10 @@
 #      - ReagentId: SulfurBlood
 #        Quantity: 300
 # DeltaV end - no vulp sulfur blood
-#  DeltaV Start - Different Vulpkanine facial structure
-#  - type: CreamPied
-#    sprite:
-#      sprite: Effects/creampie.rsi
-#      state: creampie_vulpkanin
-#  DeltaV End - Different Vulpkanine facial structure
+  - type: CreamPied
+    sprite:
+      sprite: _DV/Effects/creampie.rsi # DeltaV - change to our sprites
+      state: creampie_vulpkanin
 
 - type: entity
   parent: OrganBase
