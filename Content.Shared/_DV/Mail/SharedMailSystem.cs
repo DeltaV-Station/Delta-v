@@ -64,7 +64,7 @@ public abstract class SharedMailSystem : EntitySystem
         SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<MailComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<MailComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<MailComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<MailComponent, DamageDealtEvent>(OnDamageDealt);
         SubscribeLocalEvent<MailComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnEmagged);
@@ -166,13 +166,10 @@ public abstract class SharedMailSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handle the <see cref="DamageChangedEvent"/> and transfer damage to the contents.
+    /// Handle the <see cref="DamageDealtEvent"/> and transfer damage to the contents.
     /// </summary>
-    private void OnDamageChanged(Entity<MailComponent> ent, ref DamageChangedEvent args)
+    private void OnDamageDealt(Entity<MailComponent> ent, ref DamageDealtEvent args)
     {
-        if (args.DamageDelta == null)
-            return;
-
         if (!_container.TryGetContainer(ent, "contents", out var contents))
             return;
 
@@ -180,7 +177,7 @@ public abstract class SharedMailSystem : EntitySystem
         // This should be a general-purpose feature for all containers in the future.
         foreach (var entity in contents.ContainedEntities.ToArray())
         {
-            _damageable.TryChangeDamage(entity, args.DamageDelta);
+            _damageable.TryChangeDamage(entity, args.Damage);
         }
     }
 
