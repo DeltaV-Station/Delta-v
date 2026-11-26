@@ -3,7 +3,6 @@
   name: job-name-warden
   description: job-description-justice-warden
   playTimeTracker: JobJusticeWarden
-  setPreference: false
   requirements:
   - !type:RoleTimeRequirement
     role: JobProsecutor
@@ -18,7 +17,7 @@
     department: Security
     time: 10h
   weight: 5
-  #startingGear: JusticeWardenGear # Bypass ChameleonJobLoadoutTest
+  startingGear: JusticeWardenGear # Bypass ChameleonJobLoadoutTest
   icon: "JobIconPrisonGuard"
   requireAdminNotify: true
   supervisors: job-supervisors-cj
@@ -26,7 +25,6 @@
   whitelisted: true
   access:
   - Justice
-  - Clerk # TODO: Remove when Clerk is kill
   - Prosecutor
   - Detective
   - Cryogenics
@@ -41,11 +39,26 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-#- type: startingGear # Bypass ChameleonJobLoadoutTest
-#  id: JusticeWardenGear
-#  equipment:
-#    id: JusticeWardenPDA
-#    ears: ClothingHeadsetJustice
-#  storage:
-#    back:
-#    - Flash
+- type: startingGear
+  id: JusticeWardenGear
+  equipment:
+    id: JusticeWardenPDA
+    ears: ClothingHeadsetJustice
+  storage:
+    back:
+    - Flash
+
+- type: chameleonOutfit
+  id: JusticeWardenChameleonOutfit
+  job: JusticeWarden
+  hasMindShield: true
+  equipment:
+    id: JusticeWardenPDA
+    ears: ClothingHeadsetJustice
+    head: ClothingHeadHatWarden
+    mask: ClothingMaskGas
+    outerClothing: ClothingOuterCoatWarden
+    jumpsuit: ClothingUniformJumpsuitWarden
+    neck: ClothingNeckScarfStripedRed
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack

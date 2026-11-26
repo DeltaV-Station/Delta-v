@@ -32,14 +32,6 @@
 
 - type: entity
   parent: LockableButton
-  id: LockableButtonClerk # TODO - Remove for Justice Rework
-  suffix: Clerk
-  components:
-  - type: AccessReader
-    access: [["Clerk"]]
-
-- type: entity
-  parent: LockableButton
   id: LockableButtonCJ
   suffix: Chief Justice
   components:
@@ -378,14 +370,6 @@
   components:
   - type: AccessReader
     access: [["Prosecutor"]]
-
-- type: entity
-  parent: LockableSwitch
-  id: LockableSwitchClerk
-  suffix: Clerk
-  components:
-  - type: AccessReader
-    access: [["Clerk"]]
 
 - type: entity
   parent: LockableSwitch

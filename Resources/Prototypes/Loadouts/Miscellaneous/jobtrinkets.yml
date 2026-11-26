@@ -1,4 +1,4 @@
-﻿# Job-specific trinkets
+# Job-specific trinkets
 
 - type: loadout
   id: LizardPlushieCaptain
@@ -327,7 +327,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobWarden
+      role: JobJusticeWarden # DeltaV - changed from warden to justicewarden
       time: 72000 # 20hr
   storage:
     back:

@@ -47,6 +47,45 @@
   - SecurityFirearm
   - SecurityFirearmAmmo
 
+- type: roleLoadout
+  id: JobArmorer
+  groups:
+  - SecurityHead
+  - SecurityNeck # DeltaV
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
+  - SecurityShoes
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - SurvivalSecurity
+  - Trinkets
+  - WardenJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
+  - SecurityUtility # DeltaV - loadouts
+
+# Medical
+- type: roleLoadout
+  id: JobSurgeon
+  groups:
+  - GroupTankHarness
+  - SurgeonHead
+  - MedicalDoctorNeck
+  - SurgeonMask
+  - SurgeonScrubs
+  - SurgeonGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - SurgeonPDA
+  - MedicalEyewear
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+
 # Justice
 - type: roleLoadout
   id: JobChiefJustice
@@ -64,18 +103,53 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobClerk # TODO: Remove for Justice Rework
+  id: JobJusticeWarden
   groups:
-  - GroupTankHarness
-  - ClerkJumpsuit
-  - ClerkNeck
-  - ClerkOuterClothing
+  - WardenHead
+  - SecurityNeck # DeltaV
+  - WardenJumpsuit
   - CommonBackpack
-  - ClerkShoes
-  - Glasses
+  - SecurityBelt
+  - WardenOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
+  - SecurityShoes
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
   - Survival
   - Trinkets
+  - WardenJobTrinkets
   - GroupSpeciesBreathTool
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
+  - SecurityUtility # DeltaV - loadouts
+
+#- type: roleLoadout
+#  id: JobClerk # TODO: Remove for Justice Rework
+#  groups:
+#  - GroupTankHarness
+#  - ClerkJumpsuit
+#  - ClerkNeck
+#  - ClerkOuterClothing
+#  - CommonBackpack
+#  - ClerkShoes
+#  - Glasses
+#  - Survival
+#  - Trinkets
+#  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobMarshal
+  groups:
+  - PrisonGuardHead
+  - PrisonGuardJumpsuit
+  - CommonBackpack
+  - ClerkOuterClothing
+  - SecurityGloves
+  - SecurityShoes
+  - SecurityEyewear
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityUtility
 
 - type: roleLoadout
   id: JobProsecutor

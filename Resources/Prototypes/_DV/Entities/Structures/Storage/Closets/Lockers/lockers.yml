@@ -54,18 +54,6 @@
     access: [["ChiefJustice"]]
 
 - type: entity
-  parent: LockerBaseSecureDeltaV
-  id: LockerClerk # TODO - Remove for Justice Rework
-  name: clerk's locker
-  components:
-  - type: EntityStorageVisuals
-    stateBaseClosed: clerk
-    stateDoorOpen: clerk_open
-    stateDoorClosed: clerk_door
-  - type: AccessReader
-    access: [["Clerk"]]
-
-- type: entity
   parent: LockerJustice
   id: LockerProsecutor # TODO - Resprite
   name: prosecutor's locker
@@ -423,10 +411,10 @@
 - type: entity
   parent: JusticeGunSafeNonlethalDV
   id: JusticeGunSafeNonlethalSecureDV
-  suffix: Armory, Marshal, JusticeWarden, Locked
+  suffix: Armory, JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+    access: [["Armory"], ["JusticeWarden"]]
 
 - type: entity
   parent: SecurityGunSafeNonlethalHandgunDV
@@ -440,10 +428,10 @@
 - type: entity
   parent: SecurityGunSafeNonlethalHandgunDV
   id: JusticeGunSafeNonlethalHandgunSecureDV
-  suffix: Armory, Marshal, JusticeWarden, Locked
+  suffix: Armory,  JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+    access: [["Armory"], ["JusticeWarden"]]
 
 - type: entity
   parent: SecurityGunSafeNonlethalDV
@@ -460,10 +448,10 @@
 - type: entity
   parent: JusticeGunSafeNonLethalShotgunDV
   id: JusticeGunSafeNonLethalShotgunSecureDV
-  suffix: Armory, Marshal, JusticeWarden, Locked
+  suffix: Armory, JusticeWarden, Locked
   components:
   - type: AccessReader
-    access: [["Armory"], ["Marshal"], ["JusticeWarden"]]
+    access: [["Armory"], ["JusticeWarden"]]
 
 - type: entity
   parent: JusticeGunSafeNonlethalHandgunDV

@@ -231,16 +231,6 @@
 
 - type: entity
   parent: FaxMachineBase
-  id: FaxMachineClerk # TODO - Remove for Justice Rework
-  suffix: Clerk
-  components:
-  - type: PageSender
-    autoLinkJobs: [Clerk]
-  - type: FaxMachine
-    name: "Clerk"
-
-- type: entity
-  parent: FaxMachineBase
   id: FaxMachineJusticeWarden
   suffix: Justice Warden
   components:
@@ -379,15 +369,15 @@
   - type: FaxMachine
     name: "Paramedic"
 
-- type: entity
-  parent: FaxMachineBase
-  id: FaxMachinePrisonGuard
-  suffix: Prison Guard
-  components:
-  - type: PageSender
-    autoLinkJobs: [PrisonGuard]
-  - type: FaxMachine
-    name: "Prison Guard"
+#- type: entity
+#  parent: FaxMachineBase
+#  id: FaxMachinePrisonGuard
+#  suffix: Prison Guard
+#  components:
+#  - type: PageSender
+#    autoLinkJobs: [PrisonGuard]
+#  - type: FaxMachine
+#    name: "Prison Guard"
 
 - type: entity
   parent: FaxMachineBase
@@ -488,16 +478,6 @@
     autoLinkJobs: [Surgeon]
   - type: FaxMachine
     name: "Surgery"
-
-- type: entity
-  parent: FaxMachineBase
-  id: FaxMachineWarden
-  suffix: Warden, Security
-  components:
-  - type: PageSender
-    autoLinkJobs: [Warden]
-  - type: FaxMachine
-    name: "Warden"
 
 - type: entity
   parent: FaxMachineBase

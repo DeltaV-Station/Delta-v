@@ -2,7 +2,6 @@
   id: Attorney
   name: job-name-attorney
   description: job-description-attorney
-  setPreference: false
   playTimeTracker: JobAttorney
   canBeAntag: false
   requirements:
@@ -11,7 +10,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 6h
-  #startingGear: AttorneyGear # Bypass ChameleonJobLoadoutTest
+  startingGear: AttorneyGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj
   access:
@@ -27,16 +26,28 @@
     - type: Condemned
       soulOwnedNotDevil: true
 
-#- type: startingGear # Bypass ChameleonJobLoadoutTest
-#  id: AttorneyGear
-#  equipment:
-#    shoes: ClothingShoesBootsLaceup
-#    id: LawyerPDA
-#    ears: ClothingHeadsetJustice
-#  inhand:
-#  - BriefcaseBrownFilled
-#  storage:
-#    back:
-#    - RubberStampAttorney
-#    - BookSpaceLaw
-#    - ForensicScanner
+- type: startingGear
+  id: AttorneyGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    id: LawyerPDA
+    ears: ClothingHeadsetJustice
+  inhand:
+  - BriefcaseBrownFilled
+  storage:
+    back:
+    - RubberStampAttorney
+    - BookSpaceLaw
+    - ForensicScanner
+
+- type: chameleonOutfit
+  id: AttorneyChameleonOutfit
+  job: Attorney
+  hasMindShield: false
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+    mask: ClothingMaskGas
+    neck: ClothingNeckLawyerbadge
+    gloves: ClothingHandsGlovesColorBlack
+    id: LawyerPDA
+    ears: ClothingHeadsetJustice

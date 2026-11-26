@@ -1,9 +1,8 @@
 - type: job
   id: Armorer
-  name: job-name-warden
-  description: job-description-warden
+  name: job-name-armorer
+  description: job-description-armorer
   playTimeTracker: JobArmorer
-  setPreference: false
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
@@ -12,7 +11,7 @@
     department: Security
     time: 10h
   weight: 5
-  #startingGear: ArmorerGear # Bypass ChameleonJobLoadoutTest
+  startingGear: ArmorerGear
   icon: "JobIconWarden"
   requireAdminNotify: true
   supervisors: job-supervisors-hos
@@ -24,15 +23,32 @@
   - Maintenance
   - External
   - Cryogenics
+
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
-#- type: startingGear
-#  id: ArmorerGear
-#  equipment:
-#    id: ArmorerPDA
-#    ears: ClothingHeadsetSecurity
-#  storage:
-#    back:
-#    - Flash
+- type: startingGear
+  id: ArmorerGear
+  equipment:
+    id: ArmorerPDA
+    ears: ClothingHeadsetSecurity
+  storage:
+    back:
+    - Flash
+
+- type: chameleonOutfit
+  id: ArmorerChameleonOutfit
+  job: Armorer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatSecsoft
+    mask: ClothingMaskGasSecurity
+    outerClothing: ClothingOuterArmorPlateCarrier
+    jumpsuit: ClothingUniformJumpsuitSecSenior
+    neck: Dinkystar
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack
+    id: ArmorerPDA
+    ears: ClothingHeadsetSecurity
