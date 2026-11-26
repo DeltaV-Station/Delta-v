@@ -41,10 +41,8 @@
     softness: 1
     offset: "0, -0.5"
   - type: Damageable
-    damageContainer: StructuralInorganic #Delta-v Changed from Inorganic to StructuralInorganic purely so the hristov can penetrate through.
-    damageModifierSet: Metallic
   - type: Injurable
-    damageContainer: StructuralInorganic #Delta-v as above.
+    damageContainer: StructuralInorganic #Delta-v Changed from Inorganic to StructuralInorganic purely so the hristov can penetrate through.
   - type: RCDDeconstructable
     cost: 4
     delay: 2
