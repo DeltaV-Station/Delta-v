@@ -58,8 +58,9 @@
     maxFillLevels: 6
     fillBaseName: beaker
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -158,8 +159,9 @@
     maxFillLevels: 6
     fillBaseName: beaker
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: StaticPrice
     price: 30
   - type: DnaSubstanceTrace
@@ -353,7 +355,7 @@
   - type: Sprite
     sprite: _DV/Objects/Specific/Chemistry/beaker_bluespace.rsi # DeltaV - Resprited some medical items
     layers:
-      - state: beakerbluespace
+    - state: beakerbluespace
   - type: SolutionContainerVisuals
     maxFillLevels: 0
   - type: SolutionContainerManager
@@ -364,7 +366,7 @@
   - type: ReverseEngineering # DeltaV
     difficulty: 4
     recipes:
-      - BluespaceBeaker
+    - BluespaceBeaker
 
 - type: entity
   name: dropper
@@ -661,6 +663,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.025 # survives conventional explosives but not minibombs and nukes
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

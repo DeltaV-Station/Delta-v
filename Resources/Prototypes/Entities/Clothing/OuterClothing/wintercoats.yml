@@ -381,6 +381,12 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-under-clothing: !type:ContainerSlot {} # DeltaV - Hats under Helmets
+      storagebase: !type:Container
+        ents: []
 ##########################################################
 
 - type: entity
@@ -486,7 +492,7 @@
     sprite: _DV/Clothing/OuterClothing/WinterCoats/medical.rsi # DeltaV - Recolor to match department color
 #    clothingVisuals:
 #      outerClothing:
-#      - state: MED-equipped-OUTERCLOTHING 
+#      - state: MED-equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -754,6 +760,12 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      toggleable-under-clothing: !type:ContainerSlot { } # DeltaV - Hats under Helmets
+      storagebase: !type:Container
+        ents: [ ]
 ################################################################
 
 - type: entity
@@ -817,6 +829,12 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSyndie
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      toggleable-under-clothing: !type:ContainerSlot { } # DeltaV - Hats under Helmets
+      storagebase: !type:Container
+        ents: [ ]
 ##############################################################
 
 - type: entity

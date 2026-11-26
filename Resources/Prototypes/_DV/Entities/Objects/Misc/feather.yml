@@ -24,6 +24,7 @@
     normalState: fire
   - type: Damageable # a lot of this is sensible boilerplate from the Paper prototype
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

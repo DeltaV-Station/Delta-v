@@ -9,6 +9,7 @@
     groups:
       Acidic: [Touch]
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: MovedByPressure
   - type: Physics
@@ -203,6 +204,8 @@
           radius: 0.35
         density: 20
         mask:
+        - MobMask
+        layer: # DeltaV - let honkbots be shot and wideswung
         - MobMask
   - type: Construction
     graph: HonkBot
