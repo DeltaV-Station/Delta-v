@@ -20,23 +20,6 @@
     job: ChiefJustice
 
 # MARK: Security and Prisoners
-- type: entity
-  parent: IDCardStandard
-  id: PrisonGuardIDCard
-  name: prison guard ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: stripe_top
-      color: &color-security-top "#39393c"
-    - state: stripe_bottom
-      color: &color-security-bottom "#262626"
-    - sprite: *icon-rsi-dv
-      offset: *icon-offset
-      state: PrisonGuard
-  - type: PresetIdCard
-    job: PrisonGuard
 
 - type: entity
   parent: IDCardStandard
@@ -76,9 +59,9 @@
     layers:
     - state: default
     - state: stripe_top
-      color: *color-security-top
+      color: &color-security-top "#39393c"
     - state: stripe_bottom
-      color: *color-security-bottom
+      color: &color-security-bottom "#262626"
     - sprite: *icon-rsi-dv
       offset: *icon-offset
       state: SecurityK9Officer
@@ -201,24 +184,6 @@
     job: Roboticist
 
 # MARK: Justice
-
-- type: entity
-  parent: IDCardStandard
-  id: ClerkIDCard # TODO - Remove for Justice Rework
-  name: clerk ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: stripe_top
-      color: *color-justice-top
-    - state: stripe_bottom
-      color: *color-justice-bottom
-    - sprite: *icon-rsi-dv
-      offset: *icon-offset
-      state: Clerk
-  - type: PresetIdCard
-    job: Clerk
 
 - type: entity
   parent: IDCardStandard
