@@ -43,6 +43,8 @@
   - type: Damageable
     damageContainer: StructuralInorganic #Delta-v Changed from Inorganic to StructuralInorganic purely so the hristov can penetrate through.
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic #Delta-v as above.
   - type: RCDDeconstructable
     cost: 4
     delay: 2
@@ -289,6 +291,7 @@
           layer:
           - TabletopMachineLayer
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
     - type: Destructible
       thresholds:

@@ -83,8 +83,9 @@
         - MachineLayer
         - HighImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralReactorCasing
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

@@ -110,6 +110,7 @@
   components:
   - type: ToggleClothing
     action: ActionToggleTray
+  - type: UseDelay
   - type: TrayScanner
     enabled: false
   - type: FlashImmunity
