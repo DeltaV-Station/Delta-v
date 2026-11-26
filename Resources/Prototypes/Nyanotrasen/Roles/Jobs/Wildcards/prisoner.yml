@@ -5,13 +5,13 @@
   playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
   alwaysUseSpawner: true
-  canBeAntag: false
+  canBeAntag: true
 #  whitelistRequired: true
   icon: "JobIconPrisoner"
-  supervisors: job-supervisors-security
+  supervisors: job-supervisors-warden
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Justice
       time: 6h
   special:
   - !type:AddImplantSpecial

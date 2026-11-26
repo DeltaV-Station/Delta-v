@@ -33,7 +33,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobWarden
+      role: JobJusticeWarden # DeltaV - Was JobWarden
       time: 72000 # 20hr
   equipment:
     outerClothing: ClothingOuterWinterWarden

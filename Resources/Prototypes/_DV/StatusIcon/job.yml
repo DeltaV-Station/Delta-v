@@ -64,6 +64,38 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconArmorer
+  icon:
+    sprite: *icon-rsi-dv
+    state: Warden
+  jobName: job-name-armorer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconJusticeWarden
+  icon:
+    sprite: *icon-rsi-dv
+    state: PrisonGuard
+  jobName: job-name-warden
+
+- type: jobIcon # TODO - Requires better sprite
+  parent: JobIcon
+  id: JobIconMarshal
+  icon:
+    sprite: *icon-rsi-dv
+    state: SeniorOfficer
+  jobName: job-name-marshal
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityBorg
+  icon:
+    sprite: *icon-rsi-dv
+    state: SeniorOfficer
+  jobName: job-name-security-borg
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconCargoAssistant
   icon:
     sprite: *icon-rsi-dv
