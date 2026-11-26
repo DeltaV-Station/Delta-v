@@ -81,7 +81,7 @@ crime-assist-question-duringactiveinvestigation = Did the suspect interfere with
 crime-assist-question-tocommandstaff = Did the suspect overthrow or compromise a lawfully established Chain of Command, or attempt to do so?
 crime-assist-question-wasitcommanditself = Was the suspect a member of command staff, security, or other position of power who abused their authority over another employee?
 crime-assist-question-wasgenerallydisruptive = Was the suspect intentionally and maliciously disruptive to the station, its crew, or its continued functioning?
-crime-assist-question-escapedsecurity = Did the suspect escape security custody while serving a sentence or awaiting trial?
+crime-assist-question-escapedsecurity = Did the suspect escape security custody while serving a sentence or awaiting a hearing?
 crime-assist-question-didtheyimpersonate = Did the suspect attempt to impersonate another employee?
 crime-assist-question-wasnegligent = Did the suspect fail to ensure the wellbeing of other entities or the station through negligence?
 
@@ -116,7 +116,7 @@ crime-assist-crimedetail-terrorism = To maliciously commit an act or take hostag
 crime-assist-crimedetail-grandsabotage = To maliciously commit an act that, directly or indirectly, renders a vessel or its part uninhabitable or inoperable; or, to commit an act that causes irreversible damage to High Security Areas and/or systems of a vessel.
 crime-assist-crimedetail-preventionofrevival = To commit an act that prevents the revival of an Employee by standard medical care following their death.
 crime-assist-crimedetail-sedition = To act to overthrow a lawfully established Chain of Command or governing body without lawful or legitimate cause.
-crime-assist-crimedetail-breachofcustody = To escape the custody of law enforcement while serving a legal sentence, or awaiting trial for a capital offense.
+crime-assist-crimedetail-breachofcustody = To escape the custody of law enforcement while serving a legal sentence, or awaiting a hearing.
 
 # Punishments
 crime-assist-crimepunishment-innocent = No punishment may be necessary
