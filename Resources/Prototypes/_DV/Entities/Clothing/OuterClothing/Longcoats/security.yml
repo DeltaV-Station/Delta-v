@@ -8,6 +8,12 @@
     sprite: _Floof/Clothing/OuterClothing/Longcoats/warden.rsi
   - type: Clothing
     sprite: _Floof/Clothing/OuterClothing/Longcoats/warden.rsi
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      toggleable-under-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
 
 - type: entity
   parent: [ ClothingOuterCoatStasec, BaseSecurityContraband ] # Same as ClothingOuterWinterSec, without ClothingOuterWinterCoatToggleable

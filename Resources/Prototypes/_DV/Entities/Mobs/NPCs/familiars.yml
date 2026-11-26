@@ -67,8 +67,9 @@
   - type: Familiar
   - type: Dispellable
   - type: Damageable
-    damageContainer: ManifestedSpirit
     damageModifierSet: Ifrit
+  - type: Injurable
+    damageContainer: ManifestedSpirit
   - type: Speech
     speechSounds: Bass
   - type: Puller

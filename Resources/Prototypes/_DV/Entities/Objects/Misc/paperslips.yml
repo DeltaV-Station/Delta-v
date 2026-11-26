@@ -26,6 +26,7 @@
     - type: Appearance
     - type: Damageable
       damageModifierSet: Wood
+    - type: Injurable
     - type: Biscuit
     - type: BiscuitVisuals
     - type: ItemSlots
@@ -151,6 +152,7 @@
     - type: PaperVisuals
     - type: Damageable
       damageModifierSet: Wood
+    - type: Injurable
     - type: Destructible
       thresholds:
         - trigger:

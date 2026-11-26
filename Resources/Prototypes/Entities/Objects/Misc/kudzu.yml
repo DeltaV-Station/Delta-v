@@ -47,6 +47,7 @@
           - MidImpassable
     - type: Damageable
       damageModifierSet: Wood
+    - type: Injurable # DeltaV: Backport upstream #43767
     - type: Destructible
       thresholds:
       - trigger:
@@ -200,6 +201,7 @@
           layer:
           - MidImpassable
     - type: Damageable
+    - type: Injurable # DeltaV: Backport upstream #43767
     - type: Destructible
       thresholds:
       - trigger:
