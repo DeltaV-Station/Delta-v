@@ -15,10 +15,6 @@
   name: id-card-access-level-justice-attorney
 
 - type: accessLevel
-  id: Clerk # TODO - Remove for Justice Rework
-  name: id-card-access-level-clerk
-
-- type: accessLevel
   id: JusticeWarden
   name: id-card-access-level-justice-warden
 
@@ -31,6 +27,5 @@
   tags:
   - Justice
   - Prosecutor
-  - Clerk
   - ChiefJustice
   - Lawyer

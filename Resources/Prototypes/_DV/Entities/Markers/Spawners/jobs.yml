@@ -25,19 +25,6 @@
 
 - type: entity
   parent: SpawnPointJobBase
-  id: SpawnPointPrisonGuard
-  name: prison guard
-  components:
-  - type: SpawnPoint
-    job_id: PrisonGuard
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: *job-rsi-dv
-        state: prisonguard
-
-- type: entity
-  parent: SpawnPointJobBase
   id: SpawnPointMartialArtist
   name: martial artist
   components:
@@ -75,19 +62,6 @@
     - state: green
     - sprite: *job-rsi-dv
       state: chiefjustice
-
-- type: entity
-  parent: SpawnPointJobBase
-  id: SpawnPointClerk # TODO - Remove for Justice Rework
-  name: clerk
-  components:
-  - type: SpawnPoint
-    job_id: Clerk
-  - type: Sprite
-    layers:
-    - state: green
-    - sprite: *job-rsi-dv
-      state: clerk
 
 - type: entity
   parent: SpawnPointJobBase
