@@ -64,18 +64,39 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobClerk # TODO: Remove for Justice Rework
+  id: JobJusticeWarden
   groups:
-  - GroupTankHarness
-  - ClerkJumpsuit
-  - ClerkNeck
-  - ClerkOuterClothing
+  - WardenHead
+  - SecurityNeck
+  - WardenJumpsuit
   - CommonBackpack
-  - ClerkShoes
-  - Glasses
+  - SecurityBelt
+  - WardenOuterClothingDeltaV
+  - SecurityGloves
+  - SecurityShoes
+  - SecurityEyewear
   - Survival
   - Trinkets
+  - WardenJobTrinkets
   - GroupSpeciesBreathTool
+  - SecurityAllFirearm
+  - SecurityAllAmmo
+  - SecurityUtility
+
+- type: roleLoadout
+  id: JobMarshal
+  groups:
+  - PrisonGuardHead
+  - PrisonGuardJumpsuit
+  - CommonBackpack
+  - ClerkOuterClothing
+  - SecurityGloves
+  - SecurityShoes
+  - SecurityEyewear
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityUtility
 
 - type: roleLoadout
   id: JobProsecutor

@@ -14,7 +14,7 @@
   canBeAntag: false
   icon: "JobIconPrisonGuard"
   supervisors: job-supervisors-warden
-  setPreference: true
+  setPreference: false # Removed due to Justice Rework
   access:
   - Security
   #- Brig #Delta V: Removed brig access
@@ -36,17 +36,17 @@
     - Flash
    # - MagazinePistol # end DeltaV
 
-# DeltaV
-- type: chameleonOutfit
-  id: PrisonGuardChameleonOutfit
-  job: PrisonGuard
-  hasMindShield: true
-  equipment:
-    eyes: ClothingEyesGlassesSecurity
-    id: PrisonGuardPDA
-    ears: ClothingHeadsetPrisonGuard
-    head: ClothingHeadPrisonGuard
-    jumpsuit: ClothingUniformJumpsuitPrisonGuard
-    mask: ClothingMaskGasSecurity
-    gloves: ClothingHandsGlovesColorBlack
+# Removed due to Justice Rework
+#- type: chameleonOutfit
+#  id: PrisonGuardChameleonOutfit
+#  job: PrisonGuard
+#  hasMindShield: true
+#  equipment:
+#    eyes: ClothingEyesGlassesSecurity
+#    id: PrisonGuardPDA
+#    ears: ClothingHeadsetPrisonGuard
+#    head: ClothingHeadPrisonGuard
+#    jumpsuit: ClothingUniformJumpsuitPrisonGuard
+#    mask: ClothingMaskGasSecurity
+#    gloves: ClothingHandsGlovesColorBlack
 

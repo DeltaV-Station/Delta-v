@@ -7,9 +7,9 @@
     - !type:RoleTimeRequirement
       role: JobWarden
       time: 1h
-    - !type:RoleTimeRequirement
-      role: JobDetective
-      time: 1h # knowing how to use the tools is important
+    #- !type:RoleTimeRequirement # DeltaV - Moved to Justice
+    #  role: JobDetective
+    #  time: 1h # knowing how to use the tools is important
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 5h
@@ -32,11 +32,14 @@
   - Armory
   - Maintenance
   - External
-  - Detective
+  #- Detective # DeltaV - Det got moved to justice.
   - Corpsman # DeltaV - added Corpsman access
   - Cryogenics
   - GenpopEnter
   - GenpopLeave
+  extendedAccess: # DeltaV - justice rework
+  - Justice
+  - Prosecutor
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
