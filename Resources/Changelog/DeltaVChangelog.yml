@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: Coryler
-  changes:
-  - message: Telescopic and Energyshields working without being activated
-    type: Fix
-  id: 2220
-  time: '2026-04-05T11:15:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5600
-- author: Stxcking
-  changes:
-  - message: Fixed Energy Gun Fire Mode Pop-up.
-    type: Fix
-  id: 2221
-  time: '2026-04-05T13:24:32.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5624
 - author: rebe83
   changes:
   - message: Axes can now be carried on your back in suit storage. Viva Atmosia.
@@ -4477,4 +4463,20 @@
   id: 2720
   time: '2026-11-23T08:25:51.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6500
+- author: JustTNE
+  changes:
+  - message: Disabled Hijack ATS Objective due to being incompatible with the Delta
+      V ATS.
+    type: Remove
+  id: 2721
+  time: '2026-11-26T16:33:48.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6786
+- author: SirWarock
+  changes:
+  - message: Merged upstream content and fixes through April 25th, 2026. Look at the
+      PR for more details!
+    type: Add
+  id: 2722
+  time: '2026-11-24T20:02:49.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6700
 Order: 1
