@@ -226,17 +226,6 @@
     - id: LunchboxSecurityFilledRandom
       prob: 0.3
 
-- type: entityTable
-  id: FillLockerDetectiveDeltaV
-  table: !type:AllSelector
-    children:
-    - id: BoxTapeRecorder
-    - id: ClothingHeadsetSecurity
-    - id: LunchboxSecurityFilledRandom
-      prob: 0.3
-    - id: DVBoxEvidenceBags
-      amount: 2
-
 # Armorer Lockers - copy of old warden. New warden is in justice.yml
 - type: entity
   parent: LockerArmorer

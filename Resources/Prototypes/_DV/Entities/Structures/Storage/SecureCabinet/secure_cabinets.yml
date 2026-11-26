@@ -213,15 +213,6 @@
   - type: AccessReader
     access: [["Reporter"]]
 
-#Clerk
-- type: entity
-  parent: FilledSecureCabinet
-  id: SecureCabinetClerk # TODO - Remove for Justice Rework
-  suffix: Clerk
-  components:
-  - type: AccessReader
-    access: [["Clerk"]]
-
 #Prosecutor
 - type: entity
   parent: FilledSecureCabinet

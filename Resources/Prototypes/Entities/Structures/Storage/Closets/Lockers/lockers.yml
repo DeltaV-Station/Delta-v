@@ -551,7 +551,7 @@
     stateDoorOpen: evidence_open
     stateDoorClosed: evidence_door
   - type: AccessReader
-    access: [["Security"], ["Prosecutor"], ["Clerk"]] # DeltaV - allow Pros and Clerk access to Evidence
+    access: [["Security"], ["Prosecutor"], ["JusticeWarden"]] # DeltaV - allow Pros and Warden access to Evidence
 
 # Syndicate
 - type: entity
