@@ -19,6 +19,9 @@
     Librarian:
     - !type:OverallPlaytimeRequirement
       time: 1h
+    MartialArtist:
+    - !type:OverallPlaytimeRequirement
+      time: 1h
     Mime:
     - !type:OverallPlaytimeRequirement
       time: 1h
@@ -123,6 +126,9 @@
       time: 1h
 
     # Epistemics
+    Borg:
+    - !type:OverallPlaytimeRequirement
+      time: 6h
     Chaplain:
     - !type:DepartmentTimeRequirement
       department: Epistemics
@@ -175,7 +181,7 @@
       time: 6h
     SecurityCadet:
     - !type:OverallPlaytimeRequirement
-      time: 4h
+      time: 6h
     SecurityOfficer:
     - !type:DepartmentTimeRequirement
       department: Security
@@ -187,11 +193,111 @@
     - !type:RoleTimeRequirement # Give them an understanding of basic forensics.
       role: JobDetective
       time: 4h
+    PrisonGuard:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 2h
+
   antags:
+    Conspirator:
+    - !type:OverallPlaytimeRequirement
+      time: 4h
+    Devil:
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 5h
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 1h
+    HeadRev:
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 2h
+    InitialInfected:
+    - !type:OverallPlaytimeRequirement
+      time: 2h
+    MothershipCore:
+    - !type:RoleTimeRequirement
+      role: JobBorg
+      time: 10h
+    - !type:OverallPlaytimeRequirement
+      time: 20h
+    Nukeops:
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 2h
+    - !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 2h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 2h
     NukeopsMedic:
     - !type:RoleTimeRequirement # They should be able to make advanced brutes + pyra quickly
       role: JobChemist
       time: 6h
-    - !type:RoleTimeRequirement # Give them a good understanding of how medical works
-      role: JobMedicalDoctor
+    - !type:DepartmentTimeRequirement
+      department: Engineering
       time: 2h
+    - !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 2h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 2h
+    SpaceNinja:
+    - !type:OverallPlaytimeRequirement
+      time: 4h
+    Thief:
+    - !type:OverallPlaytimeRequirement
+      time: 2h
+    Traitor:
+    - !type:OverallPlaytimeRequirement
+      time: 2h
+    TraitorSleeper:
+    - !type:OverallPlaytimeRequirement
+      time: 2h
+    Xenoborg:
+    - !type:RoleTimeRequirement
+      role: JobBorg
+      time: 5h
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 2h
+    Wizard:
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+
+  # Ghost Roles
+    ERTLeader:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 4h
+    ERTSecurity:
+    - !type:DepartmentTimeRequirement
+      department: Security
+    ERTMedical:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 5h
+    CBURN:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 6h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 4h

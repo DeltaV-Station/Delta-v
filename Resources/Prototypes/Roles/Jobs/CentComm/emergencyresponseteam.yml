@@ -12,7 +12,7 @@
   requirements: # DeltaV - Playtime requirement
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 10h
+    time: 15h
   - !type:DepartmentTimeRequirement
     department: Command
     time: 4h
@@ -306,7 +306,7 @@
   requirements: # DeltaV - Playtime requirements
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 5h
+    time: 15h
   accessGroups:
   - AllAccess
   access:
@@ -501,7 +501,7 @@
     time: 5h
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 5h
+    time: 10h
   accessGroups:
   - AllAccess
   access:
