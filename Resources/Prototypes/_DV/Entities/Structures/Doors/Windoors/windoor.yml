@@ -145,6 +145,15 @@
       board: [ DoorElectronicsMarshal ]
 
 - type: entity
+  parent: WindoorSecureJusticeLocked
+  id: WindoorSecureMarshalSecurityLocked
+  suffix: Marshal/Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshalSecurity ]
+
+- type: entity
   parent: Windoor
   id: WindoorArmoryLocked
   suffix: Armory, Locked
@@ -307,6 +316,7 @@
     containers:
       board: [ DoorElectronicsHydroponics ]
 
+#ERT Roles
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureERTLocked

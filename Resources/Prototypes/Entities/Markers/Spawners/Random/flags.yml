@@ -1,0 +1,34 @@
+- type: entity
+  parent: MarkerBase
+  id: FlagSpawner
+  name: random flag spawner
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/flags.rsi
+    layers:
+    - state: NT_flag
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: NTFlag
+      - !type:GroupSelector
+        weight: 0.5
+        children:
+        - id: LGBTQFlag
+        - id: AceFlag
+        - id: BlankFlag
+        - id: AroFlag
+        - id: BiFlag
+        - id: EnbyFlag
+        - id: GayFlag
+        - id: IntersexFlag
+        - id: LesbianFlag
+        - id: PanFlag
+        - id: TransFlag
+        - id: TransRoyalShrimpFlag
+      - !type:GroupSelector
+        weight: 0.1
+        children:
+        - id: PirateFlag
+        - id: SyndieFlag
+        - id: BlankFlag

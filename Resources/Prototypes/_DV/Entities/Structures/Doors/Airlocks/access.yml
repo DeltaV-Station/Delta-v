@@ -41,6 +41,15 @@
   - type: GridFill
     path: /Maps/_DV/Shuttles/Misc/glacier_surface_shuttle.yml
 
+# Hammurabi only
+- type: entity
+  parent: AirlockExternalGlassShuttleMining
+  id: AirlockExternalGlassShuttleHammurabiFilled
+  suffix: Hammurabi, Filled, Locked
+  components:
+  - type: GridFill
+    path: /Maps/_DV/Shuttles/Misc/glacier_surface_shuttle.yml #comeback
+
 # DeltaV specific roles
 - type: entity
   parent: AirlockScience
@@ -214,6 +223,24 @@
     containers:
       board: [ DoorElectronicsMarshalSecurity ]
 
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalMarshalLocked
+  suffix: External, Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalMarshalGlassLocked
+  suffix: External, Glass, Marshal, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
 # Maintenance
 - type: entity
   parent: AirlockMaintCommandLocked
@@ -289,6 +316,25 @@
     containers:
       board: [ DoorElectronicsMarshal ]
 
+- type: entity
+  parent: AirlockMaintJusticeLocked
+  id: AirlockMaintMarshalSecurityLocked
+  suffix: Marshal/Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshalSecurity ]
+
+- type: entity
+  parent: AirlockMaintCommandLocked
+  id: AirlockMaintEVALocked
+  suffix: EVA, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExternal ]
+
+#Misc
 - type: entity
   parent: AirlockSecurity
   id: AirlockCorpsmanLocked
@@ -451,7 +497,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSurgeryResearch ]
-
 
 - type: entity
   parent: AirlockMaintMedLocked
@@ -739,7 +784,6 @@
     containers:
       board: [ DoorElectronicsSecurity ]
 
-
 # Station-Specific Airlocks
 - type: entity
   parent: HighSecDoor
@@ -803,6 +847,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJusticeWarden ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecChiefEngineerLocked
+  suffix: ChiefEngineer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefEngineer ]
 
 # Syndicate
 - type: entity

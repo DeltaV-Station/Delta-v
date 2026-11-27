@@ -206,7 +206,7 @@
     defaultText: station-beacon-armory
 
 - type: entity
-  parent: DefaultStationBeaconSecurity
+  parent: DefaultStationBeaconJustice # Delta V - Perma uses justice colors
   id: DefaultStationBeaconPermaBrig
   suffix: Perma Brig
   components:
@@ -214,7 +214,7 @@
     defaultText: station-beacon-perma-brig
 
 - type: entity
-  parent: DefaultStationBeaconSecurity
+  parent: DefaultStationBeaconJustice # Delta V - Detective uses justice colors
   id: DefaultStationBeaconDetectiveRoom
   suffix: Detective's Room
   components:

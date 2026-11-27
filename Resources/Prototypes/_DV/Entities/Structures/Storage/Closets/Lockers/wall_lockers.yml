@@ -122,7 +122,6 @@
   - type: AccessReader
     access: [["Engineering"]]
 
-
 - type: entity
   parent: BaseWallLockerDeltaV
   id: WallLockerBotany
@@ -218,6 +217,18 @@
     stateDoorOpen: justice_open
   - type: AccessReader
     access: [["Justice"]]
+
+- type: entity
+  parent: BaseWallLockerDeltaV
+  id: WallLockerMarshal
+  name: marshal wall locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: justice
+    stateDoorClosed: justice_door
+    stateDoorOpen: justice_open
+  - type: AccessReader
+    access: [["Marshal"]]
 
 - type: entity
   parent: ClosetWallBlack

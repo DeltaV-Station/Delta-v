@@ -415,7 +415,7 @@
 - type: entity
   parent: AirlockSecurity
   id: AirlockSecurityLawyerLocked
-  suffix: Security/Lawyer, Locked
+  suffix: Security/Justice, Locked # DeltaV - Allow all justice dept to use
   components:
   - type: ContainerFill
     containers:
@@ -830,7 +830,7 @@
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockSecurityLawyerGlassLocked
-  suffix: Security/Lawyer, Locked
+  suffix: Security/Justice, Locked # DeltaV - Allow all justice dept to use
   components:
   - type: ContainerFill
     containers:
