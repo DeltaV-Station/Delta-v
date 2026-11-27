@@ -198,6 +198,32 @@
       department: Security
       time: 2h
 
+    # Ghost Roles
+    ERTLeader:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 4h
+    ERTSecurity:
+    - !type:DepartmentTimeRequirement
+      department: Security
+    ERTMedical:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 5h
+    CBURN:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 6h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 4h
+
   antags:
     Conspirator:
     - !type:OverallPlaytimeRequirement
@@ -275,29 +301,3 @@
     Wizard:
     - !type:OverallPlaytimeRequirement
       time: 10h
-
-  # Ghost Roles
-    ERTLeader:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10h
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 4h
-    ERTSecurity:
-    - !type:DepartmentTimeRequirement
-      department: Security
-    ERTMedical:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 5h
-    CBURN:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 6h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 4h
