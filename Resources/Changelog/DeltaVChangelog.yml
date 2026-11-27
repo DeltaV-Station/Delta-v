@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Fixed Target Objective immune traits (Marked as Protected) not applying
-      to antags.
-    type: Fix
-  id: 2228
-  time: '2026-04-07T16:38:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5386
 - author: ashley-graves
   changes:
   - message: Fixed minor spelling mistake on the interdyne chemist uniform.
@@ -4473,4 +4465,11 @@
   id: 2728
   time: '2026-11-27T19:24:17.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6777
+- author: AbsolSkies
+  changes:
+  - message: Cargo can now request double emergency tanks.
+    type: Add
+  id: 2729
+  time: '2026-11-27T19:37:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6754
 Order: 1
