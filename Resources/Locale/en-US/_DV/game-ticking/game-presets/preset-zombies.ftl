@@ -1,3 +1,3 @@
-zombie-bioterrorist-role-greeting = You are a syndicate sponsored bioterrorist sent to overtake the station by use of the Romerol virus. Coordinate with your team, get supplies and prepare for your eventual transformation. Death to nanotrasen!
+zombie-bioterrorist-role-greeting = You are a syndicate sponsored bioterrorist sent to overtake the station by use of the Romerol virus. Coordinate with your team, sabotage the station, get supplies and prepare to kill crew when you're ready to transform. Death to Nanotrasen!
 zombie-bioterrorist-romerol-active = The romerol in your blood is now active, you are ready to transform!
-zombie-patientzero-role-greeting = You are an initial infected. Get supplies and prepare for your eventual transformation. You may sabotage the station and kill crew before turning. Your goal is to overtake the station while infecting as many people as possible.
+zombie-patientzero-role-greeting =  You are an initial infected. Get supplies and prepare for your eventual transformation. You should sabotage the station and kill crew before turning. Your goal is to overtake the station while infecting as many people as possible.
