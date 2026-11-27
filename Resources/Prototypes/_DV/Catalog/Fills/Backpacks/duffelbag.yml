@@ -73,3 +73,17 @@
           amount: 10
         - id: ClothingMaskInterdyneChemistry
         - id: ClothingHandsGlovesChemist
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledAks74u
+  name: AKS-74U bundle
+  description: A surpringly common half-millenia old carbine. Comes with a spare .30 rifle magazine.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleAks74u
+        - id: MagazineLightRifle
+          amount: 1
