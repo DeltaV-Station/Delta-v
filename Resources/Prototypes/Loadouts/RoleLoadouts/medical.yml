@@ -1,0 +1,88 @@
+## Role Loadouts
+
+- type: roleLoadout
+  id: JobChiefMedicalOfficer
+  groups:
+  - GroupTankHarness
+  - ChiefMedicalOfficerHead
+  - MedicalMask
+  - MedicalGloves # DeltaV
+  - ChiefMedicalOfficerJumpsuit
+  - MedicalBackpack
+  - ChiefMedicalOfficerOuterClothing
+  - ChiefMedicalOfficerNeck
+  - ChiefMedicalOfficerShoes
+  - MedicalEyewear #DeltaV - Was Glasses
+  - SurvivalMedical
+  - Trinkets
+#  - ChiefMedicalOfficerJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalGloves # DeltaV
+  - MedicalDoctorNeck # DeltaV
+  - MedicalDoctorJumpsuit
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - MedicalDoctorPDA
+  - MedicalEyewear #DeltaV - Was Glasses
+  - SurvivalMedical
+  - Trinkets
+#  - MedicalDoctorJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalIntern
+  groups:
+  - GroupTankHarness
+  - MedicalInternJumpsuit
+  - MedicalBackpack
+  - MedicalEyewear #DeltaV - Was Glasses
+  - MedicalInternPDADelta # DeltaV
+  - SurvivalMedical
+  - Trinkets
+#  - MedicalInternJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobChemist
+  groups:
+  - GroupTankHarness
+  - ChemistHead # DeltaV
+  - MedicalMask
+  - ChemistNeck # DeltaV
+  - ChemistJumpsuit
+  - ChemistGloves # DeltaV - Was MedicalGloves
+  - ChemistBackpack
+  - ChemistryPDA # DeltaV
+  - ChemistOuterClothing
+  - ChemistShoes # DeltaV - Was MedicalShoes
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+#  - ChemistJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobParamedic
+  groups:
+  - GroupTankHarness
+  - ParamedicHead
+  - MedicalMask
+  - MedicalGloves # DeltaV
+  - MedicalDoctorNeck # DeltaV
+  - ParamedicJumpsuit
+  - MedicalBackpack
+  - ParamedicOuterClothing
+  - ParamedicShoes
+  - MedicalEyewear #DeltaV - Was Glasses
+  - SurvivalMedical
+  - Trinkets
+#  - ParamedicJobTrinkets
+  - GroupSpeciesBreathToolMedical

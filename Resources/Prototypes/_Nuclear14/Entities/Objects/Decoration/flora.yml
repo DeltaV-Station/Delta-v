@@ -23,8 +23,9 @@
         mask:
         - TableMask
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -57,7 +58,7 @@
             min: 2
             max: 8
   - type: Pullable
-  
+
 - type: entity
   parent: N14FloraLogBase
   id: N14FloraLog1

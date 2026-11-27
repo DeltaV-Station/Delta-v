@@ -41,6 +41,7 @@
       soundHit:
         path: "/Audio/Weapons/smash.ogg"
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: Destructible
       thresholds:
@@ -104,6 +105,7 @@
       sprintModifier: 0.5
     - type: HeldSpeedModifier
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: Destructible
       thresholds:
@@ -165,6 +167,7 @@
         types:
           Blunt: 12
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: Destructible
       thresholds:
@@ -215,6 +218,7 @@
       sprintModifier: 0.9
     - type: HeldSpeedModifier
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: Destructible
       thresholds:
@@ -276,6 +280,7 @@
         types:
           Blunt: 10
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: Destructible
       thresholds:

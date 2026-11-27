@@ -110,8 +110,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: ManifestedSpirit
     damageModifierSet: CorporealSpirit
+  - type: Injurable
+    damageContainer: ManifestedSpirit
   - type: DamageOnDispel
     damage:
       types:

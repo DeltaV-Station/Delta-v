@@ -1,9 +1,13 @@
+using Content.Shared.Radiation.Systems;
+using Robust.Shared.Physics;
+
 namespace Content.Shared.Radiation.Components;
 
 /// <summary>
 ///     Irradiate all objects in range.
 /// </summary>
 [RegisterComponent]
+[Access(typeof(SharedRadiationSystem))]
 public sealed partial class RadiationSourceComponent : Component
 {
     /// <summary>
@@ -27,9 +31,6 @@ public sealed partial class RadiationSourceComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = true;
 
-    /// <summary>
-    /// DeltaV - multiplier on the rads delivered if the RadiationReceiver is the same entity as this RadiationSource
-    /// </summary>
-    [DataField]
-    public float SelfReceiverMultiplier = 1.0f;
+    [ViewVariables]
+    public DynamicTree.Proxy Proxy = DynamicTree.Proxy.Free;
 }

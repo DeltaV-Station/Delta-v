@@ -32,8 +32,8 @@
     minimumPlayers: 0
     maximumPlayers: 15
     action: Allow
-  #- !type:ConditionPlaytime
-  #  minimumPlaytime: 1200 # 20 hours to be whitelisted
-  #  action: Deny
+  - !type:ConditionPlaytime
+    minimumPlaytime: 1200 # 20 hours to be whitelisted
+    action: Allow
   - !type:ConditionAlwaysMatch
     action: Deny

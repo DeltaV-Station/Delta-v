@@ -18,7 +18,7 @@
         whitelist:
           tags:
           - Document
-          - Write
+          # - Write - Delta V disabled inserting of pens
   - type: Fixtures
     fixtures:
       fix1:
@@ -33,7 +33,7 @@
     whitelist:
       tags:
       - Document
-      - Write
+      # - Write - Delta V disabled inserting of pens
   - type: ContainerContainer
     containers:
       bin-container: !type:Container
@@ -53,7 +53,7 @@
     whitelist:
       tags:
       - Document
-      - Write
+      # - Write - Delta V disabled inserting of pens
 
 - type: entity
   parent: PaperBin
@@ -75,7 +75,7 @@
     whitelist:
       tags:
       - Document
-      - Write
+      # - Write - Delta V disabled inserting of pens
 
 - type: entity
   parent: PaperBin
@@ -107,4 +107,4 @@
     whitelist:
       tags:
       - Document
-      - Write
+      # - Write - Delta V disabled inserting of pens

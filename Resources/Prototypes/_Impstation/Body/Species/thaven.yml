@@ -134,8 +134,9 @@
       types:
         Asphyxiation: -1.0
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Thaven
+  - type: Injurable
+    damageContainer: Biological
   - type: MeleeWeapon
     attackRate: 0.55
     soundHit:

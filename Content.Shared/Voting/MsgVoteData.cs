@@ -36,7 +36,11 @@ namespace Content.Shared.Voting
             DisplayVotes = buffer.ReadBoolean();
             TargetEntity = buffer.ReadVariableInt32();
 
-            Options = new (ushort votes, string name)[buffer.ReadByte()];
+            // Delta V Begin - Early merge #46693 security patch
+            var length = buffer.ReadByte();
+            buffer.AssertAtLeastSize(length * (sizeof(short) + NetMessageExt.MinSizeOfString));
+            Options = new (ushort votes, string name)[length];
+            // Delta V End - Early merge #46693 security patch
             for (var i = 0; i < Options.Length; i++)
             {
                 Options[i] = (buffer.ReadUInt16(), buffer.ReadString());

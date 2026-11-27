@@ -35,14 +35,12 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private EntityQuery<TransformComponent> _xformQuery;
-
     private const string MeleeLungeKey = "melee-lunge";
 
     public override void Initialize()
     {
         base.Initialize();
-        _xformQuery = GetEntityQuery<TransformComponent>();
+
         SubscribeNetworkEvent<MeleeLungeEvent>(OnMeleeLunge);
         UpdatesOutsidePrediction = true;
     }
@@ -164,10 +162,10 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range, overlapCheck: false);
     }
 
-    protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
+    protected override void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user, TransformComponent targetXform) // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     {
         // Server never sends the event to us for predictiveeevent.
-        _color.RaiseEffect(Color.Red, targets, Filter.Local());
+        _color.RaiseEffect(Color.Red, targets.ToList(), Filter.Local()); // DeltaV - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     }
 
     /// <summary>
@@ -177,7 +175,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     private void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
     {
         // Only run on first prediction to avoid the potential raycast entities changing.
-        if (!_xformQuery.TryGetComponent(user, out var userXform) ||
+        if (!TryComp(user, out TransformComponent? userXform) ||
             !Timing.IsFirstTimePredicted)
         {
             return;
@@ -194,8 +192,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // This should really be improved. GetEntitiesInArc uses pos instead of bounding boxes.
         // Server will validate it with InRangeUnobstructed.
-        var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user).ToList());
-        RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
+        // DeltaV Start - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
+        var entities = GetNetEntitySet(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user));
+        entities = entities.Take(Math.Min(MaxTargets, entities.Count)).ToHashSet();
+        RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities, GetNetCoordinates(coordinates)));
+        // DeltaV End - Hotfix Melee Exploit. REMOVE COMMENT WHEN #46299 IS MERGED
     }
 
     private void ClientDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
