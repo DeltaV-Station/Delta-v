@@ -4,11 +4,9 @@
   objective: roles-antag-syndicate-synthesis-objective
   antagonist: true # making poisions and shit on demand is evil
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 24h
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 2h
+    time: 4h
 
 - type: startingGear
   id: SyndicateSynthesisGear

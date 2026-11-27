@@ -5,14 +5,12 @@
   playTimeTracker: JobClerk
   antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10h
     - !type:RoleTimeRequirement
       role: JobLawyer
-      time: 10h
+      time: 4h
     - !type:RoleTimeRequirement
       role: JobProsecutor
-      time: 10h
+      time: 4h
   startingGear: ClerkGear
   icon: "JobIconClerk"
   requireAdminNotify: true
