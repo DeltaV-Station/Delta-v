@@ -82,3 +82,6 @@ trait-ion-storm-susceptible-desc = Your synthetic body lacks protection against 
 
 trait-mechanical-synthetic-name = Mechanical Synthetic
 trait-mechanical-synthetic-desc = Your synthetic body is fully mechanical rather than biomechanical.
+
+trait-normal-drinker-name = Normal Drinker
+trait-normal-drinker-desc = You're not like your kin. You drink more sophisticated, but you do not drink nearly as fast as other vulpkanins.
