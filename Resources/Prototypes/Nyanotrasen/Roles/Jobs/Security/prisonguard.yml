@@ -4,6 +4,8 @@
   description: job-description-guard
   playTimeTracker: JobPrisonGuard
   requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 5h
     - !type:DepartmentTimeRequirement
       department: Security
       time: 4h
