@@ -92,8 +92,9 @@
         layer:
         - MobLayer
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
     damageModifierSet: Kitsune
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

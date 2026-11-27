@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: WeakThermomachineBoard
+  start: kitchenfreezer
+  graph:
+  - node: kitchenfreezer
+    entity: KitchenFreezerMachineCircuitBoard
+    edges:
+    - to: saunaheater
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: saunaheater
+    entity: SaunaHeaterMachineCircuitBoard
+    edges:
+    - to: kitchenfreezer
+      steps:
+      - tool: Screwing
+        doAfter: 2

@@ -74,8 +74,14 @@ trait-slavic-desc = You kome from ze East, and speak vith strong Slavic accent!
 trait-no-paradox-clone-name = No Paradox Clone
 trait-no-paradox-clone-desc = For whatever reason, the universe will only ever have one of you. You won't be able to have a paradox clone.
 
+trait-badcough-name = Persistent Cough
+trait-badcough-desc = Because of allergies, smoking, or just general poor health, you can't stop coughing.
+
 trait-ion-storm-susceptible-name = Susceptible to Ion Storms
 trait-ion-storm-susceptible-desc = Your synthetic body lacks protection against ion storms. You have a high chance of being shocked in an event of an ion storm.
 
 trait-mechanical-synthetic-name = Mechanical Synthetic
 trait-mechanical-synthetic-desc = Your synthetic body is fully mechanical rather than biomechanical.
+
+trait-normal-drinker-name = Normal Drinker
+trait-normal-drinker-desc = You're not like your kin. You drink more sophisticated, but you do not drink nearly as fast as other vulpkanins.
