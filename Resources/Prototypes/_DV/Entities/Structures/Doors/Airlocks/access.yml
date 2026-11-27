@@ -241,6 +241,15 @@
     containers:
       board: [ DoorElectronicsMarshal ]
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalMarshalShuttleLocked
+  suffix: External, Glass, Marshal, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMarshal ]
+
 # Maintenance
 - type: entity
   parent: AirlockMaintCommandLocked
