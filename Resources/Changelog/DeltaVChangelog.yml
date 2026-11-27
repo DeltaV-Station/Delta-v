@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: BarryNorfolk
   changes:
-  - message: Fixed an issue where IPCs would lose access to any radio channels given
-      by implants.
-    type: Fix
-  id: 2226
-  time: '2026-04-07T07:45:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5456
-- author: BarryNorfolk
-  changes:
   - message: The Cosmic Colossus and Skia are no longer affected by Tasers
     type: Fix
   id: 2227
@@ -4474,4 +4466,11 @@
   id: 2726
   time: '2026-11-27T19:13:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6781
+- author: J0w03L
+  changes:
+  - message: Brought back the Snoring trait from upstream!
+    type: Add
+  id: 2727
+  time: '2026-11-27T19:21:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6766
 Order: 1
