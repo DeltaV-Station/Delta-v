@@ -1,15 +1,20 @@
 using Content.Server.Access;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Silicons.StationAi; // DeltaV
+using Content.Server.Wires; // DeltaV
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.Emag.Systems; // DeltaV 
 using Content.Shared.Power;
+using Content.Shared.Silicons.StationAi; // DeltaV
 using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Doors.Systems;
 
 public sealed class DoorSystem : SharedDoorSystem
 {
+    [Dependency] private readonly WiresSystem _wires = default!; // DeltaV
     [Dependency] private readonly AirtightSystem _airtightSystem = default!;
 
     public override void Initialize()
@@ -49,5 +54,24 @@ public sealed class DoorSystem : SharedDoorSystem
         ent.Comp.Powered = args.Powered;
         Dirty(ent, ent.Comp);
         UpdateBoltLightStatus(ent);
+    }
+
+    /// <summary>
+    /// DeltaV - used to cut AIA wire when emagged
+    /// </summary>
+    protected override void OnEmagged(EntityUid uid, DoorComponent door, ref GotEmaggedEvent args)
+    {
+        base.OnEmagged(uid, door, ref args);
+
+        if (!TryComp(uid, out StationAiWhitelistComponent? ai))
+            return;
+
+        EntityManager.System<SharedStationAiSystem>().SetWhitelistEnabled((uid, ai), false);
+
+        foreach (var wire in _wires.TryGetWires<AiInteractWireAction>(uid))
+        {
+            wire.IsCut = true;
+            wire.Action?.Update(wire);
+        }
     }
 }
