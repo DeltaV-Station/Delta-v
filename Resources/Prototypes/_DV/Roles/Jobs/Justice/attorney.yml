@@ -1,7 +1,7 @@
 - type: job
   id: Attorney
-  name: job-name-attorney
-  description: job-description-attorney
+  name: job-name-lawyer
+  description: job-description-lawyer
   playTimeTracker: JobAttorney
   canBeAntag: false
   requirements:
@@ -16,7 +16,6 @@
   access:
   - Justice
   - Attorney
-  - Lawyer # TODO: Remove after Justice Rework
   - Maintenance
   special:
   - !type:AddImplantSpecial
@@ -30,7 +29,7 @@
   id: AttorneyGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LawyerPDA
+    id: AttorneyPDA
     ears: ClothingHeadsetJustice
   inhand:
   - BriefcaseBrownFilled
