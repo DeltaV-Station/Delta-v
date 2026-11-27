@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: Stxcking
-  changes:
-  - message: Poppies can make Spaceman's Trumpets now, but they also yield less Polypyrylium
-      Oligomers.
-    type: Tweak
-  - message: Lily seeds are available in the seed vendor!
-    type: Tweak
-  id: 2234
-  time: '2026-04-08T18:17:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5576
 - author: Toby222
   changes:
   - message: APC breaker limit reduced from 40kW to 20kW
@@ -4474,4 +4464,12 @@
   id: 2734
   time: '2026-11-27T20:23:36.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6674
+- author: Kashieru1987
+  changes:
+  - message: Most species can now metabolize 3 chemicals at once again, instead of
+      2! (dionas and slimes are still at 6)
+    type: Fix
+  id: 2735
+  time: '2026-11-27T20:25:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6737
 Order: 1
