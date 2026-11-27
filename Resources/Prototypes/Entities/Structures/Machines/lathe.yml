@@ -421,7 +421,7 @@
   components:
   - type: Sprite
     sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
-    snapCardinals: true #DeltaV - Follow Camera Rotation
+    snapCardinals: true # DeltaV - Follow Camera Rotation
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -493,7 +493,7 @@
   components:
     - type: Sprite
       sprite: _DV/Structures/Machines/techfab.rsi # DeltaV - resprite armoury fabs
-      snapCardinals: true #DeltaV - Follow Camera Rotation
+      snapCardinals: true # DeltaV - Follow Camera Rotation
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]
@@ -520,11 +520,11 @@
       - SecurityRubberAmmoStatic
       dynamicPacks:
       - SecurityAmmo
-    # End DeltaV Additions
     - type: BlueprintReceiver
       whitelist:
         tags:
         - BlueprintAmmoTechfab
+    # End DeltaV Additions
     - type: ContainerContainer
       containers:
         machine_board: !type:Container
@@ -779,8 +779,6 @@
   name: cutter machine
   description: This is a cutter. It cuts. Add variety to your station floor with eye-pleasing patterns! Don't stick your fingers in.
   components:
-  - type: Transform
-    noRot: false
   - type: Sprite
     sprite: Structures/Machines/cuttermachine.rsi
     snapCardinals: true
@@ -803,10 +801,15 @@
     - FloorSteelTilesStatic
     - FloorWhiteTilesStatic
     - FloorMaintsTilesStatic
+    - FloorIndustrialTilesStatic
     - FloorWoodTilesStatic
     - FloorConcreteTilesStatic
     - CircuitFloorsStatic
     - FloorMarbleTilesStatic
+    - FloorShuttleTilesStatic
+    - PlasticTilesStatic
+    - CarpetTilesStatic
+    - PreciousTilesStatic
     - FloorTilesStaticDeltaV # DeltaV
     dynamicPacks:
     - FauxTiles

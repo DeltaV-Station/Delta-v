@@ -359,7 +359,7 @@
     layers:
     - state: heart-on
   - type: Metabolizer
-    maxReagents: 2
+    maxReagents: 3 # Funkychem - species metabolise 3 chems as a baseline (again)
     stages: [ Bloodstream ]
 
 - type: entity

@@ -51,9 +51,12 @@ public sealed partial class HealingSystem : EntitySystem // DeltaV - partial
         if (!TryComp(args.Used, out HealingComponent? healing))
             return;
 
+        if (!TryComp<InjurableComponent>(target, out var injurable))
+            return;
+
         if (healing.DamageContainers is not null &&
-            target.Comp.DamageContainerID is not null &&
-            !healing.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
+            injurable.DamageContainer is not null &&
+            !healing.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
             return;
         }
@@ -180,9 +183,12 @@ public sealed partial class HealingSystem : EntitySystem // DeltaV - partial
         if (!Resolve(target, ref target.Comp, false))
             return false;
 
+        if (!TryComp<InjurableComponent>(target, out var injurable))
+            return false;
+
         if (healing.Comp.DamageContainers is not null &&
-            target.Comp.DamageContainerID is not null &&
-            !healing.Comp.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
+            injurable.DamageContainer is not null &&
+            !healing.Comp.DamageContainers.Contains(injurable.DamageContainer.Value))
         {
             return false;
         }
