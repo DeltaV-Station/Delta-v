@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: Halo3moth
-  changes:
-  - message: Super weapons have been replaced with advanced armory lasers (pending
-      mapping)
-    type: Add
-  - message: Laser cannon damage per shot from 32 to 42 fire rate from 1.5 to .7 given
-      a scope
-    type: Tweak
-  - message: Laser carbine mag size from 22 to 30, it's damage lowered to 17
-    type: Tweak
-  - message: Icee mag size increased from 10 to 15
-    type: Tweak
-  id: 2223
-  time: '2026-04-06T00:40:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5542
 - author: muonpoly
   changes:
   - message: Added missing construction graphs to various furniture such as counters
@@ -4480,4 +4465,11 @@
   id: 2723
   time: '2026-11-27T11:17:20.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6789
+- author: nlaky
+  changes:
+  - message: Mail can now be cut open.
+    type: Tweak
+  id: 2724
+  time: '2026-11-27T18:46:45.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6783
 Order: 1
