@@ -266,3 +266,12 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleAdvancedChemicalDV
   result: BorgModuleAdvancedChemicalDV
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: JumperUnit
+  result: JumperUnitEmpty
+  materials:
+    Steel: 500
+    Glass: 300
+    Gold: 100

@@ -136,3 +136,18 @@
     graph: WeakThermomachineBoard
     deconstructionTarget: null
     node: saunaheater
+
+- type: entity
+  id: NaniteFabricatorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: nanite fabricator machine board
+  description: Used to make a nanite fabricator.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: NaniteFabricator
+    stackRequirements:
+      Manipulator: 3
+      Glass: 5
+      Cable: 3

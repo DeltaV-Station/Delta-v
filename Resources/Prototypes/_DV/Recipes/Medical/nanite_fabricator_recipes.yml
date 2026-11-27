@@ -1,0 +1,57 @@
+- type: fabricatorRecipeGroup
+  id: Nanites
+
+- type: fabricatorRecipe
+  id: RecipeStructuralNanites
+  name: structural nanites recipe
+  result: StructuralNanites
+  completionTime: 10
+  group: Nanites
+  reagents:
+    StructuralNanites: 50
+  materials:
+    Steel: 500
+
+- type: fabricatorRecipe
+  id: RecipeAdvancedStructuralNanites
+  name: advanced structural nanites recipe
+  result: AdvancedStructuralNanites
+  completionTime: 10
+  group: Nanites
+  reagents:
+    AdvancedStructuralNanites: 50
+  solids:
+    StructuralNanites: 10
+
+- type: fabricatorRecipe
+  id: RecipeRestorationNanites
+  name: restoration nanites recipe
+  result: RestorationNanites
+  completionTime: 10
+  group: Nanites
+  reagents:
+    RestorationNanites: 50
+  materials:
+    Steel: 500
+
+- type: fabricatorRecipe
+  id: RecipeAdvancedRestorationNanites
+  name: advanced restoration nanites recipe
+  result: AdvancedRestorationNanites
+  completionTime: 10
+  group: Nanites
+  reagents:
+    AdvancedRestorationNanites: 50
+  solids:
+    RestorationNanites: 10
+
+- type: fabricatorRecipe
+  id: RecipeOilpack
+  name: oilpack recipe
+  result: Oilpack
+  completionTime: 10
+  group: Nanites
+  reagents:
+    WeldingFuel: 50
+  materials:
+    Plastic: 500

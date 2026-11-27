@@ -2,6 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.NPC.Components;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared._starcup.Metabolism; // starcup
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -19,6 +20,7 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
     private MedibotSystem _medibot = default!;
     private PathfindingSystem _pathfinding = default!;
     private DamageableSystem _damageable = default!;
+    private MetabolizerWhitelistSystem _metabolizerWhitelist = default!; // starcup: check metabolism whitelist before inject
 
     private EntityQuery<DamageableComponent> _damageQuery = default!;
     private EntityQuery<InjectableSolutionComponent> _injectQuery = default!;
@@ -46,6 +48,7 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
         _medibot = sysManager.GetEntitySystem<MedibotSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _damageable = sysManager.GetEntitySystem<DamageableSystem>();
+        _metabolizerWhitelist = sysManager.GetEntitySystem<MetabolizerWhitelistSystem>(); // starcup: check metabolism whitelist before inject
 
         _damageQuery = _entManager.GetEntityQuery<DamageableComponent>();
         _injectQuery = _entManager.GetEntityQuery<InjectableSolutionComponent>();
@@ -85,6 +88,12 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
                 // radiation damage will trigger injection but the tricordrazine won't heal it.
                 if (!_emaggedQuery.HasComponent(entity) && _damageable.GetTotalDamage((entity, damage)) == FixedPoint2.Zero)
                     continue;
+
+                // begin starcup: check metabolizer whitelist system for reagent compatibility
+                if (!_emaggedQuery.HasComp(entity) &&
+                    !_metabolizerWhitelist.CanMetabolizeReagent((entity, null), treatment.Reagent))
+                    continue;
+                // end starcup
 
                 //Needed to make sure it doesn't sometimes stop right outside it's interaction range
                 var pathRange = SharedInteractionSystem.InteractionRange - 1f;

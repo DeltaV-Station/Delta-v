@@ -1,0 +1,11 @@
+- type: entity
+  parent: CrateScience
+  id: CrateSiliconRepair
+  name: silicon repair crate
+  description: A crate filled with supplies for repairing MKCs.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: MedkitSiliconFilled
+        amount: 2

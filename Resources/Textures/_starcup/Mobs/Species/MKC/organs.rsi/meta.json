@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Fluid regulator, micro pump, power core, sonic receptors, and vocal synth by Psymbiote. Eyes taken from Yogstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "eyeball-l"
+        },
+        {
+            "name": "eyeball-r"
+        },
+        {
+            "name": "eyes"
+        },
+        {
+            "name": "fluid_regulator"
+        },
+        {
+            "name": "micro_pump"
+        },
+        {
+            "name": "power_core",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "sonic_receptors"
+        },
+        {
+            "name": "vocal_synth"
+        }
+    ]
+}

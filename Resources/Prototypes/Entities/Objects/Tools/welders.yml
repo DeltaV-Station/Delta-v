@@ -108,6 +108,18 @@
   - type: Tag # DeltaV - To make it work w/ the guns
     tags:
     - WeldingTool
+  # Begin DeltaV - MKC welder cautery
+  - type: ToolHealing
+    fuel: 20
+  - type: Healing
+    damageContainers:
+    - HumanoidSilicon
+    damage:
+      types:
+        Caustic: 0
+    bloodlossModifier: -10
+    deleteOnUse: false
+  # End DeltaV - MKC welder cautery
 
 - type: entity
   name: industrial welding tool

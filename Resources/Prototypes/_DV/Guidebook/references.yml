@@ -3,3 +3,16 @@
   name: guide-entry-deepfried-recipes
   text: "/ServerInfo/Guidebook/_DV/Service/DeepFriedRecipes.xml"
   filterEnabled: True
+
+- type: guideEntry
+  id: FabricatorRecipes
+  name: guide-entry-fabricator
+  text: "/ServerInfo/Guidebook/_DV/Fabricator/FabricatorRecipes.xml"
+  children:
+  - NaniteFabricatorRecipes
+
+- type: guideEntry
+  id: NaniteFabricatorRecipes
+  name: guide-entry-fabricator-nanites
+  text: "/ServerInfo/Guidebook/_DV/Fabricator/NaniteFabricatorRecipes.xml"
+  filterEnabled: True

@@ -1,0 +1,73 @@
+- type: reaction
+  id: CrystalLatticeNanites
+  reactants:
+    Uranium:
+      amount: 1
+    ChargedNanites:
+      amount: 1
+  products:
+    CrystalLatticeNanites: 2
+
+- type: reaction
+  id: OpticalFiberNanites
+  reactants:
+    Silicon:
+      amount: 1
+    LatticeNanites:
+      amount: 1
+  products:
+    OpticalFiberNanites: 2
+
+- type: reaction
+  id: ActivatedNanites
+  reactants:
+    Plasma:
+      amount: 1
+    StabilizingNanites:
+      amount: 1
+  products:
+    ActivatedNanites: 2
+
+- type: reaction
+  id: StructuralNanites
+  reactants:
+    LatticeNanites:
+      amount: 1
+    StabilizingNanites:
+      amount: 1
+  products:
+    StructuralNanites: 2
+
+- type: reaction
+  id: AdvancedStructuralNanites
+  reactants:
+    ActivatedNanites:
+      amount: 1
+    StructuralNanites:
+      amount: 1
+    Silver:
+      amount: 1
+  products:
+    AdvancedStructuralNanites: 2
+
+- type: reaction
+  id: RestorationNanites
+  reactants:
+    ChargedNanites:
+      amount: 1
+    StabilizingNanites:
+      amount: 1
+  products:
+    RestorationNanites: 2
+
+- type: reaction
+  id: AdvancedRestorationNanites
+  reactants:
+    ActivatedNanites:
+      amount: 1
+    RestorationNanites:
+      amount: 1
+    Gold:
+      amount: 1
+  products:
+    AdvancedRestorationNanites: 2
