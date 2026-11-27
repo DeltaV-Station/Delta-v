@@ -13,8 +13,9 @@
     doAfterDelay: 3
     qualityNeeded: Welding # DeltaV
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

@@ -122,8 +122,9 @@
     doAfterDelay: 3
     qualityNeeded: Welding
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -218,5 +219,6 @@
     doAfterDelay: 3
     qualityNeeded: Welding
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic

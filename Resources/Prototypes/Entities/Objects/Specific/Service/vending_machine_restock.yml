@@ -23,8 +23,9 @@
   - type: Item
     size: Normal
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -287,7 +288,8 @@
     - NanoMedPlusInventory
     - NanoMedCivilianInventory
     - NanoMedCivilianWallInventory
-    # Begin DeltaV Additions - NanoMed Civilian and Nanoblood Inventory refillable
+    # Begin DeltaV Additions - NanoMed Civilian, Nanoblood, and BrigAid Inventory refillable
+    - BrigAidInventory
     - NanoMedPublicInventory
     - NanobloodInventory
     # End DeltaV Additions

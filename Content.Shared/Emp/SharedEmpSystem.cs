@@ -25,8 +25,9 @@ public abstract class SharedEmpSystem : EntitySystem
     [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!; // Frontier
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
 
+    [Dependency] private readonly EntityQuery<EmpResistanceComponent> _resistanceQuery = default!;
+
     private HashSet<EntityUid> _entSet = new();
-    private EntityQuery<EmpResistanceComponent> _resistanceQuery;
 
     public override void Initialize()
     {
@@ -37,8 +38,6 @@ public abstract class SharedEmpSystem : EntitySystem
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<EmpResistanceComponent, EmpAttemptEvent>(OnResistEmpAttempt);
-
-        _resistanceQuery = GetEntityQuery<EmpResistanceComponent>();
     }
 
     public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier - was EffectEmpPulse
