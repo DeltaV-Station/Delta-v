@@ -80,8 +80,9 @@
     corruptionMaxTicks: 12
     corruptionSpeed: 1.25
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
