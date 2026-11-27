@@ -635,7 +635,7 @@
   - type: EmpResistance # DeltaV
     durationMultiplier: 0.1 # Only disabled for 10%. Default EMP stun time is 60% so still a 6 second disable. Battery has 40% resistance already.
     # Begin DeltaV additions
-  - type: Damageable
+  - type: Injurable
     damageContainer: Silicon
     damageModifierSet: Xenoborg # Xenoborgs get 30% armor resitence for now
     # End DeltaV additions
