@@ -111,4 +111,12 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
                 break;
         }
     }
+
+    /// <summary>
+    /// Notifies a chat change with a specific indicator prototype
+    /// </summary>
+    public void NotifySpecificIndicatorChatChange(ProtoId<TypingIndicatorPrototype> indicatorProto)
+    {
+        _typingIndicator?.ClientAlternateTyping(indicatorProto);
+    }
 }
