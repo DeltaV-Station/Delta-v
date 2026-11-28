@@ -27,5 +27,8 @@ uplink-anaconda-desc = A inaccurate one handed SMG with a 100 bullet mag. Perfec
 uplink-pacifier-bundle-name = Pacifier Bundle
 uplink-pacifier-bundle-desc = A compact grenade launcher that fires cluster bombs which spreads corrosive smoke over large areas. Perfect support weapon for creating impassable smoke screens and clearing out foxholes. Comes with 11 acid grenades.
 
+uplink-cursed-knife-name = Cursed Knife
+uplink-cursed-knife-desc = A knife cursed with demonic energy, charges from the suffering of the living. Gains power by stabbing living creatures, doesn't work on ciritcal or the dead.
+
 uplink-akm-bundle-name = AKM Bundle
 uplink-akm-bundle-desc = An ancient relic of a rifle that can still take a beating. Comes bundled with 2 spare .30 rifle magazines.
