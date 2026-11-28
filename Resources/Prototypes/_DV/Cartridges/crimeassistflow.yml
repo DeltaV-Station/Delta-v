@@ -205,6 +205,12 @@
   id: "questionWasNegligent"
   locKey: "crime-assist-question-wasnegligent"
   onYes: "resultEndangerment"
+  onNo: "questionWasInsubordinate"
+
+- type: crimeAssistPage
+  id: "questionWasInsubordinate"
+  locKey: "crime-assist-question-wasinsubordinate"
+  onYes: "resultInsubordination"
   onNo: "resultInnocent"
 
 # Result Pages
@@ -264,6 +270,14 @@
   locKeyDescription: "crime-assist-crimedetail-hooliganism"
   crimeSeverity: Misdemeanour
   locKeyPunishment: "crime-assist-crimepunishment-hooliganism"
+
+- type: crimeAssistPage
+  id: "resultInsubordination"
+  locKeyTitle: "crime-assist-crime-insubordination"
+  locKeyDescription: "crime-assist-crimedetail-insubordination"
+  crimeSeverity: Misdemeanour
+  locKeyPunishment: "crime-assist-crimepunishment-insubordination"
+
 
 # Felonies
 - type: crimeAssistPage
