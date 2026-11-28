@@ -148,13 +148,15 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#ccac1f"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+# DeltaV start - no vulp sulfur blood
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#ccac1f"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
+# DeltaV end - no vulp sulfur blood
   - type: MessyDrinker
     spillChance: 0.33
   - type: Speech
@@ -188,7 +190,7 @@
       types:
         Heat: 2.5 # Per second, scales with temperature & other constants
   - type: Wagging
-    # action: ActionToggleWaggingVulpkanin # DeltaV - We have no wagging action
+    # action: ActionToggleWaggingVulpkanin # DeltaV - We have no vulp wagging action, use default
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
@@ -203,17 +205,17 @@
 #        pitch: 1.33
 #        volume: -5
 #        variation: 0.05
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: SulfurBlood
-        Quantity: 300
-#  DeltaV Start - Different Vulpkanine facial structure
-#  - type: CreamPied
-#    sprite:
-#      sprite: Effects/creampie.rsi
-#      state: creampie_vulpkanin
-#  DeltaV End - Different Vulpkanine facial structure
+# DeltaV start - no vulp sulfur blood
+#  - type: Bloodstream
+#    bloodReferenceSolution:
+#      reagents:
+#      - ReagentId: SulfurBlood
+#        Quantity: 300
+# DeltaV end - no vulp sulfur blood
+  - type: CreamPied
+    sprite:
+      sprite: _DV/Effects/creampie.rsi # DeltaV - change to our sprites
+      state: creampie_vulpkanin
 
 - type: entity
   parent: OrganBase
@@ -234,7 +236,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Vulpkanin/organs.rsi
+    sprite: Mobs/Species/Human/organs.rsi # DeltaV - Vulpkanin->Human (no sulfur blood)
 
 - type: entity
   id: OrganVulpkaninVisual
@@ -273,12 +275,14 @@
     dependentHidingLayers:
       enum.HumanoidVisualLayers.Snout:
       - enum.HumanoidVisualLayers.SnoutCover
-    markingsDisplacement:
-      Hair:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Vulpkanin/displacement.rsi
-            state: hair
+# DeltaV start - no hair displacement
+#    markingsDisplacement:
+#      Hair:
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+#            state: hair
+# DeltaV end - no hair displacement
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganVulpkaninExternal ]
