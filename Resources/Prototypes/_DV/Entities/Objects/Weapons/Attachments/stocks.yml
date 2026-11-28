@@ -1,0 +1,83 @@
+- type: entity
+  parent: BaseGunAttachmentStock
+  id: GunAttachmentStock
+  name: stock
+  description: Allows you to wield your weapon, if you couldn't before.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: stock
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.00
+    recoilIncreaseModifier: 1.00
+    minSpreadModifier: 1.10
+    maxSpreadModifier: 1.10
+  - type: ESGunComponentAttachment
+    component:
+    - type: Wieldable
+      unwieldOnUse: false
+    - type: GunWieldBonus
+      minAngle: -6
+      maxAngle: -13
+      angleDecay: 4
+  - type: Tag
+    tags:
+    - AttachmentStock
+    - AttachmentBasicStock
+
+# make this one let you shoot unwielded ..?
+- type: entity
+  parent: BaseGunAttachmentStock
+  id: GunAttachmentStockWire
+  name: wire stock
+  description: Like a normal stock, but for people who think they're cool.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: wirestock
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.0
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 1.05
+    maxSpreadModifier: 1.05
+  - type: GunUpgradeFireRate
+    coefficient: 1.1 # terrible idea
+  - type: ESGunComponentAttachment
+    component:
+    - type: Wieldable
+      unwieldOnUse: false
+    - type: GunWieldBonus
+      minAngle: -5.0
+      maxAngle: -11.0
+      angleDecay: 2.0
+  - type: Tag
+    tags:
+    - AttachmentStock
+    - AttachmentWireStock
+
+- type: entity
+  parent: BaseGunAttachmentStock
+  id: GunAttachmentStockRifle
+  name: rifle stock
+  description: Snuggle up to this stock to make those long-range shots.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: riflestock
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.00
+    recoilIncreaseModifier: 1.00
+    minSpreadModifier: 1.15
+    maxSpreadModifier: 1.15
+  - type: ESGunComponentAttachment
+    component:
+    - type: Wieldable
+      unwieldOnUse: false
+    - type: GunWieldBonus
+      minAngle: -8.0
+      maxAngle: -15.0
+      angleDecay: 6
+  - type: Tag
+    tags:
+    - AttachmentStock
+    - AttachmentRifleStock

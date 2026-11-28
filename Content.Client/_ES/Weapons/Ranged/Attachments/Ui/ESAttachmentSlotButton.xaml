@@ -1,0 +1,8 @@
+<controls:ESAttachmentSlotButton
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._ES.Weapons.Ranged.Attachments.Ui"
+    Orientation="Horizontal"
+    HorizontalExpand="True">
+    <RichTextLabel Name="SlotNameLabel" VerticalAlignment="Center" HorizontalExpand="True"/>
+    <Button Name="ContainerButton" Access="Public" HorizontalAlignment="Right"/>
+</controls:ESAttachmentSlotButton>

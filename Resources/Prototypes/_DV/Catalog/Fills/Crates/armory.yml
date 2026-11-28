@@ -148,3 +148,16 @@
           amount: 2
         - id: MagazinePistolHighCapacity
           amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateCargoArmoryLARP
+  name: LARP-26 crate
+  description: Contains a Long Automatic Rifle Platform receiver, and a random kit to turn it into the gun of your nightmares!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleLARP
+        - id: RandomGunAttachmentKitLARP

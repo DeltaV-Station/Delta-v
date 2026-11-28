@@ -37,7 +37,9 @@ public sealed partial class GunUpgradeSystem : EntitySystem // DeltaV - made par
         SubscribeLocalEvent<UpgradeableGunComponent, GunShotEvent>(RelayEvent);
 
         SubscribeLocalEvent<GunUpgradeFireRateComponent, GunRefreshModifiersEvent>(OnFireRateRefresh);
+        SubscribeLocalEvent<GunUpgradeFireRateComponent, ExaminedEvent>(OnExamineFireRate); // DeltaV
         SubscribeLocalEvent<GunUpgradeSpeedComponent, GunRefreshModifiersEvent>(OnSpeedRefresh);
+        SubscribeLocalEvent<GunUpgradeSpeedComponent, ExaminedEvent>(OnExamineSpeed); // DeltaV
         SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
     }
 
@@ -156,4 +158,20 @@ public sealed partial class GunUpgradeSystem : EntitySystem // DeltaV - made par
             }
         }
     }
+
+    // Begin DeltaV - inspect details
+    private void OnExamineFireRate(Entity<GunUpgradeFireRateComponent> ent, ref ExaminedEvent args)
+    {
+        Color GetColor(float m) => m > 1 ? Color.Crimson : m < 1 ? Color.Lime : Color.Gold;
+
+        args.PushMarkup(Loc.GetString("gun-upgrade-fire-rate-examine", ("color", GetColor(1/ent.Comp.Coefficient)), ("coefficient", ent.Comp.Coefficient)));
+    }
+
+    private void OnExamineSpeed(Entity<GunUpgradeSpeedComponent> ent, ref ExaminedEvent args)
+    {
+        Color GetColor(float m) => m > 1 ? Color.Crimson : m < 1 ? Color.Lime : Color.Gold;
+
+        args.PushMarkup(Loc.GetString("gun-upgrade-speed-examine", ("color", GetColor(1/ent.Comp.Coefficient)), ("coefficient", ent.Comp.Coefficient)));
+    }
+    // End DeltaV - inspect details
 }

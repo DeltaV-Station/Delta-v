@@ -1,0 +1,68 @@
+- type: entity
+  parent: BaseGunAttachmentOptic
+  id: GunAttachmentOpticHolo
+  name: holographic sight
+  description: Doesn't provide zoom, but helps with reacquiring targets after recoil.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: reflex
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.2
+    recoilIncreaseModifier: 1
+    minSpreadModifier: 0.8
+    maxSpreadModifier: 0.85
+  - type: Tag
+    tags:
+    - AttachmentOptic
+    - AttachmentOpticHolo
+
+- type: entity
+  parent: BaseGunAttachmentOptic
+  id: GunAttachmentOpticHolo4x
+  name: 4x sight
+  description: Helps see targets at medium range, but the added zoom may make it harder to recover from recoil.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: 4xscope
+  - type: ESGunComponentAttachment
+    component:
+    - type: CursorOffsetRequiresWield
+    - type: EyeCursorOffset
+      maxOffset: 3
+      pvsIncrease: 0.5
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 0.90
+    recoilIncreaseModifier: 1.10
+    minSpreadModifier: 0.75
+    maxSpreadModifier: 0.90
+  - type: Tag
+    tags:
+    - AttachmentOptic
+    - AttachmentOptic4x
+
+- type: entity
+  parent: BaseGunAttachmentOptic
+  id: GunAttachmentOpticHolo8x
+  name: 8x scope
+  description: Allows for combat at long ranges - if you can control the recoil, that is.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: 8xscope
+  - type: ESGunComponentAttachment
+    component:
+    - type: CursorOffsetRequiresWield
+    - type: EyeCursorOffset
+      maxOffset: 6
+      pvsIncrease: 0.9
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 0.75
+    recoilIncreaseModifier: 1.25
+    minSpreadModifier: 0.65
+    maxSpreadModifier: 1.0
+  - type: Tag
+    tags:
+    - AttachmentOptic
+    - AttachmentOptic8x

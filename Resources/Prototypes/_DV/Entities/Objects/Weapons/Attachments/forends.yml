@@ -1,0 +1,74 @@
+# I googled if this was the right name for this part of the gun because using "barrel" has too much overlap
+# I'm probably not right but "forend" gets the point across
+
+- type: entity
+  parent: BaseGunAttachmentForend
+  id: GunAttachmentForendFactory
+  name: factory forend
+  description: The intended experience of the LARP-26.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/forends.rsi
+    state: factory
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.00
+    recoilIncreaseModifier: 0.80
+    minSpreadModifier: 0.75
+    maxSpreadModifier: 0.60
+  - type: GunUpgradeFireRate
+    coefficient: 1.42
+  - type: Tag
+    tags:
+    - AttachmentForend
+    - AttachmentForendBase
+
+- type: entity
+  parent: BaseGunAttachmentForend
+  id: GunAttachmentForendSuppressed
+  name: suppressed forend
+  description: So much LARP-26, it's a crime.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/forends.rsi
+    state: suppressed
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 1.5
+    recoilIncreaseModifier: 2.5
+    minSpreadModifier: 1.5
+    maxSpreadModifier: 2.0
+  - type: ESGunSoundAttachment
+    sound:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        maxDistance: 4
+  - type: GunUpgradeFireRate
+    coefficient: 1.71
+  - type: GunUpgradeSpeed
+    coefficient: 0.65
+  - type: Tag
+    tags:
+    - AttachmentForend
+    - AttachmentForendSuppressed
+
+- type: entity
+  parent: BaseGunAttachmentForend
+  id: GunAttachmentForendSniper
+  name: sniper forend
+  description: What the hell kind of shot are you making, on a space station, that needs THIS?
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/forends.rsi
+    state: sniper
+  - type: ESGunRecoilAttachment # make these mean something eventually
+    recoilRecoveryModifier: 0.75
+    recoilIncreaseModifier: 6.4
+    minSpreadModifier: 0.5
+    maxSpreadModifier: 0.65
+  - type: GunUpgradeFireRate
+    coefficient: 0.4
+  - type: GunDamageModifierAttachment
+    multiplier: 2.5 # yeah man fuck it somebody else can balance this shit
+  - type: Tag
+    tags:
+    - AttachmentForend
+    - AttachmentForendSniper

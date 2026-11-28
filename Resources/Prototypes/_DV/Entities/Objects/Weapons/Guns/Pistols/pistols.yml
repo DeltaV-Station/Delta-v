@@ -14,17 +14,167 @@
   name: Pollock
   parent: BaseWeaponPistol
   id: WeaponPistolPollock
-  description: A compact and mass-produced combat pistol. Uses .35 auto ammo.
+  description: A compact and mass-produced combat pistol, now with support for attachments. Uses .35 auto ammo.
   suffix: Mercenary
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - map: ["gripAttachment"]
+      - map: ["opticAttachment"]
+      - map: ["stockAttachment"]
+        offset: -0.25, 0
+      - map: ["barrelAttachment"]
+        offset: 0.25, 0
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
-  - type: Gun
+  - type: Gun # Slightly worse than other guns, but can use attachments
     fireRate: 5
+    minAngle: 2
+    maxAngle: 4
+    angleIncrease: 0.75
+    angleDecay: 4
     availableModes:
     - SemiAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - AttachmentGrip
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentOptic
+      attachment_stock:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentStock
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - AttachmentSuppressor
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+      attachment_stock: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - AttachmentGrip
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - AttachmentOptic
+    - name: gun-attachments-slot-name-stock
+      containerId: attachment_stock
+      whitelist:
+        tags:
+        - AttachmentStock
+    - name: es-gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - AttachmentSuppressor
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: laser
+        whitelist:
+          tags:
+          - AttachmentLaser
+      - containerId: attachment_grip
+        state: bipod
+        whitelist:
+          tags:
+          - AttachmentBipod
+      opticAttachment:
+      - containerId: attachment_optic
+        state: opticholo
+        whitelist:
+          tags:
+          - AttachmentOpticHolo
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - AttachmentOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - AttachmentOptic8x
+      stockAttachment:
+      - containerId: attachment_stock
+        state: stock
+        whitelist:
+          tags:
+          - AttachmentBasicStock
+      - containerId: attachment_stock
+        state: wirestock
+        whitelist:
+          tags:
+          - AttachmentWireStock
+      - containerId: attachment_stock
+        state: riflestock
+        whitelist:
+          tags:
+          - AttachmentRifleStock
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressor
+        whitelist:
+          tags:
+          - AttachmentSuppressor
 
 - type: entity
   name: psi-breaker

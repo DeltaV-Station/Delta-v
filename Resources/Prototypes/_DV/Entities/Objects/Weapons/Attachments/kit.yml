@@ -1,0 +1,141 @@
+- type: entity
+  parent: BaseItem
+  id: RandomGunAttachmentKitPistol
+  name: mystery Pollock attachment kit
+  description: A box containing a random set of attachments for a Pollock!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi/
+    layers:
+    - state: pistolbox
+  - type: TriggerOnActivate
+  - type: DeleteOnTrigger
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: SpawnEntityTableOnTrigger
+    useMapCoords: true
+    table: !type:AllSelector
+      children:
+      - id: MysteryFigureBoxTrash
+      - !type:NestedSelector
+        tableId: RandomPistolAttachmentKitTable
+
+- type: entity
+  parent: BaseItem
+  id: RandomGunAttachmentKitLARP
+  name: mystery LARP-26 kit
+  description: A surprisingly-small box containing a setup for the LARP-26! Quality not guaranteed.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi/
+    layers:
+    - state: larpbox
+  - type: TriggerOnActivate
+  - type: DeleteOnTrigger
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: SpawnEntityTableOnTrigger
+    useMapCoords: true
+    table: !type:AllSelector
+      children:
+      - id: MysteryFigureBoxTrash
+      - !type:NestedSelector
+        tableId: RandomLARPAttachmentKitTable
+
+- type: entity
+  parent: BaseItem
+  id: RandomGunAttachmentKitSingle
+  name: mystery gun attachment
+  description: A single random gun attachment!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi/
+    layers:
+    - state: randombox
+  - type: TriggerOnActivate
+  - type: DeleteOnTrigger
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: SpawnEntityTableOnTrigger
+    useMapCoords: true
+    table: !type:AllSelector
+      children:
+      - id: MysteryFigureBoxTrash
+      - !type:NestedSelector
+        tableId: RandomAttachmentKitTable
+
+- type: entityTable
+  id: RandomPistolAttachmentKitTable
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      prob: 0.5
+      children:
+      - id: GunAttachmentOpticHolo
+        weight: 60
+      - id: GunAttachmentOpticHolo4x
+        weight: 40
+      - id: GunAttachmentOpticHolo8x
+        weight: 20
+    - !type:GroupSelector
+      prob: 0.5
+      children:
+      - id: GunAttachmentGripLaser
+        weight: 70
+      - id: GunAttachmentGripBipod
+        weight: 30
+    - !type:GroupSelector
+      prob: 0.5
+      children:
+      - id: GunAttachmentStock
+      - id: GunAttachmentStockWire
+      - id: GunAttachmentStockRifle
+    - id: GunAttachmentSuppressor
+      prob: 0.5
+
+# evil table
+- type: entityTable
+  id: RandomLARPAttachmentKitTable
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      prob: 0.9 # it would be really funny.
+      children:
+      - id: GunAttachmentForendFactory
+      - id: GunAttachmentForendSuppressed
+      - id: GunAttachmentForendSniper
+    - !type:GroupSelector
+      rolls: 3
+      children:
+      - id: GunAttachmentOpticHolo
+      - id: GunAttachmentOpticHolo4x
+      - id: GunAttachmentOpticHolo8x
+      - id: GunAttachmentGripLaser
+      - id: GunAttachmentGripBipod
+      - id: GunAttachmentStock
+      - id: GunAttachmentStockWire
+      - id: GunAttachmentStockRifle
+
+- type: entityTable
+  id: RandomAttachmentKitTable
+  table: !type:GroupSelector
+    children:
+    - id: GunAttachmentOpticHolo
+    - id: GunAttachmentOpticHolo4x
+    - id: GunAttachmentOpticHolo8x
+    - id: GunAttachmentGripLaser
+    - id: GunAttachmentGripBipod
+    - id: GunAttachmentStock
+    - id: GunAttachmentStockWire
+    - id: GunAttachmentStockRifle
+    - id: GunAttachmentSuppressor # not larp compatible
+      weight: 0.5

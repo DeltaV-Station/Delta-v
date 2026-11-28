@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripBipod
+  name: bipod
+  description: Allows for deploying your weapon, increasing fire rate and accuracy at the cost of mobility.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: bipod
+  - type: ESGunComponentAttachment
+    component:
+    - type: GunBipod
+      minAngle: -1
+      maxAngle: -4
+      angleDecay: 4
+      fireRateIncrease: 1.5
+  - type: Tag
+    tags:
+    - AttachmentGrip
+    - AttachmentBipod
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentGripLaser
+  name: grip-mounted laser
+  description: Turn that crime scene into a rave with this red grip laser! Only starts laser-ing once wielded. Make sure you have a stock!
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Attachments/attachments.rsi
+    state: lasersight
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.15
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 0.8
+    maxSpreadModifier: 0.85
+  - type: ESGunComponentAttachment
+    component:
+    - type: LaserPointer
+      targetedColor: "#FF0040"
+      defaultColor: "#FF0040"
+  - type: Tag
+    tags:
+    - AttachmentGrip
+    - AttachmentLaser
