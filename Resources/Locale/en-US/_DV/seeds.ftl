@@ -7,3 +7,5 @@ seeds-cosmicrevenant-name = cosmic revenant
 seeds-cosmicrevenant-display-name = cosmic revenant pepper
 seeds-ambrosianobilis-name = ambrosia nobilis
 seeds-ambrosianobilis-display-name = ambrosia nobilis
+seeds-carob-name = carob seeds
+seeds-carob-display-name = carob plant

@@ -346,3 +346,133 @@
     FoodEggplant: 1
     FoodBreadPlainSlice: 2
     FoodMozzarella: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMuffinCarob
+  name: carob muffin recipe
+  result: FoodBakedMuffinCarob
+  time: 15
+  group: Dessert
+  solids:
+    FoodPlateMuffinTin: 1
+    FoodDoughSlice: 1
+    FoodSnackCarobBar: 1
+  reagents:
+    Sugar: 10
+
+- type: microwaveMealRecipe
+  id: RecipeCarobTart
+  name: carob lava tart recipe
+  result: FoodTartCarob
+  time: 15
+  group: Pie
+  reagents:
+    Sugar: 5
+    Milk: 5
+  solids:
+    FoodDoughPie: 1
+    FoodSnackCarobBar: 3
+    FoodPlateTin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCarobBrownies
+  name: carob brownie recipe
+  result: FoodBakedCarobBrownieBatch
+  time: 25
+  group: BarsAndCookies
+  reagents:
+    Flour: 15
+    Sugar: 30
+    Egg: 18
+  solids:
+    FoodButter: 2
+    FoodSnackCarobBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeCannabisCarobBrownies
+  name: cannabis carob brownie recipe
+  result: FoodBakedCannabisCarobBrownieBatch
+  time: 25
+  group: BarsAndCookies
+  reagents:
+    Flour: 15
+    Sugar: 30
+    Egg: 18
+  solids:
+    FoodCannabisButter: 2
+    FoodSnackCarobBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeCarobChipPancake
+  name: carob chip pancake recipe
+  result: FoodBakedPancakeCarob
+  time: 5
+  group: BarsAndCookies
+  reagents:
+    Flour: 5
+    Milk: 5
+    Egg: 6
+  solids:
+    FoodSnackCarobBar: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCarobhocolateCake
+  name: carob chocolate cake recipe
+  result: FoodCakeCarob
+  time: 5
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+    FoodSnackCarobBar: 2
+
+- type: microwaveMealRecipe
+  id: RecipeLuxuryCake
+  name: luxury chocolate cake recipe
+  result: FoodLuxuryCake
+  time: 15
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+    FoodSnackChocolateBar: 2
+    FoodCherry: 2
+  reagents:
+    Milk: 5
+    Cream: 5
+    CocoaPowder: 5
+
+- type: microwaveMealRecipe
+  id: RecipeLuxuryCarobCake
+  name: luxury carob cake recipe
+  result: FoodCarobLuxuryCake
+  time: 15
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+    FoodSnackCarobBar: 2
+    FoodCherry: 2
+  reagents:
+    Milk: 5
+    Cream: 5
+    CarobPowder: 5
+
+- type: microwaveMealRecipe
+  id: RecipeChocolateHeart
+  name: chocolate heart recipe
+  result: FoodSnackChocolateHeart
+  time: 10
+  group: BarsAndCookies
+  reagents:
+    Milk: 2
+    Cream: 2
+    CocoaPowder: 2
+
+- type: microwaveMealRecipe
+  id: RecipeCarobChocolateHeart
+  name: chocolate carob heart recipe
+  result: FoodSnackCarobChocolateHeart
+  time: 10
+  group: BarsAndCookies
+  reagents:
+    Milk: 2
+    Cream: 2
+    CarobPowder: 2
