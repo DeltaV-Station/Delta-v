@@ -1,102 +1,4 @@
 ﻿Entries:
-- author: BarryNorfolk
-  changes:
-  - message: Fixed an issue where IPCs would lose access to any radio channels given
-      by implants.
-    type: Fix
-  id: 2226
-  time: '2026-04-07T07:45:08.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5456
-- author: BarryNorfolk
-  changes:
-  - message: The Cosmic Colossus and Skia are no longer affected by Tasers
-    type: Fix
-  id: 2227
-  time: '2026-04-07T10:23:17.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5374
-- author: BarryNorfolk
-  changes:
-  - message: Fixed Target Objective immune traits (Marked as Protected) not applying
-      to antags.
-    type: Fix
-  id: 2228
-  time: '2026-04-07T16:38:48.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5386
-- author: ashley-graves
-  changes:
-  - message: Fixed minor spelling mistake on the interdyne chemist uniform.
-    type: Fix
-  id: 2229
-  time: '2026-04-08T08:47:52.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5637
-- author: Minerva
-  changes:
-  - message: Medical Doctors may now select DV-specific scrubs in loadout.
-    type: Tweak
-  id: 2230
-  time: '2026-04-08T13:25:57.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5616
-- author: rebe83
-  changes:
-  - message: The meat pizza recipe now uses cutlets (66% less meat).
-    type: Tweak
-  id: 2231
-  time: '2026-04-08T13:26:31.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5602
-- author: kotobdev
-  changes:
-  - message: Kitsune are now far easier to pet!
-    type: Tweak
-  id: 2232
-  time: '2026-04-08T13:35:33.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5596
-- author: rebe83
-  changes:
-  - message: The guidebook for devil is now accurate to Space Law.
-    type: Fix
-  id: 2233
-  time: '2026-04-08T17:54:06.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5604
-- author: Stxcking
-  changes:
-  - message: Poppies can make Spaceman's Trumpets now, but they also yield less Polypyrylium
-      Oligomers.
-    type: Tweak
-  - message: Lily seeds are available in the seed vendor!
-    type: Tweak
-  id: 2234
-  time: '2026-04-08T18:17:34.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5576
-- author: Toby222
-  changes:
-  - message: APC breaker limit reduced from 40kW to 20kW
-    type: Tweak
-  id: 2235
-  time: '2026-04-09T17:13:30.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5641
-- author: Minerva
-  changes:
-  - message: Scientists and Roboticists can now select long labcoats in loadout. They
-      are also now available in the SciDrobe.
-    type: Tweak
-  id: 2236
-  time: '2026-04-10T08:48:26.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5633
-- author: rebe83
-  changes:
-  - message: Punpun has gone to gun classes and now can shoot guns safely! Well...
-      more safely.
-    type: Tweak
-  id: 2237
-  time: '2026-04-10T17:35:16.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5563
-- author: Coryler
-  changes:
-  - message: ERT Access
-    type: Add
-  id: 2238
-  time: '2026-04-11T12:46:55.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5639
 - author: Minerva
   changes:
   - message: Kitsune now shares more markings with Felinid and Vulpkanin.
@@ -4474,4 +4376,100 @@
   id: 2726
   time: '2026-11-27T19:13:22.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6781
+- author: J0w03L
+  changes:
+  - message: Brought back the Snoring trait from upstream!
+    type: Add
+  id: 2727
+  time: '2026-11-27T19:21:27.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6766
+- author: FaintSpeaker
+  changes:
+  - message: You may once again select plushies as job trinkets.
+    type: Add
+  id: 2728
+  time: '2026-11-27T19:24:17.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6777
+- author: AbsolSkies
+  changes:
+  - message: Cargo can now request double emergency tanks.
+    type: Add
+  id: 2729
+  time: '2026-11-27T19:37:05.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6754
+- author: keekee38
+  changes:
+  - message: NT has officially adopted the L-93 lever action rifle, in very limited
+      numbers.
+    type: Add
+  id: 2730
+  time: '2026-11-27T19:41:35.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6752
+- author: JustTNE
+  changes:
+  - message: Adjusted the armory policy for codes Green and Blue.
+    type: Tweak
+  id: 2731
+  time: '2026-11-27T20:04:14.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6722
+- author: pootslap
+  changes:
+  - message: Added the persistent cough trait for all the chain smokers out there.
+    type: Add
+  id: 2732
+  time: '2026-11-27T20:05:00.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/5380
+- author: Skunkybutt
+  changes:
+  - message: Added a brand new corpsman medical vendor! Now go fix up your permas
+      after they punch a light...
+    type: Add
+  id: 2733
+  time: '2026-11-27T20:19:16.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6680
+- author: Skunkybutt
+  changes:
+  - message: Fixed a typo in the name of the Crescentmoon Vendor.
+    type: Fix
+  id: 2734
+  time: '2026-11-27T20:23:36.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6674
+- author: Kashieru1987
+  changes:
+  - message: Most species can now metabolize 3 chemicals at once again, instead of
+      2! (dionas and slimes are still at 6)
+    type: Fix
+  id: 2735
+  time: '2026-11-27T20:25:51.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6737
+- author: Creb206
+  changes:
+  - message: Synths can whirr and boop now.
+    type: Fix
+  id: 2736
+  time: '2026-11-27T20:31:54.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6601
+- author: CrimsonAnnie
+  changes:
+  - message: Increased devil spawn chance, soul collection wasn't good enough.
+    type: Tweak
+  id: 2737
+  time: '2026-11-27T20:32:25.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6620
+- author: FaintSpeaker
+  changes:
+  - message: Genderfluid and Plural pride pins now show the correct examine text.
+    type: Fix
+  id: 2738
+  time: '2026-11-27T21:15:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6771
+- author: Coryler
+  changes:
+  - message: Normal Drinker Traits for Vulps
+    type: Add
+  - message: Messy Drinker speed for drinking drinks
+    type: Tweak
+  id: 2739
+  time: '2026-11-27T21:44:37.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6431
 Order: 1

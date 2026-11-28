@@ -33,9 +33,10 @@
     table: !type:GroupSelector
       children:
       - id: GunSafeVulcanRifle
-      - id: GunSafeSubMachineGunDrozd
       - id: GunSafeRifleLecter
       - id: GunSafeM90Rifle
+      - id: GunSafeRifleL93 # yeehaw
+        weight: 0.05
 
 - type: entity
   parent: BaseGunSafeSpawner
