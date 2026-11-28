@@ -1,4 +1,5 @@
 fugitive-round-end-agent-name = Fugitive
+objective-issuer-fugitive = [color=#746694]Criminal[/color]
 
 fugitive-spawn = You fall from the ceiling!
 

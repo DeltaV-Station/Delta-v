@@ -4,7 +4,7 @@
   id: BaseFugitiveObjective
   components:
   - type: Objective
-    issuer: objective-issuer-self
+    issuer: objective-issuer-fugitive
     difficulty: 1
   - type: RoleRequirement
     roles:
@@ -21,3 +21,14 @@
       sprite: Markers/jobs.rsi
       state: prisoner
   - type: EscapeShuttleCondition
+
+- type: entity
+  parent: [BaseFugitiveObjective, BaseSurviveObjective]
+  id: FugitiveExitObjective
+  name: Prepare an exit
+  description: They'll find you at some point. Get water, food, money, and way out off this station.
+  components:
+  - type: Objective
+    icon:
+      sprite: Markers/jobs.rsi
+      state: prisoner
