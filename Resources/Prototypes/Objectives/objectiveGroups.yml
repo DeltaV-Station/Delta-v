@@ -71,7 +71,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupOther
   weights:
-    HijackTradeStationObjective: 1
+    # HijackTradeStationObjective: 1 # Delta V - Removed because the Trade Station is on a different map only accessible by a single shuttle.
     MailFraudObjective: 1
 
 

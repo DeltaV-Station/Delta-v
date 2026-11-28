@@ -215,6 +215,8 @@
     equippedPrefix: plural
   - type: ChameleonClothing
     default: ClothingNeckPluralPin
+  - type: WearerGetsExamineText # DeltaV
+    thingType: obvious-type-pride-plural
 
 - type: entity
   parent: ClothingGenderPinBase
@@ -258,6 +260,8 @@
     equippedPrefix: fluid
   - type: ChameleonClothing
     default: ClothingNeckGenderfluidPin
+  - type: WearerGetsExamineText # DeltaV
+    thingType: obvious-type-pride-gf
 
 - type: entity
   parent: ClothingGenderPinBase

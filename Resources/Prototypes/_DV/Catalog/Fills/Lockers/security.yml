@@ -271,6 +271,7 @@
     - id: ClothingOuterVestPlateCarrierAdv
     - id: ClothingHeadsetAltSecurity
 
+
 - type: entityTable
   id: FillLockerArmorerHardsuit
   table: !type:AllSelector
@@ -280,3 +281,21 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingMaskBreath
+
+- type: entity
+  parent: SecurityGunSafeBaseSecureDV
+  id: GunSafeRifleL93
+  name: lever-action rifle safe
+  components:
+  - type: EntityStorageVisuals
+    stateDoorClosed: rifle
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponLeverActionL93
+          amount: 2
+        - id: MagazineBoxMagnum
+          amount: 2
+        - id: ClothingHeadHatCowboyBlack
+          amount: 2
