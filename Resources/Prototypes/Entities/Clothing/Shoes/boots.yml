@@ -56,10 +56,8 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
-  # Begin DeltaV additions
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  # End DeltaV additions
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -92,6 +90,8 @@
     sprite: Clothing/Shoes/Boots/mercboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/mercboots.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
 
 - type: entity
   parent: ClothingShoesBaseButcherable

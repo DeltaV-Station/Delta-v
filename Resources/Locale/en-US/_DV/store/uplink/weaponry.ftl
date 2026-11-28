@@ -27,5 +27,10 @@ uplink-anaconda-desc = A inaccurate one handed SMG with a 100 bullet mag. Perfec
 uplink-pacifier-bundle-name = Pacifier Bundle
 uplink-pacifier-bundle-desc = A compact grenade launcher that fires cluster bombs which spreads corrosive smoke over large areas. Perfect support weapon for creating impassable smoke screens and clearing out foxholes. Comes with 11 acid grenades.
 
+<<<<<<< HEAD
 uplink-elephant-gun-name = Elephant Gun
 uplink-elephant-gun-desc = An extremely oversized gun designed to kill space dragons. Loaded with an inconsistent payload, but capable of extremely high damage should you get lucky.
+=======
+uplink-akm-bundle-name = AKM Bundle
+uplink-akm-bundle-desc = An ancient relic of a rifle that can still take a beating. Comes bundled with 2 spare .30 rifle magazines.
+>>>>>>> c8495e962512d8d28ddd267010bebe996f7e559d

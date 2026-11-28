@@ -44,8 +44,6 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
 
     private void InitializeHighlights()
     {
-        MigrateDVHighlightSettings(); // TODO: SUM - Remove (DeltaV)
-
         _config.OnValueChanged(CCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; }, true);
 
         _config.OnValueChanged(CCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; }, true);
