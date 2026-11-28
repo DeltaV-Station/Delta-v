@@ -33,3 +33,78 @@
     startingCharge: 500
   - type: BatterySelfRecharger
     autoRechargeRate: 10
+
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackEnergyBattery
+  name: energy gun battery backpack
+  suffix: Backpack
+  description: A backmounted, plasma based, solid state high-powered battery. NanoTrasen disadvises recharging this product.
+  components:
+  - type: Tag
+    tags:
+    - HeavyEnergyBattery
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Backpacks/energygunbackpack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    equipDelay: 10
+    slots: BACK
+    sprite: _DV/Clothing/Back/Backpacks/energygunbackpack.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        priority: 2
+        whitelist:
+          tags:
+          - LaserEnergyBackpack
+  - type: Appearance
+  - type: BatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100000
+  - type: Battery
+    maxCharge: 6000000
+    startingCharge: 6000000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  parent: ClothingBackpackEnergyBattery
+  id: ClothingBackpackAdvancedEnergyBattery
+  name: advanced energy gun battery backpack
+  description: A backmounted, plasma based, solid state high-powered battery, connected to a inbuilt microreactor. While in theory, recharging a plasma based battery is a bad idea, in practice you signed a waiver, so you can´t sue NanoTrasen once this thing blows up in your face.
+  components:
+  - type: Battery
+    maxCharge: 4000000
+    startingCharge: 4000000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 10000
+  - type: Sprite
+    sprite: _DV/Clothing/Back/Backpacks/advancedenergygunbackpack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    equipDelay: 10
+    slots: BACK
+    sprite: _DV/Clothing/Back/Backpacks/advancedenergygunbackpack.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 10
