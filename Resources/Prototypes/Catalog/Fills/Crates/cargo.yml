@@ -131,6 +131,21 @@
     - id: WeaponTurretXeno
     - !type:NestedSelector
       tableId: AllToyWeaponsTable
+    # Begin DeltaV changes
+    - id: Throngler
+      weight: 0.0005
+    - id: WeaponWandLocker
+      weight: 0.002
+    - id: WeaponMFKatana
+      weight: 0.1
+    - id: WeaponBaguette
+      weight: 0.2
+    - id: WeaponPistolSLP67
+      weight: 0.01
+    - id: WeaponRevolverMateba
+      weight: 0.01
+    - id: ClothingBeltKatanaSheathFilled
+    # End DeltaV changes
 
 - type: entityTable
   id: LotteryClothingEntityTable
@@ -162,6 +177,22 @@
     - id: ClothingHeadHatCardborg
     - id: ClothingUnderSocksCoder
     - id: ClothingUniformJumpskirtOfLife
+    # Begin DeltaV changes
+    - id: ClothingBackpackHarmpack
+      weight: 0.05
+    - id: ClothingHeadHatHardhatArmored
+      weight: 0.1
+    - id: ClothingHeadHatReindeer
+    - id: ClothingBackpackPlasmaBattery
+      weight: 0.1
+    - id: ClothingHeadHatHarbingerHelmet
+    - id: ClothingEyesHudOmni
+      weight: 0.1
+    - id: ClothingShoesBootsRyuzo
+    - id: ClothingNeckCWPSec
+    - id: ClothingOuterArmorTouseiGusoku
+    - id: ClothingHeadHatBizarreSoft
+    # End DeltaV changes
 
 - type: entityTable
   id: LotterySwagEntityTable
@@ -204,6 +235,12 @@
     - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
     - id: PlushieThrongler #hehe
       weight: 0.05
+    # Begin DeltaV changes
+    - id: PlushieCosmicCult
+      weight: 0.2
+    - id: PlushieFeroxi
+    - id: PlushieLizardInversed
+    # End DeltaV changes
 
 - type: entityTable
   id: LotteryUsefulEntityTable
