@@ -206,7 +206,7 @@
         mask:
         - MobMask
         layer: # DeltaV - let honkbots be shot and wideswung
-        - MobMask
+        - SmallMobLayer
   - type: Construction
     graph: HonkBot
     node: bot
