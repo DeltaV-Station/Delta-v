@@ -23,8 +23,9 @@
         - MachineLayer
         - InteractImpassable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: StorageTank # DeltaV
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

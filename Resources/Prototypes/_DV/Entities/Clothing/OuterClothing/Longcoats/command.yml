@@ -91,6 +91,12 @@
         Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      toggleable-under-clothing: !type:ContainerSlot { } # DeltaV - Hats under Helmets
+      storagebase: !type:Container
+        ents: [ ]
 
 - type: entity
   parent: [ClothingOuterArmorBaseCarapace, ClothingOuterWinterCoat, BaseCentcommContraband]

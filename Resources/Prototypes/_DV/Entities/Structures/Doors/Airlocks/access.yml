@@ -795,6 +795,15 @@
     containers:
       board: [ DoorElectronicsChiefJustice ]
 
+- type: entity
+  parent: HighSecDoor
+  id: HighSecJusticeWardenLocked
+  suffix: Justice Warden, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJusticeWarden ]
+
 # Syndicate
 - type: entity
   parent: HighSecDoor

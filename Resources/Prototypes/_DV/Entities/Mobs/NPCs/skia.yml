@@ -30,8 +30,9 @@
       0: Alive
       120: Dead
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
     damageModifierSet: Spirit
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: Fixtures
     fixtures:
       fix1:

@@ -147,3 +147,22 @@
     Telecrystal: 20
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkAKMBundle
+  name: uplink-akm-bundle-name
+  description: uplink-akm-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 15
+  productEntity: ClothingBackpackDuffelSyndicateFilledAKM
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink

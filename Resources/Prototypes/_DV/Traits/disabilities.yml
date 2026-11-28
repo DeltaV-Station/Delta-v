@@ -83,6 +83,17 @@
     components:
     - type: BlockWriting
 
+## It feels a lil weird putting snoring here, but it feels like the most natural place without creating a whole new category for one trait...
+- type: trait
+  id: Snoring
+  name: trait-snoring-name
+  description: trait-snoring-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: Snoring
+
 - type: trait
   id: PainNumbness
   name: trait-painnumbness-name
@@ -102,3 +113,29 @@
   - !type:ApplyStatusEffect
     statusEffects:
     - StatusEffectHemophiliaTrait
+
+- type: trait
+  id: BadCough
+  name: trait-badcough-name
+  description: trait-badcough-desc
+  category: Disabilities
+  effects:
+  - !type:AddCompsEffect
+    components:
+    - type: AutoEmote
+      emotes:
+      - BadCough
+
+- type: trait
+  id: NormalDrinker
+  name: trait-normal-drinker-name
+  description: trait-normal-drinker-desc
+  category: Disabilities
+  cost: 2
+  effects:
+  - !type:RemCompsEffect
+    components:
+    - MessyDrinker
+  conditions:
+  - !type:IsSpeciesCondition
+    species: Vulpkanin

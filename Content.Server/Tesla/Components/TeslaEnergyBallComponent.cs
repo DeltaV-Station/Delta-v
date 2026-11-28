@@ -1,8 +1,6 @@
 using Content.Server.Tesla.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom; // DeltaV
-using Robust.Shared.Timing; // DeltaV
 
 namespace Content.Server.Tesla.Components;
 
@@ -10,7 +8,6 @@ namespace Content.Server.Tesla.Components;
 /// A component that tracks an entity's saturation level from absorbing other creatures by touch, and spawns new entities when the saturation limit is reached.
 /// </summary>
 [RegisterComponent, Access(typeof(TeslaEnergyBallSystem))]
-[AutoGenerateComponentPause] // DeltaV
 public sealed partial class TeslaEnergyBallComponent : Component
 {
     /// <summary>
@@ -35,7 +32,7 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// The amount of energy to which the tesla must reach in order to be destroyed.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float EnergyToDespawn = -540f; // DeltaV, make the Tesla take as long to fail as the singulo.
+    public float EnergyToDespawn = -100f;
 
     /// <summary>
     /// Played when energy reaches the lower limit (and entity destroyed)
@@ -54,19 +51,4 @@ public sealed partial class TeslaEnergyBallComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId ConsumeEffectProto = "EffectTeslaSparks";
-
-    // Begin DeltaV additions
-    /// <summary>
-    /// The amount of energy drained passively per update.
-    /// </summary>
-    [DataField]
-    public float PassiveEnergyDrainRate = 3f;
-
-    /// <summary>
-    /// The <see cref="IGameTiming.CurTime"/> timespan of next update.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
-    public TimeSpan NextUpdateTime = TimeSpan.Zero;
-    // End DeltaV
 }
