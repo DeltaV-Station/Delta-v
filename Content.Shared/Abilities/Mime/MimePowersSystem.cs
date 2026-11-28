@@ -4,6 +4,8 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Alert;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Cuffs; // DeltaV - Free Oathbreak on cuff.
+using Content.Shared.Cuffs.Components; // DeltaV - Free Oathbreak on cuff.
 using Content.Shared.IdentityManagement;
 using Content.Shared.Maps;
 using Content.Shared.Paper;
@@ -15,7 +17,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Abilities.Mime;
 
-public sealed class MimePowersSystem : EntitySystem
+public sealed partial class MimePowersSystem : EntitySystem // DeltaV - Made Partial. REMOVE WHEN UPSTREAM MAKES ALL SYSTEMS PARTIAL
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -35,6 +37,8 @@ public sealed class MimePowersSystem : EntitySystem
 
         SubscribeLocalEvent<MimePowersComponent, BreakVowAlertEvent>(OnBreakVowAlert);
         SubscribeLocalEvent<MimePowersComponent, RetakeVowAlertEvent>(OnRetakeVowAlert);
+
+        SubscribeLocalEvent<MimePowersComponent, TargetHandcuffedEvent>(OnCuffed); // DeltaV - Free Oathbreak on cuff. REMOVE WHEN UPSTREAM METHOD ATTRIBUTES ARE ADDED
     }
 
     public override void Update(float frameTime)
@@ -144,7 +148,16 @@ public sealed class MimePowersSystem : EntitySystem
 
         mimePowers.Enabled = false;
         mimePowers.VowBroken = true;
-        mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;
+
+        // DeltaV Start - Free Oathbreak on cuff.
+        if (TryComp<CuffableComponent>(uid, out var cuffComp)
+            && _cuffable.IsCuffed((uid, cuffComp)))
+        {
+            mimePowers.VowRepentTime = _timing.CurTime;
+        }
+        else
+            mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;
+        // DeltaV End - Free Oathbreak on cuff.
         Dirty(uid, mimePowers);
         RemComp<MutedComponent>(uid);
         RemComp<DiscouragedWriterComponent>(uid); // DeltaV - Make Mimes Mime
