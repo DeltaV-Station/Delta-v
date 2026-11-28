@@ -1,0 +1,63 @@
+- type: entity
+  parent: MarkerBase
+  id: SpesoSpawner
+  name: random money spawner
+  suffix: 1-30
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: Objects/Economy/cash.rsi
+    layers:
+    - state: cash
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.85
+      children:
+      - id: SpaceCash
+        amount: !type:RangeNumberSelector
+          range: 1, 9
+      - id: SpaceCash10
+        prob: 0.1
+        amount: !type:RangeNumberSelector
+          range: 1, 3
+
+- type: entity
+  parent: MarkerBase
+  id: SpesoSpawnerBig
+  name: random money spawner
+  suffix: 1-1000000
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: Objects/Economy/cash.rsi
+    layers:
+    - state: cash
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.85
+      children:
+      - id: SpaceCash
+        amount: !type:RangeNumberSelector
+          range: 1, 9
+      - id: SpaceCash10
+        prob: 0.1
+        amount: !type:RangeNumberSelector
+          range: 1, 9
+      - id: SpaceCash100
+        prob: 0.01
+        amount: !type:RangeNumberSelector
+          range: 1, 4
+      - id: SpaceCash500
+        prob: 0.002
+      - id: SpaceCash1000
+        prob: 0.001
+      - id: SpaceCash10000
+        prob: 0.0001
+      - id: SpaceCash1000000
+        prob: 0.000001

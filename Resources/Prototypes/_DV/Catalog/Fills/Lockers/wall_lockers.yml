@@ -267,3 +267,13 @@
         - !type:NestedSelector
           tableId: LockerFillParamedic
         - id: ClothingOuterHardsuitVoidParamed
+
+- type: entity
+  id: LockerWallMarshalFilled
+  parent: WallLockerMarshal
+  suffix: Filled
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: LockerFillMarshal

@@ -36,7 +36,9 @@ holopad-justice-detective = Justice - Detective
 holopad-justice-warden = Justice - Warden
 holopad-justice-marshal = Justice - Marshal
 holopad-justice-lobby = Justice - Lobby
-holopad-justice-justice-armory = Justice - Armory
+holopad-justice-armory = Justice - Armory
+holopad-justice-genpop = Justice - Genpop
+holopad-justice-holding = Justice - Holding Cells
 
 # Security
 holopad-security-corpsman = Security - Corpsman

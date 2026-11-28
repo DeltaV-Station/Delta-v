@@ -169,6 +169,36 @@
   - type: Label
     currentLabel: holopad-justice-lobby
 
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeArmory
+  suffix: Justice Armory
+  components:
+  - type: Label
+    currentLabel: holopad-justice-armory
+  - type: PageSender
+    autoLinkJobs: [JusticeWarden]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeGenPop
+  suffix: Genpop
+  components:
+  - type: Label
+    currentLabel: holopad-justice-genpop
+  - type: PageSender
+    autoLinkJobs: [Marshal]
+
+- type: entity
+  parent: Holopad
+  id: HolopadJusticeHoldingCells
+  suffix: Holding Cells
+  components:
+  - type: Label
+    currentLabel: holopad-justice-holding
+  - type: PageSender
+    autoLinkJobs: [Marshal, Prosecutor, Detective]
+
 #Logistics
 - type: entity
   parent: Holopad
