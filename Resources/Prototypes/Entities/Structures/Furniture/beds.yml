@@ -7,7 +7,7 @@
   - type: HealOnBuckle
     damage:
       types:
-        Poison: -0.1
+        #Poison: -0.1 # DeltaV - Beds don't heal poison
         Blunt: -0.1
   - type: Physics
     bodyType: Static
@@ -76,7 +76,7 @@
   - type: HealOnBuckle
     damage:
       types:
-        Poison: -0.2
+        #Poison: -0.2 # DeltaV - Beds don't heal poison
         Cold: -0.4
         Blunt: -0.2
   - type: Construction
