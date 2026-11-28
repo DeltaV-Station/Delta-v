@@ -70,9 +70,8 @@
         component: Anesthesia
         time: 4.0
         type: Add
-      - !type:GenericStatusEffect
-        key: PainNumbness
-        component: PainNumbness
+      - !type:ModifyStatusEffect
+        effectProto: PainNumbnessTraitStatusEffect
         time: 8.0
         type: Add
       - !type:MovementSpeedModifier

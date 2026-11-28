@@ -556,9 +556,8 @@
     Bloodstream:
       metabolismRate : 0.01
       effects:
-      - !type:GenericStatusEffect
-        key: PainNumbness
-        component: PainNumbness
+      - !type:ModifyStatusEffect # DeltaV - Converted to the PainNumbness status effect
+        effectProto: PainNumbnessTraitStatusEffect # DeltaV - Converted to the PainNumbness status effect
         time: 3.0
         type: Add
       - !type:ModifyStatusEffect
