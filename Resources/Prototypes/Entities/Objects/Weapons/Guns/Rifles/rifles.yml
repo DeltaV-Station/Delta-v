@@ -54,7 +54,7 @@
     price: 500
 
 - type: entity
-  name: AKMS
+  name: AKM # DeltaV - it being called an akms hurt the gun dweeb in me
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
   description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
@@ -67,6 +67,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    fireRate: 5.5 # DeltaV - was 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
@@ -239,7 +240,7 @@
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 30
     maxAngle: 43
-    shotsPerBurst: 3 
+    shotsPerBurst: 3
     selectedMode: Burst
     availableModes:
     - Burst

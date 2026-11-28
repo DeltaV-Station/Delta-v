@@ -73,3 +73,17 @@
           amount: 10
         - id: ClothingMaskInterdyneChemistry
         - id: ClothingHandsGlovesChemist
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledAKM
+  name: AKM bundle
+  description: An ancient relic of a rifle that can still take a beating. Comes with 3 magazines.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleAk
+        - id: MagazineLightRifle
+          amount: 2
