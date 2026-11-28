@@ -59,6 +59,36 @@
     sprite: _DV/Structures/Wallmounts/signs.rsi
     state: direction_robo
 
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalEvidence
+  name: evidence storage sign
+  description:  A direction sign, pointing out which way the evidence storage is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: directional_evidence
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalGenpop
+  name: genpop sign
+  description:  A direction sign, pointing out which way the genpop is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: directional_genpop
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalHoldingCells
+  name: holding cells
+  description:  A direction sign, pointing out which way the holding cells is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: directional_holding_cells
+
 # Non-Directional Signs
 - type: entity
   parent: BaseSign
@@ -89,3 +119,23 @@
   - type: Sprite
     sprite: _DV/Structures/Wallmounts/signs.rsi
     state: evidence
+
+- type: entity
+  parent: BaseSign
+  id: SignHoldingCells
+  name: holding cells
+  description: A sign indicating where the holding cells is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: holding_cells
+
+- type: entity
+  parent: BaseSign
+  id: SignJusticeArmoy
+  name: justice armory room
+  description: A sign indicating where the justice armory room is.
+  components:
+  - type: Sprite
+    sprite: _DV/Structures/Wallmounts/signs.rsi
+    state: justice_armory
