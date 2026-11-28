@@ -29,6 +29,7 @@ namespace Content.Shared.Chemistry
         /// </summary>
         public ReagentDispenserSetDispenseAmountMessage(String s)
         {
+            // Begin DeltaV - Base 12 Chemistry
             switch (s)
             {
                 case "1":
@@ -52,15 +53,25 @@ namespace Content.Shared.Chemistry
                 case "30":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U30;
                     break;
+                case "40":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U40;
+                    break;
                 case "50":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U50;
+                    break;
+                case "60":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U60;
                     break;
                 case "100":
                     ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U100;
                     break;
+                case "120":
+                    ReagentDispenserDispenseAmount = ReagentDispenserDispenseAmount.U120;
+                    break;
                 default:
                     throw new Exception($"Cannot convert the string `{s}` into a valid ReagentDispenser DispenseAmount");
             }
+            // End DeltaV - Base 12 Chemistry
         }
     }
 
@@ -95,6 +106,7 @@ namespace Content.Shared.Chemistry
 
     }
 
+    // Begin DeltaV - Base 12 Chemistry
     public enum ReagentDispenserDispenseAmount
     {
         U1 = 1,
@@ -104,9 +116,13 @@ namespace Content.Shared.Chemistry
         U20 = 20,
         U25 = 25,
         U30 = 30,
+        U40 = 40,
         U50 = 50,
+        U60 = 60,
         U100 = 100,
+        U120 = 120,
     }
+    // End DeltaV - Base 12 Chemistry
 
     [Serializable, NetSerializable]
     public sealed class ReagentInventoryItem(ItemStorageLocation storageLocation, string reagentLabel, FixedPoint2 quantity, Color reagentColor)
