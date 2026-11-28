@@ -1016,6 +1016,7 @@
   parent: [ SyndicateIDCard, BaseSyndicateContraband ]
   id: SyndiOperativeIDCard
   name: gorlex operative ID card # DeltaV - slight name change
+  description: A Gorlex Operative ID card capable of copying accesses. A large warning label on the back warns about the effects of microwave radiation.
   components:
   - type: Sprite
     layers:
@@ -1035,6 +1036,7 @@
   parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
   id: SyndiAgentIDCard # DeltaV - Nukie agent is still agent
   name: gorlex agent ID card # DeltaV - slight name change
+  description:  A Gorlex Agent ID card capable of copying accesses. A large warning label on the back warns about the effects of microwave radiation.
   components:
   - type: Sprite
     layers:
@@ -1053,6 +1055,7 @@
   parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
   id: SyndiCommanderIDCard
   name: gorlex commander ID card # DeltaV - slight name change
+  description: A Gorlex Commander ID card capable of copying accesses. A large warning label on the back warns about the effects of microwave radiation.
   components:
   - type: Sprite
     layers:
