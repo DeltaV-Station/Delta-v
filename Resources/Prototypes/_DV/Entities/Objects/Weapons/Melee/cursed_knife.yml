@@ -18,10 +18,10 @@
     damage:
       types:
         Slash: 6
-  - type: AdrenalineMelee
-    adrenalineFallRate: 2
-    adrenalinePerHit: 10
-    adrenalineFallAmount: 5
+  - type: WrathMelee
+    wrathFallRate: 2
+    wrathPerHit: 10
+    wrathFallAmount: 5
     tiers:
     - visual: TierOne
       damage:
@@ -30,7 +30,7 @@
     - visual: TierTwo
       activate: true
       reflect: 0.15
-      adrenalineRequired: 50
+      wrathRequired: 50
       damage:
         types:
           Slash: 10
@@ -38,7 +38,7 @@
     - visual: TierThree
       activate: true
       reflect: 0.35
-      adrenalineRequired: 80
+      wrathRequired: 80
       speedMultiplier: 1.2
       damage:
         types:
@@ -80,7 +80,7 @@
         shader: unshaded
   - type: GenericVisualizer
     visuals:
-      enum.AdrenalineMeleeVisuals.State:
+      enum.WrathMeleeVisuals.State:
         knife:
           TierOne: { state: tier-one }
           TierTwo: { state: tier-two }

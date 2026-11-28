@@ -8,11 +8,11 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Timing;
-using static Content.Shared._DV.Weapons.Melee.AdrenalineMeleeComponent;
+using static Content.Shared._DV.Weapons.Melee.WrathMeleeComponent;
 
 namespace Content.Shared._DV.Weapons.Melee;
 
-public sealed class AdrenalineMeleeSystem : EntitySystem
+public sealed class WrathMeleeSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -23,12 +23,12 @@ public sealed class AdrenalineMeleeSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AdrenalineMeleeComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<AdrenalineMeleeComponent, GotEquippedHandEvent>(OnEquipped);
-        SubscribeLocalEvent<AdrenalineMeleeComponent, GotUnequippedHandEvent>(OnUnequipped);
+        SubscribeLocalEvent<WrathMeleeComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<WrathMeleeComponent, GotEquippedHandEvent>(OnEquipped);
+        SubscribeLocalEvent<WrathMeleeComponent, GotUnequippedHandEvent>(OnUnequipped);
     }
 
-    private void OnMeleeHit(Entity<AdrenalineMeleeComponent> weapon, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<WrathMeleeComponent> weapon, ref MeleeHitEvent args)
     {
         if (!args.IsHit)
             return;
@@ -41,26 +41,26 @@ public sealed class AdrenalineMeleeSystem : EntitySystem
             if (!_mob.IsAlive(entity)) // Also filters out non-living things like walls
                 continue;
 
-            weapon.Comp.Adrenaline = Math.Min(weapon.Comp.Adrenaline + weapon.Comp.AdrenalinePerHit, 100);
+            weapon.Comp.Wrath = Math.Min(weapon.Comp.Wrath + weapon.Comp.WrathPerHit, 100);
             Dirty(weapon);
         }
 
     }
 
-    private void CheckAdrenaline()
+    private void CheckWrath()
     {
         var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<AdrenalineMeleeComponent>();
+        var query = EntityQueryEnumerator<WrathMeleeComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (curTime < comp.NextAdrenalineFall)
+            if (curTime < comp.NextWrathFall)
                 continue;
 
-            if (GetAdrenalineTier(comp) is not { } tier)
+            if (GetWrathTier(comp) is not { } tier)
                 continue;
 
-            comp.Adrenaline = Math.Max(comp.Adrenaline - comp.AdrenalineFallAmount, 0);
-            comp.NextAdrenalineFall = curTime + comp.AdrenalineFallRate;
+            comp.Wrath = Math.Max(comp.Wrath - comp.WrathFallAmount, 0);
+            comp.NextWrathFall = curTime + comp.WrathFallRate;
 
             if (TryComp(uid, out MeleeWeaponComponent? melee))
                 melee.Damage = tier.Damage;
@@ -72,7 +72,7 @@ public sealed class AdrenalineMeleeSystem : EntitySystem
                 reflect.ReflectProb = tier.Reflect;
 
             if (tier.Visual is { })
-                _appearance.SetData(uid, AdrenalineMeleeVisuals.State, tier.Visual);
+                _appearance.SetData(uid, WrathMeleeVisuals.State, tier.Visual);
             _heldSpeed.SetHeldMovementSpeedModifiers(uid, tier.SpeedMultiplier, tier.SpeedMultiplier, holder: comp.Holder);
             Dirty(uid, comp);
         }
@@ -81,31 +81,31 @@ public sealed class AdrenalineMeleeSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        CheckAdrenaline();
+        CheckWrath();
     }
 
-    private void OnEquipped(Entity<AdrenalineMeleeComponent> ent, ref GotEquippedHandEvent args)
+    private void OnEquipped(Entity<WrathMeleeComponent> ent, ref GotEquippedHandEvent args)
     {
         ent.Comp.Holder = args.User;
         Dirty(ent);
     }
 
-    private void OnUnequipped(Entity<AdrenalineMeleeComponent> ent, ref GotUnequippedHandEvent args)
+    private void OnUnequipped(Entity<WrathMeleeComponent> ent, ref GotUnequippedHandEvent args)
     {
         ent.Comp.Holder = null;
         Dirty(ent);
     }
 
-    private AdrenalineMeleeTier? GetAdrenalineTier(AdrenalineMeleeComponent comp)
+    private WrathMeleeTier? GetWrathTier(WrathMeleeComponent comp)
     {
-        AdrenalineMeleeTier? adrenalineTier = null;
+        WrathMeleeTier? wrathTier = null;
         foreach (var level in comp.Tiers)
         {
-            if (level.AdrenalineRequired > comp.Adrenaline)
-                return adrenalineTier;
+            if (level.WrathRequired > comp.Wrath)
+                return wrathTier;
 
-            adrenalineTier = level;
+            wrathTier = level;
         }
-        return adrenalineTier;
+        return wrathTier;
     }
 }

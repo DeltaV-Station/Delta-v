@@ -5,38 +5,38 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._DV.Weapons.Melee;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class AdrenalineMeleeComponent : Component
+public sealed partial class WrathMeleeComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public int Adrenaline = 0;
+    public int Wrath = 0;
 
     [DataField(required: true)]
-    public int AdrenalinePerHit;
+    public int WrathPerHit;
 
     [DataField(required: true)]
-    public int AdrenalineFallAmount;
+    public int WrathFallAmount;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
-    public TimeSpan NextAdrenalineFall = TimeSpan.Zero;
+    public TimeSpan NextWrathFall = TimeSpan.Zero;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan AdrenalineFallRate = TimeSpan.FromSeconds(1);
+    public TimeSpan WrathFallRate = TimeSpan.FromSeconds(1);
 
     [DataField(required: true)]
-    public List<AdrenalineMeleeTier> Tiers;
+    public List<WrathMeleeTier> Tiers;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Holder;
 
     [Serializable, NetSerializable]
-    public enum AdrenalineMeleeVisuals : byte
+    public enum WrathMeleeVisuals : byte
     {
         State
     }
 
     [Serializable, NetSerializable]
-    public enum AdrenalineMeleeTierVisual : byte
+    public enum WrathMeleeTierVisual : byte
     {
         TierOne,
         TierTwo,

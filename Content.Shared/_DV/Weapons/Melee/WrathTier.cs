@@ -1,14 +1,14 @@
 using Content.Shared.Damage;
 using Robust.Shared.Serialization;
-using static Content.Shared._DV.Weapons.Melee.AdrenalineMeleeComponent;
+using static Content.Shared._DV.Weapons.Melee.WrathMeleeComponent;
 
 namespace Content.Shared._DV.Weapons.Melee;
 
 [DataDefinition, Serializable, NetSerializable]
-public sealed partial class AdrenalineMeleeTier
+public sealed partial class WrathMeleeTier
 {
     [DataField]
-    public int AdrenalineRequired = 0;
+    public int WrathRequired = 0;
 
     [DataField(required: true)]
     public DamageSpecifier Damage;
@@ -23,5 +23,5 @@ public sealed partial class AdrenalineMeleeTier
     public bool Activate = false;
 
     [DataField]
-    public AdrenalineMeleeTierVisual? Visual;
+    public WrathMeleeTierVisual? Visual;
 }
