@@ -1,0 +1,74 @@
+- type: thiefBackpackSet
+  id: ConspiratorGenericKit
+  name: conspirator-generic-kit-name
+  description: conspirator-generic-kit-description
+  sprite:
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel
+  content:
+  - SheetSteel
+  - SheetSteel
+  - SheetSteel
+  - SheetGlass
+  - SheetGlass
+  - SheetGlass
+  - SheetPlastic
+  - SheetPlastic
+  - SheetPlastic
+  - ClothingBeltUtilityFilled
+  - ClothingHandsGlovesColorYellow
+
+- type: thiefBackpackSet
+  id: ConspiratorPremiumKit
+  name: conspirator-premium-kit-name
+  description: conspirator-premium-kit-description
+  sprite:
+    sprite: Objects/Materials/ingots.rsi
+    state: gold
+  content:
+  - SheetPlasma
+  - SheetUranium
+  - SheetPlasteel
+  - IngotGold
+  - IngotSilver
+  - SpaceCash10000
+
+- type: thiefBackpackSet
+  id: ConspiratorWeaponsKit
+  name: conspirator-weapons-kit-name
+  description: conspirator-weapons-kit-description
+  sprite:
+    sprite: _DV/Objects/Weapons/Guns/Rifles/musket.rsi
+    state: base
+  content:
+  - MaterialWoodPlank
+  - MaterialCloth
+  - MaterialGunpowder30
+  - UtilityKnife
+  - Igniter
+  - Igniter
+  - Igniter
+
+- type: thiefBackpackSet
+  id: ConspiratorElectronicsKit
+  name: conspirator-electronics-kit-name
+  description: conspirator-electronics-kit-description
+  sprite:
+    sprite: Objects/Tools/cable-coils.rsi
+    state: coil-30
+  content:
+  - CableHVStack
+  - CableMVStack
+  - CableApcStack
+  - CircuitImprinterMachineCircuitboard
+  - MicroManipulatorStockPart10
+
+- type: thiefBackpackSet
+  id: ConspiratorMaintenanceKit
+  name: conspirator-maintenance-kit-name
+  description: conspirator-maintenance-kit-description
+  sprite:
+    sprite: Structures/Storage/wall_locker.rsi
+    state: generic_icon
+  content:
+  - LockerConspiratorFilledRandom

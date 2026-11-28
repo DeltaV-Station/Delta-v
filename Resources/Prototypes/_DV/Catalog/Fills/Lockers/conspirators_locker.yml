@@ -1,0 +1,51 @@
+- type: entity
+  parent: LockerBaseSecureDeltaV
+  id: LockerConspiratorFilledRandom
+  suffix: conspirator
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: conspiratorLockerLoot
+
+
+- type: entityTable
+  id: conspiratorLockerLoot
+  table: !type:AllSelector
+    children:
+    #Weapons
+    # fluff
+    - !type:NestedSelector
+      tableId: MaintToolsTable
+      prob: 1
+    - !type:NestedSelector
+      tableId: MaintFluffTable
+      prob: 1
+    #tools
+    - !type:NestedSelector
+      tableId: ToiletCisternCommonToolsTable
+      prob: 1
+    - !type:NestedSelector
+      tableId: ToiletCisternRareToolsTable
+      prob: 1
+    - !type:NestedSelector
+      tableId: ToiletCisternUtilityTable
+      prob: 1
+    #Weapons
+    - !type:NestedSelector
+      tableId: MaintWeaponTable
+      prob: 1
+    - !type:NestedSelector
+      tableId: ToiletCisternWeaponsTable
+      prob: 1
+    # Syndie Loot
+    - !type:NestedSelector
+      tableId: SyndieMaintLoot
+      prob: 1
+    - !type:NestedSelector
+      tableId: ToiletCisternSyndicateTable
+      prob: 1
+    # Recursive
+    - !type:NestedSelector
+      tableId: conspiratorLockerLoot
+      prob: 0.25
