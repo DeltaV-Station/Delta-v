@@ -247,6 +247,7 @@ public sealed partial class ChatUIController : UIController
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
         InitializeHighlights();
+        InitializeAccessibility(); // DeltaV - Chat color accessibility
     }
 
     public void OnScreenLoad()
@@ -277,6 +278,37 @@ public sealed partial class ChatUIController : UIController
         if (panel is null)
             return;
 
+        //DeltaV - Begin Changes (extracted this to a shared helper)
+        Color color = GetChatBackgroundColor(chatBox);
+        // if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
+        //     color = styleBoxFlat.BackgroundColor;
+        // else if (panel.TryGetStyleProperty<StyleBox>(PanelContainer.StylePropertyPanel, out var style)
+        //          && style is StyleBoxFlat propStyleBoxFlat)
+        //     color = propStyleBoxFlat.BackgroundColor;
+        // else
+        //     color = Color.FromHex("#25252ADD");
+        //DeltaV - End Changes (extracted this to a shared helper)
+
+        panel.PanelOverride = new StyleBoxFlat
+        {
+            BackgroundColor = color.WithAlpha(opacity)
+        };
+    }
+
+    /// <summary>
+    ///     Get the background color of the chatbox.
+    /// </summary>
+    /// <returns></returns>
+    /// <remarks>
+    ///     <para>DeltaV - Chat color accessibility</para>
+    /// </remarks>
+    private Color GetChatBackgroundColor(ChatBox? chatBox = null)
+    {
+        chatBox ??= UIManager.ActiveScreen?.GetWidget<ChatBox>() ?? UIManager.ActiveScreen?.GetWidget<ResizableChatBox>();
+        var panel = chatBox?.ChatWindowPanel;
+
+        if (panel is null || chatBox is null) return Color.FromHex("#25252ADD");
+
         Color color;
         if (panel.PanelOverride is StyleBoxFlat styleBoxFlat)
             color = styleBoxFlat.BackgroundColor;
@@ -286,10 +318,7 @@ public sealed partial class ChatUIController : UIController
         else
             color = Color.FromHex("#25252ADD");
 
-        panel.PanelOverride = new StyleBoxFlat
-        {
-            BackgroundColor = color.WithAlpha(opacity)
-        };
+        return color;
     }
 
     public void SetMainChat(bool setting)

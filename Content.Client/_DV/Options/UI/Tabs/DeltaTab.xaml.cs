@@ -21,6 +21,7 @@ public sealed partial class DeltaTab : Control
         Control.AddOptionCheckBox(DCCVars.ShowStunVisuals, EnableStunVisualsCheckBox);
         Control.AddOptionCheckBox(DCCVars.HideInteractionParticles, HideInteractionParticlesCheckBox);
         Control.AddOptionCheckBox(DCCVars.DisableTips, DisableTipsCheckBox);
+        Control.AddOptionCheckBox(DCCVars.ForceChatContrast, ForceChatContrastCheckBox);
 
         ResetTipsButton.OnPressed += _ => OnResetTipsPressed();
 

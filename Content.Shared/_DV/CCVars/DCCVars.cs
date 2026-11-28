@@ -142,6 +142,12 @@ public sealed partial class DCCVars
     public static readonly CVarDef<bool> HideInteractionParticles =
         CVarDef.Create("game.see_interaction_particles", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Whether new chat messages should be forced to use a minimum contrast
+    /// </summary>
+    public static readonly CVarDef<bool> ForceChatContrast =
+        CVarDef.Create("deltav.chat.force_chat_contrast", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
      * Traits
      */

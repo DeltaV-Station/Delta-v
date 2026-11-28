@@ -91,6 +91,7 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
+        color = _controller.GetSafeForegroundColor(color, this); // DeltaV - Chat color accessibility
 
         // EE - Chat stacking
         var index = _chatStackList.FindIndex(data => data.WrappedMessage == msg.WrappedMessage);
