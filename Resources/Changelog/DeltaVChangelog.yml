@@ -1,16 +1,6 @@
 ﻿Entries:
 - author: BarryNorfolk
   changes:
-  - message: Secdog grapple is now breakable from damage.
-    type: Tweak
-  - message: Secdog's grapple no longer immediately knocks you down, but just drains
-      your stamina and slows you.
-    type: Tweak
-  id: 2240
-  time: '2026-04-11T15:35:25.0000000+00:00'
-  url: https://github.com/DeltaV-Station/Delta-v/pull/5337
-- author: BarryNorfolk
-  changes:
   - message: 'The December, and half of January, is now here! Check the Upstream changelog
       for more information. Some highlights:'
     type: Add
@@ -4473,4 +4463,13 @@
   id: 2740
   time: '2026-11-28T06:35:33.0000000+00:00'
   url: https://github.com/DeltaV-Station/Delta-v/pull/6738
+- author: staryoshi06
+  changes:
+  - message: 'Removed passive energy drain from the Tesla: it now can sustain itself
+      without particle accelerator input. The PA can more reliably generate mini-lightning,
+      instead.'
+    type: Remove
+  id: 2741
+  time: '2026-11-28T08:02:13.0000000+00:00'
+  url: https://github.com/DeltaV-Station/Delta-v/pull/6717
 Order: 1
