@@ -19,7 +19,7 @@ research-technology-advanced-tools = Advanced Tools
 research-technology-super-powercells = Super Powercells
 research-technology-bluespace-storage = Bluespace Storage
 research-technology-optimized-microgalvanism = Optimized Microgalvanism
-research-technology-space-scanning = Space Scanning
+research-technology-space-scanning = Space & Station Scanning
 research-technology-excavation = Mass Excavation
 
 research-technology-salvage-weapons = Salvage Weapons
