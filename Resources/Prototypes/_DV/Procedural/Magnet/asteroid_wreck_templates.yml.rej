@@ -1,0 +1,9 @@
+diff a/Resources/Prototypes/_DV/Procedural/Magnet/asteroid_wreck_templates.yml b/Resources/Prototypes/_DV/Procedural/Magnet/asteroid_wreck_templates.yml	(rejected hunks)
+@@ -1,6 +1,7 @@
+   name: Asteroid Wreck Marker (medium)
+   components:
+   - type: RoomFill
++    minSize: 1,1
+     maxSize: 250,250
+     roomWhitelist:
+       tags:

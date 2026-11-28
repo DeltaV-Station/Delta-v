@@ -34,4 +34,12 @@ public sealed partial class DungeonRoomPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<ContentTileDefinition>? IgnoreTile;
+
+    /// <summary>
+    /// DeltaV - If set to true, we will delete the source map from memory after spawn,
+    /// saving memory for rooms we do not intend to reuse with great frequency.
+    /// </summary>
+    [DataField]
+    public bool DeleteAfterUse;
+    //DeltaV End
 }
