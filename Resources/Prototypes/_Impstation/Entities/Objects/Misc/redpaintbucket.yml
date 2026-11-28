@@ -1,0 +1,38 @@
+- type: entity
+  id: RedPaintBucket
+  parent: [  DrinkBaseMaterialStrongPlastic, DrinkBase, DrinkVisualsFill ]
+  name: UltraBlood red paint bucket
+  description: Developed by Gorlex Public Relations for their in-house studios. Looks really, really, really like blood.
+  components:
+  - type: Edible
+    utensil: Spoon
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/redpaintbucket.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _Impstation/Objects/Misc/redpaintbucket.rsi
+    slots:
+    - HEAD
+    quickEquip: false
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+        reagents:
+        - ReagentId: Redpaint
+          Quantity: 200
+  - type: SolutionTransfer
+    transferAmount: 100
+    maxTransferAmount: 100
+    minTransferAmount: 10
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    inHandsFillBaseName: null
+  - type: Tag
+    tags:
+    - Bucket
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50

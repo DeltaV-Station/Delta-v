@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseStorageItem
+  id: Casingsbag
+  name: bag of bullet casings
+  description: Some spent pistol casings to sprinkle around.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+        - id: CartridgePistolSpent
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/Casingsbag.rsi
+    state: casingsbag
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,3,2
+    whitelist:
+      tags:
+      - CartridgePistol

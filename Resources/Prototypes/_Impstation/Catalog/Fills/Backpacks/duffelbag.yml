@@ -27,3 +27,28 @@
           amount: 3
         - id: CartridgeBazookaInc
           amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateMurderSceneBundle
+  name: murder scene bundle
+  description: "Everything you need to make a convincing murder scene! Developed for Gorlex Public Relation Studios."
+  suffix: murder scene bundle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BalloonCrewSecurity
+        - id: BalloonCrewSalvage
+        - id: BalloonCrewCaptain
+        - id: BalloonCrewEmergency
+        - id: BalloonCrewParamedic
+        - id: BalloonCrewEngineer
+        - id: RedPaintBucket
+          amount: 2
+        - id: Casingsbag
+          amount: 2
+        - id: CombatKnife
+        - id: KitchenKnife
+        - id: SurvivalKnife
