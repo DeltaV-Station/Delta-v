@@ -18,7 +18,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Traits.Assorted; // DV
+using Content.Shared._DV.Cloning; // DeltaV - MetemComp for TryCloning
 
 namespace Content.Server.Cloning;
 
@@ -44,7 +44,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
         EntityUid original,
         MapCoordinates? coords,
         ProtoId<CloningSettingsPrototype> settingsId,
-        [NotNullWhen(true)] out EntityUid? clone)
+        [NotNullWhen(true)] out EntityUid? clone,
+        MetempsychoticMachineComponent? metemComp = null)
     {
         clone = null;
         if (!_prototype.Resolve(settingsId, out var settings))
@@ -64,10 +65,15 @@ public sealed partial class CloningSystem : SharedCloningSystem
                 return false; // cannot clone, for example due to the unrevivable trait
         }
 
-        clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
-        _visualBody.CopyAppearanceFrom(original, clone.Value);
+        clone = TryMetemClone(original, humanoid, coords, metemComp, out var metemClone) ? metemClone : null; // DeltaV - Metem Psychotic Cloning
 
-        CloneComponents(original, clone.Value, settings);
+        if (clone == null) // Delta V - Metempsychotic Conditional Addition
+        {
+            clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
+            _visualBody.CopyAppearanceFrom(original, clone.Value);
+
+            CloneComponents(original, clone.Value, settings);
+        }
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
