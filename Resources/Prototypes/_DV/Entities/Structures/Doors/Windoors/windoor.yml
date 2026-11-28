@@ -91,24 +91,6 @@
       board: [ DoorElectronicsAttorney ]
 
 - type: entity
-  parent: WindoorSecureJusticeLocked
-  id: WindoorSecureClerkLocked # TODO - Remove for Justice Rework
-  suffix: Clerk, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsClerk ]
-
-- type: entity
-  parent: WindoorSecureJusticeLocked
-  id: WindoorSecureLawyerLocked # TODO - Remove for Justice Rework
-  suffix: Lawyer, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsLawyer ]
-
-- type: entity
   parent: WindoorJusticeLocked
   id: WindoorJusticeWardenLocked
   suffix: Justice Warden, Locked

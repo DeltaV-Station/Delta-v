@@ -48,6 +48,7 @@ public sealed partial class IdCardConsoleComponent : Component
         //  2. ComputerIdAdmeme in  Resources\Prototypes\_DV\Entities\Structures\Machines\computers.yml
         "Armory",
         "Atmospherics",
+        "Attorney", // DeltaV
         "Bar",
         //"Brig", Delta V: Removed Brig Access
         "Boxer",  // DeltaV - Add Boxer access
@@ -75,6 +76,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Lawyer",
         "Library",  // DeltaV - Add Library access
         "Maintenance",
+        "Marshal", // DeltaV = Add Marshal access
         "Medical",
         "Mime", // DeltaV - Add Mime access
         "Musician", // DeltaV - Add Musician access
@@ -96,7 +98,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "Justice",  // DeltaV - Add Justice access
         "Prosecutor", // Delta V - Add Prosecutor access
         "Robotics", // DeltaV
-        "Clerk", // Delta V - Add Clerk access
+        "JusticeWarden", // Delta V
+        "Marshal", // DeltaV
         "Surgery", // Delta V - Add Surgery access
         "Funding", // DeltaV - Add Funding access
     };

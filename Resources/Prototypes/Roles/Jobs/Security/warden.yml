@@ -17,6 +17,7 @@
   supervisors: job-supervisors-hos
   canBeAntag: false
   whitelisted: true # DeltaV
+  setPreference: false # DeltaV - Disable Warden
   access:
   - Security
   #- Brig # DeltaV - Removed brig access
@@ -44,16 +45,16 @@
     - Flash
     #- MagazinePistol # DeltaV - loadouts
 
-- type: chameleonOutfit
-  id: WardenChameleonOutfit
-  job: Warden
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHatWarden
-    mask: ClothingMaskGasSecurity
-    outerClothing: ClothingOuterCoatWarden
-    jumpsuit: ClothingUniformJumpsuitWarden
-    neck: Dinkystar
-    belt: ClothingBeltSecurity
-    gloves: ClothingHandsGlovesCombat
-    shoes: ClothingShoesBootsJack
+#- type: chameleonOutfit # DeltaV - Removed due to this no longer being the warden
+#  id: WardenChameleonOutfit
+#  job: Warden
+#  hasMindShield: true
+#  equipment:
+#    head: ClothingHeadHatWarden
+#    mask: ClothingMaskGasSecurity
+#    outerClothing: ClothingOuterCoatWarden
+#    jumpsuit: ClothingUniformJumpsuitWarden
+#    neck: Dinkystar
+#    belt: ClothingBeltSecurity
+#    gloves: ClothingHandsGlovesCombat
+#    shoes: ClothingShoesBootsJack

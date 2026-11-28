@@ -22,9 +22,9 @@ highlight-roboticist = Roboticist, Epistemics, "Epi"
 highlight-psionic-mantis = "Mantis", Psionic Mantis, Epistemics, "Epi", "Psionic"
 
 # Justice
-highlight-clerk = Clerk, "Justice", Warrant, "Law"
 highlight-attorney = Lawyer, Attorney, Defense, Warrant, "Law", "Shitsec", Justice
 highlight-prosecutor = Lawyer, Prosecutor, Prosecution, Warrant, "Law", Justice
+highlight-justicewarden = Prisoner, Warden, Perma, Prosecution, Warrant, "Law", Justice
 
 # Logistics
 highlights-cargo-assistant = Cargo Assistant, "Cargo", "Logi", Logistics

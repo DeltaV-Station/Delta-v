@@ -65,17 +65,15 @@
     stealGroup: WeaponEnergyShotgun
     owner: job-name-warden
 
-- type: entity # Clerk steal objective.
+- type: entity
   parent: BaseTraitorStealObjective
-  id: ClerkNotaryStealObjective
+  id: NotaryStampStealObjective
   components:
   - type: Objective
-    difficulty: 1.75 # Not a command item really
-  - type: NotJobRequirement
-    jobs: [ Clerk ]
+    difficulty: 2 # It's the CJ, they might have a gun now :3
   - type: StealCondition
     stealGroup: RubberStampNotary
-    owner: job-name-clerk
+    owner: job-name-chief-justice
 
 # Mystagogue steal objective
 - type: entity

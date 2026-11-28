@@ -78,24 +78,6 @@
     id: GladiatorIDCard
 
 - type: entity
-  parent: BaseSecurityPDA
-  id: PrisonGuardPDA # TODO - Remove for Justice Rework
-  name: prison guard PDA
-  description: Blue to show the stains of prisoner blood.
-  components:
-  - type: Pda
-    id: PrisonGuardIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType: !type:String
-        pda-prisonguard
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-prisonguard
-
-- type: entity
   parent: WardenPDA
   id: ArmorerPDA
   name: armorer PDA
@@ -152,25 +134,6 @@
 
 - type: entity
   parent: BaseJusticePDA
-  id: ClerkPDA # TODO - Remove for Justice Rework
-  name: clerk PDA
-  description: It has the stamp to prove it's been officially notarized!
-  components:
-  - type: Pda
-    id: ClerkIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType: !type:String
-        pda-clerk
-  - type: PdaBorderColor
-    borderColor: "#611528"
-  - type: Icon
-    state: pda-clerk
-  - type: Pager
-    autoLinkJobs: [Clerk]
-
-- type: entity
-  parent: BaseJusticePDA
   id: ProsecutorPDA
   name: prosecutor PDA
   description: Sharp. Looks like it could prosecute you all on its own.
@@ -192,7 +155,7 @@
   parent: BaseJusticePDA
   id: AttorneyPDA
   name: attorney PDA
-  description: For attorney to poach dubious clients.
+  description: For attorneys to poach dubious clients.
   components:
   - type: Pda
     id: AttorneyIDCard

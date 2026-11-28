@@ -152,14 +152,6 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsClerk # TODO - Remove for Justice Rework
-  suffix: Clerk, Locked
-  components:
-  - type: AccessReader
-    access: [["Clerk"]]
-
-- type: entity
-  parent: DoorElectronics
   id: DoorElectronicsJusticeWarden
   suffix: Justice Warden, Locked
   components:

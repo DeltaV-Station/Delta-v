@@ -133,16 +133,6 @@
 
 - type: entity
   parent: Holopad
-  id: HolopadJusticeClerk # TODO - Remove for Justice Rework
-  suffix: Clerk
-  components:
-  - type: Label
-    currentLabel: holopad-justice-clerk
-  - type: PageSender
-    autoLinkJobs: [Clerk]
-
-- type: entity
-  parent: Holopad
   id: HolopadJusticeJusticeWarden
   suffix: Justice Warden
   components:

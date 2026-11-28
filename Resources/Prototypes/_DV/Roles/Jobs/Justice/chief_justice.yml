@@ -4,15 +4,18 @@
   description: job-description-chief-justice
   playTimeTracker: JobChiefJustice
   requirements:
-#    - !type:RoleTimeRequirement # DeltaV - Comment out clerk time till more people have clerk time. Maybe a week or so.
-#      role: JobClerk
-#      time: 10h
     - !type:RoleTimeRequirement
       role: JobLawyer
       time: 10h
     - !type:RoleTimeRequirement
+      role: JobJusticeWarden
+      time: 5h
+    - !type:RoleTimeRequirement
       role: JobProsecutor
       time: 10h
+    - !type:RoleTimeRequirement
+      role: JobJusticeWarden
+      time: 5h
     - !type:OverallPlaytimeRequirement
       time: 25h
   weight: 20
@@ -29,10 +32,12 @@
   - Justice
   - Lawyer
   - Prosecutor
-  - Clerk
+  - JusticeWarden
+  - Marshal
   - Maintenance
   - External
   - Cryogenics
+  - Attorney
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
