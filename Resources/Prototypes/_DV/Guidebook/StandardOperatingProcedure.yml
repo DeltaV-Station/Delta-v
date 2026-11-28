@@ -21,7 +21,7 @@
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations.xml
   priority: 1
   children:
-  - Definitions
+  - SOPDefinitions
   - HiringProcedure
   - RightsToRefuseService
 
@@ -58,7 +58,7 @@
 # Epistemics Regulations Main Directory
 - type: guideEntry
   id: EpistemicsRegulations
-  name: Epistemics Regulations
+  name: sop-epistemics-regulations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/EpistemicsRegulations.xml
   priority: 1
   children:
@@ -82,7 +82,7 @@
 # Justice Regulations Main Directory
 - type: guideEntry
   id: JusticeRegulations
-  name: Justice Regulations
+  name: sop-justice-regulations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/JusticeRegulations.xml
   priority: 1
   children:
@@ -94,7 +94,7 @@
 ## General Regulations Entries
 - type: guideEntry
   id: SOPDefinitions
-  name: Definitions
+  name: sop-definitions-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/GeneralRegulations/Definitions.xml
 
 
@@ -144,54 +144,54 @@
 ## Medical Regulations Entries
 - type: guideEntry
   id: StandardOfCare
-  name: Standard Of Care
+  name: sop-soc-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/StandardOfCare.xml
 
 - type: guideEntry
   id: DNRs
-  name: DNRs
+  name: sop-dnr-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/DNRs.xml
 
 - type: guideEntry
   id: MedicalEvaluation
-  name: Medical Evaluation
+  name: sop-medical-eval-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/MedicalEvaluation.xml
 
 - type: guideEntry
   id: Quarantine
-  name: Quarantine
+  name: sop-quarantine-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/Quarantine.xml
 
 - type: guideEntry
   id: ForeignBodies
-  name: Foreign Bodies
+  name: sop-foreign-bodies-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/ForeignBodies.xml
 
 - type: guideEntry
   id: SurgicalRegulations
-  name: Surgical Regulations
+  name: sop-surgical-reg-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/SurgicalRegulations.xml
 
 - type: guideEntry
   id: HandlingOfEntityRemains
-  name: Handling of Entity Remains
+  name: sop-handling-entity-remains-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/MedicalRegulations/HandlingOfEntityRemains.xml
 
 
   ## Epistemics Regulations Entries
 - type: guideEntry
   id: Artifacts
-  name: Artifacts
+  name: sop-artifacts-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Artifacts.xml
 
 - type: guideEntry
   id: Anomalies
-  name: Anomalies
+  name: sop-anomalies-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Anomalies.xml
 
 - type: guideEntry
   id: Glimmer
-  name: Glimmer
+  name: sop-glimmer-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/EpistemicsRegulations/Glimmer.xml
 
 
@@ -233,20 +233,20 @@
   ## Justice Regulations Entries
 - type: guideEntry
   id: Inspections
-  name: Inspections
+  name: sop-inspections-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Inspections.xml
 
 - type: guideEntry
   id: Citations
-  name: Citations
+  name: sop-citations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Citations.xml
 
 - type: guideEntry
   id: CriminalViolations
-  name: Criminal Violations
+  name: sop-criminal-violations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/CriminalViolations.xml
 
 - type: guideEntry
   id: Enforcement
-  name: Enforcement
+  name: sop-enforcement-violations-name
   text: /ServerInfo/Guidebook/_DV/SpaceLaw/SecurityandJusticeRegulations/Enforcement.xml
