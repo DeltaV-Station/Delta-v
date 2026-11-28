@@ -9,6 +9,7 @@ namespace Content.Shared.Clothing.Components;
 /// The entity's HumanoidAppearance component must have the corresponding hideLayerOnEquip value.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState] // DeltaV - network BlockLayerHide
 public sealed partial class HideLayerClothingComponent : Component
 {
     /// <summary>
@@ -29,4 +30,16 @@ public sealed partial class HideLayerClothingComponent : Component
     /// </summary>
     [DataField]
     public bool HideOnToggle = false;
+
+    /// <summary>
+    /// DeltaV - If true, allow a player to right click and disable layer hiding
+    /// </summary>
+    [DataField]
+    public bool AllowOverride = false;
+
+    /// <summary>
+    /// DeltaV - If true, don't hide layers while equipped
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool BlockLayerHide = false;
 }
