@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseBullet
+  id: PelletShotgunElephant
+  categories: [ HideSpawnMenu ]
+  name: elephant pellet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Structural: 25
+    ignoreResistances: true
+
+- type: entity
+  parent: PelletShotgun
+  id: PelletShotgunLowPower
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgunElephant
+    count: 4
+    spread: 30
+
+- type: entity
+  parent: PelletShotgun
+  id: PelletShotgunMediumPower
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgunElephant
+    count: 8
+    spread: 30
+
+- type: entity
+  parent: PelletShotgun
+  id: PelletShotgunHighPower
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgunElephant
+    count: 16
+    spread: 30

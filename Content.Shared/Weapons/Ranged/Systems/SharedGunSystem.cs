@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._DV.Weapons.Ranged; // DeltaV 
 using Content.Shared._ES.Camera; // ES
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -438,11 +439,32 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;
 
-        var shooterEv = new ShooterImpulseEvent();
+        var shooterEv = new ShooterImpulseEvent(gun); // DeltaV - pass gun as event argument
         RaiseLocalEvent(user, ref shooterEv);
+        // Begin DeltaV - raise impulse event on ammo
+        foreach ((var uncheckedEnt, _) in ev.Ammo)
+        {
+            if (uncheckedEnt is not { } ent)
+                continue;
+
+            RaiseLocalEvent(ent, ref shooterEv);
+        }
+        // End DeltaV - raise impulse event on ammo
 
         if (shooterEv.Push && !shooterEv.CannotBePushed) // DeltaV - Bipods stop you from being moved by recoil.
-            CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
+        {
+            CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics), shooterEv.ImpulseStrength); // DeltaV - set impulse strength by argument
+            // Begin DeltaV - raise event on applying impulse
+            var impulseEv = new ImpulseAppliedEvent(user);
+            foreach ((var uncheckedEnt, _) in ev.Ammo)
+            {
+                if (uncheckedEnt is not { } ent)
+                    continue;
+
+                RaiseLocalEvent(ent, ref impulseEv);
+            }
+            // End DeltaV - raise event on applying impulse
+        }
         return true;
     }
 
@@ -575,13 +597,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         CreateEffect(gun, ev, user);
     }
 
-    public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, Entity<PhysicsComponent> user)
+    public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, Entity<PhysicsComponent> user, float impulseStrength = 25.0f) // DeltaV - set impulse strength by argument
     {
         var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates).Position;
         var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var shotDirection = (toMap - fromMap).Normalized();
 
-        const float impulseStrength = 25.0f;
+        //const float impulseStrength = 25.0f; // DeltaV - set impulse strength by argument instead of being hardset
         var impulseVector = shotDirection * impulseStrength;
         Physics.ApplyLinearImpulse(user, -impulseVector, body: user.Comp);
     }
@@ -734,10 +756,11 @@ public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootab
 /// by the gun they're firing. If true, GunSystem will create an impulse on our entity.
 /// </summary>
 [ByRefEvent]
-public record struct ShooterImpulseEvent()
+public record struct ShooterImpulseEvent(GunComponent Gun) // Deltav - Track who the impulse is being applied to
 {
     public bool Push;
     public bool CannotBePushed; // DeltaV - Bipods stop you from being moved by recoil.
+    public float ImpulseStrength = 25.0f; // Deltav - let impulse strength be set
 };
 
 public enum EffectLayers : byte
