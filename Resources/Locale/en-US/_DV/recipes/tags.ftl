@@ -40,6 +40,10 @@ construction-graph-tag-silversword = silver sword
 construction-graph-tag-unstable-reactor-core = Unstable Reactor Core
 construction-graph-tag-unstable-reactor-housing = Unstable Reactor Housing
 
+# Mechs
+construction-graph-tag-emu-central-control-module = Emu Central Control Module
+construction-graph-tag-emu-peripherals-control-module = Emu Peripherals Control Module
+
 # Other
 construction-graph-tag-jug = jug
 construction-graph-tag-beaker = beaker
