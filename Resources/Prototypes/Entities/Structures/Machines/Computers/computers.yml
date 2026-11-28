@@ -691,6 +691,7 @@
       state: generic_panel_open
   - type: AccessReader
     access: [[ "Command" ]]
+    denyTags: [ "Borg" ] # DeltaV - Borgs/AI can't use the comms console
   # Begin DeltaV - DV Comms Console
   # - type: CommunicationsConsole
   #   title: comms-console-announcement-title-station
