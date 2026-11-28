@@ -47,6 +47,45 @@
   - SecurityFirearm
   - SecurityFirearmAmmo
 
+- type: roleLoadout
+  id: JobArmorer
+  groups:
+  - SecurityHead
+  - SecurityNeck # DeltaV
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - SecurityOuterClothingDeltaV # DeltaV - Switched to DeltaV version, was WardenOuterClothing
+  - SecurityGloves # DeltaV - Security can start with gloves
+  - SecurityShoes
+  - SecurityEyewear # DeltaV - Security eyewear with prescription options
+  - SurvivalSecurity
+  - Trinkets
+  - WardenJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - SecurityAllFirearm # DeltaV - loadouts
+  - SecurityAllAmmo # DeltaV - loadouts
+  - SecurityUtility # DeltaV - loadouts
+
+# Medical
+- type: roleLoadout
+  id: JobSurgeon
+  groups:
+  - GroupTankHarness
+  - SurgeonHead
+  - MedicalDoctorNeck
+  - SurgeonMask
+  - SurgeonScrubs
+  - SurgeonGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - SurgeonPDA
+  - MedicalEyewear
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+
 # Justice
 - type: roleLoadout
   id: JobChiefJustice
@@ -65,6 +104,7 @@
 
 - type: roleLoadout
   id: JobJusticeWarden
+  id: JobJusticeWarden
   groups:
   - WardenHead
   - SecurityNeck
@@ -77,6 +117,7 @@
   - SecurityEyewear
   - Survival
   - Trinkets
+  - WardenJobTrinkets
   - WardenJobTrinkets
   - GroupSpeciesBreathTool
   - SecurityAllFirearm

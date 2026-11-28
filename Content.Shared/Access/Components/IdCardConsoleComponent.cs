@@ -76,6 +76,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Lawyer",
         "Library",  // DeltaV - Add Library access
         "Maintenance",
+        "Marshal", // DeltaV = Add Marshal access
         "Medical",
         "Mime", // DeltaV - Add Mime access
         "Musician", // DeltaV - Add Musician access

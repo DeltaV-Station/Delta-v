@@ -5,7 +5,7 @@
   playTimeTracker: JobHeadOfSecurity
   requirements:
     - !type:RoleTimeRequirement
-      role: JobWarden
+      role: JobArmorer # DeltaV - Change to armorer
       time: 1h
     #- !type:RoleTimeRequirement # DeltaV - Moved to Justice
     #  role: JobDetective
@@ -32,7 +32,7 @@
   - Armory
   - Maintenance
   - External
-  #- Detective # DeltaV - Det got moved to justice.
+  #- Detective # DeltaV - detective moved to justice
   - Corpsman # DeltaV - added Corpsman access
   - Cryogenics
   - GenpopEnter

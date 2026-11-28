@@ -11,6 +11,7 @@
     department: Security
     time: 6h
   startingGear: AttorneyGear
+  startingGear: AttorneyGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-cj
   access:
@@ -38,3 +39,15 @@
     - RubberStampAttorney
     - BookSpaceLaw
     - ForensicScanner
+
+- type: chameleonOutfit
+  id: AttorneyChameleonOutfit
+  job: Attorney
+  hasMindShield: false
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+    mask: ClothingMaskGas
+    neck: ClothingNeckLawyerbadge
+    gloves: ClothingHandsGlovesColorBlack
+    id: LawyerPDA
+    ears: ClothingHeadsetJustice

@@ -229,6 +229,16 @@
 # Armorer Lockers - copy of old warden. New warden is in justice.yml
 - type: entity
   parent: LockerArmorer
+  id: LockerArmorerFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerArmorer
+
+- type: entity
+  parent: LockerArmorer
   id: LockerArmorerFilledHardsuit
   suffix: Filled, Hardsuit
   components:
@@ -240,26 +250,6 @@
           tableId: FillLockerArmorer
         - !type:NestedSelector
           tableId: FillLockerArmorerHardsuit
-
-- type: entity
-  parent: LockerArmorer
-  id: LockerArmorerFilled
-  suffix: Filled
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerArmorer
-
-- type: entityTable
-  id: FillLockerArmorerHardsuit
-  table: !type:AllSelector
-    children:
-    - id: ClothingOuterHardsuitCombatArmorer
-    - id: ClothingShoesBootsSecurityMagboots
-    - id: OxygenTankFilled
-    - id: NitrogenTankFilled
-    - id: ClothingMaskBreath
 
 - type: entityTable
   id: FillLockerArmorer
@@ -280,3 +270,13 @@
       prob: 0.3
     - id: ClothingOuterVestPlateCarrierAdv
     - id: ClothingHeadsetAltSecurity
+
+- type: entityTable
+  id: FillLockerArmorerHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterHardsuitCombatArmorer
+    - id: ClothingShoesBootsSecurityMagboots
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingMaskBreath

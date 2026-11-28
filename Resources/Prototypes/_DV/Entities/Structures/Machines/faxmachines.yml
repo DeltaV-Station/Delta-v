@@ -471,16 +471,6 @@
 
 - type: entity
   parent: FaxMachineBase
-  id: FaxMachineWarden
-  suffix: Warden, Security
-  components:
-  - type: PageSender
-    autoLinkJobs: [Warden]
-  - type: FaxMachine
-    name: "Warden"
-
-- type: entity
-  parent: FaxMachineBase
   id: FaxMachineArmorer
   suffix: Armorer
   components:
