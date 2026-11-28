@@ -25,7 +25,7 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: MaterialCardboard
   name: cardboard
   suffix: Full
@@ -64,6 +64,8 @@
     prototype: CarpetCard
     doAfter: 0.5
     removeOnInteract: true
+  - type: QuickConstructable # DEN quick construction
+    category: Cardboard
 
 - type: entity
   parent: MaterialCardboard
@@ -230,7 +232,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: MaterialWoodPlank
   name: wood
   suffix: Full
@@ -268,6 +270,8 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
+  - type: QuickConstructable # DEN quick construction
+    category: Wood
 
 - type: entity
   parent: MaterialWoodPlank
@@ -585,7 +589,7 @@
     count: 1
 
 - type: entity
-  parent: MaterialBase
+  parent: [MaterialBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: MaterialWebSilk
   name: silk
   description: A webby material.
@@ -626,6 +630,8 @@
   - type: Item
     sprite: Objects/Materials/silk.rsi
     heldPrefix: silk
+  - type: QuickConstructable # DEN quick construction
+    category: Silk
 
 - type: entity
   parent: MaterialWebSilk
