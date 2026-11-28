@@ -7,3 +7,7 @@ role-subtype-armsdealer = Arms Dealer
 role-subtype-asakim = Asakim
 role-subtype-ntagent = NTAgent
 role-subtype-hitman = Hitman
+role-subtype-head-loyalist = Head Loyalist
+role-subtype-loyalist = Loyalist
+role-subtype-head-insurgent = Head Insurgent
+role-subtype-insurgent = Insurgent
