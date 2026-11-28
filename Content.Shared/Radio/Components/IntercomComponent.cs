@@ -15,6 +15,7 @@ public sealed partial class IntercomComponent : Component
     [DataField]
     public bool RequiresPower = true;
 
+    /* BEGIN DeltaV - Remove microphone/speaker related properties, use fields of relevant components instead.
     [DataField, AutoNetworkedField]
     public bool SpeakerEnabled;
 
@@ -23,6 +24,7 @@ public sealed partial class IntercomComponent : Component
 
     [DataField, AutoNetworkedField]
     public ProtoId<RadioChannelPrototype>? CurrentChannel;
+    */
 
     /// <summary>
     /// The list of radio channel prototypes this intercom can choose between.
