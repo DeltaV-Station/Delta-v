@@ -15,6 +15,9 @@ using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using Content.Server.Power.Components;  //DV pump parity
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Power;
 
 namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 {
@@ -28,7 +31,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-
+        [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;  //DV pump parity
         public override void Initialize()
         {
             base.Initialize();
@@ -43,6 +46,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             SubscribeLocalEvent<GasFilterComponent, GasFilterSelectGasMessage>(OnSelectGasMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterToggleStatusMessage>(OnToggleStatusMessage);
             SubscribeLocalEvent<GasFilterComponent, MapInitEvent>(OnMapInit); // Frontier
+            SubscribeLocalEvent<GasFilterComponent, PowerChangedEvent>(OnPowerChanged);  //DV pump parity
 
         }
 
@@ -54,6 +58,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         private void OnFilterUpdated(EntityUid uid, GasFilterComponent filter, ref AtmosDeviceUpdateEvent args)
         {
             if (!filter.Enabled
+                || (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)  //DV pump parity
                 || !_nodeContainer.TryGetNodes(uid, filter.InletName, filter.FilterName, filter.OutletName, out PipeNode? inletNode, out PipeNode? filterNode, out PipeNode? outletNode)
                 || (outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure && filterNode.Air.Pressure >= Atmospherics.MaxOutputPressure)) // No need to transfer if targets are full.
             {
@@ -141,13 +146,16 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             _userInterfaceSystem.SetUiState(uid, GasFilterUiKey.Key,
                 new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilteredGas));
         }
-
-        private void UpdateAppearance(EntityUid uid, GasFilterComponent? filter = null)
+        private void OnPowerChanged(EntityUid uid, GasFilterComponent filter, PowerChangedEvent args) //DV pump parity
         {
-            if (!Resolve(uid, ref filter, false))
+            UpdateAppearance(uid, filter);
+        }
+        private void UpdateAppearance(EntityUid uid, GasFilterComponent? filter = null, AppearanceComponent? appearance = null) //DV pump parity
+        {
+            if (!Resolve(uid, ref filter, ref appearance, false)) 
                 return;
-
-            _appearanceSystem.SetData(uid, FilterVisuals.Enabled, filter.Enabled);
+            var on = filter.Enabled && _powerReceiverSystem.IsPowered(uid);  //DV pump parity
+            _appearanceSystem.SetData(uid, FilterVisuals.Enabled, on, appearance);
         }
 
         private void OnToggleStatusMessage(EntityUid uid, GasFilterComponent filter, GasFilterToggleStatusMessage args)

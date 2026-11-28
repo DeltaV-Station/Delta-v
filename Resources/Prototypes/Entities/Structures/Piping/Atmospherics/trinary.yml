@@ -78,6 +78,9 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
+    - type: ExtensionCableReceiver
+    - type: ApcPowerReceiver #DV Nerf filter, free power is a lie
+      powerLoad: 50
 
 - type: entity
   parent: GasFilter
@@ -177,6 +180,9 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
+    - type: ExtensionCableReceiver
+    - type: ApcPowerReceiver #DV Nerf mixer, free power is a lie
+      powerLoad: 50
 
 - type: entity
   parent: GasMixer

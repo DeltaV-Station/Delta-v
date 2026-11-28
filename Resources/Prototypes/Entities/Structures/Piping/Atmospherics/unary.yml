@@ -237,6 +237,9 @@
         Secondary: GasOutletInjectorAlt1
         Tertiary: GasOutletInjectorAlt2
     - type: NodeCrawlVentAccess # DeltaV
+    - type: ExtensionCableReceiver
+    - type: ApcPowerReceiver #DV Nerf injector, free power is a lie
+      powerLoad: 50
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
